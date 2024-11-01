@@ -269,10 +269,10 @@ class Infra : Any
         i : 0;
         while (i < count)
         {
-            var Int oc;
-            oc : stringComp.Char(a, i);
+            var Int n;
+            n : stringComp.Char(a, i);
 
-            h.Execute(oc);
+            h.Execute(n);
 
             i : i + 1;
         }
