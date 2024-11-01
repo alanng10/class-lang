@@ -82,6 +82,11 @@ class Infra : Any
 
     maide prusate Text TextCreate(var Int count)
     {
+        inf (count = null)
+        {
+            return null;
+        }
+        
         var Int oa;
         oa : count;
         oa : oa * 4;
