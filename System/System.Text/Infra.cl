@@ -545,6 +545,39 @@ class Infra : Any
 
         return array;
     }
+    
+    maide prusate Text Join(var Array array, var Text join)
+    {
+        var Int k;
+        k : 0;
+        
+        var Range joinRange;
+        joinRange : join.Range;
+        
+        var Int joinCount;
+        joinCount : joinRange.Count;
+        
+        var Int count;
+        count : array.Count;
+        var Int i;
+        i : 0;
+        while (i < count)
+        {
+            inf (0 < i)
+            {
+                k : k + joinCount;
+            }
+            
+            var Text ka;
+            ka : cast Text(array.Get(i));
+            
+            k : k + ka.Range.Count;
+            
+            i : i + 1;
+        }
+        
+
+    }
 
     maide prusate Data Code(var CodeKind innKind, var CodeKind outKind, var Data data, var Range range)
     {
