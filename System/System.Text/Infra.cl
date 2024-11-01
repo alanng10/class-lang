@@ -200,7 +200,7 @@ class Infra : Any
         var Int oca;
         oca : this.Char("a");
 
-        inf (this.IsDigit(oc))
+        inf (this.Digit(oc))
         {
             var Int ooa;
             ooa : oc - this.Char("0");
