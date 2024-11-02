@@ -977,6 +977,12 @@ public class ClassGen : ClassBase
         return true;
     }
 
+    public virtual bool ExecuteStringValue()
+    {
+        
+        return true;
+    }
+
     public virtual bool ClassAnyName(ClassClass varClass)
     {
         this.ClassName(varClass);
