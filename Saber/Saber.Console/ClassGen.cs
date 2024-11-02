@@ -983,13 +983,13 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool ExecuteStringValue()
+    public virtual bool ExecuteString()
     {
-        this.ExecuteStringValue();
+        this.ExecuteStringData();
         return true;
     }
 
-    public virtual bool ExecuteStringValueData()
+    public virtual bool ExecuteStringData()
     {
         long count;
         count = this.StringValue.Count;
