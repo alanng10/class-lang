@@ -1087,6 +1087,53 @@ public class ClassGen : ClassBase
         return true;
     }
 
+    public virtual bool ExecuteStringAny()
+    {
+        long count;
+        count = this.StringValue.Count;
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            String a;
+            a = (String)this.StringValue.GetAt(i);
+
+            this.Text(this.ClassInt);
+
+            this.Text(this.Space);
+
+            this.StringAnyName(this.Class, i);
+
+            this.Text(this.LimitBraceSquareLite);
+
+            this.TextInt(2);
+
+            this.Text(this.LimitBraceSquareRite);
+
+            this.Text(this.Space);
+
+            this.Text(this.LimitAre);
+
+            this.Text(this.NewLine);
+
+            this.Text(this.LimitBraceLite);
+
+            this.Text(this.NewLine);
+
+            this.IndentCount = this.IndentCount + 1;
+
+
+            this.IndentCount = this.IndentCount - 1;
+
+            this.Text(this.LimitBraceRite);
+
+            this.Text(this.LimitSemicolon);
+
+            this.Text(this.NewLine);
+        }
+        return true;
+    }
+
     public virtual bool ClassAnyName(ClassClass varClass)
     {
         this.ClassName(varClass);
@@ -1131,6 +1178,16 @@ public class ClassGen : ClassBase
         this.Text(this.NameCombine);
         this.Text(this.StringWord);
         this.Text(this.DataWord);
+        return true;
+    }
+
+    public virtual bool StringAnyName(ClassClass varClass, long index)
+    {
+        this.ClassName(varClass);
+        this.Text(this.NameCombine);
+        this.TextIntHex(index);
+        this.Text(this.NameCombine);
+        this.Text(this.StringWord);
         return true;
     }
 
