@@ -1029,12 +1029,12 @@ public class ClassGen : ClassBase
             iA = 0;
             while (iA < countA)
             {
-                long k;
-                k = (iA / 8) * 8;
-                long kk;
-                kk = iA - k;
+                long kea;
+                kea = (iA / 8) * 8;
+                long kka;
+                kka = iA - kea;
 
-                if (kk == 0)
+                if (kka == 0)
                 {
                     this.Text(this.NewLine);
 
