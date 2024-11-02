@@ -1068,7 +1068,7 @@ public class ClassGen : ClassBase
 
                     long na;
                     na = this.TextInfra.DigitChar(ka, 'a');
-                    
+
                     this.ExecuteChar(na);
 
                     iB = iB + 1;
