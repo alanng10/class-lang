@@ -1047,7 +1047,7 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool StringValueDataName(ClassClass varClass, long index)
+    public virtual bool StringDataName(ClassClass varClass, long index)
     {
         this.ClassName(varClass);
         this.Text(this.NameCombine);
