@@ -1040,13 +1040,13 @@ public class ClassGen : ClassBase
                 long kka;
                 kka = iA - kea;
 
-                if (!(iA == 0))
-                {
-                    this.Text(this.NewLine);
-                }
-
                 if (kka == 0)
                 {
+                    if (!(iA == 0))
+                    {
+                        this.Text(this.NewLine);
+                    }
+
                     this.TextIndent();
                 }
 
