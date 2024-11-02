@@ -67,6 +67,8 @@ public class ClassGen : ClassBase
         this.InternValueBool = this.S("Intern_Value_Bool");
         this.InternValueInt = this.S("Intern_Value_Int");
         this.InternValueString = this.S("Intern_Value_String");
+        this.RefKindIntMacro = this.S("RefKindInt");
+        this.RefKindStringValueDataMacro = this.S("RefKindStringValueData");
         this.ClassInt32 = this.S("Int32");
         this.StateGet = this.S("G");
         this.StateSet = this.S("S");
@@ -192,6 +194,8 @@ public class ClassGen : ClassBase
     public virtual String InternValueBool { get; set; }
     public virtual String InternValueInt { get; set; }
     public virtual String InternValueString { get; set; }
+    public virtual String RefKindIntMacro { get; set; }
+    public virtual String RefKindStringValueDataMacro { get; set; }
     public virtual String ClassInt32 { get; set; }
     public virtual String StateGet { get; set; }
     public virtual String StateSet { get; set; }
@@ -1098,6 +1102,9 @@ public class ClassGen : ClassBase
             String a;
             a = (String)this.StringValue.GetAt(i);
 
+            long ka;
+            ka = this.StringCount(a);
+
             this.Text(this.ClassInt);
 
             this.Text(this.Space);
@@ -1122,6 +1129,44 @@ public class ClassGen : ClassBase
 
             this.IndentCount = this.IndentCount + 1;
 
+            this.TextIndent();
+
+            this.Text(this.CastInt);
+            this.Text(this.LimitBraceRoundLite);
+            this.StringDataName(this.Class, i);
+            this.Text(this.LimitBraceRoundRite);
+
+            this.Text(this.Space);
+            this.Text(this.LimitAdd);
+            this.Text(this.Space);
+
+            this.Text(this.LimitBraceRoundLite);
+            this.Text(this.RefKindStringValueDataMacro);
+            this.Text(this.Space);
+            this.Text(this.LimitBitLite);
+            this.Text(this.Space);
+            this.TextInt(60);
+            this.Text(this.LimitBraceRoundRite);
+
+            this.Text(this.LimitComma);
+            this.Text(this.NewLine);
+
+            this.TextIndent();
+            
+            this.TextInt(ka);
+            this.Text(this.Space);
+            this.Text(this.LimitAdd);
+            this.Text(this.Space);
+
+            this.Text(this.LimitBraceRoundLite);
+            this.Text(this.RefKindIntMacro);
+            this.Text(this.Space);
+            this.Text(this.LimitBitLite);
+            this.Text(this.Space);
+            this.TextInt(60);
+            this.Text(this.LimitBraceRoundRite);
+
+            this.Text(this.NewLine);
 
             this.IndentCount = this.IndentCount - 1;
 
