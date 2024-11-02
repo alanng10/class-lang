@@ -1027,6 +1027,8 @@ public class ClassGen : ClassBase
 
             this.Text(this.LimitBraceLite);
 
+            this.Text(this.NewLine);
+
             this.IndentCount = this.IndentCount + 1;
 
             long iA;
