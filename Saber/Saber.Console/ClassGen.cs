@@ -1040,6 +1040,11 @@ public class ClassGen : ClassBase
                 long kka;
                 kka = iA - kea;
 
+                if (!(iA == 0))
+                {
+                    this.Text(this.NewLine);
+                }
+
                 if (kka == 0)
                 {
                     this.TextIndent();
@@ -1077,16 +1082,12 @@ public class ClassGen : ClassBase
                 this.Text(this.LimitComma);
                 this.Text(this.Space);
 
-                if (kka == 7)
-                {
-                    this.Text(this.NewLine);
-                }
-
                 iA = iA + 1;
             }
 
             this.IndentCount = this.IndentCount - 1;
 
+            this.Text(this.NewLine);
             this.Text(this.LimitBraceRite);
             this.Text(this.LimitSemicolon);
             this.Text(this.NewLine);
