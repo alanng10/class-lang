@@ -1000,11 +1000,47 @@ public class ClassGen : ClassBase
             String a;
             a = (String)this.StringValue.GetAt(i);
 
-            this.TextIndent();
+            long countA;
+            countA = this.StringCount(a);
 
             this.Text(this.ClassInt32);
 
             this.Text(this.Space);
+
+            this.StringDataName(this.Class, i);
+
+            this.Text(this.LimitBraceSquareLite);
+
+            this.TextInt(countA);
+
+            this.Text(this.LimitBraceSquareRite);
+
+            this.Text(this.Space);
+
+            this.Text(this.LimitAre);
+
+            this.Text(this.NewLine);
+
+            this.Text(this.LimitBraceLite);
+            this.Text(this.NewLine);
+
+            this.IndentCount = this.IndentCount + 1;
+
+            long iA;
+            iA = 0;
+            while (iA < countA)
+            {
+                long n;
+                n = this.StringChar(a, iA);
+
+                iA = iA + 1;
+            }
+
+            this.IndentCount = this.IndentCount - 1;
+
+            this.Text(this.LimitBraceRite);
+            this.Text(this.LimitSemicolon);
+            this.Text(this.NewLine);
 
             i = i + 1;
         }
