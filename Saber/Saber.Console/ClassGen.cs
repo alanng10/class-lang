@@ -1042,8 +1042,6 @@ public class ClassGen : ClassBase
 
                 if (kka == 0)
                 {
-                    this.Text(this.NewLine);
-
                     this.TextIndent();
                 }
 
@@ -1078,6 +1076,11 @@ public class ClassGen : ClassBase
 
                 this.Text(this.LimitComma);
                 this.Text(this.Space);
+
+                if (kka == 7)
+                {
+                    this.Text(this.NewLine);
+                }
 
                 iA = iA + 1;
             }
