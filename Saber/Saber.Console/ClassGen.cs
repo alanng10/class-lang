@@ -67,6 +67,7 @@ public class ClassGen : ClassBase
         this.InternValueBool = this.S("Intern_Value_Bool");
         this.InternValueInt = this.S("Intern_Value_Int");
         this.InternValueString = this.S("Intern_Value_String");
+        this.ClassInt32 = this.S("Int32");
         this.StateGet = this.S("G");
         this.StateSet = this.S("S");
         this.StateCall = this.S("C");
@@ -84,6 +85,8 @@ public class ClassGen : ClassBase
         this.ApiWord = this.S("Api");
         this.InternWord = this.S("Intern");
         this.ExternWord = this.S("Extern");
+        this.StringWord = this.S("String");
+        this.DataWord = this.S("Data");
         this.CastInt = this.S("CastInt");
         this.StringValueArray = this.S("StringValue");
         this.WhileLabelPre = this.S("W_");
@@ -189,6 +192,7 @@ public class ClassGen : ClassBase
     public virtual String InternValueBool { get; set; }
     public virtual String InternValueInt { get; set; }
     public virtual String InternValueString { get; set; }
+    public virtual String ClassInt32 { get; set; }
     public virtual String StateGet { get; set; }
     public virtual String StateSet { get; set; }
     public virtual String StateCall { get; set; }
@@ -206,6 +210,8 @@ public class ClassGen : ClassBase
     public virtual String ApiWord { get; set; }
     public virtual String InternWord { get; set; }
     public virtual String ExternWord { get; set; }
+    public virtual String StringWord { get; set; }
+    public virtual String DataWord { get; set; }
     public virtual String CastInt { get; set; }
     public virtual String StringValueArray { get; set; }
     public virtual String WhileLabelPre { get; set; }
@@ -979,7 +985,29 @@ public class ClassGen : ClassBase
 
     public virtual bool ExecuteStringValue()
     {
-        
+        this.ExecuteStringValue();
+        return true;
+    }
+
+    public virtual bool ExecuteStringValueData()
+    {
+        long count;
+        count = this.StringValue.Count;
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            String a;
+            a = (String)this.StringValue.GetAt(i);
+
+            this.TextIndent();
+
+            this.Text(this.ClassInt32);
+
+            this.Text(this.Space);
+
+            i = i + 1;
+        }
         return true;
     }
 
@@ -1016,6 +1044,17 @@ public class ClassGen : ClassBase
         this.Text(stateKind);
         this.Text(this.NameCombine);
         this.Text(this.ListWord);
+        return true;
+    }
+
+    public virtual bool StringValueDataName(ClassClass varClass, long index)
+    {
+        this.ClassName(varClass);
+        this.Text(this.NameCombine);
+        this.TextIntHex(index);
+        this.Text(this.NameCombine);
+        this.Text(this.StringWord);
+        this.Text(this.DataWord);
         return true;
     }
 
