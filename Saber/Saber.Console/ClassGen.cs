@@ -1030,8 +1030,49 @@ public class ClassGen : ClassBase
             iA = 0;
             while (iA < countA)
             {
+                long k;
+                k = (iA / 8) * 8;
+                long kk;
+                kk = iA - k;
+
+                if (kk == 0)
+                {
+                    this.Text(this.NewLine);
+
+                    this.TextIndent();
+                }
+
+                this.Text(this.IntValueHexPre);
+
                 long n;
                 n = this.StringChar(a, iA);
+
+                long countB;
+                countB = 8;
+                long iB;
+                iB = 0;
+                while (iB < countB)
+                {
+                    long kaa;
+                    kaa = countB - 1 - iB;
+
+                    int shiftCount;
+                    shiftCount = (int)(kaa * 4);
+
+                    long ka;
+                    ka = n >> shiftCount;
+                    ka = ka & 0xf;
+
+                    long na;
+                    na = this.TextInfra.DigitChar(ka, 'a');
+                    
+                    this.ExecuteChar(na);
+
+                    iB = iB + 1;
+                }
+
+                this.Text(this.LimitComma);
+                this.Text(this.Space);
 
                 iA = iA + 1;
             }
