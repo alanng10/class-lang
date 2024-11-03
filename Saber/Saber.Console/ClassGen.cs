@@ -990,6 +990,10 @@ public class ClassGen : ClassBase
     public virtual bool ExecuteString()
     {
         this.ExecuteStringData();
+        this.Text(this.NewLine);
+        this.ExecuteStringAny();
+        this.Text(this.NewLine);
+        this.ExecuteStringArray();
         return true;
     }
 
@@ -1177,6 +1181,11 @@ public class ClassGen : ClassBase
 
             this.Text(this.NewLine);
         }
+        return true;
+    }
+
+    public virtual bool ExecuteStringArray()
+    {
         return true;
     }
 
