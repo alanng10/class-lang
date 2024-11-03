@@ -586,7 +586,6 @@ Infra_Api Int Thread_ExecuteEventLoop(Int o);
 Infra_Api Int Thread_ExitEventLoop(Int o, Int code);
 Infra_Api Int Thread_IsMain(Int o);
 
-Infra_Api Int Thread_Sleep(Int time);
 Infra_Api Int Thread_This();
 
 typedef Int (*Thread_Execute_Maide)(Int thread, Int arg);
@@ -654,14 +653,6 @@ Infra_Api Int TimeEvent_Start(Int o);
 Infra_Api Int TimeEvent_Stop(Int o);
 
 typedef Int (*TimeEvent_Elapse_Maide)(Int timeEvent, Int arg);
-
-InfraApiNew(Post)
-Infra_Api Int Post_ExecuteStateGet(Int o);
-Infra_Api Int Post_ExecuteStateSet(Int o, Int value);
-
-Infra_Api Int Post_Execute(Int o);
-
-typedef Int (*Post_Execute_Maide)(Int post, Int arg);
 
 InfraApiNew(Program)
 Infra_Api Int Program_NameGet(Int o);
