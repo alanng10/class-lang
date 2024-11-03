@@ -13,34 +13,6 @@ Bool TypeHandle(Int frame, Int index, Int field, Int arg);
 Bool DrawHandle(Int frame, Int arg);
 
 
-Int ThreadExecute(Int thread, Int arg);
-
-
-Int ThreadAAExecute(Int thread, Int arg);
-
-
-
-Bool TerminateHandle();
-
-
-
-Bool MainThreadExecute();
-
-
-
-Bool ThreadAExecute(Int thread, Int arg);
-
-
-
-Int ThreadIntervalExecute(Int thread, Int arg);
-
-
-
-
-Int ThreadIntervalElapseHandle(Int interval, Int arg);
-
-
-
 
 Int ConsoleWriteConstant(const char* o);
 
