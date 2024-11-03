@@ -320,7 +320,6 @@ Thread
     ExecuteEventLoop()
     ExitEventLoop(code)
     IsMain()
-    Sleep(time) -
     This() -
     Execute(thread, arg) --
 
@@ -363,11 +362,6 @@ TimeEvent
     Active
     ElapseState
     Elapse(timeEvent, arg) --
-
-Post
-    Execute()
-    ExecuteState
-    Execute(post, arg) --
 
 Program
     Name
