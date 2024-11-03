@@ -1186,6 +1186,19 @@ public class ClassGen : ClassBase
 
     public virtual bool ExecuteStringArray()
     {
+        this.Text(this.ClassInt);
+
+        this.Text(this.Space);
+
+        
+        long count;
+        count = this.StringValue.Count;
+        long i;
+        i = 0;
+        while (i < count)
+        {
+        }
+        
         return true;
     }
 
