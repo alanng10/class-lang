@@ -8,7 +8,7 @@ class ExternGen : PrusateGen
 
         this.PrusateFileName = this.S("ToolData/Prusate/Extern.txt");
 
-        this.OutputFilePath = this.S("../../Avalon/Avalon.Intern/Extern.cs");
+        this.OutputFilePath = this.S("../../Avalon/Avalon.Infra/Extern.cs");
 
         this.IntTypeName = this.S("ulong");
 
