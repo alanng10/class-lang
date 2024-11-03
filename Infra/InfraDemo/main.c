@@ -59,73 +59,30 @@ Int PointListCount;
 
 Int PointListData;
 
-
-
-
 Int Face;
-
 
 Int TextAlignHoriz;
 Int TextAlignVert;
 
-
-
 Int Image;
-
-
 
 Int Form;
 
-
-
 Int Draw;
-
-
 
 Int AreaOffset;
 
-
-
 Int UpdateRect;
 
-
-
-
 Int Stat;
-
-
 
 SInt TextLeft;
 
 SInt TextUp;
 
-
-
-
 Int Play;
 
-
-
-
-Bool ThreadStarted;
-
-
-
-
-Int Thread;
-
-
-
 Int Console;
-
-
-
-
-Int IntervalElapseCount;
-
-
-
-Int MainThread;
 
 
 
@@ -177,21 +134,18 @@ Bool TypeHandle(Int frame, Int index, Int field, Int arg)
 
             b = true;
         }
-
         if (index == 'L')
         {
             FillLeft = FillLeft + 10;
 
             b = true;
         }
-
         if (index == 'I')
         {
             FillUp = FillUp - 10;
 
             b = true;
         }
-
         if (index == 'K')
         {
             FillUp = FillUp + 10;
@@ -199,26 +153,18 @@ Bool TypeHandle(Int frame, Int index, Int field, Int arg)
             b = true;
         }
 
-
-
         if (index == 'N')
         {
             AreaOffset = 0;
 
             b = true;
         }
-
-
-
         if (index == 'M')
         {
             AreaOffset = AreaOffset + 100;
 
             b = true;
         }
-
-
-
 
         if (index == 'O')
         {
@@ -227,83 +173,14 @@ Bool TypeHandle(Int frame, Int index, Int field, Int arg)
             b = true;
         }
 
-
-
-        if (index == 'E')
-        {
-            if (!ThreadStarted)
-            {
-                Thread_Execute(Thread);
-
-
-
-                Int threadCase;
-
-                threadCase = Thread_CaseGet(Thread);
-
-
-                Int executeCase;
-
-                executeCase = Stat_ThreadCaseExecute(Stat);
-
-
-
-                ThreadStarted = (threadCase == executeCase);
-            }
-        }
-
-
-        if (index == 'R')
-        {
-            if (ThreadStarted)
-            {
-                Int threadCase;
-
-                threadCase = Thread_CaseGet(Thread);
-
-
-                Int pauseCase;
-
-                pauseCase = Stat_ThreadCasePause(Stat);
-
-
-
-                Bool paused;
-
-                paused = (threadCase == pauseCase);
-
-
-
-                if (paused)
-                {
-                    Thread_Resume(Thread);
-                }
-
-
-                if (!paused)
-                {
-                    Thread_Pause(Thread);
-                }
-            }
-        }
-
-
-
-
         if (index == 'Y')
         {
             Play_Execute(Play);
         }
-
-
-
         if (index == 'U')
         {
             Play_Stop(Play);
         }
-
-
-
 
         if (index == 'B')
         {
@@ -311,15 +188,10 @@ Bool TypeHandle(Int frame, Int index, Int field, Int arg)
         }
     }
 
-
-
     if (b)
     {
         Frame_Update(frame, UpdateRect);
     }
-
-
-
 
     return true;
 }
@@ -569,9 +441,6 @@ Bool DrawHandle(Int frame, Int arg)
 int main(int argc, char* argv[])
 {
     Main_Init();
-
-    MainThread = Thread_This();
-    Thread_IdentSet(MainThread, 1024);
 
     Console = Console_New();
 
@@ -1506,17 +1375,7 @@ int main(int argc, char* argv[])
     Pos_Final(updatePos);
     Pos_Delete(updatePos);
 
-
     String_ConstantDelete(Text);
-
-
-    Thread_Final(Thread);
-
-
-
-    Thread_Delete(Thread);
-
-
 
     Draw_Final(Draw);
     Draw_Delete(Draw);
