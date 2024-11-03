@@ -7170,19 +7170,6 @@ Int Intern_Extern_Thread_IsMain(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_Thread_Sleep(Eval* eval, Int frame)
-{
-    Int paramCount;
-    paramCount = 1;
-
-    Param(0);
-
-    Int a;
-    a = Thread_Sleep(a0);
-
-    Return;
-}
-
 Int Intern_Extern_Thread_This(Eval* eval, Int frame)
 {
     Int paramCount;
@@ -8053,96 +8040,6 @@ Int Intern_Extern_TimeEvent_Stop(Eval* eval, Int frame)
 
     Int a;
     a = TimeEvent_Stop(a0);
-
-    Return;
-}
-
-Int Intern_Extern_Post_New(Eval* eval, Int frame)
-{
-    Int paramCount;
-    paramCount = 0;
-
-    Int a;
-    a = Post_New();
-
-    Return;
-}
-
-Int Intern_Extern_Post_Delete(Eval* eval, Int frame)
-{
-    Int paramCount;
-    paramCount = 1;
-
-    Param(0);
-
-    Int a;
-    a = Post_Delete(a0);
-
-    Return;
-}
-
-Int Intern_Extern_Post_Init(Eval* eval, Int frame)
-{
-    Int paramCount;
-    paramCount = 1;
-
-    Param(0);
-
-    Int a;
-    a = Post_Init(a0);
-
-    Return;
-}
-
-Int Intern_Extern_Post_Final(Eval* eval, Int frame)
-{
-    Int paramCount;
-    paramCount = 1;
-
-    Param(0);
-
-    Int a;
-    a = Post_Final(a0);
-
-    Return;
-}
-
-Int Intern_Extern_Post_ExecuteStateGet(Eval* eval, Int frame)
-{
-    Int paramCount;
-    paramCount = 1;
-
-    Param(0);
-
-    Int a;
-    a = Post_ExecuteStateGet(a0);
-
-    Return;
-}
-
-Int Intern_Extern_Post_ExecuteStateSet(Eval* eval, Int frame)
-{
-    Int paramCount;
-    paramCount = 2;
-
-    Param(0);
-    Param(1);
-
-    Int a;
-    a = Post_ExecuteStateSet(a0, a1);
-
-    Return;
-}
-
-Int Intern_Extern_Post_Execute(Eval* eval, Int frame)
-{
-    Int paramCount;
-    paramCount = 1;
-
-    Param(0);
-
-    Int a;
-    a = Post_Execute(a0);
 
     Return;
 }

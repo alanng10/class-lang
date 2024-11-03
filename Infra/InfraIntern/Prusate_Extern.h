@@ -604,7 +604,6 @@ Intern_Api Int Intern_Extern_Thread_ExecuteEventLoop(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Thread_ExitEventLoop(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Thread_IsMain(Eval* e, Int f);
 
-Intern_Api Int Intern_Extern_Thread_Sleep(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Thread_This(Eval* e, Int f);
 
 Intern_Api Int Intern_Extern_Phore_New(Eval* e, Int f);
@@ -677,15 +676,6 @@ Intern_Api Int Intern_Extern_TimeEvent_ElapseStateSet(Eval* e, Int f);
 
 Intern_Api Int Intern_Extern_TimeEvent_Start(Eval* e, Int f);
 Intern_Api Int Intern_Extern_TimeEvent_Stop(Eval* e, Int f);
-
-Intern_Api Int Intern_Extern_Post_New(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Post_Delete(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Post_Init(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Post_Final(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Post_ExecuteStateGet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Post_ExecuteStateSet(Eval* e, Int f);
-
-Intern_Api Int Intern_Extern_Post_Execute(Eval* e, Int f);
 
 Intern_Api Int Intern_Extern_Program_New(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Program_Delete(Eval* e, Int f);

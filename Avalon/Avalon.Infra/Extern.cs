@@ -1,4 +1,4 @@
-namespace Avalon.Infra;
+namespace Avalon.Intern;
 
 public static class Extern
 {
@@ -620,7 +620,6 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Thread_ExitEventLoop(ulong o, ulong code);
     [DllImport(InfraLib)] public extern static ulong Thread_IsMain(ulong o);
 
-    [DllImport(InfraLib)] public extern static ulong Thread_Sleep(ulong time);
     [DllImport(InfraLib)] public extern static ulong Thread_This();
 
     public delegate ulong Thread_Execute_Maide(ulong thread, ulong arg);
@@ -697,17 +696,6 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong TimeEvent_Stop(ulong o);
 
     public delegate ulong TimeEvent_Elapse_Maide(ulong timeEvent, ulong arg);
-
-    [DllImport(InfraLib)] public extern static ulong Post_New();
-    [DllImport(InfraLib)] public extern static ulong Post_Delete(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Post_Init(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Post_Final(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Post_ExecuteStateGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Post_ExecuteStateSet(ulong o, ulong value);
-
-    [DllImport(InfraLib)] public extern static ulong Post_Execute(ulong o);
-
-    public delegate ulong Post_Execute_Maide(ulong post, ulong arg);
 
     [DllImport(InfraLib)] public extern static ulong Program_New();
     [DllImport(InfraLib)] public extern static ulong Program_Delete(ulong o);

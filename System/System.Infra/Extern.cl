@@ -602,7 +602,6 @@ class Extern : Any
     maide prusate Int Thread_ExitEventLoop(var Int o, var Int code) { }
     maide prusate Int Thread_IsMain(var Int o) { }
 
-    maide prusate Int Thread_Sleep(var Int time) { }
     maide prusate Int Thread_This() { }
 
     maide prusate Int Phore_New() { }
@@ -675,15 +674,6 @@ class Extern : Any
 
     maide prusate Int TimeEvent_Start(var Int o) { }
     maide prusate Int TimeEvent_Stop(var Int o) { }
-
-    maide prusate Int Post_New() { }
-    maide prusate Int Post_Delete(var Int o) { }
-    maide prusate Int Post_Init(var Int o) { }
-    maide prusate Int Post_Final(var Int o) { }
-    maide prusate Int Post_ExecuteStateGet(var Int o) { }
-    maide prusate Int Post_ExecuteStateSet(var Int o, var Int value) { }
-
-    maide prusate Int Post_Execute(var Int o) { }
 
     maide prusate Int Program_New() { }
     maide prusate Int Program_Delete(var Int o) { }
