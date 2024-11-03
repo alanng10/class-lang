@@ -25,16 +25,6 @@ class ThreadState : State
         console = Console.This;
         console.Out.Write(this.S("ThreadState.Execute START\n"));
 
-        ThreadThis varThis;
-        varThis = new ThreadThis();
-        varThis.Init();
-
-        console.Out.Write(this.S("ThreadState.Execute ThreadThis Wait START\n"));
-
-        varThis.Wait(2 * 1000);
-
-        console.Out.Write(this.S("ThreadState.Execute ThreadThis Wait END\n"));
-
         this.Phore.Close();
         
         this.Draw();
