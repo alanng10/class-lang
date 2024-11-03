@@ -1004,33 +1004,6 @@ int main(int argc, char* argv[])
     Memory_Delete(memory);
 
 
-    Thread_Execute_Maide threadAAExecute;
-
-    threadAAExecute = &ThreadAAExecute;
-
-    Int uoaa;
-    uoaa = CastInt(threadAAExecute);
-
-    Int threadAAExecuteState;
-    threadAAExecuteState = State_New();
-
-    State_Init(threadAAExecuteState);
-
-    State_MaideSet(threadAAExecuteState, uoaa);
-
-
-    Int threadAA;
-    threadAA = Thread_New();
-
-    Thread_Init(threadAA);
-
-    Thread_ExecuteStateSet(threadAA, threadAAExecuteState);
-
-    Thread_Execute(threadAA);
-
-    Thread_Wait(threadAA);
-
-
     Form = Form_New();
 
     Form_Init(Form);
@@ -1186,56 +1159,7 @@ int main(int argc, char* argv[])
 
     Draw = Draw_New();
 
-
-
-
     Draw_Init(Draw);
-
-
-
-
-
-    Thread_Execute_Maide threadMaide;
-
-    threadMaide = &ThreadExecute;
-
-
-    Int threadMaideU;
-
-    threadMaideU = CastInt(threadMaide);
-
-
-
-
-    Int threadExecuteState;
-
-    threadExecuteState = State_New();
-
-
-    State_Init(threadExecuteState);
-
-
-    State_MaideSet(threadExecuteState, threadMaideU);
-
-
-
-
-
-    Thread = Thread_New();
-
-
-
-    Thread_Init(Thread);
-
-
-
-    Thread_ExecuteStateSet(Thread, threadExecuteState);
-
-
-
-    Thread_IdentSet(Thread, 0x1000);
-
-
 
 
     Text = String_ConstantCreate(CastInt("DEMO Infra ABCD abcd"));
@@ -1594,20 +1518,7 @@ int main(int argc, char* argv[])
 
 
 
-
-    State_Final(threadExecuteState);
-
-
-
-    State_Delete(threadExecuteState);
-
-
-
-
     Draw_Final(Draw);
-
-
-
     Draw_Delete(Draw);
 
 
@@ -1677,36 +1588,9 @@ int main(int argc, char* argv[])
 
 
     Form_Final(Form);
-
-
-
     Form_Delete(Form);
 
-
-
-
-    Thread_Final(threadAA);
-
-
-
-    Thread_Delete(threadAA);
-
-
-
-
-    State_Final(threadAAExecuteState);
-
-
-
-    State_Delete(threadAAExecuteState);
-
-
-
-
     Image_Final(Image);
-
-
-
     Image_Delete(Image);
 
 
@@ -1884,46 +1768,12 @@ int main(int argc, char* argv[])
 
 
 
-
-//    Thread_Final(threadA);
-
-
-//    Thread_Delete(threadA);
-
-
-
-
-
-
     Console_Final(Console);
-
-
-
     Console_Delete(Console);
-
-
-
-
-    State_Final(terminateState);
-
-
-    State_Delete(terminateState);
-
-
-
 
     Main_Final();
 
-
-
-
-
-
-
     int u;
-
     u = o;
-
-
     return u;
 }
