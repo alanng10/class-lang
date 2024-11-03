@@ -37,8 +37,6 @@ HEADERS += \
     PolateRadial.hpp \
     PolateStop.hpp \
     Pos.h \
-    Post.hpp \
-    PostIntern.hpp \
     Pronate.h \
     Pronate.hpp \
     Program.hpp \
@@ -101,8 +99,6 @@ SOURCES += \
     PolateRadial.cpp \
     PolateStop.cpp \
     Pos.c \
-    Post.cpp \
-    PostIntern.cpp \
     Program.cpp \
     ProgramIntern.cpp \
     Rand.cpp \
