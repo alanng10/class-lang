@@ -172,15 +172,22 @@ public class LibraryGen : ClassBase
         }
 
         bool bc;
-        bc = this.ExecuteGenProject();
+        bc = this.ExecuteGenModuleHeaderSource();
         if (!bc)
         {
             return false;
         }
 
         bool bd;
-        bd = this.ExecuteGenMake();
+        bd = this.ExecuteGenProject();
         if (!bd)
+        {
+            return false;
+        }
+
+        bool be;
+        be = this.ExecuteGenMake();
+        if (!be)
         {
             return false;
         }
