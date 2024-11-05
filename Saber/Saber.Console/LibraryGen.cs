@@ -334,7 +334,11 @@ public class LibraryGen : ClassBase
             this.StringValueTraverse.Array = null;
             this.StringValueTraverse.Class = null;
 
+            Array baseArray;
+            baseArray = this.ClassBaseArray.GetAt(i) as Array;
+
             this.ClassGen.Class = varClass;
+            this.ClassGen.BaseArray = baseArray;
             this.ClassGen.StringValue = stringValueArray;
 
             this.ClassGen.Execute();
@@ -344,6 +348,7 @@ public class LibraryGen : ClassBase
 
             this.ClassGen.Result = null;
             this.ClassGen.StringValue = null;
+            this.ClassGen.BaseArray = null;
             this.ClassGen.Class = null;
 
             String ka;
