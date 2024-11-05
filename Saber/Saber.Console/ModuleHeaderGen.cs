@@ -147,6 +147,11 @@ public class ModuleHeaderGen : ClassBase
         ClassGen gen;
         gen = this.Gen;
 
+        Iter iter;
+        iter = gen.TableIter;
+
+        this.Module.Class.IterSet(iter);
+
         long count;
         count = this.ClassCompArray.Count;
 
@@ -154,8 +159,15 @@ public class ModuleHeaderGen : ClassBase
         i = 0;
         while (i < count)
         {
+            iter.Next();
+
+            ClassClass varClass;
+            varClass = iter.Value as ClassClass;
+
             ClassComp a;
-            a = (ClassComp)this.ClassCompArray.GetAt(i);
+            a = this.ClassCompArray.GetAt(i) as ClassComp;
+
+            gen.Class = varClass;
 
             gen.ExecuteExternCompList(a.Field, true, gen.StateGet);
             gen.Text(gen.NewLine);
@@ -165,6 +177,8 @@ public class ModuleHeaderGen : ClassBase
 
             gen.ExecuteExternCompList(a.Maide, false, gen.StateCall);
             gen.Text(gen.NewLine);
+
+            gen.Class = null;
 
             i = i + 1;
         }
