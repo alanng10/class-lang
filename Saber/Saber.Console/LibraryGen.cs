@@ -204,7 +204,21 @@ public class LibraryGen : ClassBase
             ClassClass varClass;
             varClass = (ClassClass)iter.Value;
 
+            NodeClass nodeClass;
+            nodeClass = varClass.Any as NodeClass;
+
+            this.StringValueTraverse.Class = nodeClass;
+
+            this.StringValueTraverse.Execute();
+
+            Array stringValueArray;
+            stringValueArray = this.StringValueTraverse.Array;
+
+            this.StringValueTraverse.Array = null;
+            this.StringValueTraverse.Class = null;
+
             this.ClassGen.Class = varClass;
+            this.ClassGen.StringValue = stringValueArray;
 
             this.ClassGen.Execute();
 
@@ -212,6 +226,7 @@ public class LibraryGen : ClassBase
             k = this.ClassGen.Result;
 
             this.ClassGen.Result = null;
+            this.ClassGen.StringValue = null;
             this.ClassGen.Class = null;
 
             String ka;
