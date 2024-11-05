@@ -2254,6 +2254,8 @@ public class ClassGen : ClassBase
 
         this.Text(this.CastInt);
         this.Text(this.LimitBraceRoundLite);
+        this.Text(this.LimitAnd);
+        this.Text(this.Space);
         this.ClassMaideName(varClass);
         this.Text(this.LimitBraceRoundRite);
 
@@ -2278,6 +2280,8 @@ public class ClassGen : ClassBase
 
         this.Text(this.CastInt);
         this.Text(this.LimitBraceRoundLite);
+        this.Text(this.LimitAnd);
+        this.Text(this.Space);
         this.ClassMaideName(varClass);
         this.Text(this.LimitBraceRoundRite);
 
