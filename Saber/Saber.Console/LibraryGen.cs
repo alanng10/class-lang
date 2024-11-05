@@ -8,6 +8,8 @@ public class LibraryGen : ClassBase
         this.StorageInfra = StorageInfra.This;
         this.StorageComp = StorageComp.This;
 
+        this.ClassCompGen = this.CreateClassCompGen();
+
         this.ClassGen = this.CreateClassGen();
 
         this.StringValueTraverse = this.CreateStringValueTraverse();
@@ -35,6 +37,7 @@ public class LibraryGen : ClassBase
     public virtual long Status { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual StorageComp StorageComp { get; set; }
+    protected virtual ClassCompGen ClassCompGen { get; set; }
     protected virtual ClassGen ClassGen { get; set; }
     protected virtual StringValueTraverse StringValueTraverse { get; set; }
     protected virtual ModuleGen ModuleGen { get; set; }
@@ -48,6 +51,14 @@ public class LibraryGen : ClassBase
     protected virtual String SC { get; set; }
     protected virtual String SPro { get; set; }
     protected virtual String SModule { get; set; }
+
+    protected virtual ClassCompGen CreateClassCompGen()
+    {
+        ClassCompGen a;
+        a = new ClassCompGen();
+        a.Init();
+        return a;
+    }
 
     protected virtual ClassGen CreateClassGen()
     {
@@ -149,7 +160,7 @@ public class LibraryGen : ClassBase
 
     protected virtual bool ExecuteClassComp()
     {
-        
+
 
         return true;
     }
