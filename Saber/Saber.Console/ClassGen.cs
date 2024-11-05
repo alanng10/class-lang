@@ -499,7 +499,8 @@ public class ClassGen : ClassBase
         this.Text(this.NewLine);
 
         this.ExecuteBaseItem();
-        
+        this.Text(this.NewLine);
+
         this.ExecuteBase();
 
         this.ExecuteClassAny();
@@ -599,7 +600,6 @@ public class ClassGen : ClassBase
 
         this.Text(this.LimitBraceRite);
         this.Text(this.LimitSemicolon);
-        this.Text(this.NewLine);
         this.Text(this.NewLine);
 
         return true;
