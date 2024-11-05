@@ -431,12 +431,16 @@ public class LibraryGen : ClassBase
     {
         this.ModuleHeaderGen.Gen = this.ClassGen;
         this.ModuleHeaderGen.Module = this.Module;
+        this.ModuleHeaderGen.ImportClass = this.ImportClass;
+        this.ModuleHeaderGen.ClassCompArray = this.ClassCompArray;
 
         this.ModuleHeaderGen.Execute();
         String k;
         k = this.ModuleHeaderGen.Result;
 
         this.ModuleHeaderGen.Result = null;
+        this.ModuleHeaderGen.ClassCompArray = null;
+        this.ModuleHeaderGen.ImportClass = null;
         this.ModuleHeaderGen.Module = null;
         this.ModuleHeaderGen.Gen = null;
 
