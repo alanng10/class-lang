@@ -617,17 +617,6 @@ public class ClassGen : ClassBase
             ClassClass varClass;
             varClass = (ClassClass)this.BaseArray.GetAt(i);
 
-            bool export;
-            export = (varClass.Module == this.Class.Module);
-
-            if (export)
-            {
-                this.Text(this.ExportWord);
-                this.Text(this.ApiWord);
-
-                this.Text(this.Space);
-            }
-
             this.Text(this.IndexExtern);
 
             this.Text(this.Space);
