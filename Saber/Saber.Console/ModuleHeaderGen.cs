@@ -5,6 +5,7 @@ public class ModuleHeaderGen : ClassBase
     public virtual ClassGen Gen { get; set; }
     public virtual ClassModule Module { get; set; }
     public virtual Table ImportClass { get; set; }
+    public virtual Array ClassCompArray { get; set; }
     public virtual String Result { get; set; }
 
     public virtual bool Execute()
@@ -99,6 +100,36 @@ public class ModuleHeaderGen : ClassBase
         }
 
         iter.Clear();
+        return true;
+    }
+
+    public virtual bool ExecuteExternClassCompList()
+    {
+        ClassGen gen;
+        gen = this.Gen;
+
+        long count;
+        count = this.ClassCompArray.Count;
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            ClassComp a;
+            a = (ClassComp)this.ClassCompArray.GetAt(i);
+
+            gen.ExecuteExternCompList(a.Field, true, gen.StateGet);
+            gen.Text(gen.NewLine);
+
+            gen.ExecuteExternCompList(a.Field, true, gen.StateSet);
+            gen.Text(gen.NewLine);
+
+            gen.ExecuteExternCompList(a.Maide, false, gen.StateCall);
+            gen.Text(gen.NewLine);
+
+            i = i + 1;
+        }
+
         return true;
     }
 }
