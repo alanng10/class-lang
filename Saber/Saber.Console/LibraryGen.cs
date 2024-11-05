@@ -140,6 +140,10 @@ public class LibraryGen : ClassBase
 
         this.GenModuleFoldPath = this.AddClear().Add(genFoldPath).Add(combine).Add(this.ModuleRefString).AddResult();
 
+        this.ExecuteBase();
+
+        this.ExecuteClassComp();
+
         bool ba;
         ba = this.ExecuteGenClassSource();
         if (!ba)
