@@ -328,6 +328,8 @@ public class ClassGen : ClassBase
             return true;
         }
 
+        this.ExecuteString();
+
         NodeClass nodeClass;
         nodeClass = (NodeClass)this.Class.Any;
 
