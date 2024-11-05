@@ -5,7 +5,6 @@ public class ModuleHeaderGen : ClassBase
     public virtual ClassGen Gen { get; set; }
     public virtual ClassModule Module { get; set; }
     public virtual String Result { get; set; }
-    public virtual String ModuleWord { get; set; }
 
     public virtual bool Execute()
     {
