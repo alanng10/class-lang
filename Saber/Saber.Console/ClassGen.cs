@@ -516,6 +516,10 @@ public class ClassGen : ClassBase
         this.ExecuteClassAny();
 
         this.ExecuteClassVar();
+        this.Text(this.NewLine);
+        
+        this.ExecuteClassMaide();
+        this.Text(this.NewLine);
         return true;
     }
 
@@ -753,6 +757,40 @@ public class ClassGen : ClassBase
 
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
+        return true;
+    }
+
+    public virtual bool ExecuteClassMaide()
+    {
+        this.Text(this.ClassInt);
+        this.Text(this.Space);
+
+        this.ClassMaideName(this.Class);
+        this.Text(this.LimitBraceRoundLite);
+        this.Text(this.LimitBraceRoundRite);
+
+        this.Text(this.NewLine);
+
+        this.Text(this.LimitBraceLite);
+        this.Text(this.NewLine);
+
+        this.IndentCount = this.IndentCount + 1;
+
+        this.TextIndent();
+
+        this.Text(this.IndexReturn);
+
+        this.Text(this.Space);
+
+        this.ClassVarName(this.Class);
+
+        this.Text(this.LimitSemicolon);
+
+        this.Text(this.NewLine);
+
+        this.IndentCount = this.IndentCount - 1;
+
+        this.Text(this.LimitBraceRite);
         this.Text(this.NewLine);
         return true;
     }
