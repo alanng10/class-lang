@@ -18,6 +18,8 @@ public class LibraryGen : ClassBase
 
         this.ModuleGen = this.CreateModuleGen();
 
+        this.ModuleHeaderGen = this.CreateModuleHeaderGen();
+
         this.ProjectGen = this.CreateProjectGen();
 
         this.ModuleRef = this.ClassInfra.ModuleRefCreate(null, 0);
