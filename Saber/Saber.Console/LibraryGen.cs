@@ -147,6 +147,13 @@ public class LibraryGen : ClassBase
         return true;
     }
 
+    protected virtual bool ExecuteClassComp()
+    {
+        
+
+        return true;
+    }
+
     protected virtual bool ExecuteGenClassSource()
     {
         ClassModule systemInfraModule;
