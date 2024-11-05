@@ -740,7 +740,7 @@ public class ClassGen : ClassBase
         this.Text(this.ClassInt);
         this.Text(this.Space);
 
-        this.ClassVar(this.Class);
+        this.ClassVarName(this.Class);
 
         this.Text(this.Space);
         this.Text(this.LimitAre);
@@ -2099,7 +2099,7 @@ public class ClassGen : ClassBase
         this.Text(limit);
         this.Text(space);
 
-        this.ClassVar(varClass);
+        this.ClassVarName(varClass);
 
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
@@ -2175,7 +2175,7 @@ public class ClassGen : ClassBase
         this.Text(this.LimitComma);
         this.Text(this.Space);
 
-        this.ClassVar(varClass);
+        this.ClassVarName(varClass);
 
         this.Text(this.LimitComma);
         this.Text(this.Space);
@@ -2196,7 +2196,7 @@ public class ClassGen : ClassBase
         this.Text(this.InternShareMaide);
         this.Text(this.LimitBraceRoundLite);
 
-        this.ClassVar(varClass);
+        this.ClassVarName(varClass);
 
         this.Text(this.LimitComma);
         this.Text(this.Space);
@@ -2992,7 +2992,7 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool ClassVar(ClassClass varClass)
+    public virtual bool ClassVarName(ClassClass varClass)
     {
         this.ClassName(varClass);
 
