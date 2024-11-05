@@ -193,9 +193,13 @@ public class LibraryGen : ClassBase
             iter.Next();
 
             ClassClass varClass;
-            varClass = (ClassClass)iter.Value;
+            varClass = iter.Value as ClassClass;
         
+            Array baseArray;
+            baseArray = this.ClassBaseArray.GetAt(i) as Array;
+
             this.ClassCompGen.Class = varClass;
+            this.ClassCompGen.BaseArray = baseArray;
 
             this.ClassCompGen.Execute();
 
@@ -203,6 +207,7 @@ public class LibraryGen : ClassBase
             a = this.ClassCompGen.Result;
 
             this.ClassCompGen.Result = null;
+            this.ClassCompGen.BaseArray = null;
             this.ClassCompGen.Class = null;
 
             array.SetAt(i, a);
