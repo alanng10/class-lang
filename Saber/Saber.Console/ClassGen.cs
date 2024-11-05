@@ -3099,7 +3099,7 @@ public class ClassGen : ClassBase
 
     public virtual bool StringValueRef(long index)
     {
-        this.Text(this.StringValueArray);
+        this.StringListName(this.Class);
 
         this.Text(this.LimitBraceSquareLite);
 
