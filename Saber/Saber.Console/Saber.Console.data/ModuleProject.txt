@@ -2,6 +2,9 @@ include(../../module.pri)
 
 TARGET = module
 
+HEADERS += \
+    Module.h
+
 SOURCES += \
     *.c
 
