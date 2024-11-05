@@ -884,11 +884,6 @@ public class ClassGen : ClassBase
             ClassClass c;
             c = (ClassClass)iter.Value;
 
-            this.Text(this.ImportWord);
-            this.Text(this.ApiWord);
-
-            this.Text(this.Space);
-
             this.Text(this.IndexExtern);
             this.Text(this.Space);
 
