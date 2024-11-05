@@ -337,8 +337,12 @@ public class LibraryGen : ClassBase
             Array baseArray;
             baseArray = this.ClassBaseArray.GetAt(i) as Array;
 
+            ClassComp classComp;
+            classComp = this.ClassCompArray.GetAt(i) as ClassComp;
+
             this.ClassGen.Class = varClass;
             this.ClassGen.BaseArray = baseArray;
+            this.ClassGen.ClassComp = classComp;
             this.ClassGen.StringValue = stringValueArray;
 
             this.ClassGen.Execute();
@@ -348,6 +352,7 @@ public class LibraryGen : ClassBase
 
             this.ClassGen.Result = null;
             this.ClassGen.StringValue = null;
+            this.ClassGen.ClassComp = null;
             this.ClassGen.BaseArray = null;
             this.ClassGen.Class = null;
 
