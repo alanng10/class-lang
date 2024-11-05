@@ -16,6 +16,17 @@ typedef struct
 }
 Eval;
 
+#define RefKindNull (0x0ULL)
+#define RefKindAny (0x1ULL)
+#define RefKindBool (0x2ULL)
+#define RefKindInt (0x3ULL)
+#define RefKindString (0x4ULL)
+#define RefKindStringValue (0x5ULL)
+#define RefKindData (0x6ULL)
+#define RefKindArray (0x7ULL)
+#define RefKindStringValueData (0x8ULL)
+#define RefKindValueAny (0x9ULL)
+
 #define EvalStackCount (512 * 1024)
 
 typedef Int (*Intern_State)(Eval* eval, Int frame);
