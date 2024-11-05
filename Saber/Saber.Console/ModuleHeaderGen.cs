@@ -47,6 +47,36 @@ public class ModuleHeaderGen : ClassBase
     {
         ClassGen gen;
         gen = this.Gen;
+
+        Iter iter;
+        iter = gen.TableIter;
+
+        this.Module.Class.IterSet(iter);
+
+        while (iter.Next())
+        {
+            ClassClass varClass;
+            varClass = (ClassClass)iter.Value;
+
+            gen.Text(gen.ExportWord);
+            gen.Text(gen.ApiWord);
+
+            gen.Text(gen.Space);
+
+            gen.Text(gen.IndexExtern);
+            gen.Text(gen.Space);
+
+            gen.Text(gen.ClassInt);
+            gen.Text(gen.Space);
+
+            gen.ClassMaideName(varClass);
+            gen.Text(gen.LimitBraceRoundLite);
+            gen.Text(gen.LimitBraceRoundRite);
+            gen.Text(gen.LimitSemicolon);
+            gen.Text(gen.NewLine);
+        }
+
+        iter.Clear();
         return true;
     }
 }
