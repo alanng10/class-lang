@@ -2997,6 +2997,7 @@ public class ClassGen : ClassBase
 
         this.Text(this.ClassWord);
 
+        this.Text(this.VarWord);
         return true;
     }
 
