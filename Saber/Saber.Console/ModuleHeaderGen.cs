@@ -77,6 +77,9 @@ public class ModuleHeaderGen : ClassBase
 
         gen.Text(gen.Space);
 
+        gen.Text(gen.IndexExtern);
+        gen.Text(gen.Space);
+
         gen.Text(gen.ClassInt);
         gen.Text(gen.Space);
 
