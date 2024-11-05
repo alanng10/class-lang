@@ -1182,6 +1182,8 @@ public class ClassGen : ClassBase
             this.Text(this.LimitSemicolon);
 
             this.Text(this.NewLine);
+
+            i = i + 1;
         }
         return true;
     }
