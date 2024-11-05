@@ -502,6 +502,7 @@ public class ClassGen : ClassBase
         this.Text(this.NewLine);
 
         this.ExecuteBase();
+        this.Text(this.NewLine);
 
         this.ExecuteClassAny();
         this.Text(this.NewLine);
@@ -559,8 +560,6 @@ public class ClassGen : ClassBase
         this.Text(this.LimitBraceRite);
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
-        this.Text(this.NewLine);
-
         return true;
     }
 
