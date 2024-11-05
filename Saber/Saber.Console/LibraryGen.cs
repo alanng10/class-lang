@@ -44,6 +44,7 @@ public class LibraryGen : ClassBase
     protected virtual ClassGen ClassGen { get; set; }
     protected virtual StringValueTraverse StringValueTraverse { get; set; }
     protected virtual ModuleGen ModuleGen { get; set; }
+    protected virtual ModuleHeaderGen ModuleHeaderGen { get; set; }
     protected virtual ProjectGen ProjectGen { get; set; }
     protected virtual Array ClassBaseArray { get; set; }
     protected virtual Array ClassCompArray { get; set; }
@@ -93,6 +94,14 @@ public class LibraryGen : ClassBase
     {
         ModuleGen a;
         a = new ModuleGen();
+        a.Init();
+        return a;
+    }
+
+    protected virtual ModuleHeaderGen CreateModuleHeaderGen()
+    {
+        ModuleHeaderGen a;
+        a = new ModuleHeaderGen();
         a.Init();
         return a;
     }
