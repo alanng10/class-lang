@@ -45,6 +45,7 @@ public class LibraryGen : ClassBase
     protected virtual StringValueTraverse StringValueTraverse { get; set; }
     protected virtual ModuleGen ModuleGen { get; set; }
     protected virtual ProjectGen ProjectGen { get; set; }
+    protected virtual Array ClassBaseArray { get; set; }
     protected virtual Array ClassCompArray { get; set; }
     protected virtual String ModuleProjectText { get; set; }
     protected virtual String GenModuleFoldPath { get; set; }
