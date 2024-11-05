@@ -69,9 +69,7 @@ public class ModuleHeaderGen : ClassBase
             gen.Text(gen.ClassInt);
             gen.Text(gen.Space);
 
-            gen.ClassMaideName(varClass);
-            gen.Text(gen.LimitBraceRoundLite);
-            gen.Text(gen.LimitBraceRoundRite);
+            gen.ClassVarName(varClass);
             gen.Text(gen.LimitSemicolon);
             gen.Text(gen.NewLine);
         }
