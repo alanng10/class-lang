@@ -50,6 +50,10 @@ public class ModuleHeaderGen : ClassBase
         ClassGen gen;
         gen = this.Gen;
 
+        gen.Include(gen.IncludeValueInfra);
+        gen.Include(gen.IncludeValueInfraIntern);
+        gen.Text(gen.NewLine);
+
         this.ExecuteExternClassList();
 
         gen.Text(gen.NewLine);

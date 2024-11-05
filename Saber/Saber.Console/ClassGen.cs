@@ -483,10 +483,8 @@ public class ClassGen : ClassBase
 
     public virtual bool ExecuteRefer()
     {
-        this.Include(this.IncludeValueInfra);
-        this.Include(this.IncludeValueInfraIntern);
+        this.Include(this.IncludeValueModule);
         this.Text(this.NewLine);
-
 
         this.ExecuteCompList(this.ClassComp.Field, true, this.StateGet);
 
