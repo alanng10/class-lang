@@ -42,6 +42,7 @@ public class LibraryGen : ClassBase
     protected virtual StringValueTraverse StringValueTraverse { get; set; }
     protected virtual ModuleGen ModuleGen { get; set; }
     protected virtual ProjectGen ProjectGen { get; set; }
+    protected virtual Array ClassCompArray { get; set; }
     protected virtual String ModuleProjectText { get; set; }
     protected virtual String GenModuleFoldPath { get; set; }
     protected virtual ModuleRef ModuleRef { get; set; }
@@ -166,6 +167,8 @@ public class LibraryGen : ClassBase
         Array array;
         array = this.ListInfra.ArrayCreate(count);
 
+        this.ClassCompArray = array;
+
         Iter iter;
         iter = this.Module.Class.IterCreate();
 
@@ -189,6 +192,8 @@ public class LibraryGen : ClassBase
 
             this.ClassCompGen.Result = null;
             this.ClassCompGen.Class = null;
+
+            array.SetAt(i, a);
 
             i = i + 1;
         }
