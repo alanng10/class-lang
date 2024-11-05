@@ -60,6 +60,8 @@ public class ModuleHeaderGen : ClassBase
 
         this.ExecuteExternClassCompList();
 
+        this.ExecuteExternBaseItemList();
+
         return true;
     }
 
