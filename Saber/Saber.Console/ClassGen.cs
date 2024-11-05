@@ -275,8 +275,6 @@ public class ClassGen : ClassBase
 
         this.ClassBaseMask = this.ClassBaseMaskGet(k);
 
-        this.BaseArraySet();
-
         this.Arg = new GenArg();
         this.Arg.Init();
 
