@@ -47,7 +47,15 @@ public class ModuleHeaderGen : ClassBase
 
     public virtual bool ExecuteStage()
     {
+        ClassGen gen;
+        gen = this.Gen;
+
         this.ExecuteExternClassList();
+
+        gen.Text(gen.NewLine);
+
+        this.ExecuteExternClassCompList();
+
         return true;
     }
 
