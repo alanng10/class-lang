@@ -160,7 +160,38 @@ public class LibraryGen : ClassBase
 
     protected virtual bool ExecuteClassComp()
     {
+        long count;
+        count = this.Module.Class.Count;
 
+        Array array;
+        array = this.ListInfra.ArrayCreate(count);
+
+        Iter iter;
+        iter = this.Module.Class.IterCreate();
+
+        this.Module.Class.IterSet(iter);
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            iter.Next();
+
+            ClassClass varClass;
+            varClass = (ClassClass)iter.Value;
+        
+            this.ClassCompGen.Class = varClass;
+
+            this.ClassCompGen.Execute();
+
+            ClassComp a;
+            a = this.ClassCompGen.Result;
+
+            this.ClassCompGen.Result = null;
+            this.ClassCompGen.Class = null;
+
+            i = i + 1;
+        }
 
         return true;
     }
