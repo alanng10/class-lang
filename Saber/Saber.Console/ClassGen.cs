@@ -1235,6 +1235,8 @@ public class ClassGen : ClassBase
 
             this.Text(this.LimitComma);
             this.Text(this.NewLine);
+
+            i = i + 1;
         }
 
         this.IndentCount = this.IndentCount - 1;
