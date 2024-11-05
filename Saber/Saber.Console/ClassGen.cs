@@ -1259,6 +1259,15 @@ public class ClassGen : ClassBase
         return true;
     }
 
+    public virtual bool StringListName(ClassClass varClass)
+    {
+        this.ClassName(varClass);
+        this.Text(this.NameCombine);
+        this.Text(this.StringWord);
+        this.Text(this.ListWord);
+        return true;
+    }
+
     public virtual bool Include(String value)
     {
         this.Text(this.DirectiveInclude);
