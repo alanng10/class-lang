@@ -856,6 +856,50 @@ public class ClassGen : ClassBase
             this.Text(this.NewLine);
         }
 
+        module.Class.IterSet(iter);
+        while (iter.Next())
+        {
+            ClassClass c;
+            c = (ClassClass)iter.Value;
+
+            this.Text(this.ExportWord);
+            this.Text(this.ApiWord);
+
+            this.Text(this.Space);
+
+            this.Text(this.IndexExtern);
+            this.Text(this.Space);
+
+            this.Text(this.ClassInt);
+            this.Text(this.Space);
+
+            this.ClassVarName(c);
+            this.Text(this.LimitSemicolon);
+            this.Text(this.NewLine);
+        }
+
+        this.ImportClass.IterSet(iter);
+        while (iter.Next())
+        {
+            ClassClass c;
+            c = (ClassClass)iter.Value;
+
+            this.Text(this.ImportWord);
+            this.Text(this.ApiWord);
+
+            this.Text(this.Space);
+
+            this.Text(this.IndexExtern);
+            this.Text(this.Space);
+
+            this.Text(this.ClassInt);
+            this.Text(this.Space);
+
+            this.ClassVarName(c);
+            this.Text(this.LimitSemicolon);
+            this.Text(this.NewLine);
+        }
+
         iter.Clear();
         return true;
     }
