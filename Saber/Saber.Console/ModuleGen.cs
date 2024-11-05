@@ -48,7 +48,7 @@ public class ModuleGen : ClassBase
         ClassGen gen;
         gen = this.Gen;
 
-        gen.Include(gen.IncludeValueInfra);
+        gen.Include(gen.IncludeValueModule);
         gen.Text(gen.NewLine);
 
         this.ExecuteExternClassAnyList();
