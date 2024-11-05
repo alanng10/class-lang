@@ -787,13 +787,12 @@ public class ClassGen : ClassBase
 
             this.Text(this.Space);
 
-            this.Text(this.IndexExtern);
-            this.Text(this.Space);
-
             this.Text(this.ClassInt);
             this.Text(this.Space);
 
-            this.ClassVar(c);
+            this.ClassMaideName(c);
+            this.Text(this.LimitBraceRoundLite);
+            this.Text(this.LimitBraceRoundRite);
             this.Text(this.LimitSemicolon);
             this.Text(this.NewLine);
         }
@@ -804,13 +803,17 @@ public class ClassGen : ClassBase
             ClassClass c;
             c = (ClassClass)iter.Value;
 
-            this.Text(this.IndexExtern);
+            this.Text(this.ImportWord);
+            this.Text(this.ApiWord);
+
             this.Text(this.Space);
 
             this.Text(this.ClassInt);
             this.Text(this.Space);
 
-            this.ClassVar(c);
+            this.ClassMaideName(c);
+            this.Text(this.LimitBraceRoundLite);
+            this.Text(this.LimitBraceRoundRite);
             this.Text(this.LimitSemicolon);
             this.Text(this.NewLine);
         }
@@ -2998,6 +3001,16 @@ public class ClassGen : ClassBase
         this.Text(this.ClassWord);
 
         this.Text(this.VarWord);
+        return true;
+    }
+
+    public virtual bool ClassMaideName(ClassClass varClass)
+    {
+        this.ClassName(varClass);
+
+        this.Text(this.NameCombine);
+
+        this.Text(this.ClassWord);
         return true;
     }
 
