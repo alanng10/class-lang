@@ -10,6 +10,8 @@ public class LibraryGen : ClassBase
 
         this.ClassGen = this.CreateClassGen();
 
+        this.StringValueTraverse = this.CreateStringValueTraverse();
+
         this.ModuleGen = this.CreateModuleGen();
 
         this.ProjectGen = this.CreateProjectGen();
@@ -34,6 +36,7 @@ public class LibraryGen : ClassBase
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual StorageComp StorageComp { get; set; }
     protected virtual ClassGen ClassGen { get; set; }
+    protected virtual StringValueTraverse StringValueTraverse { get; set; }
     protected virtual ModuleGen ModuleGen { get; set; }
     protected virtual ProjectGen ProjectGen { get; set; }
     protected virtual String ModuleProjectText { get; set; }
@@ -50,6 +53,14 @@ public class LibraryGen : ClassBase
     {
         ClassGen a;
         a = new ClassGen();
+        a.Init();
+        return a;
+    }
+
+    protected virtual StringValueTraverse CreateStringValueTraverse()
+    {
+        StringValueTraverse a;
+        a = new StringValueTraverse();
         a.Init();
         return a;
     }
