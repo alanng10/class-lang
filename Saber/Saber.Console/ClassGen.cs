@@ -68,6 +68,7 @@ public class ClassGen : ClassBase
         this.InternValueInt = this.S("Intern_Value_Int");
         this.InternValueString = this.S("Intern_Value_String");
         this.RefKindIntMacro = this.S("RefKindInt");
+        this.RefKindStringValueMacro = this.S("RefKindStringValue");
         this.RefKindStringValueDataMacro = this.S("RefKindStringValueData");
         this.ClassInt32 = this.S("Int32");
         this.StateGet = this.S("G");
@@ -195,6 +196,7 @@ public class ClassGen : ClassBase
     public virtual String InternValueInt { get; set; }
     public virtual String InternValueString { get; set; }
     public virtual String RefKindIntMacro { get; set; }
+    public virtual String RefKindStringValueMacro { get; set; }
     public virtual String RefKindStringValueDataMacro { get; set; }
     public virtual String ClassInt32 { get; set; }
     public virtual String StateGet { get; set; }
@@ -993,7 +995,7 @@ public class ClassGen : ClassBase
         this.Text(this.NewLine);
         this.ExecuteStringAny();
         this.Text(this.NewLine);
-        this.ExecuteStringArray();
+        this.ExecuteStringList();
         return true;
     }
 
@@ -1184,21 +1186,62 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool ExecuteStringArray()
+    public virtual bool ExecuteStringList()
     {
+        long count;
+        count = this.StringValue.Count;
+
         this.Text(this.ClassInt);
 
         this.Text(this.Space);
 
-        
-        long count;
-        count = this.StringValue.Count;
+        this.StringListName(this.Class);
+
+        this.Text(this.LimitBraceSquareLite);
+        this.TextInt(count);
+        this.Text(this.LimitBraceSquareRite);
+
+        this.Text(this.Space);
+        this.Text(this.LimitAre);
+        this.Text(this.NewLine);
+
+        this.Text(this.LimitBraceLite);
+        this.Text(this.NewLine);
+
+        this.IndentCount = this.IndentCount + 1;
+
         long i;
         i = 0;
         while (i < count)
         {
+            this.TextIndent();
+            
+            this.Text(this.CastInt);
+            this.Text(this.LimitBraceRoundLite);
+            this.StringAnyName(this.Class, i);
+            this.Text(this.LimitBraceRoundRite);
+
+            this.Text(this.Space);
+            this.Text(this.LimitAdd);
+            this.Text(this.Space);
+
+            this.Text(this.LimitBraceRoundLite);
+            this.Text(this.RefKindStringValueMacro);
+            this.Text(this.Space);
+            this.Text(this.LimitBitLite);
+            this.Text(this.Space);
+            this.TextInt(60);
+            this.Text(this.LimitBraceRoundRite);
+
+            this.Text(this.LimitComma);
+            this.Text(this.NewLine);
         }
-        
+
+        this.IndentCount = this.IndentCount - 1;
+
+        this.Text(this.LimitBraceRite);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
         return true;
     }
 
