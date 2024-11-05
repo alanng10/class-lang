@@ -14,7 +14,6 @@ public class StringValueTraverse : Traverse
         this.SetOperate = new SetStringValueOperate();
         this.SetOperate.Traverse = this;
         this.SetOperate.Init();
-
         return true;
     }
 

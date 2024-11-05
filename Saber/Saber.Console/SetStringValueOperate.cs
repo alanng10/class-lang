@@ -6,9 +6,10 @@ public class SetStringValueOperate : StringValueOperate
     {
         long index;
         index = this.Traverse.Index;
-        index = index + 1;
 
         this.Traverse.Array.SetAt(index, k);
+
+        index = index + 1;
 
         this.Traverse.Index = index;
         return true;
