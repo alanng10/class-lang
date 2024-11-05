@@ -28,6 +28,7 @@ public class LibraryGen : ClassBase
         this.SIntern = this.S("Intern");
         this.SExtern = this.S("Extern");
         this.SC = this.S("c");
+        this.SH = this.S("h");
         this.SPro = this.S("pro");
         this.SModule = this.S("Module");
         return true;
@@ -57,6 +58,7 @@ public class LibraryGen : ClassBase
     protected virtual String SIntern { get; set; }
     protected virtual String SExtern { get; set; }
     protected virtual String SC { get; set; }
+    protected virtual String SH { get; set; }
     protected virtual String SPro { get; set; }
     protected virtual String SModule { get; set; }
 
@@ -425,6 +427,37 @@ public class LibraryGen : ClassBase
         return true;
     }
 
+    protected virtual bool ExecuteGenModuleHeaderSource()
+    {
+        this.ModuleHeaderGen.Gen = this.ClassGen;
+        this.ModuleHeaderGen.Module = this.Module;
+
+        this.ModuleHeaderGen.Execute();
+        String k;
+        k = this.ModuleHeaderGen.Result;
+
+        this.ModuleHeaderGen.Result = null;
+        this.ModuleHeaderGen.Module = null;
+        this.ModuleHeaderGen.Gen = null;
+
+        String fileName;
+        fileName = this.AddClear().Add(this.SModule).Add(this.ClassInfra.Dot).Add(this.SH).AddResult();
+
+        String filePath;
+        filePath = this.AddClear().Add(this.GenModuleFoldPath).Add(this.TextInfra.PathCombine).Add(fileName).AddResult();
+
+        bool b;
+        b = this.StorageInfra.TextWrite(filePath, k);
+
+        if (!b)
+        {
+            this.Status = 40;
+            return false;
+        }
+
+        return true;
+    }
+
     protected virtual bool ExecuteGenProject()
     {
         Array moduleRefStringArray;
@@ -460,7 +493,7 @@ public class LibraryGen : ClassBase
 
         if (!b)
         {
-            this.Status = 40;
+            this.Status = 50;
             return false;
         }
 
@@ -529,7 +562,7 @@ public class LibraryGen : ClassBase
 
         if (!(k == 0))
         {
-            this.Status = 50;
+            this.Status = 60;
             return false;
         }
 
