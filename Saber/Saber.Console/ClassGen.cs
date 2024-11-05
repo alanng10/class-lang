@@ -515,7 +515,7 @@ public class ClassGen : ClassBase
 
         this.ExecuteClassAny();
 
-        this.ExecuteClassInt();
+        this.ExecuteClassVar();
         return true;
     }
 
@@ -735,7 +735,7 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool ExecuteClassInt()
+    public virtual bool ExecuteClassVar()
     {
         this.Text(this.ClassInt);
         this.Text(this.Space);
