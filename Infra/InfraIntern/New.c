@@ -15,18 +15,10 @@ Int Intern_New(Int kind, Int info, Eval* eval)
     Int kk;
     kk = 0;
 
-    Int infoA;
-    infoA = 0;
-
     if (kind == RefKindAny)
     {
-        Intern_Class_Maide mm;
-        mm = (Intern_Class_Maide)info;
-
-        infoA = mm();
-
         Int* cc;
-        cc = CastPointer(infoA);
+        cc = CastPointer(info);
 
         kk = cc[2];
         kk = kk + 1;
@@ -52,8 +44,6 @@ Int Intern_New(Int kind, Int info, Eval* eval)
     }
     if (kind == RefKindArray)
     {
-        infoA = info;
-
         kk = info;
         kk = kk + 1;
     }
@@ -93,7 +83,7 @@ Int Intern_New(Int kind, Int info, Eval* eval)
 
     if ((kind == RefKindAny) | (kind == RefKindArray))
     {
-        *pa = infoA;
+        *pa = info;
     }
 
     Int ke;
