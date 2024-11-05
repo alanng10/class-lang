@@ -2213,7 +2213,10 @@ public class ClassGen : ClassBase
         this.Text(this.LimitComma);
         this.Text(this.Space);
 
-        this.ClassVarName(varClass);
+        this.Text(this.CastInt);
+        this.Text(this.LimitBraceRoundLite);
+        this.ClassMaideName(varClass);
+        this.Text(this.LimitBraceRoundRite);
 
         this.Text(this.LimitComma);
         this.Text(this.Space);
@@ -2234,7 +2237,10 @@ public class ClassGen : ClassBase
         this.Text(this.InternShareMaide);
         this.Text(this.LimitBraceRoundLite);
 
-        this.ClassVarName(varClass);
+        this.Text(this.CastInt);
+        this.Text(this.LimitBraceRoundLite);
+        this.ClassMaideName(varClass);
+        this.Text(this.LimitBraceRoundRite);
 
         this.Text(this.LimitComma);
         this.Text(this.Space);
