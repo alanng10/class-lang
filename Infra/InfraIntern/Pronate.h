@@ -29,7 +29,6 @@ typedef struct
 }
 ThreadData;
 
-typedef Int (*Intern_Class_Maide)();
 
 typedef Int (*Intern_ModuleInit_Maide)();
 
