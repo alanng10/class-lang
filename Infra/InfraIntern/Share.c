@@ -2,8 +2,14 @@
 
 Int Intern_Share(Int info, Eval* eval)
 {
+    Intern_Class_Maide mm;
+    mm = (Intern_Class_Maide)info;
+
+    Int nn;
+    nn = mm();
+
     Int* p;
-    p = CastPointer(info);
+    p = CastPointer(nn);
 
     Int phore;
     phore = p[4];
