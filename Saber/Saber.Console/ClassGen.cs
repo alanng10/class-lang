@@ -91,7 +91,6 @@ public class ClassGen : ClassBase
         this.StringWord = this.S("String");
         this.DataWord = this.S("Data");
         this.CastInt = this.S("CastInt");
-        this.StringValueArray = this.S("StringValue");
         this.WhileLabelPre = this.S("W_");
         this.DirectiveInclude = this.S("#include");
         this.IncludeValueInfra = this.S("<Infra/Prusate.h>");
@@ -219,7 +218,6 @@ public class ClassGen : ClassBase
     public virtual String StringWord { get; set; }
     public virtual String DataWord { get; set; }
     public virtual String CastInt { get; set; }
-    public virtual String StringValueArray { get; set; }
     public virtual String WhileLabelPre { get; set; }
     public virtual String DirectiveInclude { get; set; }
     public virtual String IncludeValueInfra { get; set; }
