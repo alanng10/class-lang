@@ -171,6 +171,48 @@ public class LibraryGen : ClassBase
         return true;
     }
 
+    protected virtual bool ExecuteBase()
+    {
+        long count;
+        count = this.Module.Class.Count;
+
+        Array array;
+        array = this.ListInfra.ArrayCreate(count);
+
+        this.ClassBaseArray = array;
+
+        Iter iter;
+        iter = this.Module.Class.IterCreate();
+
+        this.Module.Class.IterSet(iter);
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            iter.Next();
+
+            ClassClass varClass;
+            varClass = iter.Value as ClassClass;
+
+            this.ClassBaseGen.Class = varClass;
+
+            this.ClassBaseGen.Execute();
+
+            Array a;
+            a = this.ClassBaseGen.Result;
+
+            this.ClassBaseGen.Result = null;
+            this.ClassBaseGen.Class = null;
+
+            array.SetAt(i, a);
+
+            i = i + 1;
+        }
+
+        return true;
+    }
+
     protected virtual bool ExecuteClassComp()
     {
         long count;
