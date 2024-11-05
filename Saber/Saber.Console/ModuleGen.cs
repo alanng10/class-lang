@@ -2,17 +2,9 @@ namespace Saber.Console;
 
 public class ModuleGen : ClassBase
 {
-    public override bool Init()
-    {
-        base.Init();
-        this.ModuleWord = this.S("Module");
-        return true;
-    }
-
     public virtual ClassGen Gen { get; set; }
     public virtual ClassModule Module { get; set; }
     public virtual String Result { get; set; }
-    public virtual String ModuleWord { get; set; }
 
     public virtual bool Execute()
     {
@@ -77,15 +69,10 @@ public class ModuleGen : ClassBase
         long count;
         count = this.Module.Class.Count;
 
-        gen.Text(gen.ExportWord);
-        gen.Text(gen.ApiWord);
-
-        gen.Text(gen.Space);
-
         gen.Text(gen.ClassInt);
         gen.Text(gen.Space);
 
-        this.ModuleName(this.Module);
+        gen.ModuleVarName(this.Module);
         gen.Text(gen.LimitBraceSquareLite);
         gen.TextInt(2);
         gen.Text(gen.LimitBraceSquareRite);
@@ -201,17 +188,6 @@ public class ModuleGen : ClassBase
         gen.Text(gen.NameCombine);
         gen.Text(gen.ClassWord);
         gen.Text(gen.ListWord);
-        return true;
-    }
-
-    public virtual bool ModuleName(ClassModule module)
-    {
-        ClassGen gen;
-        gen = this.Gen;
-
-        gen.ModuleRef(module.Ref);
-        gen.Text(gen.NameCombine);
-        gen.Text(this.ModuleWord);
         return true;
     }
 }

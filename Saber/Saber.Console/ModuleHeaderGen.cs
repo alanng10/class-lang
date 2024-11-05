@@ -65,6 +65,29 @@ public class ModuleHeaderGen : ClassBase
         return true;
     }
 
+    public virtual bool ExecuteExternModule()
+    {
+        ClassGen gen;
+        gen = this.Gen;
+
+        gen.Text(gen.ExportWord);
+        gen.Text(gen.ApiWord);
+
+        gen.Text(gen.Space);
+
+        gen.Text(gen.ClassInt);
+        gen.Text(gen.Space);
+
+        gen.ModuleVarName(this.Module);
+        gen.Text(gen.LimitBraceSquareLite);
+        gen.TextInt(2);
+        gen.Text(gen.LimitBraceSquareRite);
+        
+        gen.Text(gen.LimitSemicolon);
+        gen.Text(gen.NewLine);
+        return true;
+    }
+
     public virtual bool ExecuteExternClassList()
     {
         ClassGen gen;

@@ -77,6 +77,7 @@ public class ClassGen : ClassBase
         this.NameCombine = this.S("_");
         this.NamePre = this.S("C");
         this.ClassWord = this.S("Class");
+        this.ModuleWord = this.S("Module");
         this.ListWord = this.S("List");
         this.BaseWord = this.S("Base");
         this.ItemWord = this.S("Item");
@@ -205,6 +206,7 @@ public class ClassGen : ClassBase
     public virtual String NameCombine { get; set; }
     public virtual String NamePre { get; set; }
     public virtual String ClassWord { get; set; }
+    public virtual String ModuleWord { get; set; }
     public virtual String ListWord { get; set; }
     public virtual String BaseWord { get; set; }
     public virtual String ItemWord { get; set; }
@@ -1177,6 +1179,14 @@ public class ClassGen : ClassBase
         this.Text(this.NameCombine);
         this.Text(this.ClassWord);
         this.Text(this.AnyWord);
+        return true;
+    }
+
+    public virtual bool ModuleVarName(ClassModule module)
+    {
+        this.ModuleRef(module.Ref);
+        this.Text(this.NameCombine);
+        this.Text(this.ModuleWord);
         return true;
     }
 
