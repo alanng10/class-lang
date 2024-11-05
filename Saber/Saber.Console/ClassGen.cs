@@ -337,36 +337,6 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool BaseArraySet()
-    {
-        long count;
-        count = this.Class.BaseCount;
-
-        Array array;
-        array = this.ListInfra.ArrayCreate(count);
-
-        this.BaseArray = array;
-
-        ClassClass c;
-        c = this.Class;
-
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            long index;
-            index = count - 1 - i;
-
-            array.SetAt(index, c);
-
-            c = c.Base;
-
-            i = i + 1;
-        }
-
-        return true;
-    }
-
     public virtual bool ExecuteRefer()
     {
         this.Include(this.IncludeValueModule);
