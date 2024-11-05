@@ -2933,18 +2933,6 @@ public class ClassGen : ClassBase
         this.Text(this.NameCombine);
 
         this.Text(this.ClassWord);
-
-        this.Text(this.VarWord);
-        return true;
-    }
-
-    public virtual bool ClassMaideName(ClassClass varClass)
-    {
-        this.ClassName(varClass);
-
-        this.Text(this.NameCombine);
-
-        this.Text(this.ClassWord);
         return true;
     }
 
