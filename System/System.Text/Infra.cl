@@ -21,7 +21,7 @@ class Infra : Any
         this.AlphaNiteForm : new AlphaNiteForm;
         this.AlphaNiteForm.Init();
         this.AlphaSiteForm : new AlphaSiteForm;
-        this.AlphaSiteForm.Init();        
+        this.AlphaSiteForm.Init();
         return true;
     }
 
