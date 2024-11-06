@@ -9,7 +9,7 @@ set WorkingFold=%cd%
 pushd %InfraDemoProjectOutFold%
 
 setlocal
-set "PATH=%WorkingFold%\%InfraDeployFold%;%PATH%" && release\InfraDemo
+set "QT_PLUGIN_PATH=%WorkingFold%\%InfraDeployFold%" && set "PATH=%WorkingFold%\%InfraDeployFold%;%PATH%" && release\InfraDemo
 echo Status: %errorlevel%
 endlocal
 
