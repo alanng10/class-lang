@@ -9,6 +9,7 @@ public class Entry : Any
         return true;
     }
 
+    private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
     protected virtual TextStringValue TextStringValue { get; set; }
     private StorageComp StorageComp { get; set; }
@@ -30,6 +31,8 @@ public class Entry : Any
 
     protected virtual bool MainBefore()
     {
+        
+
         ulong ua;
         ua = 1;
         Extern.Main_IsCSharpSet(ua);
