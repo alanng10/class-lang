@@ -5,6 +5,7 @@ public class Entry : Any
     public override bool Init()
     {
         base.Init();
+        this.InternIntern = InternIntern.This;
         this.InternInfra = InternInfra.This;
         return true;
     }
@@ -31,7 +32,7 @@ public class Entry : Any
 
     protected virtual bool MainBefore()
     {
-        
+        this.InternIntern.LibEnviron();
 
         ulong ua;
         ua = 1;
