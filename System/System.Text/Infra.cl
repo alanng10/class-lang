@@ -246,7 +246,7 @@ class Infra : Any
             n : letterStart + m;
         }
         
-        n : bit&(n, 0hffffffff);
+        n : bit &(n, 0hffffffff);
 
         var Int a;
         a : n;
