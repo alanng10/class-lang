@@ -1,4 +1,5 @@
 @echo off
 
 set ClassOutFold=.\Out\Class
-rmdir /S /Q %ClassOutFold% 2>NUL
+
+mkdir %ClassOutFold% 1>NUL 2>NUL
