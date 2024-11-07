@@ -496,7 +496,7 @@ public class ClassGen : ClassBase
         this.Text(this.InternBaseSet);
         this.Text(this.LimitBraceRoundLite);
         this.Text(this.LimitAnd);
-        this.ModuleClassVarName(this.Class);
+        this.Text(this.VarKWord);
         this.Text(this.LimitComma);
         this.Text(this.Space);
 

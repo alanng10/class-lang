@@ -197,7 +197,7 @@ Bool Intern_ArgInit()
     return true;
 }
 
-Int Intern_Base_Set(Intern_Class* varClass, Intern_Class* baseClass, Int count)
+Int Intern_Base_Set(Intern_Class* varClass, Intern_Class* baseClass, Int count, Int* baseItem)
 {
     Int dest;
     dest = varClass->Data[0];
@@ -209,5 +209,10 @@ Int Intern_Base_Set(Intern_Class* varClass, Intern_Class* baseClass, Int count)
     dataCount = count * Constant_IntByteCount();
 
     Copy(dest, source, dataCount);
+
+    Int* p;
+    p = CastPointer(dest);
+
+    p[count] = CastInt(baseItem);
     return 0;
 }
