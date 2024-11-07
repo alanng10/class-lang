@@ -1092,6 +1092,19 @@ public class ClassGen : ClassBase
         return true;
     }
 
+    public virtual bool ModuleClassVarClassName(ClassClass varClass)
+    {
+        this.ModuleVarName(varClass.Module);
+        this.Text(this.LimitDot);
+        this.Text(this.ClassWord);
+        this.Text(this.LimitBraceSquareLite);
+        this.TextInt(varClass.Index);
+        this.Text(this.LimitBraceSquareRite);
+        this.Text(this.LimitDot);
+        this.Text(this.VarWord);
+        return true;
+    }
+
     public virtual bool BaseName(ClassClass varClass)
     {
         this.ClassName(varClass);
@@ -2877,16 +2890,6 @@ public class ClassGen : ClassBase
         this.Text(this.NameCombine);
 
         this.Text(kb);
-        return true;
-    }
-
-    public virtual bool ClassVarName(ClassClass varClass)
-    {
-        this.ClassName(varClass);
-
-        this.Text(this.NameCombine);
-
-        this.Text(this.ClassWord);
         return true;
     }
 
