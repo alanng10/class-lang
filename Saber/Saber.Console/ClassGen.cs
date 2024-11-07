@@ -581,6 +581,39 @@ public class ClassGen : ClassBase
         this.Text(this.ClassInt);
         this.Text(this.LimitAsterisk);
         this.Text(this.Space);
+        this.Text(this.VarNWord);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
+
+
+
+        return true;
+    }
+
+    public virtual bool ExecuteCompListSetKind(long index)
+    {
+        this.TextIndent();
+        this.Text(this.VarNWord);
+        this.Text(this.Space);
+        this.Text(this.LimitAre);
+        this.Text(this.Space);
+
+        this.Text(this.LimitBraceRoundLite);
+        
+        this.Text(this.LimitBraceRoundLite);
+        this.Text(this.ClassInt);
+        this.Text(this.LimitAsterisk);
+        this.Text(this.LimitBraceRoundRite);
+        
+        this.Text(this.VarKWord);
+        this.Text(this.LimitDot);
+        this.Text(this.BaseWord);
+        this.Text(this.ItemWord);
+        this.Text(this.LimitBraceSquareLite);
+        this.TextInt(index);
+        this.Text(this.LimitBraceSquareRite);
+
+        this.Text(this.LimitBraceRoundRite);
         return true;
     }
 
