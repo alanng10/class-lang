@@ -67,6 +67,8 @@ public class ClassGen : ClassBase
         this.InternValueBool = this.S("Intern_Value_Bool");
         this.InternValueInt = this.S("Intern_Value_Int");
         this.InternValueString = this.S("Intern_Value_String");
+        this.InternClassStruct = this.S("Intern_Class");
+        this.InternModuleStruct = this.S("Intern_Module");
         this.RefKindIntMacro = this.S("RefKindInt");
         this.RefKindStringValueMacro = this.S("RefKindStringValue");
         this.RefKindStringValueDataMacro = this.S("RefKindStringValueData");
@@ -91,6 +93,8 @@ public class ClassGen : ClassBase
         this.ExternWord = this.S("Extern");
         this.StringWord = this.S("String");
         this.DataWord = this.S("Data");
+        this.VarOWord = this.S("o");
+        this.VarKWord = this.S("k");
         this.CastInt = this.S("CastInt");
         this.WhileLabelPre = this.S("W_");
         this.DirectiveInclude = this.S("#include");
@@ -198,6 +202,8 @@ public class ClassGen : ClassBase
     public virtual String InternValueBool { get; set; }
     public virtual String InternValueInt { get; set; }
     public virtual String InternValueString { get; set; }
+    public virtual String InternClassStruct { get; set; }
+    public virtual String InternModuleStruct { get; set; }
     public virtual String RefKindIntMacro { get; set; }
     public virtual String RefKindStringValueMacro { get; set; }
     public virtual String RefKindStringValueDataMacro { get; set; }
@@ -222,6 +228,8 @@ public class ClassGen : ClassBase
     public virtual String ExternWord { get; set; }
     public virtual String StringWord { get; set; }
     public virtual String DataWord { get; set; }
+    public virtual String VarOWord { get; set; }
+    public virtual String VarKWord { get; set; }
     public virtual String CastInt { get; set; }
     public virtual String WhileLabelPre { get; set; }
     public virtual String DirectiveInclude { get; set; }
@@ -417,6 +425,10 @@ public class ClassGen : ClassBase
 
         this.IndentCount = this.IndentCount + 1;
 
+        this.TextIndent();
+
+        this.Text(this.InternModuleStruct);
+        this.Text(this.Space);
 
 
         this.IndentCount = this.IndentCount - 1;
