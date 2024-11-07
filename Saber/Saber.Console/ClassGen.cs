@@ -686,9 +686,16 @@ public class ClassGen : ClassBase
                     ka = maide.Parent;
                 }
 
-                if (ka == this.Class)
+                bool ba;
+                ba = (ka == this.Class);
+
+                if (ba)
                 {
                     this.ExecuteCompListSetStateThisClass(i, k, stateKind);
+                }
+                if (!ba)
+                {
+                    this.ExecuteCompListSetStateBaseClass(i);
                 }
             }
 
@@ -720,7 +727,7 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool ExecuteCompListSetStateBaseClass(long index, long stateKind)
+    public virtual bool ExecuteCompListSetStateBaseClass(long index)
     {
         this.TextIndent();
 
@@ -733,7 +740,14 @@ public class ClassGen : ClassBase
         this.Text(this.LimitAre);
         this.Text(this.Space);
 
+        this.Text(this.VarMWord);
+        this.Text(this.LimitBraceSquareLite);
+        this.TextInt(index);
+        this.Text(this.LimitBraceSquareRite);
 
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
+        return true;
     }
 
     public virtual bool ExecuteString()
