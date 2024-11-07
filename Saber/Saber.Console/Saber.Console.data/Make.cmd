@@ -2,7 +2,8 @@
 
 call Var
 
-set Module=%~1
+set ClassPath=%~1
+set Module=%~2
 
 call DeleteOutFold %Module%
 call MakeModuleProject %Module%
