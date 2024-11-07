@@ -97,7 +97,7 @@ public class ClassGen : ClassBase
         this.IncludeValueInfra = this.S("<Infra/Prusate.h>");
         this.IncludeValueInfraIntern = this.S("<InfraIntern/Prusate.h>");
         this.IncludeValueModule = this.S("\"Module.h\"");
-        this.PragmaOnce = this.S("#pragma once");
+        this.DirectivePragmaOnce = this.S("#pragma once");
         this.IndexExtern = this.S("extern");
         this.IndexReturn = this.S("return");
         this.IndexInf = this.S("if");
@@ -227,7 +227,7 @@ public class ClassGen : ClassBase
     public virtual String IncludeValueInfra { get; set; }
     public virtual String IncludeValueInfraIntern { get; set; }
     public virtual String IncludeValueModule { get; set; }
-    public virtual String PragmaOnce { get; set; }
+    public virtual String DirectivePragmaOnce { get; set; }
     public virtual String IndexExtern { get; set; }
     public virtual String IndexReturn { get; set; }
     public virtual String IndexInf { get; set; }
@@ -1113,9 +1113,9 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool DirectivePragmaOnce()
+    public virtual bool PragmaOnce()
     {
-        this.Text(this.PragmaOnce);
+        this.Text(this.DirectivePragmaOnce);
         this.Text(this.NewLine);
         return true;
     }

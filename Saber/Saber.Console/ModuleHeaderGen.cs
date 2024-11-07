@@ -50,6 +50,9 @@ public class ModuleHeaderGen : ClassBase
         ClassGen gen;
         gen = this.Gen;
 
+        gen.PragmaOnce();
+        gen.Text(gen.NewLine);
+
         gen.Include(gen.IncludeValueInfra);
         gen.Include(gen.IncludeValueInfraIntern);
         gen.Text(gen.NewLine);
