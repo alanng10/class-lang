@@ -1,6 +1,6 @@
 @echo off
 
-echo Copy Infra
+echo Deploy Infra
 
 set ClassOutFold=.\Out\Class
 set InfraDeployFold=.\Out\InfraDeploy
