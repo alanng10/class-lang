@@ -2,11 +2,10 @@
 
 call Var
 
-set ClassPath=%~1
-set Module=%~2
+set Module=%~1
 
 call DeleteOutFold %Module%
 call MakeModuleProject %Module%
 call MakeModule %Module%
-call MoveBinary "%ClassPath%" %Module%
+call MoveBinary %Module%
 call DeleteOutFold %Module%

@@ -1,7 +1,8 @@
 @echo off
 
-set ClassPath=%~1
-set ModuleRef=%~2
+set ModuleRef=%~1
+
+set /p ClassPath=<ClassPath.txt
 
 set ProjectOutFold=.\Gen\%ModuleRef%-Out
 
