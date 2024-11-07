@@ -1094,6 +1094,7 @@ public class ClassGen : ClassBase
 
     public virtual bool ModuleClassVarClassName(ClassClass varClass)
     {
+        this.Text(this.LimitBraceRoundLite);
         this.ModuleVarName(varClass.Module);
         this.Text(this.LimitDot);
         this.Text(this.ClassWord);
@@ -1102,6 +1103,7 @@ public class ClassGen : ClassBase
         this.Text(this.LimitBraceSquareRite);
         this.Text(this.LimitDot);
         this.Text(this.VarWord);
+        this.Text(this.LimitBraceRoundRite);
         return true;
     }
 
@@ -1964,7 +1966,7 @@ public class ClassGen : ClassBase
         this.Text(limit);
         this.Text(space);
 
-        this.ClassVarName(varClass);
+        this.ModuleClassVarClassName(varClass);
 
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
@@ -2040,7 +2042,7 @@ public class ClassGen : ClassBase
         this.Text(this.LimitComma);
         this.Text(this.Space);
 
-        this.ClassVarName(varClass);
+        this.ModuleClassVarClassName(varClass);
 
         this.Text(this.LimitComma);
         this.Text(this.Space);
@@ -2061,7 +2063,7 @@ public class ClassGen : ClassBase
         this.Text(this.InternShareMaide);
         this.Text(this.LimitBraceRoundLite);
 
-        this.ClassVarName(varClass);
+        this.ModuleClassVarClassName(varClass);
 
         this.Text(this.LimitComma);
         this.Text(this.Space);
