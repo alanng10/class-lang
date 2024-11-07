@@ -96,6 +96,7 @@ public class ClassGen : ClassBase
         this.DataWord = this.S("Data");
         this.VarOWord = this.S("o");
         this.VarKWord = this.S("k");
+        this.VarNWord = this.S("n");
         this.CastInt = this.S("CastInt");
         this.WhileLabelPre = this.S("W_");
         this.DirectiveInclude = this.S("#include");
@@ -232,6 +233,7 @@ public class ClassGen : ClassBase
     public virtual String DataWord { get; set; }
     public virtual String VarOWord { get; set; }
     public virtual String VarKWord { get; set; }
+    public virtual String VarNWord { get; set; }
     public virtual String CastInt { get; set; }
     public virtual String WhileLabelPre { get; set; }
     public virtual String DirectiveInclude { get; set; }
@@ -570,6 +572,15 @@ public class ClassGen : ClassBase
 
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
+        return true;
+    }
+
+    public virtual bool ExecuteCompListSet()
+    {
+        this.TextIndent();
+        this.Text(this.ClassInt);
+        this.Text(this.LimitAsterisk);
+        this.Text(this.Space);
         return true;
     }
 
