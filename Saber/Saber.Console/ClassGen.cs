@@ -399,18 +399,6 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool BaseItemCompList(ClassClass varClass, String stateKind)
-    {
-        this.TextIndent();
-        this.Text(this.CastInt);
-        this.Text(this.LimitBraceRoundLite);
-        this.CompListName(varClass, stateKind);
-        this.Text(this.LimitBraceRoundRite);
-        this.Text(this.LimitComma);
-        this.Text(this.NewLine);
-        return true;
-    }
-
     public virtual bool ExecuteExternCompList(ClassClass varClass, Array array, long stateKind)
     {
         long count;
