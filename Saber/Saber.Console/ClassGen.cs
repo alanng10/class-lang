@@ -490,15 +490,27 @@ public class ClassGen : ClassBase
     {
         long count;
         count = this.BaseArray.Count;
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            
+        count = count - 1;
 
-            i = i + 1;
-        }
+        this.TextIndent();
+        this.Text(this.InternBaseSet);
+        this.Text(this.LimitBraceRoundLite);
+        this.Text(this.LimitAnd);
+        this.ModuleClassVarName(this.Class);
+        this.Text(this.LimitComma);
+        this.Text(this.Space);
 
+        this.Text(this.LimitAnd);
+        this.ModuleClassVarName(this.Class.Base);
+        this.Text(this.LimitComma);
+        this.Text(this.Space);
+
+        this.TextInt(count);
+
+        this.Text(this.LimitBraceRoundRite);
+
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
         return true;
     }
 
