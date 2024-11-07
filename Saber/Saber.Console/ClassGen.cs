@@ -366,8 +366,12 @@ public class ClassGen : ClassBase
 
     public virtual bool ExecuteCompList(long count, String stateKind)
     {
+        this.Text(this.IndexStatic);
+        this.Text(this.Space);
+
         this.Text(this.ClassInt);
         this.Text(this.Space);
+        
         this.CompListName(this.Class, stateKind);
         this.Text(this.LimitBraceSquareLite);
         this.TextInt(count);
