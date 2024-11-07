@@ -351,17 +351,9 @@ public class ClassGen : ClassBase
         this.ExecuteCompList(this.ClassComp.Maide, this.StateCall);
         this.Text(this.NewLine);
 
-        this.ExecuteExternClassAny(this.Class);
-        this.Text(this.NewLine);
-
         this.ExecuteBase();
         this.Text(this.NewLine);
 
-        this.ExecuteClassAny();
-        this.Text(this.NewLine);
-
-        this.ExecuteClassVar();
-        this.Text(this.NewLine);
         return true;
     }
 
@@ -401,103 +393,6 @@ public class ClassGen : ClassBase
         this.Text(this.LimitBraceSquareLite);
         this.TextInt(count);
         this.Text(this.LimitBraceSquareRite);
-
-        this.Text(this.LimitSemicolon);
-        this.Text(this.NewLine);
-        return true;
-    }
-
-    public virtual bool ExecuteClassAny()
-    {
-        long baseIndex;
-        baseIndex = this.Class.BaseCount - 1;
-
-        long fieldCount;
-        fieldCount = this.Class.FieldStart + this.Class.Field.Count;
-
-        this.Text(this.ClassInt);
-        this.Text(this.Space);
-
-        this.ClassAnyName(this.Class);
-        this.Text(this.LimitBraceSquareLite);
-        this.TextInt(5);
-        this.Text(this.LimitBraceSquareRite);
-
-        this.Text(this.Space);
-        this.Text(this.LimitAre);
-        this.Text(this.NewLine);
-
-        this.Text(this.LimitBraceLite);
-        this.Text(this.NewLine);
-
-        this.IndentCount = this.IndentCount + 1;
-
-        this.TextIndent();
-
-        this.Text(this.CastInt);
-        this.Text(this.LimitBraceRoundLite);
-        this.BaseName(this.Class);
-        this.Text(this.LimitBraceRoundRite);
-        this.Text(this.LimitComma);
-        this.Text(this.Space);
-
-        this.TextIntHex(baseIndex);
-        this.Text(this.LimitComma);
-        this.Text(this.Space);
-
-        this.TextInt(fieldCount);
-        this.Text(this.LimitComma);
-        this.Text(this.Space);
-
-        this.Text(this.Zero);
-        this.Text(this.LimitComma);
-        this.Text(this.Space);
-
-        this.Text(this.Zero);
-
-        this.Text(this.NewLine);
-
-        this.IndentCount = this.IndentCount - 1;
-
-        this.Text(this.LimitBraceRite);
-        this.Text(this.LimitSemicolon);
-        this.Text(this.NewLine);
-        return true;
-    }
-
-    public virtual bool ExecuteExternClassAny(ClassClass varClass)
-    {
-        this.Text(this.IndexExtern);
-        this.Text(this.Space);
-
-        this.Text(this.ClassInt);
-        this.Text(this.Space);
-
-        this.ClassAnyName(varClass);
-        this.Text(this.LimitBraceSquareLite);
-        this.TextInt(5);
-        this.Text(this.LimitBraceSquareRite);
-
-        this.Text(this.LimitSemicolon);
-        this.Text(this.NewLine);
-        return true;
-    }
-
-    public virtual bool ExecuteClassVar()
-    {
-        this.Text(this.ClassInt);
-        this.Text(this.Space);
-
-        this.ClassVarName(this.Class);
-
-        this.Text(this.Space);
-        this.Text(this.LimitAre);
-        this.Text(this.Space);
-
-        this.Text(this.CastInt);
-        this.Text(this.LimitBraceRoundLite);
-        this.ClassAnyName(this.Class);
-        this.Text(this.LimitBraceRoundRite);
 
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
