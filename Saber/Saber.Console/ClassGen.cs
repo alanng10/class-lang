@@ -99,6 +99,7 @@ public class ClassGen : ClassBase
         this.IncludeValueModule = this.S("\"Module.h\"");
         this.DirectivePragmaOnce = this.S("#pragma once");
         this.IndexExtern = this.S("extern");
+        this.IndexStatic = this.S("static");
         this.IndexReturn = this.S("return");
         this.IndexInf = this.S("if");
         this.IndexGoto = this.S("goto");
@@ -229,6 +230,7 @@ public class ClassGen : ClassBase
     public virtual String IncludeValueModule { get; set; }
     public virtual String DirectivePragmaOnce { get; set; }
     public virtual String IndexExtern { get; set; }
+    public virtual String IndexStatic { get; set; }
     public virtual String IndexReturn { get; set; }
     public virtual String IndexInf { get; set; }
     public virtual String IndexGoto { get; set; }
