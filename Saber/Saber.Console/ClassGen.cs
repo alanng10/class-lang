@@ -2734,22 +2734,7 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool FieldGetMaideName(ClassClass varClass, String compName, long compIndex)
-    {
-        return this.CompStateMaideName(varClass, compName, compIndex, this.StateGet);
-    }
-
-    public virtual bool FieldSetMaideName(ClassClass varClass, String compName, long compIndex)
-    {
-        return this.CompStateMaideName(varClass, compName, compIndex, this.StateSet);
-    }
-
-    public virtual bool MaideCallMaideName(ClassClass varClass, String compName, long compIndex)
-    {
-        return this.CompStateMaideName(varClass, compName, compIndex, this.StateCall);
-    }
-
-    public virtual bool CompStateMaideName(ClassClass varClass, String compName, long compIndex, String stateKind)
+    public virtual bool CompStateMaideName(ClassClass varClass, object comp, long stateKind)
     {
         if (varClass == this.InternClass | varClass == this.ExternClass)
         {
@@ -2769,21 +2754,72 @@ public class ClassGen : ClassBase
 
             this.Text(this.NameCombine);
 
-            this.Text(compName);
+            Maide maide;
+            maide = comp as Maide;
+
+            String name;
+            name = maide.Name;
+
+            this.Text(name);
 
             return true;
         }
 
+        String kb;
+        kb = null;
+
+        long ka;
+        ka = 0;
+
+        long kk;
+        kk = 0;
+
+        if (stateKind == this.StateKindGet | stateKind == this.StateKindSet)
+        {
+            ka = varClass.FieldStart;
+
+            Field field;
+            field = comp as Field;
+
+            kk = field.Index;
+
+            bool ba;
+            ba = (stateKind == this.StateKindGet);
+
+            if (ba)
+            {
+                kb = this.StateGet;
+            }
+            if (!ba)
+            {
+                kb = this.StateSet;
+            }
+        }
+
+        if (stateKind == this.StateKindCall)
+        {
+            ka = varClass.MaideStart;
+
+            Maide maide;
+            maide = comp as Maide;
+
+            kk = maide.Index;
+
+            kb = this.StateCall;
+        }
+
+        long ke;
+        ke = ka + kk;
 
         this.ClassName(varClass);
 
         this.Text(this.NameCombine);
 
-        this.CompIndex(compIndex);
+        this.CompIndex(ke);
 
         this.Text(this.NameCombine);
 
-        this.Text(stateKind);
+        this.Text(kb);
         return true;
     }
 
