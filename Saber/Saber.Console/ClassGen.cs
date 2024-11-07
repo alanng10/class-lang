@@ -1460,13 +1460,13 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool CompStateHead(ClassClass varClass, String name, long compIndex, String stateKind)
+    public virtual bool CompStateHead(ClassClass varClass, object comp, long stateKind)
     {
         this.Text(this.ClassInt);
 
         this.Text(this.Space);
 
-        this.CompStateMaideName(varClass, name, compIndex, stateKind);
+        this.CompStateMaideName(varClass, comp, stateKind);
 
         this.Text(this.LimitBraceRoundLite);
 
