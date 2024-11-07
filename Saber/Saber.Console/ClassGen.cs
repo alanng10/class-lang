@@ -507,14 +507,6 @@ public class ClassGen : ClassBase
 
         this.TextInt(count);
 
-        this.Text(this.LimitComma);
-        this.Text(this.Space);
-
-        this.Text(this.VarKWord);
-        this.Text(this.LimitDot);
-        this.Text(this.BaseWord);
-        this.Text(this.ItemWord);
-
         this.Text(this.LimitBraceRoundRite);
 
         this.Text(this.LimitSemicolon);
