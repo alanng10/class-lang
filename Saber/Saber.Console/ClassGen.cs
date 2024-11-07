@@ -1460,13 +1460,13 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool CompStateHead(ClassClass varClass, String name, String stateKind)
+    public virtual bool CompStateHead(ClassClass varClass, String name, long compIndex, String stateKind)
     {
         this.Text(this.ClassInt);
 
         this.Text(this.Space);
 
-        this.CompStateMaideName(varClass, name, stateKind);
+        this.CompStateMaideName(varClass, name, compIndex, stateKind);
 
         this.Text(this.LimitBraceRoundLite);
 
@@ -1486,9 +1486,9 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool CompStateStart(ClassClass varClass, String name, String stateKind, long localVarCount)
+    public virtual bool CompStateStart(ClassClass varClass, String name, long compIndex, String stateKind, long localVarCount)
     {
-        this.CompStateHead(varClass, name, stateKind);
+        this.CompStateHead(varClass, name, compIndex, stateKind);
 
         this.Text(this.NewLine);
 
@@ -2734,22 +2734,22 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool FieldGetMaideName(ClassClass varClass, String compName)
+    public virtual bool FieldGetMaideName(ClassClass varClass, String compName, long compIndex)
     {
-        return this.CompStateMaideName(varClass, compName, this.StateGet);
+        return this.CompStateMaideName(varClass, compName, compIndex, this.StateGet);
     }
 
-    public virtual bool FieldSetMaideName(ClassClass varClass, String compName)
+    public virtual bool FieldSetMaideName(ClassClass varClass, String compName, long compIndex)
     {
-        return this.CompStateMaideName(varClass, compName, this.StateSet);
+        return this.CompStateMaideName(varClass, compName, compIndex, this.StateSet);
     }
 
-    public virtual bool MaideCallMaideName(ClassClass varClass, String compName)
+    public virtual bool MaideCallMaideName(ClassClass varClass, String compName, long compIndex)
     {
-        return this.CompStateMaideName(varClass, compName, this.StateCall);
+        return this.CompStateMaideName(varClass, compName, compIndex, this.StateCall);
     }
 
-    public virtual bool CompStateMaideName(ClassClass varClass, String compName, String stateKind)
+    public virtual bool CompStateMaideName(ClassClass varClass, String compName, long compIndex, String stateKind)
     {
         if (varClass == this.InternClass | varClass == this.ExternClass)
         {
@@ -2779,7 +2779,7 @@ public class ClassGen : ClassBase
 
         this.Text(this.NameCombine);
 
-        this.NameSymbolString(compName);
+        this.CompIndex(compIndex);
 
         this.Text(this.NameCombine);
 
@@ -2803,7 +2803,19 @@ public class ClassGen : ClassBase
 
         this.Text(this.NameCombine);
 
-        this.Operate.ExecuteTextIntHex(varClass.Index);
+        this.ClassIndex(varClass.Index);
+        return true;
+    }
+
+    public virtual bool ClassIndex(long index)
+    {
+        this.Operate.ExecuteTextIntHex(index);
+        return true;
+    }
+
+    public virtual bool CompIndex(long index)
+    {
+        this.Operate.ExecuteTextIntHex(index);
         return true;
     }
 
