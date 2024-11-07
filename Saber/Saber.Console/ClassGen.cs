@@ -416,6 +416,12 @@ public class ClassGen : ClassBase
 
     public virtual bool ExecuteClassInit()
     {
+        long baseIndex;
+        baseIndex = this.BaseArray.Count - 1;
+
+        long fieldCount;
+        fieldCount = this.Class.FieldStart + this.Class.Field.Count;
+
         this.Text(this.IndexStatic);
         this.Text(this.Space);
 
@@ -478,6 +484,34 @@ public class ClassGen : ClassBase
         this.Text(this.LimitBraceRoundLite);
         this.BaseName(this.Class);
         this.Text(this.LimitBraceRoundRite);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
+
+        this.TextIndent();
+        this.Text(this.VarKWord);
+        this.Text(this.LimitDot);
+        this.Text(this.DataWord);
+        this.Text(this.LimitBraceSquareLite);
+        this.TextInt(1);
+        this.Text(this.LimitBraceSquareRite);
+        this.Text(this.Space);
+        this.Text(this.LimitAre);
+        this.Text(this.Space);
+        this.TextInt(baseIndex);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
+
+        this.TextIndent();
+        this.Text(this.VarKWord);
+        this.Text(this.LimitDot);
+        this.Text(this.DataWord);
+        this.Text(this.LimitBraceSquareLite);
+        this.TextInt(2);
+        this.Text(this.LimitBraceSquareRite);
+        this.Text(this.Space);
+        this.Text(this.LimitAre);
+        this.Text(this.Space);
+        this.TextInt(fieldCount);
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
 
