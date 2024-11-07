@@ -26,7 +26,7 @@ public class ClassGenTraverse : Traverse
 
         gen.LocalVarCount = field.Get.Count - 1;
 
-        gen.CompStateStart(gen.Class, field.Name, gen.StateGet, gen.LocalVarCount);
+        gen.CompStateStart(gen.Class, field, gen.StateKindGet, gen.LocalVarCount);
 
         base.ExecuteState(varGet);
 
@@ -40,7 +40,7 @@ public class ClassGenTraverse : Traverse
 
         gen.LocalVarCount = field.Set.Count - 2;
 
-        gen.CompStateStart(gen.Class, field.Name, gen.StateSet, gen.LocalVarCount);
+        gen.CompStateStart(gen.Class, field, gen.StateKindSet, gen.LocalVarCount);
 
         base.ExecuteState(varSet);
 
@@ -70,7 +70,7 @@ public class ClassGenTraverse : Traverse
 
         gen.LocalVarCount = maide.Call.Count - maide.Param.Count;
 
-        gen.CompStateStart(gen.Class, maide.Name, gen.StateCall, gen.LocalVarCount);
+        gen.CompStateStart(gen.Class, maide, gen.StateKindCall, gen.LocalVarCount);
 
         base.ExecuteState(call);
 
