@@ -130,6 +130,11 @@ public class ModuleHeaderGen : ClassBase
             ClassClass varClass;
             varClass = (ClassClass)iter.Value;
 
+            gen.Text(gen.ImportWord);
+            gen.Text(gen.ApiWord);
+
+            gen.Text(gen.Space);
+
             gen.Text(gen.IndexExtern);
             gen.Text(gen.Space);
 
