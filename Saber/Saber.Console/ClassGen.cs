@@ -399,64 +399,6 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool ExecuteExternCompList(ClassClass varClass, Array array, long stateKind)
-    {
-        long count;
-        count = array.Count;
-
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            object k;
-            k = array.GetAt(i);
-
-            bool ba;
-            ba = (k == null);
-
-            if (!ba)
-            {
-                bool baa;
-                baa = (varClass == this.InternClass | varClass == this.ExternClass);
-
-                bool export;
-                export = false;
-
-                if (!baa)
-                {
-                    export = (varClass.Module == this.Class.Module);
-                }
-
-                String kka;
-                kka = null;
-
-                if (!export)
-                {
-                    kka = this.ImportWord;
-                }
-
-                if (export)
-                {
-                    kka = this.ExportWord;
-                }
-
-                this.Text(kka);
-                this.Text(this.ApiWord);
-
-                this.Text(this.Space);
-
-                this.CompStateHead(varClass, k, stateKind);
-
-                this.Text(this.LimitSemicolon);
-                this.Text(this.NewLine);
-            }
-
-            i = i + 1;
-        }
-
-        return true;
-    }
-
     public virtual bool ExecuteString()
     {
         this.ExecuteStringData();
