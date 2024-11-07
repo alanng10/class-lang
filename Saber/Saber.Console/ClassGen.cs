@@ -485,6 +485,8 @@ public class ClassGen : ClassBase
 
         this.ExecuteBaseItemSet();
 
+        this.ExecuteCompListSet();
+
         this.IndentCount = this.IndentCount - 1;
 
         this.Text(this.LimitBraceRite);
@@ -595,11 +597,13 @@ public class ClassGen : ClassBase
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
 
-
+        this.ExecuteCompListSetKind(this.ClassComp.Field, this.StateKindGet);
+        this.ExecuteCompListSetKind(this.ClassComp.Field, this.StateKindSet);
+        this.ExecuteCompListSetKind(this.ClassComp.Maide, this.StateKindCall);
         return true;
     }
 
-    public virtual bool ExecuteCompListSetKind(long stateKind, Array array)
+    public virtual bool ExecuteCompListSetKind(Array array, long stateKind)
     {
         this.TextIndent();
         this.Text(this.VarNWord);
