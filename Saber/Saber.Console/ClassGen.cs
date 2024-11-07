@@ -479,6 +479,8 @@ public class ClassGen : ClassBase
 
         this.ExecuteBaseArraySet();
 
+        this.ExecuteBaseItemSet();
+
         this.IndentCount = this.IndentCount - 1;
 
         this.Text(this.LimitBraceRite);
@@ -511,6 +513,11 @@ public class ClassGen : ClassBase
 
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
+        return true;
+    }
+
+    public virtual bool ExecuteBaseItemSet()
+    {
         return true;
     }
 
