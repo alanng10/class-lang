@@ -426,10 +426,20 @@ public class ClassGen : ClassBase
         this.IndentCount = this.IndentCount + 1;
 
         this.TextIndent();
-
         this.Text(this.InternModuleStruct);
         this.Text(this.Space);
+        this.Text(this.VarOWord);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
 
+        this.TextIndent();
+        this.Text(this.VarOWord);
+        this.Text(this.Space);
+        this.Text(this.LimitAre);
+        this.Text(this.Space);
+        this.ModuleVarName(this.Class.Module);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
 
         this.IndentCount = this.IndentCount - 1;
 
