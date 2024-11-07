@@ -399,6 +399,11 @@ public class ClassGen : ClassBase
         return true;
     }
 
+    public virtual bool ExecuteClassInit()
+    {
+        return true;
+    }
+
     public virtual bool ExecuteString()
     {
         this.ExecuteStringData();
@@ -681,6 +686,15 @@ public class ClassGen : ClassBase
         this.ClassName(varClass);
         this.Text(this.NameCombine);
         this.Text(this.BaseWord);
+        return true;
+    }
+
+    public virtual bool ClassInitName(ClassClass varClass)
+    {
+        this.ClassName(varClass);
+        this.Text(this.NameCombine);
+        this.Text(this.ClassWord);
+        this.Text(this.InitWord);
         return true;
     }
 
