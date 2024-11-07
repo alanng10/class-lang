@@ -196,3 +196,18 @@ Bool Intern_ArgInit()
     ArgCount = count;
     return true;
 }
+
+Int Intern_Base_Set(Intern_Class* varClass, Intern_Class* baseClass, Int count)
+{
+    Int dest;
+    dest = varClass->Data[0];
+
+    Int source;
+    source = baseClass->Data[0];
+
+    Int dataCount;
+    dataCount = count * Constant_IntByteCount();
+
+    Copy(dest, source, dataCount);
+    return 0;
+}
