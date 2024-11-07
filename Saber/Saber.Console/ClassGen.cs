@@ -69,6 +69,7 @@ public class ClassGen : ClassBase
         this.InternValueString = this.S("Intern_Value_String");
         this.InternClassStruct = this.S("Intern_Class");
         this.InternModuleStruct = this.S("Intern_Module");
+        this.InternBaseSet = this.S("Intern_Base_Set");
         this.RefKindIntMacro = this.S("RefKindInt");
         this.RefKindStringValueMacro = this.S("RefKindStringValue");
         this.RefKindStringValueDataMacro = this.S("RefKindStringValueData");
@@ -204,6 +205,7 @@ public class ClassGen : ClassBase
     public virtual String InternValueString { get; set; }
     public virtual String InternClassStruct { get; set; }
     public virtual String InternModuleStruct { get; set; }
+    public virtual String InternBaseSet { get; set; }
     public virtual String RefKindIntMacro { get; set; }
     public virtual String RefKindStringValueMacro { get; set; }
     public virtual String RefKindStringValueDataMacro { get; set; }
@@ -458,6 +460,8 @@ public class ClassGen : ClassBase
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
 
+        this.ExecuteBaseArraySet();
+
         this.TextIndent();
         this.Text(this.VarKWord);
         this.Text(this.LimitDot);
@@ -479,6 +483,22 @@ public class ClassGen : ClassBase
 
         this.Text(this.LimitBraceRite);
         this.Text(this.NewLine);
+        return true;
+    }
+
+    public virtual bool ExecuteBaseArraySet()
+    {
+        long count;
+        count = this.BaseArray.Count;
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            
+
+            i = i + 1;
+        }
+
         return true;
     }
 
