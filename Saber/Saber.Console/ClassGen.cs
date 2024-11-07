@@ -362,6 +362,20 @@ public class ClassGen : ClassBase
         return true;
     }
 
+    public virtual bool ExecuteCompList(long count, String stateKind)
+    {
+        this.Text(this.ClassInt);
+        this.Text(this.Space);
+        this.CompListName(this.Class, stateKind);
+        this.Text(this.LimitBraceSquareLite);
+        this.TextInt(count);
+        this.Text(this.LimitBraceSquareRite);
+        
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
+        return true;
+    }
+
     public virtual bool ExecuteBase()
     {
         long count;
