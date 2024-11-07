@@ -602,11 +602,8 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool ExecuteExternCompList(Array array, bool field, String stateKind)
+    public virtual bool ExecuteExternCompList(ClassClass varClass, Array array, long stateKind)
     {
-        bool b;
-        b = field;
-
         long count;
         count = array.Count;
 
@@ -622,26 +619,6 @@ public class ClassGen : ClassBase
 
             if (!ba)
             {
-                ClassClass varClass;
-                String name;
-                varClass = null;
-                name = null;
-
-                if (b)
-                {
-                    Field ka;
-                    ka = (Field)k;
-                    name = ka.Name;
-                    varClass = ka.Parent;
-                }
-                if (!b)
-                {
-                    Maide kb;
-                    kb = (Maide)k;
-                    name = kb.Name;
-                    varClass = kb.Parent;
-                }
-
                 bool baa;
                 baa = (varClass == this.InternClass | varClass == this.ExternClass);
 
@@ -671,7 +648,7 @@ public class ClassGen : ClassBase
 
                 this.Text(this.Space);
 
-                this.CompStateHead(varClass, name, stateKind);
+                this.CompStateHead(varClass, k, stateKind);
 
                 this.Text(this.LimitSemicolon);
                 this.Text(this.NewLine);
