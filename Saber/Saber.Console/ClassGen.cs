@@ -1113,6 +1113,13 @@ public class ClassGen : ClassBase
         return true;
     }
 
+    public virtual bool DirectivePragmaOnce()
+    {
+        this.Text(this.PragmaOnce);
+        this.Text(this.NewLine);
+        return true;
+    }
+
     public virtual bool ExecuteVirtualCall(long thisEvalIndex, long stateKind, long stateIndex)
     {
         String varA;
