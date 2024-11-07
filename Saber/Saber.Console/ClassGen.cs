@@ -460,8 +460,6 @@ public class ClassGen : ClassBase
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
 
-        this.ExecuteBaseArraySet();
-
         this.TextIndent();
         this.Text(this.VarKWord);
         this.Text(this.LimitDot);
@@ -478,6 +476,8 @@ public class ClassGen : ClassBase
         this.Text(this.LimitBraceRoundRite);
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
+
+        this.ExecuteBaseArraySet();
 
         this.IndentCount = this.IndentCount - 1;
 
