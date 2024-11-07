@@ -442,6 +442,22 @@ public class ClassGen : ClassBase
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
 
+        this.TextIndent();
+        this.Text(this.InternClassStruct);
+        this.Text(this.Space);
+        this.Text(this.VarKWord);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
+
+        this.TextIndent();
+        this.Text(this.VarKWord);
+        this.Text(this.Space);
+        this.Text(this.LimitAre);
+        this.Text(this.Space);
+        this.ModuleVarName(this.Class.Module);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
+
         this.IndentCount = this.IndentCount - 1;
 
         this.Text(this.LimitBraceRite);
@@ -723,6 +739,17 @@ public class ClassGen : ClassBase
         this.ModuleRef(module.Ref);
         this.Text(this.NameCombine);
         this.Text(this.ModuleWord);
+        return true;
+    }
+
+    public virtual bool ModuleClassVarName(ClassModule module, long index)
+    {
+        this.ModuleVarName(module);
+        this.Text(this.LimitDot);
+        this.Text(this.ClassWord);
+        this.Text(this.LimitBraceSquareLite);
+        this.TextInt(index);
+        this.Text(this.LimitBraceSquareRite);
         return true;
     }
 
