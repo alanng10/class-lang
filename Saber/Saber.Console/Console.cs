@@ -75,6 +75,7 @@ public class Console : ClassBase
     protected virtual NameCheck NameCheck { get; set; }
     protected virtual Out Out { get; set; }
     protected virtual Out Err { get; set; }
+    protected virtual String ClassPath { get; set; }
     protected virtual PortPort Port { get; set; }
     protected virtual Array PortError { get; set; }
     protected virtual bool MakeSystemModule { get; set; }
@@ -101,6 +102,13 @@ public class Console : ClassBase
 
     public virtual bool Load()
     {
+        this.ClassPath = this.StorageInfra.TextRead(this.S("Saber.Console.data/ClassPath.txt"));
+
+        if (this.ClassPath == null)
+        {
+            return false;
+        }
+
         bool b;
 
         b = this.LibraryGen.Load();

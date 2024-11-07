@@ -51,7 +51,6 @@ public class LibraryGen : ClassBase
     protected virtual ProjectGen ProjectGen { get; set; }
     protected virtual Array ClassBaseArray { get; set; }
     protected virtual Array ClassCompArray { get; set; }
-    protected virtual String ClassPath { get; set; }
     protected virtual String ModuleProjectText { get; set; }
     protected virtual String GenModuleFoldPath { get; set; }
     protected virtual ModuleRef ModuleRef { get; set; }
@@ -121,13 +120,6 @@ public class LibraryGen : ClassBase
 
     public virtual bool Load()
     {
-        this.ClassPath = this.StorageInfra.TextRead(this.S("Saber.Console.data/ClassPath.txt"));
-
-        if (this.ClassPath == null)
-        {
-            return false;
-        }
-
         this.ModuleProjectText = this.StorageInfra.TextRead(this.S("Saber.Console.data/ModuleProject.txt"));
 
         if (this.ModuleProjectText == null)
