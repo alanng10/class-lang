@@ -344,6 +344,13 @@ public class ClassGen : ClassBase
         this.Include(this.IncludeValueModule);
         this.Text(this.NewLine);
 
+        this.ExecuteCompList(this.ClassComp.Field, this.StateGet);
+        this.Text(this.NewLine);
+        this.ExecuteCompList(this.ClassComp.Field, this.StateSet);
+        this.Text(this.NewLine);
+        this.ExecuteCompList(this.ClassComp.Maide, this.StateCall);
+        this.Text(this.NewLine);
+
         this.ExecuteExternClassAny(this.Class);
         this.Text(this.NewLine);
 
@@ -364,8 +371,11 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool ExecuteCompList(long count, String stateKind)
+    public virtual bool ExecuteCompList(Array array, String stateKind)
     {
+        long count;
+        count = array.Count;
+
         this.Text(this.IndexStatic);
         this.Text(this.Space);
 
