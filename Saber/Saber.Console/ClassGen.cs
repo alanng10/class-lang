@@ -2799,11 +2799,11 @@ public class ClassGen : ClassBase
 
     public virtual bool ClassName(ClassClass varClass)
     {
-        this.ModuleRef(varClass.Module.Ref);
+        this.Text(this.NamePre);
 
         this.Text(this.NameCombine);
 
-        this.NameSymbolString(varClass.Name);
+        this.Operate.ExecuteTextIntHex(varClass.Index);
         return true;
     }
 
