@@ -1486,9 +1486,9 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool CompStateStart(ClassClass varClass, String name, long compIndex, String stateKind, long localVarCount)
+    public virtual bool CompStateStart(ClassClass varClass, object comp, long stateKind, long localVarCount)
     {
-        this.CompStateHead(varClass, name, compIndex, stateKind);
+        this.CompStateHead(varClass, comp, stateKind);
 
         this.Text(this.NewLine);
 
