@@ -548,9 +548,9 @@ public class ClassGen : ClassBase
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
 
-        this.ExecuteBaseItemSetCompList(1, this.StateGet);
-        this.ExecuteBaseItemSetCompList(2, this.StateSet);
-        this.ExecuteBaseItemSetCompList(3, this.StateCall);
+        this.ExecuteBaseItemSetCompList(this.StateKindGet, this.StateGet);
+        this.ExecuteBaseItemSetCompList(this.StateKindSet, this.StateSet);
+        this.ExecuteBaseItemSetCompList(this.StateKindCall, this.StateCall);
         return true;
     }
 
