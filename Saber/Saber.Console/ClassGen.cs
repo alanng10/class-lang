@@ -541,6 +541,35 @@ public class ClassGen : ClassBase
 
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
+
+        this.ExecuteBaseItemSetCompList(1, this.StateGet);
+        this.ExecuteBaseItemSetCompList(2, this.StateSet);
+        this.ExecuteBaseItemSetCompList(3, this.StateCall);
+        return true;
+    }
+
+    public virtual bool ExecuteBaseItemSetCompList(long index, String stateKind)
+    {
+        this.TextIndent();
+        this.Text(this.VarKWord);
+        this.Text(this.LimitDot);
+        this.Text(this.BaseWord);
+        this.Text(this.ItemWord);
+        this.Text(this.LimitBraceSquareLite);
+        this.TextInt(index);
+        this.Text(this.LimitBraceSquareRite);
+
+        this.Text(this.Space);
+        this.Text(this.LimitAre);
+        this.Text(this.Space);
+
+        this.Text(this.CastInt);
+        this.Text(this.LimitBraceRoundLite);
+        this.CompListName(this.Class, stateKind);
+        this.Text(this.LimitBraceRoundRite);
+
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
         return true;
     }
 
