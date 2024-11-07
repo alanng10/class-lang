@@ -342,12 +342,6 @@ public class ClassGen : ClassBase
         this.Include(this.IncludeValueModule);
         this.Text(this.NewLine);
 
-        this.ExecuteCompList(this.ClassComp.Field, true, this.StateGet);
-
-        this.ExecuteCompList(this.ClassComp.Field, true, this.StateSet);
-
-        this.ExecuteCompList(this.ClassComp.Maide, false, this.StateCall);
-
         this.ExecuteExternClassAny(this.Class);
         this.Text(this.NewLine);
 
@@ -656,90 +650,6 @@ public class ClassGen : ClassBase
 
             i = i + 1;
         }
-
-        return true;
-    }
-
-    public virtual bool ExecuteCompList(Array array, bool field, String stateKind)
-    {
-        long count;
-        count = array.Count;
-
-        this.Text(this.ClassInt);
-        this.Text(this.Space);
-
-        this.CompListName(this.Class, stateKind);
-        this.Text(this.LimitBraceSquareLite);
-        this.TextInt(count);
-        this.Text(this.LimitBraceSquareRite);
-
-        this.Text(this.Space);
-        this.Text(this.LimitAre);
-        this.Text(this.NewLine);
-
-        this.Text(this.LimitBraceLite);
-        this.Text(this.NewLine);
-
-        this.IndentCount = this.IndentCount + 1;
-
-        bool b;
-        b = field;
-
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            object k;
-            k = array.GetAt(i);
-
-            bool ba;
-            ba = (k == null);
-
-            this.TextIndent();
-
-            if (ba)
-            {
-                this.Text(this.Zero);
-            }
-            if (!ba)
-            {
-                ClassClass varClass;
-                String name;
-                varClass = null;
-                name = null;
-
-                if (b)
-                {
-                    Field ka;
-                    ka = (Field)k;
-                    name = ka.Name;
-                    varClass = ka.Parent;
-                }
-                if (!b)
-                {
-                    Maide kb;
-                    kb = (Maide)k;
-                    name = kb.Name;
-                    varClass = kb.Parent;
-                }
-
-                this.Text(this.CastInt);
-                this.Text(this.LimitBraceRoundLite);
-                this.CompStateMaideName(varClass, name, stateKind);
-                this.Text(this.LimitBraceRoundRite);
-            }
-            this.Text(this.LimitComma);
-            this.Text(this.NewLine);
-
-            i = i + 1;
-        }
-
-        this.IndentCount = this.IndentCount - 1;
-
-        this.Text(this.LimitBraceRite);
-        this.Text(this.LimitSemicolon);
-        this.Text(this.NewLine);
-        this.Text(this.NewLine);
 
         return true;
     }
