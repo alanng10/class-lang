@@ -458,6 +458,23 @@ public class ClassGen : ClassBase
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
 
+        this.TextIndent();
+        this.Text(this.VarKWord);
+        this.Text(this.LimitDot);
+        this.Text(this.DataWord);
+        this.Text(this.LimitBraceSquareLite);
+        this.TextInt(0);
+        this.Text(this.LimitBraceSquareRite);
+        this.Text(this.Space);
+        this.Text(this.LimitAre);
+        this.Text(this.Space);
+        this.Text(this.CastInt);
+        this.Text(this.LimitBraceRoundLite);
+        this.BaseName(this.Class);
+        this.Text(this.LimitBraceRoundRite);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
+
         this.IndentCount = this.IndentCount - 1;
 
         this.Text(this.LimitBraceRite);
