@@ -96,6 +96,7 @@ public class ClassGen : ClassBase
         this.DataWord = this.S("Data");
         this.VarOWord = this.S("o");
         this.VarKWord = this.S("k");
+        this.VarMWord = this.S("m");
         this.VarNWord = this.S("n");
         this.CastInt = this.S("CastInt");
         this.WhileLabelPre = this.S("W_");
@@ -233,6 +234,7 @@ public class ClassGen : ClassBase
     public virtual String DataWord { get; set; }
     public virtual String VarOWord { get; set; }
     public virtual String VarKWord { get; set; }
+    public virtual String VarMWord { get; set; }
     public virtual String VarNWord { get; set; }
     public virtual String CastInt { get; set; }
     public virtual String WhileLabelPre { get; set; }
@@ -581,10 +583,17 @@ public class ClassGen : ClassBase
         this.Text(this.ClassInt);
         this.Text(this.LimitAsterisk);
         this.Text(this.Space);
-        this.Text(this.VarNWord);
+        this.Text(this.VarMWord);
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
 
+        this.TextIndent();
+        this.Text(this.ClassInt);
+        this.Text(this.LimitAsterisk);
+        this.Text(this.Space);
+        this.Text(this.VarNWord);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
 
 
         return true;
@@ -606,6 +615,32 @@ public class ClassGen : ClassBase
         this.Text(this.LimitBraceRoundLite);
 
         this.Text(this.VarKWord);
+        this.Text(this.LimitDot);
+        this.Text(this.BaseWord);
+        this.Text(this.ItemWord);
+        this.Text(this.LimitBraceSquareLite);
+        this.TextInt(stateKind);
+        this.Text(this.LimitBraceSquareRite);
+
+        this.Text(this.LimitBraceRoundRite);
+
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
+
+        this.TextIndent();
+        this.Text(this.VarMWord);
+        this.Text(this.Space);
+        this.Text(this.LimitAre);
+        this.Text(this.Space);
+
+        this.Text(this.LimitBraceRoundLite);
+        this.Text(this.ClassInt);
+        this.Text(this.LimitAsterisk);
+        this.Text(this.LimitBraceRoundRite);
+
+        this.Text(this.LimitBraceRoundLite);
+
+        this.ModuleClassVarName(this.Class.Base);
         this.Text(this.LimitDot);
         this.Text(this.BaseWord);
         this.Text(this.ItemWord);
@@ -683,6 +718,22 @@ public class ClassGen : ClassBase
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
         return true;
+    }
+
+    public virtual bool ExecuteCompListSetStateBaseClass(long index, long stateKind)
+    {
+        this.TextIndent();
+
+        this.Text(this.VarNWord);
+        this.Text(this.LimitBraceSquareLite);
+        this.TextInt(index);
+        this.Text(this.LimitBraceSquareRite);
+
+        this.Text(this.Space);
+        this.Text(this.LimitAre);
+        this.Text(this.Space);
+
+
     }
 
     public virtual bool ExecuteString()
