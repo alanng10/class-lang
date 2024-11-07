@@ -1,6 +1,6 @@
 @echo off
 
-echo Copy Infra Intern
+echo Copy Intern
 
 set ClassOutFold=.\Out\Class
 set InfraInternOutFold=.\Out\InfraIntern-Windows-Release\release
