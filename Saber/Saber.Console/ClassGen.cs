@@ -589,7 +589,6 @@ public class ClassGen : ClassBase
 
         this.Text(this.CastInt);
         this.Text(this.LimitBraceRoundLite);
-        this.Text(this.LimitAnd);
         this.Text(this.VarKWord);
         this.Text(this.LimitDot);
         this.Text(this.DataWord);
