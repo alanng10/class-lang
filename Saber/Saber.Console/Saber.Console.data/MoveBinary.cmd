@@ -1,8 +1,8 @@
 @echo off
 
-set ModuleRef=%~1
+set ClassPath=%~1
+set ModuleRef=%~2
 
 set ProjectOutFold=.\Gen\%ModuleRef%-Out
-set DeployFold=..
 
-move %ProjectOutFold%\release\Module.dll %DeployFold%\%ModuleRef%.dll >NUL
+move %ProjectOutFold%\release\Module.dll "..\%ClassPath%\%ModuleRef%.dll" >NUL

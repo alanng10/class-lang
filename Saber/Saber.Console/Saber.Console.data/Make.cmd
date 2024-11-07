@@ -8,5 +8,5 @@ set Module=%~2
 call DeleteOutFold %Module%
 call MakeModuleProject %Module%
 call MakeModule %Module%
-call MoveBinary %Module%
+call MoveBinary "%ClassPath%" %Module%
 call DeleteOutFold %Module%
