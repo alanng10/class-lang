@@ -362,6 +362,7 @@ public class ClassGen : ClassBase
         this.ExecuteBase();
         this.Text(this.NewLine);
 
+        this.ExecuteClassInit();
         return true;
     }
 
