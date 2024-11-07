@@ -155,7 +155,6 @@ public class Console : ClassBase
         PortLoad a;
         a = new PortLoad();
         a.Init();
-        a.NameCheck = this.NameCheck;
         return a;
     }
 
@@ -508,7 +507,9 @@ public class Console : ClassBase
         portLoad.ModuleLoad = this.ModuleLoad;
         portLoad.ModuleTable = this.ModuleTable;
         portLoad.ImportClass = this.ImportClass;
+        portLoad.NameCheck = this.NameCheck;
         portLoad.SystemModule = this.MakeSystemModule;
+        portLoad.ClassPath = this.ClassPath;
 
         bool b;
         b = portLoad.Execute();
@@ -524,7 +525,9 @@ public class Console : ClassBase
 
         portLoad.Error = null;
         portLoad.Module = null;
+        portLoad.ClassPath = null;
         portLoad.SystemModule = false;
+        portLoad.NameCheck = null;
         portLoad.ImportClass = null;
         portLoad.ModuleTable = null;
         portLoad.ModuleLoad = null;
