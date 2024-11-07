@@ -1,5 +1,7 @@
 @echo off
 
+call Script\System\Clean
+
 call Script\System\MakeModule Infra
 call Script\System\MakeModule List
 call Script\System\MakeModule Math
