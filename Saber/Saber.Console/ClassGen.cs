@@ -354,9 +354,6 @@ public class ClassGen : ClassBase
         this.ExecuteExternClassAny(this.Class);
         this.Text(this.NewLine);
 
-        this.ExecuteExternBaseItemList();
-        this.Text(this.NewLine);
-
         this.ExecuteBaseItem();
         this.Text(this.NewLine);
 
@@ -478,41 +475,6 @@ public class ClassGen : ClassBase
         this.Text(this.LimitBraceRite);
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
-
-        return true;
-    }
-
-    public virtual bool ExecuteExternBaseItemList()
-    {
-        long count;
-        count = this.BaseArray.Count;
-
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            ClassClass varClass;
-            varClass = (ClassClass)this.BaseArray.GetAt(i);
-
-            this.Text(this.IndexExtern);
-
-            this.Text(this.Space);
-
-            this.Text(this.ClassInt);
-
-            this.Text(this.Space);
-
-            this.BaseItemName(varClass);
-
-            this.Text(this.LimitBraceSquareLite);
-            this.TextInt(4);
-            this.Text(this.LimitBraceSquareRite);
-
-            this.Text(this.LimitSemicolon);
-            this.Text(this.NewLine);
-
-            i = i + 1;
-        }
 
         return true;
     }
