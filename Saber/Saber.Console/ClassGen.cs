@@ -590,7 +590,7 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool ExecuteCompListSetKind(long index)
+    public virtual bool ExecuteCompListSetKind(long stateKind, Array array)
     {
         this.TextIndent();
         this.Text(this.VarNWord);
@@ -610,9 +610,74 @@ public class ClassGen : ClassBase
         this.Text(this.BaseWord);
         this.Text(this.ItemWord);
         this.Text(this.LimitBraceSquareLite);
+        this.TextInt(stateKind);
+        this.Text(this.LimitBraceSquareRite);
+
+        this.Text(this.LimitBraceRoundRite);
+
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
+
+        bool b;
+        b = (stateKind == this.StateKindCall);
+
+        long count;
+        count = array.Count;
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            object k;
+            k = array.GetAt(i);
+
+            bool baa;
+            baa = (k == null);
+
+            ClassClass ka;
+            ka = null;
+
+            if (!baa)
+            {
+                if (!b)
+                {
+                    Field field;
+                    field = k as Field;
+                    ka = field.Parent;
+                }
+                if (b)
+                {
+                    Maide maide;
+                    maide = k as Maide;
+                    ka = maide.Parent;
+                }
+
+                if (ka == this.Class)
+                {
+                    this.ExecuteCompListSetStateThisClass(i, k, stateKind);
+                }
+            }
+
+            i = i + 1;
+        }
+        return true;
+    }
+    
+    public virtual bool ExecuteCompListSetStateThisClass(long index, object comp, long stateKind)
+    {
+        this.TextIndent();
+
+        this.Text(this.VarNWord);
+        this.Text(this.LimitBraceSquareLite);
         this.TextInt(index);
         this.Text(this.LimitBraceSquareRite);
 
+        this.Text(this.Space);
+        this.Text(this.LimitAre);
+        this.Text(this.Space);
+
+        this.Text(this.CastInt);
+        this.Text(this.LimitBraceRoundLite);
+        this.CompStateMaideName(this.Class, comp, stateKind);
         this.Text(this.LimitBraceRoundRite);
 
         this.Text(this.LimitSemicolon);
