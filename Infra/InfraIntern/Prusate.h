@@ -29,6 +29,22 @@ Eval;
 
 #define EvalStackCount (512 * 1024)
 
+typedef struct
+{
+    Int Var;
+    Int Data[5];
+    Int BaseItem[4];
+    Int* Base;
+}
+Intern_Class;
+
+typedef struct
+{
+    Int Init;
+    Intern_Class* Class;
+}
+Intern_Module;
+
 typedef Int (*Intern_State)(Eval* eval, Int frame);
 
 Intern_Api extern Int Intern_Value_Ref;
