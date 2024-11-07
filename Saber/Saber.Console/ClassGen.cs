@@ -354,9 +354,6 @@ public class ClassGen : ClassBase
         this.ExecuteExternClassAny(this.Class);
         this.Text(this.NewLine);
 
-        this.ExecuteBaseItem();
-        this.Text(this.NewLine);
-
         this.ExecuteBase();
         this.Text(this.NewLine);
 
@@ -434,48 +431,6 @@ public class ClassGen : ClassBase
         this.Text(this.LimitBraceRite);
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
-        return true;
-    }
-
-    public virtual bool ExecuteBaseItem()
-    {
-        this.Text(this.ClassInt);
-        this.Text(this.Space);
-
-        this.BaseItemName(this.Class);
-        this.Text(this.LimitBraceSquareLite);
-        this.TextInt(4);
-        this.Text(this.LimitBraceSquareRite);
-
-        this.Text(this.Space);
-        this.Text(this.LimitAre);
-        this.Text(this.NewLine);
-
-        this.Text(this.LimitBraceLite);
-        this.Text(this.NewLine);
-
-        this.IndentCount = this.IndentCount + 1;
-
-        this.TextIndent();
-        this.Text(this.CastInt);
-        this.Text(this.LimitBraceRoundLite);
-        this.ClassAnyName(this.Class);
-        this.Text(this.LimitBraceRoundRite);
-        this.Text(this.LimitComma);
-        this.Text(this.NewLine);
-
-        this.BaseItemCompList(this.Class, this.StateGet);
-
-        this.BaseItemCompList(this.Class, this.StateSet);
-
-        this.BaseItemCompList(this.Class, this.StateCall);
-
-        this.IndentCount = this.IndentCount - 1;
-
-        this.Text(this.LimitBraceRite);
-        this.Text(this.LimitSemicolon);
-        this.Text(this.NewLine);
-
         return true;
     }
 
