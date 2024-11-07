@@ -401,6 +401,28 @@ public class ClassGen : ClassBase
 
     public virtual bool ExecuteClassInit()
     {
+        this.Text(this.IndexStatic);
+        this.Text(this.Space);
+
+        this.Text(this.ClassInt);
+        this.Text(this.Space);
+
+        this.ClassInitName(this.Class);
+        this.Text(this.LimitBraceRoundLite);
+        this.Text(this.LimitBraceRoundRite);
+        this.Text(this.NewLine);
+
+        this.Text(this.LimitBraceLite);
+        this.Text(this.NewLine);
+
+        this.IndentCount = this.IndentCount + 1;
+
+        
+
+        this.IndentCount = this.IndentCount - 1;
+
+        this.Text(this.LimitBraceRite);
+        this.Text(this.NewLine);
         return true;
     }
 
