@@ -454,7 +454,7 @@ public class ClassGen : ClassBase
         this.Text(this.Space);
         this.Text(this.LimitAre);
         this.Text(this.Space);
-        this.ModuleClassVarName(this.Class, );
+        this.ModuleClassVarName(this.Class);
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
 
