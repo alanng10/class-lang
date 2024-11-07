@@ -417,7 +417,7 @@ public class ClassGen : ClassBase
 
         this.IndentCount = this.IndentCount + 1;
 
-        
+
 
         this.IndentCount = this.IndentCount - 1;
 
@@ -2520,6 +2520,16 @@ public class ClassGen : ClassBase
     public virtual bool CompIndex(long index)
     {
         this.Operate.ExecuteTextIntHex(index);
+        return true;
+    }
+
+    public virtual bool ModuleVarName(ModuleRef moduleRef)
+    {
+        this.ModuleRef(moduleRef);
+
+        this.Text(this.NameCombine);
+
+        this.Text(this.ModuleWord);
         return true;
     }
 
