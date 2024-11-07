@@ -30,6 +30,7 @@ public class PortLoad : ClassBase
     public virtual Table ModuleTable { get; set; }
     public virtual Table ImportClass { get; set; }
     public virtual NameCheck NameCheck { get; set; }
+    public virtual String ClassPath { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual ErrorKindList ErrorKind { get; set; }
     protected virtual StoragePathCheck StoragePathCheck { get; set; }
