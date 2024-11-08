@@ -7500,7 +7500,7 @@ Int Intern_Extern_Time_SecSet(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_Time_MillisecGet(Eval* eval, Int frame)
+Int Intern_Extern_Time_TickGet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -7508,12 +7508,12 @@ Int Intern_Extern_Time_MillisecGet(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Time_MillisecGet(a0);
+    a = Time_TickGet(a0);
 
     Return;
 }
 
-Int Intern_Extern_Time_MillisecSet(Eval* eval, Int frame)
+Int Intern_Extern_Time_TickSet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -7522,7 +7522,7 @@ Int Intern_Extern_Time_MillisecSet(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = Time_MillisecSet(a0, a1);
+    a = Time_TickSet(a0, a1);
 
     Return;
 }
@@ -7662,7 +7662,7 @@ Int Intern_Extern_Time_MonDayCountSet(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_Time_TotalMillisecGet(Eval* eval, Int frame)
+Int Intern_Extern_Time_TotalTickGet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -7670,12 +7670,12 @@ Int Intern_Extern_Time_TotalMillisecGet(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Time_TotalMillisecGet(a0);
+    a = Time_TotalTickGet(a0);
 
     Return;
 }
 
-Int Intern_Extern_Time_TotalMillisecSet(Eval* eval, Int frame)
+Int Intern_Extern_Time_TotalTickSet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -7684,7 +7684,7 @@ Int Intern_Extern_Time_TotalMillisecSet(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = Time_TotalMillisecSet(a0, a1);
+    a = Time_TotalTickSet(a0, a1);
 
     Return;
 }
@@ -7731,7 +7731,7 @@ Int Intern_Extern_Time_AddDay(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_Time_AddMillisec(Eval* eval, Int frame)
+Int Intern_Extern_Time_AddTick(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -7740,7 +7740,7 @@ Int Intern_Extern_Time_AddMillisec(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = Time_AddMillisec(a0, a1);
+    a = Time_AddTick(a0, a1);
 
     Return;
 }

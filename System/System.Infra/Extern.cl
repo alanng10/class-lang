@@ -630,8 +630,8 @@ class Extern : Any
     maide prusate Int Time_MinSet(var Int o, var Int value) { }
     maide prusate Int Time_SecGet(var Int o) { }
     maide prusate Int Time_SecSet(var Int o, var Int value) { }
-    maide prusate Int Time_MillisecGet(var Int o) { }
-    maide prusate Int Time_MillisecSet(var Int o, var Int value) { }
+    maide prusate Int Time_TickGet(var Int o) { }
+    maide prusate Int Time_TickSet(var Int o, var Int value) { }
     maide prusate Int Time_PosGet(var Int o) { }
     maide prusate Int Time_PosSet(var Int o, var Int value) { }
     maide prusate Int Time_YeaDayGet(var Int o) { }
@@ -642,20 +642,20 @@ class Extern : Any
     maide prusate Int Time_YeaDayCountSet(var Int o, var Int value) { }
     maide prusate Int Time_MonDayCountGet(var Int o) { }
     maide prusate Int Time_MonDayCountSet(var Int o, var Int value) { }
-    maide prusate Int Time_TotalMillisecGet(var Int o) { }
-    maide prusate Int Time_TotalMillisecSet(var Int o, var Int value) { }
+    maide prusate Int Time_TotalTickGet(var Int o) { }
+    maide prusate Int Time_TotalTickSet(var Int o, var Int value) { }
 
     maide prusate Int Time_AddYea(var Int o, var Int value) { }
     maide prusate Int Time_AddMon(var Int o, var Int value) { }
     maide prusate Int Time_AddDay(var Int o, var Int value) { }
-    maide prusate Int Time_AddMillisec(var Int o, var Int value) { }
+    maide prusate Int Time_AddTick(var Int o, var Int value) { }
     maide prusate Int Time_This(var Int o) { }
     maide prusate Int Time_ToPos(var Int o, var Int pos) { }
-    maide prusate Int Time_Set(var Int o, var Int yea, var Int mon, var Int day, var Int our, var Int min, var Int sec, var Int millisec, var Int pos) { }
+    maide prusate Int Time_Set(var Int o, var Int yea, var Int mon, var Int day, var Int our, var Int min, var Int sec, var Int tick, var Int pos) { }
 
     maide prusate Int Time_LeapYea(var Int yea) { }
     maide prusate Int Time_ValidDate(var Int yea, var Int mon, var Int day) { }
-    maide prusate Int Time_ValidTime(var Int our, var Int min, var Int sec, var Int millisec) { }
+    maide prusate Int Time_ValidTime(var Int our, var Int min, var Int sec, var Int tick) { }
 
     maide prusate Int TimeEvent_New() { }
     maide prusate Int TimeEvent_Delete(var Int o) { }

@@ -610,8 +610,8 @@ Infra_Api Int Time_MinGet(Int o);
 Infra_Api Int Time_MinSet(Int o, Int value);
 Infra_Api Int Time_SecGet(Int o);
 Infra_Api Int Time_SecSet(Int o, Int value);
-Infra_Api Int Time_MillisecGet(Int o);
-Infra_Api Int Time_MillisecSet(Int o, Int value);
+Infra_Api Int Time_TickGet(Int o);
+Infra_Api Int Time_TickSet(Int o, Int value);
 Infra_Api Int Time_PosGet(Int o);
 Infra_Api Int Time_PosSet(Int o, Int value);
 Infra_Api Int Time_YeaDayGet(Int o);
@@ -622,20 +622,20 @@ Infra_Api Int Time_YeaDayCountGet(Int o);
 Infra_Api Int Time_YeaDayCountSet(Int o, Int value);
 Infra_Api Int Time_MonDayCountGet(Int o);
 Infra_Api Int Time_MonDayCountSet(Int o, Int value);
-Infra_Api Int Time_TotalMillisecGet(Int o);
-Infra_Api Int Time_TotalMillisecSet(Int o, Int value);
+Infra_Api Int Time_TotalTickGet(Int o);
+Infra_Api Int Time_TotalTickSet(Int o, Int value);
 
 Infra_Api Int Time_AddYea(Int o, Int value);
 Infra_Api Int Time_AddMon(Int o, Int value);
 Infra_Api Int Time_AddDay(Int o, Int value);
-Infra_Api Int Time_AddMillisec(Int o, Int value);
+Infra_Api Int Time_AddTick(Int o, Int value);
 Infra_Api Int Time_This(Int o);
 Infra_Api Int Time_ToPos(Int o, Int pos);
-Infra_Api Int Time_Set(Int o, Int yea, Int mon, Int day, Int our, Int min, Int sec, Int millisec, Int pos);
+Infra_Api Int Time_Set(Int o, Int yea, Int mon, Int day, Int our, Int min, Int sec, Int tick, Int pos);
 
 Infra_Api Int Time_LeapYea(Int yea);
 Infra_Api Int Time_ValidDate(Int yea, Int mon, Int day);
-Infra_Api Int Time_ValidTime(Int our, Int min, Int sec, Int millisec);
+Infra_Api Int Time_ValidTime(Int our, Int min, Int sec, Int tick);
 
 InfraApiNew(TimeEvent)
 Infra_Api Int TimeEvent_TimeGet(Int o);
