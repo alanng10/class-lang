@@ -52,6 +52,9 @@ public class ModuleGen : ClassBase
         gen.Text(gen.NewLine);
 
         this.ExecuteModuleVar();
+        gen.Text(gen.NewLine);
+
+        this.ExecuteClassList();
         return true;
     }
 
@@ -70,4 +73,25 @@ public class ModuleGen : ClassBase
         return true;
     }
 
+    public virtual bool ExecuteClassList()
+    {
+        ClassGen gen;
+        gen = this.Gen;
+
+        gen.Text(gen.IndexStatic);
+        gen.Text(gen.Space);
+
+        gen.Text(gen.InternClassStruct);
+        gen.Text(gen.Space);
+
+        gen.Text(gen.ClassWord);
+        gen.Text(gen.ListWord);
+        gen.Text(gen.LimitBraceSquareLite);
+        gen.TextInt(this.Module.Class.Count);
+        gen.Text(gen.LimitBraceSquareRite);
+
+        gen.Text(gen.LimitSemicolon);
+        gen.Text(gen.NewLine);
+        return true;
+    }
 }
