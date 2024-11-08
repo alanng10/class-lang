@@ -32,6 +32,7 @@ class Thread : Any
         
         this.Intern : this.Extern.Thread_This();
         
-        
+        this.InternIntern.MainThreadSet(this);
+        return true;
     }
 }
