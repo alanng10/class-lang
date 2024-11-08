@@ -427,14 +427,14 @@ class Demo : Any
     {
         this.AddClear().AddS(prefix);
 
-        this.AddS("yea: ").Add(this.IntString(time.Yea))
-            .AddS(", mon: ").Add(this.IntString(time.Mon))
-            .AddS(", day: ").Add(this.IntString(time.Day))
-            .AddS(", our: ").Add(this.IntString(time.Our))
-            .AddS(", min: ").Add(this.IntString(time.Min))
-            .AddS(", sec: ").Add(this.IntString(time.Sec))
-            .AddS(", tick: ").Add(this.IntString(time.Tick))
-            .AddS(", pos: ").Add(this.IntString(time.Pos))
+        this.AddS("yea: ").Add(this.StringInt(time.Yea))
+            .AddS(", mon: ").Add(this.StringInt(time.Mon))
+            .AddS(", day: ").Add(this.StringInt(time.Day))
+            .AddS(", our: ").Add(this.StringInt(time.Our))
+            .AddS(", min: ").Add(this.StringInt(time.Min))
+            .AddS(", sec: ").Add(this.StringInt(time.Sec))
+            .AddS(", tick: ").Add(this.StringInt(time.Tick))
+            .AddS(", pos: ").Add(this.StringInt(time.Pos))
             .AddS("\n");
 
         String k;
@@ -445,7 +445,7 @@ class Demo : Any
         return true;
     }
 
-    private String IntString(long o)
+    private String StringInt(long o)
     {
         this.FormatArg.Value.Int = o;
 
