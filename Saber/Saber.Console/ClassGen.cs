@@ -1063,15 +1063,6 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool ClassAnyName(ClassClass varClass)
-    {
-        this.ClassName(varClass);
-        this.Text(this.NameCombine);
-        this.Text(this.ClassWord);
-        this.Text(this.AnyWord);
-        return true;
-    }
-
     public virtual bool ModuleVarName(ClassModule module)
     {
         this.ModuleRef(module.Ref);
