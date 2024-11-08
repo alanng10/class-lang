@@ -47,9 +47,7 @@ public class Stream : Any
     }
 
     public virtual long SetIntern { get; set; }
-
     public virtual long Ident { get; set; }
-
     private Intern InternIntern { get; set; }
     private ulong Intern { get; set; }
     private ulong InternRange { get; set; }

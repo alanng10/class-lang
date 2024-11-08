@@ -42,6 +42,11 @@ class Stream : Any
             extern.Stream_Delete(this.Intern);
         }
         
+        extern.Range_Final(this.InternRange);
+        extern.Range_Delete(this.InternRange);
         
+        extern.Data_Final(this.InternData);
+        extern.Data_Delete(this.InternData);
+        return true;
     }
 }
