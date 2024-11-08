@@ -671,6 +671,11 @@ class Demo : Any
 
         this.Console.Out.Write(this.AddClear().AddS("Fold Exist ").AddS(this.StorageCompStatus(exist)).AddLine().AddResult());
 
+        exist = storageComp.Exist(this.S("DemoData/Dummy"));
+
+        this.Console.Out.Write(this.AddClear().AddS("Dummy Exist ").AddS(this.StorageCompStatus(!exist)).AddLine().AddResult());
+
+
         bool isFold;
         isFold = storageComp.Fold(this.S("DemoData/FoldA/FileA.txt"));
 
@@ -679,6 +684,10 @@ class Demo : Any
         isFold = storageComp.Fold(this.S("DemoData/FoldA"));
 
         this.Console.Out.Write(this.AddClear().AddS("Fold Is Fold ").AddS(this.StorageCompStatus(isFold)).AddLine().AddResult());
+
+        isFold = storageComp.Fold(this.S("DemoData/Dummy"));
+
+        this.Console.Out.Write(this.AddClear().AddS("Dummy Is Fold ").AddS(this.StorageCompStatus(!isFold)).AddLine().AddResult());
 
         bool b;
 
