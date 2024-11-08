@@ -8,6 +8,8 @@ public class LibraryGen : ClassBase
         this.StorageInfra = StorageInfra.This;
         this.StorageComp = StorageComp.This;
 
+        this.ClassInitGen = this.CreateClassInitGen();
+
         this.ClassBaseGen = this.CreateClassBaseGen();
 
         this.ClassCompGen = this.CreateClassCompGen();
@@ -43,6 +45,7 @@ public class LibraryGen : ClassBase
     public virtual long Status { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual StorageComp StorageComp { get; set; }
+    protected virtual ClassInitGen ClassInitGen { get; set; }
     protected virtual ClassBaseGen ClassBaseGen { get; set; }
     protected virtual ClassCompGen ClassCompGen { get; set; }
     protected virtual ClassGen ClassGen { get; set; }
@@ -62,6 +65,14 @@ public class LibraryGen : ClassBase
     protected virtual String SH { get; set; }
     protected virtual String SPro { get; set; }
     protected virtual String SModule { get; set; }
+
+    protected virtual ClassInitGen CreateClassInitGen()
+    {
+        ClassInitGen a;
+        a = new ClassInitGen();
+        a.Init();
+        return a;
+    }
 
     protected virtual ClassBaseGen CreateClassBaseGen()
     {
