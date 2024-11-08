@@ -368,6 +368,9 @@ public class ClassGen : ClassBase
         this.ExecuteBase();
         this.Text(this.NewLine);
 
+        this.ExecuteExternCompState();
+        this.Text(this.NewLine);
+
         this.ExecuteClassInit();
         return true;
     }
@@ -411,6 +414,36 @@ public class ClassGen : ClassBase
 
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
+        return true;
+    }
+
+    public virtual bool ExecuteExternCompState()
+    {
+        Iter iter;
+        iter = this.TableIter;
+
+        this.Class.Field.IterSet(iter);
+
+        while (iter.Next())
+        {
+            object ka;
+            ka = iter.Value;
+
+            this.CompStateHead(this.Class, ka, this.StateKindGet);
+            this.CompStateHead(this.Class, ka, this.StateKindSet);
+        }
+
+        this.Class.Maide.IterSet(iter);
+
+        while (iter.Next())
+        {
+            object kb;
+            kb = iter.Value;
+
+            this.CompStateHead(this.Class, kb, this.StateKindCall);
+        }
+
+        iter.Clear();
         return true;
     }
 
