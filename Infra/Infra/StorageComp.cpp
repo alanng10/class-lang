@@ -227,24 +227,6 @@ Int StorageComp_Exist(Int o, Int path)
     return a;
 }
 
-Int StorageComp_LinkTarget(Int o, Int path)
-{
-    QString pathU;
-    Int ua;
-    ua = CastInt(&pathU);
-    String_QStringSet(ua, path);
-
-    QString oa;
-    oa = QFile::symLinkTarget(pathU);
-
-    QString* ub;
-    ub = new QString(oa);
-
-    Int a;
-    a = CastInt(ub);
-    return a;
-}
-
 Int StorageComp_FoldList(Int o, Int path)
 {
     Int ka;
