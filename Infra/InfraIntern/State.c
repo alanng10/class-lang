@@ -51,6 +51,13 @@ Int Intern_State_Thread_Execute(Int thread, Int arg)
 
     Intern_Call(eval, 1, 3, 1);
 
+    Int a;
+    a = eval->S[eval->N - 1];
+
+    eval->N = eval->N - 1;
+
+    RefKindClear(a);
+
     Intern_New_Open();
 
     ThreadData* threadData;
@@ -61,5 +68,5 @@ Int Intern_State_Thread_Execute(Int thread, Int arg)
 
     Intern_New_Close();
 
-    return 0;
+    return a;
 }
