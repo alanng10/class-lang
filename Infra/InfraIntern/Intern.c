@@ -373,3 +373,16 @@ Int Intern_Intern_Arg(Eval* eval, Int frame)
 
     Return(ke, 1);
 }
+
+Int Intern_Intern_StateThreadExecute(Eval* eval, Int frame)
+{
+    Int ka;
+    ka = CastInt(Intern_State_Thread_Execute);
+
+    RefKindSet(ka, RefKindInt);
+
+    Int ke;
+    ke = ka;
+
+    Return(ke, 0);
+}
