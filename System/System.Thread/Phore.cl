@@ -36,9 +36,16 @@ class Phore : Any
     }
     field private Extern Extern { get { return data; } set { data : value; } }
     field private Int Intern { get { return data; } set { data : value; } }
-    
+
     maide prusate Bool Open()
     {
+        this.Extern.Phore_Open(this.Intern);
+        return true;
+    }
+
+    maide prusate Bool Close()
+    {
+        this.Extern.Phore_Close(this.Intern);
         return true;
     }
 }
