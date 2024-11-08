@@ -859,8 +859,10 @@ public class ClassGen : ClassBase
             long countA;
             countA = this.StringCount(a);
 
-            this.Text(this.ClassInt32);
+            this.Text(this.IndexStatic);
+            this.Text(this.Space);
 
+            this.Text(this.ClassInt32);
             this.Text(this.Space);
 
             this.StringDataName(this.Class, i);
