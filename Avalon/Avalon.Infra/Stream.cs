@@ -174,8 +174,8 @@ public class Stream : Any
             return true;
         }
 
-        this.SetInternDataCount(dataCount);
-        this.SetInternRange(index, count);
+        this.InternDataCountSet(dataCount);
+        this.InternRangeSet(index, count);
 
         this.InternIntern.StreamRead(this.Intern, data, this.InternData, this.InternRange);
         return true;
@@ -188,14 +188,14 @@ public class Stream : Any
             return true;
         }
 
-        this.SetInternDataCount(dataCount);
-        this.SetInternRange(index, count);
+        this.InternDataCountSet(dataCount);
+        this.InternRangeSet(index, count);
 
         this.InternIntern.StreamWrite(this.Intern, data, this.InternData, this.InternRange);
         return true;
     }
 
-    private bool SetInternDataCount(long count)
+    private bool InternDataCountSet(long count)
     {
         ulong countU;
         countU = (ulong)count;
@@ -204,7 +204,7 @@ public class Stream : Any
         return true;
     }
 
-    private bool SetInternRange(long index, long count)
+    private bool InternRangeSet(long index, long count)
     {
         ulong indexU;
         ulong countU;

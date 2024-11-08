@@ -157,4 +157,18 @@ class Stream : Any
     field private Int Intern { get { return data; } set { data : value; } }
     field private Int InternRange { get { return data; } set { data : value; } }
     field private Int InternData { get { return data; } set { data : value; } }
+    
+    maide prusate Bool PosSet(var Int value)
+    {
+        this.Extern.Stream_PosSet(this.Intern, value);
+        return true;
+    }
+    
+    maide prusate Bool Read(var Any data, var Int dataCount, var Int index, var Int count)
+    {
+        inf (~this.CanRead)
+        {
+            return true;
+        }
+    }
 }
