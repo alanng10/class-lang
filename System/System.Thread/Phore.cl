@@ -22,6 +22,18 @@ class Phore : Any
     }
     
     field prusate Int InitCount { get { return data; } set { data : value; } }
+    field prusate Int Count
+    {
+        get
+        {
+            var Int a;
+            a : this.Extern.Phore_CountGet(this.Intern);
+            return a;
+        }
+        set
+        {
+        }
+    }
     field private Extern Extern { get { return data; } set { data : value; } }
     field private Int Intern { get { return data; } set { data : value; } }
     
