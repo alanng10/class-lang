@@ -116,6 +116,24 @@ public class ModuleGen : ClassBase
 
         gen.IndentCount = gen.IndentCount + 1;
 
+        gen.TextIndent();
+        gen.Text(gen.InternModuleStruct);
+        gen.Text(gen.LimitAsterisk);
+        gen.Text(gen.Space);
+        gen.Text(gen.VarOWord);
+        gen.Text(gen.LimitSemicolon);
+        gen.Text(gen.NewLine);
+
+        gen.TextIndent();
+        gen.Text(gen.VarOWord);
+        gen.Text(gen.Space);
+        gen.Text(gen.LimitAre);
+        gen.Text(gen.Space);
+        gen.Text(gen.LimitAnd);
+        gen.ModuleVarName(this.Module);
+        gen.Text(gen.LimitSemicolon);
+        gen.Text(gen.NewLine);
+
         gen.IndentCount = gen.IndentCount - 1;
 
         gen.Text(gen.LimitBraceRite);
