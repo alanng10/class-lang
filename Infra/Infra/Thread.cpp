@@ -256,7 +256,7 @@ Int Thread_ExecuteMain(Int o)
     if (b)
     {
         Int oa;
-        oa = Main_ExecuteEventLoop();
+        oa = Main_ExecuteMain();
         return oa;
     }
 
@@ -275,7 +275,7 @@ Int Thread_Exit(Int o, Int status)
     if (b)
     {
         Bool oa;
-        oa = Main_ExitEventLoop(status);
+        oa = Main_Exit(status);
         return oa;
     }
 
