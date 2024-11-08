@@ -480,6 +480,7 @@ public class ClassGen : ClassBase
 
         this.TextIndent();
         this.Text(this.InternModuleStruct);
+        this.Text(this.LimitAsterisk);
         this.Text(this.Space);
         this.Text(this.VarOWord);
         this.Text(this.LimitSemicolon);
@@ -490,12 +491,14 @@ public class ClassGen : ClassBase
         this.Text(this.Space);
         this.Text(this.LimitAre);
         this.Text(this.Space);
+        this.Text(this.LimitAnd);
         this.ModuleVarName(this.Class.Module);
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
 
         this.TextIndent();
         this.Text(this.InternClassStruct);
+        this.Text(this.LimitAsterisk);
         this.Text(this.Space);
         this.Text(this.VarKWord);
         this.Text(this.LimitSemicolon);
@@ -506,6 +509,7 @@ public class ClassGen : ClassBase
         this.Text(this.Space);
         this.Text(this.LimitAre);
         this.Text(this.Space);
+        this.Text(this.LimitAnd);
         this.ModuleClassVarName(this.Class);
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
