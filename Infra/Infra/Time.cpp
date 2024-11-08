@@ -404,7 +404,7 @@ Int Time_AddDay(Int o, Int offset)
     return true;
 }
 
-Int Time_AddMillisec(Int o, Int offset)
+Int Time_AddTick(Int o, Int offset)
 {
     Time* m;
     m = CP(o);
