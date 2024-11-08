@@ -1,0 +1,19 @@
+[Module]
+System.Thread
+
+[Import]
+System.Infra
+    Any Any
+    State State
+    Intern Intern
+    Extern Extern
+    InternInfra InternInfra
+
+[Export]
+Thread
+Phore
+This
+
+[Storage]
+
+[Entry]
