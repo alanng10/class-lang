@@ -132,4 +132,10 @@ class InternInfra : Any
         extern.State_Delete(o);
         return true;        
     }
+    
+    maide prusate Bool StreamRead(var Int stream, var Any dataArray, var Int data, var Int range)
+    {
+        var Int dataValue;
+        dataValue : this.InternIntern.Memory(dataArray);
+    }
 }

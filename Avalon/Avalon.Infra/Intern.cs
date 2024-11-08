@@ -192,10 +192,10 @@ public class Intern : Any
         return true;
     }
 
-    public virtual bool StreamRead(ulong stream, object dataArray, ulong data, ulong range)
+    public virtual bool StreamRead(ulong stream, object dataValue, ulong data, ulong range)
     {
         byte[] k;
-        k = dataArray as byte[];
+        k = dataValue as byte[];
 
         unsafe
         {
@@ -204,10 +204,10 @@ public class Intern : Any
                 ulong u;
                 u = (ulong)p;
 
-                ulong dataValue;
-                dataValue = u;
+                ulong ka;
+                ka = u;
 
-                Extern.Data_ValueSet(data, dataValue);
+                Extern.Data_ValueSet(data, ka);
 
                 Extern.Stream_Read(stream, data, range);
 
@@ -217,10 +217,10 @@ public class Intern : Any
         return true;
     }
 
-    public virtual bool StreamWrite(ulong stream, object dataArray, ulong data, ulong range)
+    public virtual bool StreamWrite(ulong stream, object dataValue, ulong data, ulong range)
     {
         byte[] k;
-        k = dataArray as byte[];
+        k = dataValue as byte[];
 
         unsafe
         {
@@ -229,10 +229,10 @@ public class Intern : Any
                 ulong u;
                 u = (ulong)p;
 
-                ulong dataValue;
-                dataValue = u;
+                ulong ka;
+                ka = u;
 
-                Extern.Data_ValueSet(data, dataValue);
+                Extern.Data_ValueSet(data, ka);
 
                 Extern.Stream_Write(stream, data, range);
 
