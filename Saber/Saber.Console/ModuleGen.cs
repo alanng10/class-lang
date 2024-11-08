@@ -189,6 +189,8 @@ public class ModuleGen : ClassBase
         gen.Text(gen.LimitSemicolon);
         gen.Text(gen.NewLine);
 
+        this.ExecuteClassInit();
+
         gen.IndentCount = gen.IndentCount - 1;
 
         gen.Text(gen.LimitBraceRite);
