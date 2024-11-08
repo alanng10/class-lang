@@ -180,7 +180,7 @@ Int Time_SecGet(Int o)
 
 FieldDefaultSet(Time, Sec)
 
-Int Time_MillisecGet(Int o)
+Int Time_TickGet(Int o)
 {
     Time* m;
     m = CP(o);
@@ -193,7 +193,7 @@ Int Time_MillisecGet(Int o)
     return a;
 }
 
-FieldDefaultSet(Time, Millisec)
+FieldDefaultSet(Time, Tick)
 
 Int Time_PosGet(Int o)
 {
