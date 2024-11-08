@@ -3,9 +3,10 @@ class Time : Any
     maide prusate Bool Init()
     {
         base.Init();
+        this.Extern : share Extern;
+
         var Extern extern;
-        extern : share Extern;
-        this.Extern : extern;
+        extern : this.Extern;
         
         this.Intern : extern.Time_New();
         extern.Time_Init(this.Intern);
