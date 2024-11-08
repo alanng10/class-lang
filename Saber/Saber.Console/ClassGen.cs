@@ -1132,12 +1132,7 @@ public class ClassGen : ClassBase
     public virtual bool ModuleClassVarClassName(ClassClass varClass)
     {
         this.Text(this.LimitBraceRoundLite);
-        this.ModuleVarName(varClass.Module);
-        this.Text(this.LimitDot);
-        this.Text(this.ClassWord);
-        this.Text(this.LimitBraceSquareLite);
-        this.TextInt(varClass.Index);
-        this.Text(this.LimitBraceSquareRite);
+        this.ModuleClassVarName(varClass);
         this.Text(this.LimitDot);
         this.Text(this.VarWord);
         this.Text(this.LimitBraceRoundRite);
