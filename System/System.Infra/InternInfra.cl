@@ -123,4 +123,13 @@ class InternInfra : Any
         extern.State_ArgSet(a, arg);
         return a;
     }
+    
+    maide prusate Bool StateDelete(var Int o)
+    {
+        var Extern extern;
+        extern : this.Extern;
+        extern.State_Final(o);
+        extern.State_Delete(o);
+        return true;        
+    }
 }
