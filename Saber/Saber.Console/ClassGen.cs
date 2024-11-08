@@ -1109,6 +1109,15 @@ public class ClassGen : ClassBase
         return true;
     }
 
+    public virtual bool ModuleInitName(ClassModule module)
+    {
+        this.ModuleRef(module.Ref);
+        this.Text(this.NameCombine);
+        this.Text(this.ModuleWord);
+        this.Text(this.InitWord);
+        return true;
+    }
+
     public virtual bool ModuleClassVarName(ClassClass varClass)
     {
         this.ModuleVarName(varClass.Module);

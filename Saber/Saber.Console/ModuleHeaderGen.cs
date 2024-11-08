@@ -59,7 +59,14 @@ public class ModuleHeaderGen : ClassBase
         
         this.ExecuteExternModuleVar();
         gen.Text(gen.NewLine);
+
+        this.ExecuteExternModuleInitMaide();
+        gen.Text(gen.NewLine);
+
         this.ExecuteExternImportModuleVar();
+        gen.Text(gen.NewLine);
+
+        this.ExecuteExternImportModuleInitMaide();
         return true;
     }
 
@@ -112,6 +119,59 @@ public class ModuleHeaderGen : ClassBase
 
             gen.ModuleVarName(module);
 
+            gen.Text(gen.LimitSemicolon);
+            gen.Text(gen.NewLine);
+        }
+
+        iter.Clear();
+        return true;
+    }
+
+    public virtual bool ExecuteExternModuleInitMaide()
+    {
+        ClassGen gen;
+        gen = this.Gen;
+
+        gen.Text(gen.ExportWord);
+        gen.Text(gen.ApiWord);
+        gen.Text(gen.Space);
+
+        gen.Text(gen.ClassInt);
+        gen.Text(gen.Space);
+
+        gen.ModuleInitName(this.Module);
+        gen.Text(gen.LimitBraceRoundLite);
+        gen.Text(gen.LimitBraceRoundRite);
+        gen.Text(gen.LimitSemicolon);
+        gen.Text(gen.NewLine);
+        return true;
+    }
+
+    public virtual bool ExecuteExternImportModuleInitMaide()
+    {
+        ClassGen gen;
+        gen = this.Gen;
+
+        Iter iter;
+        iter = gen.TableIter;
+
+        this.Module.Import.IterSet(iter);
+
+        while (iter.Next())
+        {
+            ClassModule module;
+            module = iter.Value as ClassModule;
+
+            gen.Text(gen.ImportWord);
+            gen.Text(gen.ApiWord);
+            gen.Text(gen.Space);
+
+            gen.Text(gen.ClassInt);
+            gen.Text(gen.Space);
+
+            gen.ModuleInitName(module);
+            gen.Text(gen.LimitBraceRoundLite);
+            gen.Text(gen.LimitBraceRoundRite);
             gen.Text(gen.LimitSemicolon);
             gen.Text(gen.NewLine);
         }
