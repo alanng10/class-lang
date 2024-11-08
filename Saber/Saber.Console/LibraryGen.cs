@@ -520,6 +520,7 @@ public class LibraryGen : ClassBase
 
         Text k;
         k = this.TA(this.ModuleProjectText);
+        k = this.Place(k, "#Name#", this.ModuleRefString);
         k = this.Place(k, "#Import#", import);
 
         String ka;
