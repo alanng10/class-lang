@@ -22,6 +22,7 @@ class Memory : Any
     }
     
     field prusate Stream Stream { get { return data; } set { data : value; } }
+    field private Extern Extern { get { return data; } set { data : value; } }
     field private Int Intern { get { return data; } set { data : value; } }
     
     maide prusate Bool Open()
