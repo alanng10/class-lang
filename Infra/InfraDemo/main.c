@@ -1283,8 +1283,11 @@ int main(int argc, char* argv[])
 
     Frame_VisibleSet(frame, true);
 
+    Int thread;
+    thread = Thread_This();
+
     Int o;
-    o = Main_ExecuteMain();
+    o = Thread_ExecuteMain(thread);
 
     Frame_Final(frame);
     Frame_Delete(frame);
