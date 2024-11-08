@@ -179,4 +179,33 @@ public class ModuleHeaderGen : ClassBase
         iter.Clear();
         return true;
     }
+
+    public virtual bool ExecuteExternClassInitMaide()
+    {
+        ClassGen gen;
+        gen = this.Gen;
+
+        Iter iter;
+        iter = gen.TableIter;
+
+        this.Module.Class.IterSet(iter);
+
+        while (iter.Next())
+        {
+            ClassClass varClass;
+            varClass = iter.Value as ClassClass;
+
+            gen.Text(gen.ClassInt);
+            gen.Text(gen.Space);
+
+            gen.ClassInitName(varClass);
+            gen.Text(gen.LimitBraceRoundLite);
+            gen.Text(gen.LimitBraceRoundRite);
+            gen.Text(gen.LimitSemicolon);
+            gen.Text(gen.NewLine);
+        }
+
+        iter.Clear();
+        return true;
+    }
 }
