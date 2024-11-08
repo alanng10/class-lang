@@ -6,4 +6,4 @@ set /p ClassPath=<ClassPath.txt
 
 set ProjectOutFold=.\Gen\%ModuleRef%-Out
 
-move %ProjectOutFold%\release\Module.dll "..\%ClassPath%\%ModuleRef%.dll" >NUL
+move %ProjectOutFold%\release\%ModuleRef%.dll "..\%ClassPath%\%ModuleRef%.dll" >NUL
