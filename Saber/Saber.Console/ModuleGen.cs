@@ -100,6 +100,26 @@ public class ModuleGen : ClassBase
 
     public virtual bool ExecuteModuleInit()
     {
+        ClassGen gen;
+        gen = this.Gen;
+
+        gen.Text(gen.ClassInt);
+        gen.Text(gen.Space);
+
+        gen.ModuleInitName(this.Module);
+        gen.Text(gen.LimitBraceRoundLite);
+        gen.Text(gen.LimitBraceRoundRite);
+        gen.Text(gen.NewLine);
+
+        gen.Text(gen.LimitBraceLite);
+        gen.Text(gen.NewLine);
+
+        gen.IndentCount = gen.IndentCount + 1;
+
+        gen.IndentCount = gen.IndentCount - 1;
+
+        gen.Text(gen.LimitBraceRite);
+        gen.Text(gen.NewLine);
         return true;
     }
 }
