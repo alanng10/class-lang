@@ -58,6 +58,8 @@ public class ModuleHeaderGen : ClassBase
         gen.Text(gen.NewLine);
         
         this.ExecuteExternModuleVar();
+        gen.Text(gen.NewLine);
+        this.ExecuteExternImportModuleVar();
         return true;
     }
 
