@@ -114,7 +114,7 @@ public class Time : Any
         get
         {
             ulong u;
-            u = Extern.Time_MillisecGet(this.Intern);
+            u = Extern.Time_TickGet(this.Intern);
             long a;
             a = (long)u;
             return a;
@@ -204,7 +204,7 @@ public class Time : Any
         get
         {
             ulong u;
-            u = Extern.Time_TotalMillisecGet(this.Intern);
+            u = Extern.Time_TotalTickGet(this.Intern);
             long a;
             a = (long)u;
             return a;
@@ -273,7 +273,7 @@ public class Time : Any
         ulong valueU;
         valueU = (ulong)value;
         ulong u;
-        u = Extern.Time_AddMillisec(this.Intern, valueU);
+        u = Extern.Time_AddTick(this.Intern, valueU);
 
         bool a;
         a = !(u == 0);
