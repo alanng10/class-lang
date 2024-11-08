@@ -4,6 +4,7 @@ public class ModuleGen : ClassBase
 {
     public virtual ClassGen Gen { get; set; }
     public virtual ClassModule Module { get; set; }
+    public virtual Array ClassInit { get; set; }
     public virtual String Result { get; set; }
 
     public virtual bool Execute()
