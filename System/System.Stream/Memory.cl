@@ -46,4 +46,17 @@ class Memory : Any
         this.Stream : stream;
         return true;
     }
+    
+    maide prusate Bool Close()
+    {
+        var Extern extern;
+        extern : this.Extern;
+
+        extern.Memory_Close(this.Intern);
+        extern.Memory_StreamSet(this.Intern, 0);
+
+        this.Stream.Final();
+        this.Stream : null;
+        return true;
+    }
 }
