@@ -437,12 +437,14 @@ public class LibraryGen : ClassBase
     {
         this.ModuleGen.Gen = this.ClassGen;
         this.ModuleGen.Module = this.Module;
+        this.ModuleGen.ClassInit = this.ClassInitArray;
 
         this.ModuleGen.Execute();
         String k;
         k = this.ModuleGen.Result;
 
         this.ModuleGen.Result = null;
+        this.ModuleGen.ClassInit = null;
         this.ModuleGen.Module = null;
         this.ModuleGen.Gen = null;
 
