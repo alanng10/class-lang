@@ -118,9 +118,7 @@ Int Main_FinalArg()
     return true;
 }
 
-
-
-Int Main_ExecuteEventLoop()
+Int Main_ExecuteMain()
 {
     int u;
     u = QApplication::exec();
@@ -129,10 +127,10 @@ Int Main_ExecuteEventLoop()
     return a;
 }
 
-Int Main_ExitEventLoop(Int code)
+Int Main_Exit(Int status)
 {
     int u;
-    u = code;
+    u = status;
     QApplication::exit(u);
     return true;
 }
