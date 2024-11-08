@@ -45,7 +45,11 @@ Int Intern_State_Thread_Execute(Int thread, Int arg)
 
     Intern_New_Close();
 
+    eval->S[eval->N] = arg;
 
+    eval->N = eval->N + 1;
+
+    Intern_Call(eval, 1, 3, 1);
 
     Intern_New_Open();
 
