@@ -1,0 +1,21 @@
+[Module]
+System.Stream
+
+[Import]
+System.Infra
+    Any Any
+    Bool Bool
+    Int Int
+    Data Data
+    Range Range
+    Extern Extern
+    InternStream Stream
+
+[Export]
+Stream
+Memory
+MemoryStream
+
+[Storage]
+
+[Entry]
