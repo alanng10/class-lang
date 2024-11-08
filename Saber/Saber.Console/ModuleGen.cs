@@ -5,6 +5,7 @@ public class ModuleGen : ClassBase
     public virtual ClassGen Gen { get; set; }
     public virtual ClassModule Module { get; set; }
     public virtual Array ClassInit { get; set; }
+    public virtual Table ModuleTable { get; set; }
     public virtual String Result { get; set; }
 
     public virtual bool Execute()
@@ -210,8 +211,11 @@ public class ModuleGen : ClassBase
 
         while (iter.Next())
         {
+            ModuleRef moduleRef;
+            moduleRef = iter.Index as ModuleRef;
+
             ClassModule module;
-            module = iter.Value as ClassModule;
+            module = this.ModuleTable.Get(moduleRef) as ClassModule;
 
             gen.TextIndent();
             gen.ModuleInitName(module);
