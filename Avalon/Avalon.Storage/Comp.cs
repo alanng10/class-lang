@@ -153,6 +153,21 @@ public class Comp : Any
         return a;
     }
 
+    public virtual bool Fold(String path)
+    {
+        ulong pathU;
+        pathU = this.InternInfra.StringCreate(path);
+
+        ulong k;
+        k = Extern.StorageComp_Fold(this.Intern, pathU);
+
+        this.InternInfra.StringDelete(pathU);
+
+        bool a;
+        a = !(k == 0);
+        return a;
+    }
+
     public virtual Array FileList(String path)
     {
         return this.EntryList(path, false);
