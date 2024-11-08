@@ -662,6 +662,12 @@ class Demo : Any
 
         this.Console.Out.Write(kaaaa);
 
+        bool exist;
+        exist = storageComp.Exist(this.S("DemoData/FoldA/FileA.txt"));
+
+        this.Console.Out.Write(this.AddClear().AddS("File Exist Success\n").AddResult());
+
+
         bool b;
 
         string pathA;        
@@ -687,7 +693,7 @@ class Demo : Any
 
         b = storageComp.Rename(this.S(pathA), this.S(destPathA));
 
-        this.Console.Out.Write(this.S("Rename File " + pathA + " " + this.StorageArrangeStatus(b) + "\n"));
+        this.Console.Out.Write(this.S("Rename File " + pathA + " " + this.StorageCompStatus(b) + "\n"));
 
         string pathAa;
         pathAa = "DemoData/FoldRename";
@@ -716,7 +722,7 @@ class Demo : Any
 
         b = storageComp.Rename(this.S(pathAa), this.S(destPathAa));
 
-        this.Console.Out.Write(this.S("Rename Fold " + pathAa + " " + this.StorageArrangeStatus(b) + "\n"));
+        this.Console.Out.Write(this.S("Rename Fold " + pathAa + " " + this.StorageCompStatus(b) + "\n"));
 
         string path;
         path = "DemoData/DemoCopy.txt";
@@ -726,7 +732,7 @@ class Demo : Any
 
         b = storageComp.FileCopy(this.S(path), this.S(destPath));
 
-        this.Console.Out.Write(this.S("FileCopy " + path + " to " + destPath + " " + this.StorageArrangeStatus(b) + "\n"));
+        this.Console.Out.Write(this.S("FileCopy " + path + " to " + destPath + " " + this.StorageCompStatus(b) + "\n"));
 
         string pathB;
         pathB = "DemoData/Remove.txt";
@@ -739,7 +745,7 @@ class Demo : Any
         }
         b = storageComp.FileDelete(this.S(pathB));
 
-        this.Console.Out.Write(this.S("FileRemove " + pathB + " " + this.StorageArrangeStatus(b) + "\n"));
+        this.Console.Out.Write(this.S("FileRemove " + pathB + " " + this.StorageCompStatus(b) + "\n"));
 
 
         string pathC;
@@ -756,7 +762,7 @@ class Demo : Any
 
         b = storageComp.FoldCreate(this.S(pathC));
 
-        this.Console.Out.Write(this.S("FoldCreate " + pathC + " " + this.StorageArrangeStatus(b) + "\n"));
+        this.Console.Out.Write(this.S("FoldCreate " + pathC + " " + this.StorageCompStatus(b) + "\n"));
 
         string pathCa;
         pathCa = "DemoData/FoldCopy";
@@ -773,7 +779,7 @@ class Demo : Any
 
         b = storageComp.FoldCopy(this.S(pathCa), this.S(destPathCa));
 
-        this.Console.Out.Write(this.S("FoldCopy " + pathCa + " to " + destPathCa + " " + this.StorageArrangeStatus(b) + "\n"));
+        this.Console.Out.Write(this.S("FoldCopy " + pathCa + " to " + destPathCa + " " + this.StorageCompStatus(b) + "\n"));
 
         string pathCb;
         pathCb = "DemoData/RemoveFoldA";
@@ -793,7 +799,7 @@ class Demo : Any
 
         b = storageComp.FoldDelete(this.S(pathCb));
 
-        this.Console.Out.Write(this.S("FoldRemove " + pathCb + " " + this.StorageArrangeStatus(b) + "\n"));
+        this.Console.Out.Write(this.S("FoldRemove " + pathCb + " " + this.StorageCompStatus(b) + "\n"));
 
         string pathE;
         pathE = "DemoData/image.jpg";
@@ -858,7 +864,7 @@ class Demo : Any
         return true;
     }
 
-    private string StorageArrangeStatus(bool b)
+    private string StorageCompStatus(bool b)
     {
         string k;
         k = "Success";
