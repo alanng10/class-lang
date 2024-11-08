@@ -87,4 +87,34 @@ class Stream : Any
         {
         }
     }
+    
+    field prusate Bool CanRead
+    {
+        get
+        {
+            var Int u;
+            u : this.Extern.Stream_CanRead(this.Intern);
+            var Bool a;
+            a : ~(u = 0);
+            return a;
+        }
+        set
+        {
+        }
+    }
+    
+    field prusate Bool CanWrite
+    {
+        get
+        {
+            var Int u;
+            u : this.Extern.Stream_CanWrite(this.Intern);
+            var Bool a;
+            a : ~(u = 0);
+            return a;
+        }
+        set
+        {
+        }
+    }
 }
