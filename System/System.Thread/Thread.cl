@@ -85,4 +85,10 @@ class Thread : Any
         a : this.Extern.Thread_ExecuteMain(this.Intern);
         return a;
     }
+    
+    maide prusate Bool Exit(var Int status)
+    {
+        this.Extern.Thread_Exit(this.Intern, status);
+        return true;
+    }
 }

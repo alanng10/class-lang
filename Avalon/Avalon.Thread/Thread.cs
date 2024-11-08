@@ -51,6 +51,20 @@ public class Thread : Any
 
     public virtual State ExecuteState { get; set; }
     public virtual object Any { get; set; }
+    public virtual long Status
+    {
+        get
+        {
+            ulong u;
+            u = Extern.Thread_StatusGet(this.Intern);
+            long a;
+            a = (long)u;
+            return a;
+        }
+        set
+        {
+        }
+    }
     private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
     private Infra ThreadInfra { get; set; }
@@ -132,20 +146,5 @@ public class Thread : Any
 
         Extern.Thread_Exit(this.Intern, u);
         return true;
-    }
-
-    public virtual long Status
-    {
-        get
-        {
-            ulong u;
-            u = Extern.Thread_StatusGet(this.Intern);
-            long a;
-            a = (long)u;
-            return a;
-        }
-        set
-        {
-        }
     }
 }
