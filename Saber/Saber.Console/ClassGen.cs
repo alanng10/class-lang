@@ -516,7 +516,7 @@ public class ClassGen : ClassBase
 
         this.TextIndent();
         this.Text(this.VarKWord);
-        this.Text(this.LimitDot);
+        this.Text(this.LimitDotPointer);
         this.Text(this.VarWord);
         this.Text(this.Space);
         this.Text(this.LimitAre);
@@ -524,7 +524,7 @@ public class ClassGen : ClassBase
         this.Text(this.CastInt);
         this.Text(this.LimitBraceRoundLite);
         this.Text(this.VarKWord);
-        this.Text(this.LimitDot);
+        this.Text(this.LimitDotPointer);
         this.Text(this.DataWord);
         this.Text(this.LimitBraceRoundRite);
         this.Text(this.LimitSemicolon);
@@ -532,7 +532,7 @@ public class ClassGen : ClassBase
 
         this.TextIndent();
         this.Text(this.VarKWord);
-        this.Text(this.LimitDot);
+        this.Text(this.LimitDotPointer);
         this.Text(this.DataWord);
         this.Text(this.LimitBraceSquareLite);
         this.TextInt(0);
@@ -549,7 +549,7 @@ public class ClassGen : ClassBase
 
         this.TextIndent();
         this.Text(this.VarKWord);
-        this.Text(this.LimitDot);
+        this.Text(this.LimitDotPointer);
         this.Text(this.DataWord);
         this.Text(this.LimitBraceSquareLite);
         this.TextInt(1);
@@ -563,7 +563,7 @@ public class ClassGen : ClassBase
 
         this.TextIndent();
         this.Text(this.VarKWord);
-        this.Text(this.LimitDot);
+        this.Text(this.LimitDotPointer);
         this.Text(this.DataWord);
         this.Text(this.LimitBraceSquareLite);
         this.TextInt(2);
