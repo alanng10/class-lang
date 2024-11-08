@@ -488,7 +488,7 @@ Int Time_ValidTime(Int our, Int min, Int sec, Int tick)
     return a;
 }
 
-Int Time_TotalMillisecIntern(Int o)
+Int Time_TotalTickIntern(Int o)
 {
     Int share;
     share = Infra_Share();

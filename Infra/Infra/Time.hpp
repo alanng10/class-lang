@@ -13,4 +13,4 @@ struct Time
 
 #define CP(a) ((Time*)(a))
 
-Int Time_TotalMillisecIntern(Int u);
+Int Time_TotalTickIntern(Int u);
