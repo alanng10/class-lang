@@ -25,13 +25,13 @@ public class Phore : Any
 
     public virtual bool Open()
     {
-        Extern.Phore_Acquire(this.Intern);
+        Extern.Phore_Open(this.Intern);
         return true;
     }
 
     public virtual bool Close()
     {
-        Extern.Phore_Release(this.Intern);
+        Extern.Phore_Close(this.Intern);
         return true;
     }
 
