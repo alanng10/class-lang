@@ -35,4 +35,18 @@ class Thread : Any
         this.InternIntern.MainThreadSet(this);
         return true;
     }
+    
+    maide prusate Bool Final()
+    {
+        this.InternIntern.FinalThread(this.Intern);
+        
+        var Extern extern;
+        extern : this.Extern;
+        
+        extern.Thread_Final(this.Intern);
+        extern.Thread_Delete(this.Intern);
+        
+        this.InternInfra.StateDelete(this.InternExecuteState);
+        return true;
+    }
 }
