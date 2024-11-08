@@ -4,6 +4,7 @@ class Memory : Any
     {
         base.Init();
         this.Extern : share Extern;
+
         var Extern extern;
         extern : this.Extern;
         this.Intern : extern.Memory_New();
@@ -20,7 +21,7 @@ class Memory : Any
         extern.Memory_Delete(this.Intern);
         return true;        
     }
-    
+
     field prusate Stream Stream { get { return data; } set { data : value; } }
     field private Extern Extern { get { return data; } set { data : value; } }
     field private Int Intern { get { return data; } set { data : value; } }
