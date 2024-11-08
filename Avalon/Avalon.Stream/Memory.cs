@@ -52,11 +52,11 @@ public class Memory : Any
 
     protected virtual Stream CreateStream()
     {
-        MemoryStream a;
-        a = new MemoryStream();
-        a.Init();
-        Stream o;
-        o = a;
-        return o;
+        MemoryStream k;
+        k = new MemoryStream();
+        k.Init();
+        Stream a;
+        a = k;
+        return a;
     }
 }

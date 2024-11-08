@@ -59,4 +59,14 @@ class Memory : Any
         this.Stream : null;
         return true;
     }
+    
+    maide precate Stream CreateStream()
+    {
+        var MemoryStream k;
+        k : new MemoryStream;
+        k.Init();
+        var Stream a;
+        a : k;
+        return a;
+    }
 }
