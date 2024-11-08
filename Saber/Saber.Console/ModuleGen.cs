@@ -55,6 +55,9 @@ public class ModuleGen : ClassBase
         gen.Text(gen.NewLine);
 
         this.ExecuteClassList();
+        gen.Text(gen.NewLine);
+
+        this.ExecuteModuleInit();
         return true;
     }
 
@@ -92,6 +95,11 @@ public class ModuleGen : ClassBase
 
         gen.Text(gen.LimitSemicolon);
         gen.Text(gen.NewLine);
+        return true;
+    }
+
+    public virtual bool ExecuteModuleInit()
+    {
         return true;
     }
 }
