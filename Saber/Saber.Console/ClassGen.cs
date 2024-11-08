@@ -462,9 +462,6 @@ public class ClassGen : ClassBase
         long fieldCount;
         fieldCount = this.Class.FieldStart + this.Class.Field.Count;
 
-        this.Text(this.IndexStatic);
-        this.Text(this.Space);
-
         this.Text(this.ClassInt);
         this.Text(this.Space);
 
