@@ -148,4 +148,20 @@ class InternInfra : Any
         extern.Data_ValueSet(data, 0);
         return true;
     }
+    
+    maide prusate Bool StreamWrite(var Int stream, var Any dataValue, var Int data, var Int range)
+    {
+        var Int k;
+        k : this.InternIntern.Memory(dataValue);
+        
+        var Extern extern;
+        extern : this.Extern;
+        
+        extern.Data_ValueSet(data, k);
+        
+        extern.Stream_Write(stream, data, range);
+        
+        extern.Data_ValueSet(data, 0);
+        return true;
+    }
 }
