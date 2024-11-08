@@ -139,14 +139,6 @@ public class Stream : Any
         }
     }
 
-    public virtual bool PosSet(long value)
-    {
-        ulong u;
-        u = (ulong)value;
-        Extern.Stream_PosSet(this.Intern, u);
-        return true;
-    }
-
     public virtual long Status
     {
         get
@@ -161,12 +153,19 @@ public class Stream : Any
         {
         }
     }
-    
+
     private Intern InternIntern { get; set; }
     private ulong Intern { get; set; }
     private ulong InternRange { get; set; }
     private ulong InternData { get; set; }
 
+    public virtual bool PosSet(long value)
+    {
+        ulong u;
+        u = (ulong)value;
+        Extern.Stream_PosSet(this.Intern, u);
+        return true;
+    }
 
     public virtual bool Read(object data, long dataCount, long index, long count)
     {
