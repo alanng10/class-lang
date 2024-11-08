@@ -134,6 +134,46 @@ public class ModuleGen : ClassBase
         gen.Text(gen.LimitSemicolon);
         gen.Text(gen.NewLine);
 
+        gen.TextIndent();
+        gen.Text(gen.IndexInf);
+        gen.Text(gen.Space);
+        gen.Text(gen.LimitBraceRoundLite);
+        gen.Text(gen.VarOWord);
+        gen.Text(gen.LimitDotPointer);
+        gen.Text(gen.InitWord);
+        gen.Text(gen.LimitBraceRoundRite);
+        gen.Text(gen.NewLine);
+        
+        gen.TextIndent();
+        gen.Text(gen.LimitBraceLite);
+        gen.Text(gen.NewLine);
+
+        gen.IndentCount = gen.IndentCount + 1;
+
+        gen.TextIndent();
+        gen.Text(gen.IndexReturn);
+        gen.Text(gen.Space);
+        gen.Text(gen.Zero);
+        gen.Text(gen.LimitSemicolon);
+        gen.Text(gen.NewLine);
+
+        gen.IndentCount = gen.IndentCount - 1;
+
+        gen.TextIndent();
+        gen.Text(gen.LimitBraceRite);
+        gen.Text(gen.NewLine);
+
+        gen.TextIndent();
+        gen.Text(gen.VarOWord);
+        gen.Text(gen.LimitDotPointer);
+        gen.Text(gen.InitWord);
+        gen.Text(gen.Space);
+        gen.Text(gen.LimitAre);
+        gen.Text(gen.Space);
+        gen.Text(gen.One);
+        gen.Text(gen.LimitSemicolon);
+        gen.Text(gen.NewLine);
+
         gen.IndentCount = gen.IndentCount - 1;
 
         gen.Text(gen.LimitBraceRite);
