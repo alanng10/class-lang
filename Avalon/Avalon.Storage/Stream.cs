@@ -17,18 +17,16 @@ public class Stream : StreamStream
     }
 
     public override long Ident
-    { 
+    {
         get
         {
             return this.Intern.Ident;
-        } 
+        }
         set
         {
             this.Intern.Ident = value;
         }
     }
-
-    private InternStream Intern { get; set; }
 
     public override bool HasCount
     {
@@ -77,7 +75,7 @@ public class Stream : StreamStream
             this.Intern.CanWrite = value;
         }
     }
-    
+
     public override long Count
     {
         get
@@ -102,11 +100,6 @@ public class Stream : StreamStream
         }
     }
 
-    public override bool PosSet(long value)
-    {
-        return this.Intern.PosSet(value);
-    }
-
     public override long Status
     {
         get
@@ -117,6 +110,13 @@ public class Stream : StreamStream
         {
             this.Intern.Status = value;
         }
+    }
+
+    private InternStream Intern { get; set; }
+
+    public override bool PosSet(long value)
+    {
+        return this.Intern.PosSet(value);
     }
 
     public override bool Read(Data data, Range range)
