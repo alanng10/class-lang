@@ -561,7 +561,7 @@ Bool Intern_New_Open()
     InternNewData* m;
     m = CastPointer(NewData);
 
-    Phore_Acquire(m->Phore);
+    Phore_Open(m->Phore);
     
     return true;
 }
@@ -571,7 +571,7 @@ Bool Intern_New_Close()
     InternNewData* m;
     m = CastPointer(NewData);
 
-    Phore_Release(m->Phore);
+    Phore_Close(m->Phore);
     
     return true;
 }
