@@ -506,6 +506,7 @@ Infra_Api Int StorageComp_FoldCreate(Int o, Int path);
 Infra_Api Int StorageComp_FoldCopy(Int o, Int path, Int destPath);
 Infra_Api Int StorageComp_FoldRemove(Int o, Int path);
 Infra_Api Int StorageComp_Exist(Int o, Int path);
+Infra_Api Int StorageComp_Fold(Int o, Int path);
 Infra_Api Int StorageComp_FoldList(Int o, Int path);
 Infra_Api Int StorageComp_FileList(Int o, Int path);
 Infra_Api Int StorageComp_CurrentFoldGet(Int o);

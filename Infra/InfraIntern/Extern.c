@@ -6154,6 +6154,20 @@ Int Intern_Extern_StorageComp_Exist(Eval* eval, Int frame)
     Return;
 }
 
+Int Intern_Extern_StorageComp_Fold(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 2;
+
+    Param(0);
+    Param(1);
+
+    Int a;
+    a = StorageComp_Fold(a0, a1);
+
+    Return;
+}
+
 Int Intern_Extern_StorageComp_FoldList(Eval* eval, Int frame)
 {
     Int paramCount;
