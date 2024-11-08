@@ -148,6 +148,9 @@ public class LibraryGen : ClassBase
         bool b;
         b = this.ExecuteAll();
 
+        this.ClassInitArray = null;
+        this.ClassBaseArray = null;
+        this.ClassCompArray = null;
         this.GenModuleFoldPath = null;
         this.ModuleRef.Name = null;
 
