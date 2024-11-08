@@ -16,8 +16,6 @@ public class MemoryStream : Stream
         return true;
     }
 
-    private InternStream Intern { get; set; }
-
     public override long Ident
     { 
         get
@@ -102,11 +100,6 @@ public class MemoryStream : Stream
         }
     }
 
-    public override bool PosSet(long value)
-    {
-        return this.Intern.PosSet(value);
-    }
-
     public override long Status
     {
         get
@@ -117,6 +110,13 @@ public class MemoryStream : Stream
         {
             this.Intern.Status = value;
         }
+    }
+        
+    private InternStream Intern { get; set; }
+
+    public override bool PosSet(long value)
+    {
+        return this.Intern.PosSet(value);
     }
 
     public override bool Read(Data data, Range range)
