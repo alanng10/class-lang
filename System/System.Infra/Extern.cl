@@ -598,8 +598,8 @@ class Extern : Any
     maide prusate Int Thread_Pause(var Int o) { }
     maide prusate Int Thread_Resume(var Int o) { }
     maide prusate Int Thread_Wait(var Int o) { }
-    maide prusate Int Thread_ExecuteEventLoop(var Int o) { }
-    maide prusate Int Thread_ExitEventLoop(var Int o, var Int code) { }
+    maide prusate Int Thread_ExecuteMain(var Int o) { }
+    maide prusate Int Thread_Exit(var Int o, var Int status) { }
     maide prusate Int Thread_IsMain(var Int o) { }
 
     maide prusate Int Thread_This() { }

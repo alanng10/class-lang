@@ -616,8 +616,8 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Thread_Pause(ulong o);
     [DllImport(InfraLib)] public extern static ulong Thread_Resume(ulong o);
     [DllImport(InfraLib)] public extern static ulong Thread_Wait(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Thread_ExecuteEventLoop(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Thread_ExitEventLoop(ulong o, ulong code);
+    [DllImport(InfraLib)] public extern static ulong Thread_ExecuteMain(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Thread_Exit(ulong o, ulong status);
     [DllImport(InfraLib)] public extern static ulong Thread_IsMain(ulong o);
 
     [DllImport(InfraLib)] public extern static ulong Thread_This();

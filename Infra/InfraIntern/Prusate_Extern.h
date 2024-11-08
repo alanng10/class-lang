@@ -600,8 +600,8 @@ Intern_Api Int Intern_Extern_Thread_Terminate(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Thread_Pause(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Thread_Resume(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Thread_Wait(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Thread_ExecuteEventLoop(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Thread_ExitEventLoop(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Thread_ExecuteMain(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Thread_Exit(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Thread_IsMain(Eval* e, Int f);
 
 Intern_Api Int Intern_Extern_Thread_This(Eval* e, Int f);

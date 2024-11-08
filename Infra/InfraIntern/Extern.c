@@ -7130,7 +7130,7 @@ Int Intern_Extern_Thread_Wait(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_Thread_ExecuteEventLoop(Eval* eval, Int frame)
+Int Intern_Extern_Thread_ExecuteMain(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -7138,12 +7138,12 @@ Int Intern_Extern_Thread_ExecuteEventLoop(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Thread_ExecuteEventLoop(a0);
+    a = Thread_ExecuteMain(a0);
 
     Return;
 }
 
-Int Intern_Extern_Thread_ExitEventLoop(Eval* eval, Int frame)
+Int Intern_Extern_Thread_Exit(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -7152,7 +7152,7 @@ Int Intern_Extern_Thread_ExitEventLoop(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = Thread_ExitEventLoop(a0, a1);
+    a = Thread_Exit(a0, a1);
 
     Return;
 }
