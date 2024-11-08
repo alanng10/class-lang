@@ -650,8 +650,8 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Time_MinSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Time_SecGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong Time_SecSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Time_MillisecGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Time_MillisecSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Time_TickGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Time_TickSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Time_PosGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong Time_PosSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Time_YeaDayGet(ulong o);
@@ -662,20 +662,20 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Time_YeaDayCountSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Time_MonDayCountGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong Time_MonDayCountSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Time_TotalMillisecGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Time_TotalMillisecSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Time_TotalTickGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Time_TotalTickSet(ulong o, ulong value);
 
     [DllImport(InfraLib)] public extern static ulong Time_AddYea(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Time_AddMon(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Time_AddDay(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Time_AddMillisec(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Time_AddTick(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Time_This(ulong o);
     [DllImport(InfraLib)] public extern static ulong Time_ToPos(ulong o, ulong pos);
-    [DllImport(InfraLib)] public extern static ulong Time_Set(ulong o, ulong yea, ulong mon, ulong day, ulong our, ulong min, ulong sec, ulong millisec, ulong pos);
+    [DllImport(InfraLib)] public extern static ulong Time_Set(ulong o, ulong yea, ulong mon, ulong day, ulong our, ulong min, ulong sec, ulong tick, ulong pos);
 
     [DllImport(InfraLib)] public extern static ulong Time_LeapYea(ulong yea);
     [DllImport(InfraLib)] public extern static ulong Time_ValidDate(ulong yea, ulong mon, ulong day);
-    [DllImport(InfraLib)] public extern static ulong Time_ValidTime(ulong our, ulong min, ulong sec, ulong millisec);
+    [DllImport(InfraLib)] public extern static ulong Time_ValidTime(ulong our, ulong min, ulong sec, ulong tick);
 
     [DllImport(InfraLib)] public extern static ulong TimeEvent_New();
     [DllImport(InfraLib)] public extern static ulong TimeEvent_Delete(ulong o);
