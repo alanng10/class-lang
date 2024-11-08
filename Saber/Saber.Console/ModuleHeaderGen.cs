@@ -142,7 +142,7 @@ public class ModuleHeaderGen : ClassBase
         gen.Text(gen.ClassInt);
         gen.Text(gen.Space);
 
-        gen.ModuleInitName(this.Module);
+        gen.ModuleInitName(this.Module.Ref);
         gen.Text(gen.LimitBraceRoundLite);
         gen.Text(gen.LimitBraceRoundRite);
         gen.Text(gen.LimitSemicolon);
