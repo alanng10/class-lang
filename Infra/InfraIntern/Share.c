@@ -8,7 +8,7 @@ Int Intern_Share(Int info, Eval* eval)
     Int phore;
     phore = p[4];
 
-    Phore_Acquire(phore);
+    Phore_Open(phore);
 
     Int share;
     share = p[3];
@@ -35,7 +35,7 @@ Int Intern_Share(Int info, Eval* eval)
         Intern_Call(eval, 1, 3, 0);
     }
 
-    Phore_Release(phore);
+    Phore_Close(phore);
 
     return 0;
 }
