@@ -45,5 +45,17 @@ Int Intern_State_Thread_Execute(Int thread, Int arg)
 
     Intern_New_Close();
 
+
+
+    Intern_New_Open();
+
+    ThreadData* threadData;
+    threadData = CastPointer(kk);
+
+    threadData->Eval = 0;
+    threadData->Flag = 0;
+
+    Intern_New_Close();
+
     return 0;
 }
