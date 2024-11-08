@@ -67,6 +67,9 @@ public class ModuleHeaderGen : ClassBase
         gen.Text(gen.NewLine);
 
         this.ExecuteExternImportModuleInitMaide();
+        gen.Text(gen.NewLine);
+
+        this.ExecuteExternClassInitMaide();
         return true;
     }
 
