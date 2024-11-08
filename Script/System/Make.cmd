@@ -10,3 +10,4 @@ call Script\System\MakeModule List
 call Script\System\MakeModule Math
 call Script\System\MakeModule Text
 call Script\System\MakeModule Thread
+call Script\System\MakeModule Stream
