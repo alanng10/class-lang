@@ -220,7 +220,7 @@ Int StorageComp_Exist(Int o, Int path)
     String_QStringSet(ua, path);
 
     bool bu;
-    bu = QFile::exists(pathU);
+    bu = QFileInfo::exists(pathU);
 
     Bool a;
     a = bu;
