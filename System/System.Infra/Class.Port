@@ -8,9 +8,6 @@ Any
 Bool
 Int
 String
-Intern
-Extern
-InternInfra
 Data
 Less
 BoolLess
@@ -19,6 +16,10 @@ Range
 RefLess
 State
 Infra
+Intern
+Extern
+InternInfra
+Stream
 
 [Storage]
 
