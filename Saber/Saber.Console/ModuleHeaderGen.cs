@@ -107,8 +107,8 @@ public class ModuleHeaderGen : ClassBase
 
         while (iter.Next())
         {
-            ClassModule module;
-            module = iter.Value as ClassModule;
+            ModuleRef module;
+            module = iter.Index as ModuleRef;
 
             gen.Text(gen.ImportWord);
             gen.Text(gen.ApiWord);
@@ -162,8 +162,8 @@ public class ModuleHeaderGen : ClassBase
 
         while (iter.Next())
         {
-            ClassModule module;
-            module = iter.Value as ClassModule;
+            ModuleRef module;
+            module = iter.Index as ModuleRef;
 
             gen.Text(gen.ImportWord);
             gen.Text(gen.ApiWord);

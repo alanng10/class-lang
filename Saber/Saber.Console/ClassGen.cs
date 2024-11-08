@@ -2945,10 +2945,6 @@ public class ClassGen : ClassBase
     public virtual bool ModuleVarName(ModuleRef moduleRef)
     {
         this.ModuleRef(moduleRef);
-
-        this.Text(this.NameCombine);
-
-        this.Text(this.ModuleWord);
         return true;
     }
 
