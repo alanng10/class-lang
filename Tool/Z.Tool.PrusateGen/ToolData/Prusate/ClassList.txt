@@ -334,23 +334,23 @@ Time
     Our
     Min
     Sec
-    Millisec
+    Tick
     Pos
     YeaDay
     WeekDay
     YeaDayCount
     MonDayCount
-    TotalMillisec
+    TotalTick
     AddYea(value)
     AddMon(value)
     AddDay(value)
-    AddMillisec(value)
+    AddTick(value)
     This()
     ToPos(pos)
-    Set(yea, mon, day, our, min, sec, millisec, pos)
+    Set(yea, mon, day, our, min, sec, tick, pos)
     LeapYea(yea) -
     ValidDate(yea, mon, day) -
-    ValidTime(our, min, sec, millisec) -
+    ValidTime(our, min, sec, tick) -
 
 TimeEvent
     Start()
