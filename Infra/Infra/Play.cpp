@@ -165,11 +165,6 @@ Int Play_PosSet(Int o, Int value)
     Play* m;
     m = CP(o);
 
-    if (m->Intern->bufferProgress() < 1.0f)
-    {
-        return false;
-    }
-
     qint64 u;
     u = value;
     m->Intern->setPosition(u);
