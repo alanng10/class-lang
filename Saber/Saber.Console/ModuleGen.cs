@@ -215,6 +215,8 @@ public class ModuleGen : ClassBase
 
             gen.TextIndent();
             gen.ModuleInitName(moduleRef);
+            gen.Text(gen.LimitBraceRoundLite);
+            gen.Text(gen.LimitBraceRoundRite);
             gen.Text(gen.LimitSemicolon);
             gen.Text(gen.NewLine);
         }
@@ -237,6 +239,7 @@ public class ModuleGen : ClassBase
             ClassClass varClass;
             varClass = this.ClassInit.GetAt(i) as ClassClass;
 
+            gen.TextIndent();
             gen.ClassInitName(varClass);
             gen.Text(gen.LimitBraceRoundLite);
             gen.Text(gen.LimitBraceRoundRite);
