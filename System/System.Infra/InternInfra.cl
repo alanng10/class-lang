@@ -110,5 +110,17 @@ class InternInfra : Any
         
         this.Extern.TextCode_ExecuteResult(0, resultValue, innKind, outKind, dataValue, dataCount);
         return true;
-    }   
+    }
+    
+    maide prusate Int StateCreate(var Int varMaide, var Int arg)
+    {
+        var Extern extern;
+        extern : this.Extern;
+        var Int a;
+        a : extern.State_New();
+        extern.State_Init(a);
+        extern.State_MaideSet(a, varMaide);
+        extern.State_ArgSet(a, arg);
+        return a;
+    }
 }
