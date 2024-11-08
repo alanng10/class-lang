@@ -53,6 +53,7 @@ public class LibraryGen : ClassBase
     protected virtual ModuleGen ModuleGen { get; set; }
     protected virtual ModuleHeaderGen ModuleHeaderGen { get; set; }
     protected virtual ProjectGen ProjectGen { get; set; }
+    protected virtual Array ClassInitArray { get; set; }
     protected virtual Array ClassBaseArray { get; set; }
     protected virtual Array ClassCompArray { get; set; }
     protected virtual String ModuleProjectText { get; set; }
@@ -165,6 +166,8 @@ public class LibraryGen : ClassBase
 
         this.GenModuleFoldPath = this.AddClear().Add(genFoldPath).Add(combine).Add(this.ModuleRefString).AddResult();
 
+        this.ExecuteInit();
+
         this.ExecuteBase();
 
         this.ExecuteClassComp();
@@ -204,6 +207,21 @@ public class LibraryGen : ClassBase
             return false;
         }
 
+        return true;
+    }
+
+    protected virtual bool ExecuteInit()
+    {
+        this.ClassInitGen.Module = this.Module;
+        this.ClassInitGen.AnyClass = this.SystemClass.Any;
+
+        this.ClassInitGen.Execute();
+
+        this.ClassInitArray = this.ClassInitGen.Result;
+
+        this.ClassInitGen.Result = null;
+        this.ClassInitGen.AnyClass = null;
+        this.ClassInitGen.Module = null;
         return true;
     }
 
