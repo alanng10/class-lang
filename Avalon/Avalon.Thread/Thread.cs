@@ -119,7 +119,7 @@ public class Thread : Any
     public virtual long ExecuteMain()
     {
         ulong u;
-        u = Extern.Thread_ExecuteEventLoop(this.Intern);
+        u = Extern.Thread_ExecuteMain(this.Intern);
         long a;
         a = (long)u;
         return a;
@@ -130,7 +130,7 @@ public class Thread : Any
         ulong u;
         u = (ulong)status;
 
-        Extern.Thread_ExitEventLoop(this.Intern, u);
+        Extern.Thread_Exit(this.Intern, u);
         return true;
     }
 
