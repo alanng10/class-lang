@@ -32,7 +32,7 @@ Int Time_Final(Int o)
     return true;
 }
 
-Int Time_Set(Int o, Int yea, Int mon, Int day, Int our, Int min, Int sec, Int millisec, Int pos)
+Int Time_Set(Int o, Int yea, Int mon, Int day, Int our, Int min, Int sec, Int tick, Int pos)
 {
     Time* m;
     m = CP(o);
@@ -56,13 +56,13 @@ Int Time_Set(Int o, Int yea, Int mon, Int day, Int our, Int min, Int sec, Int mi
     int ourU;
     int minU;
     int secU;
-    int millisecU;
+    int tickU;
     ourU = our;
     minU = min;
     secU = sec;
-    millisecU = millisec;
+    tickU = tick;
 
-    QTime timeO(ourU, minU, secU, millisecU);
+    QTime timeO(ourU, minU, secU, tickU);
 
     dtO.setDate(dateO);
     dtO.setTime(timeO);
