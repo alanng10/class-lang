@@ -38,7 +38,7 @@ Int Phore_CountGet(Int o)
 
 FieldDefaultSet(Phore, Count)
 
-Int Phore_Acquire(Int o)
+Int Phore_Open(Int o)
 {
     Phore* m;
     m = CP(o);
@@ -46,7 +46,7 @@ Int Phore_Acquire(Int o)
     return true;
 }
 
-Int Phore_Release(Int o)
+Int Phore_Close(Int o)
 {
     Phore* m;
     m = CP(o);
