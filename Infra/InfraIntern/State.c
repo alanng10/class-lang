@@ -45,7 +45,11 @@ Int Intern_State_Thread_Execute(Int thread, Int arg)
 
     Intern_New_Close();
 
-    eval->S[eval->N] = arg;
+    Int ka;
+    ka = arg;
+    RefKindSet(ka, RefKindAny);
+
+    eval->S[eval->N] = ka;
 
     eval->N = eval->N + 1;
 
