@@ -3,10 +3,10 @@ class Thread : Any
     maide private Int PrivateExecuteStateExecute()
     {
         this.ExecuteState.Execute();
-        
+
         var Int a;
         a : cast Int(this.ExecuteState.Result);
-        
+
         return a;
     }
     
@@ -16,13 +16,13 @@ class Thread : Any
         this.InternIntern : share Intern;
         this.Extern : share Extern;
         this.InternInfra : share InternInfra;
-        
+
         var Int oa;
         oa : this.InternIntern.StateThreadExecute();
         var Int arg;
         arg : this.InternIntern.Memory(this);
         this.InternExecuteState : this.InternInfra.StateCreate(oa, arg);
-        
+
         var Extern extern;
         extern : this.Extern;
         this.Intern : extern.Thread_New();
