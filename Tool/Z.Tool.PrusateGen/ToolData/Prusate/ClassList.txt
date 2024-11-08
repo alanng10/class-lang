@@ -317,8 +317,8 @@ Thread
     Pause()
     Resume()
     Wait()
-    ExecuteEventLoop()
-    ExitEventLoop(code)
+    ExecuteMain()
+    Exit(status)
     IsMain()
     This() -
     Execute(thread, arg) --
