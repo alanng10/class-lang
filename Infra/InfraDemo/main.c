@@ -1283,52 +1283,21 @@ int main(int argc, char* argv[])
 
     Frame_VisibleSet(frame, true);
 
-
-
-
     Int o;
-
-
-    o = Main_ExecuteEventLoop();
-
-
-
-
-
+    o = Main_ExecuteMain();
 
     Frame_Final(frame);
-
-
-
     Frame_Delete(frame);
 
-
-
-
     State_Final(frameTypeState);
-
-
     State_Delete(frameTypeState);
 
-
-
-
     State_Final(frameDrawState);
-
-
     State_Delete(frameDrawState);
-
-
-
 
     String_ConstantDelete(frameTitle);
 
-
-
-
     Pos_Final(fillPos);
-
-
     Pos_Delete(fillPos);
 
 
