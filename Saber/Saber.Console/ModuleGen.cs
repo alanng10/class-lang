@@ -174,6 +174,8 @@ public class ModuleGen : ClassBase
         gen.Text(gen.LimitSemicolon);
         gen.Text(gen.NewLine);
 
+        this.ExecuteImportModuleInit();
+
         gen.TextIndent();
         gen.Text(gen.VarOWord);
         gen.Text(gen.LimitDotPointer);
@@ -190,6 +192,32 @@ public class ModuleGen : ClassBase
 
         gen.Text(gen.LimitBraceRite);
         gen.Text(gen.NewLine);
+        return true;
+    }
+
+    public virtual bool ExecuteImportModuleInit()
+    {
+        ClassGen gen;
+        gen = this.Gen;
+
+        Iter iter;
+        iter = gen.TableIter;
+
+        this.Module.Import.IterSet(iter);
+
+        while (iter.Next())
+        {
+            ClassModule module;
+            module = iter.Value as ClassModule;
+
+            gen.TextIndent();
+            gen.ModuleInitName(module);
+            gen.Text(gen.LimitSemicolon);
+            gen.Text(gen.NewLine);
+        }
+
+        iter.Clear();
+
         return true;
     }
 }
