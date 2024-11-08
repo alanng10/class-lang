@@ -578,6 +578,13 @@ public class ClassGen : ClassBase
 
         this.ExecuteCompListSet();
 
+        this.TextIndent();
+        this.Text(this.IndexReturn);
+        this.Text(this.Space);
+        this.Text(this.Zero);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
+
         this.IndentCount = this.IndentCount - 1;
 
         this.Text(this.LimitBraceRite);
