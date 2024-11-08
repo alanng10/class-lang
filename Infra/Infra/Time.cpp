@@ -76,7 +76,7 @@ Int Time_Set(Int o, Int yea, Int mon, Int day, Int our, Int min, Int sec, Int ti
     ka = CastInt(&dtO);
 
     Int k;
-    k = Time_TotalMillisecIntern(ka);
+    k = Time_TotalTickIntern(ka);
 
     SInt kka;
     kka = k;
@@ -217,7 +217,7 @@ Int Time_TotalTickGet(Int o)
     ka = CastInt(m->Intern);
     
     Int k;
-    k = Time_TotalMillisecIntern(ka);
+    k = Time_TotalTickIntern(ka);
     
     Int a;
     a = k;
@@ -237,7 +237,7 @@ Int Time_This(Int o)
     ka = CastInt(&u);
 
     Int k;
-    k = Time_TotalMillisecIntern(ka);
+    k = Time_TotalTickIntern(ka);
 
     SInt kka;
     kka = k;
@@ -336,7 +336,7 @@ Int Time_AddYea(Int o, Int offset)
     ka = CastInt(&u);
 
     Int k;
-    k = Time_TotalMillisecIntern(ka);
+    k = Time_TotalTickIntern(ka);
 
     SInt kka;
     kka = k;
@@ -363,7 +363,7 @@ Int Time_AddMon(Int o, Int offset)
     ka = CastInt(&u);
 
     Int k;
-    k = Time_TotalMillisecIntern(ka);
+    k = Time_TotalTickIntern(ka);
 
     SInt kka;
     kka = k;
@@ -390,7 +390,7 @@ Int Time_AddDay(Int o, Int offset)
     ka = CastInt(&u);
 
     Int k;
-    k = Time_TotalMillisecIntern(ka);
+    k = Time_TotalTickIntern(ka);
 
     SInt kka;
     kka = k;
@@ -417,7 +417,7 @@ Int Time_AddTick(Int o, Int offset)
     ka = CastInt(&u);
 
     Int k;
-    k = Time_TotalMillisecIntern(ka);
+    k = Time_TotalTickIntern(ka);
 
     SInt kka;
     kka = k;
