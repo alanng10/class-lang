@@ -10,5 +10,5 @@ QMAKE_CXXFLAGS += -fno-strict-aliasing
 QMAKE_CFLAGS_WARN_ON -= -Wextra -W
 QMAKE_CXXFLAGS_WARN_ON -= -Wextra -W
 
-QMAKE_CFLAGS_WARN_ON += -Wno-bitwise-instead-of-logical -Wno-unused-but-set-variable
-QMAKE_CXXFLAGS_WARN_ON += -Wno-bitwise-instead-of-logical -Wno-unused-but-set-variable
+QMAKE_CFLAGS_WARN_ON += -Wno-bitwise-instead-of-logical -Wno-unused-but-set-variable -Wno-unused-variable
+QMAKE_CXXFLAGS_WARN_ON += -Wno-bitwise-instead-of-logical -Wno-unused-but-set-variable -Wno-unused-variable
