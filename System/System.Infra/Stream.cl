@@ -170,5 +170,25 @@ class Stream : Any
         {
             return true;
         }
+        
+        this.InternDataCountSet(dataCount);
+        this.InternRangeSet(index, count);
+        
+        this.InternInfra.StreamRead(this.Intern, data, this.InternData, this.InternRange);
+        return true;
+    }
+    
+    maide prusate Bool Write(var Any data, var Int dataCount, var Int index, var Int count)
+    {
+        inf (~this.CanWrite)
+        {
+            return true;
+        }
+        
+        this.InternDataCountSet(dataCount);
+        this.InternRangeSet(index, count);
+        
+        this.InternInfra.StreamWrite(this.Intern, data, this.InternData, this.InternRange);
+        return true;
     }
 }
