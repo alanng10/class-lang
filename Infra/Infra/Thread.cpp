@@ -246,7 +246,7 @@ Int Thread_Wait(Int o)
     return true;
 }
 
-Int Thread_ExecuteEventLoop(Int o)
+Int Thread_ExecuteMain(Int o)
 {
     Thread* m;
     m = CP(o);
@@ -265,7 +265,7 @@ Int Thread_ExecuteEventLoop(Int o)
     return a;
 }
 
-Int Thread_ExitEventLoop(Int o, Int code)
+Int Thread_Exit(Int o, Int status)
 {
     Thread* m;
     m = CP(o);
@@ -275,12 +275,12 @@ Int Thread_ExitEventLoop(Int o, Int code)
     if (b)
     {
         Bool oa;
-        oa = Main_ExitEventLoop(code);
+        oa = Main_ExitEventLoop(status);
         return oa;
     }
 
     int u;
-    u = code;
+    u = status;
 
     m->InternThread->exit(u);
     return true;
