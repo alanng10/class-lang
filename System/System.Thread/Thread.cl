@@ -63,6 +63,7 @@ class Thread : Any
     field prusate State ExecuteState { get { return data; } set { data : value; } }
     field prusate Any Any { get { return data; } set { data : value; } }
     field private Intern InternIntern { get { return data; } set { data : value; } }
+    field private Extern Extern { get { return data; } set { data : value; } }
     field private InternInfra InternInfra { get { return data; } set { data : value; } }
     field private Int Intern { get { return data; } set { data : value; } }
     field private Int InternExecuteState { get { return data; } set { data : value; } }
