@@ -227,6 +227,24 @@ Int StorageComp_Exist(Int o, Int path)
     return a;
 }
 
+Int StorageComp_Fold(Int o, Int path)
+{
+    QString pathU;
+    Int ua;
+    ua = CastInt(&pathU);
+    String_QStringSet(ua, path);
+
+    QFileInfo k;
+    k = QFileInfo(pathU);
+
+    bool bu;
+    bu = k.isDir();
+
+    Bool a;
+    a = bu;
+    return a;
+}
+
 Int StorageComp_FoldList(Int o, Int path)
 {
     Int ka;
