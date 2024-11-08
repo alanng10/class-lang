@@ -4,6 +4,8 @@ System.Thread
 [Import]
 System.Infra
     Any Any
+    Bool Bool
+    Int Int
     State State
     Intern Intern
     Extern Extern
