@@ -199,8 +199,6 @@ class Extern : Any
     maide prusate Int Main_Final() { }
     maide prusate Int Main_IsCSharpSet(var Int value) { }
     maide prusate Int Main_Arg() { }
-    maide prusate Int Main_ExecuteEventLoop() { }
-    maide prusate Int Main_ExitEventLoop(var Int code) { }
 
     maide prusate Int Frame_New() { }
     maide prusate Int Frame_Delete(var Int o) { }
@@ -600,7 +598,6 @@ class Extern : Any
     maide prusate Int Thread_Wait(var Int o) { }
     maide prusate Int Thread_ExecuteMain(var Int o) { }
     maide prusate Int Thread_Exit(var Int o, var Int status) { }
-    maide prusate Int Thread_IsMain(var Int o) { }
 
     maide prusate Int Thread_This() { }
 

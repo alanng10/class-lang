@@ -582,7 +582,6 @@ Infra_Api Int Thread_Resume(Int o);
 Infra_Api Int Thread_Wait(Int o);
 Infra_Api Int Thread_ExecuteMain(Int o);
 Infra_Api Int Thread_Exit(Int o, Int status);
-Infra_Api Int Thread_IsMain(Int o);
 
 Infra_Api Int Thread_This();
 

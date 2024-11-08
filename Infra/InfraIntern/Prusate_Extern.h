@@ -201,8 +201,6 @@ Intern_Api Int Intern_Extern_Main_Init(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Main_Final(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Main_IsCSharpSet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Main_Arg(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Main_ExecuteEventLoop(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Main_ExitEventLoop(Eval* e, Int f);
 
 Intern_Api Int Intern_Extern_Frame_New(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Frame_Delete(Eval* e, Int f);
@@ -602,7 +600,6 @@ Intern_Api Int Intern_Extern_Thread_Resume(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Thread_Wait(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Thread_ExecuteMain(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Thread_Exit(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Thread_IsMain(Eval* e, Int f);
 
 Intern_Api Int Intern_Extern_Thread_This(Eval* e, Int f);
 
