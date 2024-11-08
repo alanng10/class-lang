@@ -21,20 +21,6 @@ public class Phore : Any
     }
 
     public virtual long InitCount { get; set; }
-    private ulong Intern { get; set; }
-
-    public virtual bool Open()
-    {
-        Extern.Phore_Open(this.Intern);
-        return true;
-    }
-
-    public virtual bool Close()
-    {
-        Extern.Phore_Close(this.Intern);
-        return true;
-    }
-
     public virtual long Count
     {
         get
@@ -48,5 +34,18 @@ public class Phore : Any
         set
         {
         }
+    }
+    private ulong Intern { get; set; }
+
+    public virtual bool Open()
+    {
+        Extern.Phore_Open(this.Intern);
+        return true;
+    }
+
+    public virtual bool Close()
+    {
+        Extern.Phore_Close(this.Intern);
+        return true;
     }
 }
