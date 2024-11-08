@@ -51,7 +51,6 @@ public class Thread : Any
 
     public virtual State ExecuteState { get; set; }
     public virtual object Any { get; set; }
-
     private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
     private Infra ThreadInfra { get; set; }
