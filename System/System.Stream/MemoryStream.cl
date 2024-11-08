@@ -119,6 +119,11 @@ class MemoryStream : Stream
     
     maide prusate Bool Read(var Data data, var Range range)
     {
-        
+        return this.Intern.Read(data, range);
+    }
+    
+    maide prusate Bool Write(var Data data, var Range range)
+    {
+        return this.Intern.Write(data, range);
     }
 }
