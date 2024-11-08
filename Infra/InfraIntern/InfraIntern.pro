@@ -13,17 +13,18 @@ HEADERS += \
     Main.h \
     New.h \
     Share.h \
+    State.h \
     Thread.h \
     Value.h
 
 SOURCES += \
     Call.c \
-    Event.c \
     Extern.c \
     Intern.c \
     Main.c \
     New.c \
     Share.c \
+    State.c \
     Thread.c \
     Value.c
 
