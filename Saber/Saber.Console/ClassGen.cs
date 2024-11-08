@@ -1522,6 +1522,10 @@ public class ClassGen : ClassBase
 
     public virtual bool CompStateHead(ClassClass varClass, object comp, long stateKind)
     {
+        this.Text(this.IndexStatic);
+
+        this.Text(this.Space);
+
         this.Text(this.ClassInt);
 
         this.Text(this.Space);
