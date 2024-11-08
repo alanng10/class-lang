@@ -167,31 +167,31 @@ public class Stream : Any
         return true;
     }
 
-    public virtual bool Read(object data, long dataCount, long index, long count)
+    public virtual bool Read(Data data, Range range)
     {
         if (!this.CanRead)
         {
             return true;
         }
 
-        this.InternDataCountSet(dataCount);
-        this.InternRangeSet(index, count);
+        this.InternDataCountSet(data.Count);
+        this.InternRangeSet(range.Index, range.Count);
 
-        this.InternIntern.StreamRead(this.Intern, data, this.InternData, this.InternRange);
+        this.InternIntern.StreamRead(this.Intern, data.Value, this.InternData, this.InternRange);
         return true;
     }
 
-    public virtual bool Write(object data, long dataCount, long index, long count)
+    public virtual bool Write(Data data, Range range)
     {
         if (!this.CanWrite)
         {
             return true;
         }
 
-        this.InternDataCountSet(dataCount);
-        this.InternRangeSet(index, count);
+        this.InternDataCountSet(data.Count);
+        this.InternRangeSet(range.Index, range.Count);
 
-        this.InternIntern.StreamWrite(this.Intern, data, this.InternData, this.InternRange);
+        this.InternIntern.StreamWrite(this.Intern, data.Value, this.InternData, this.InternRange);
         return true;
     }
 
