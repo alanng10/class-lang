@@ -2,6 +2,9 @@
 
 #include "Prusate.h"
 
+Int Main_ExecuteMain();
+Int Main_Exit(Int status);
+
 Int String_QStringSet(Int result, Int a);
 
 Int Stream_FlushStorage(Int device);
