@@ -21,5 +21,29 @@ class Memory : Any
         return true;        
     }
     
+    field prusate Stream Stream { get { return data; } set { data : value; } }
+    field private Int Intern { get { return data; } set { data : value; } }
     
+    maide prusate Bool Open()
+    {
+        inf (~(this.Stream = null))
+        {
+            return true;
+        }
+        
+        var Stream stream;
+        stream : this.CreateStream();
+        
+        var Int k;
+        k : stream.Ident;
+        
+        var Extern extern;
+        extern : this.Extern;
+        
+        extern.Memory_StreamSet(this.Intern, k);
+        extern.Memory_Open(this.Intern);
+        
+        this.Stream : stream;
+        return true;
+    }
 }
