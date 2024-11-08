@@ -665,8 +665,11 @@ class Demo : Any
         bool exist;
         exist = storageComp.Exist(this.S("DemoData/FoldA/FileA.txt"));
 
-        this.Console.Out.Write(this.AddClear().AddS("File Exist Success\n").AddResult());
+        this.Console.Out.Write(this.AddClear().AddS("File Exist ").AddS(this.StorageCompStatus(exist)).AddLine().AddResult());
 
+        exist = storageComp.Exist(this.S("DemoData/FoldA"));
+
+        this.Console.Out.Write(this.AddClear().AddS("Fold Exist ").AddS(this.StorageCompStatus(exist)).AddLine().AddResult());
 
         bool b;
 
