@@ -220,4 +220,23 @@ public class ModuleGen : ClassBase
         iter.Clear();
         return true;
     }
+
+    public virtual bool ExecuteClassInit()
+    {
+        long count;
+        count = this.ClassInit.Count;
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            ClassClass varClass;
+            varClass = this.ClassInit.GetAt(i) as ClassClass;
+
+            
+
+            i = i + 1;
+        }
+
+        return true;
+    }
 }
