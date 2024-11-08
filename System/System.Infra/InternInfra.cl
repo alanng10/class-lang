@@ -133,9 +133,19 @@ class InternInfra : Any
         return true;        
     }
     
-    maide prusate Bool StreamRead(var Int stream, var Any dataArray, var Int data, var Int range)
+    maide prusate Bool StreamRead(var Int stream, var Any dataValue, var Int data, var Int range)
     {
-        var Int dataValue;
-        dataValue : this.InternIntern.Memory(dataArray);
+        var Int k;
+        k : this.InternIntern.Memory(dataValue);
+        
+        var Extern extern;
+        extern : this.Extern;
+        
+        extern.Data_ValueSet(data, k);
+        
+        extern.Stream_Read(stream, data, range);
+        
+        extern.Data_ValueSet(data, 0);
+        return true;
     }
 }
