@@ -59,9 +59,9 @@ public class Stream : Any
         {
             ulong u;
             u = Extern.Stream_HasCount(this.Intern);
-            bool b;
-            b = (!(u == 0));
-            return b;
+            bool a;
+            a = (!(u == 0));
+            return a;
         }
         set
         {
@@ -74,9 +74,9 @@ public class Stream : Any
         {
             ulong u;
             u = Extern.Stream_HasPos(this.Intern);
-            bool b;
-            b = (!(u == 0));
-            return b;
+            bool a;
+            a = (!(u == 0));
+            return a;
         }
         set
         {
@@ -89,9 +89,9 @@ public class Stream : Any
         {
             ulong u;
             u = Extern.Stream_CanRead(this.Intern);
-            bool b;
-            b = (!(u == 0));
-            return b;
+            bool a;
+            a = (!(u == 0));
+            return a;
         }
         set
         {
@@ -104,9 +104,9 @@ public class Stream : Any
         {
             ulong u;
             u = Extern.Stream_CanWrite(this.Intern);
-            bool b;
-            b = (!(u == 0));
-            return b;
+            bool a;
+            a = (!(u == 0));
+            return a;
         }
         set
         {

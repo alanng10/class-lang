@@ -57,4 +57,16 @@ class Stream : Any
     field private Int Intern { get { return data; } set { data : value; } }
     field private Int InternRange { get { return data; } set { data : value; } }
     field private Int InternData { get { return data; } set { data : value; } }
+    
+    field prusate Bool HasCount
+    {
+        get
+        {
+            var Int u;
+            u : this.Extern.Stream_HasCount(this.Intern);
+        }
+        set
+        {
+        }
+    }
 }
