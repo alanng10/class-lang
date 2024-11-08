@@ -223,6 +223,9 @@ public class ModuleGen : ClassBase
 
     public virtual bool ExecuteClassInit()
     {
+        ClassGen gen;
+        gen = this.Gen;
+
         long count;
         count = this.ClassInit.Count;
         long i;
@@ -232,7 +235,11 @@ public class ModuleGen : ClassBase
             ClassClass varClass;
             varClass = this.ClassInit.GetAt(i) as ClassClass;
 
-            
+            gen.ClassInitName(varClass);
+            gen.Text(gen.LimitBraceRoundLite);
+            gen.Text(gen.LimitBraceRoundRite);
+            gen.Text(gen.LimitSemicolon);
+            gen.Text(gen.NewLine);
 
             i = i + 1;
         }
