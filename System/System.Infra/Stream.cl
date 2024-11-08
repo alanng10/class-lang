@@ -164,31 +164,31 @@ class Stream : Any
         return true;
     }
     
-    maide prusate Bool Read(var Any data, var Int dataCount, var Int index, var Int count)
+    maide prusate Bool Read(var Data data, var Range range)
     {
         inf (~this.CanRead)
         {
             return true;
         }
-        
-        this.InternDataCountSet(dataCount);
-        this.InternRangeSet(index, count);
-        
-        this.InternInfra.StreamRead(this.Intern, data, this.InternData, this.InternRange);
+
+        this.InternDataCountSet(data.Count);
+        this.InternRangeSet(range.Index, range.Count);
+
+        this.InternInfra.StreamRead(this.Intern, data.Value, this.InternData, this.InternRange);
         return true;
     }
     
-    maide prusate Bool Write(var Any data, var Int dataCount, var Int index, var Int count)
+    maide prusate Bool Write(var Data data, var Range range)
     {
         inf (~this.CanWrite)
         {
             return true;
         }
-        
-        this.InternDataCountSet(dataCount);
-        this.InternRangeSet(index, count);
-        
-        this.InternInfra.StreamWrite(this.Intern, data, this.InternData, this.InternRange);
+
+        this.InternDataCountSet(data.Count);
+        this.InternRangeSet(range.Index, range.Count);
+
+        this.InternInfra.StreamWrite(this.Intern, data.Value, this.InternData, this.InternRange);
         return true;
     }
     
