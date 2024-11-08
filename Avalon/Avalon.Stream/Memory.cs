@@ -18,7 +18,6 @@ public class Memory : Any
     }
 
     public virtual Stream Stream { get; set; }
-
     private ulong Intern { get; set; }
 
     public virtual bool Open()
