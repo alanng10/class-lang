@@ -49,4 +49,12 @@ class Stream : Any
         extern.Data_Delete(this.InternData);
         return true;
     }
+    
+    field prusate Int SetIntern { get { return data; } set { data : value; } }
+    field prusate Int Ident { get { return data; } set { data : value; } }
+    field private Extern Extern { get { return data; } set { data : value; } }
+    field private InternInfra InternInfra { get { return data; } set { data : value; } }
+    field private Int Intern { get { return data; } set { data : value; } }
+    field private Int InternRange { get { return data; } set { data : value; } }
+    field private Int InternData { get { return data; } set { data : value; } }
 }
