@@ -191,4 +191,17 @@ class Stream : Any
         this.InternInfra.StreamWrite(this.Intern, data, this.InternData, this.InternRange);
         return true;
     }
+    
+    maide private Bool InternDataCountSet(var Int count)
+    {
+        this.Extern.Data_CountSet(this.InternData, count);
+        return true;
+    }
+    
+    maide private Bool InternRangeSet(var Int index, var Int count)
+    {
+        this.Extern.Range_IndexSet(this.InternRange, index);
+        this.Extern.Range_CountSet(this.InternRange, count);
+        return true;
+    }
 }
