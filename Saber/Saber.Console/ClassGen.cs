@@ -430,7 +430,12 @@ public class ClassGen : ClassBase
             ka = iter.Value;
 
             this.CompStateHead(this.Class, ka, this.StateKindGet);
+            this.Text(this.LimitSemicolon);
+            this.Text(this.NewLine);
+
             this.CompStateHead(this.Class, ka, this.StateKindSet);
+            this.Text(this.LimitSemicolon);
+            this.Text(this.NewLine);
         }
 
         this.Class.Maide.IterSet(iter);
@@ -441,6 +446,8 @@ public class ClassGen : ClassBase
             kb = iter.Value;
 
             this.CompStateHead(this.Class, kb, this.StateKindCall);
+            this.Text(this.LimitSemicolon);
+            this.Text(this.NewLine);
         }
 
         iter.Clear();
