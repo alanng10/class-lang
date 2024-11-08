@@ -417,7 +417,7 @@ class Demo : Any
         this.ConsoleWriteTime("Demo.ExecuteTime time ToPos : ", time);
 
         time.AddTick(200 * 1000);
-        this.ConsoleWriteTime("Demo.ExecuteTime time AddMillisec : ", time);
+        this.ConsoleWriteTime("Demo.ExecuteTime time AddTick : ", time);
 
         time.Final();
         return true;
@@ -433,7 +433,7 @@ class Demo : Any
             .AddS(", our: ").Add(this.IntString(time.Our))
             .AddS(", min: ").Add(this.IntString(time.Min))
             .AddS(", sec: ").Add(this.IntString(time.Sec))
-            .AddS(", millisec: ").Add(this.IntString(time.Tick))
+            .AddS(", tick: ").Add(this.IntString(time.Tick))
             .AddS(", pos: ").Add(this.IntString(time.Pos))
             .AddS("\n");
 
