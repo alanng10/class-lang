@@ -82,4 +82,39 @@ public class ModuleHeaderGen : ClassBase
         gen.Text(gen.NewLine);
         return true;
     }
+
+    public virtual bool ExecuteExternImportModuleVar()
+    {
+        ClassGen gen;
+        gen = this.Gen;
+
+        Iter iter;
+        iter = gen.TableIter;
+
+        this.Module.Import.IterSet(iter);
+
+        while (iter.Next())
+        {
+            ClassModule module;
+            module = iter.Value as ClassModule;
+
+            gen.Text(gen.ImportWord);
+            gen.Text(gen.ApiWord);
+            gen.Text(gen.Space);
+
+            gen.Text(gen.IndexExtern);
+            gen.Text(gen.Space);
+
+            gen.Text(gen.InternModuleStruct);
+            gen.Text(gen.Space);
+
+            gen.ModuleVarName(module);
+
+            gen.Text(gen.LimitSemicolon);
+            gen.Text(gen.NewLine);
+        }
+
+        iter.Clear();
+        return true;
+    }
 }
