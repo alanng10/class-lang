@@ -1107,9 +1107,9 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool ModuleInitName(ClassModule module)
+    public virtual bool ModuleInitName(ModuleRef module)
     {
-        this.ModuleRef(module.Ref);
+        this.ModuleRef(module);
         this.Text(this.NameCombine);
         this.Text(this.ModuleWord);
         this.Text(this.InitWord);
