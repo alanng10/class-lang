@@ -1,5 +1,15 @@
 class Thread : Any
 {
+    maide private Int PrivateExecuteStateExecute()
+    {
+        this.ExecuteState.Execute();
+        
+        var Int a;
+        a : cast Int(this.ExecuteState.Result);
+        
+        return a;
+    }
+    
     maide prusate Bool Init()
     {
         base.Init();
