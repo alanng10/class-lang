@@ -66,7 +66,7 @@ public class ModuleHeaderGen : ClassBase
         ClassGen gen;
         gen = this.Gen;
 
-        gen.Text(gen.ImportWord);
+        gen.Text(gen.ExportWord);
         gen.Text(gen.ApiWord);
         gen.Text(gen.Space);
 
