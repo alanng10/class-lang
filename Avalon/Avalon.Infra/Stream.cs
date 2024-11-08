@@ -117,11 +117,11 @@ public class Stream : Any
     {
         get
         {
-            ulong ou;
-            ou = Extern.Stream_CountGet(this.Intern);
-            long o;
-            o = (long)ou;
-            return o;
+            ulong u;
+            u = Extern.Stream_CountGet(this.Intern);
+            long a;
+            a = (long)u;
+            return a;
         }
         set
         {
@@ -132,11 +132,11 @@ public class Stream : Any
     {
         get
         {
-            ulong ou;
-            ou = Extern.Stream_PosGet(this.Intern);
-            long o;
-            o = (long)ou;
-            return o;
+            ulong u;
+            u = Extern.Stream_PosGet(this.Intern);
+            long a;
+            a = (long)u;
+            return a;
         }
         set
         {
@@ -157,9 +157,9 @@ public class Stream : Any
         {
             ulong u;
             u = Extern.Stream_StatusGet(this.Intern);
-            long o;
-            o = (long)u;
-            return o;
+            long a;
+            a = (long)u;
+            return a;
         }
         set
         {
