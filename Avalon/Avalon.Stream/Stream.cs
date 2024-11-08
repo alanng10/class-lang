@@ -84,11 +84,6 @@ public class Stream : Any
         }
     }
 
-    public virtual bool PosSet(long value)
-    {
-        return false;
-    }
-
     public virtual long Status
     {
         get
@@ -98,6 +93,11 @@ public class Stream : Any
         set
         {
         }
+    }
+
+    public virtual bool PosSet(long value)
+    {
+        return false;
     }
 
     public virtual bool Read(Data data, Range range)
