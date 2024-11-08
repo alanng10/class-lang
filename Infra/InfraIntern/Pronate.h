@@ -59,3 +59,5 @@ Bool Intern_FinalThread(Int thread);
 Int Intern_InitMainThread();
 
 Bool Intern_Call(Eval* eval, Int thisEvalIndex, Int stateKind, Int stateIndex);
+
+Int Intern_State_Thread_Execute(Int thread, Int arg);
