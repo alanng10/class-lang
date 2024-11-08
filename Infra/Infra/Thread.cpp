@@ -261,7 +261,7 @@ Int Thread_ExecuteMain(Int o)
     }
 
     Int a;
-    a = m->InternThread->ExecuteEventLoop();
+    a = m->InternThread->ExecuteMain();
     return a;
 }
 

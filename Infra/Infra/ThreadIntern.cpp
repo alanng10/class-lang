@@ -13,7 +13,7 @@ void ThreadIntern::run()
     Thread_ExecuteHandle(thread);
 }
 
-Int ThreadIntern::ExecuteEventLoop()
+Int ThreadIntern::ExecuteMain()
 {
     int u;
     u = this->exec();

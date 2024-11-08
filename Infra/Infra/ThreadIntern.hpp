@@ -13,7 +13,7 @@ public:
 
     Int Thread;
 
-    Int ExecuteEventLoop();
+    Int ExecuteMain();
 
 protected:
 
