@@ -74,5 +74,41 @@ class MemoryStream : Stream
         }
     }
 
+    field prusate Int Count
+    {
+        get
+        {
+            return this.Intern.Count;
+        }
+        set
+        {
+            this.Intern.Count : value;
+        }
+    }
+    
+    field prusate Int Pos
+    {
+        get
+        {
+            return this.Intern.Pos;
+        }
+        set
+        {
+            this.Intern.Pos : value;
+        }
+    }
+    
+    field prusate Int Status
+    {
+        get
+        {
+            return this.Intern.Status;
+        }
+        set
+        {
+            this.Intern.Status : value;
+        }
+    }
+
     field private InternStream Intern { get { return data; } set { data : value; } }
 }
