@@ -56,6 +56,30 @@ public class ModuleHeaderGen : ClassBase
         gen.Include(gen.IncludeValueInfra);
         gen.Include(gen.IncludeValueInfraIntern);
         gen.Text(gen.NewLine);
+        
+        this.ExecuteExternModuleVar();
+        return true;
+    }
+
+    public virtual bool ExecuteExternModuleVar()
+    {
+        ClassGen gen;
+        gen = this.Gen;
+
+        gen.Text(gen.ImportWord);
+        gen.Text(gen.ApiWord);
+        gen.Text(gen.Space);
+
+        gen.Text(gen.IndexExtern);
+        gen.Text(gen.Space);
+
+        gen.Text(gen.InternModuleStruct);
+        gen.Text(gen.Space);
+
+        gen.ModuleVarName(this.Module);
+
+        gen.Text(gen.LimitSemicolon);
+        gen.Text(gen.NewLine);
         return true;
     }
 }
