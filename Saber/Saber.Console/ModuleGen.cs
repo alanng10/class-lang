@@ -217,7 +217,6 @@ public class ModuleGen : ClassBase
         }
 
         iter.Clear();
-
         return true;
     }
 }
