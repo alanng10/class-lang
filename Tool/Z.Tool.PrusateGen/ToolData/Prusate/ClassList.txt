@@ -323,8 +323,8 @@ Thread
 Phore
     Count
     InitCount
-    Acquire()
-    Release()
+    Open()
+    Close()
 
 Time
     Yea
