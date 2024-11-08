@@ -56,7 +56,7 @@ public class ModuleHeaderGen : ClassBase
         gen.Include(gen.IncludeValueInfra);
         gen.Include(gen.IncludeValueInfraIntern);
         gen.Text(gen.NewLine);
-        
+
         this.ExecuteExternModuleVar();
         gen.Text(gen.NewLine);
 
