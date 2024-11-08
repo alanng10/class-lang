@@ -1148,15 +1148,6 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool BaseItemName(ClassClass varClass)
-    {
-        this.ClassName(varClass);
-        this.Text(this.NameCombine);
-        this.Text(this.BaseWord);
-        this.Text(this.ItemWord);
-        return true;
-    }
-
     public virtual bool CompListName(ClassClass varClass, String stateKind)
     {
         this.ClassName(varClass);
