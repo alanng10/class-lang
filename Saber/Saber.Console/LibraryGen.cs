@@ -335,7 +335,7 @@ public class LibraryGen : ClassBase
             this.ModuleRef.Name = this.SSystemDotInfra;
             this.ModuleRef.Ver = 0;
 
-            systemInfraModule = (ClassModule)this.ModuleTable.Get(this.ModuleRef);
+            systemInfraModule = this.ModuleTable.Get(this.ModuleRef) as ClassModule;
         }
 
         ClassClass internClass;
