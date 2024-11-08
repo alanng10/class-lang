@@ -111,4 +111,14 @@ class MemoryStream : Stream
     }
 
     field private InternStream Intern { get { return data; } set { data : value; } }
+    
+    maide prusate Bool PosSet(var Int value)
+    {
+        return this.Intern.PosSet(value);
+    }
+    
+    maide prusate Bool Read(var Data data, var Range range)
+    {
+        
+    }
 }
