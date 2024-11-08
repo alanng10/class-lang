@@ -4,6 +4,7 @@
 #include <QFile>
 #include <QIODevice>
 #include <QDir>
+#include <QFileInfo>
 #include <QStringList>
 
 #include "Pronate.hpp"
