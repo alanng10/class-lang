@@ -40,7 +40,7 @@ Int Console_StreamWrite(Int o, Int text, Int stream)
     Int phore;
     phore = Stat_ConsolePhore(stat);
 
-    Phore_Acquire(phore);
+    Phore_Open(phore);
 
     Int ka;
     Int kb;
@@ -83,7 +83,7 @@ Int Console_StreamWrite(Int o, Int text, Int stream)
 
     Delete(result);
 
-    Phore_Release(phore);
+    Phore_Close(phore);
     return true;
 }
 
@@ -97,7 +97,7 @@ Int Console_InnRead(Int o)
     Int phore;
     phore = Stat_ConsolePhore(stat);
 
-    Phore_Acquire(phore);
+    Phore_Open(phore);
 
     std::string u;
     std::getline(std::cin, u);
@@ -143,6 +143,6 @@ Int Console_InnRead(Int o)
     Int a;
     a = k;
 
-    Phore_Release(phore);
+    Phore_Close(phore);
     return a;
 }
