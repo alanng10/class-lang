@@ -678,6 +678,14 @@ public class ClassGen : ClassBase
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
 
+        this.TextIndent();
+        this.Text(this.ClassInt);
+        this.Text(this.LimitAsterisk);
+        this.Text(this.Space);
+        this.Text(this.VarNWord);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
+
         this.ExecuteCompListSetKind(this.ClassComp.Field, this.StateKindGet);
         this.ExecuteCompListSetKind(this.ClassComp.Field, this.StateKindSet);
         this.ExecuteCompListSetKind(this.ClassComp.Maide, this.StateKindCall);
