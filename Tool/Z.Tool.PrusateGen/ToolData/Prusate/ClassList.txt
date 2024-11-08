@@ -317,7 +317,6 @@ Thread
     Wait()
     ExecuteMain()
     Exit(status)
-    IsMain()
     This() -
     Execute(thread, arg) --
 
