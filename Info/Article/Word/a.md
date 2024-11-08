@@ -276,6 +276,8 @@ Word "fold" has meaning that is storage node list.
 
 Word "entry" has meaning that is associate entity.
 
+Word "exist" has meaning that is presence.
+
 Word "host" has meaning that is site hold.
 
 Word "peer" has meaning that is co op.
