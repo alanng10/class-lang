@@ -267,6 +267,7 @@ StorageComp
     FoldCopy(path, destPath)
     FoldRemove(path)
     Exist(path)
+    Fold(path)
     FoldList(path)
     FileList(path)
     CurrentFoldGet()
