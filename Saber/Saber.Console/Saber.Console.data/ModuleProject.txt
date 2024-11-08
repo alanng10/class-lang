@@ -1,6 +1,6 @@
 include(../../module.pri)
 
-TARGET = module
+TARGET = #Name#
 
 HEADERS += \
     Module.h
