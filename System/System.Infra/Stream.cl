@@ -113,10 +113,48 @@ class Stream : Any
         }
     }
     
+    field prusate Int Count
+    {
+        get
+        {
+            var Int a;
+            a : this.Extern.Stream_CountGet(this.Intern);
+            return a;
+        }
+        set
+        {
+        }
+    }
+    
+    field prusate Int Pos
+    {
+        get
+        {
+            var Int a;
+            a : this.Extern.Stream_PosGet(this.Intern);
+            return a;
+        }
+        set
+        {
+        }
+    }
+    
+    field prusate Int Status
+    {
+        get
+        {
+            var Int a;
+            a : this.Extern.Stream_StatusGet(this.Intern);
+            return a;
+        }
+        set
+        {
+        }
+    }
+    
     field private Extern Extern { get { return data; } set { data : value; } }
     field private InternInfra InternInfra { get { return data; } set { data : value; } }
     field private Int Intern { get { return data; } set { data : value; } }
     field private Int InternRange { get { return data; } set { data : value; } }
     field private Int InternData { get { return data; } set { data : value; } }
-
 }
