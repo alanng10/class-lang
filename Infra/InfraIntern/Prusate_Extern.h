@@ -612,8 +612,8 @@ Intern_Api Int Intern_Extern_Phore_CountSet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Phore_InitCountGet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Phore_InitCountSet(Eval* e, Int f);
 
-Intern_Api Int Intern_Extern_Phore_Acquire(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Phore_Release(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Phore_Open(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Phore_Close(Eval* e, Int f);
 
 Intern_Api Int Intern_Extern_Time_New(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Time_Delete(Eval* e, Int f);

@@ -610,8 +610,8 @@ class Extern : Any
     maide prusate Int Phore_InitCountGet(var Int o) { }
     maide prusate Int Phore_InitCountSet(var Int o, var Int value) { }
 
-    maide prusate Int Phore_Acquire(var Int o) { }
-    maide prusate Int Phore_Release(var Int o) { }
+    maide prusate Int Phore_Open(var Int o) { }
+    maide prusate Int Phore_Close(var Int o) { }
 
     maide prusate Int Time_New() { }
     maide prusate Int Time_Delete(var Int o) { }

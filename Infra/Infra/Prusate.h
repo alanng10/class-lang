@@ -593,8 +593,8 @@ Infra_Api Int Phore_CountSet(Int o, Int value);
 Infra_Api Int Phore_InitCountGet(Int o);
 Infra_Api Int Phore_InitCountSet(Int o, Int value);
 
-Infra_Api Int Phore_Acquire(Int o);
-Infra_Api Int Phore_Release(Int o);
+Infra_Api Int Phore_Open(Int o);
+Infra_Api Int Phore_Close(Int o);
 
 InfraApiNew(Time)
 Infra_Api Int Time_YeaGet(Int o);

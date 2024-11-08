@@ -630,8 +630,8 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Phore_InitCountGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong Phore_InitCountSet(ulong o, ulong value);
 
-    [DllImport(InfraLib)] public extern static ulong Phore_Acquire(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Phore_Release(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Phore_Open(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Phore_Close(ulong o);
 
     [DllImport(InfraLib)] public extern static ulong Time_New();
     [DllImport(InfraLib)] public extern static ulong Time_Delete(ulong o);

@@ -7248,7 +7248,7 @@ Int Intern_Extern_Phore_InitCountSet(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_Phore_Acquire(Eval* eval, Int frame)
+Int Intern_Extern_Phore_Open(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -7256,12 +7256,12 @@ Int Intern_Extern_Phore_Acquire(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Phore_Acquire(a0);
+    a = Phore_Open(a0);
 
     Return;
 }
 
-Int Intern_Extern_Phore_Release(Eval* eval, Int frame)
+Int Intern_Extern_Phore_Close(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -7269,7 +7269,7 @@ Int Intern_Extern_Phore_Release(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Phore_Release(a0);
+    a = Phore_Close(a0);
 
     Return;
 }
