@@ -67,5 +67,22 @@ class Thread : Any
     field private Int Intern { get { return data; } set { data : value; } }
     field private Int InternExecuteState { get { return data; } set { data : value; } }
     
+    maide prusate Bool Execute()
+    {
+        this.Extern.Thread_Execute(this.Intern);
+        return true;
+    }
     
+    maide prusate Bool Wait()
+    {
+        this.Extern.Thread_Wait(this.Intern);
+        return true;
+    }
+    
+    maide prusate Int ExecuteMain()
+    {
+        var Int a;
+        a : this.Extern.Thread_ExecuteMain(this.Intern);
+        return a;
+    }
 }
