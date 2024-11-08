@@ -73,12 +73,12 @@ public class Thread : Any
         InternIntern.ThisThread = a;
 
         ulong oa;
-        oa = a.ExecuteStateExecute();
+        oa = a.PrivateExecuteStateExecute();
 
         return oa;
     }
 
-    private ulong ExecuteStateExecute()
+    private ulong PrivateExecuteStateExecute()
     {
         this.ExecuteState.Execute();
 
