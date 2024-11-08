@@ -597,7 +597,6 @@ public class ClassGen : ClassBase
         this.TextIndent();
         this.Text(this.InternBaseSet);
         this.Text(this.LimitBraceRoundLite);
-        this.Text(this.LimitAnd);
         this.Text(this.VarKWord);
         this.Text(this.LimitComma);
         this.Text(this.Space);
