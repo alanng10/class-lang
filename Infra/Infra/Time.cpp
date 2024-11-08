@@ -471,18 +471,18 @@ Int Time_ValidDate(Int yea, Int mon, Int day)
     return a;
 }
 
-Int Time_ValidTime(Int our, Int min, Int sec, Int millisec)
+Int Time_ValidTime(Int our, Int min, Int sec, Int tick)
 {
     int ourU;
     int minU;
     int secU;
-    int millisecU;
+    int tickU;
     ourU = our;
     minU = min;
     secU = sec;
-    millisecU = millisec;
+    tickU = tick;
     bool bu;
-    bu = QTime::isValid(ourU, minU, secU, millisecU);
+    bu = QTime::isValid(ourU, minU, secU, tickU);
     Bool a;
     a = bu;
     return a;
