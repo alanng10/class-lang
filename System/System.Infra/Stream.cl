@@ -64,6 +64,24 @@ class Stream : Any
         {
             var Int u;
             u : this.Extern.Stream_HasCount(this.Intern);
+            var Bool a;
+            a : ~(u = 0);
+            return a;
+        }
+        set
+        {
+        }
+    }
+    
+    field prusate Bool HasPos
+    {
+        get
+        {
+            var Int u;
+            u : this.Extern.Stream_HasPos(this.Intern);
+            var Bool a;
+            a : ~(u = 0);
+            return a;
         }
         set
         {
