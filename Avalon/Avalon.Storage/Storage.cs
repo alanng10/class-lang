@@ -95,7 +95,7 @@ public class Storage : Any
     {
         if (this.Stream == null)
         {
-            return true;
+            return false;
         }
 
         ulong u;
