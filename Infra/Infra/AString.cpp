@@ -12,15 +12,15 @@ Int String_Final(Int o)
     return true;
 }
 
+CppField(String, Value)
 CppField(String, Count)
-CppField(String, Data)
 
 Int String_Char(Int o, Int index)
 {
     String* m;
     m = CP(o);
     Char* u;
-    u = (Char*)(m->Data);
+    u = (Char*)(m->Value);
     return u[index];
 }
 
@@ -39,9 +39,9 @@ Int String_Equal(Int o, Int other)
     }
 
     Char* mf;    
-    mf = (Char*)(m->Data);
+    mf = (Char*)(m->Value);
     Char* df;
-    df = (Char*)(d->Data);
+    df = (Char*)(d->Value);
 
     Int count;
     count = m->Count;
@@ -109,7 +109,7 @@ Int String_ConstantCreate(Int o)
     Int kk;
     kk = String_New();
     String_Init(kk);
-    String_DataSet(kk, outDataValue);
+    String_ValueSet(kk, outDataValue);
     String_CountSet(kk, stringCount);
 
     Int a;
@@ -120,7 +120,7 @@ Int String_ConstantCreate(Int o)
 Int String_ConstantDelete(Int o)
 {
     Int data;
-    data = String_DataGet(o);
+    data = String_ValueGet(o);
 
     String_Final(o);
     String_Delete(o);
@@ -134,7 +134,7 @@ Int String_QStringSet(Int result, Int a)
     Int count;
     count = String_CountGet(a);
     Int data;
-    data = String_DataGet(a);
+    data = String_ValueGet(a);
 
     const char32_t* dataU;
     dataU = (const char32_t*)data;

@@ -6,8 +6,8 @@
 
 struct String
 {
+    Int Value;
     Int Count;
-    Int Data;
 };
 
 #define CP(a) ((String*)(a))
