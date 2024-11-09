@@ -584,14 +584,14 @@ Int Draw_Intern(Int o)
     return a;
 }
 
-Int Draw_TextSet(Int o, Int textData, Int textCount)
+Int Draw_TextSet(Int o, Int textValue, Int textCount)
 {
     Draw* m;
     m = CP(o);
 
     Int dataValue;
     Int dataCount;
-    dataValue = textData;
+    dataValue = textValue;
     dataCount = textCount * sizeof(Char);
 
     Int share;
