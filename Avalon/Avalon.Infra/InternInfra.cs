@@ -52,7 +52,7 @@ public class InternInfra : Any
         ulong a;
         a = Extern.String_New();
         Extern.String_Init(a);
-        Extern.String_DataSet(a, data);
+        Extern.String_ValueSet(a, data);
         Extern.String_CountSet(a, countA);
         return a;
     }
@@ -60,7 +60,7 @@ public class InternInfra : Any
     public virtual bool StringDelete(ulong k)
     {
         ulong value;
-        value = Extern.String_DataGet(k);
+        value = Extern.String_ValueGet(k);
 
         Extern.String_Final(k);
         Extern.String_Delete(k);
@@ -73,7 +73,7 @@ public class InternInfra : Any
     {
         ulong data;
         ulong count;
-        data = Extern.String_DataGet(u);
+        data = Extern.String_ValueGet(u);
         count = Extern.String_CountGet(u);
 
         ulong dataCount;
