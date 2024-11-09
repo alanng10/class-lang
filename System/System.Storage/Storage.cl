@@ -67,10 +67,13 @@ class Storage : Any
         modeU : this.InternMode(this.Mode);
         this.DataStream : this.CreateStream();
 
-        this.Extern.Storage_PathSet(this.Intern, this.InternPath);
-        this.Extern.Storage_ModeSet(this.Intern, modeU);
-        this.Extern.Storage_StreamSet(this.Intern, this.DataStream.Ident);
-        this.Extern.Storage_Open(this.Intern);
+        var Extern extern;
+        extern : this.Extern;
+
+        extern.Storage_PathSet(this.Intern, this.InternPath);
+        extern.Storage_ModeSet(this.Intern, modeU);
+        extern.Storage_StreamSet(this.Intern, this.DataStream.Ident);
+        extern.Storage_Open(this.Intern);
         inf (this.Status = this.StorageStatusList.NoError)
         {
             this.Stream : this.DataStream;
