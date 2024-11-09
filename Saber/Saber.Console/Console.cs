@@ -39,7 +39,7 @@ public class Console : ClassBase
         this.ModuleRefLess.Init();
 
         this.SClass = this.S("Class");
-        this.SInfo = this.S("info");
+        this.SDocue = this.S("docue");
         this.SMake = this.S("make");
         this.SFlagD = this.S("-d");
         this.SFlagM = this.S("-m");
@@ -81,7 +81,7 @@ public class Console : ClassBase
     protected virtual bool MakeSystemModule { get; set; }
     protected virtual ModuleRefLess ModuleRefLess { get; set; }
     protected virtual String SClass { get; set; }
-    protected virtual String SInfo { get; set; }
+    protected virtual String SDocue { get; set; }
     protected virtual String SMake { get; set; }
     protected virtual String SFlagD { get; set; }
     protected virtual String SFlagM { get; set; }
@@ -192,7 +192,7 @@ public class Console : ClassBase
         }
 
         bool ba;
-        ba = this.TextSame(this.TA(aa), this.TB(this.SInfo));
+        ba = this.TextSame(this.TA(aa), this.TB(this.SDocue));
         if (ba)
         {
             bool baa;
