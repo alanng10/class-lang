@@ -30,6 +30,8 @@ Word "tool" has meaning that is be used.
 
 Word "node" has meaning that is entity.
 
+Word "lang" has meaning that is language.
+
 Word "plat" has meaning that is platform.
 
 Word "arch" has meaning that is architecture.
