@@ -75,3 +75,39 @@ Int Intern_State_Thread_Execute(Int thread, Int arg)
 
     return a;
 }
+
+Int Intern_State_TimeEvent_Elapse(Int timeEvent, Int arg)
+{
+    Int thread;
+    thread = Thread_This();
+
+    Int index;
+    index = Thread_IdentGet(thread);
+
+    Int* array;
+    array = CastPointer(ThreadArray);
+
+    Int kk;
+    kk = array[index];
+
+    ThreadData* threadData;
+    threadData = CastPointer(kk);
+
+    Int pa;
+    pa = threadData->Eval;
+
+    Eval* eval;
+    eval = CastPointer(pa);
+
+    Int ka;
+    ka = arg;
+    RefKindSet(ka, RefKindAny);
+
+    eval->S[eval->N] = ka;
+
+    eval->N = eval->N + 1;
+
+    Intern_Call(eval, 1, 3, 1);
+
+    return true;
+}
