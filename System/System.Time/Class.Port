@@ -1,0 +1,19 @@
+[Module]
+System.Time
+
+[Import]
+System.Infra
+    Any Any
+    Bool Bool
+    Int Int
+    Intern Intern
+    Extern Extern
+    InternInfra InternInfra
+
+[Export]
+Time
+Event
+
+[Storage]
+
+[Entry]
