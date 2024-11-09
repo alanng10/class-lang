@@ -1,6 +1,6 @@
 String
-    Count
     Value
+    Count
     Char(index)
     Equal(other)
     ConstantCreate(o) -
