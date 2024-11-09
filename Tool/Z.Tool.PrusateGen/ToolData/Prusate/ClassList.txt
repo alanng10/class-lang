@@ -268,8 +268,7 @@ StorageComp
     FoldRemove(path)
     Exist(path)
     Fold(path)
-    FoldList(path)
-    FileList(path)
+    EntryList(path, fold)
     CurrentFoldGet()
     CurrentFoldSet(path)
 
