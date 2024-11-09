@@ -3,7 +3,7 @@
 Int Stat_Var_StorageModeRead = QIODeviceBase::ReadOnly;
 Int Stat_Var_StorageModeWrite = QIODeviceBase::WriteOnly;
 Int Stat_Var_StorageModeNew = QIODeviceBase::NewOnly;
-Int Stat_Var_StorageModeExisting = QIODeviceBase::ExistingOnly;
+Int Stat_Var_StorageModeExist = QIODeviceBase::ExistingOnly;
 
 Int Stat_StorageModeRead(Int o)
 {
@@ -17,7 +17,7 @@ Int Stat_StorageModeNew(Int o)
 {
     return Stat_Var_StorageModeNew;
 }
-Int Stat_StorageModeExisting(Int o)
+Int Stat_StorageModeExist(Int o)
 {
-    return Stat_Var_StorageModeExisting;
+    return Stat_Var_StorageModeExist;
 }
