@@ -170,13 +170,13 @@ public class Comp : Any
 
     public virtual String WorkFoldGet()
     {
-        ulong o;
-        o = Extern.StorageComp_CurrentFoldGet(this.Intern);
+        ulong k;
+        k = Extern.StorageComp_CurrentFoldGet(this.Intern);
 
         String a;
-        a = this.InternInfra.StringCreateIntern(o);
+        a = this.InternInfra.StringCreateIntern(k);
 
-        this.InternInfra.StringDelete(o);
+        this.InternInfra.StringDelete(k);
 
         return a;
     }
