@@ -171,7 +171,7 @@ public class Comp : Any
     public virtual String ThisFoldGet()
     {
         ulong k;
-        k = Extern.StorageComp_CurrentFoldGet(this.Intern);
+        k = Extern.StorageComp_ThisFoldGet(this.Intern);
 
         String a;
         a = this.InternInfra.StringCreateIntern(k);
@@ -187,7 +187,7 @@ public class Comp : Any
         pathU = this.InternInfra.StringCreate(path);
 
         ulong k;
-        k = Extern.StorageComp_CurrentFoldSet(this.Intern, pathU);
+        k = Extern.StorageComp_ThisFoldSet(this.Intern, pathU);
 
         this.InternInfra.StringDelete(pathU);
 
