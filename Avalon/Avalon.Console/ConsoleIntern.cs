@@ -57,35 +57,10 @@ class ConsoleIntern : Any
         ulong u;
         u = Extern.Console_InnRead(this.Intern);
 
-        ulong value;
-        ulong count;
-        value = Extern.String_ValueGet(u);
-        count = Extern.String_CountGet(u);
-
-        ulong dataCount;
-        dataCount = count * sizeof(uint);
-
-        long ka;
-        ka = (long)dataCount;
-
-        byte[] k;
-        k = new byte[ka];
-
-        this.InternIntern.CopyToByteArray(value, k, 0, dataCount);
-
-        long countA;
-        countA = (long)count;
-
         String a;
-        a = new String();
-        a.Value = k;
-        a.Count = countA;
-        a.Init();
+        a = this.InternInfra.StringCreateIntern(u);
 
-        Extern.String_Final(u);
-        Extern.String_Delete(u);
-
-        Extern.Delete(value);
+        this.InternInfra.StringDelete(u);
         return a;
     }
 }

@@ -184,7 +184,7 @@ public class Comp : Any
         o = Extern.StorageComp_CurrentFoldGet(this.Intern);
 
         String a;
-        a = this.StringCreateIntern(o);
+        a = this.InternInfra.StringCreateIntern(o);
 
         this.InternInfra.StringDelete(o);
 
@@ -243,7 +243,7 @@ public class Comp : Any
             u = Extern.Array_ItemGet(o, indexU);
 
             String a;
-            a = this.StringCreateIntern(u);
+            a = this.InternInfra.StringCreateIntern(u);
 
             array.SetAt(i, a);
 
@@ -271,24 +271,5 @@ public class Comp : Any
         Extern.Array_Delete(o);
 
         return array;
-    }
-
-    private String StringCreateIntern(ulong k)
-    {
-        byte[] value;
-        value = this.InternInfra.ByteArrayCreateString(k);
-
-        ulong count;
-        count = Extern.String_CountGet(k);
-
-        long countA;
-        countA = (long)count;
-
-        String a;
-        a = new String();
-        a.Value = value;
-        a.Count = countA;
-        a.Init();
-        return a;
     }
 }

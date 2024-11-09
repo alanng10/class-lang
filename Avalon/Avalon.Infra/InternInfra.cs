@@ -69,6 +69,25 @@ public class InternInfra : Any
         return true;
     }
 
+    public virtual String StringCreateIntern(ulong k)
+    {
+        byte[] value;
+        value = this.ByteArrayCreateString(k);
+
+        ulong count;
+        count = Extern.String_CountGet(k);
+
+        long countA;
+        countA = (long)count;
+
+        String a;
+        a = new String();
+        a.Value = value;
+        a.Count = countA;
+        a.Init();
+        return a;
+    }
+
     public virtual byte[] ByteArrayCreateString(ulong u)
     {
         ulong value;
