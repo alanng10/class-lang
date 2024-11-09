@@ -410,7 +410,7 @@ public class Console : ClassBase
             }
 
             hasFileExtension = true;
-            sourceNameList = this.GetSourceNameList(this.SourceFold);
+            sourceNameList = this.SourceNameList(this.SourceFold);
         }
 
         this.SetSource(sourceNameList);
@@ -822,7 +822,7 @@ public class Console : ClassBase
         return a;
     }
 
-    protected virtual Array GetSourceNameList(String foldPath)
+    protected virtual Array SourceNameList(String foldPath)
     {
         Array fileArray;
         fileArray = this.FileList(foldPath);
