@@ -3,19 +3,26 @@ class Storage : Any
     maide prusate Bool Init()
     {
         base.Init();
-        this.InternIntern : share InternIntern;
+        this.InternIntern : share Intern;
         this.Extern : share Extern;
         this.InternInfra : share InternInfra;
         this.StorageStatusList : share StatusList;
-        this.Intern : this.Extern.Storage_New();
-        this.Extern.Storage_Init(this.Intern);
+        
+        var Extern extern;
+        extern : this.Extern;
+
+        this.Intern : extern.Storage_New();
+        extern.Storage_Init(this.Intern);
         return true;
     }
 
     maide prusate Bool Final()
     {
-        this.Extern.Storage_Final(this.Intern);
-        this.Extern.Storage_Delete(this.Intern);
+        var Extern extern;
+        extern : this.Extern;
+
+        extern.Storage_Final(this.Intern);
+        extern.Storage_Delete(this.Intern);
         return true;
     }
 
@@ -24,7 +31,6 @@ class Storage : Any
     field prusate Bool AnyNode { get { return data; } set { data : value; } }
     field prusate StreamStream Stream { get { return data; } set { data : value; } }
     field precate StreamStream DataStream { get { return data; } set { data : value; } }
-
     field private InternIntern InternIntern { get { return data; } set { data : value; } }
     field private Extern Extern { get { return data; } set { data : value; } }
     field private InternInfra InternInfra { get { return data; } set { data : value; } }
