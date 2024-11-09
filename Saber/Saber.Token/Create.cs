@@ -64,7 +64,7 @@ public class Create : InfraCreate
         this.ExecuteStage();
 
         arg.TokenArray = this.ListInfra.ArrayCreate(arg.TokenIndex);
-        arg.InfoArray = this.ListInfra.ArrayCreate(arg.CommentIndex);
+        arg.CommentArray = this.ListInfra.ArrayCreate(arg.CommentIndex);
 
         this.ExecuteCreateToken();
         this.ExecuteCreateComment();
@@ -330,7 +330,7 @@ public class Create : InfraCreate
     protected virtual bool ExecuteCreateComment()
     {
         Array array;
-        array = this.Arg.InfoArray;
+        array = this.Arg.CommentArray;
 
         long count;
         count = array.Count;
@@ -364,7 +364,7 @@ public class Create : InfraCreate
         Array tokenArray;
         Array infoArray;
         tokenArray = this.Arg.TokenArray;
-        infoArray = this.Arg.InfoArray;
+        infoArray = this.Arg.CommentArray;
 
         long oa;
         oa = sizeof(ulong);
