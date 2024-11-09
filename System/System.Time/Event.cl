@@ -58,4 +58,20 @@ class Event : Any
     field private InternInfra InternInfra { get { return data; } set { data : value; } }
     field private Int Intern { get { return data; } set { data : value; } }
     field private Int InternElapseState { get { return data; } set { data : value; } }
+
+    maide prusate Bool Start()
+    {
+        this.Extern.TimeEvent_Start(this.Intern);
+        return true;
+    }
+    
+    maide prusate Bool Stop()
+    {
+        this.Extern.TimeEvent_Stop(this.Intern);
+        return true;
+    }
+    
+    maide prusate Bool Elapse()
+    {
+    }
 }
