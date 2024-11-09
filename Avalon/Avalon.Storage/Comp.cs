@@ -208,13 +208,13 @@ public class Comp : Any
             foldU = 1;
         }
 
-        ulong o;
-        o = Extern.StorageComp_EntryList(this.Intern, pathU, foldU);
+        ulong k;
+        k = Extern.StorageComp_EntryList(this.Intern, pathU, foldU);
 
         this.InternInfra.StringDelete(pathU);
 
         ulong countU;
-        countU = Extern.Array_CountGet(o);
+        countU = Extern.Array_CountGet(k);
 
         long count;
         count = (long)countU;
@@ -230,7 +230,7 @@ public class Comp : Any
             indexU = (ulong)i;
 
             ulong u;
-            u = Extern.Array_ItemGet(o, indexU);
+            u = Extern.Array_ItemGet(k, indexU);
 
             String a;
             a = this.InternInfra.StringCreateIntern(u);
@@ -250,15 +250,15 @@ public class Comp : Any
             indexAU = (ulong)indexA;
 
             ulong ua;
-            ua = Extern.Array_ItemGet(o, indexAU);
+            ua = Extern.Array_ItemGet(k, indexAU);
 
             this.InternInfra.StringDelete(ua);
 
             i = i + 1;
         }
 
-        Extern.Array_Final(o);
-        Extern.Array_Delete(o);
+        Extern.Array_Final(k);
+        Extern.Array_Delete(k);
 
         return array;
     }
