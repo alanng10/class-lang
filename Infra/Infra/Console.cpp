@@ -44,7 +44,7 @@ Int Console_StreamWrite(Int o, Int text, Int stream)
 
     Int ka;
     Int kb;
-    ka = String_DataGet(text);
+    ka = String_ValueGet(text);
     kb = String_CountGet(text);
 
     Int dataValue;
@@ -137,7 +137,7 @@ Int Console_InnRead(Int o)
     Int k;
     k = String_New();
     String_Init(k);
-    String_DataSet(k, result);
+    String_ValueSet(k, result);
     String_CountSet(k, count);
 
     Int a;
