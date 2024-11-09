@@ -229,7 +229,7 @@ Int Format_ExecuteArgResult(Int o, Int arg, Int result)
     Int kind;
     kind = oo->Kind;
     Int resultData;
-    resultData = String_DataGet(result);
+    resultData = String_ValueGet(result);
 
     Format_ArgResultMaide maide;
     maide = Format_Var_ArgResultMaideList[kind];
@@ -573,7 +573,7 @@ Int Format_ArgResultString(Int o, Int arg, Int result)
     value = oo->Value;
 
     Int valueData;
-    valueData = String_DataGet(value);
+    valueData = String_ValueGet(value);
 
     Bool alignLeft;
     alignLeft = oo->AlignLeft;
@@ -918,10 +918,10 @@ Int Format_ExecuteCount(Int o, Int varBase, Int argList)
 
 Int Format_ExecuteResult(Int o, Int varBase, Int argList, Int result)
 {
+    Int baseData;
+    baseData = String_ValueGet(varBase);
     Int baseCount;
     baseCount = String_CountGet(varBase);
-    Int baseData;
-    baseData = String_DataGet(varBase);
     Char* baseU;
     baseU = CastPointer(baseData);
 
@@ -929,7 +929,7 @@ Int Format_ExecuteResult(Int o, Int varBase, Int argList, Int result)
     argCount = Array_CountGet(argList);
 
     Int resultData;
-    resultData = String_DataGet(result);
+    resultData = String_ValueGet(result);
     Char* resultU;
     resultU = CastPointer(resultData);
 
