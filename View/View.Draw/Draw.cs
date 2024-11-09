@@ -41,7 +41,7 @@ public class Draw : Any
 
         this.InternText = Extern.String_New();
         Extern.String_Init(this.InternText);
-        Extern.String_DataSet(this.InternText, this.InternTextData);
+        Extern.String_ValueSet(this.InternText, this.InternTextData);
         Extern.String_CountSet(this.InternText, 0);
 
         this.InternRangeA = this.InternInfra.RangeCreate();
