@@ -29,14 +29,6 @@ class Storage : Any
     field prusate String Path { get { return data; } set { data : value; } }
     field prusate Mode Mode { get { return data; } set { data : value; } }
     field prusate StreamStream Stream { get { return data; } set { data : value; } }
-    field precate StreamStream DataStream { get { return data; } set { data : value; } }
-    field private Intern InternIntern { get { return data; } set { data : value; } }
-    field private Extern Extern { get { return data; } set { data : value; } }
-    field private InternInfra InternInfra { get { return data; } set { data : value; } }
-    field precate StatusList StorageStatusList { get { return data; } set { data : value; } }
-    field private Int Intern { get { return data; } set { data : value; } }
-    field private Int InternPath { get { return data; } set { data : value; } }
-
     field prusate Status Status
     {
         get
@@ -51,6 +43,13 @@ class Storage : Any
         {
         }
     }
+    field precate StreamStream DataStream { get { return data; } set { data : value; } }
+    field private Intern InternIntern { get { return data; } set { data : value; } }
+    field private Extern Extern { get { return data; } set { data : value; } }
+    field private InternInfra InternInfra { get { return data; } set { data : value; } }
+    field precate StatusList StorageStatusList { get { return data; } set { data : value; } }
+    field private Int Intern { get { return data; } set { data : value; } }
+    field private Int InternPath { get { return data; } set { data : value; } }
 
     maide prusate Bool Open()
     {
