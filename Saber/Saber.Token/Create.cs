@@ -142,7 +142,7 @@ public class Create : InfraCreate
         while (row < count)
         {
             Text line;
-            line = (Text)sourceText.GetAt(row);
+            line = sourceText.GetAt(row) as Text;
             Data data;
             data = line.Data;
 
