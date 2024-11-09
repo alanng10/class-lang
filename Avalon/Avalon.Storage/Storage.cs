@@ -153,7 +153,7 @@ public class Storage : Any
         }
         if (mode.Exist)
         {
-            k = k | Extern.Stat_StorageModeExisting(stat);
+            k = k | Extern.Stat_StorageModeExist(stat);
         }
         return k;
     }
