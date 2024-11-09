@@ -817,7 +817,7 @@ public class Console : ClassBase
     protected virtual Array GetFileList(String foldPath)
     {
         Array a;
-        a = this.StorageComp.FileList(foldPath);
+        a = this.StorageComp.EntryList(foldPath, false);
 
         return a;
     }
