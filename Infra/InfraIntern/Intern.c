@@ -376,13 +376,10 @@ Int Intern_Intern_Arg(Eval* eval, Int frame)
 
 Int Intern_Intern_StateThreadExecute(Eval* eval, Int frame)
 {
-    Int ka;
-    ka = CastInt(Intern_State_Thread_Execute);
+    State(Thread_Execute);
+}
 
-    RefKindSet(ka, RefKindInt);
-
-    Int ke;
-    ke = ka;
-
-    Return(ke, 0);
+Int Intern_Intern_StateTimeEventElapse(Eval* eval, Int frame)
+{
+    State(TimeEvent_Elapse);
 }
