@@ -39,4 +39,6 @@ class Intern : Any
     maide prusate String Arg(var Int index) { }
 
     maide prusate Int StateThreadExecute() { }
+
+    maide prusate Int StateTimeEventElapse() { }
 }

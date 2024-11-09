@@ -22,3 +22,4 @@ Intern_Api Int Intern_Intern_FinalThread(Eval* eval, Int frame);
 Intern_Api Int Intern_Intern_ArgCount(Eval* eval, Int frame);
 Intern_Api Int Intern_Intern_Arg(Eval* eval, Int frame);
 Intern_Api Int Intern_Intern_StateThreadExecute(Eval* eval, Int frame);
+Intern_Api Int Intern_Intern_StateTimeEventElapse(Eval* eval, Int frame);
