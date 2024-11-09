@@ -1,4 +1,4 @@
-Read
-Write
-New
-Existing
+Read Read
+Write Write
+New New
+Exist Existing
