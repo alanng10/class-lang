@@ -42,13 +42,6 @@ public class Event : Any
         return true;
     }
 
-    private InternIntern InternIntern { get; set; }
-    private InternInfra InternInfra { get; set; }
-    private Infra TimeInfra { get; set; }
-    private ulong Intern { get; set; }
-    private ulong InternElapseState { get; set; }
-    private Handle InternHandle { get; set; }
-
     public virtual long Time
     {
         get
@@ -66,6 +59,12 @@ public class Event : Any
             Extern.TimeEvent_TimeSet(this.Intern, u);
         }
     }
+    private InternIntern InternIntern { get; set; }
+    private InternInfra InternInfra { get; set; }
+    private Infra TimeInfra { get; set; }
+    private ulong Intern { get; set; }
+    private ulong InternElapseState { get; set; }
+    private Handle InternHandle { get; set; }
 
     public virtual bool Start()
     {
