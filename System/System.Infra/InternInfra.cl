@@ -161,6 +161,8 @@ class InternInfra : Any
     
     maide prusate Bool StringDelete(var Int k)
     {
+        var Extern extern;
+        extern : this.Extern;
         return true;
     }
     
