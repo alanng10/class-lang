@@ -814,7 +814,7 @@ public class Console : ClassBase
         return true;
     }
 
-    protected virtual Array GetFileList(String foldPath)
+    protected virtual Array FileList(String foldPath)
     {
         Array a;
         a = this.StorageComp.EntryList(foldPath, false);
@@ -825,7 +825,7 @@ public class Console : ClassBase
     protected virtual Array GetSourceNameList(String foldPath)
     {
         Array fileArray;
-        fileArray = this.GetFileList(foldPath);
+        fileArray = this.FileList(foldPath);
 
         List list;
         list = new List();
