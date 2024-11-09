@@ -241,10 +241,14 @@ class Time : Any
         return a;
     }
 
-    maide prusate Bool AddMillisec(var Int value)
+    maide prusate Bool AddTick(var Int value)
     {
-        this.Extern.Time_AddMillisec(this.Intern, value);
-        return true;
+        var Int k;
+        k : this.Extern.Time_AddTick(this.Intern, value);
+        
+        var Bool a;
+        a : ~(k = 0);
+        return a;
     }
 
     maide prusate Bool LeapYear(var Int yea)
