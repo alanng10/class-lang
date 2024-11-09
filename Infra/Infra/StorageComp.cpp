@@ -245,23 +245,7 @@ Int StorageComp_Fold(Int o, Int path)
     return a;
 }
 
-Int StorageComp_FoldList(Int o, Int path)
-{
-    Int ka;
-    ka = QDir::Dirs | QDir::NoDotAndDotDot;
-
-    return StorageComp_EntryList(o, path, ka);
-}
-
-Int StorageComp_FileList(Int o, Int path)
-{
-    Int ka;
-    ka = QDir::Files;
-
-    return StorageComp_EntryList(o, path, ka);
-}
-
-Int StorageComp_EntryList(Int o, Int path, Int filter)
+Int StorageComp_EntryList(Int o, Int path, Int fold)
 {
     QString pathU;
     Int ua;
@@ -270,8 +254,21 @@ Int StorageComp_EntryList(Int o, Int path, Int filter)
 
     QDir dirA(pathU);
 
+    Int kaa;
+    kaa = 0;
+
+    if (fold)
+    {
+        kaa = QDir::Dirs | QDir::NoDotAndDotDot;
+    }
+
+    if (!fold)
+    {
+        kaa = QDir::Files;
+    }
+
     QDir::Filter filterU;
-    filterU = (QDir::Filter)filter;
+    filterU = (QDir::Filter)kaa;
 
     QDir::Filters kk;
     kk = QDir::Filters(filterU);
