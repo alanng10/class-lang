@@ -10,7 +10,7 @@ class ObjectString : ClassBase
         this.NodeType = typeof(NodeNode);
         this.CodeType = typeof(Code);
         this.TokenType = typeof(TokenToken);
-        this.CommentType = typeof(TokenInfo);
+        this.CommentType = typeof(TokenComment);
 
         this.SComma = this.S(",");
         this.SSpace = this.S(" ");
