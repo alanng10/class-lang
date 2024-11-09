@@ -235,7 +235,7 @@ public class Console : ClassBase
             Task task;
             task = new Task();
             task.Init();
-            task.Kind = this.TaskKind.Info;
+            task.Kind = this.TaskKind.Docue;
             task.Source = sourceFold;
             task.Dest = destFold;
             task.ArgBool = linkFileName;
@@ -319,7 +319,7 @@ public class Console : ClassBase
         bool ba;
         ba = (kind == kindList.Token | kind == kindList.Node);
         bool bb;
-        bb = (kind == kindList.Info);
+        bb = (kind == kindList.Docue);
 
         if (bb)
         {
