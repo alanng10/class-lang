@@ -251,10 +251,10 @@ class Time : Any
         return a;
     }
 
-    maide prusate Bool LeapYear(var Int yea)
+    maide prusate Bool LeapYea(var Int yea)
     {
         var Int k;
-        k : this.Extern.Time_LeapYear(year);
+        k : this.Extern.Time_LeapYea(yea);
 
         var Bool a;
         a : ~(k = 0);

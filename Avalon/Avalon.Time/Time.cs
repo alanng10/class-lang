@@ -284,11 +284,11 @@ public class Time : Any
     {
         ulong ua;
         ua = (ulong)yea;
-        ulong u;
-        u = Extern.Time_LeapYea(ua);
+        ulong k;
+        k = Extern.Time_LeapYea(ua);
 
         bool a;
-        a = (!(u == 0));
+        a = !(k == 0);
         return a;
     }
 
