@@ -181,7 +181,7 @@ public class Comp : Any
         return a;
     }
 
-    public virtual bool WorkFoldSet(String path)
+    public virtual bool ThisFoldSet(String path)
     {
         ulong pathU;
         pathU = this.InternInfra.StringCreate(path);
