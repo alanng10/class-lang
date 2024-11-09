@@ -73,7 +73,7 @@ Int Frame_TitleThisSet(Int o)
     return true;
 }
 
-Int Frame_VisibleGet(Int o)
+Int Frame_ShownGet(Int o)
 {
     Frame* m;
     m = CP(o);
@@ -81,12 +81,12 @@ Int Frame_VisibleGet(Int o)
     bool bu;
     bu = m->Intern->isVisible();
 
-    Bool bo;
-    bo = bu;
-    return bo;
+    Bool a;
+    a = bu;
+    return a;
 }
 
-Int Frame_VisibleSet(Int o, Int value)
+Int Frame_ShownSet(Int o, Int value)
 {
     Frame* m;
     m = CP(o);
