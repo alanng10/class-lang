@@ -364,11 +364,11 @@ Int StorageComp_StringCreate(Int o, Int u)
     Int dataCount;
     dataCount = count * Constant_CharByteCount();
 
-    Int data;
-    data = New(dataCount);
+    Int value;
+    value = New(dataCount);
 
     Char* p;
-    p = (Char*)data;
+    p = (Char*)value;
 
     Int i;
     i = 0;
@@ -388,7 +388,7 @@ Int StorageComp_StringCreate(Int o, Int u)
     Int k;
     k = String_New();
     String_Init(k);
-    String_DataSet(k, data);
+    String_ValueSet(k, value);
     String_CountSet(k, count);
 
     Int a;
