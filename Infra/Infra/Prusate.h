@@ -250,8 +250,8 @@ typedef Int (*Main_Terminate_Maide)(Int arg);
 InfraApiNew(Frame)
 Infra_Api Int Frame_TitleGet(Int o);
 Infra_Api Int Frame_TitleSet(Int o, Int value);
-Infra_Api Int Frame_VisibleGet(Int o);
-Infra_Api Int Frame_VisibleSet(Int o, Int value);
+Infra_Api Int Frame_ShownGet(Int o);
+Infra_Api Int Frame_ShownSet(Int o, Int value);
 Infra_Api Int Frame_SizeGet(Int o);
 Infra_Api Int Frame_SizeSet(Int o, Int value);
 Infra_Api Int Frame_TypeStateGet(Int o);

@@ -206,8 +206,8 @@ class Extern : Any
     maide prusate Int Frame_Final(var Int o) { }
     maide prusate Int Frame_TitleGet(var Int o) { }
     maide prusate Int Frame_TitleSet(var Int o, var Int value) { }
-    maide prusate Int Frame_VisibleGet(var Int o) { }
-    maide prusate Int Frame_VisibleSet(var Int o, var Int value) { }
+    maide prusate Int Frame_ShownGet(var Int o) { }
+    maide prusate Int Frame_ShownSet(var Int o, var Int value) { }
     maide prusate Int Frame_SizeGet(var Int o) { }
     maide prusate Int Frame_SizeSet(var Int o, var Int value) { }
     maide prusate Int Frame_TypeStateGet(var Int o) { }

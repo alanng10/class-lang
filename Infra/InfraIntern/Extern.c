@@ -2450,7 +2450,7 @@ Int Intern_Extern_Frame_TitleSet(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_Frame_VisibleGet(Eval* eval, Int frame)
+Int Intern_Extern_Frame_ShownGet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -2458,12 +2458,12 @@ Int Intern_Extern_Frame_VisibleGet(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Frame_VisibleGet(a0);
+    a = Frame_ShownGet(a0);
 
     Return;
 }
 
-Int Intern_Extern_Frame_VisibleSet(Eval* eval, Int frame)
+Int Intern_Extern_Frame_ShownSet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -2472,7 +2472,7 @@ Int Intern_Extern_Frame_VisibleSet(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = Frame_VisibleSet(a0, a1);
+    a = Frame_ShownSet(a0, a1);
 
     Return;
 }
