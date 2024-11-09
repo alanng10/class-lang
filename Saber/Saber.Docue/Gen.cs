@@ -1,4 +1,4 @@
-namespace Saber.Info;
+namespace Saber.Docue;
 
 public class Gen : ClassBase
 {
