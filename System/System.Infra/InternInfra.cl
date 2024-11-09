@@ -122,6 +122,16 @@ class InternInfra : Any
         return true;
     }
     
+    maide prusate Bool CopyFromByteArray(var Int dest, var Any source, var Int index, var Int count)
+    {
+        var Int dataValue;
+        dataValue : this.InternIntern.Memory(source);
+        dataValue : dataValue + index;
+        
+        this.Extern.Copy(dest, dataValue, count);
+        return true;
+    }
+    
     maide prusate Int StringCreate(var String value)
     {
         var Any k;
