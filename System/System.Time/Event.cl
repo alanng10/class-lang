@@ -39,4 +39,10 @@ class Event : Any
         this.InternInfra.StateDelete(this.InternElapseState);
         return true;
     }
+
+    field private Intern InternIntern { get { return data; } set { data : value; } }
+    field private Extern Extern { get { return data; } set { data : value; } }
+    field private InternInfra InternInfra { get { return data; } set { data : value; } }
+    field private Int Intern { get { return data; } set { data : value; } }
+    field private Int InternElapseState { get { return data; } set { data : value; } }
 }
