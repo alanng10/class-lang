@@ -34,7 +34,7 @@ public class SetCreateOperate : CreateOperate
         CreateArg arg;
         arg = this.Create.Arg;
         long index;
-        index = arg.InfoIndex;
+        index = arg.CommentIndex;
 
         Comment info;
         info = (Comment)arg.InfoArray.GetAt(index);
@@ -50,7 +50,7 @@ public class SetCreateOperate : CreateOperate
 
         index = index + 1;
 
-        arg.InfoIndex = index;
+        arg.CommentIndex = index;
         return true;
     }
 }

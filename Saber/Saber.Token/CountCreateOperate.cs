@@ -30,9 +30,9 @@ public class CountCreateOperate : CreateOperate
         CreateArg arg;
         arg = this.Create.Arg;
         long index;
-        index = arg.InfoIndex;
+        index = arg.CommentIndex;
         index = index + 1;
-        arg.InfoIndex = index;
+        arg.CommentIndex = index;
         return true;
     }
 
@@ -41,7 +41,7 @@ public class CountCreateOperate : CreateOperate
         CreateArg arg;
         arg = this.Create.Arg;
         this.CodeTokenStart = arg.TokenIndex;
-        this.CodeInfoStart = arg.InfoIndex;
+        this.CodeInfoStart = arg.CommentIndex;
         return true;
     }
 
@@ -56,7 +56,7 @@ public class CountCreateOperate : CreateOperate
         long tokenCount;
         long infoCount;
         tokenCount = arg.TokenIndex - this.CodeTokenStart;
-        infoCount = arg.InfoIndex - this.CodeInfoStart;
+        infoCount = arg.CommentIndex - this.CodeInfoStart;
 
         Data codeCountData;
         codeCountData = arg.CodeCountData;
