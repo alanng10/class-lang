@@ -168,7 +168,7 @@ public class Comp : Any
         return a;
     }
 
-    public virtual String WorkFoldGet()
+    public virtual String ThisFoldGet()
     {
         ulong k;
         k = Extern.StorageComp_CurrentFoldGet(this.Intern);

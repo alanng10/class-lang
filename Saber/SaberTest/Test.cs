@@ -101,7 +101,7 @@ public class Test : ClassBase
         
         this.StorageComp.WorkFoldSet(k);
         
-        this.InitialCurrentDirectory = this.StorageComp.WorkFoldGet();
+        this.InitialCurrentDirectory = this.StorageComp.ThisFoldGet();
         return true;
     }
 
