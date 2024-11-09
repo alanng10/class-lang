@@ -99,14 +99,14 @@ Int Main_FinalArg()
         Int a;
         a = Array_ItemGet(array, index);
 
-        Int data;
-        data = String_DataGet(a);
+        Int value;
+        value = String_ValueGet(a);
 
         String_Final(a);
 
         String_Delete(a);
 
-        Delete(data);
+        Delete(value);
 
         i = i + 1;
     }
