@@ -163,13 +163,13 @@ class InternInfra : Any
     {
         var Extern extern;
         extern : this.Extern;
-        
+
         var Int value;
         value : extern.String_ValueGet(k);
-        
+
         extern.String_Final(k);
         extern.String_Delete(k);
-        
+
         extern.Delete(value);
         return true;
     }
