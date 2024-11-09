@@ -126,7 +126,7 @@ class Storage : Any
     {
         var Extern extern;
         extern : this.Extern;
-        
+
         var Int varShare;
         varShare : extern.Infra_Share();
         var Int stat;
@@ -136,19 +136,19 @@ class Storage : Any
         k : 0;
         inf (mode.Read)
         {
-            k : k | extern.Stat_StorageModeRead(stat);
+            k : bit |(k, extern.Stat_StorageModeRead(stat));
         }
         inf (mode.Write)
         {
-            k : k | extern.Stat_StorageModeWrite(stat);
+            k : bit |(k, extern.Stat_StorageModeWrite(stat));
         }
         inf (mode.New)
         {
-            k : k | extern.Stat_StorageModeNew(stat);
+            k : bit |(k, extern.Stat_StorageModeNew(stat));
         }
         inf (mode.Exist)
         {
-            k : k | extern.Stat_StorageModeExisting(stat);
+            k : bit |(k, extern.Stat_StorageModeExist(stat));
         }
         return k;
     }
