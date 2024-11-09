@@ -2,6 +2,12 @@ namespace Avalon.Time;
 
 public class Event : Any
 {
+    private bool PrivateExecuteElapse()
+    {
+        this.Elapse();
+        return true;
+    }
+
     public override bool Init()
     {
         base.Init();
@@ -76,12 +82,6 @@ public class Event : Any
     public virtual bool Elapse()
     {
         return false;
-    }
-
-    private bool PrivateExecuteElapse()
-    {
-        this.Elapse();
-        return true;
     }
 
     internal static ulong InternElapse(ulong interval, ulong arg)
