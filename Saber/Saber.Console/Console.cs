@@ -29,7 +29,7 @@ public class Console : ClassBase
 
         this.Create = this.CreateCreate();
 
-        this.InfoGen = new InfoGen();
+        this.InfoGen = new DocueGen();
         this.InfoGen.Init();
 
         this.PortRead = new PortRead();
@@ -56,7 +56,7 @@ public class Console : ClassBase
     public virtual String SourceFold { get; set; }
     public virtual Create Create { get; set; }
     public virtual Result Result { get; set; }
-    public virtual InfoGen InfoGen { get; set; }
+    public virtual DocueGen InfoGen { get; set; }
     public virtual ClassModule PortModule { get; set; }
     public virtual ErrorString ErrorString { get; set; }
     public virtual TaskKindList TaskKind { get; set; }
