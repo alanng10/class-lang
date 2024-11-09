@@ -236,11 +236,11 @@ public class Time : Any
     {
         ulong valueU;
         valueU = (ulong)value;
-        ulong u;
-        u = Extern.Time_AddYea(this.Intern, valueU);
+        ulong k;
+        k = Extern.Time_AddYea(this.Intern, valueU);
 
         bool a;
-        a = !(u == 0);
+        a = !(k == 0);
         return a;
     }
 
@@ -248,11 +248,11 @@ public class Time : Any
     {
         ulong valueU;
         valueU = (ulong)value;
-        ulong u;
-        u = Extern.Time_AddMon(this.Intern, valueU);
+        ulong k;
+        k = Extern.Time_AddMon(this.Intern, valueU);
 
         bool a;
-        a = !(u == 0);
+        a = !(k == 0);
         return a;
     }
 
@@ -260,11 +260,11 @@ public class Time : Any
     {
         ulong valueU;
         valueU = (ulong)value;
-        ulong u;
-        u = Extern.Time_AddDay(this.Intern, valueU);
+        ulong k;
+        k = Extern.Time_AddDay(this.Intern, valueU);
 
         bool a;
-        a = !(u == 0);
+        a = !(k == 0);
         return a;
     }
 
@@ -272,11 +272,11 @@ public class Time : Any
     {
         ulong valueU;
         valueU = (ulong)value;
-        ulong u;
-        u = Extern.Time_AddTick(this.Intern, valueU);
+        ulong k;
+        k = Extern.Time_AddTick(this.Intern, valueU);
 
         bool a;
-        a = !(u == 0);
+        a = !(k == 0);
         return a;
     }
 
