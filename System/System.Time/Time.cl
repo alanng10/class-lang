@@ -182,12 +182,12 @@ class Time : Any
         }
     }
 
-    field prusate Int TotalMillisec
+    field prusate Int TotalTick
     {
         get
         {
             var Int a;
-            a : this.Extern.Time_TotalMillisecGet(this.Intern);
+            a : this.Extern.Time_TotalTickGet(this.Intern);
             return a;
         }
         set
