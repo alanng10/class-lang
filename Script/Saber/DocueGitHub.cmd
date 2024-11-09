@@ -1,4 +1,4 @@
 @echo off
 
-call Script\Saber\CleanInfoGitHub
-call Script\Saber\ExecuteInfoGitHub
+call Script\Saber\CleanDocueGitHub
+call Script\Saber\ExecuteDocueGitHub
