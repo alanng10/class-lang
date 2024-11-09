@@ -24,7 +24,6 @@ public class Storage : Any
     public virtual Mode Mode { get; set; }
     public virtual StreamStream Stream { get; set; }
     protected virtual StreamStream DataStream { get; set; }
-
     private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
     protected virtual StatusList StorageStatusList { get; set; }
