@@ -267,17 +267,17 @@ public class Frame : Any
     {
         get
         {
-            ulong u;
-            u = Extern.Frame_VisibleGet(this.Intern);
+            ulong k;
+            k = Extern.Frame_ShownGet(this.Intern);
             bool a;
-            a = (!(u == 0));
+            a = !(k == 0);
             return a;
         }
         set
         {
             ulong u;
             u = (ulong)(value ? 1 : 0);
-            Extern.Frame_VisibleSet(this.Intern, u);
+            Extern.Frame_ShownSet(this.Intern, u);
         }
     }
 
