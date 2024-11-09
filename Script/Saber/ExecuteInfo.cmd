@@ -1,7 +1,7 @@
 @echo off
 
-set InfoOutFold=.\Out\Info
-mkdir %InfoOutFold% 1>NUL 2>NUL
+set DocueOutFold=.\Out\Docue
+mkdir %DocueOutFold% 1>NUL 2>NUL
 
-Out\net8.0\saber.exe info "Docue" "%InfoOutFold%"
+Out\net8.0\saber.exe docue "Docue" "%DocueOutFold%"
 echo Status: %errorlevel%
