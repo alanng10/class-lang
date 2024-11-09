@@ -281,9 +281,13 @@ class Time : Any
         return a;
     }
 
-    maide prusate Bool Set(var Int yea, var Int mon, var Int day, var Int our, var Int min, var Int sec, var Int millisec, var Int pos)
+    maide prusate Bool Set(var Int yea, var Int mon, var Int day, var Int our, var Int min, var Int sec, var Int tick, var Int pos)
     {
-        this.Extern.Time_Set(this.Intern, year, month, day, hour, min, sec, millisec, pos);
-        return true;
+        var Int k;
+        k : this.Extern.Time_Set(this.Intern, yea, mon, day, our, min, sec, tick, pos);
+
+        var Bool a;
+        a : ~(k = 0);
+        return a;
     }
 }
