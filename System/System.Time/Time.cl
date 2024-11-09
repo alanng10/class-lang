@@ -31,7 +31,7 @@ class Time : Any
         get
         {
             var Int a;
-            a : this.Extern.Time_YearGet(this.Intern);
+            a : this.Extern.Time_YeaGet(this.Intern);
             return a;
         }
         set
@@ -44,7 +44,7 @@ class Time : Any
         get
         {
             var Int a;
-            a : this.Extern.Time_MonthGet(this.Intern);
+            a : this.Extern.Time_MonGet(this.Intern);
             return a;
         }
         set
@@ -70,7 +70,7 @@ class Time : Any
         get
         {
             var Int a;
-            a : this.Extern.Time_HourGet(this.Intern);
+            a : this.Extern.Time_OurGet(this.Intern);
             return a;
         }
         set
