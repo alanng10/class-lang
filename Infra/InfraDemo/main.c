@@ -1281,7 +1281,7 @@ int main(int argc, char* argv[])
 
 
 
-    Frame_VisibleSet(frame, true);
+    Frame_ShownSet(frame, true);
 
     Int thread;
     thread = Thread_This();
