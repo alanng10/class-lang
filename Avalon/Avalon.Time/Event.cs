@@ -48,9 +48,9 @@ public class Event : Any
         {
             ulong u;
             u = Extern.TimeEvent_TimeGet(this.Intern);
-            long o;
-            o = (long)u;
-            return o;
+            long a;
+            a = (long)u;
+            return a;
         }
         set
         {
