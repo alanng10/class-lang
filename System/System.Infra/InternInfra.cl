@@ -112,6 +112,31 @@ class InternInfra : Any
         return true;
     }
     
+    maide prusate Bool CopyToByteArray(var Int source, var Any dest, var Int index, var Int count)
+    {
+        var Int dataValue;
+        dataValue : this.InternIntern.Memory(dest);
+        dataValue : dataValue + index;
+        
+        this.Extern.Copy(dataValue, source, count);
+        return true;
+    }
+    
+    maide prusate Int StringCreate(var String value)
+    {
+        var Any k;
+        k : this.InternIntern.StringValueGet(value);
+        
+        var Int count;
+        count : this.InternIntern.StringCountGet(value);
+        
+        var Int ka;
+        ka : count * 4;
+        
+        var Int data;
+        data : this.Extern.New(ka);
+    }
+    
     maide prusate Int StateCreate(var Int varMaide, var Int arg)
     {
         var Extern extern;
