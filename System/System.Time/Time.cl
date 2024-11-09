@@ -155,6 +155,32 @@ class Time : Any
         {
         }
     }
+    
+    field prusate Int YeaDayCount
+    {
+        get
+        {
+            var Int a;
+            a : this.Extern.Time_YeaDayCountGet(this.Intern);
+            return a;
+        }
+        set
+        {
+        }
+    }
+    
+    field prusate Int MonDayCount
+    {
+        get
+        {
+            var Int a;
+            a : this.Extern.Time_MonDayCountGet(this.Intern);
+            return a;
+        }
+        set
+        {
+        }
+    }
 
     field prusate Int TotalMillisec
     {
