@@ -159,6 +159,11 @@ class InternInfra : Any
         return a;
     }
     
+    maide prusate Bool StringDelete(var Int k)
+    {
+        return true;
+    }
+    
     maide prusate Int StateCreate(var Int varMaide, var Int arg)
     {
         var Extern extern;

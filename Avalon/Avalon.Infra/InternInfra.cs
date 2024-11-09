@@ -57,13 +57,13 @@ public class InternInfra : Any
         return a;
     }
 
-    public virtual bool StringDelete(ulong o)
+    public virtual bool StringDelete(ulong k)
     {
         ulong data;
-        data = Extern.String_DataGet(o);
+        data = Extern.String_DataGet(k);
 
-        Extern.String_Final(o);
-        Extern.String_Delete(o);
+        Extern.String_Final(k);
+        Extern.String_Delete(k);
 
         Extern.Delete(data);
         return true;
