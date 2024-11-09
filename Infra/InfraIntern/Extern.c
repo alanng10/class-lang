@@ -133,7 +133,7 @@ Int Intern_Extern_String_CountSet(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_String_DataGet(Eval* eval, Int frame)
+Int Intern_Extern_String_ValueGet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -141,12 +141,12 @@ Int Intern_Extern_String_DataGet(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = String_DataGet(a0);
+    a = String_ValueGet(a0);
 
     Return;
 }
 
-Int Intern_Extern_String_DataSet(Eval* eval, Int frame)
+Int Intern_Extern_String_ValueSet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -155,7 +155,7 @@ Int Intern_Extern_String_DataSet(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = String_DataSet(a0, a1);
+    a = String_ValueSet(a0, a1);
 
     Return;
 }

@@ -11,8 +11,8 @@ class Extern : Any
     maide prusate Int String_Final(var Int o) { }
     maide prusate Int String_CountGet(var Int o) { }
     maide prusate Int String_CountSet(var Int o, var Int value) { }
-    maide prusate Int String_DataGet(var Int o) { }
-    maide prusate Int String_DataSet(var Int o, var Int value) { }
+    maide prusate Int String_ValueGet(var Int o) { }
+    maide prusate Int String_ValueSet(var Int o, var Int value) { }
 
     maide prusate Int String_Char(var Int o, var Int index) { }
     maide prusate Int String_Equal(var Int o, var Int other) { }

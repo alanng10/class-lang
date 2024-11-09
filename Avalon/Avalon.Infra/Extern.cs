@@ -15,8 +15,8 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong String_Final(ulong o);
     [DllImport(InfraLib)] public extern static ulong String_CountGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong String_CountSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong String_DataGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong String_DataSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong String_ValueGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong String_ValueSet(ulong o, ulong value);
 
     [DllImport(InfraLib)] public extern static ulong String_Char(ulong o, ulong index);
     [DllImport(InfraLib)] public extern static ulong String_Equal(ulong o, ulong other);

@@ -98,8 +98,8 @@ Infra_Api Int Exit(Int code);
 InfraApiNew(String)
 Infra_Api Int String_CountGet(Int o);
 Infra_Api Int String_CountSet(Int o, Int value);
-Infra_Api Int String_DataGet(Int o);
-Infra_Api Int String_DataSet(Int o, Int value);
+Infra_Api Int String_ValueGet(Int o);
+Infra_Api Int String_ValueSet(Int o, Int value);
 
 Infra_Api Int String_Char(Int o, Int index);
 Infra_Api Int String_Equal(Int o, Int other);

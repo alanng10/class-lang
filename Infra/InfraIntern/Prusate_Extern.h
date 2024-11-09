@@ -13,8 +13,8 @@ Intern_Api Int Intern_Extern_String_Init(Eval* e, Int f);
 Intern_Api Int Intern_Extern_String_Final(Eval* e, Int f);
 Intern_Api Int Intern_Extern_String_CountGet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_String_CountSet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_String_DataGet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_String_DataSet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_String_ValueGet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_String_ValueSet(Eval* e, Int f);
 
 Intern_Api Int Intern_Extern_String_Char(Eval* e, Int f);
 Intern_Api Int Intern_Extern_String_Equal(Eval* e, Int f);
