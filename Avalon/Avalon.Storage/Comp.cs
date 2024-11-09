@@ -64,14 +64,14 @@ public class Comp : Any
         ulong destPathU;
         destPathU = this.InternInfra.StringCreate(destPath);
 
-        ulong o;
-        o = Extern.StorageComp_FileCopy(this.Intern, pathU, destPathU);
+        ulong k;
+        k = Extern.StorageComp_FileCopy(this.Intern, pathU, destPathU);
 
         this.InternInfra.StringDelete(destPathU);
         this.InternInfra.StringDelete(pathU);
 
         bool a;
-        a = !(o == 0);
+        a = !(k == 0);
         return a;
     }
 
