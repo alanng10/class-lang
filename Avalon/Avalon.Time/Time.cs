@@ -216,11 +216,11 @@ public class Time : Any
 
     public virtual bool This()
     {
-        ulong u;
-        u = Extern.Time_This(this.Intern);
+        ulong k;
+        k = Extern.Time_This(this.Intern);
 
         bool a;
-        a = !(u == 0);
+        a = !(k == 0);
         return a;
     }
 
