@@ -14,14 +14,29 @@ class Gen : StatGen
 
     protected override ListEntry GetItemEntry(String line)
     {
+        Text kk;
+        kk = this.TextCreate(line);
+
         Array k;
-        k = this.TextLimit(this.TA(line), this.TB(this.S(" ")));
+        k = this.TextLimit(kk, this.TB(this.S(" ")));
+
+        Text kaa;
+        kaa = k.GetAt(0) as Text;
+
+        Text kab;
+        kab = k.GetAt(1) as Text;
+
+        String ka;
+        ka = this.StringCreate(kaa);
+
+        String kb;
+        kb = this.StringCreate(kab);
 
         ListEntry a;
         a = new ListEntry();
         a.Init();
-        a.Index = k.GetAt(0);
-        a.Value = k.GetAt(1);
+        a.Index = ka;
+        a.Value = kb;
         return a;
     }
 }
