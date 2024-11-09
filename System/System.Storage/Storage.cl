@@ -114,12 +114,12 @@ class Storage : Any
 
     maide precate StreamStream CreateStream()
     {
-        var Stream a;
-        a : new Stream;
-        a.Init();
-        var StreamStream o;
-        o : a;
-        return o;
+        var Stream k;
+        k : new Stream;
+        k.Init();
+        var StreamStream a;
+        a : k;
+        return a;
     }
 
     maide private Int InternMode(var Mode mode)
