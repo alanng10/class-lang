@@ -264,20 +264,20 @@ class Time : Any
     maide prusate Bool ValidDate(var Int yea, var Int mon, var Int day)
     {
         var Int k;
-        k : this.Extern.Time_ValidDate(year, month, day);
+        k : this.Extern.Time_ValidDate(yea, mon, day);
 
         var Bool a;
         a : ~(k = 0);
         return a;
     }
 
-    maide prusate Bool ValidTime(var Int our, var Int min, var Int sec, var Int millisec)
+    maide prusate Bool ValidTime(var Int our, var Int min, var Int sec, var Int tick)
     {
         var Int k;
-        k : this.Extern.Time_ValidTime(hour, min, sec, millisec);
+        k : this.Extern.Time_ValidTime(our, min, sec, tick);
 
         var Bool a;
-        a : ~(u = 0);
+        a : ~(k = 0);
         return a;
     }
 

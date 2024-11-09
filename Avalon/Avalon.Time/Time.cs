@@ -294,35 +294,35 @@ public class Time : Any
 
     public virtual bool ValidDate(long yea, long mon, long day)
     {
-        ulong yearU;
-        ulong monthU;
+        ulong yeaU;
+        ulong monU;
         ulong dayU;
-        yearU = (ulong)yea;
-        monthU = (ulong)mon;
+        yeaU = (ulong)yea;
+        monU = (ulong)mon;
         dayU = (ulong)day;
-        ulong u;
-        u = Extern.Time_ValidDate(yearU, monthU, dayU);
+        ulong k;
+        k = Extern.Time_ValidDate(yeaU, monU, dayU);
 
         bool a;
-        a = (!(u == 0));
+        a = !(k == 0);
         return a;
     }
 
     public virtual bool ValidTime(long our, long min, long sec, long tick)
     {
-        ulong hourU;
+        ulong ourU;
         ulong minU;
         ulong secU;
         ulong tickU;
-        hourU = (ulong)our;
+        ourU = (ulong)our;
         minU = (ulong)min;
         secU = (ulong)sec;
         tickU = (ulong)tick;
-        ulong u;
-        u = Extern.Time_ValidTime(hourU, minU, secU, tickU);
+        ulong k;
+        k = Extern.Time_ValidTime(ourU, minU, secU, tickU);
 
         bool a;
-        a = (!(u == 0));
+        a = (!(k == 0));
         return a;
     }
 
