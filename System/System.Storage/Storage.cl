@@ -55,11 +55,11 @@ class Storage : Any
     {
         inf (~(this.Stream = null))
         {
-            return true;
+            return false;
         }
         inf (~this.ValidMode(this.Mode))
         {
-            return true;
+            return false;
         }
 
         this.InternPath : this.InternInfra.StringCreate(this.Path);

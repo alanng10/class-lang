@@ -50,11 +50,11 @@ public class Storage : Any
     {
         if (!(this.Stream == null))
         {
-            return true;
+            return false;
         }
         if (!this.ValidMode(this.Mode))
         {
-            return true;
+            return false;
         }
 
         this.InternPath = this.InternInfra.StringCreate(this.Path);
