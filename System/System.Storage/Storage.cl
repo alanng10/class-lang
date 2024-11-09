@@ -6,6 +6,7 @@ class Storage : Any
         this.InternIntern : share Intern;
         this.Extern : share Extern;
         this.InternInfra : share InternInfra;
+        this.StorageInfra : share Infra;
         this.StorageStatusList : share StatusList;
         
         var Extern extern;
@@ -47,6 +48,7 @@ class Storage : Any
     field private Intern InternIntern { get { return data; } set { data : value; } }
     field private Extern Extern { get { return data; } set { data : value; } }
     field private InternInfra InternInfra { get { return data; } set { data : value; } }
+    field precate Infra StorageInfra { get { return data; } set { data : value; } }
     field precate StatusList StorageStatusList { get { return data; } set { data : value; } }
     field private Int Intern { get { return data; } set { data : value; } }
     field private Int InternPath { get { return data; } set { data : value; } }
@@ -57,7 +59,7 @@ class Storage : Any
         {
             return false;
         }
-        inf (~this.ValidMode(this.Mode))
+        inf (~this.StorageInfra.ValidMode(this.Mode))
         {
             return false;
         }
@@ -107,19 +109,6 @@ class Storage : Any
         }
 
         this.Extern.Storage_CountSet(this.Intern, value);
-        return true;
-    }
-
-    maide precate Bool ValidMode(var Mode mode)
-    {
-        inf (~(mode.Read | mode.Write))
-        {
-            return false;
-        }
-        inf (mode.New & mode.Exist)
-        {
-            return false;
-        }
         return true;
     }
 
