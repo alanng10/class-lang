@@ -513,9 +513,9 @@ Int Draw_ExecuteText(Int o, Int text, Int horizAlign, Int vertAlign, Int wordWra
     Draw* m;
     m = CP(o);
 
-    Int textData;
+    Int textValue;
     Int textCount;
-    textData = String_DataGet(text);
+    textValue = String_ValueGet(text);
     textCount = String_CountGet(text);
 
     if (TextCountMax < textCount)
@@ -542,7 +542,7 @@ Int Draw_ExecuteText(Int o, Int text, Int horizAlign, Int vertAlign, Int wordWra
     int flagU;
     flagU = (int)flag;
 
-    Draw_TextSet(o, textData, textCount);
+    Draw_TextSet(o, textValue, textCount);
 
     QRectF boundRectA;
 
