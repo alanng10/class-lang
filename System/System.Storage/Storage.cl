@@ -83,10 +83,13 @@ class Storage : Any
 
     maide prusate Bool Close()
     {
-        this.Extern.Storage_Close(this.Intern);
-        this.Extern.Storage_StreamSet(this.Intern, 0);
-        this.Extern.Storage_ModeSet(this.Intern, 0);
-        this.Extern.Storage_PathSet(this.Intern, 0);
+        var Extern extern;
+        extern : this.Extern;
+
+        extern.Storage_Close(this.Intern);
+        extern.Storage_StreamSet(this.Intern, 0);
+        extern.Storage_ModeSet(this.Intern, 0);
+        extern.Storage_PathSet(this.Intern, 0);
 
         this.DataStream.Final();
         this.DataStream : null;
