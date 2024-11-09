@@ -418,7 +418,7 @@ public class Create : InfraCreate
 
     protected virtual bool AddInfo()
     {
-        this.Operate.ExecuteInfo();
+        this.Operate.ExecuteComment();
         return true;
     }
 

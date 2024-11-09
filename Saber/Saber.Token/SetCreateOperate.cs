@@ -29,7 +29,7 @@ public class SetCreateOperate : CreateOperate
         return true;
     }
 
-    public override bool ExecuteInfo()
+    public override bool ExecuteComment()
     {
         CreateArg arg;
         arg = this.Create.Arg;

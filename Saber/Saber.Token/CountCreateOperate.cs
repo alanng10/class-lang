@@ -25,7 +25,7 @@ public class CountCreateOperate : CreateOperate
         return true;
     }
 
-    public override bool ExecuteInfo()
+    public override bool ExecuteComment()
     {
         CreateArg arg;
         arg = this.Create.Arg;

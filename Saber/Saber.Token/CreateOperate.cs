@@ -7,7 +7,7 @@ public class CreateOperate : Any
         return false;
     }
 
-    public virtual bool ExecuteInfo()
+    public virtual bool ExecuteComment()
     {
         return false;
     }
