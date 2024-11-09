@@ -345,11 +345,11 @@ public class Time : Any
         tickU = (ulong)tick;
         posU = (ulong)pos;
 
-        ulong u;
-        u = Extern.Time_Set(this.Intern, yeaU, monU, dayU, ourU, minU, secU, tickU, posU);
+        ulong k;
+        k = Extern.Time_Set(this.Intern, yeaU, monU, dayU, ourU, minU, secU, tickU, posU);
         
         bool a;
-        a = !(u == 0);
+        a = !(k == 0);
         return a;
     }
 }
