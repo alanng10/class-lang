@@ -59,7 +59,7 @@ class ConsoleIntern : Any
 
         ulong data;
         ulong count;
-        data = Extern.String_DataGet(u);
+        data = Extern.String_ValueGet(u);
         count = Extern.String_CountGet(u);
 
         ulong dataCount;
