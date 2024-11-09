@@ -269,8 +269,8 @@ StorageComp
     Exist(path)
     Fold(path)
     EntryList(path, fold)
-    CurrentFoldGet()
-    CurrentFoldSet(path)
+    ThisFoldGet()
+    ThisFoldSet(path)
 
 Network
     HostName
