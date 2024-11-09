@@ -746,7 +746,7 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Stat_StorageModeRead(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_StorageModeWrite(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_StorageModeNew(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Stat_StorageModeExisting(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Stat_StorageModeExist(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_StorageStatusNoError(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_StorageStatusReadError(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_StorageStatusWriteError(ulong o);

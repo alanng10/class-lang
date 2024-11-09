@@ -700,7 +700,7 @@ Infra_Api Int Stat_StreamKindNetwork(Int o);
 Infra_Api Int Stat_StorageModeRead(Int o);
 Infra_Api Int Stat_StorageModeWrite(Int o);
 Infra_Api Int Stat_StorageModeNew(Int o);
-Infra_Api Int Stat_StorageModeExisting(Int o);
+Infra_Api Int Stat_StorageModeExist(Int o);
 Infra_Api Int Stat_StorageStatusNoError(Int o);
 Infra_Api Int Stat_StorageStatusReadError(Int o);
 Infra_Api Int Stat_StorageStatusWriteError(Int o);

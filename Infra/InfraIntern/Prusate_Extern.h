@@ -723,7 +723,7 @@ Intern_Api Int Intern_Extern_Stat_StreamKindNetwork(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Stat_StorageModeRead(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Stat_StorageModeWrite(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Stat_StorageModeNew(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Stat_StorageModeExisting(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Stat_StorageModeExist(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Stat_StorageStatusNoError(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Stat_StorageStatusReadError(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Stat_StorageStatusWriteError(Eval* e, Int f);

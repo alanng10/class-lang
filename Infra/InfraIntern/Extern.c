@@ -8598,7 +8598,7 @@ Int Intern_Extern_Stat_StorageModeNew(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_Stat_StorageModeExisting(Eval* eval, Int frame)
+Int Intern_Extern_Stat_StorageModeExist(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -8606,7 +8606,7 @@ Int Intern_Extern_Stat_StorageModeExisting(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Stat_StorageModeExisting(a0);
+    a = Stat_StorageModeExist(a0);
 
     Return;
 }

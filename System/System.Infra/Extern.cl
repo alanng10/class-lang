@@ -721,7 +721,7 @@ class Extern : Any
     maide prusate Int Stat_StorageModeRead(var Int o) { }
     maide prusate Int Stat_StorageModeWrite(var Int o) { }
     maide prusate Int Stat_StorageModeNew(var Int o) { }
-    maide prusate Int Stat_StorageModeExisting(var Int o) { }
+    maide prusate Int Stat_StorageModeExist(var Int o) { }
     maide prusate Int Stat_StorageStatusNoError(var Int o) { }
     maide prusate Int Stat_StorageStatusReadError(var Int o) { }
     maide prusate Int Stat_StorageStatusWriteError(var Int o) { }
