@@ -62,7 +62,7 @@ public class Storage : Any
 
         this.InternPath = this.InternInfra.StringCreate(this.Path);
         ulong modeU;
-        modeU = this.GetInternMode(this.Mode);
+        modeU = this.InternMode(this.Mode);
         this.DataStream = this.CreateStream();
 
         ulong k;
@@ -130,7 +130,7 @@ public class Storage : Any
         return o;
     }
 
-    private ulong GetInternMode(Mode mode)
+    private ulong InternMode(Mode mode)
     {
         ulong share;
         share = Extern.Infra_Share();
