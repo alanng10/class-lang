@@ -108,12 +108,12 @@ public class Storage : Any
 
     protected virtual StreamStream CreateStream()
     {
-        Stream a;
-        a = new Stream();
-        a.Init();
-        StreamStream o;
-        o = a;
-        return o;
+        Stream k;
+        k = new Stream();
+        k.Init();
+        StreamStream a;
+        a = k;
+        return a;
     }
 
     private ulong InternMode(Mode mode)
