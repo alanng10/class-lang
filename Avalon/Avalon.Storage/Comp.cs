@@ -168,16 +168,6 @@ public class Comp : Any
         return a;
     }
 
-    public virtual Array FileList(String path)
-    {
-        return this.EntryList(path, false);
-    }
-
-    public virtual Array FoldList(String path)
-    {
-        return this.EntryList(path, true);
-    }
-
     public virtual String WorkFoldGet()
     {
         ulong o;
@@ -206,7 +196,7 @@ public class Comp : Any
         return a;
     }
 
-    protected virtual Array EntryList(String path, bool fold)
+    public virtual Array EntryList(String path, bool fold)
     {
         ulong pathU;
         pathU = this.InternInfra.StringCreate(path);
