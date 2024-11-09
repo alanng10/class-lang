@@ -11,4 +11,17 @@ class Gen : StatGen
 
         return base.Execute();
     }
+
+    protected override ListEntry GetItemEntry(String line)
+    {
+        Array k;
+        k = this.TextLimit(this.TA(line), this.TB(this.S(" ")));
+
+        ListEntry a;
+        a = new ListEntry();
+        a.Init();
+        a.Index = k.GetAt(0);
+        a.Value = k.GetAt(1);
+        return a;
+    }
 }
