@@ -131,18 +131,18 @@ Int String_ConstantDelete(Int o)
 
 Int String_QStringSet(Int result, Int a)
 {
+    Int value;
+    value = String_ValueGet(a);
     Int count;
     count = String_CountGet(a);
-    Int data;
-    data = String_ValueGet(a);
 
-    const char32_t* dataU;
-    dataU = (const char32_t*)data;
+    const char32_t* valueU;
+    valueU = (const char32_t*)value;
     qsizetype countU;
     countU = count;
 
     QString* u;
     u = (QString*)result;
-    *u = QString::fromUcs4(dataU, countU);
+    *u = QString::fromUcs4(valueU, countU);
     return true;
 }
