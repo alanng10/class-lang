@@ -391,18 +391,18 @@ public class Create : InfraCreate
             long of;
             of = (ob + 1) * oa;
             long tokenCount;
-            long infoCount;
+            long commentCount;
             tokenCount = (long)infraInfra.DataIntGet(codeCountData, oe);
-            infoCount = (long)infraInfra.DataIntGet(codeCountData, of);
+            commentCount = (long)infraInfra.DataIntGet(codeCountData, of);
 
             code.Token = listInfra.ArrayCreate(tokenCount);
-            code.Comment = listInfra.ArrayCreate(infoCount);
+            code.Comment = listInfra.ArrayCreate(commentCount);
 
             listInfra.ArrayCopy(code.Token, 0, tokenArray, totalToken, tokenCount);
-            listInfra.ArrayCopy(code.Comment, 0, infoArray, totalInfo, infoCount);
+            listInfra.ArrayCopy(code.Comment, 0, infoArray, totalInfo, commentCount);
 
             totalToken = totalToken + tokenCount;
-            totalInfo = totalInfo + infoCount;
+            totalInfo = totalInfo + commentCount;
 
             i = i + 1;
         }
