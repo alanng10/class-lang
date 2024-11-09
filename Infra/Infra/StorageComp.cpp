@@ -311,7 +311,7 @@ Int StorageComp_EntryList(Int o, Int path, Int fold)
     return array;
 }
 
-Int StorageComp_CurrentFoldGet(Int o)
+Int StorageComp_ThisFoldGet(Int o)
 {
     QString k;
     k = QDir::currentPath();
@@ -332,7 +332,7 @@ Int StorageComp_CurrentFoldGet(Int o)
     return a;
 }
 
-Int StorageComp_CurrentFoldSet(Int o, Int path)
+Int StorageComp_ThisFoldSet(Int o, Int path)
 {
     QString pathU;
     Int ka;
