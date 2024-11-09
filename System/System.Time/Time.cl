@@ -135,7 +135,7 @@ class Time : Any
         get
         {
             var Int a;
-            a : this.Extern.Time_YearDayGet(this.Intern);
+            a : this.Extern.Time_YeaDayGet(this.Intern);
             return a;
         }
         set
