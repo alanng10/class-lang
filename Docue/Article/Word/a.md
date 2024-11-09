@@ -28,6 +28,8 @@ Word "define" has meaning that is definition.
 
 Word "detail" has meaning that is sub info.
 
+Word "comment" has meaning that is comment info.
+
 Word "tool" has meaning that is be used.
 
 Word "node" has meaning that is entity.
