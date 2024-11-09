@@ -27,7 +27,6 @@ public class Storage : Any
     private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
     protected virtual StatusList StorageStatusList { get; set; }
-    
     private ulong Intern { get; set; }
     private ulong InternPath { get; set; }
 
