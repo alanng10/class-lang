@@ -253,7 +253,7 @@ class Demo : Any
         this.ViewC = viewC;
 
         this.Frame.View = this.View;
-        this.Frame.Visible = true;
+        this.Frame.Shown = true;
 
         ThreadThread thread;
         thread = varThis.Thread;
