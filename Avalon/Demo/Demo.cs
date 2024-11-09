@@ -833,7 +833,7 @@ class Demo : Any
         foldListPath = this.S("DemoData/FoldCopy/FoldA");
 
         Array foldList;
-        foldList = storageComp.FoldList(foldListPath);
+        foldList = storageComp.EntryList(foldListPath, true);
 
         this.AddClear().AddS("Fold List: \n");
 
@@ -860,7 +860,7 @@ class Demo : Any
         fileListPath = this.S("DemoData/FoldCopy/FoldA/FoldB");
 
         Array fileList;
-        fileList = storageComp.FileList(fileListPath);
+        fileList = storageComp.EntryList(fileListPath, false);
 
         this.AddClear().AddS("File List: \n");
 
