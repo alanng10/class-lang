@@ -48,6 +48,19 @@ public class Infra : Any
     protected virtual TextStringValue TextStringValue { get; set; }
     protected virtual StatusList StorageStatusList { get; set; }
 
+    public virtual bool ValidMode(Mode mode)
+    {
+        if (!(mode.Read | mode.Write))
+        {
+            return false;
+        }
+        if (mode.New & mode.Exist)
+        {
+            return false;
+        }
+        return true;
+    }
+
     public virtual Data DataRead(String filePath)
     {
         Storage storage;

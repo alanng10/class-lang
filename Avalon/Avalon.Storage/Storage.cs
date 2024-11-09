@@ -7,6 +7,7 @@ public class Storage : Any
         base.Init();
         this.InternIntern = InternIntern.This;
         this.InternInfra = InternInfra.This;
+        this.StorageInfra = Infra.This;
         this.StorageStatusList = StatusList.This;
         this.Intern = Extern.Storage_New();
         Extern.Storage_Init(this.Intern);
@@ -42,6 +43,7 @@ public class Storage : Any
     protected virtual StreamStream DataStream { get; set; }
     private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
+    protected virtual Infra StorageInfra { get; set; }
     protected virtual StatusList StorageStatusList { get; set; }
     private ulong Intern { get; set; }
     private ulong InternPath { get; set; }
@@ -52,7 +54,7 @@ public class Storage : Any
         {
             return false;
         }
-        if (!this.ValidMode(this.Mode))
+        if (!this.StorageInfra.ValidMode(this.Mode))
         {
             return false;
         }
@@ -101,19 +103,6 @@ public class Storage : Any
         ulong u;
         u = (ulong)value;
         Extern.Storage_CountSet(this.Intern, u);
-        return true;
-    }
-
-    protected virtual bool ValidMode(Mode mode)
-    {
-        if (!(mode.Read | mode.Write))
-        {
-            return false;
-        }
-        if (mode.New & mode.Exist)
-        {
-            return false;
-        }
         return true;
     }
 
