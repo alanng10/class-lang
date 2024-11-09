@@ -40,6 +40,19 @@ class Event : Any
         return true;
     }
 
+    field prusate Int Time
+    {
+        get
+        {
+            var Int a;
+            a : this.Extern.TimeEvent_TimeGet(this.Intern);
+            return a;
+        }
+        set
+        {
+            this.Extern.TimeEvent_TimeSet(this.Intern, value);   
+        }
+    }
     field private Intern InternIntern { get { return data; } set { data : value; } }
     field private Extern Extern { get { return data; } set { data : value; } }
     field private InternInfra InternInfra { get { return data; } set { data : value; } }
