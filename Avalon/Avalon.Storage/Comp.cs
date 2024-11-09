@@ -273,21 +273,21 @@ public class Comp : Any
         return array;
     }
 
-    private String StringCreateIntern(ulong o)
+    private String StringCreateIntern(ulong k)
     {
-        byte[] k;
-        k = this.InternInfra.ByteArrayCreateString(o);
+        byte[] value;
+        value = this.InternInfra.ByteArrayCreateString(k);
 
-        long dataCount;
-        dataCount = k.LongLength;
+        ulong count;
+        count = Extern.String_CountGet(k);
 
-        long count;
-        count = dataCount / sizeof(uint);
+        long countA;
+        countA = (long)count;
 
         String a;
         a = new String();
-        a.Value = k;
-        a.Count = count;
+        a.Value = value;
+        a.Count = countA;
         a.Init();
         return a;
     }
