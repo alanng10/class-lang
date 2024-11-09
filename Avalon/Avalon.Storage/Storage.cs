@@ -23,29 +23,28 @@ public class Storage : Any
     public virtual String Path { get; set; }
     public virtual Mode Mode { get; set; }
     public virtual StreamStream Stream { get; set; }
-    protected virtual StreamStream DataStream { get; set; }
-    private InternIntern InternIntern { get; set; }
-    private InternInfra InternInfra { get; set; }
-    protected virtual StatusList StorageStatusList { get; set; }
-    private ulong Intern { get; set; }
-    private ulong InternPath { get; set; }
-
     public virtual Status Status
     {
         get
         {
             ulong u;
             u = Extern.Storage_StatusGet(this.Intern);
-            long o;
-            o = (long)u;
+            long k;
+            k = (long)u;
             Status a;
-            a = this.StorageStatusList.Get(o);
+            a = this.StorageStatusList.Get(k);
             return a;
         }
         set
         {
         }
     }
+    protected virtual StreamStream DataStream { get; set; }
+    private InternIntern InternIntern { get; set; }
+    private InternInfra InternInfra { get; set; }
+    protected virtual StatusList StorageStatusList { get; set; }
+    private ulong Intern { get; set; }
+    private ulong InternPath { get; set; }
 
     public virtual bool Open()
     {
