@@ -218,7 +218,7 @@ class Time : Any
         
         var Bool a;
         a : ~(k = 0);
-        return true;
+        return a;
     }
 
     maide prusate Bool AddMon(var Int value)
@@ -228,13 +228,17 @@ class Time : Any
         
         var Bool a;
         a : ~(k = 0);
-        return true;
+        return a;
     }
 
     maide prusate Bool AddDay(var Int value)
     {
-        this.Extern.Time_AddDay(this.Intern, value);
-        return true;
+        var Int k;
+        k : this.Extern.Time_AddDay(this.Intern, value);
+        
+        var Bool a;
+        a : ~(k = 0);
+        return a;
     }
 
     maide prusate Bool AddMillisec(var Int value)
