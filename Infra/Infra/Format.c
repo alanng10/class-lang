@@ -918,12 +918,12 @@ Int Format_ExecuteCount(Int o, Int varBase, Int argList)
 
 Int Format_ExecuteResult(Int o, Int varBase, Int argList, Int result)
 {
-    Int baseData;
-    baseData = String_ValueGet(varBase);
+    Int baseValue;
+    baseValue = String_ValueGet(varBase);
     Int baseCount;
     baseCount = String_CountGet(varBase);
     Char* baseU;
-    baseU = CastPointer(baseData);
+    baseU = CastPointer(baseValue);
 
     Int argCount;
     argCount = Array_CountGet(argList);
