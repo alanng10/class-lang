@@ -132,21 +132,21 @@ class InternInfra : Any
         return true;
     }
     
-    maide prusate Int StringCreate(var String value)
+    maide prusate Int StringCreate(var String k)
     {
-        var Any k;
-        k : this.InternIntern.StringValueGet(value);
+        var Any value;
+        value : this.InternIntern.StringValueGet(k);
         
         var Int count;
-        count : this.InternIntern.StringCountGet(value);
+        count : this.InternIntern.StringCountGet(k);
         
         var Int ka;
         ka : count * 4;
         
-        var Int data;
-        data : this.Extern.New(ka);
+        var Int kk;
+        kk : this.Extern.New(ka);
         
-        this.CopyFromByteArray(data, k, 0, ka);
+        this.CopyFromByteArray(kk, value, 0, ka);
         
         var Extern extern;
         extern : this.Extern;
@@ -154,7 +154,7 @@ class InternInfra : Any
         var Int a;
         a : extern.String_New();
         extern.String_Init(a);
-        extern.String_DataSet(a, data);
+        extern.String_ValueSet(a, kk);
         extern.String_CountSet(a, count);
         return a;
     }
@@ -165,7 +165,7 @@ class InternInfra : Any
         extern : this.Extern;
         
         var Int value;
-        value : extern.String_DataGet(k);
+        value : extern.String_ValueGet(k);
         
         extern.String_Final(k);
         extern.String_Delete(k);
