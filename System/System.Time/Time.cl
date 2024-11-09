@@ -213,13 +213,21 @@ class Time : Any
 
     maide prusate Bool AddYea(var Int value)
     {
-        this.Extern.Time_AddYear(this.Intern, value);
+        var Int k;
+        k : this.Extern.Time_AddYea(this.Intern, value);
+        
+        var Bool a;
+        a : ~(k = 0);
         return true;
     }
 
     maide prusate Bool AddMon(var Int value)
     {
-        this.Extern.Time_AddMonth(this.Intern, value);
+        var Int k;
+        k : this.Extern.Time_AddMon(this.Intern, value);
+        
+        var Bool a;
+        a : ~(k = 0);
         return true;
     }
 
