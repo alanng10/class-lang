@@ -128,13 +128,13 @@ public class Comp : Any
         ulong pathU;
         pathU = this.InternInfra.StringCreate(path);
 
-        ulong o;
-        o = Extern.StorageComp_FoldRemove(this.Intern, pathU);
+        ulong k;
+        k = Extern.StorageComp_FoldRemove(this.Intern, pathU);
 
         this.InternInfra.StringDelete(pathU);
 
         bool a;
-        a = !(o == 0);
+        a = !(k == 0);
         return a;
     }
 
