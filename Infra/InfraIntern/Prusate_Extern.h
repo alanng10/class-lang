@@ -519,8 +519,7 @@ Intern_Api Int Intern_Extern_StorageComp_FoldCopy(Eval* e, Int f);
 Intern_Api Int Intern_Extern_StorageComp_FoldRemove(Eval* e, Int f);
 Intern_Api Int Intern_Extern_StorageComp_Exist(Eval* e, Int f);
 Intern_Api Int Intern_Extern_StorageComp_Fold(Eval* e, Int f);
-Intern_Api Int Intern_Extern_StorageComp_FoldList(Eval* e, Int f);
-Intern_Api Int Intern_Extern_StorageComp_FileList(Eval* e, Int f);
+Intern_Api Int Intern_Extern_StorageComp_EntryList(Eval* e, Int f);
 Intern_Api Int Intern_Extern_StorageComp_CurrentFoldGet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_StorageComp_CurrentFoldSet(Eval* e, Int f);
 

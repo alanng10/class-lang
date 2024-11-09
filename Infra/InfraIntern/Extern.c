@@ -6168,30 +6168,17 @@ Int Intern_Extern_StorageComp_Fold(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_StorageComp_FoldList(Eval* eval, Int frame)
+Int Intern_Extern_StorageComp_EntryList(Eval* eval, Int frame)
 {
     Int paramCount;
-    paramCount = 2;
+    paramCount = 3;
 
     Param(0);
     Param(1);
+    Param(2);
 
     Int a;
-    a = StorageComp_FoldList(a0, a1);
-
-    Return;
-}
-
-Int Intern_Extern_StorageComp_FileList(Eval* eval, Int frame)
-{
-    Int paramCount;
-    paramCount = 2;
-
-    Param(0);
-    Param(1);
-
-    Int a;
-    a = StorageComp_FileList(a0, a1);
+    a = StorageComp_EntryList(a0, a1, a2);
 
     Return;
 }
