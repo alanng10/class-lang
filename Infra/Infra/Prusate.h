@@ -96,10 +96,10 @@ Infra_Api Int Copy(Int dest, Int source, Int count);
 Infra_Api Int Exit(Int code);
 
 InfraApiNew(String)
-Infra_Api Int String_CountGet(Int o);
-Infra_Api Int String_CountSet(Int o, Int value);
 Infra_Api Int String_ValueGet(Int o);
 Infra_Api Int String_ValueSet(Int o, Int value);
+Infra_Api Int String_CountGet(Int o);
+Infra_Api Int String_CountSet(Int o, Int value);
 
 Infra_Api Int String_Char(Int o, Int index);
 Infra_Api Int String_Equal(Int o, Int other);
@@ -508,8 +508,8 @@ Infra_Api Int StorageComp_FoldRemove(Int o, Int path);
 Infra_Api Int StorageComp_Exist(Int o, Int path);
 Infra_Api Int StorageComp_Fold(Int o, Int path);
 Infra_Api Int StorageComp_EntryList(Int o, Int path, Int fold);
-Infra_Api Int StorageComp_CurrentFoldGet(Int o);
-Infra_Api Int StorageComp_CurrentFoldSet(Int o, Int path);
+Infra_Api Int StorageComp_ThisFoldGet(Int o);
+Infra_Api Int StorageComp_ThisFoldSet(Int o, Int path);
 
 InfraApiNew(Network)
 Infra_Api Int Network_HostNameGet(Int o);

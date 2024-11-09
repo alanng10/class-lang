@@ -106,33 +106,6 @@ Int Intern_Extern_String_Final(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_String_CountGet(Eval* eval, Int frame)
-{
-    Int paramCount;
-    paramCount = 1;
-
-    Param(0);
-
-    Int a;
-    a = String_CountGet(a0);
-
-    Return;
-}
-
-Int Intern_Extern_String_CountSet(Eval* eval, Int frame)
-{
-    Int paramCount;
-    paramCount = 2;
-
-    Param(0);
-    Param(1);
-
-    Int a;
-    a = String_CountSet(a0, a1);
-
-    Return;
-}
-
 Int Intern_Extern_String_ValueGet(Eval* eval, Int frame)
 {
     Int paramCount;
@@ -156,6 +129,33 @@ Int Intern_Extern_String_ValueSet(Eval* eval, Int frame)
 
     Int a;
     a = String_ValueSet(a0, a1);
+
+    Return;
+}
+
+Int Intern_Extern_String_CountGet(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 1;
+
+    Param(0);
+
+    Int a;
+    a = String_CountGet(a0);
+
+    Return;
+}
+
+Int Intern_Extern_String_CountSet(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 2;
+
+    Param(0);
+    Param(1);
+
+    Int a;
+    a = String_CountSet(a0, a1);
 
     Return;
 }
@@ -6183,7 +6183,7 @@ Int Intern_Extern_StorageComp_EntryList(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_StorageComp_CurrentFoldGet(Eval* eval, Int frame)
+Int Intern_Extern_StorageComp_ThisFoldGet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -6191,12 +6191,12 @@ Int Intern_Extern_StorageComp_CurrentFoldGet(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = StorageComp_CurrentFoldGet(a0);
+    a = StorageComp_ThisFoldGet(a0);
 
     Return;
 }
 
-Int Intern_Extern_StorageComp_CurrentFoldSet(Eval* eval, Int frame)
+Int Intern_Extern_StorageComp_ThisFoldSet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -6205,7 +6205,7 @@ Int Intern_Extern_StorageComp_CurrentFoldSet(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = StorageComp_CurrentFoldSet(a0, a1);
+    a = StorageComp_ThisFoldSet(a0, a1);
 
     Return;
 }

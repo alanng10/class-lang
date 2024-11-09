@@ -11,10 +11,10 @@ Intern_Api Int Intern_Extern_String_New(Eval* e, Int f);
 Intern_Api Int Intern_Extern_String_Delete(Eval* e, Int f);
 Intern_Api Int Intern_Extern_String_Init(Eval* e, Int f);
 Intern_Api Int Intern_Extern_String_Final(Eval* e, Int f);
-Intern_Api Int Intern_Extern_String_CountGet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_String_CountSet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_String_ValueGet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_String_ValueSet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_String_CountGet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_String_CountSet(Eval* e, Int f);
 
 Intern_Api Int Intern_Extern_String_Char(Eval* e, Int f);
 Intern_Api Int Intern_Extern_String_Equal(Eval* e, Int f);
@@ -520,8 +520,8 @@ Intern_Api Int Intern_Extern_StorageComp_FoldRemove(Eval* e, Int f);
 Intern_Api Int Intern_Extern_StorageComp_Exist(Eval* e, Int f);
 Intern_Api Int Intern_Extern_StorageComp_Fold(Eval* e, Int f);
 Intern_Api Int Intern_Extern_StorageComp_EntryList(Eval* e, Int f);
-Intern_Api Int Intern_Extern_StorageComp_CurrentFoldGet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_StorageComp_CurrentFoldSet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_StorageComp_ThisFoldGet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_StorageComp_ThisFoldSet(Eval* e, Int f);
 
 Intern_Api Int Intern_Extern_Network_New(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Network_Delete(Eval* e, Int f);

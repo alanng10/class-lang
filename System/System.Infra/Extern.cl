@@ -9,10 +9,10 @@ class Extern : Any
     maide prusate Int String_Delete(var Int o) { }
     maide prusate Int String_Init(var Int o) { }
     maide prusate Int String_Final(var Int o) { }
-    maide prusate Int String_CountGet(var Int o) { }
-    maide prusate Int String_CountSet(var Int o, var Int value) { }
     maide prusate Int String_ValueGet(var Int o) { }
     maide prusate Int String_ValueSet(var Int o, var Int value) { }
+    maide prusate Int String_CountGet(var Int o) { }
+    maide prusate Int String_CountSet(var Int o, var Int value) { }
 
     maide prusate Int String_Char(var Int o, var Int index) { }
     maide prusate Int String_Equal(var Int o, var Int other) { }
@@ -518,8 +518,8 @@ class Extern : Any
     maide prusate Int StorageComp_Exist(var Int o, var Int path) { }
     maide prusate Int StorageComp_Fold(var Int o, var Int path) { }
     maide prusate Int StorageComp_EntryList(var Int o, var Int path, var Int fold) { }
-    maide prusate Int StorageComp_CurrentFoldGet(var Int o) { }
-    maide prusate Int StorageComp_CurrentFoldSet(var Int o, var Int path) { }
+    maide prusate Int StorageComp_ThisFoldGet(var Int o) { }
+    maide prusate Int StorageComp_ThisFoldSet(var Int o, var Int path) { }
 
     maide prusate Int Network_New() { }
     maide prusate Int Network_Delete(var Int o) { }
