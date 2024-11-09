@@ -109,5 +109,7 @@ Int Intern_State_TimeEvent_Elapse(Int timeEvent, Int arg)
 
     Intern_Call(eval, 1, 3, 1);
 
+    eval->N = eval->N - 1;
+
     return true;
 }
