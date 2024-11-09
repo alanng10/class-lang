@@ -396,10 +396,10 @@ public class Create : InfraCreate
             infoCount = (long)infraInfra.DataIntGet(codeCountData, of);
 
             code.Token = listInfra.ArrayCreate(tokenCount);
-            code.Info = listInfra.ArrayCreate(infoCount);
+            code.Comment = listInfra.ArrayCreate(infoCount);
 
             listInfra.ArrayCopy(code.Token, 0, tokenArray, totalToken, tokenCount);
-            listInfra.ArrayCopy(code.Info, 0, infoArray, totalInfo, infoCount);
+            listInfra.ArrayCopy(code.Comment, 0, infoArray, totalInfo, infoCount);
 
             totalToken = totalToken + tokenCount;
             totalInfo = totalInfo + infoCount;
