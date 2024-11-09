@@ -171,7 +171,7 @@ Bool Intern_ArgInit()
         a = Array_ItemGet(array, i);
 
         Int value;
-        value = String_DataGet(a);
+        value = String_ValueGet(a);
 
         Int count;
         count = String_CountGet(a);
