@@ -798,7 +798,7 @@ int main(int argc, char* argv[])
     stringOa = String_ConstantCreate(CastInt("ABCD GGHH o4\n"));
 
     Int memoryDataValue;
-    memoryDataValue = String_DataGet(stringOa);
+    memoryDataValue = String_ValueGet(stringOa);
 
 
     Int memoryDataCount;
@@ -848,7 +848,7 @@ int main(int argc, char* argv[])
 
     String_CountSet(stringOb, stringCountA);
 
-    String_DataSet(stringOb, dataValueA);
+    String_ValueSet(stringOb, dataValueA);
 
     Console_OutWrite(Console, stringOb);
 
