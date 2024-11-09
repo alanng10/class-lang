@@ -2,6 +2,33 @@ namespace Avalon.Thread;
 
 public class Thread : Any
 {
+    private ulong PrivateExecuteStateExecute()
+    {
+        this.ExecuteState.Execute();
+
+        object aa;
+        aa = this.ExecuteState.Result;
+
+        ulong oa;
+        oa = 0;
+
+        if (!(aa == null))
+        {
+            if (aa is Value)
+            {
+                Value k;
+                k = (Value)aa;
+
+                long o;
+                o = k.Int;
+
+                oa = (ulong)o;
+            }
+        }
+
+        return oa;
+    }
+
     public override bool Init()
     {
         base.Init();
@@ -87,33 +114,6 @@ public class Thread : Any
 
         ulong oa;
         oa = a.PrivateExecuteStateExecute();
-
-        return oa;
-    }
-
-    private ulong PrivateExecuteStateExecute()
-    {
-        this.ExecuteState.Execute();
-
-        object aa;
-        aa = this.ExecuteState.Result;
-
-        ulong oa;
-        oa = 0;
-
-        if (!(aa == null))
-        {
-            if (aa is Value)
-            {
-                Value k;
-                k = (Value)aa;
-
-                long o;
-                o = k.Int;
-
-                oa = (ulong)o;
-            }
-        }
 
         return oa;
     }
