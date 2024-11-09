@@ -145,6 +145,18 @@ class InternInfra : Any
         
         var Int data;
         data : this.Extern.New(ka);
+        
+        this.CopyFromByteArray(data, k, 0, ka);
+        
+        var Extern extern;
+        extern : this.Extern;
+        
+        var Int a;
+        a : extern.String_New();
+        extern.String_Init(a);
+        extern.String_DataSet(a, data);
+        extern.String_CountSet(a, count);
+        return a;
     }
     
     maide prusate Int StateCreate(var Int varMaide, var Int arg)

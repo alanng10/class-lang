@@ -32,8 +32,8 @@ public class InternInfra : Any
 
     public virtual ulong StringCreate(String value)
     {
-        byte[] array;
-        array = value.Value;
+        byte[] k;
+        k = value.Value;
 
         long count;
         count = value.Count;
@@ -47,7 +47,7 @@ public class InternInfra : Any
         ulong data;
         data = Extern.New(ka);
 
-        this.InternIntern.CopyFromByteArray(data, array, 0, ka);
+        this.InternIntern.CopyFromByteArray(data, k, 0, ka);
 
         ulong a;
         a = Extern.String_New();
