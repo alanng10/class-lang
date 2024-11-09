@@ -103,7 +103,7 @@ class Storage : Any
     {
         inf (this.Stream = null)
         {
-            return true;
+            return false;
         }
 
         this.Extern.Storage_CountSet(this.Intern, value);
