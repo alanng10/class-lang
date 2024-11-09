@@ -338,8 +338,8 @@ public class Create : InfraCreate
         i = 0;
         while (i < count)
         {
-            Info a;
-            a = new Info();
+            Comment a;
+            a = new Comment();
             a.Init();
             a.Range = new Range();
             a.Range.Init();

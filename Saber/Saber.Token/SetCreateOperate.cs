@@ -36,8 +36,8 @@ public class SetCreateOperate : CreateOperate
         long index;
         index = arg.InfoIndex;
 
-        Info info;
-        info = (Info)arg.InfoArray.GetAt(index);
+        Comment info;
+        info = (Comment)arg.InfoArray.GetAt(index);
         info.Row = this.Create.Row;
 
         Range aa;
