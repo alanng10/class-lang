@@ -71,9 +71,9 @@ public class InternInfra : Any
 
     public virtual byte[] ByteArrayCreateString(ulong u)
     {
-        ulong data;
+        ulong value;
         ulong count;
-        data = Extern.String_ValueGet(u);
+        value = Extern.String_ValueGet(u);
         count = Extern.String_CountGet(u);
 
         ulong dataCount;
@@ -85,7 +85,7 @@ public class InternInfra : Any
         byte[] k;
         k = new byte[ka];
 
-        this.InternIntern.CopyToByteArray(data, k, 0, dataCount);
+        this.InternIntern.CopyToByteArray(value, k, 0, dataCount);
         return k;
     }
     
