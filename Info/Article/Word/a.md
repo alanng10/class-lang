@@ -294,6 +294,8 @@ Word "frame" has meaning that is root view.
 
 Word "grid" has meaning that is table area.
 
+Word "shown" has meaning that is visible.
+
 Word "page" has meaning that is manage.
 
 Word "event" has meaning that is occurred.
