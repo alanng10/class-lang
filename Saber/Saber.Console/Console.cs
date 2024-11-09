@@ -29,8 +29,8 @@ public class Console : ClassBase
 
         this.Create = this.CreateCreate();
 
-        this.InfoGen = new DocueGen();
-        this.InfoGen.Init();
+        this.DocueGen = new DocueGen();
+        this.DocueGen.Init();
 
         this.PortRead = new PortRead();
         this.PortRead.Init();
@@ -56,7 +56,7 @@ public class Console : ClassBase
     public virtual String SourceFold { get; set; }
     public virtual Create Create { get; set; }
     public virtual Result Result { get; set; }
-    public virtual DocueGen InfoGen { get; set; }
+    public virtual DocueGen DocueGen { get; set; }
     public virtual ClassModule PortModule { get; set; }
     public virtual ErrorString ErrorString { get; set; }
     public virtual TaskKindList TaskKind { get; set; }
@@ -117,7 +117,7 @@ public class Console : ClassBase
             return false;
         }
 
-        b = this.InfoGen.Load();
+        b = this.DocueGen.Load();
         if (!b)
         {
             return false;
@@ -330,12 +330,12 @@ public class Console : ClassBase
             bool linkFileName;
             linkFileName = this.Task.ArgBool;
 
-            this.InfoGen.SourceFoldPath = sourceFoldPath;
-            this.InfoGen.DestFoldPath = destFoldPath;
-            this.InfoGen.LinkFileName = linkFileName;
+            this.DocueGen.SourceFoldPath = sourceFoldPath;
+            this.DocueGen.DestFoldPath = destFoldPath;
+            this.DocueGen.LinkFileName = linkFileName;
 
             bool bba;
-            bba = this.InfoGen.Execute();
+            bba = this.DocueGen.Execute();
             if (!bba)
             {
                 this.Status = 30000;
