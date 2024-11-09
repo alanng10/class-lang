@@ -211,16 +211,15 @@ public class Comp : Any
         ulong pathU;
         pathU = this.InternInfra.StringCreate(path);
 
-        ulong o;
-        o = 0;
-        if (!fold)
-        {
-            o = Extern.StorageComp_FileList(this.Intern, pathU);
-        }
+        ulong foldU;
+        foldU = 0;
         if (fold)
         {
-            o = Extern.StorageComp_FoldList(this.Intern, pathU);
+            foldU = 1;
         }
+
+        ulong o;
+        o = Extern.StorageComp_EntryList(this.Intern, pathU, foldU);
 
         this.InternInfra.StringDelete(pathU);
 
