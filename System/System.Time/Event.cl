@@ -27,4 +27,16 @@ class Event : Any
         extern.TimeEvent_ElapseStateSet(this.Intern, this.InternElapseState);
         return true;
     }
+    
+    maide prusate Bool Final()
+    {
+        var Extern extern;
+        extern : this.Extern;
+
+        extern.TimeEvent_Final(this.Intern);
+        extern.TimeEvent_Delete(this.Intern);
+        
+        this.InternInfra.StateDelete(this.InternElapseState);
+        return true;
+    }
 }
