@@ -87,7 +87,7 @@ Int Main_OS_Arg()
         
         String_Init(a);
         
-        String_DataSet(a, result);
+        String_ValueSet(a, result);
 
         String_CountSet(a, stringCount);
 
