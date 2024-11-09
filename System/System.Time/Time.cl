@@ -197,7 +197,11 @@ class Time : Any
 
     maide prusate Bool This()
     {
-        this.Extern.Time_This(this.Intern);
+        var Int k;
+        k : this.Extern.Time_This(this.Intern);
+        
+        var Bool a;
+        a : ~(k = 0);
         return true;
     }
 
