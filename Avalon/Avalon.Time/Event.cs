@@ -2,7 +2,7 @@ namespace Avalon.Time;
 
 public class Event : Any
 {
-    private bool PrivateExecuteElapse()
+    private bool PrivateElapse()
     {
         this.Elapse();
         return true;
@@ -94,7 +94,7 @@ public class Event : Any
 
         Event a;
         a = (Event)ao;
-        a.PrivateExecuteElapse();
+        a.PrivateElapse();
 
         return 1;
     }
