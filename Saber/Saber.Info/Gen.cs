@@ -614,7 +614,7 @@ public class Gen : ClassBase
     protected virtual Array FoldList(String foldPath)
     {
         Array a;
-        a = this.StorageComp.FoldList(foldPath);
+        a = this.StorageComp.EntryList(foldPath, true);
         return a;
     }
 }
