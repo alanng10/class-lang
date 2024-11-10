@@ -32,5 +32,15 @@ class Network : Any
         this.InternInfra : share InternInfra;
         this.NetworkStatusList : share StatusList;
         this.NetworkCaseList : share CaseList;
+        
+        var Int ka;
+        var Int kb;
+        var Int kc;
+        ka : this.InternIntern.StateNetworkStatusEvent();
+        kb : this.InternIntern.StateNetworkCaseEvent();
+        kc : this.InternIntern.StateNetworkDataEvent();
+        var Int arg;
+        arg : this.InternIntern.Memory(this);
+        
     }
 }
