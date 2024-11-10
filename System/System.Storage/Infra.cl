@@ -122,20 +122,20 @@ class Infra : Any
 
     maide prusate String TextRead(var String filePath)
     {
-        return this.TextReadAny(filePath, false);
-    }
-
-    maide prusate String TextReadAny(var String filePath, var Bool anyNode)
-    {
         var TextCodeKindList kindList;
         kindList : this.TextCodeKindList;
 
         var Data data;
-        data : this.DataReadAny(filePath, anyNode);
+        data : this.DataRead(filePath);
         inf (data = null)
         {
             return null;
         }
+        
+        var TextCodeKind innKind;
+        var TextCodeKind outKind;
+        innKind : kindList.Utf8;
+        outKind : kindList.Utf32;
 
         var Range dataRange;
         dataRange : new Range;
@@ -144,13 +144,13 @@ class Infra : Any
         dataRange.Count : data.Count;
 
         var Data result;
-        result : this.TextInfra.Code(kindList.Utf8, kindList.Utf32, data, dataRange); 
+        result : this.TextInfra.Code(innKind, outKind, data, dataRange); 
 
         var String k;
         k : this.StringComp.CreateData(result, null);
 
         var String a;
-        a = k;
+        a : k;
         return a;
     }
 
