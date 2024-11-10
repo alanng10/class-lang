@@ -70,17 +70,17 @@ public class Network : Any
             this.Stream = this.DataStream;
         }
 
-        Extern.Network_StatusChangeStateSet(this.Intern, this.InternStatusEventState);
-        Extern.Network_CaseChangeStateSet(this.Intern, this.InternCaseEventState);
-        Extern.Network_ReadyReadStateSet(this.Intern, this.InternDataEventState);
+        Extern.Network_StatusEventStateSet(this.Intern, this.InternStatusEventState);
+        Extern.Network_CaseEventStateSet(this.Intern, this.InternCaseEventState);
+        Extern.Network_DataEventStateSet(this.Intern, this.InternDataEventState);
         return true;
     }
 
     public virtual bool Final()
     {
-        Extern.Network_ReadyReadStateSet(this.Intern, 0);
-        Extern.Network_CaseChangeStateSet(this.Intern, 0);
-        Extern.Network_StatusChangeStateSet(this.Intern, 0);
+        Extern.Network_DataEventStateSet(this.Intern, 0);
+        Extern.Network_CaseEventStateSet(this.Intern, 0);
+        Extern.Network_StatusEventStateSet(this.Intern, 0);
 
         bool b;
         b = (this.HostPeer == 0);
