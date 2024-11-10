@@ -19,3 +19,6 @@ Int ArgCount|
 String Arg|Int index
 Int StateThreadExecute|
 Int StateTimeEventElapse|
+Int StateNetworkStatusEvent|
+Int StateNetworkCaseEvent|
+Int StateNetworkDataEvent|
