@@ -175,6 +175,26 @@ class InternInfra : Any
         return true;
     }
     
+    maide prusate Any ByteArrayCreateString(var Int k)
+    {
+        var Extern extern;
+        extern : this.Extern;
+
+        var Int value;
+        var Int count;
+        value : extern.String_ValueGet(k);
+        count : extern.String_CountGet(k);
+
+        var Int dataCount;
+        dataCount : count * 4;
+
+        var Any a;
+        a : this.InternIntern.DataNew(dataCount);
+
+        this.InternIntern.CopyToByteArray(value, a, 0, dataCount);
+        return a;
+    }
+
     maide prusate Int StateCreate(var Int varMaide, var Int arg)
     {
         var Extern extern;
