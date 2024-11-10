@@ -103,6 +103,8 @@ public class ClassGen : ClassBase
         this.DirectiveInclude = this.S("#include");
         this.IncludeValueInfra = this.S("<Infra/Prusate.h>");
         this.IncludeValueInfraIntern = this.S("<InfraIntern/Prusate.h>");
+        this.IncludeValueInfraInternIntern = this.S("<InfraIntern/Prusate_Intern.h>");
+        this.IncludeValueInfraInternExtern = this.S("<InfraIntern/Prusate_Extern.h>");
         this.IncludeValueModule = this.S("\"Module.h\"");
         this.DirectivePragmaOnce = this.S("#pragma once");
         this.IndexExtern = this.S("extern");
@@ -241,6 +243,8 @@ public class ClassGen : ClassBase
     public virtual String DirectiveInclude { get; set; }
     public virtual String IncludeValueInfra { get; set; }
     public virtual String IncludeValueInfraIntern { get; set; }
+    public virtual String IncludeValueInfraInternIntern { get; set; }
+    public virtual String IncludeValueInfraInternExtern { get; set; }
     public virtual String IncludeValueModule { get; set; }
     public virtual String DirectivePragmaOnce { get; set; }
     public virtual String IndexExtern { get; set; }
@@ -419,6 +423,11 @@ public class ClassGen : ClassBase
 
     public virtual bool ExecuteExternCompState()
     {
+        if (this.Class == this.InternClass | this.Class == this.ExternClass)
+        {
+            return true;
+        }
+
         Iter iter;
         iter = this.TableIter;
 
