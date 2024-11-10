@@ -200,15 +200,8 @@ public class Infra : Any
         dataRange.Init();
         dataRange.Count = data.Count;
 
-        long resultCount;
-        resultCount = code.ExecuteCount(innKind, outKind, data, dataRange);
-
         Data result;
-        result = new Data();
-        result.Count = resultCount;
-        result.Init();
-
-        code.ExecuteResult(result, 0, innKind, outKind, data, dataRange);
+        result = this.TextInfra.Code(innKind, outKind, data, dataRange);
 
         bool a;
         a = this.DataWrite(filePath, result);
