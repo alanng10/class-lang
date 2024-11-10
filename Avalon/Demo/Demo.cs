@@ -714,7 +714,7 @@ class Demo : Any
 
         b = storageComp.Rename(this.S(pathA), this.S(destPathA));
 
-        this.Console.Out.Write(this.S("Rename File " + pathA + " " + this.StorageCompStatus(b) + "\n"));
+        this.Console.Out.Write(this.S("File Rename " + this.StorageCompStatus(b) + "\n"));
 
         string pathAa;
         pathAa = "DemoData/FoldRename";
@@ -743,7 +743,7 @@ class Demo : Any
 
         b = storageComp.Rename(this.S(pathAa), this.S(destPathAa));
 
-        this.Console.Out.Write(this.S("Rename Fold " + pathAa + " " + this.StorageCompStatus(b) + "\n"));
+        this.Console.Out.Write(this.S("Fold Rename " + this.StorageCompStatus(b) + "\n"));
 
         string path;
         path = "DemoData/DemoCopy.txt";
@@ -753,7 +753,7 @@ class Demo : Any
 
         b = storageComp.FileCopy(this.S(path), this.S(destPath));
 
-        this.Console.Out.Write(this.S("FileCopy " + path + " to " + destPath + " " + this.StorageCompStatus(b) + "\n"));
+        this.Console.Out.Write(this.S("File Copy " + this.StorageCompStatus(b) + "\n"));
 
         string pathB;
         pathB = "DemoData/Remove.txt";
@@ -766,7 +766,7 @@ class Demo : Any
         }
         b = storageComp.FileDelete(this.S(pathB));
 
-        this.Console.Out.Write(this.S("File Delete " + pathB + " " + this.StorageCompStatus(b) + "\n"));
+        this.Console.Out.Write(this.S("File Delete " + this.StorageCompStatus(b) + "\n"));
 
 
         string pathC;
@@ -783,7 +783,7 @@ class Demo : Any
 
         b = storageComp.FoldCreate(this.S(pathC));
 
-        this.Console.Out.Write(this.S("FoldCreate " + pathC + " " + this.StorageCompStatus(b) + "\n"));
+        this.Console.Out.Write(this.S("Fold Create " + this.StorageCompStatus(b) + "\n"));
 
         string pathCa;
         pathCa = "DemoData/FoldCopy";
@@ -800,7 +800,7 @@ class Demo : Any
 
         b = storageComp.FoldCopy(this.S(pathCa), this.S(destPathCa));
 
-        this.Console.Out.Write(this.S("FoldCopy " + pathCa + " to " + destPathCa + " " + this.StorageCompStatus(b) + "\n"));
+        this.Console.Out.Write(this.S("Fold Copy " + this.StorageCompStatus(b) + "\n"));
 
         string pathCb;
         pathCb = "DemoData/RemoveFoldA";
