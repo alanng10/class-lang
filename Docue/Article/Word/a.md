@@ -274,6 +274,8 @@ Word "path" has meaning that is way.
 
 Word "relate" has meaning that is relative.
 
+Word "combine" has meaning that is combine entity.
+
 Word "open" has meaning that is hold start.
 
 Word "close" has meaning that is hold end.
