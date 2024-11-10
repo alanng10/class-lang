@@ -42,7 +42,6 @@ class Infra : Any
         var Storage storage;
         storage : new Storage;
         storage.Init();
-        storage.AnyNode : anyNode;
 
         var Mode mode;
         mode : new Mode;
@@ -53,7 +52,7 @@ class Infra : Any
         storage.Mode : mode;
         storage.Open();
 
-        var Data o;
+        var Data a;
         inf (storage.Status = this.StorageStatusList.NoError)
         {
             var StreamStream stream;
@@ -72,14 +71,14 @@ class Infra : Any
             range.Count : count;
 
             stream.Read(data, range);
-            inf (stream.Status = 0)
+            inf (storage.Status = this.StorageStatusList.NoError)
             {
-                o : data;
+                a : data;
             }
         }
         storage.Close();
         storage.Final();
-        return o;
+        return a;
     }
 
     maide prusate Bool DataWrite(var String filePath, var Data data)
