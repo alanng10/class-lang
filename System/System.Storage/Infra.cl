@@ -227,7 +227,7 @@ class Infra : Any
         return a;
     }
 
-    maide prusate Bool IsRelativePath(var Text entryPath, var Less less)
+    maide prusate Bool PathRelate(var Text entryPath, var Less less)
     {
         var TextInfra textInfra;
         textInfra : this.TextInfra;
@@ -252,13 +252,13 @@ class Infra : Any
         indexA : range.Index;
         countA : range.Count;
 
-        var TextText colon;
+        var Text colon;
         colon : this.TextColon;
 
         var Int colonCount;
         colonCount : colon.Range.Count;
 
-        range.Index : indexA + k - colonCount;
+        range.Index : (indexA + k) - colonCount;
         range.Count : colonCount;
 
         var Bool b;
