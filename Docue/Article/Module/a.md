@@ -18,10 +18,3 @@ have 1 module binary file that is a machine code library binary,
 1 data directory that contains all the module associated data files and directories.
 These 2 files and 1 directory have names that are the displayed module ref of the module, followed with a dot sign and a extension name.
 The module binary file, refer binary file, and data directory have extension names that are "dll", "ref, and "data".
-
-If the module has entry for starting execution with the module, 
-additional 2 executable files are parts of the module associated files.
-The module execution is started with the execution of 1 of the executable files.
-1 executable file is for execution with console input and output in a command prompt.
-Another executable file is for execution without console input and output and without command prompt.
-The executable files can be executed in any working directory.
