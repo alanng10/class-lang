@@ -52,4 +52,18 @@ class Host : Any
     field private Extern Extern { get { return data; } set { data : value; } }
     field private InternInfra InternInfra { get { return data; } set { data : value; } }
     field private Int Intern { get { return data; } set { data : value; } }
+    field private Int InternPort { get { return data; } set { data : value; } }
+    field private Int InternNewPeerState { get { return data; } set { data : value; } }
+
+    maide prusate Bool Open()
+    {
+        this.InternPortSet();
+
+        var Int k;
+        k : this.Extern.NetworkHost_Open(this.Intern);
+
+        var Bool a;
+        a : ~(k = 0);
+        return a;
+    }
 }
