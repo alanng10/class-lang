@@ -88,12 +88,12 @@ public class InternInfra : Any
         return a;
     }
 
-    public virtual byte[] ByteArrayCreateString(ulong u)
+    public virtual byte[] ByteArrayCreateString(ulong k)
     {
         ulong value;
         ulong count;
-        value = Extern.String_ValueGet(u);
-        count = Extern.String_CountGet(u);
+        value = Extern.String_ValueGet(k);
+        count = Extern.String_CountGet(k);
 
         ulong dataCount;
         dataCount = count * sizeof(uint);
@@ -101,11 +101,11 @@ public class InternInfra : Any
         long ka;
         ka = (long)dataCount;
 
-        byte[] k;
-        k = new byte[ka];
+        byte[] a;
+        a = new byte[ka];
 
-        this.InternIntern.CopyToByteArray(value, k, 0, dataCount);
-        return k;
+        this.InternIntern.CopyToByteArray(value, a, 0, dataCount);
+        return a;
     }
     
     public virtual ulong StateCreate(MaideAddress maideAddress, ulong arg)
