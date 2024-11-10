@@ -6,9 +6,11 @@ System.Infra
     Any Any
     Bool Bool
     Int Int
+    String String
     Intern Intern
     Extern Extern
     InternInfra InternInfra
+    Stream Stream
 
 [Export]
 Storage
