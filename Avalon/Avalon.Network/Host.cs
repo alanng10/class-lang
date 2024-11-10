@@ -2,6 +2,12 @@ namespace Avalon.Network;
 
 public class Host : Any
 {
+    private bool PrivateNewPeer()
+    {
+        this.NewPeer();
+        return true;
+    }
+
     public override bool Init()
     {
         base.Init();
@@ -93,6 +99,17 @@ public class Host : Any
         return a;
     }
 
+    public virtual bool ClosePeer(Network network)
+    {
+        ulong k;
+        k = network.HostPeer;
+
+        this.FinalPeer(network);
+
+        Extern.NetworkHost_ClosePeer(this.Intern, k);
+        return true;
+    }
+
     protected virtual Network CreatePeer(ulong peer)
     {
         Network a;
@@ -105,17 +122,6 @@ public class Host : Any
     protected virtual bool FinalPeer(Network a)
     {
         a.Final();
-        return true;
-    }
-
-    public virtual bool ClosePeer(Network network)
-    {
-        ulong u;
-        u = network.HostPeer;
-
-        this.FinalPeer(network);
-
-        Extern.NetworkHost_ClosePeer(this.Intern, u);
         return true;
     }
 
@@ -146,15 +152,9 @@ public class Host : Any
         return true;
     }
 
-    private bool PrivateNewPeer()
+    public virtual bool NewPeer()
     {
-        this.PeerEvent();
-        return true;
-    }
-
-    public virtual bool PeerEvent()
-    {
-        return true;
+        return false;
     }
 
     internal static ulong InternNewPeer(ulong networkServer, ulong arg)
