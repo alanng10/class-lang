@@ -123,7 +123,7 @@ public class StringComp : Any
         long valueCount;
         valueCount = count * kka;
 
-        byte[] value;
+        object value;
         value = new byte[valueCount];
 
         long i;
