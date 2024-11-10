@@ -18,19 +18,19 @@ public class Host : Any
         this.InternHandle.Any = this;
         this.InternHandle.Init();
 
-        this.InternPort = Extern.NetworkPort_New();
-        Extern.NetworkPort_Init(this.InternPort);
-
         MaideAddress ka;
         ka = this.NetworkInfra.HostNewPeerMaideAddress;
         ulong arg;
         arg = this.InternHandle.ULong();
         this.InternNewPeerState = this.InternInfra.StateCreate(ka, arg);
 
+        this.InternPort = Extern.NetworkPort_New();
+        Extern.NetworkPort_Init(this.InternPort);
+
         this.Intern = Extern.NetworkHost_New();
         Extern.NetworkHost_Init(this.Intern);
-        Extern.NetworkHost_PortSet(this.Intern, this.InternPort);
         Extern.NetworkHost_NewPeerStateSet(this.Intern, this.InternNewPeerState);
+        Extern.NetworkHost_PortSet(this.Intern, this.InternPort);
         return true;
     }
 
@@ -41,10 +41,10 @@ public class Host : Any
         Extern.NetworkHost_Final(this.Intern);
         Extern.NetworkHost_Delete(this.Intern);
 
-        this.InternInfra.StateDelete(this.InternNewPeerState);
-
         Extern.NetworkPort_Final(this.InternPort);
         Extern.NetworkPort_Delete(this.InternPort);
+
+        this.InternInfra.StateDelete(this.InternNewPeerState);
 
         this.InternHandle.Final();
         return true;
