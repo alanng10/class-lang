@@ -1,0 +1,24 @@
+[Module]
+System.Storage
+
+[Import]
+System.Infra
+    Any Any
+    Bool Bool
+    Int Int
+    Intern Intern
+    Extern Extern
+    InternInfra InternInfra
+
+[Export]
+Storage
+Stream
+Comp
+Mode
+Status
+StatusList
+Infra
+
+[Storage]
+
+[Entry]
