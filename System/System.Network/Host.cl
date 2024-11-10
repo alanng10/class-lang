@@ -46,4 +46,10 @@ class Host : Any
         this.InternInfra.StateDelete(this.InternNewPeerState);
         return true;
     }
+
+    field prusate Port Port { get { return data; } set { data : value; } }
+    field private Intern InternIntern { get { return data; } set { data : value; } }
+    field private Extern Extern { get { return data; } set { data : value; } }
+    field private InternInfra InternInfra { get { return data; } set { data : value; } }
+    field private Int Intern { get { return data; } set { data : value; } }
 }
