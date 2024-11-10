@@ -3,7 +3,7 @@
 Class source code is compiled to module.
 The module binary is machine code library module.
 The module binary is executed on operating system.
-The execution is started with execution of one of the module binary associated executable ".exe" files.
+The execution is started with execution runner.
 
 Class source code is compiled to C source code and a refer binary, 
 then the C source code is compiled to machine code library module with GCC MinGW and QMake.
