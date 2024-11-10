@@ -46,7 +46,7 @@ public class Network : Any
         oc = this.NetworkInfra.NetworkDataEventMaideAddress;
         ulong arg;
         arg = this.InternHandle.ULong();
-        this.InternStatusChangeState = this.InternInfra.StateCreate(oa, arg);
+        this.InternStatusEventState = this.InternInfra.StateCreate(oa, arg);
         this.InternCaseChangeState = this.InternInfra.StateCreate(ob, arg);
         this.InternReadyReadState = this.InternInfra.StateCreate(oc, arg);
 
@@ -70,7 +70,7 @@ public class Network : Any
             this.Stream = this.DataStream;
         }
 
-        Extern.Network_StatusChangeStateSet(this.Intern, this.InternStatusChangeState);
+        Extern.Network_StatusChangeStateSet(this.Intern, this.InternStatusEventState);
         Extern.Network_CaseChangeStateSet(this.Intern, this.InternCaseChangeState);
         Extern.Network_ReadyReadStateSet(this.Intern, this.InternReadyReadState);
         return true;
@@ -97,7 +97,7 @@ public class Network : Any
 
         this.InternInfra.StateDelete(this.InternReadyReadState);
         this.InternInfra.StateDelete(this.InternCaseChangeState);
-        this.InternInfra.StateDelete(this.InternStatusChangeState);
+        this.InternInfra.StateDelete(this.InternStatusEventState);
 
         this.InternHandle.Final();
         return true;
@@ -119,7 +119,7 @@ public class Network : Any
     private ulong Intern { get; set; }
     private ulong InternReadyReadState { get; set; }
     private ulong InternCaseChangeState { get; set; }
-    private ulong InternStatusChangeState { get; set; }
+    private ulong InternStatusEventState { get; set; }
     private Handle InternHandle { get; set; }
     private ulong InternHostName { get; set; }
 
