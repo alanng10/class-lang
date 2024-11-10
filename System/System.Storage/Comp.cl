@@ -220,6 +220,14 @@ class Comp : Any
         i : 0;
         while (i < count)
         {
+            var Int u;
+            u : extern.Array_ItemGet(k, i);
+
+            var String a;
+            a : this.InternInfra.StringCreateIntern(u);
+
+            array.Set(i, a);
+
             i : i + 1;
         }
     }
