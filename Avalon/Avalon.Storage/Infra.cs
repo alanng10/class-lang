@@ -252,7 +252,7 @@ public class Infra : Any
         return a;
     }
 
-    public virtual bool IsRelativePath(TextText entryPath, Less less)
+    public virtual bool RelativePath(TextText entryPath, Less less)
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
