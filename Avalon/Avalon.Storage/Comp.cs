@@ -81,7 +81,7 @@ public class Comp : Any
         pathU = this.InternInfra.StringCreate(path);
 
         ulong k;
-        k = Extern.StorageComp_FileRemove(this.Intern, pathU);
+        k = Extern.StorageComp_FileDelete(this.Intern, pathU);
 
         this.InternInfra.StringDelete(pathU);
 
@@ -129,7 +129,7 @@ public class Comp : Any
         pathU = this.InternInfra.StringCreate(path);
 
         ulong k;
-        k = Extern.StorageComp_FoldRemove(this.Intern, pathU);
+        k = Extern.StorageComp_FoldDelete(this.Intern, pathU);
 
         this.InternInfra.StringDelete(pathU);
 
