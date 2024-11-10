@@ -246,17 +246,17 @@ public class Network : Any
 
     public virtual bool StatusEvent()
     {
-        return true;
+        return false;
     }
 
     public virtual bool CaseEvent()
     {
-        return true;
+        return false;
     }
 
     public virtual bool DataEvent()
     {
-        return true;
+        return false;
     }
 
     internal static ulong InternStatusEvent(ulong network, ulong arg)
