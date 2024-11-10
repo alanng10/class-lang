@@ -19,7 +19,7 @@ Bool NetworkHostIntern::Close()
 
 void NetworkHostIntern::NewPeerHandle()
 {
-    Int networkServer;
-    networkServer = this->NetworkHost;
-    NetworkHost_NewPeer(networkServer);
+    Int networkHost;
+    networkHost = this->NetworkHost;
+    NetworkHost_NewPeer(networkHost);
 }
