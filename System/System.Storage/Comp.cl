@@ -131,4 +131,19 @@ class Comp : Any
         a : ~(k = 0);
         return a;
     }
+    
+    maide prusate Bool Exist(var String path)
+    {
+        var Int pathU;
+        pathU : this.InternInfra.StringCreate(path);
+
+        var Int k;
+        k : this.Extern.StorageComp_Exist(this.Intern, pathU);
+
+        this.InternInfra.StringDelete(pathU);
+
+        var Bool a;
+        a : ~(k = 0);
+        return a;
+    }
 }
