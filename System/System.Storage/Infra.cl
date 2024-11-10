@@ -220,7 +220,7 @@ class Infra : Any
         return a;
     }
 
-    maide prusate Int EntryNameExtensionDot(var Text entryName, var Less less)
+    maide prusate Int EntryNameExtendDot(var Text entryName, var Less less)
     {
         var Int a;
         a : this.TextInfra.LastIndex(entryName, this.TextDot, less);
