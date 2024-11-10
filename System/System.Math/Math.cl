@@ -13,19 +13,24 @@ class Math : Any
 
     maide prusate Int Value(var Comp comp)
     {
-        var Int aa;
-        aa : comp.Cand;
-        var Int ab;
-        ab : comp.Expo;
+        var Int cand;
+        cand : comp.Cand;
+        var Int expo;
+        expo : comp.Expo;
 
         var Int a;
-        a : this.Extern.Math_Value(this.Intern, aa, ab);
+        a : this.Extern.Math_Value(this.Intern, cand, expo);
 
         return a;
     }
 
-    maide prusate Int ValueTen(var Int cand, var Int expoTen)
+    maide prusate Int ValueTen(var Comp comp)
     {
+        var Int cand;
+        cand : comp.Cand;
+        var Int expoTen;
+        expoTen : comp.Expo;
+
         var Int a;
         a : this.Extern.Math_ValueTen(this.Intern, cand, expoTen);
         return a;
