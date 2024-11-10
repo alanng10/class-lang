@@ -2,6 +2,30 @@ namespace Avalon.Network;
 
 public class Network : Any
 {
+    private bool PrivateStatusEvent()
+    {
+        this.StatusEvent();
+        return true;
+    }
+
+    private bool PrivateCaseEvent()
+    {
+        if (this.Case == this.NetworkCaseList.Connected)
+        {
+            this.Stream = this.DataStream;
+            this.LoadingOpen = false;
+        }
+
+        this.CaseEvent();
+        return true;
+    }
+
+    private bool PrivateDataEvent()
+    {
+        this.DataEvent();
+        return true;
+    }
+
     public override bool Init()
     {
         base.Init();
@@ -220,43 +244,13 @@ public class Network : Any
         return o;
     }
 
-    private bool PrivateStatusEvent()
-    {
-        this.StatusEvent();
-        return true;
-    }
-
     public virtual bool StatusEvent()
     {
         return true;
     }
 
-    private bool PrivateCaseEvent()
-    {
-        CaseList caseList;
-        caseList = this.NetworkCaseList;
-
-        Case k;
-        k = this.Case;
-
-        if (k == caseList.Connected)
-        {
-            this.Stream = this.DataStream;
-            this.LoadingOpen = false;
-        }
-
-        this.CaseEvent();
-        return true;
-    }
-
     public virtual bool CaseEvent()
     {
-        return true;
-    }
-
-    private bool PrivateDataEvent()
-    {
-        this.DataEvent();
         return true;
     }
 
