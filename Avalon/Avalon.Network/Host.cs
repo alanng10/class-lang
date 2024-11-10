@@ -116,28 +116,23 @@ public class Host : Any
 
     private bool InternPortSet()
     {
-        Port aa;
-        aa = this.Port;
-
         ulong kindU;
-        kindU = aa.Kind.Intern;
+        kindU = this.Port.Kind.Intern;
         ulong valueAU;
         ulong valueBU;
         ulong valueCU;
         ulong hostU;
-        valueAU = (ulong)aa.ValueA;
-        valueBU = (ulong)aa.ValueB;
-        valueCU = (ulong)aa.ValueC;
-        hostU = (ulong)aa.Host;
+        valueAU = (ulong)this.Port.ValueA;
+        valueBU = (ulong)this.Port.ValueB;
+        valueCU = (ulong)this.Port.ValueC;
+        hostU = (ulong)this.Port.Host;
 
-        ulong u;
-        u = this.InternPort;
-        Extern.NetworkPort_KindSet(u, kindU);
-        Extern.NetworkPort_ValueASet(u, valueAU);
-        Extern.NetworkPort_ValueBSet(u, valueBU);
-        Extern.NetworkPort_ValueCSet(u, valueCU);
-        Extern.NetworkPort_HostSet(u, hostU);
-        Extern.NetworkPort_Set(u);
+        Extern.NetworkPort_KindSet(this.InternPort, kindU);
+        Extern.NetworkPort_ValueASet(this.InternPort, valueAU);
+        Extern.NetworkPort_ValueBSet(this.InternPort, valueBU);
+        Extern.NetworkPort_ValueCSet(this.InternPort, valueCU);
+        Extern.NetworkPort_HostSet(this.InternPort, hostU);
+        Extern.NetworkPort_Set(this.InternPort);
         return true;
     }
 
