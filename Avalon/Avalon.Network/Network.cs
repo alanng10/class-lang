@@ -109,17 +109,6 @@ public class Network : Any
     public virtual StreamStream Stream { get; set; }
     protected virtual StreamStream DataStream { get; set; }
     public virtual bool LoadingOpen { get; set; }
-    private InternIntern InternIntern { get; set; }
-    private InternInfra InternInfra { get; set; }
-    private Infra NetworkInfra { get; set; }
-    protected virtual StatusList NetworkStatusList { get; set; }
-    protected virtual CaseList NetworkCaseList { get; set; }
-    private ulong Intern { get; set; }
-    private ulong InternDataEventState { get; set; }
-    private ulong InternCaseEventState { get; set; }
-    private ulong InternStatusEventState { get; set; }
-    private Handle InternHandle { get; set; }
-    private ulong InternHostName { get; set; }
 
     public virtual Status Status
     {
@@ -174,6 +163,18 @@ public class Network : Any
         {
         }
     }
+
+    private InternIntern InternIntern { get; set; }
+    private InternInfra InternInfra { get; set; }
+    private Infra NetworkInfra { get; set; }
+    protected virtual StatusList NetworkStatusList { get; set; }
+    protected virtual CaseList NetworkCaseList { get; set; }
+    private ulong Intern { get; set; }
+    private ulong InternDataEventState { get; set; }
+    private ulong InternCaseEventState { get; set; }
+    private ulong InternStatusEventState { get; set; }
+    private Handle InternHandle { get; set; }
+    private ulong InternHostName { get; set; }
 
     public virtual bool Open()
     {
