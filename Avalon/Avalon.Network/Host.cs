@@ -50,7 +50,6 @@ public class Host : Any
     }
 
     public virtual Port Port { get; set; }
-    public virtual bool IsOpen { get; set; }
     private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
     private Infra NetworkInfra { get; set; }
@@ -65,26 +64,16 @@ public class Host : Any
 
         Extern.NetworkHost_PortSet(this.Intern, this.InternPort);
         
-        ulong u;
-        u = Extern.NetworkHost_Open(this.Intern);
-
-        bool k;
-        k = (!(u == 0));
-
-        if (k)
-        {
-            this.IsOpen = true;
-        }
+        ulong k;
+        k = Extern.NetworkHost_Open(this.Intern);
 
         bool a;
-        a = k;
+        a = !(k == 0);
         return a;
     }
 
     public virtual bool Close()
     {
-        this.IsOpen = false;
-
         Extern.NetworkHost_Close(this.Intern);
         return true;
     }
