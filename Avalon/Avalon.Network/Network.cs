@@ -181,11 +181,11 @@ public class Network : Any
     {
         if (!(this.Stream == null))
         {
-            return true;
+            return false;
         }
         if (this.LoadingOpen)
         {
-            return true;
+            return false;
         }
 
         this.LoadingOpen = true;
