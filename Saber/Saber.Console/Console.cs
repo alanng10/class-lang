@@ -344,8 +344,8 @@ public class Console : ClassBase
             return true;
         }
 
-        bool hasFileExtension;
-        hasFileExtension = false;
+        bool hasFileExtend;
+        hasFileExtend = false;
         Array sourceNameList;
         sourceNameList = null;
         if (ba)
@@ -409,13 +409,13 @@ public class Console : ClassBase
                 return false;
             }
 
-            hasFileExtension = true;
+            hasFileExtend = true;
             sourceNameList = this.SourceNameList(this.SourceFold);
         }
 
         this.SetSource(sourceNameList);
 
-        this.ReadSourceText(hasFileExtension);
+        this.ReadSourceText(hasFileExtend);
 
         this.ExecuteCreate();
 
