@@ -890,7 +890,7 @@ public class Console : ClassBase
         return true;
     }
 
-    protected virtual bool ReadSourceText(bool hasFileExtension)
+    protected virtual bool ReadSourceText(bool hasFileExtend)
     {
         InfraInfra infraInfra;
         infraInfra = this.InfraInfra;
@@ -918,7 +918,7 @@ public class Console : ClassBase
 
             String k;
             k = textInfra.Zero;
-            if (hasFileExtension)
+            if (hasFileExtend)
             {
                 k = this.SDotCl;
             }
