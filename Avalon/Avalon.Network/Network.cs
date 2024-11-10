@@ -225,23 +225,23 @@ public class Network : Any
 
     protected virtual StreamStream StreamCreateSet(long ident)
     {
-        Stream a;
-        a = new Stream();
-        a.InitIdent = ident;
-        a.Init();
-        StreamStream o;
-        o = a;
-        return o;
+        Stream k;
+        k = new Stream();
+        k.InitIdent = ident;
+        k.Init();
+        StreamStream a;
+        a = k;
+        return a;
     }
 
     protected virtual StreamStream StreamCreate()
     {
-        Stream a;
-        a = new Stream();
-        a.Init();
-        StreamStream o;
-        o = a;
-        return o;
+        Stream k;
+        k = new Stream();
+        k.Init();
+        StreamStream a;
+        a = k;
+        return a;
     }
 
     public virtual bool StatusEvent()
