@@ -108,4 +108,18 @@ class Host : Any
         k.Final();
         return true;
     }
+
+    maide private Bool InternPortSet()
+    {
+        var Extern extern;
+        extern : this.Extern;
+
+        extern.NetworkPort_KindSet(this.InternPort, this.Port.Kind.Intern);
+        extern.NetworkPort_ValueASet(this.InternPort, this.Port.ValueA);
+        extern.NetworkPort_ValueBSet(this.InternPort, this.Port.ValueB);
+        extern.NetworkPort_ValueCSet(this.InternPort, this.Port.ValueC);
+        extern.NetworkPort_HostSet(this.InternPort, this.Port.Host);
+        extern.NetworkPort_Set(this.InternPort);
+        return true;
+    }
 }
