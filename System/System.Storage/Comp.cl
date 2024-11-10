@@ -32,4 +32,22 @@ class Comp : Any
     field private InternInfra InternInfra { get { return data; } set { data : value; } }
     field precate ListInfra ListInfra { get { return data; } set { data : value; } }
     field private Int Intern { get { return data; } set { data : value; } }
+    
+    maide prusate Bool Rename(var String path, var String destPath)
+    {
+        var Int pathU;
+        pathU : this.InternInfra.StringCreate(path);
+        var Int destPathU;
+        destPathU : this.InternInfra.StringCreate(destPath);
+        
+        var Int k;
+        k : this.Extern.StorageComp_Rename(this.Intern, pathU, destPathU);
+        
+        this.InternInfra.StringDelete(destPathU);
+        this.InternInfra.StringDelete(pathU);
+        
+        var Bool a;
+        a : ~(k = 0);
+        return a;
+    }
 }
