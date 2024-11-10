@@ -822,13 +822,6 @@ class Demo : Any
 
         this.Console.Out.Write(this.S("Fold Delete " + pathCb + " " + this.StorageCompStatus(b) + "\n"));
 
-        string pathE;
-        pathE = "DemoData/image.jpg";
-
-        b = storageComp.Exist(this.S(pathE));
-
-        this.Console.Out.Write(this.S("Exist " + pathE + " " + b.ToString() + "\n"));
-
         String foldListPath;
         foldListPath = this.S("DemoData/FoldCopy/FoldA");
 
