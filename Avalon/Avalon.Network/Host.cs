@@ -36,8 +36,6 @@ public class Host : Any
 
     public virtual bool Final()
     {
-        Extern.NetworkHost_NewPeerStateSet(this.Intern, 0);
-
         Extern.NetworkHost_Final(this.Intern);
         Extern.NetworkHost_Delete(this.Intern);
 
