@@ -281,12 +281,12 @@ Network
     Case
     Open()
     Close()
-    CaseChangeState
-    CaseChange(network, arg) --
-    StatusChangeState
-    StatusChange(network, arg) --
-    ReadyReadState
-    ReadyRead(network, arg) --
+    StatusEventState
+    StatusEvent(network, arg) --
+    CaseEventState
+    CaseEvent(network, arg) --
+    DataEventState
+    DataEvent(network, arg) --
 
 NetworkHost
     Open()
