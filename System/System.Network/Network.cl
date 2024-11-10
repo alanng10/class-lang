@@ -65,10 +65,22 @@ class Network : Any
             this.DataStream : this.StreamCreateSet(ident);
             this.Stream : this.DataStream;
         }
-        
+
         extern.Network_StatusEventStateSet(this.Intern, this.InternStatusEventState);
         extern.Network_CaseEventStateSet(this.Intern, this.InternCaseEventState);
         extern.Network_DataEventStateSet(this.Intern, this.InternDataEventState);
         return true;        
+    }
+
+    maide prusate Bool Final()
+    {
+        var Extern extern;
+        extern : this.Extern;
+
+        extern.Network_DataEventStateSet(this.Intern, 0);
+        extern.Network_CaseEventStateSet(this.Intern, 0);
+        extern.Network_StatusEventStateSet(this.Intern, 0);
+        
+        
     }
 }
