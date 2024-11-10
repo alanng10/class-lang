@@ -163,23 +163,13 @@ public class Infra : Any
         innKind = kindList.Utf8;
         outKind = kindList.Utf32;
 
-        TextCode code;
-        code = this.TextCode;
-
         Range dataRange;
         dataRange = new Range();
         dataRange.Init();
         dataRange.Count = data.Count;
 
-        long resultCount;
-        resultCount = code.ExecuteCount(innKind, outKind, data, dataRange);
-
         Data result;
-        result = new Data();
-        result.Count = resultCount;
-        result.Init();
-
-        code.ExecuteResult(result, 0, innKind, outKind, data, dataRange);
+        result = this.TextInfra.Code(innKind, outKind, data, dataRange);
 
         String k;
         k = this.StringComp.CreateData(result, null);
