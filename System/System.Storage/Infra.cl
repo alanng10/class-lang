@@ -198,19 +198,19 @@ class Infra : Any
         storage.Mode : mode;
         storage.Open();
 
-        var Bool o;
-        o : false;
-        inf (storage.Status = statusList.NoError)
+        var Bool a;
+        a : false;
+        inf (storage.Status = this.StorageStatusList.NoError)
         {
             storage.CountSet(value);
-            inf (storage.Status = statusList.NoError)
+            inf (storage.Status = this.StorageStatusList.NoError)
             {
-                o = true;
+                a : true;
             }
         }
         storage.Close();
         storage.Final();
-        return o;
+        return a;
     }
 
     maide prusate Int EntryPathNameCombine(var TextText entryPath, var Less less)
