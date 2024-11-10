@@ -83,15 +83,9 @@ class Infra : Any
 
     maide prusate Bool DataWrite(var String filePath, var Data data)
     {
-        return this.DataWriteAny(filePath, data, false);
-    }
-
-    maide prusate Bool DataWriteAny(var String filePath, var Data data, var Bool anyNode)
-    {
         var Storage storage;
         storage : new Storage;
         storage.Init();
-        storage.AnyNode : anyNode;
 
         var Mode mode;
         mode : new Mode;
@@ -102,8 +96,8 @@ class Infra : Any
         storage.Mode : mode;
         storage.Open();
 
-        var Bool o;
-        o : false;
+        var Bool a;
+        a : false;
         inf (storage.Status = this.StorageStatusList.NoError)
         {
             var StreamStream stream;
@@ -116,14 +110,14 @@ class Infra : Any
             range.Count : data.Count;
 
             stream.Write(data, range);
-            inf (stream.Status = 0)
+            inf (storage.Status = this.StorageStatusList.NoError)
             {
-                o = true;
+                a : true;
             }
         }
         storage.Close();
         storage.Final();
-        return o;
+        return a;
     }
 
     maide prusate String TextRead(var String filePath)

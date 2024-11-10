@@ -124,14 +124,11 @@ public class Infra : Any
             StreamStream stream;
             stream = storage.Stream;
 
-            long count;
-            count = data.Count;
-
             Range range;
             range = new Range();
             range.Init();
             range.Index = 0;
-            range.Count = count;
+            range.Count = data.Count;
 
             stream.Write(data, range);
             if (storage.Status == this.StorageStatusList.NoError)
