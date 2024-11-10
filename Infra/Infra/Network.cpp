@@ -294,7 +294,7 @@ Int Network_CaseChange(Int o)
     }
 
     Int state;
-    state = m->CaseChangeState;
+    state = m->CaseEventState;
     if (!(state == null))
     {
         Int aa;
@@ -302,8 +302,8 @@ Int Network_CaseChange(Int o)
         Int arg;
         arg = State_ArgGet(state);
 
-        Network_CaseChange_Maide maide;
-        maide = (Network_CaseChange_Maide)aa;
+        Network_CaseEvent_Maide maide;
+        maide = (Network_CaseEvent_Maide)aa;
         if (!(maide == null))
         {
             maide(o, arg);
@@ -319,7 +319,7 @@ Int Network_ReadyRead(Int o)
     m = CP(o);
 
     Int state;
-    state = m->ReadyReadState;
+    state = m->DataEventState;
 
     if (state == null)
     {
@@ -336,8 +336,8 @@ Int Network_ReadyRead(Int o)
         return true;
     }
 
-    Network_ReadyRead_Maide maide;
-    maide = (Network_ReadyRead_Maide)aa;
+    Network_DataEvent_Maide maide;
+    maide = (Network_DataEvent_Maide)aa;
 
     maide(o, arg);
 
