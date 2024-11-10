@@ -272,6 +272,8 @@ Word "post" has meaning that is queued event.
 
 Word "path" has meaning that is way.
 
+Word "relate" has meaning that is relative.
+
 Word "open" has meaning that is hold start.
 
 Word "close" has meaning that is hold end.
