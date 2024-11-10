@@ -17,7 +17,7 @@ public class StringData : Data
         {
             this.ValueStringData = value;
 
-            byte[] ka;
+            object ka;
             ka = null;
             long count;
             count = 0;
