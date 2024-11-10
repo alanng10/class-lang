@@ -174,7 +174,22 @@ class InternInfra : Any
         extern.Delete(value);
         return true;
     }
-    
+
+    maide prusate String StringCreateIntern(var Int k)
+    {
+        var Any value;
+        value : this.ByteArrayCreateString(k);
+
+        var Int count;
+        count : this.Extern.String_CountGet(k);
+
+        var String a;
+        a : this.InternIntern.StringNew();
+        this.InternIntern.StringValueSet(a, value);
+        this.InternIntern.StringCountSet(a, count);
+        return a;
+    }
+
     maide prusate Any ByteArrayCreateString(var Int k)
     {
         var Extern extern;
