@@ -362,6 +362,18 @@ public class ClassGen : ClassBase
         this.Include(this.IncludeValueModule);
         this.Text(this.NewLine);
 
+        if (this.Class == this.InternClass)
+        {
+            this.Include(this.IncludeValueInfraInternIntern);
+            this.Text(this.NewLine);
+        }
+
+        if (this.Class == this.ExternClass)
+        {
+            this.Include(this.IncludeValueInfraInternExtern);
+            this.Text(this.NewLine);
+        }
+
         this.ExecuteCompList(this.ClassComp.Field, this.StateGet);
         this.Text(this.NewLine);
         this.ExecuteCompList(this.ClassComp.Field, this.StateSet);
