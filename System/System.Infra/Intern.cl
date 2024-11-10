@@ -41,4 +41,10 @@ class Intern : Any
     maide prusate Int StateThreadExecute() { }
 
     maide prusate Int StateTimeEventElapse() { }
+
+    maide prusate Int StateNetworkStatusEvent() { }
+
+    maide prusate Int StateNetworkCaseEvent() { }
+
+    maide prusate Int StateNetworkDataEvent() { }
 }
