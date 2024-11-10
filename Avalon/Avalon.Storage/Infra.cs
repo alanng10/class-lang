@@ -22,12 +22,11 @@ public class Infra : Any
         this.StringComp = StringComp.This;
         this.TextCode = TextCode.This;
         this.TextCodeKindList = TextCodeKindList.This;
-        this.TextStringValue = TextStringValue.This;
         this.StorageStatusList = StatusList.This;
 
-        this.SSlash = this.S("/");
-        this.SDot = this.S(".");
-        this.SColon = this.S(":");
+        this.SSlash = this.TextInfra.S("/");
+        this.SDot = this.TextInfra.S(".");
+        this.SColon = this.TextInfra.S(":");
         this.TextSlash = this.TextInfra.TextCreateStringData(this.SSlash, null);
         this.TextDot = this.TextInfra.TextCreateStringData(this.SDot, null);
         this.TextColon = this.TextInfra.TextCreateStringData(this.SColon, null);
@@ -45,7 +44,6 @@ public class Infra : Any
     protected virtual StringComp StringComp { get; set; }
     protected virtual TextCode TextCode { get; set; }
     protected virtual TextCodeKindList TextCodeKindList { get; set; }
-    protected virtual TextStringValue TextStringValue { get; set; }
     protected virtual StatusList StorageStatusList { get; set; }
 
     public virtual bool ValidMode(Mode mode)
@@ -319,10 +317,5 @@ public class Infra : Any
         bool a;
         a = !b;
         return a;
-    }
-
-    private String S(string o)
-    {
-        return this.TextStringValue.Execute(o);
     }
 }
