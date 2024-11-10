@@ -50,4 +50,22 @@ class Comp : Any
         a : ~(k = 0);
         return a;
     }
+    
+    maide prusate Bool FileCopy(var String path, var String destPath)
+    {
+        var Int pathU;
+        pathU : this.InternInfra.StringCreate(path);
+        var Int destPathU;
+        destPathU : this.InternInfra.StringCreate(destPath);
+        
+        var Int k;
+        k : this.Extern.StorageComp_FileCopy(this.Intern, pathU, destPathU);
+        
+        this.InternInfra.StringDelete(destPathU);
+        this.InternInfra.StringDelete(pathU);
+        
+        var Bool a;
+        a : ~(k = 0);
+        return a;
+    }
 }
