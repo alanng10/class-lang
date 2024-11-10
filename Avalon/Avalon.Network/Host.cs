@@ -53,8 +53,8 @@ public class Host : Any
     private InternInfra InternInfra { get; set; }
     private Infra NetworkInfra { get; set; }
     private ulong Intern { get; set; }
-    private ulong InternNewPeerState { get; set; }
     private ulong InternPort { get; set; }
+    private ulong InternNewPeerState { get; set; }
     private Handle InternHandle { get; set; }
 
     public virtual bool Open()
