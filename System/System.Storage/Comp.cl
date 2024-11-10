@@ -244,5 +244,10 @@ class Comp : Any
 
             i : i + 1;
         }
+
+        extern.Array_Final(k);
+        extern.Array_Delete(k);
+
+        return array;
     }
 }
