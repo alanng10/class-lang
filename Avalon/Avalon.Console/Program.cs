@@ -7,15 +7,10 @@ public class Program : Any
         base.Init();
         this.InternIntern = InternIntern.This;
         this.InternInfra = InternInfra.This;
-        this.ConsoleInfra = Infra.This;
         this.InternHandle = new Handle();
         this.InternHandle.Any = this;
         this.InternHandle.Init();
 
-        MaideAddress oa;
-        oa = this.ConsoleInfra.ProgramStartMaideAddress;
-        MaideAddress ob;
-        ob = this.ConsoleInfra.ProgramFinishMaideAddress;
         ulong arg;
         arg = this.InternHandle.ULong();
 
@@ -54,7 +49,6 @@ public class Program : Any
 
     private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
-    private Infra ConsoleInfra { get ;set; }
     private ulong Intern { get; set; }
     private ulong InternFinishState { get; set; }
     private ulong InternStartState { get; set; }
