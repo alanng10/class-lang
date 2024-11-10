@@ -78,10 +78,6 @@ public class Network : Any
 
     public virtual bool Final()
     {
-        Extern.Network_DataEventStateSet(this.Intern, 0);
-        Extern.Network_CaseEventStateSet(this.Intern, 0);
-        Extern.Network_StatusEventStateSet(this.Intern, 0);
-
         bool b;
         b = (this.HostPeer == 0);
         if (b)
