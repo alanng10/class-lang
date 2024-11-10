@@ -72,8 +72,8 @@ public class Infra : Any
         storage.Mode = mode;
         storage.Open();
 
-        Data o;
-        o = null;
+        Data a;
+        a = null;
         if (storage.Status == this.StorageStatusList.NoError)
         {
             StreamStream stream;
@@ -94,12 +94,12 @@ public class Infra : Any
             stream.Read(data, range);
             if (storage.Status == this.StorageStatusList.NoError)
             {
-                o = data;
+                a = data;
             }
         }
         storage.Close();
         storage.Final();
-        return o;
+        return a;
     }
 
     public virtual bool DataWrite(String filePath, Data data)
