@@ -93,4 +93,13 @@ class Host : Any
         this.Extern.NetworkHost_ClosePeer(this.Intern, k);
         return true;
     }
+
+    maide precate Network CreatePeer(var Int peer)
+    {
+        var Network a;
+        a : new Network;
+        a.HostPeer : peer;
+        a.Init();
+        return a;
+    }
 }
