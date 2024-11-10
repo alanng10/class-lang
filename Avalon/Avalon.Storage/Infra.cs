@@ -223,19 +223,19 @@ public class Infra : Any
         storage.Mode = mode;
         storage.Open();
 
-        bool o;
-        o = false;
+        bool a;
+        a = false;
         if (storage.Status == statusList.NoError)
         {
             storage.CountSet(value);
             if (storage.Status == statusList.NoError)
             {
-                o = true;
+                a = true;
             }
         }
         storage.Close();
         storage.Final();
-        return o;
+        return a;
     }
 
     public virtual long EntryPathNameCombine(TextText entryPath, Less less)
