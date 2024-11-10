@@ -18,17 +18,17 @@ class Infra : Any
     {
         base.Init();
         NetworkStatusChangeMaide maideA;
-        maideA = new NetworkStatusChangeMaide(Network.InternStatusChange);
+        maideA = new NetworkStatusChangeMaide(Network.InternStatusEvent);
         this.NetworkStatusChangeMaideAddress = new MaideAddress();
         this.NetworkStatusChangeMaideAddress.Delegate = maideA;
         this.NetworkStatusChangeMaideAddress.Init();
         NetworkCaseChangeMaide maideB;
-        maideB = new NetworkCaseChangeMaide(Network.InternCaseChange);
+        maideB = new NetworkCaseChangeMaide(Network.InternCaseEvent);
         this.NetworkCaseChangeMaideAddress = new MaideAddress();
         this.NetworkCaseChangeMaideAddress.Delegate = maideB;
         this.NetworkCaseChangeMaideAddress.Init();
         NetworkReadyReadMaide maideC;
-        maideC = new NetworkReadyReadMaide(Network.InternReadyRead);
+        maideC = new NetworkReadyReadMaide(Network.InternDataEvent);
         this.NetworkReadyReadMaideAddress = new MaideAddress();
         this.NetworkReadyReadMaideAddress.Delegate = maideC;
         this.NetworkReadyReadMaideAddress.Init();

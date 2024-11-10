@@ -259,7 +259,7 @@ public class Network : Any
         return true;
     }
 
-    internal static ulong InternStatusChange(ulong network, ulong arg)
+    internal static ulong InternStatusEvent(ulong network, ulong arg)
     {
         InternIntern internIntern;
         internIntern = InternIntern.This;
@@ -274,7 +274,7 @@ public class Network : Any
         return 1;
     }
 
-    internal static ulong InternCaseChange(ulong network, ulong arg)
+    internal static ulong InternCaseEvent(ulong network, ulong arg)
     {
         InternIntern internIntern;
         internIntern = InternIntern.This;
@@ -289,7 +289,7 @@ public class Network : Any
         return 1;
     }
 
-    internal static ulong InternReadyRead(ulong network, ulong arg)
+    internal static ulong InternDataEvent(ulong network, ulong arg)
     {
         InternIntern internIntern;
         internIntern = InternIntern.This;
