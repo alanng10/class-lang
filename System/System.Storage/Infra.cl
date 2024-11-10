@@ -156,13 +156,13 @@ class Infra : Any
 
     maide prusate Bool TextWrite(var String filePath, var String text)
     {
-        return this.TextWriteAny(filePath, text, false);
-    }
-
-    maide prusate Bool TextWriteAny(var String filePath, var String text, var Bool anyNode)
-    {
         var TextCodeKindList kindList;
         kindList : this.TextCodeKindList;
+
+        var TextCodeKind innKind;
+        var TextCodeKind outKind;
+        innKind : kindList.Utf32;
+        outKind : kindList.Utf8;
 
         var Data data;
         data : this.TextInfra.StringDataCreateString(text);
@@ -172,12 +172,12 @@ class Infra : Any
         dataRange.Init();
         dataRange.Index : 0;
         dataRange.Count : data.Count;
-        
+
         var Data result;
-        result : this.TextInfra.Code(kindList.Utf32, kindList.Utf8, data, dataRange);
-        
+        result : this.TextInfra.Code(innKind, outKind, data, dataRange);
+
         var Bool a;
-        a : this.DataWriteAny(filePath, result, anyNode);
+        a : this.DataWrite(filePath, result);
         return a;
     }
 
