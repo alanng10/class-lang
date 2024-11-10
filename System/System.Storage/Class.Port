@@ -21,6 +21,11 @@ System.List
 System.Text
     Text Text
     StringComp StringComp
+    TextCodeKind CodeKind
+    TextCodeKindList CodeKindList
+    TextInfra Infra
+System.Stream
+    StreamStream Stream
 
 [Export]
 Storage
