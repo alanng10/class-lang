@@ -238,16 +238,16 @@ Int Network_ReadyCountGet(Int o)
 }
 
 FieldDefaultSet(Network, ReadyCount)
-CppField(Network, StatusChangeState)
-CppField(Network, CaseChangeState)
-CppField(Network, ReadyReadState)
+CppField(Network, StatusEventState)
+CppField(Network, CaseEventState)
+CppField(Network, DataEventState)
 
 Int Network_StatusChange(Int o)
 {
     Network* m;
     m = CP(o);
     Int state;
-    state = m->StatusChangeState;
+    state = m->StatusEventState;
 
     if (state == null)
     {
@@ -264,8 +264,8 @@ Int Network_StatusChange(Int o)
         return true;
     }
 
-    Network_StatusChange_Maide maide;
-    maide = (Network_StatusChange_Maide)aa;
+    Network_StatusEvent_Maide maide;
+    maide = (Network_StatusEvent_Maide)aa;
 
     maide(o, arg);
     
