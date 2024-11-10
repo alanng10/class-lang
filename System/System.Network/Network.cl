@@ -233,4 +233,16 @@ class Network : Any
         a : k;
         return a;
     }
+
+    maide prusate Bool StatusEvent()
+    {
+    }
+
+    maide prusate Bool CaseEvent()
+    {
+    }
+
+    maide prusate Bool DataEvent()
+    {
+    }
 }
