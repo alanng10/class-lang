@@ -995,7 +995,7 @@ class Demo : Any
 
         phore.Open();
 
-        this.Console.Out.Write(this.S("Demo.ExecuteDemoThread phore Acquire Success\n"));
+        this.Console.Out.Write(this.S("Demo.ExecuteDemoThread phore Open Success\n"));
 
         thread.Wait();
 
