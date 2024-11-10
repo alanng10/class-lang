@@ -2,7 +2,7 @@
 
 Class is an all purpose programming language.
 Class is used to create modules.
-Class consists of compiler modules, infra modules, documentation, source code.
+Class consists of compiler modules, infra modules, execution runner, documentation, source code.
 Class is open source.
 Permission is granted to every person to use any copy of this software in any way.
 
@@ -21,7 +21,7 @@ All classes are checked when they are used, and when the variables are assigned.
 
 Class outputs module binary when compiling.
 The module binary is a machine code library.
-The module binary is executed with an associated executable file.
+The module binary is executed with execution runner.
 
 Class has documentation that includes programming guide, system architecture, and API reference.
 
