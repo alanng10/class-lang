@@ -77,10 +77,6 @@ class Network : Any
         var Extern extern;
         extern : this.Extern;
 
-        extern.Network_DataEventStateSet(this.Intern, 0);
-        extern.Network_CaseEventStateSet(this.Intern, 0);
-        extern.Network_StatusEventStateSet(this.Intern, 0);
-
         var Bool b;
         b : (this.HostPeer = 0);
         inf (b)
