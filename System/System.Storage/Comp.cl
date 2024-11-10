@@ -73,12 +73,12 @@ class Comp : Any
     {
         var Int pathU;
         pathU : this.InternInfra.StringCreate(path);
-        
+
         var Int k;
         k : this.Extern.StorageComp_FileDelete(this.Intern, pathU);
-        
+
         this.InternInfra.StringDelete(pathU);
-        
+
         var Bool a;
         a : ~(k = 0);
         return a;
@@ -88,12 +88,12 @@ class Comp : Any
     {
         var Int pathU;
         pathU : this.InternInfra.StringCreate(path);
-        
+
         var Int k;
         k : this.Extern.StorageComp_FoldCreate(this.Intern, pathU);
-        
+
         this.InternInfra.StringDelete(pathU);
-        
+
         var Bool a;
         a : ~(k = 0);
         return a;
