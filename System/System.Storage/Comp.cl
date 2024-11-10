@@ -161,4 +161,17 @@ class Comp : Any
         a : ~(k = 0);
         return a;
     }
+    
+    maide prusate String ThisFoldGet()
+    {
+        var Int k;
+        k : this.Extern.StorageComp_ThisFoldGet(this.Intern);
+        
+        var String a;
+        a : this.InternInfra.StringCreateIntern(k);
+        
+        this.InternInfra.StringDelete(k);
+        
+        return a;
+    }
 }
