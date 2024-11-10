@@ -140,5 +140,18 @@ class Network : Any
         set
         {
         }
-    }    
+    }
+
+    field prusate Int ReadyCount
+    {
+        get
+        {
+            var Int a;
+            a : this.Extern.Network_ReadyCountGet(this.Intern);
+            return a;
+        }
+        set
+        {
+        }
+    }
 }
