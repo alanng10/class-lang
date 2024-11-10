@@ -59,21 +59,6 @@ public class Program : Any
         }
     }
 
-    public virtual long ExitKind
-    {
-        get
-        {
-            ulong u;
-            u = Extern.Program_ExitKindGet(this.Intern);
-            long a;
-            a = (long)u;
-            return a;
-        }
-        set
-        {
-        }
-    }
-
     public virtual bool Wait()
     {
         Extern.Program_Wait(this.Intern);
