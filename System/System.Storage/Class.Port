@@ -10,7 +10,7 @@ System.Infra
     Intern Intern
     Extern Extern
     InternInfra InternInfra
-    Stream Stream
+    InternStream Stream
     Range Range
     Data Data
     Less Less
