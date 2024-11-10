@@ -189,9 +189,6 @@ public class Infra : Any
         innKind = kindList.Utf32;
         outKind = kindList.Utf8;
 
-        TextCode code;
-        code = this.TextCode;
-
         Data data;
         data = this.TextInfra.StringDataCreateString(text);
 
