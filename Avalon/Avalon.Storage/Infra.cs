@@ -20,7 +20,6 @@ public class Infra : Any
         this.InfraInfra = InfraInfra.This;
         this.TextInfra = TextInfra.This;
         this.StringComp = StringComp.This;
-        this.TextCode = TextCode.This;
         this.TextCodeKindList = TextCodeKindList.This;
         this.StorageStatusList = StatusList.This;
 
@@ -42,7 +41,6 @@ public class Infra : Any
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
-    protected virtual TextCode TextCode { get; set; }
     protected virtual TextCodeKindList TextCodeKindList { get; set; }
     protected virtual StatusList StorageStatusList { get; set; }
 
