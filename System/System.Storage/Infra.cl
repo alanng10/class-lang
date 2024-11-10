@@ -5,8 +5,10 @@ class Infra : Any
         base.Init();
         this.InfraInfra : share InfraInfra;
         this.TextInfra : share TextInfra;
-        this.StorageStatusList : share StatusList;
+        this.StringComp : share StringComp;
         this.TextCodeKindList : share TextCodeKindList;
+        this.StorageStatusList : share StatusList;
+
         this.TextSlash : this.TextInfra.TextCreateStringData("/", null);
         this.TextDot : this.TextInfra.TextCreateStringData(".", null);
         this.TextColon : this.TextInfra.TextCreateStringData(":", null);
@@ -18,15 +20,11 @@ class Infra : Any
     field prusate TextText TextColon { get { return data; } set { data : value; } }
     field precate InfraInfra InfraInfra { get { return data; } set { data : value; } }
     field precate TextInfra TextInfra { get { return data; } set { data : value; } }
-    field precate StatusList StorageStatusList { get { return data; } set { data : value; } }
+    field precate StringComp StringComp { get { return data; } set { data : value; } }
     field precate TextCodeKindList TextCodeKindList { get { return data; } set { data : value; } }
+    field precate StatusList StorageStatusList { get { return data; } set { data : value; } }
 
     maide prusate Data DataRead(var String filePath)
-    {
-        return this.DataReadAny(filePath, false);
-    }
-
-    maide prusate Data DataReadAny(var String filePath, var Bool anyNode)
     {
         var Storage storage;
         storage : new Storage;
