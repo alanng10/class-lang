@@ -174,4 +174,19 @@ class Comp : Any
         
         return a;
     }
+    
+    maide prusate Bool ThisFoldSet(var String path)
+    {
+        var Int pathU;
+        pathU : this.InternInfra.StringCreate(path);
+
+        var Int k;
+        k : this.Extern.StorageComp_ThisFoldSet(this.Intern, pathU);
+
+        this.InternInfra.StringDelete(pathU);
+
+        var Bool a;
+        a : ~(k = 0);
+        return a;
+    }
 }
