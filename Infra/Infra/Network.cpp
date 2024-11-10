@@ -242,7 +242,7 @@ CppField(Network, StatusEventState)
 CppField(Network, CaseEventState)
 CppField(Network, DataEventState)
 
-Int Network_StatusChange(Int o)
+Int Network_StatusEvent(Int o)
 {
     Network* m;
     m = CP(o);
@@ -272,7 +272,7 @@ Int Network_StatusChange(Int o)
     return true;
 }
 
-Int Network_CaseChange(Int o)
+Int Network_CaseEvent(Int o)
 {
     Network* m;
     m = CP(o);
@@ -313,7 +313,7 @@ Int Network_CaseChange(Int o)
     return true;
 }
 
-Int Network_ReadyRead(Int o)
+Int Network_DataEvent(Int o)
 {
     Network* m;
     m = CP(o);
