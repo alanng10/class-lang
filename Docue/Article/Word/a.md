@@ -276,6 +276,8 @@ Word "relate" has meaning that is relative.
 
 Word "combine" has meaning that is combine entity.
 
+Word "extend" has meaning that is extension.
+
 Word "open" has meaning that is hold start.
 
 Word "close" has meaning that is hold end.
