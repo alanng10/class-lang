@@ -1,0 +1,41 @@
+[Module]
+System.Network
+
+[Import]
+System.Infra
+    Any Any
+    Bool Bool
+    Int Int
+    String String
+    Intern Intern
+    Extern Extern
+    InternInfra InternInfra
+    InternStream Stream
+    Range Range
+    Data Data
+    Less Less
+    InfraInfra Infra
+System.List
+    Array Array
+    ListInfra Infra
+System.Text
+    Text Text
+    StringComp StringComp
+    TextCodeKind CodeKind
+    TextCodeKindList CodeKindList
+    TextInfra Infra
+System.Stream
+    StreamStream Stream
+
+[Export]
+Storage
+Stream
+Comp
+Mode
+Status
+StatusList
+Infra
+
+[Storage]
+
+[Entry]

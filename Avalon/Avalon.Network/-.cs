@@ -1,12 +1,12 @@
 global using InternIntern = Avalon.Infra.Intern;
 global using Extern = Avalon.Infra.Extern;
+global using InternInfra = Avalon.Infra.InternInfra;
 global using NetworkStatusEventMaide = Avalon.Infra.Extern.Network_StatusEvent_Maide;
 global using NetworkCaseEventMaide = Avalon.Infra.Extern.Network_CaseEvent_Maide;
 global using NetworkDataEventMaide = Avalon.Infra.Extern.Network_DataEvent_Maide;
 global using NetworkHostNewPeerMaide = Avalon.Infra.Extern.NetworkHost_NewPeer_Maide;
 global using MaideAddress = Avalon.Infra.MaideAddress;
 global using Handle = Avalon.Infra.Handle;
-global using InternInfra = Avalon.Infra.InternInfra;
 global using InternStream = Avalon.Infra.Stream;
 global using Any = Avalon.Infra.Any;
 global using String = Avalon.Infra.String;
