@@ -13,7 +13,7 @@ public class Network : Any
         if (this.Case == this.NetworkCaseList.Connected)
         {
             this.Stream = this.DataStream;
-            this.LoadingOpen = false;
+            this.LoadOpen = false;
         }
 
         this.CaseEvent();
@@ -108,7 +108,7 @@ public class Network : Any
     public virtual long HostPort { get; set; }
     public virtual StreamStream Stream { get; set; }
     protected virtual StreamStream DataStream { get; set; }
-    public virtual bool LoadingOpen { get; set; }
+    public virtual bool LoadOpen { get; set; }
 
     public virtual Status Status
     {
@@ -182,12 +182,12 @@ public class Network : Any
         {
             return false;
         }
-        if (this.LoadingOpen)
+        if (this.LoadOpen)
         {
             return false;
         }
 
-        this.LoadingOpen = true;
+        this.LoadOpen = true;
 
         this.InternHostName = this.InternInfra.StringCreate(this.HostName);
         ulong hostPortU;
@@ -206,7 +206,7 @@ public class Network : Any
 
     public virtual bool Close()
     {
-        this.LoadingOpen = false;
+        this.LoadOpen = false;
 
         Extern.Network_Close(this.Intern);
 
