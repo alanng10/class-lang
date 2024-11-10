@@ -69,3 +69,5 @@ Int Intern_State_Network_StatusEvent(Int network, Int arg);
 Int Intern_State_Network_CaseEvent(Int network, Int arg);
 
 Int Intern_State_Network_DataEvent(Int network, Int arg);
+
+Int Intern_State_NetworkHost_NewPeer(Int networkHost, Int arg);
