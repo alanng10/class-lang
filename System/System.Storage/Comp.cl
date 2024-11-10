@@ -189,4 +189,38 @@ class Comp : Any
         a : ~(k = 0);
         return a;
     }
+    
+    maide prusate Array EntryList(var String path, var Bool fold)
+    {
+        var Int pathU;
+        pathU : this.InternInfra.StringCreate(path);
+
+        var Int foldU;
+        foldU : 0;
+        inf (fold)
+        {
+            foldU : 1;
+        }
+
+        var Extern extern;
+        extern : this.Extern;
+
+        var Int k;
+        k : extern.StorageComp_EntryList(this.Intern, pathU, foldU);
+        
+        this.InternInfra.StringDelete(pathU);
+
+        var Int count;
+        count : extern.Array_CountGet(k);
+
+        var Array array;
+        array : this.ListInfra.ArrayCreate(count);
+
+        var Int i;
+        i : 0;
+        while (i < count)
+        {
+            i : i + 1;
+        }
+    }
 }
