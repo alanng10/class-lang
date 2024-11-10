@@ -32,7 +32,7 @@ public class InternInfra : Any
 
     public virtual ulong StringCreate(String k)
     {
-        byte[] value;
+        object value;
         value = k.Value;
 
         long count;
