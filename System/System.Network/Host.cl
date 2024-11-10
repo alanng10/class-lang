@@ -122,4 +122,8 @@ class Host : Any
         extern.NetworkPort_Set(this.InternPort);
         return true;
     }
+
+    maide prusate Bool NewPeer()
+    {
+    }
 }
