@@ -143,7 +143,7 @@ Int Network_Close(Int o)
     Network* m;
     m = CP(o);
 
-    m->Handle->Close(); 
+    m->Handle->Close();
     
     Int stream;
     stream = m->Stream;
