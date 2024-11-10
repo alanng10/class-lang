@@ -35,6 +35,20 @@
     </ItemGroup>
 
     <ItemGroup>
+        <None Include="../../Infra/InfraIntern/Prusate_Intern.h">
+            <Link>$(AssemblyName).data/InfraIntern/Prusate_Intern.h</Link>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="../../Infra/InfraIntern/Prusate_Extern.h">
+            <Link>$(AssemblyName).data/InfraIntern/Prusate_Extern.h</Link>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+
+    <ItemGroup>
         <None Include="../../Infra/module.pri">
             <Link>$(AssemblyName).data/module.pri</Link>
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
