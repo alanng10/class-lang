@@ -54,7 +54,7 @@ Int StorageComp_FileCopy(Int o, Int path, Int destPath)
     return a;
 }
 
-Int StorageComp_FileRemove(Int o, Int path)
+Int StorageComp_FileDelete(Int o, Int path)
 {
     QString pathU;
     Int ua;
@@ -195,7 +195,7 @@ Int StorageComp_FoldCopyRecurse(Int o, Int path, Int destPath)
     return true;
 }
 
-Int StorageComp_FoldRemove(Int o, Int path)
+Int StorageComp_FoldDelete(Int o, Int path)
 {
     QString pathU;
     Int ua;
