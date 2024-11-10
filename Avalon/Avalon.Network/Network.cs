@@ -48,7 +48,7 @@ public class Network : Any
         arg = this.InternHandle.ULong();
         this.InternStatusEventState = this.InternInfra.StateCreate(oa, arg);
         this.InternCaseEventState = this.InternInfra.StateCreate(ob, arg);
-        this.InternReadyReadState = this.InternInfra.StateCreate(oc, arg);
+        this.InternDataEventState = this.InternInfra.StateCreate(oc, arg);
 
         bool b;
         b = (this.HostPeer == 0);
@@ -72,7 +72,7 @@ public class Network : Any
 
         Extern.Network_StatusChangeStateSet(this.Intern, this.InternStatusEventState);
         Extern.Network_CaseChangeStateSet(this.Intern, this.InternCaseEventState);
-        Extern.Network_ReadyReadStateSet(this.Intern, this.InternReadyReadState);
+        Extern.Network_ReadyReadStateSet(this.Intern, this.InternDataEventState);
         return true;
     }
 
@@ -95,7 +95,7 @@ public class Network : Any
             this.Stream = null;
         }
 
-        this.InternInfra.StateDelete(this.InternReadyReadState);
+        this.InternInfra.StateDelete(this.InternDataEventState);
         this.InternInfra.StateDelete(this.InternCaseEventState);
         this.InternInfra.StateDelete(this.InternStatusEventState);
 
@@ -117,7 +117,7 @@ public class Network : Any
     protected virtual StatusList NetworkStatusList { get; set; }
 
     private ulong Intern { get; set; }
-    private ulong InternReadyReadState { get; set; }
+    private ulong InternDataEventState { get; set; }
     private ulong InternCaseEventState { get; set; }
     private ulong InternStatusEventState { get; set; }
     private Handle InternHandle { get; set; }
