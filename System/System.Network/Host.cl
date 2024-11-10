@@ -66,4 +66,10 @@ class Host : Any
         a : ~(k = 0);
         return a;
     }
+
+    maide prusate Bool Close()
+    {
+        this.Extern.NetworkHost_Close(this.Intern);
+        return true;
+    }
 }
