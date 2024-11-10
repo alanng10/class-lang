@@ -820,7 +820,7 @@ class Demo : Any
 
         b = storageComp.FoldDelete(this.S(pathCb));
 
-        this.Console.Out.Write(this.S("Fold Delete " + pathCb + " " + this.StorageCompStatus(b) + "\n"));
+        this.Console.Out.Write(this.S("Fold Delete " + this.StorageCompStatus(b) + "\n"));
 
         String foldListPath;
         foldListPath = this.S("DemoData/FoldCopy/FoldA");
