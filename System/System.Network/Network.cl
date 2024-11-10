@@ -223,4 +223,14 @@ class Network : Any
         a : k;
         return a;
     }
+
+    maide precate StreamStream StreamCreate()
+    {
+        var Stream k;
+        k : new Stream;
+        k.Init();
+        var StreamStream a;
+        a : k;
+        return a;
+    }
 }
