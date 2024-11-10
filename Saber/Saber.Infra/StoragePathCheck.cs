@@ -74,7 +74,7 @@ public class StoragePathCheck : Any
         Less less;
         less = this.TextLess;
 
-        if (!this.StorageInfra.RelatePath(text, less))
+        if (!this.StorageInfra.PathRelate(text, less))
         {
             return false;
         }

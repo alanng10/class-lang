@@ -252,7 +252,7 @@ public class Infra : Any
         return a;
     }
 
-    public virtual bool RelatePath(TextText entryPath, Less less)
+    public virtual bool PathRelate(TextText entryPath, Less less)
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
