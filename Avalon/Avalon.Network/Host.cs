@@ -80,11 +80,11 @@ public class Host : Any
 
     public virtual Network OpenPeer()
     {
-        ulong networkU;
-        networkU = Extern.NetworkHost_OpenPeer(this.Intern);
+        ulong k;
+        k = Extern.NetworkHost_OpenPeer(this.Intern);
 
         Network a;
-        a = this.CreatePeer(networkU);
+        a = this.CreatePeer(k);
         return a;
     }
 
