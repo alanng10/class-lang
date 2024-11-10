@@ -549,19 +549,19 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Network_StatusSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Network_CaseGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong Network_CaseSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Network_CaseChangeStateGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Network_CaseChangeStateSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Network_StatusChangeStateGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Network_StatusChangeStateSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Network_ReadyReadStateGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Network_ReadyReadStateSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Network_StatusEventStateGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Network_StatusEventStateSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Network_CaseEventStateGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Network_CaseEventStateSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Network_DataEventStateGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Network_DataEventStateSet(ulong o, ulong value);
 
     [DllImport(InfraLib)] public extern static ulong Network_Open(ulong o);
     [DllImport(InfraLib)] public extern static ulong Network_Close(ulong o);
 
-    public delegate ulong Network_CaseChange_Maide(ulong network, ulong arg);
-    public delegate ulong Network_StatusChange_Maide(ulong network, ulong arg);
-    public delegate ulong Network_ReadyRead_Maide(ulong network, ulong arg);
+    public delegate ulong Network_StatusEvent_Maide(ulong network, ulong arg);
+    public delegate ulong Network_CaseEvent_Maide(ulong network, ulong arg);
+    public delegate ulong Network_DataEvent_Maide(ulong network, ulong arg);
 
     [DllImport(InfraLib)] public extern static ulong NetworkHost_New();
     [DllImport(InfraLib)] public extern static ulong NetworkHost_Delete(ulong o);

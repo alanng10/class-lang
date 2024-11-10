@@ -537,12 +537,12 @@ class Extern : Any
     maide prusate Int Network_StatusSet(var Int o, var Int value) { }
     maide prusate Int Network_CaseGet(var Int o) { }
     maide prusate Int Network_CaseSet(var Int o, var Int value) { }
-    maide prusate Int Network_CaseChangeStateGet(var Int o) { }
-    maide prusate Int Network_CaseChangeStateSet(var Int o, var Int value) { }
-    maide prusate Int Network_StatusChangeStateGet(var Int o) { }
-    maide prusate Int Network_StatusChangeStateSet(var Int o, var Int value) { }
-    maide prusate Int Network_ReadyReadStateGet(var Int o) { }
-    maide prusate Int Network_ReadyReadStateSet(var Int o, var Int value) { }
+    maide prusate Int Network_StatusEventStateGet(var Int o) { }
+    maide prusate Int Network_StatusEventStateSet(var Int o, var Int value) { }
+    maide prusate Int Network_CaseEventStateGet(var Int o) { }
+    maide prusate Int Network_CaseEventStateSet(var Int o, var Int value) { }
+    maide prusate Int Network_DataEventStateGet(var Int o) { }
+    maide prusate Int Network_DataEventStateSet(var Int o, var Int value) { }
 
     maide prusate Int Network_Open(var Int o) { }
     maide prusate Int Network_Close(var Int o) { }

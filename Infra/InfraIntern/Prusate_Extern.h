@@ -539,12 +539,12 @@ Intern_Api Int Intern_Extern_Network_StatusGet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Network_StatusSet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Network_CaseGet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Network_CaseSet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Network_CaseChangeStateGet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Network_CaseChangeStateSet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Network_StatusChangeStateGet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Network_StatusChangeStateSet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Network_ReadyReadStateGet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Network_ReadyReadStateSet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Network_StatusEventStateGet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Network_StatusEventStateSet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Network_CaseEventStateGet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Network_CaseEventStateSet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Network_DataEventStateGet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Network_DataEventStateSet(Eval* e, Int f);
 
 Intern_Api Int Intern_Extern_Network_Open(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Network_Close(Eval* e, Int f);

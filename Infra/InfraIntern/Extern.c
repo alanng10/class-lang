@@ -6422,7 +6422,7 @@ Int Intern_Extern_Network_CaseSet(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_Network_CaseChangeStateGet(Eval* eval, Int frame)
+Int Intern_Extern_Network_StatusEventStateGet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -6430,12 +6430,12 @@ Int Intern_Extern_Network_CaseChangeStateGet(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Network_CaseChangeStateGet(a0);
+    a = Network_StatusEventStateGet(a0);
 
     Return;
 }
 
-Int Intern_Extern_Network_CaseChangeStateSet(Eval* eval, Int frame)
+Int Intern_Extern_Network_StatusEventStateSet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -6444,12 +6444,12 @@ Int Intern_Extern_Network_CaseChangeStateSet(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = Network_CaseChangeStateSet(a0, a1);
+    a = Network_StatusEventStateSet(a0, a1);
 
     Return;
 }
 
-Int Intern_Extern_Network_StatusChangeStateGet(Eval* eval, Int frame)
+Int Intern_Extern_Network_CaseEventStateGet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -6457,12 +6457,12 @@ Int Intern_Extern_Network_StatusChangeStateGet(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Network_StatusChangeStateGet(a0);
+    a = Network_CaseEventStateGet(a0);
 
     Return;
 }
 
-Int Intern_Extern_Network_StatusChangeStateSet(Eval* eval, Int frame)
+Int Intern_Extern_Network_CaseEventStateSet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -6471,12 +6471,12 @@ Int Intern_Extern_Network_StatusChangeStateSet(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = Network_StatusChangeStateSet(a0, a1);
+    a = Network_CaseEventStateSet(a0, a1);
 
     Return;
 }
 
-Int Intern_Extern_Network_ReadyReadStateGet(Eval* eval, Int frame)
+Int Intern_Extern_Network_DataEventStateGet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -6484,12 +6484,12 @@ Int Intern_Extern_Network_ReadyReadStateGet(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Network_ReadyReadStateGet(a0);
+    a = Network_DataEventStateGet(a0);
 
     Return;
 }
 
-Int Intern_Extern_Network_ReadyReadStateSet(Eval* eval, Int frame)
+Int Intern_Extern_Network_DataEventStateSet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -6498,7 +6498,7 @@ Int Intern_Extern_Network_ReadyReadStateSet(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = Network_ReadyReadStateSet(a0, a1);
+    a = Network_DataEventStateSet(a0, a1);
 
     Return;
 }

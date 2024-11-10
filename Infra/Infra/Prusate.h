@@ -524,19 +524,19 @@ Infra_Api Int Network_StatusGet(Int o);
 Infra_Api Int Network_StatusSet(Int o, Int value);
 Infra_Api Int Network_CaseGet(Int o);
 Infra_Api Int Network_CaseSet(Int o, Int value);
-Infra_Api Int Network_CaseChangeStateGet(Int o);
-Infra_Api Int Network_CaseChangeStateSet(Int o, Int value);
-Infra_Api Int Network_StatusChangeStateGet(Int o);
-Infra_Api Int Network_StatusChangeStateSet(Int o, Int value);
-Infra_Api Int Network_ReadyReadStateGet(Int o);
-Infra_Api Int Network_ReadyReadStateSet(Int o, Int value);
+Infra_Api Int Network_StatusEventStateGet(Int o);
+Infra_Api Int Network_StatusEventStateSet(Int o, Int value);
+Infra_Api Int Network_CaseEventStateGet(Int o);
+Infra_Api Int Network_CaseEventStateSet(Int o, Int value);
+Infra_Api Int Network_DataEventStateGet(Int o);
+Infra_Api Int Network_DataEventStateSet(Int o, Int value);
 
 Infra_Api Int Network_Open(Int o);
 Infra_Api Int Network_Close(Int o);
 
-typedef Int (*Network_CaseChange_Maide)(Int network, Int arg);
-typedef Int (*Network_StatusChange_Maide)(Int network, Int arg);
-typedef Int (*Network_ReadyRead_Maide)(Int network, Int arg);
+typedef Int (*Network_StatusEvent_Maide)(Int network, Int arg);
+typedef Int (*Network_CaseEvent_Maide)(Int network, Int arg);
+typedef Int (*Network_DataEvent_Maide)(Int network, Int arg);
 
 InfraApiNew(NetworkHost)
 Infra_Api Int NetworkHost_PortGet(Int o);
