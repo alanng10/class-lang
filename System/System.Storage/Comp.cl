@@ -68,4 +68,10 @@ class Comp : Any
         a : ~(k = 0);
         return a;
     }
+    
+    maide prusate Bool FileDelete(var String path)
+    {
+        var Int pathU;
+        pathU : this.InternInfra.StringCreate(path);
+    }
 }
