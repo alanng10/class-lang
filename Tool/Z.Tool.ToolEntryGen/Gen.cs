@@ -31,14 +31,6 @@ class Gen : ToolBase
         this.ExecuteOne("System.NetworkCaseList");
         this.ExecuteOne("System.NetworkPortKindList");
         this.ExecuteOne("System.NetworkStatusList");
-        this.ExecuteOne("System.BrushCapList");
-        this.ExecuteOne("System.BrushJoinList");
-        this.ExecuteOne("System.BrushKindList");
-        this.ExecuteOne("System.BrushLineList");
-        this.ExecuteOne("System.DrawCompList");
-        this.ExecuteOne("System.GradientKindList");
-        this.ExecuteOne("System.GradientSpreadList");
-        this.ExecuteOne("System.ImageBinaryList");
         this.ExecuteOne("Infra.StatTextCodeKind");
         this.ExecuteOne("Infra.StatThreadCase");
         this.ExecuteOne("Infra.StatStreamKind");
