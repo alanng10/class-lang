@@ -766,7 +766,7 @@ class Demo : Any
         }
         b = storageComp.FileDelete(this.S(pathB));
 
-        this.Console.Out.Write(this.S("FileRemove " + pathB + " " + this.StorageCompStatus(b) + "\n"));
+        this.Console.Out.Write(this.S("File Delete " + pathB + " " + this.StorageCompStatus(b) + "\n"));
 
 
         string pathC;
@@ -820,7 +820,7 @@ class Demo : Any
 
         b = storageComp.FoldDelete(this.S(pathCb));
 
-        this.Console.Out.Write(this.S("FoldRemove " + pathCb + " " + this.StorageCompStatus(b) + "\n"));
+        this.Console.Out.Write(this.S("Fold Delete " + pathCb + " " + this.StorageCompStatus(b) + "\n"));
 
         string pathE;
         pathE = "DemoData/image.jpg";
