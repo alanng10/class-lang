@@ -102,4 +102,10 @@ class Host : Any
         a.Init();
         return a;
     }
+
+    maide precate Bool FinalPeer(var Network k)
+    {
+        k.Final();
+        return true;
+    }
 }
