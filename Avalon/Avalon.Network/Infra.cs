@@ -19,19 +19,19 @@ class Infra : Any
         base.Init();
         NetworkStatusChangeMaide maideA;
         maideA = new NetworkStatusChangeMaide(Network.InternStatusEvent);
-        this.NetworkStatusChangeMaideAddress = new MaideAddress();
-        this.NetworkStatusChangeMaideAddress.Delegate = maideA;
-        this.NetworkStatusChangeMaideAddress.Init();
+        this.NetworkStatusEventMaideAddress = new MaideAddress();
+        this.NetworkStatusEventMaideAddress.Delegate = maideA;
+        this.NetworkStatusEventMaideAddress.Init();
         NetworkCaseChangeMaide maideB;
         maideB = new NetworkCaseChangeMaide(Network.InternCaseEvent);
-        this.NetworkCaseChangeMaideAddress = new MaideAddress();
-        this.NetworkCaseChangeMaideAddress.Delegate = maideB;
-        this.NetworkCaseChangeMaideAddress.Init();
+        this.NetworkCaseEventMaideAddress = new MaideAddress();
+        this.NetworkCaseEventMaideAddress.Delegate = maideB;
+        this.NetworkCaseEventMaideAddress.Init();
         NetworkReadyReadMaide maideC;
         maideC = new NetworkReadyReadMaide(Network.InternDataEvent);
-        this.NetworkReadyReadMaideAddress = new MaideAddress();
-        this.NetworkReadyReadMaideAddress.Delegate = maideC;
-        this.NetworkReadyReadMaideAddress.Init();
+        this.NetworkDataEventMaideAddress = new MaideAddress();
+        this.NetworkDataEventMaideAddress.Delegate = maideC;
+        this.NetworkDataEventMaideAddress.Init();
         NetworkHostNewPeerMaide maideD;
         maideD = new NetworkHostNewPeerMaide(Host.InternNewPeer);
         this.HostNewPeerMaideAddress = new MaideAddress();
@@ -40,8 +40,8 @@ class Infra : Any
         return true;
     }
 
-    public virtual MaideAddress NetworkStatusChangeMaideAddress { get; set; }
-    public virtual MaideAddress NetworkCaseChangeMaideAddress { get; set; }
-    public virtual MaideAddress NetworkReadyReadMaideAddress { get; set; }
+    public virtual MaideAddress NetworkStatusEventMaideAddress { get; set; }
+    public virtual MaideAddress NetworkCaseEventMaideAddress { get; set; }
+    public virtual MaideAddress NetworkDataEventMaideAddress { get; set; }
     public virtual MaideAddress HostNewPeerMaideAddress { get; set; }
 }

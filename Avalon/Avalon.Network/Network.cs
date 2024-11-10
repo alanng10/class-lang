@@ -39,11 +39,11 @@ public class Network : Any
         this.InternHandle.Init();
 
         MaideAddress oa;
-        oa = this.NetworkInfra.NetworkStatusChangeMaideAddress;
+        oa = this.NetworkInfra.NetworkStatusEventMaideAddress;
         MaideAddress ob;
-        ob = this.NetworkInfra.NetworkCaseChangeMaideAddress;
+        ob = this.NetworkInfra.NetworkCaseEventMaideAddress;
         MaideAddress oc;
-        oc = this.NetworkInfra.NetworkReadyReadMaideAddress;
+        oc = this.NetworkInfra.NetworkDataEventMaideAddress;
         ulong arg;
         arg = this.InternHandle.ULong();
         this.InternStatusChangeState = this.InternInfra.StateCreate(oa, arg);
