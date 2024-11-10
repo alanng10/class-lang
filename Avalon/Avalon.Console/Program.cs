@@ -24,11 +24,6 @@ public class Program : Any
     public virtual ListList Argue { get; set; }
     public virtual String WorkFold { get; set; }
     public virtual Table Environ { get; set; }
-
-    private InternIntern InternIntern { get; set; }
-    private InternInfra InternInfra { get; set; }
-    private ulong Intern { get; set; }
-
     public virtual long Ident
     {
         get
@@ -58,6 +53,9 @@ public class Program : Any
         {
         }
     }
+    private InternIntern InternIntern { get; set; }
+    private InternInfra InternInfra { get; set; }
+    private ulong Intern { get; set; }
 
     public virtual bool Wait()
     {
