@@ -117,8 +117,8 @@ public class Infra : Any
         storage.Mode = mode;
         storage.Open();
 
-        bool o;
-        o = false;
+        bool a;
+        a = false;
         if (storage.Status == this.StorageStatusList.NoError)
         {
             StreamStream stream;
@@ -136,12 +136,12 @@ public class Infra : Any
             stream.Write(data, range);
             if (storage.Status == this.StorageStatusList.NoError)
             {
-                o = true;
+                a = true;
             }
         }
         storage.Close();
         storage.Final();
-        return o;
+        return a;
     }
 
     public virtual String TextRead(String filePath)
