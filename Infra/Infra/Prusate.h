@@ -501,10 +501,10 @@ Infra_Api Int Storage_Close(Int o);
 InfraApiNew(StorageComp)
 Infra_Api Int StorageComp_Rename(Int o, Int path, Int destPath);
 Infra_Api Int StorageComp_FileCopy(Int o, Int path, Int destPath);
-Infra_Api Int StorageComp_FileRemove(Int o, Int path);
+Infra_Api Int StorageComp_FileDelete(Int o, Int path);
 Infra_Api Int StorageComp_FoldCreate(Int o, Int path);
 Infra_Api Int StorageComp_FoldCopy(Int o, Int path, Int destPath);
-Infra_Api Int StorageComp_FoldRemove(Int o, Int path);
+Infra_Api Int StorageComp_FoldDelete(Int o, Int path);
 Infra_Api Int StorageComp_Exist(Int o, Int path);
 Infra_Api Int StorageComp_Fold(Int o, Int path);
 Infra_Api Int StorageComp_EntryList(Int o, Int path, Int fold);

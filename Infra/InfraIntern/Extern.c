@@ -6083,7 +6083,7 @@ Int Intern_Extern_StorageComp_FileCopy(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_StorageComp_FileRemove(Eval* eval, Int frame)
+Int Intern_Extern_StorageComp_FileDelete(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -6092,7 +6092,7 @@ Int Intern_Extern_StorageComp_FileRemove(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = StorageComp_FileRemove(a0, a1);
+    a = StorageComp_FileDelete(a0, a1);
 
     Return;
 }
@@ -6126,7 +6126,7 @@ Int Intern_Extern_StorageComp_FoldCopy(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_StorageComp_FoldRemove(Eval* eval, Int frame)
+Int Intern_Extern_StorageComp_FoldDelete(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -6135,7 +6135,7 @@ Int Intern_Extern_StorageComp_FoldRemove(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = StorageComp_FoldRemove(a0, a1);
+    a = StorageComp_FoldDelete(a0, a1);
 
     Return;
 }
