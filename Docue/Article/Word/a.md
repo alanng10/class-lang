@@ -274,7 +274,7 @@ Word "path" has meaning that is way.
 
 Word "relate" has meaning that is relative.
 
-Word "combine" has meaning that is combine entity.
+Word "combine" has meaning that is combo.
 
 Word "extend" has meaning that is extension.
 
