@@ -17,18 +17,18 @@ class Infra : Any
     public override bool Init()
     {
         base.Init();
-        NetworkStatusChangeMaide maideA;
-        maideA = new NetworkStatusChangeMaide(Network.InternStatusEvent);
+        NetworkStatusEventMaide maideA;
+        maideA = new NetworkStatusEventMaide(Network.InternStatusEvent);
         this.NetworkStatusEventMaideAddress = new MaideAddress();
         this.NetworkStatusEventMaideAddress.Delegate = maideA;
         this.NetworkStatusEventMaideAddress.Init();
-        NetworkCaseChangeMaide maideB;
-        maideB = new NetworkCaseChangeMaide(Network.InternCaseEvent);
+        NetworkCaseEventMaide maideB;
+        maideB = new NetworkCaseEventMaide(Network.InternCaseEvent);
         this.NetworkCaseEventMaideAddress = new MaideAddress();
         this.NetworkCaseEventMaideAddress.Delegate = maideB;
         this.NetworkCaseEventMaideAddress.Init();
-        NetworkReadyReadMaide maideC;
-        maideC = new NetworkReadyReadMaide(Network.InternDataEvent);
+        NetworkDataEventMaide maideC;
+        maideC = new NetworkDataEventMaide(Network.InternDataEvent);
         this.NetworkDataEventMaideAddress = new MaideAddress();
         this.NetworkDataEventMaideAddress.Delegate = maideC;
         this.NetworkDataEventMaideAddress.Init();
