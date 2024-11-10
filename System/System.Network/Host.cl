@@ -31,4 +31,19 @@ class Host : Any
         extern.NetworkHost_PortSet(this.Intern, this.InternPort);
         return true;
     }
+
+    maide prusate Bool Final()
+    {
+        var Extern extern;
+        extern : this.Extern;
+
+        extern.NetworkHost_Final(this.Intern);
+        extern.NetworkHost_Delete(this.Intern);
+
+        extern.NetworkPort_Final(this.InternPort);
+        extern.NetworkPort_Delete(this.InternPort);
+
+        this.InternInfra.StateDelete(this.InternNewPeerState);
+        return true;
+    }
 }
