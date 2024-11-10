@@ -29,7 +29,7 @@ public class Data : Any
         }
 
         byte[] k;
-        k = (byte[])this.Value;
+        k = this.Value as byte[];
 
         return k[index];
     }
@@ -42,7 +42,7 @@ public class Data : Any
         }
 
         byte[] k;
-        k = (byte[])this.Value;
+        k = this.Value as byte[];
 
         k[index] = (byte)value;
         return true;
