@@ -7,35 +7,16 @@ public class Program : Any
         base.Init();
         this.InternIntern = InternIntern.This;
         this.InternInfra = InternInfra.This;
-        this.InternHandle = new Handle();
-        this.InternHandle.Any = this;
-        this.InternHandle.Init();
-
-        ulong arg;
-        arg = this.InternHandle.ULong();
-
-        this.InternStartState = this.InternInfra.StateCreate(oa, arg);
-        this.InternFinishState = this.InternInfra.StateCreate(ob, arg);
 
         this.Intern = Extern.Program_New();
         Extern.Program_Init(this.Intern);
-        Extern.Program_StartStateSet(this.Intern, this.InternStartState);
-        Extern.Program_FinishStateSet(this.Intern, this.InternFinishState);
         return true;
     }
 
     public virtual bool Final()
     {
-        Extern.Program_FinishStateSet(this.Intern, 0);
-        Extern.Program_StartStateSet(this.Intern, 0);
-        
         Extern.Program_Final(this.Intern);
         Extern.Program_Delete(this.Intern);
-
-        this.InternInfra.StateDelete(this.InternFinishState);
-        this.InternInfra.StateDelete(this.InternStartState);
-
-        this.InternHandle.Final();
         return true;
     }
 
@@ -44,15 +25,9 @@ public class Program : Any
     public virtual String WorkFold { get; set; }
     public virtual Table Environ { get; set; }
 
-    public virtual State StartState { get; set; }
-    public virtual State FinishState { get; set; }
-
     private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
     private ulong Intern { get; set; }
-    private ulong InternFinishState { get; set; }
-    private ulong InternStartState { get; set; }
-    private Handle InternHandle { get; set; }
 
     public virtual long Ident
     {
