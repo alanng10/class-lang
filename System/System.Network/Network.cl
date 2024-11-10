@@ -161,4 +161,8 @@ class Network : Any
     field precate StatusList NetworkStatusList { get { return data; } set { data : value; } }
     field precate CaseList NetworkCaseList { get { return data; } set { data : value; } }
     field private Int Intern { get { return data; } set { data : value; } }
+    field private Int InternDataEventState { get { return data; } set { data : value; } }
+    field private Int InternCaseEventState { get { return data; } set { data : value; } }
+    field private Int InternStatusEventState { get { return data; } set { data : value; } }
+    field private Int InternHostName { get { return data; } set { data : value; } }
 }
