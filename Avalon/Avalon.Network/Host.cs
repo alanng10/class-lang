@@ -105,9 +105,9 @@ public class Host : Any
         return a;
     }
 
-    protected virtual bool FinalPeer(Network a)
+    protected virtual bool FinalPeer(Network k)
     {
-        a.Final();
+        k.Final();
         return true;
     }
 
