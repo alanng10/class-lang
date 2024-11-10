@@ -206,7 +206,7 @@ class InternInfra : Any
         var Any a;
         a : this.InternIntern.DataNew(dataCount);
 
-        this.InternIntern.CopyToByteArray(value, a, 0, dataCount);
+        this.CopyToByteArray(value, a, 0, dataCount);
         return a;
     }
 
