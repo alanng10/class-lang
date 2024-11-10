@@ -127,7 +127,15 @@ class Network : Any
         get
         {
             var Int k;
-            
+            k : this.Extern.Network_CaseGet(this.Intern);
+            inf (k = 0)
+            {
+                return null;
+            }
+            k : k - 1;
+            var Case a;
+            a : this.NetworkCaseList.Get(k);
+            return a;
         }
         set
         {
