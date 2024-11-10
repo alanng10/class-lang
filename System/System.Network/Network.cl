@@ -212,4 +212,15 @@ class Network : Any
         this.InternInfra.StringDelete(this.InternHostName);
         return true;
     }
+
+    maide precate StreamStream StreamCreateSet(var Int ident)
+    {
+        var Stream k;
+        k : new Stream;
+        k.InitIdent : ident;
+        k.Init();
+        var StreamStream a;
+        a : k;
+        return a;
+    }
 }
