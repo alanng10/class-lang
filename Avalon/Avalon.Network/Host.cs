@@ -29,6 +29,7 @@ public class Host : Any
 
         this.Intern = Extern.NetworkHost_New();
         Extern.NetworkHost_Init(this.Intern);
+        Extern.NetworkHost_PortSet(this.Intern, this.InternPort);
         Extern.NetworkHost_NewPeerStateSet(this.Intern, this.InternNewPeerState);
         return true;
     }
@@ -61,8 +62,6 @@ public class Host : Any
     public virtual bool Open()
     {
         this.InternPortSet();
-
-        Extern.NetworkHost_PortSet(this.Intern, this.InternPort);
         
         ulong k;
         k = Extern.NetworkHost_Open(this.Intern);
