@@ -71,7 +71,7 @@ public class InternInfra : Any
 
     public virtual String StringCreateIntern(ulong k)
     {
-        byte[] value;
+        object value;
         value = this.ByteArrayCreateString(k);
 
         ulong count;
@@ -88,7 +88,7 @@ public class InternInfra : Any
         return a;
     }
 
-    public virtual byte[] ByteArrayCreateString(ulong k)
+    public virtual object ByteArrayCreateString(ulong k)
     {
         ulong value;
         ulong count;
