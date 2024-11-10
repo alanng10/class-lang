@@ -78,6 +78,26 @@ Int Intern_State_Thread_Execute(Int thread, Int arg)
 
 Int Intern_State_TimeEvent_Elapse(Int timeEvent, Int arg)
 {
+    return Intern_State_Call(timeEvent, arg, 1);
+}
+
+Int Intern_State_Network_StatusEvent(Int network, Int arg)
+{
+    return Intern_State_Call(network, arg, 1);
+}
+
+Int Intern_State_Network_CaseEvent(Int network, Int arg)
+{
+    return Intern_State_Call(network, arg, 2);
+}
+
+Int Intern_State_Network_DataEvent(Int network, Int arg)
+{
+    return Intern_State_Call(network, arg, 3);
+}
+
+Int Intern_State_Call(Int o, Int arg, Int stateIndex)
+{
     Int thread;
     thread = Thread_This();
 
@@ -107,7 +127,7 @@ Int Intern_State_TimeEvent_Elapse(Int timeEvent, Int arg)
 
     eval->N = eval->N + 1;
 
-    Intern_Call(eval, 1, 3, 1);
+    Intern_Call(eval, 1, 3, stateIndex);
 
     eval->N = eval->N - 1;
 
