@@ -22,3 +22,4 @@ Int StateTimeEventElapse|
 Int StateNetworkStatusEvent|
 Int StateNetworkCaseEvent|
 Int StateNetworkDataEvent|
+Int StateNetworkHostNewPeer|
