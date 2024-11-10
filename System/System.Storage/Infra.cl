@@ -15,9 +15,9 @@ class Infra : Any
         return true;
     }
 
-    field prusate TextText TextSlash { get { return data; } set { data : value; } }
-    field prusate TextText TextDot { get { return data; } set { data : value; } }
-    field prusate TextText TextColon { get { return data; } set { data : value; } }
+    field prusate Text TextSlash { get { return data; } set { data : value; } }
+    field prusate Text TextDot { get { return data; } set { data : value; } }
+    field prusate Text TextColon { get { return data; } set { data : value; } }
     field precate InfraInfra InfraInfra { get { return data; } set { data : value; } }
     field precate TextInfra TextInfra { get { return data; } set { data : value; } }
     field precate StringComp StringComp { get { return data; } set { data : value; } }
@@ -213,21 +213,21 @@ class Infra : Any
         return a;
     }
 
-    maide prusate Int EntryPathNameCombine(var TextText entryPath, var Less less)
+    maide prusate Int EntryPathNameCombine(var Text entryPath, var Less less)
     {
         var Int a;
         a : this.TextInfra.LastIndex(entryPath, this.TextSlash, less);
         return a;
     }
 
-    maide prusate Int EntryNameExtensionDot(var TextText entryName, var Less less)
+    maide prusate Int EntryNameExtensionDot(var Text entryName, var Less less)
     {
         var Int a;
         a : this.TextInfra.LastIndex(entryName, this.TextDot, less);
         return a;
     }
 
-    maide prusate Bool IsRelativePath(var TextText entryPath, var Less less)
+    maide prusate Bool IsRelativePath(var Text entryPath, var Less less)
     {
         var TextInfra textInfra;
         textInfra : this.TextInfra;
