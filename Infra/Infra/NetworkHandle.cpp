@@ -39,23 +39,23 @@ Bool NetworkHandle::Close()
     return true;
 }
 
-void NetworkHandle::StatusChangeHandle(QAbstractSocket::SocketError socketError)
+void NetworkHandle::StatusEventHandle(QAbstractSocket::SocketError socketError)
 {
     Int network;
     network = this->Network;
-    Network_StatusChange(network);
+    Network_StatusEvent(network);
 }
 
-void NetworkHandle::CaseChangeHandle(QAbstractSocket::SocketState socketState)
+void NetworkHandle::CaseEventHandle(QAbstractSocket::SocketState socketState)
 {
     Int network;
     network = this->Network;
-    Network_CaseChange(network);
+    Network_CaseEvent(network);
 }
 
-void NetworkHandle::ReadyReadHandle()
+void NetworkHandle::DataEventHandle()
 {
     Int network;
     network = this->Network;
-    Network_ReadyRead(network);
+    Network_DataEvent(network);
 }

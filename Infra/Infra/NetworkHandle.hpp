@@ -19,7 +19,7 @@ public:
 
 public slots:
 
-    void StatusChangeHandle(QAbstractSocket::SocketError socketError);
-    void CaseChangeHandle(QAbstractSocket::SocketState socketState);
-    void ReadyReadHandle();
+    void StatusEventHandle(QAbstractSocket::SocketError socketError);
+    void CaseEventHandle(QAbstractSocket::SocketState socketState);
+    void DataEventHandle();
 };
