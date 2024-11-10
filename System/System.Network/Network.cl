@@ -191,4 +191,25 @@ class Network : Any
         extern.Network_Open(this.Intern);
         return true;
     }
+
+    maide prusate Bool Close()
+    {
+        this.LoadOpen : false;
+
+        var Extern extern;
+        extern : this.Extern;
+
+        extern.Network_Close(this.Intern);
+        
+        extern.Network_StreamSet(this.Intern, 0);
+        extern.Network_HostPortSet(this.Intern, 0);
+        extern.Network_HostNameSet(this.Intern, 0);
+
+        this.DataStream.Final();
+        this.DataStream : null;
+        this.Stream : null;
+
+        this.InternInfra.StringDelete(this.InternHostName);
+        return true;
+    }
 }
