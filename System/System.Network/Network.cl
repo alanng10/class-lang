@@ -23,4 +23,14 @@ class Network : Any
         this.DataEvent();
         return true;
     }
+    
+    maide prusate Bool Init()
+    {
+        base.Init();
+        this.InternIntern : share Intern;
+        this.Extern : share Extern;
+        this.InternInfra : share InternInfra;
+        this.NetworkStatusList : share StatusList;
+        this.NetworkCaseList : share CaseList;
+    }
 }
