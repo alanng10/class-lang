@@ -38,17 +38,17 @@ public class Network : Any
         this.InternHandle.Any = this;
         this.InternHandle.Init();
 
-        MaideAddress oa;
-        oa = this.NetworkInfra.NetworkStatusEventMaideAddress;
-        MaideAddress ob;
-        ob = this.NetworkInfra.NetworkCaseEventMaideAddress;
-        MaideAddress oc;
-        oc = this.NetworkInfra.NetworkDataEventMaideAddress;
+        MaideAddress ka;
+        ka = this.NetworkInfra.NetworkStatusEventMaideAddress;
+        MaideAddress kb;
+        kb = this.NetworkInfra.NetworkCaseEventMaideAddress;
+        MaideAddress kc;
+        kc = this.NetworkInfra.NetworkDataEventMaideAddress;
         ulong arg;
         arg = this.InternHandle.ULong();
-        this.InternStatusEventState = this.InternInfra.StateCreate(oa, arg);
-        this.InternCaseEventState = this.InternInfra.StateCreate(ob, arg);
-        this.InternDataEventState = this.InternInfra.StateCreate(oc, arg);
+        this.InternStatusEventState = this.InternInfra.StateCreate(ka, arg);
+        this.InternCaseEventState = this.InternInfra.StateCreate(kb, arg);
+        this.InternDataEventState = this.InternInfra.StateCreate(kc, arg);
 
         bool b;
         b = (this.HostPeer == 0);
