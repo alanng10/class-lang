@@ -21,11 +21,11 @@ public class Host : Any
         this.InternPort = Extern.NetworkPort_New();
         Extern.NetworkPort_Init(this.InternPort);
 
-        MaideAddress oa;
-        oa = this.NetworkInfra.HostNewPeerMaideAddress;
+        MaideAddress ka;
+        ka = this.NetworkInfra.HostNewPeerMaideAddress;
         ulong arg;
         arg = this.InternHandle.ULong();
-        this.InternNewPeerState = this.InternInfra.StateCreate(oa, arg);
+        this.InternNewPeerState = this.InternInfra.StateCreate(ka, arg);
 
         this.Intern = Extern.NetworkHost_New();
         Extern.NetworkHost_Init(this.Intern);
