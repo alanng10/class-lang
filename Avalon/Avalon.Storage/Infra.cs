@@ -245,7 +245,7 @@ public class Infra : Any
         return a;
     }
 
-    public virtual long EntryNameExtensionDot(TextText entryName, Less less)
+    public virtual long EntryNameExtendDot(TextText entryName, Less less)
     {
         long a;
         a = this.TextInfra.LastIndex(entryName, this.TextDot, less);
