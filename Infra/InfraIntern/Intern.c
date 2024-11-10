@@ -399,6 +399,11 @@ Int Intern_Intern_StateNetworkDataEvent(Eval* eval, Int frame)
     return Intern_Intern_State(eval, frame, InternState(Network_DataEvent));
 }
 
+Int Intern_Intern_StateNetworkHostNewPeer(Eval* eval, Int frame)
+{
+    return Intern_Intern_State(eval, frame, InternState(NetworkHost_NewPeer));
+}
+
 Int Intern_Intern_State(Eval* eval, Int frame, Int state)
 {
     Int ka;
