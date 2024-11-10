@@ -384,6 +384,21 @@ Int Intern_Intern_StateTimeEventElapse(Eval* eval, Int frame)
     return Intern_Intern_State(eval, frame, InternState(TimeEvent_Elapse));
 }
 
+Int Intern_Intern_StateNetworkStatusEvent(Eval* eval, Int frame)
+{
+    return Intern_Intern_State(eval, frame, InternState(Network_StatusEvent));
+}
+
+Int Intern_Intern_StateNetworkCaseEvent(Eval* eval, Int frame)
+{
+    return Intern_Intern_State(eval, frame, InternState(Network_CaseEvent));
+}
+
+Int Intern_Intern_StateNetworkDataEvent(Eval* eval, Int frame)
+{
+    return Intern_Intern_State(eval, frame, InternState(Network_DataEvent));
+}
+
 Int Intern_Intern_State(Eval* eval, Int frame, Int state)
 {
     Int ka;
