@@ -8,6 +8,7 @@ class InternInfra : Any
         return true;
     }
     
+    field prusate String ModuleFoldPath { get { return data; } set { data : value; } }
     field precate Intern InternIntern { get { return data; } set { data : value; } }
     field precate Extern Extern { get { return data; } set { data : value; } }
 
