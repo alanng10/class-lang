@@ -99,4 +99,11 @@ class Network : Any
         this.InternInfra.StateDelete(this.InternStatusEventState);
         return true;
     }
+
+    field prusate Int HostPeer { get { return data; } set { data : value; } }
+    field prusate String HostName { get { return data; } set { data : value; } }
+    field prusate Int HostPort { get { return data; } set { data : value; } }
+    field prusate StreamStream Stream { get { return data; } set { data : value; } }
+    field precate StreamStream DataStream { get { return data; } set { data : value; } }
+    field prusate Bool LoadOpen { get { return data; } set { data : value; } }
 }
