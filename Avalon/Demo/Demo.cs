@@ -104,12 +104,18 @@ class Demo : Any
         ca = new MathComp();
         ca.Init();
 
+        ca.Cand = 3;
+        ca.Expo = 2;
+
         long aaaa;
-        aaaa = this.Math.ValueTen(3, 2);
+        aaaa = this.Math.ValueTen(ca);
         this.ConsoleWriteMathValue("Demo.ExecuteMath ValueTen: ", aaaa);
 
+        ca.Cand = 5;
+        ca.Expo = -1;
+
         long aaab;
-        aaab = this.Math.ValueTen(5, -1);
+        aaab = this.Math.ValueTen(ca);
         this.ConsoleWriteMathValue("Demo.ExecuteMath ValueTen 2: ", aaab);
 
         long aa;
