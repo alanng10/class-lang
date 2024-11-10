@@ -230,5 +230,19 @@ class Comp : Any
 
             i : i + 1;
         }
+
+        i : 0;
+        while (i < count)
+        {
+            var Int indexA;
+            indexA : (count - 1) - i;
+
+            var Int ua;
+            ua : extern.Array_ItemGet(k, indexA);
+
+            this.InternInfra.StringDelete(ua);
+
+            i : i + 1;
+        }
     }
 }
