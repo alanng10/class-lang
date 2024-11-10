@@ -60,54 +60,6 @@ public class Program : Any
     private ulong InternStartState { get; set; }
     private Handle InternHandle { get; set; }
 
-    internal static ulong InternStart(ulong process, ulong arg)
-    {
-        InternIntern internIntern;
-        internIntern = InternIntern.This;
-
-        object ao;
-        ao = internIntern.HandleTarget(arg);
-
-        Program a;
-        a = (Program)ao;
-        a.ExecuteStartState();
-
-        return 1;
-    }
-
-    internal static ulong InternFinish(ulong process, ulong arg)
-    {
-        InternIntern internIntern;
-        internIntern = InternIntern.This;
-
-        object ao;
-        ao = internIntern.HandleTarget(arg);
-
-        Program a;
-        a = (Program)ao;
-        a.ExecuteFinishState();
-
-        return 1;
-    }
-
-    protected virtual bool ExecuteStartState()
-    {
-        if (!(this.StartState == null))
-        {
-            this.StartState.Execute();
-        }
-        return true;
-    }
-
-    protected virtual bool ExecuteFinishState()
-    {
-        if (!(this.FinishState == null))
-        {
-            this.FinishState.Execute();
-        }
-        return true;
-    }
-
     public virtual long Ident
     {
         get
