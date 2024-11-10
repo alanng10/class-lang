@@ -106,4 +106,31 @@ class Network : Any
     field prusate StreamStream Stream { get { return data; } set { data : value; } }
     field precate StreamStream DataStream { get { return data; } set { data : value; } }
     field prusate Bool LoadOpen { get { return data; } set { data : value; } }
+    
+    field prusate Status Status
+    {
+        get
+        {
+            var Int k;
+            k : this.Extern.Network_StatusGet(this.Intern);
+            var Status a;
+            a : this.NetworkStatusList.Get(k);
+            return a;
+        }
+        set
+        {
+        }
+    }
+
+    field prusate Case Case
+    {
+        get
+        {
+            var Int k;
+            
+        }
+        set
+        {
+        }
+    }    
 }
