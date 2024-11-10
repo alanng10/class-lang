@@ -269,8 +269,11 @@ public class InternInfra : Any
         return true;
     }
 
-    public virtual ulong DataByteListGet(byte[] data, long index, long count)
+    public virtual ulong DataByteListGet(object data, long index, long count)
     {
+        byte[] dataValue;
+        dataValue = data as byte[];
+
         ulong oo;
         oo = 0;
 
@@ -279,7 +282,7 @@ public class InternInfra : Any
         while (i < count)
         {
             byte ob;
-            ob = data[index + i];
+            ob = dataValue[index + i];
 
             int shiftCount;
             shiftCount = (int)(i * 8);
@@ -302,8 +305,11 @@ public class InternInfra : Any
         return a;
     }
 
-    public virtual bool DataByteListSet(byte[] data, long index, long count, ulong value)
+    public virtual bool DataByteListSet(object data, long index, long count, ulong value)
     {
+        byte[] dataValue;
+        dataValue = data as byte[];
+
         long d;
         d = this.IntCapValue - 1;
         ulong da;
@@ -325,29 +331,29 @@ public class InternInfra : Any
             byte ob;
             ob = (byte)o;
 
-            data[index + i] = ob;
+            dataValue[index + i] = ob;
 
             i = i + 1;
         }
         return true;
     }
     
-    public virtual uint DataMidGet(byte[] data, long index)
+    public virtual uint DataMidGet(object data, long index)
     {
         return (uint)this.DataByteListGet(data, index, sizeof(uint));
     }
 
-    public virtual bool DataMidSet(byte[] data, long index, uint value)
+    public virtual bool DataMidSet(object data, long index, uint value)
     {
         return this.DataByteListSet(data, index, sizeof(uint), value);
     }
 
-    public virtual uint DataCharGet(byte[] data, long index)
+    public virtual uint DataCharGet(object data, long index)
     {
         return this.DataMidGet(data, index);
     }
 
-    public virtual bool DataCharSet(byte[] data, long index, uint value)
+    public virtual bool DataCharSet(object data, long index, uint value)
     {
         return this.DataMidSet(data, index, value);
     }
