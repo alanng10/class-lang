@@ -96,6 +96,11 @@ Int Intern_State_Network_DataEvent(Int network, Int arg)
     return Intern_State_Call(network, arg, 3);
 }
 
+Int Intern_State_NetworkHost_NewPeer(Int networkHost, Int arg)
+{
+    return Intern_State_Call(networkHost, arg, 1);
+}
+
 Int Intern_State_Call(Int o, Int arg, Int stateIndex)
 {
     Int thread;
