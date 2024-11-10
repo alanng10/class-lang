@@ -80,7 +80,23 @@ class Network : Any
         extern.Network_DataEventStateSet(this.Intern, 0);
         extern.Network_CaseEventStateSet(this.Intern, 0);
         extern.Network_StatusEventStateSet(this.Intern, 0);
-        
-        
+
+        var Bool b;
+        b : (this.HostPeer = 0);
+        inf (b)
+        {
+            extern.Network_Final(this.Intern);
+            extern.Network_Delete(this.Intern);
+        }
+        inf (~b)
+        {
+            this.DataStream.Final();
+            this.Stream : null;
+        }
+
+        this.InternInfra.StateDelete(this.InternDataEventState);
+        this.InternInfra.StateDelete(this.InternCaseEventState);
+        this.InternInfra.StateDelete(this.InternStatusEventState);
+        return true;
     }
 }
