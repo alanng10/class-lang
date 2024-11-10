@@ -32,8 +32,8 @@ public class Network : Any
         this.InternIntern = InternIntern.This;
         this.InternInfra = InternInfra.This;
         this.NetworkInfra = Infra.This;
-        this.NetworkCaseList = CaseList.This;
         this.NetworkStatusList = StatusList.This;
+        this.NetworkCaseList = CaseList.This;
         this.InternHandle = new Handle();
         this.InternHandle.Any = this;
         this.InternHandle.Init();
@@ -109,13 +109,11 @@ public class Network : Any
     public virtual StreamStream Stream { get; set; }
     protected virtual StreamStream DataStream { get; set; }
     public virtual bool LoadingOpen { get; set; }
-
     private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
     private Infra NetworkInfra { get; set; }
-    protected virtual CaseList NetworkCaseList { get; set; }
     protected virtual StatusList NetworkStatusList { get; set; }
-
+    protected virtual CaseList NetworkCaseList { get; set; }
     private ulong Intern { get; set; }
     private ulong InternDataEventState { get; set; }
     private ulong InternCaseEventState { get; set; }
