@@ -183,18 +183,9 @@ class Infra : Any
 
     maide prusate Bool CountSet(var String filePath, var Int value)
     {
-        return this.CountSetAny(filePath, value, false);
-    }
-
-    maide prusate Bool CountSetAny(var String filePath, var Int value, var Bool anyNode)
-    {
-        var StatusList statusList;
-        statusList : this.StorageStatusList;
-
         var Storage storage;
         storage : new Storage;
         storage.Init();
-        storage.AnyNode : anyNode;
 
         var Mode mode;
         mode : new Mode;

@@ -202,9 +202,6 @@ public class Infra : Any
 
     public virtual bool CountSet(String filePath, long value)
     {
-        StatusList statusList;
-        statusList = this.StorageStatusList;
-
         Storage storage;
         storage = new Storage();
         storage.Init();
@@ -222,10 +219,10 @@ public class Infra : Any
 
         bool a;
         a = false;
-        if (storage.Status == statusList.NoError)
+        if (storage.Status == this.StorageStatusList.NoError)
         {
             storage.CountSet(value);
-            if (storage.Status == statusList.NoError)
+            if (storage.Status == this.StorageStatusList.NoError)
             {
                 a = true;
             }
