@@ -92,7 +92,7 @@ public class Infra : Any
             range.Count = count;
 
             stream.Read(data, range);
-            if (stream.Status == 0)
+            if (storage.Status == this.StorageStatusList.NoError)
             {
                 o = data;
             }
@@ -134,7 +134,7 @@ public class Infra : Any
             range.Count = count;
 
             stream.Write(data, range);
-            if (stream.Status == 0)
+            if (storage.Status == this.StorageStatusList.NoError)
             {
                 o = true;
             }
