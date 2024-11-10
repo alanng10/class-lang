@@ -220,7 +220,7 @@ public class Network : Any
         return o;
     }
 
-    private bool PrivateStatusChange()
+    private bool PrivateStatusEvent()
     {
         this.StatusEvent();
         return true;
@@ -231,7 +231,7 @@ public class Network : Any
         return true;
     }
 
-    private bool PrivateCaseChange()
+    private bool PrivateCaseEvent()
     {
         CaseList caseList;
         caseList = this.NetworkCaseList;
@@ -254,7 +254,7 @@ public class Network : Any
         return true;
     }
 
-    private bool PrivateReadyRead()
+    private bool PrivateDataEvent()
     {
         this.DataEvent();
         return true;
@@ -275,7 +275,7 @@ public class Network : Any
 
         Network a;
         a = (Network)ao;
-        a.PrivateStatusChange();
+        a.PrivateStatusEvent();
 
         return 1;
     }
@@ -290,7 +290,7 @@ public class Network : Any
 
         Network a;
         a = (Network)ao;
-        a.PrivateCaseChange();
+        a.PrivateCaseEvent();
 
         return 1;
     }
@@ -305,7 +305,7 @@ public class Network : Any
 
         Network a;
         a = (Network)ao;
-        a.PrivateReadyRead();
+        a.PrivateDataEvent();
 
         return 1;
     }
