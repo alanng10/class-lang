@@ -262,10 +262,10 @@ Storage
 StorageComp
     Rename(path, destPath)
     FileCopy(path, destPath)
-    FileRemove(path)
+    FileDelete(path)
     FoldCreate(path)
     FoldCopy(path, destPath)
-    FoldRemove(path)
+    FoldDelete(path)
     Exist(path)
     Fold(path)
     EntryList(path, fold)
