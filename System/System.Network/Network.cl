@@ -165,4 +165,30 @@ class Network : Any
     field private Int InternCaseEventState { get { return data; } set { data : value; } }
     field private Int InternStatusEventState { get { return data; } set { data : value; } }
     field private Int InternHostName { get { return data; } set { data : value; } }
+
+    maide prusate Bool Open()
+    {
+        inf (~(this.Stream = null))
+        {
+            return false;
+        }
+        inf (this.LoadOpen)
+        {
+            return false;
+        }
+
+        this.LoadOpen : true;
+
+        this.InternHostName : this.InternInfra.StringCreate(this.HostName);
+        this.DataStream : this.StreamCreate();
+
+        var Extern extern;
+        extern : this.Extern;
+
+        extern.Network_HostNameSet(this.Intern, this.InternHostName);
+        extern.Network_HostPortSet(this.Intern, this.HostPort);
+        extern.Network_StreamSet(this.Intern, this.DataStream.Ident);
+        extern.Network_Open(this.Intern);
+        return true;
+    }
 }
