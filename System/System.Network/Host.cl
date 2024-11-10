@@ -72,4 +72,15 @@ class Host : Any
         this.Extern.NetworkHost_Close(this.Intern);
         return true;
     }
+
+    maide prusate Network OpenPeer()
+    {
+        var Int k;
+        k : this.Extern.NetworkHost_OpenPeer(this.Intern);
+
+        var Network a;
+        a : this.CreatePeer(k);
+        return a;
+    }
+
 }
