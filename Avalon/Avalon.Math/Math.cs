@@ -18,15 +18,15 @@ public partial class Math : Any
 
     public virtual long Value(Comp comp)
     {
-        long aa;
-        aa = comp.Cand;
-        long ab;
-        ab = comp.Expo;
+        long cand;
+        cand = comp.Cand;
+        long expo;
+        expo = comp.Expo;
 
         ulong ua;
         ulong ub;
-        ua = (ulong)aa;
-        ub = (ulong)ab;
+        ua = (ulong)cand;
+        ub = (ulong)expo;
 
         ulong u;
         u = Extern.Math_Value(this.Intern, ua, ub);
@@ -35,8 +35,13 @@ public partial class Math : Any
         return a;
     }
 
-    public virtual long ValueTen(long cand, long expoTen)
+    public virtual long ValueTen(Comp comp)
     {
+        long cand;
+        cand = comp.Cand;
+        long expoTen;
+        expoTen = comp.Expo;
+
         ulong ua;
         ulong ub;
         ua = (ulong)cand;
