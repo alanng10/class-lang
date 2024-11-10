@@ -26,3 +26,4 @@ Intern_Api Int Intern_Intern_StateTimeEventElapse(Eval* eval, Int frame);
 Intern_Api Int Intern_Intern_StateNetworkStatusEvent(Eval* eval, Int frame);
 Intern_Api Int Intern_Intern_StateNetworkCaseEvent(Eval* eval, Int frame);
 Intern_Api Int Intern_Intern_StateNetworkDataEvent(Eval* eval, Int frame);
+Intern_Api Int Intern_Intern_StateNetworkHostNewPeer(Eval* eval, Int frame);

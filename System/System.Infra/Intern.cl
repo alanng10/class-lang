@@ -47,4 +47,6 @@ class Intern : Any
     maide prusate Int StateNetworkCaseEvent() { }
 
     maide prusate Int StateNetworkDataEvent() { }
+
+    maide prusate Int StateNetworkHostNewPeer() { }
 }
