@@ -24,6 +24,19 @@ class Infra : Any
     field precate TextCodeKindList TextCodeKindList { get { return data; } set { data : value; } }
     field precate StatusList StorageStatusList { get { return data; } set { data : value; } }
 
+    maide prusate Bool ValidMode(var Mode mode)
+    {
+        inf (~(mode.Read | mode.Write))
+        {
+            return false;
+        }
+        inf (mode.New & mode.Exist)
+        {
+            return false;
+        }
+        return true;
+    }
+
     maide prusate Data DataRead(var String filePath)
     {
         var Storage storage;
