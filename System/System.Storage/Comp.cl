@@ -39,13 +39,13 @@ class Comp : Any
         pathU : this.InternInfra.StringCreate(path);
         var Int destPathU;
         destPathU : this.InternInfra.StringCreate(destPath);
-        
+
         var Int k;
         k : this.Extern.StorageComp_Rename(this.Intern, pathU, destPathU);
-        
+
         this.InternInfra.StringDelete(destPathU);
         this.InternInfra.StringDelete(pathU);
-        
+
         var Bool a;
         a : ~(k = 0);
         return a;
