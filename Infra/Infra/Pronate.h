@@ -18,9 +18,9 @@ Int Stream_Intern(Int o);
 Int Network_GetOpenSocket(Int o);
 Int Network_HostOpen(Int o, Int socket);
 Int Network_HostClose(Int o);
-Int Network_StatusChange(Int o);
-Int Network_CaseChange(Int o);
-Int Network_ReadyRead(Int o);
+Int Network_StatusEvent(Int o);
+Int Network_CaseEvent(Int o);
+Int Network_DataEvent(Int o);
 
 Int NetworkHost_NewPeer(Int o);
 
