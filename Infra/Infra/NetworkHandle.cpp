@@ -11,14 +11,14 @@ Bool NetworkHandle::Open()
     network = this->Network;
     Int socket;
     socket = Network_GetOpenSocket(network);
-    QIODevice* uu;
-    uu = (QIODevice*)socket;
     QTcpSocket* u;
-    u = (QTcpSocket*)uu;
+    u = (QTcpSocket*)socket;
+    QIODevice* uu;
+    uu = (QIODevice*)u;
 
-    connect(u, &QTcpSocket::errorOccurred, this, &NetworkHandle::StatusChangeHandle);
-    connect(u, &QTcpSocket::stateChanged, this, &NetworkHandle::CaseChangeHandle);
-    connect(uu, &QIODevice::readyRead, this, &NetworkHandle::ReadyReadHandle);
+    connect(u, &QTcpSocket::errorOccurred, this, &NetworkHandle::StatusEventHandle);
+    connect(u, &QTcpSocket::stateChanged, this, &NetworkHandle::CaseEventHandle);
+    connect(uu, &QIODevice::readyRead, this, &NetworkHandle::DataEventHandle);
     return true;
 }
 
@@ -28,14 +28,14 @@ Bool NetworkHandle::Close()
     network = this->Network;
     Int socket;
     socket = Network_GetOpenSocket(network);
-    QIODevice* uu;
-    uu = (QIODevice*)socket;
     QTcpSocket* u;
-    u = (QTcpSocket*)uu;
+    u = (QTcpSocket*)socket;
+    QIODevice* uu;
+    uu = (QIODevice*)u;
 
-    disconnect(uu, &QIODevice::readyRead, this, &NetworkHandle::ReadyReadHandle);
-    disconnect(u, &QTcpSocket::stateChanged, this, &NetworkHandle::CaseChangeHandle);
-    disconnect(u, &QTcpSocket::errorOccurred, this, &NetworkHandle::StatusChangeHandle);
+    disconnect(uu, &QIODevice::readyRead, this, &NetworkHandle::DataEventHandle);
+    disconnect(u, &QTcpSocket::stateChanged, this, &NetworkHandle::CaseEventHandle);
+    disconnect(u, &QTcpSocket::errorOccurred, this, &NetworkHandle::StatusEventHandle);
     return true;
 }
 
