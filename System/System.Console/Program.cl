@@ -158,4 +158,32 @@ class Program : Any
         }
         return a;
     }
+
+    maide private Bool InternStringListDelete(var Int a)
+    {
+        var Extern extern;
+        extern : this.Extern;
+
+        var Int count;
+        count : extern.Array_CountGet(a);
+
+        var Int i;
+        i : 0;
+        while (i < count)
+        {
+            var Int index;
+            index : (count - 1) - i;
+
+            var Int k;
+            k : extern.Array_ItemGet(a, index);
+
+            this.InternInfra.StringDelete(k);
+
+            i : i + 1;
+        }
+
+        extern.Array_Final(a);
+        extern.Array_Delete(a);
+        return true;
+    }
 }
