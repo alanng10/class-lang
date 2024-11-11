@@ -14,3 +14,4 @@ call Script\System\MakeModule Stream
 call Script\System\MakeModule Time
 call Script\System\MakeModule Storage
 call Script\System\MakeModule Network
+call Script\System\MakeModule Console
