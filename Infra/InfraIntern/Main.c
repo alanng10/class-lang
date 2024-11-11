@@ -42,14 +42,21 @@ Int Intern_Init(Int entryClass, Int entryModuleArray, Int entryModuleArrayCount)
     return a;
 }
 
-Int Intern_Execute(Int eval)
+Int Intern_Execute(Int ka)
 {
-    Eval* e;
-    e = CastPointer(eval);
+    Eval* eval;
+    eval = CastPointer(ka);
 
-    Intern_Call(e, 1, 3, 1);
+    Intern_Call(eval, 1, 3, 1);
 
-    return true;
+    Int a;
+    a = eval->S[eval->N - 1];
+
+    eval->N = eval->N - 1;
+
+    RefKindClear(a);
+
+    return a;
 }
 
 Int Intern_Final(Int eval)
