@@ -12,8 +12,6 @@ struct Program
     Int Argue;
     Int WorkFold;
     Int Environ;
-    Int StartState;
-    Int FinishState;
     ProgramIntern* Intern;
 };
 
