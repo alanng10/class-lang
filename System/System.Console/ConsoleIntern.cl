@@ -3,14 +3,12 @@ class ConsoleIntern : Any
     maide prusate Bool Init()
     {
         base.Init();
-        this.InternIntern : share InternIntern;
         this.Extern : share Extern;
         this.InternInfra : share InternInfra;
         this.Intern : 0;
         return true;
     }
 
-    field private InternIntern InternIntern { get { return data; } set { data : value; } }
     field private Extern Extern { get { return data; } set { data : value; } }
     field private InternInfra InternInfra { get { return data; } set { data : value; } }
     field private Int Intern { get { return data; } set { data : value; } }
