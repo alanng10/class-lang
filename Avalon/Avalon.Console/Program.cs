@@ -231,10 +231,10 @@ public class Program : Any
         return a;
     }
 
-    private bool InternStringEntryListDelete(ulong k)
+    private bool InternStringEntryListDelete(ulong a)
     {
         ulong countU;
-        countU = Extern.Array_CountGet(k);
+        countU = Extern.Array_CountGet(a);
 
         long count;
         count = (long)countU;
@@ -249,7 +249,7 @@ public class Program : Any
             oa = (ulong)index;
             
             ulong entryU;
-            entryU = Extern.Array_ItemGet(k, oa);
+            entryU = Extern.Array_ItemGet(a, oa);
             ulong indexU;
             indexU = Extern.Entry_IndexGet(entryU);
             ulong valueU;
@@ -264,8 +264,8 @@ public class Program : Any
             i = i + 1;
         }
 
-        Extern.Array_Final(k);
-        Extern.Array_Delete(k);
+        Extern.Array_Final(a);
+        Extern.Array_Delete(a);
         return true;
     }
 }
