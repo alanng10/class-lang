@@ -83,19 +83,19 @@ public class Program : Any
             workFoldU = this.InternInfra.StringCreate(this.WorkFold);
         }
 
-        ulong environmentU;
-        environmentU = 0;
+        ulong environU;
+        environU = 0;
         bool bb;
         bb = !(this.Environ == null);
         if (bb)
         {
-            environmentU = this.InternStringEntryListCreate(this.Environ);
+            environU = this.InternStringEntryListCreate(this.Environ);
         }
 
         Extern.Program_NameSet(this.Intern, nameU);
         Extern.Program_ArgueSet(this.Intern, argueU);
         Extern.Program_WorkFoldSet(this.Intern, workFoldU);
-        Extern.Program_EnvironSet(this.Intern, environmentU);
+        Extern.Program_EnvironSet(this.Intern, environU);
 
         Extern.Program_Execute(this.Intern);
 
@@ -106,7 +106,7 @@ public class Program : Any
 
         if (bb)
         {
-            this.InternStringEntryListDelete(environmentU);
+            this.InternStringEntryListDelete(environU);
         }
         if (ba)
         {
