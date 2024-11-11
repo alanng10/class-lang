@@ -84,4 +84,30 @@ class StringInn : Inn
         this.Index : 0;
         return true;
     }
+
+    maide private Int StringIndex(var String k, var Int index, var Int n)
+    {
+        var StringComp stringComp;
+        stringComp : this.StringComp;
+
+        var Int count;
+        count : stringComp.Count(k);
+
+        var Int i;
+        i : index;
+        while (i < count)
+        {
+            var Int ka;
+            ka : stringComp.Char(k, i);
+            
+            inf (ka = n)
+            {
+                return i;
+            }
+
+            i : i + 1;
+        }
+
+        return null;
+    }
 }
