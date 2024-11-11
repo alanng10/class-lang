@@ -36,8 +36,8 @@ Int Program_Execute(Int o)
     argue = m->Argue;
     Int workFold;
     workFold = m->WorkFold;
-    Int environment;
-    environment = m->Environ;
+    Int environ;
+    environ = m->Environ;
 
     QString nameU;
     Int ua;
@@ -63,21 +63,21 @@ Int Program_Execute(Int o)
         String_QStringSet(uc, workFold);
     }
 
-    QProcessEnvironment environmentU;
-    environmentU = QProcessEnvironment::systemEnvironment();
+    QProcessEnvironment environU;
+    environU = QProcessEnvironment::systemEnvironment();
     Bool bb;
-    bb = (environment == null);
+    bb = (environ == null);
     if (!bb)
     {
         Int ud;
-        ud = CastInt(&environmentU);
-        Program_InternEnvironmentSet(ud, environment);
+        ud = CastInt(&environU);
+        Program_InternEnvironmentSet(ud, environ);
     }
 
     m->Intern->setProgram(nameU);
     m->Intern->setArguments(argueU);
     m->Intern->setWorkingDirectory(workFoldU);
-    m->Intern->setProcessEnvironment(environmentU);
+    m->Intern->setProcessEnvironment(environU);
     m->Intern->start();
     return true;
 }
