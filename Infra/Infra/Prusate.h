@@ -664,19 +664,10 @@ Infra_Api Int Program_IdentGet(Int o);
 Infra_Api Int Program_IdentSet(Int o, Int value);
 Infra_Api Int Program_StatusGet(Int o);
 Infra_Api Int Program_StatusSet(Int o, Int value);
-Infra_Api Int Program_ExitKindGet(Int o);
-Infra_Api Int Program_ExitKindSet(Int o, Int value);
-Infra_Api Int Program_StartStateGet(Int o);
-Infra_Api Int Program_StartStateSet(Int o, Int value);
-Infra_Api Int Program_FinishStateGet(Int o);
-Infra_Api Int Program_FinishStateSet(Int o, Int value);
 
 Infra_Api Int Program_Execute(Int o);
 Infra_Api Int Program_Wait(Int o);
 Infra_Api Int Program_Terminate(Int o);
-
-typedef Int (*Program_Start_Maide)(Int program, Int arg);
-typedef Int (*Program_Finish_Maide)(Int program, Int arg);
 
 Infra_Api Int Infra_Share();
 

@@ -688,12 +688,6 @@ class Extern : Any
     maide prusate Int Program_IdentSet(var Int o, var Int value) { }
     maide prusate Int Program_StatusGet(var Int o) { }
     maide prusate Int Program_StatusSet(var Int o, var Int value) { }
-    maide prusate Int Program_ExitKindGet(var Int o) { }
-    maide prusate Int Program_ExitKindSet(var Int o, var Int value) { }
-    maide prusate Int Program_StartStateGet(var Int o) { }
-    maide prusate Int Program_StartStateSet(var Int o, var Int value) { }
-    maide prusate Int Program_FinishStateGet(var Int o) { }
-    maide prusate Int Program_FinishStateSet(var Int o, var Int value) { }
 
     maide prusate Int Program_Execute(var Int o) { }
     maide prusate Int Program_Wait(var Int o) { }

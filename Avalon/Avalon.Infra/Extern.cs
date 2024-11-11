@@ -710,19 +710,10 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Program_IdentSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Program_StatusGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong Program_StatusSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Program_ExitKindGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Program_ExitKindSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Program_StartStateGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Program_StartStateSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Program_FinishStateGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Program_FinishStateSet(ulong o, ulong value);
 
     [DllImport(InfraLib)] public extern static ulong Program_Execute(ulong o);
     [DllImport(InfraLib)] public extern static ulong Program_Wait(ulong o);
     [DllImport(InfraLib)] public extern static ulong Program_Terminate(ulong o);
-
-    public delegate ulong Program_Start_Maide(ulong program, ulong arg);
-    public delegate ulong Program_Finish_Maide(ulong program, ulong arg);
 
     [DllImport(InfraLib)] public extern static ulong Infra_Share();
 

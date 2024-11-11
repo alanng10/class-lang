@@ -690,12 +690,6 @@ Intern_Api Int Intern_Extern_Program_IdentGet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Program_IdentSet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Program_StatusGet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Program_StatusSet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Program_ExitKindGet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Program_ExitKindSet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Program_StartStateGet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Program_StartStateSet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Program_FinishStateGet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Program_FinishStateSet(Eval* e, Int f);
 
 Intern_Api Int Intern_Extern_Program_Execute(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Program_Wait(Eval* e, Int f);
