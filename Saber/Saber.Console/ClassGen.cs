@@ -2276,7 +2276,7 @@ public class ClassGen : ClassBase
 
         this.OperateLimit(varB, varB, this.RefKindBitRightCount, this.LimitBitRite);
 
-        this.OperateLimit(varB, varB, this.RefKindAny, this.LimitSame);
+        this.OperateLimitSame(varB, varB, this.RefKindAny);
 
         this.CondSet(varC, varB, varA, this.InternValueRef);
 
