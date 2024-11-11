@@ -214,7 +214,21 @@ class Program : Any
             var String value;
             index : cast String(iter.Index);
             value : cast String(iter.Value);
+            var Int ka;
+            ka : this.InternInfra.StringCreate(index);
+            var Int kb;
+            kb : this.InternInfra.StringCreate(value);
+
+            var Int k;
+            k : extern.Entry_New();
+            extern.Entry_Init(k);
+            extern.Entry_IndexSet(k, ka);
+            extern.Entry_ValueSet(k, kb);
+
+            extern.Array_ItemSet(a, i, k);
+
             i : i + 1;
         }
+        return a;
     }
 }
