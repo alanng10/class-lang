@@ -140,15 +140,15 @@ public class Program : Any
         {
             iter.Next();
 
-            String o;
-            o = (String)iter.Value;
+            String ka;
+            ka = iter.Value as String;
 
-            ulong u;
-            u = this.InternInfra.StringCreate(o);
+            ulong k;
+            k = this.InternInfra.StringCreate(ka);
 
             ulong oa;
             oa = (ulong)i;
-            Extern.Array_ItemSet(a, oa, u);
+            Extern.Array_ItemSet(a, oa, k);
 
             i = i + 1;
         }
