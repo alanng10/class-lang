@@ -211,16 +211,16 @@ public class Program : Any
             String value;
             index = iter.Index as String;
             value = iter.Value as String;
-            ulong indexU;
-            indexU = this.InternInfra.StringCreate(index);
-            ulong valueU;
-            valueU = this.InternInfra.StringCreate(value);
+            ulong ka;
+            ka = this.InternInfra.StringCreate(index);
+            ulong kb;
+            kb = this.InternInfra.StringCreate(value);
 
             ulong k;
             k = Extern.Entry_New();
             Extern.Entry_Init(k);
-            Extern.Entry_IndexSet(k, indexU);
-            Extern.Entry_ValueSet(k, valueU);
+            Extern.Entry_IndexSet(k, ka);
+            Extern.Entry_ValueSet(k, kb);
 
             ulong oa;
             oa = (ulong)i;
