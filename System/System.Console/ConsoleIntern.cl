@@ -52,35 +52,13 @@ class ConsoleIntern : Any
 
     maide prusate String Read()
     {
-        var Extern extern;
-        extern : this.Extern;
-
-        var Int u;
-        u : extern.Console_InnRead(this.Intern);
-
-        var Int data;
-        var Int count;
-        data : extern.String_DataGet(u);
-        count : extern.String_CountGet(u);
-
-        var Int dataCount;
-        dataCount : count * 4;
-
-        var Any k;
-        k : this.InternIntern.DataNew(dataCount);
-
-        this.InternInfra.CopyToDataValue(data, k, 0, dataCount);
+        var Int k;
+        k : this.Extern.Console_InnRead(this.Intern);
 
         var String a;
-        a : this.InternIntern.StringNew();
-        
-        this.InternIntern.StringValueSet(a, k);
-        this.InternIntern.StringCountSet(a, count);
+        a : this.InternInfra.StringCreateIntern(k);
 
-        extern.String_Final(u);
-        extern.String_Delete(u);
-
-        extern.Delete(data);
+        this.InternInfra.StringDelete(k);
         return a;
     }
 }
