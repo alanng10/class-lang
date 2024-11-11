@@ -20,6 +20,7 @@ class Entry : Any
         return true;
     }
 
+    field prusate Array Arg { get { return data; } set { data : value; } }
     field private InternIntern Intern { get { return data; } set { data : value; } }
     field private InternInfra InternInfra { get { return data; } set { data : value; } }
     field private StorageComp StorageComp { get { return data; } set { data : value; } }
@@ -38,6 +39,8 @@ class Entry : Any
         this.InternInfra.ModuleFoldPath : k;
 
         this.StorageComp.ModuleFoldPath : k;
+
+        this.ArrayArg();
         return true;
     }
 }
