@@ -3,29 +3,29 @@ class StringOut : Out
     maide prusate Bool Init()
     {
         base.Init();
-        this.InfraInfra : share InfraInfra;
-        this.Join : new StringJoin;
-        this.Join.Init();
+        this.TextInfra : share TextInfra;
+        this.StringAdd : new StringAdd;
+        this.StringAdd.Init();
         return true;
     }
 
-    field precate InfraInfra InfraInfra { get { return data; } set { data : value; } }
-    field precate StringJoin Join { get { return data; } set { data : value; } }
+    field precate TextInfra TextInfra { get { return data; } set { data : value; } }
+    field private StringAdd StringAdd { get { return data; } set { data : value; } }
 
-    maide prusate Bool Write(var String o)
+    maide prusate Bool Write(var String value)
     {
-        this.InfraInfra.StringJoinString(this.Join, o);
+        this.TextInfra.AddString(this.StringAdd, value);
         return true;
     }
 
     maide prusate Bool Clear()
     {
-        this.Join.Clear();
+        this.StringAdd.Clear();
         return true;
     }
 
     maide prusate String Result()
     {
-        return this.Join.Result();
+        return this.StringAdd.Result();
     }
 }
