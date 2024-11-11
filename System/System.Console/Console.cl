@@ -30,11 +30,8 @@ class Console : Any
         return true;
     }
 
-    field private ConsoleIntern Intern { get { return data; } set { data : value; } }
-
     field prusate Out Out { get { return data; } set { data : value; } }
-
     field prusate Out Err { get { return data; } set { data : value; } }
-
     field prusate Inn Inn { get { return data; } set { data : value; } }
+    field private ConsoleIntern Intern { get { return data; } set { data : value; } }
 }
