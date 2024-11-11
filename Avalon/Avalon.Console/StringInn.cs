@@ -42,11 +42,11 @@ public class StringInn : Inn
         String a;
         a = null;
 
-        long u;
-        u = this.StringIndex(k, index, '\n');
+        long ka;
+        ka = this.StringIndex(k, index, '\n');
 
         bool b;
-        b = (u < 0);
+        b = (ka < 0);
 
         if (b)
         {
@@ -63,7 +63,7 @@ public class StringInn : Inn
         if (!b)
         {
             long countB;
-            countB = u - index;
+            countB = ka - index;
 
             range.Index = index;
             range.Count = countB;
