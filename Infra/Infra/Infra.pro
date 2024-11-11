@@ -40,7 +40,6 @@ HEADERS += \
     Pronate.h \
     Pronate.hpp \
     Program.hpp \
-    ProgramIntern.hpp \
     Prusate.h \
     Rand.hpp \
     Range.h \
@@ -100,7 +99,6 @@ SOURCES += \
     PolateStop.cpp \
     Pos.c \
     Program.cpp \
-    ProgramIntern.cpp \
     Rand.cpp \
     Range.c \
     Rect.c \
