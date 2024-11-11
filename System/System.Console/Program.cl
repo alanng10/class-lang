@@ -56,4 +56,16 @@ class Program : Any
     field private Extern Extern { get { return data; } set { data : value; } }
     field private InternInfra InternInfra { get { return data; } set { data : value; } }
     field private Int Intern { get { return data; } set { data : value; } }
+
+    maide prusate Bool Wait()
+    {
+        this.Extern.Program_Wait(this.Intern);
+        return true;
+    }
+
+    maide prusate Bool Terminate()
+    {
+        this.Extern.Program_Terminate(this.Intern);
+        return true;
+    }
 }
