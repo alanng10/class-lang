@@ -52,13 +52,13 @@ class ConsoleIntern : Any
 
     public virtual String Read()
     {
-        ulong u;
-        u = Extern.Console_InnRead(this.Intern);
+        ulong k;
+        k = Extern.Console_InnRead(this.Intern);
 
         String a;
-        a = this.InternInfra.StringCreateIntern(u);
+        a = this.InternInfra.StringCreateIntern(k);
 
-        this.InternInfra.StringDelete(u);
+        this.InternInfra.StringDelete(k);
         return a;
     }
 }
