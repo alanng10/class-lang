@@ -30,23 +30,23 @@ class ConsoleIntern : Any
 
     maide prusate Bool OutWrite(var String a)
     {
-        var Int uo;
-        uo : this.InternInfra.StringCreate(a);
+        var Int k;
+        k : this.InternInfra.StringCreate(a);
         
-        this.Extern.Console_OutWrite(this.Intern, uo);
+        this.Extern.Console_OutWrite(this.Intern, k);
 
-        this.InternInfra.StringDelete(uo);
+        this.InternInfra.StringDelete(k);
         return true;
     }
 
     maide prusate Bool ErrWrite(var String a)
     {
-        var Int uo;
-        uo : this.InternInfra.StringCreate(a);
+        var Int k;
+        k : this.InternInfra.StringCreate(a);
         
-        this.Extern.Console_ErrWrite(this.Intern, uo);
+        this.Extern.Console_ErrWrite(this.Intern, k);
 
-        this.InternInfra.StringDelete(uo);
+        this.InternInfra.StringDelete(k);
         return true;
     }
 
