@@ -1542,9 +1542,6 @@ public class ClassGen : ClassBase
         long stateKind;
         stateKind = this.CompStateKind;
 
-        long k;
-        k = this.ParamCount - 1;
-
         long ka;
         ka = 0;
 
@@ -1560,6 +1557,9 @@ public class ClassGen : ClassBase
 
         if (stateKind == this.StateKindCall)
         {
+            long k;
+            k = this.ParamCount - 1;
+
             ka = varIndex - k;
         }
 
