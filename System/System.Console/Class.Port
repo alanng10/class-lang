@@ -1,0 +1,33 @@
+[Module]
+System.Console
+
+[Import]
+System.Infra
+    Any Any
+    Bool Bool
+    Int Int
+    String String
+    Extern Extern
+    InternInfra InternInfra
+    Range Range
+    InfraInfra Infra
+System.List
+    List List
+    Table Table
+    Iter Iter
+System.Text
+    StringComp StringComp
+    StringAdd StringAdd
+    TextInfra Infra
+
+[Export]
+Console
+Out
+Inn
+StringOut
+StringInn
+Program
+
+[Storage]
+
+[Entry]
