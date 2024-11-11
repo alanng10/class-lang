@@ -11,6 +11,10 @@ System.Infra
     InternInfra InternInfra
 System.List
     Array Array
+System.Thread
+    Thread Thread
+System.Storage
+    StorageComp Comp
 
 [Export]
 Entry
