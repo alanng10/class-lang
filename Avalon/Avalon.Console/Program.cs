@@ -216,15 +216,15 @@ public class Program : Any
             ulong valueU;
             valueU = this.InternInfra.StringCreate(value);
 
-            ulong entryU;
-            entryU = Extern.Entry_New();
-            Extern.Entry_Init(entryU);
-            Extern.Entry_IndexSet(entryU, indexU);
-            Extern.Entry_ValueSet(entryU, valueU);
+            ulong k;
+            k = Extern.Entry_New();
+            Extern.Entry_Init(k);
+            Extern.Entry_IndexSet(k, indexU);
+            Extern.Entry_ValueSet(k, valueU);
 
             ulong oa;
             oa = (ulong)i;
-            Extern.Array_ItemSet(a, oa, entryU);
+            Extern.Array_ItemSet(a, oa, k);
 
             i = i + 1;
         }
