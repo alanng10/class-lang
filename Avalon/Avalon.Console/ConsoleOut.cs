@@ -6,9 +6,9 @@ class ConsoleOut : Out
 
     internal virtual long Stream { get; set; }
 
-    public override bool Write(String o)
+    public override bool Write(String k)
     {
-        this.Intern.Write(this.Stream, o);
+        this.Intern.Write(this.Stream, k);
         return true;
     }
 }
