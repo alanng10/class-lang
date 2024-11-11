@@ -186,4 +186,35 @@ class Program : Any
         extern.Array_Delete(a);
         return true;
     }
+
+    maide private Int InternStringEntryListCreate(var Table stringTable)
+    {
+        var Iter iter;
+        iter : stringTable.IterCreate();
+        stringTable.IterSet(iter);
+
+        var Int count;
+        count : stringTable.Count;
+
+        var Extern extern;
+        extern : this.Extern;
+
+        var Int a;
+        a : extern.Array_New();
+        extern.Array_CountSet(a, count);
+        extern.Array_Init(a);
+
+        var Int i;
+        i : 0;
+        while (i < count)
+        {
+            iter.Next();
+
+            var String index;
+            var String value;
+            index : cast String(iter.Index);
+            value : cast String(iter.Value);
+            i : i + 1;
+        }
+    }
 }
