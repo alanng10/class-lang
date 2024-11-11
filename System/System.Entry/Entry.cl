@@ -43,4 +43,40 @@ class Entry : Any
         this.ArrayArg();
         return true;
     }
+
+    maide precate Bool MainAfter()
+    {
+        return true;
+    }
+
+    maide precate Int ExecuteMain()
+    {
+        return 0;
+    }
+
+    maide precate Bool ArrayArg()
+    {
+        var Int count;
+        count : this.InternIntern.ArgCount();
+
+        var Array array;
+        array : new Array;
+        array.Count : count;
+        array.Init();
+
+        var Int i;
+        i : 0;
+        while (i < count)
+        {
+            var String k;
+            k : this.InternIntern.Arg(i);
+            
+            array.Set(i, k);
+
+            i : i + 1;
+        }
+
+        this.Arg : array;
+        return true;        
+    }
 }
