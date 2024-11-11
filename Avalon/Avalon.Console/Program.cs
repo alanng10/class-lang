@@ -248,15 +248,15 @@ public class Program : Any
             ulong oa;
             oa = (ulong)index;
             
-            ulong entryU;
-            entryU = Extern.Array_ItemGet(a, oa);
+            ulong k;
+            k = Extern.Array_ItemGet(a, oa);
             ulong indexU;
-            indexU = Extern.Entry_IndexGet(entryU);
+            indexU = Extern.Entry_IndexGet(k);
             ulong valueU;
-            valueU = Extern.Entry_ValueGet(entryU);
+            valueU = Extern.Entry_ValueGet(k);
 
-            Extern.Entry_Final(entryU);
-            Extern.Entry_Delete(entryU);
+            Extern.Entry_Final(k);
+            Extern.Entry_Delete(k);
 
             this.InternInfra.StringDelete(valueU);
             this.InternInfra.StringDelete(indexU);
