@@ -2225,9 +2225,9 @@ public class ClassGen : ClassBase
 
         this.OperateLimit(varA, varC, this.RefKindBitRightCount, this.LimitBitRite);
 
-        this.OperateLimit(varB, varA, refKind, this.LimitSame);
+        this.OperateLimitSame(varB, varA, refKind);
 
-        this.OperateLimit(varA, varA, this.Zero, this.LimitSame);
+        this.OperateLimitSame(varA, varA, this.Zero);
 
         this.OperateLimit(varA, varA, varB, this.LimitOrn);
 
