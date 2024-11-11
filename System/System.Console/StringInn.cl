@@ -51,7 +51,31 @@ class StringInn : Inn
 
         inf (b)
         {
-            
+            var Int countA;
+            countA : count - index;
+
+            range.Index : index;
+            range.Count : countA;
+
+            a : stringComp.CreateString(k, range);
+
+            index : count;
         }
+        inf (~b)
+        {
+            var Int countB;
+            countB : ka - index;
+
+            range.Index : index;
+            range.Count : countB;
+
+            a : stringComp.CreateString(k, range);
+
+            index : index + countB + 1;
+        }
+        
+        this.Index : index;
+
+        return a;
     }
 }
