@@ -155,20 +155,20 @@ Int Program_InternArgueSet(Int result, Int argue)
     return true;
 }
 
-Int Program_InternEnvironSet(Int result, Int environment)
+Int Program_InternEnvironSet(Int result, Int environA)
 {
     QProcessEnvironment* uu;
     uu = (QProcessEnvironment*)result;
 
     Int count;
-    count = Array_CountGet(environment);
+    count = Array_CountGet(environA);
 
     Int i;
     i = 0;
     while (i < count)
     {
         Int entry;
-        entry = Array_ItemGet(environment, i);
+        entry = Array_ItemGet(environA, i);
 
         Int index;
         index = Entry_IndexGet(entry);
