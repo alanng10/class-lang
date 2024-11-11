@@ -2247,7 +2247,7 @@ public class ClassGen : ClassBase
 
         this.EvalValueGet(thisEvalIndex, varB);
 
-        this.OperateLimit(varA, varB, this.Zero, this.LimitSame);
+        this.OperateLimitSame(varA, varB, this.Zero);
 
         this.CondSet(varB, varA, varB, this.InternValueRef);
 
