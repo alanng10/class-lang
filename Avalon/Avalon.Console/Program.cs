@@ -209,8 +209,8 @@ public class Program : Any
 
             String index;
             String value;
-            index = (String)(iter.Index);
-            value = (String)(iter.Value);
+            index = iter.Index as String;
+            value = iter.Value as String;
             ulong indexU;
             indexU = this.InternInfra.StringCreate(index);
             ulong valueU;
