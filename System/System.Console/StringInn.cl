@@ -78,4 +78,10 @@ class StringInn : Inn
 
         return a;
     }
+
+    maide prusate Bool Reset()
+    {
+        this.Index : 0;
+        return true;
+    }
 }
