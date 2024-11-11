@@ -37,12 +37,12 @@ class StringInn : Inn
         {
             return null;
         }
-        
+
         var Range range;
         range : this.Range;
-        
+
         var String a;
-        
+
         var Int ka;
         ka : this.StringIndex(k, index, this.NewLineChar);
 
