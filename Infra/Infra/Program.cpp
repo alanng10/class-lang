@@ -36,8 +36,8 @@ Int Program_Execute(Int o)
     argue = m->Argue;
     Int workFold;
     workFold = m->WorkFold;
-    Int environ;
-    environ = m->Environ;
+    Int environA;
+    environA = m->Environ;
 
     QString nameU;
     Int ua;
@@ -66,12 +66,12 @@ Int Program_Execute(Int o)
     QProcessEnvironment environU;
     environU = QProcessEnvironment::systemEnvironment();
     Bool bb;
-    bb = (environ == null);
+    bb = (environA == null);
     if (!bb)
     {
         Int ud;
         ud = CastInt(&environU);
-        Program_InternEnvironmentSet(ud, environ);
+        Program_InternEnvironmentSet(ud, environA);
     }
 
     m->Intern->setProgram(nameU);
