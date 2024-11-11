@@ -1,8 +1,7 @@
 #pragma once
 
+#include <QProcess>
 #include <QProcessEnvironment>
-
-#include "ProgramIntern.hpp"
 
 #include "Pronate.hpp"
 
@@ -12,7 +11,7 @@ struct Program
     Int Argue;
     Int WorkFold;
     Int Environ;
-    ProgramIntern* Intern;
+    QProcess* Intern;
 };
 
 #define CP(a) ((Program*)(a))

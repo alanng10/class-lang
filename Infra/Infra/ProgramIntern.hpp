@@ -11,9 +11,4 @@ class ProgramIntern : public QProcess
 public:
     Bool Init();
     Int Program;
-
-private slots:
-
-    void StartHandle();
-    void FinishHandle(int exitCode, QProcess::ExitStatus exitStatus);
 };
