@@ -1,10 +1,6 @@
 global using InternIntern = Avalon.Infra.Intern;
 global using InternInfra = Avalon.Infra.InternInfra;
 global using Extern = Avalon.Infra.Extern;
-global using ProgramStartMaide = Avalon.Infra.Extern.Program_Start_Maide;
-global using ProgramFinishMaide = Avalon.Infra.Extern.Program_Finish_Maide;
-global using MaideAddress = Avalon.Infra.MaideAddress;
-global using Handle = Avalon.Infra.Handle;
 global using Any = Avalon.Infra.Any;
 global using String = Avalon.Infra.String;
 global using Range = Avalon.Infra.Range;
