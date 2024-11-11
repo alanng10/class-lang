@@ -1714,7 +1714,7 @@ public class ClassGen : ClassBase
         this.VarMaskClear(varA, this.RefKindClearMask);
         this.VarMaskClear(varB, this.RefKindClearMask);
 
-        this.OperateLimit(varC, varB, this.Zero, this.LimitSame);
+        this.OperateLimitSame(varC, varB, this.Zero);
 
         this.OperateLimit(varB, varB, varC, this.LimitAdd);
 
@@ -1790,7 +1790,7 @@ public class ClassGen : ClassBase
         this.SignExtend(varSA);
         this.SignExtend(varSB);
 
-        this.OperateLimit(varSC, varSB, this.Zero, this.LimitSame);
+        this.OperateLimitSame(varSC, varSB, this.Zero);
 
         this.OperateLimit(varSB, varSB, varSC, this.LimitAdd);
 
