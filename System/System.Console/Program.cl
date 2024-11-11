@@ -68,4 +68,23 @@ class Program : Any
         this.Extern.Program_Terminate(this.Intern);
         return true;
     }
+
+    maide prusate Bool Execute()
+    {
+        var Int nameU;
+        nameU : this.InternInfra.StringCreate(this.Name);
+        var Int argueU;
+        argueU : this.InternStringListCreate(this.Argue);
+
+        var Int workFoldU;
+        workFoldU : 0;
+        var Bool ba;
+        ba : ~(this.WorkFold = null);
+        inf (ba)
+        {
+            workFoldU : this.InternInfra.StringCreate(this.WorkFold);
+        }
+
+        var Int environU;
+    }
 }
