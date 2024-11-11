@@ -155,10 +155,10 @@ public class Program : Any
         return a;
     }
 
-    private bool InternStringListDelete(ulong k)
+    private bool InternStringListDelete(ulong a)
     {
         ulong countU;
-        countU = Extern.Array_CountGet(k);
+        countU = Extern.Array_CountGet(a);
         long count;
         count = (long)countU;
 
@@ -172,16 +172,16 @@ public class Program : Any
             ulong oa;
             oa = (ulong)index;
 
-            ulong u;
-            u = Extern.Array_ItemGet(k, oa);
+            ulong k;
+            k = Extern.Array_ItemGet(a, oa);
 
-            this.InternInfra.StringDelete(u);
+            this.InternInfra.StringDelete(k);
 
             i = i + 1;
         }
 
-        Extern.Array_Final(k);
-        Extern.Array_Delete(k);
+        Extern.Array_Final(a);
+        Extern.Array_Delete(a);
         return true;
     }
 
