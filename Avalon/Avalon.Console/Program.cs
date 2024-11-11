@@ -5,7 +5,6 @@ public class Program : Any
     public override bool Init()
     {
         base.Init();
-        this.InternIntern = InternIntern.This;
         this.InternInfra = InternInfra.This;
 
         this.Intern = Extern.Program_New();
@@ -53,7 +52,6 @@ public class Program : Any
         {
         }
     }
-    private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
     private ulong Intern { get; set; }
 
