@@ -86,5 +86,27 @@ class Program : Any
         }
 
         var Int environU;
+        environU : 0;
+        var Bool bb;
+        bb : ~(this.Environ = null);
+        inf (bb)
+        {
+            environU : this.InternStringEntryListCreate(this.Environ);
+        }
+
+        var Extern extern;
+        extern : this.Extern;
+
+        extern.Program_NameSet(this.Intern, nameU);
+        extern.Program_ArgueSet(this.Intern, argueU);
+        extern.Program_WorkFoldSet(this.Intern, workFoldU);
+        extern.Program_EnvironSet(this.Intern, environU);
+
+        extern.Program_Execute(this.Intern);
+        
+        extern.Program_EnvironSet(this.Intern, 0);
+        extern.Program_WorkFoldSet(this.Intern, 0);
+        extern.Program_ArgueSet(this.Intern, 0);
+        extern.Program_NameSet(this.Intern, 0);        
     }
 }
