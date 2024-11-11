@@ -1988,6 +1988,34 @@ public class ClassGen : ClassBase
         return true;
     }
 
+    public virtual bool OperateLimitSame(String dest, String lite, String rite)
+    {
+        String space;
+        space = this.Space;
+
+        this.TextIndent();
+
+        this.Text(dest);
+
+        this.Text(space);
+        this.Text(this.LimitAre);
+        this.Text(space);
+
+        this.Text(this.LimitBraceRoundLite);
+        this.Text(lite);
+
+        this.Text(space);
+        this.Text(this.LimitSame);
+        this.Text(space);
+
+        this.Text(rite);
+        this.Text(this.LimitBraceRoundRite);
+
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
+        return true;
+    }
+
     public virtual bool OperateLimitOne(String dest, String value, String limit)
     {
         this.TextIndent();
