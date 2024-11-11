@@ -537,7 +537,7 @@ public class ClassGenTraverse : Traverse
         gen.EvalValueGet(2, varA);
         gen.EvalValueGet(1, varB);
 
-        gen.OperateLimit(varA, varA, varB, gen.LimitSame);
+        gen.OperateLimitSame(varA, varA, varB);
 
         gen.VarMaskSet(varA, gen.RefKindBoolMask);
 
