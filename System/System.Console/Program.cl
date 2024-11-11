@@ -107,6 +107,20 @@ class Program : Any
         extern.Program_EnvironSet(this.Intern, 0);
         extern.Program_WorkFoldSet(this.Intern, 0);
         extern.Program_ArgueSet(this.Intern, 0);
-        extern.Program_NameSet(this.Intern, 0);        
+        extern.Program_NameSet(this.Intern, 0);       
+
+        inf (bb)
+        {
+            this.InternStringEntryListDelete(environU);
+        }
+        inf (ba)
+        {
+            this.InternInfra.StringDelete(workFoldU);
+        }
+
+        this.InternStringListDelete(argueU);
+
+        this.InternInfra.StringDelete(nameU);
+        return true;
     }
 }
