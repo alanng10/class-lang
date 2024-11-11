@@ -2036,7 +2036,7 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool OperateLimitClass(String dest, String lite, ClassClass varClass, String limit)
+    public virtual bool OperateLimitSameClass(String dest, String lite, ClassClass varClass)
     {
         String space;
         space = this.Space;
@@ -2049,13 +2049,15 @@ public class ClassGen : ClassBase
         this.Text(this.LimitAre);
         this.Text(space);
 
+        this.Text(this.LimitBraceRoundLite);
         this.Text(lite);
 
         this.Text(space);
-        this.Text(limit);
+        this.Text(this.LimitSame);
         this.Text(space);
 
         this.ModuleClassVarClassName(varClass);
+        this.Text(this.LimitBraceRoundRite);
 
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
