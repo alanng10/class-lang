@@ -83,12 +83,12 @@ class Host : Any
         return a;
     }
 
-    maide prusate Bool ClosePeer(var Network network)
+    maide prusate Bool ClosePeer(var Network a)
     {
         var Int k;
-        k : network.HostPeer;
+        k : a.HostPeer;
 
-        this.FinalPeer(network);
+        this.FinalPeer(a);
 
         this.Extern.NetworkHost_ClosePeer(this.Intern, k);
         return true;
@@ -103,9 +103,9 @@ class Host : Any
         return a;
     }
 
-    maide precate Bool FinalPeer(var Network k)
+    maide precate Bool FinalPeer(var Network a)
     {
-        k.Final();
+        a.Final();
         return true;
     }
 
