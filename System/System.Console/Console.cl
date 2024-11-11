@@ -7,25 +7,25 @@ class Console : Any
         this.Intern : new ConsoleIntern;
         this.Intern.Init();
 
-        var ConsoleOut oa;
-        oa : new ConsoleOut;
-        oa.Init();
-        oa.Intern : this.Intern;
-        oa.Stream : 0;
-        this.Out : oa;
+        var ConsoleOut ka;
+        ka : new ConsoleOut;
+        ka.Init();
+        ka.Intern : this.Intern;
+        ka.Stream : 0;
+        this.Out : ka;
 
-        var ConsoleOut ob;
-        ob : new ConsoleOut;
-        ob.Init();
-        ob.Intern : this.Intern;
-        ob.Stream : 1;
-        this.Err : ob;
+        var ConsoleOut kb;
+        kb : new ConsoleOut;
+        kb.Init();
+        kb.Intern : this.Intern;
+        kb.Stream : 1;
+        this.Err : kb;
 
-        var ConsoleInn oc;
-        oc : new ConsoleInn;
-        oc.Init();
-        oc.Intern : this.Intern;
-        this.Inn : oc;
+        var ConsoleInn kc;
+        kc : new ConsoleInn;
+        kc.Init();
+        kc.Intern : this.Intern;
+        this.Inn : kc;
 
         return true;
     }
