@@ -123,4 +123,39 @@ class Program : Any
         this.InternInfra.StringDelete(nameU);
         return true;
     }
+
+    maide private Int InternStringListCreate(var List stringList)
+    {
+        var Iter iter;
+        iter : stringList.IterCreate();
+        stringList.IterSet(iter);
+        var Int count;
+        count : stringList.Count;
+        
+        var Extern extern;
+        extern : this.Extern;
+
+        var Int a;
+        a : extern.Array_New();
+        extern.Array_CountSet(a, count);
+        extern.Array_Init(a);
+
+        var Int i;
+        i : 0;
+        while (i < count)
+        {
+            iter.Next();
+
+            var String ka;
+            ka : cast String(iter.Value);
+
+            var Int k;
+            k : this.InternInfra.StringCreate(ka);
+
+            extern.Array_ItemSet(a, i, k);
+
+            i : i + 1;
+        }
+        return a;
+    }
 }
