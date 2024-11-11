@@ -6,9 +6,7 @@ Int Program_Init(Int o)
 {
     Program* m;
     m = CP(o);
-    m->Intern = new ProgramIntern;
-    m->Intern->Program = o;
-    m->Intern->Init();
+    m->Intern = new QProcess;
     return true;
 }
 
