@@ -21,34 +21,31 @@ public class Console : Any
         this.Intern = new ConsoleIntern();
         this.Intern.Init();
 
-        ConsoleOut oa;
-        oa = new ConsoleOut();
-        oa.Init();
-        oa.Intern = this.Intern;
-        oa.Stream = 0;
-        this.Out = oa;
+        ConsoleOut ka;
+        ka = new ConsoleOut();
+        ka.Init();
+        ka.Intern = this.Intern;
+        ka.Stream = 0;
+        this.Out = ka;
 
-        ConsoleOut ob;
-        ob = new ConsoleOut();
-        ob.Init();
-        ob.Intern = this.Intern;
-        ob.Stream = 1;
-        this.Err = ob;
+        ConsoleOut kb;
+        kb = new ConsoleOut();
+        kb.Init();
+        kb.Intern = this.Intern;
+        kb.Stream = 1;
+        this.Err = kb;
 
-        ConsoleInn oc;
-        oc = new ConsoleInn();
-        oc.Init();
-        oc.Intern = this.Intern;
-        this.Inn = oc;
+        ConsoleInn kc;
+        kc = new ConsoleInn();
+        kc.Init();
+        kc.Intern = this.Intern;
+        this.Inn = kc;
 
         return true;
     }
 
-    private ConsoleIntern Intern { get; set; }
-
     public virtual Out Out { get; set; }
-
     public virtual Out Err { get; set; }
-
     public virtual Inn Inn { get; set; }
+    private ConsoleIntern Intern { get; set; }
 }
