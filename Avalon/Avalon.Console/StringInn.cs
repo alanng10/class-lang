@@ -23,13 +23,13 @@ public class StringInn : Inn
         StringComp stringComp;
         stringComp = this.StringComp;
 
-        String o;
-        o = this.String;
+        String k;
+        k = this.String;
         long index;
         index = this.Index;
 
         long count;
-        count = stringComp.Count(o);
+        count = stringComp.Count(k);
 
         if (!this.InfraInfra.ValidIndex(count, index))
         {
@@ -43,7 +43,7 @@ public class StringInn : Inn
         a = null;
 
         long u;
-        u = this.StringIndex(o, index, '\n');
+        u = this.StringIndex(k, index, '\n');
 
         bool b;
         b = (u < 0);
@@ -56,7 +56,7 @@ public class StringInn : Inn
             range.Index = index;
             range.Count = countA;
 
-            a = stringComp.CreateString(o, range);
+            a = stringComp.CreateString(k, range);
 
             index = count;
         }
@@ -68,7 +68,7 @@ public class StringInn : Inn
             range.Index = index;
             range.Count = countB;
 
-            a = stringComp.CreateString(o, range);
+            a = stringComp.CreateString(k, range);
 
             index = index + countB + 1;
         }
@@ -84,22 +84,22 @@ public class StringInn : Inn
         return true;
     }
 
-    private long StringIndex(String o, long index, uint n)
+    private long StringIndex(String k, long index, long n)
     {
         StringComp stringComp;
         stringComp = this.StringComp;
 
         long count;
-        count = stringComp.Count(o);
+        count = stringComp.Count(k);
 
         long i;
         i = index;
         while (i < count)
         {
-            uint oc;
-            oc = (uint)stringComp.Char(o, i);
+            long ka;
+            ka = stringComp.Char(k, i);
 
-            if (oc == n)
+            if (ka == n)
             {
                 return i;
             }
