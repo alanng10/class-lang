@@ -365,16 +365,11 @@ Program
     Argue
     WorkFold
     Environ
-    Execute()
     Ident
+    Status
+    Execute()
     Wait()
     Terminate()
-    Status
-    ExitKind
-    StartState
-    FinishState
-    Start(program, arg) --
-    Finish(program, arg) --
 
 Infra -
     Share() -
