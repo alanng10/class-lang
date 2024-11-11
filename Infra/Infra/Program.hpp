@@ -19,4 +19,4 @@ struct Program
 
 Int Program_InternArgueSet(Int result, Int argue);
 
-Int Program_InternEnvironmentSet(Int result, Int environment);
+Int Program_InternEnvironSet(Int result, Int environment);

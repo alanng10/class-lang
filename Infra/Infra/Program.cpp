@@ -71,7 +71,7 @@ Int Program_Execute(Int o)
     {
         Int ud;
         ud = CastInt(&environU);
-        Program_InternEnvironmentSet(ud, environA);
+        Program_InternEnvironSet(ud, environA);
     }
 
     m->Intern->setProgram(nameU);
@@ -155,7 +155,7 @@ Int Program_InternArgueSet(Int result, Int argue)
     return true;
 }
 
-Int Program_InternEnvironmentSet(Int result, Int environment)
+Int Program_InternEnvironSet(Int result, Int environment)
 {
     QProcessEnvironment* uu;
     uu = (QProcessEnvironment*)result;
