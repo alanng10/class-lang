@@ -4,6 +4,7 @@ public class ModuleGen : ClassBase
 {
     public virtual ClassGen Gen { get; set; }
     public virtual ClassModule Module { get; set; }
+    public virtual long ModuleTableCount { get; set; }
     public virtual Array ClassInit { get; set; }
     public virtual String Result { get; set; }
 
@@ -168,6 +169,43 @@ public class ModuleGen : ClassBase
             gen.TextInt(varClass.Index);
         }
 
+        gen.Text(gen.LimitSemicolon);
+        gen.Text(gen.NewLine);
+
+        gen.IndentCount = gen.IndentCount - 1;
+
+        gen.Text(gen.LimitBraceRite);
+        gen.Text(gen.NewLine);
+        return true;
+    }
+
+    public virtual bool ExecuteModuleCount()
+    {
+        long count;
+        count = this.ModuleTableCount + 1;
+
+        ClassGen gen;
+        gen = this.Gen;
+
+        gen.Text(gen.ClassInt);
+        gen.Text(gen.Space);
+
+        gen.ModuleCountName(this.Module.Ref);
+        gen.Text(gen.LimitBraceRoundLite);
+        gen.Text(gen.LimitBraceRoundRite);
+        gen.Text(gen.NewLine);
+
+        gen.Text(gen.LimitBraceLite);
+        gen.Text(gen.NewLine);
+
+        gen.IndentCount = gen.IndentCount + 1;
+
+        gen.TextIndent();
+        gen.Text(gen.IndexReturn);
+        gen.Text(gen.Space);
+
+        gen.TextInt(count);
+        
         gen.Text(gen.LimitSemicolon);
         gen.Text(gen.NewLine);
 
