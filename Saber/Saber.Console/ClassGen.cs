@@ -512,7 +512,7 @@ public class ClassGen : ClassBase
         this.Text(this.LimitAre);
         this.Text(this.Space);
         this.Text(this.LimitAnd);
-        this.ModuleVarName(this.Class.Module);
+        this.ModuleVarName(this.Class.Module.Ref);
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
 
@@ -1139,9 +1139,9 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool ModuleVarName(ClassModule module)
+    public virtual bool ModuleVarName(ModuleRef moduleRef)
     {
-        this.ModuleRef(module.Ref);
+        this.ModuleRef(moduleRef);
         return true;
     }
 
@@ -1171,7 +1171,7 @@ public class ClassGen : ClassBase
 
     public virtual bool ModuleClassVarName(ClassClass varClass)
     {
-        this.ModuleVarName(varClass.Module);
+        this.ModuleVarName(varClass.Module.Ref);
         this.Text(this.LimitDot);
         this.Text(this.ClassWord);
         this.Text(this.LimitBraceSquareLite);
@@ -3022,12 +3022,6 @@ public class ClassGen : ClassBase
     public virtual bool CompIndex(long index)
     {
         this.Operate.ExecuteTextIntHex(index);
-        return true;
-    }
-
-    public virtual bool ModuleVarName(ModuleRef moduleRef)
-    {
-        this.ModuleRef(moduleRef);
         return true;
     }
 

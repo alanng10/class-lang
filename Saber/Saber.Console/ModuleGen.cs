@@ -76,7 +76,7 @@ public class ModuleGen : ClassBase
         gen.Text(gen.InternModuleStruct);
         gen.Text(gen.Space);
 
-        gen.ModuleVarName(this.Module);
+        gen.ModuleVarName(this.Module.Ref);
 
         gen.Text(gen.LimitSemicolon);
         gen.Text(gen.NewLine);
@@ -108,7 +108,7 @@ public class ModuleGen : ClassBase
         gen.Text(gen.CastInt);
         gen.Text(gen.LimitBraceRoundLite);
         gen.Text(gen.LimitAnd);
-        gen.ModuleVarName(this.Module);
+        gen.ModuleVarName(this.Module.Ref);
         gen.Text(gen.LimitBraceRoundRite);
 
         gen.Text(gen.LimitSemicolon);
@@ -180,7 +180,7 @@ public class ModuleGen : ClassBase
         gen.Text(gen.LimitAre);
         gen.Text(gen.Space);
         gen.Text(gen.LimitAnd);
-        gen.ModuleVarName(this.Module);
+        gen.ModuleVarName(this.Module.Ref);
         gen.Text(gen.LimitSemicolon);
         gen.Text(gen.NewLine);
 
