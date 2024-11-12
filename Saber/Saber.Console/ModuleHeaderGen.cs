@@ -63,7 +63,7 @@ public class ModuleHeaderGen : ClassBase
         this.ExecuteExternModuleInit();
         gen.Text(gen.NewLine);
 
-        this.ExecuteExternImportModuleVar();
+        this.ExecuteExternImportModuleStruct();
         gen.Text(gen.NewLine);
 
         this.ExecuteExternImportModuleInit();
@@ -95,7 +95,7 @@ public class ModuleHeaderGen : ClassBase
         return true;
     }
 
-    public virtual bool ExecuteExternImportModuleVar()
+    public virtual bool ExecuteExternImportModuleStruct()
     {
         ClassGen gen;
         gen = this.Gen;
