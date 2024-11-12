@@ -331,6 +331,17 @@ public class ModuleGen : ClassBase
         gen.Text(gen.LimitSemicolon);
         gen.Text(gen.NewLine);
 
+        gen.TextIndent();
+        gen.Text(gen.VarOWord);
+        gen.Text(gen.LimitDotPointer);
+        gen.Text(gen.CountWord);
+        gen.Text(gen.Space);
+        gen.Text(gen.LimitAre);
+        gen.Text(gen.Space);
+        gen.TextInt(this.Module.Class.Count);
+        gen.Text(gen.LimitSemicolon);
+        gen.Text(gen.NewLine);
+
         this.ExecuteClassInit();
 
         gen.TextIndent();
