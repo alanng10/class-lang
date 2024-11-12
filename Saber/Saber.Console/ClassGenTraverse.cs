@@ -185,7 +185,7 @@ public class ClassGenTraverse : Traverse
         varA = gen.VarA;
 
         long k;
-        k = gen.ParamCount - 1;
+        k = gen.ParamCount;
 
         gen.EvalValueGet(1, varA);
 
