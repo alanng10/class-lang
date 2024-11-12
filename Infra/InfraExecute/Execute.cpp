@@ -58,7 +58,44 @@ Int Execute()
     countString = moduleString;
     countString.append("_Count");
 
+    QLibrary library;
+    
+    library.setFileName(moduleRef);
+    
+    bool bu;
+    bu = library.load();
 
+    Bool bc;
+    bc = bu;
+
+    if (!bc)
+    {
+        return 273;
+    }
+
+    QByteArray initStringK;
+    initStringK = initString.toLatin1();
+
+    const char* initStringU;
+    initStringU = initStringK.constData();
+
+    QByteArray varStringK;
+    varStringK = varString.toLatin1();
+
+    const char* varStringU;
+    varStringU = varStringK.constData();
+
+    QByteArray entryStringK;
+    entryStringK = entryString.toLatin1();
+
+    const char* entryStringU;
+    entryStringU = entryStringK.constData();
+
+    QByteArray countStringK;
+    countStringK = countString.toLatin1();
+
+    const char* countStringU;
+    countStringU = countStringK.constData();
 
 
     Int eval;
