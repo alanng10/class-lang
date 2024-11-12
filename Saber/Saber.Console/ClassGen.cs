@@ -1535,7 +1535,7 @@ public class ClassGen : ClassBase
         kk = kk + 1;
 
         long pos;
-        pos = kk * sizeof(ulong);
+        pos = kk;
 
         this.VarMaskClear(varVar, this.MemoryIndexMask);
 
