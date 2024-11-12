@@ -129,6 +129,15 @@ Int Execute()
         return 284;
     }
 
+    Intern_Module* entryModule;
+    entryModule = (Intern_Module*)varState();
+
+    Int entryClass;
+    entryClass = entryState();
+
+    Int moduleCount;
+    moduleCount = countState();
+
 
     Int eval;
 
