@@ -115,6 +115,22 @@ Int ExecuteModuleString(Int result, Int moduleRef)
     QString kab;
     kab = ka->mid(naa + 1);
 
+    Int pkaa;
+    pkaa = CastInt(&kaa);
+
+    QString moduleNameString;
+    
+    Int pkkk;
+    pkkk = CastInt(&moduleNameString);
+
+    Bool b;
+    b = ExecuteModuleNameString(pkkk, pkaa);
+
+    if (!b)
+    {
+        return false;
+    }
+
     Int pkab;
     pkab = CastInt(&kab);
 
@@ -124,7 +140,6 @@ Int ExecuteModuleString(Int result, Int moduleRef)
     Int paa;
     paa = CastInt(&moduleVer);
 
-    Bool b;
     b = ExecuteModuleVer(paa, pkab);
 
     if (!b)
