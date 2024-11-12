@@ -1498,8 +1498,6 @@ public class ClassGen : ClassBase
             }
         }
 
-        this.EvalIndexPosSet(-1);
-
         return true;
     }
 

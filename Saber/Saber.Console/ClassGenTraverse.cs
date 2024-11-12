@@ -216,6 +216,8 @@ public class ClassGenTraverse : Traverse
             varVar = this.Info(varMark).Var;
 
             gen.ExecuteVarSet(varVar);
+
+            gen.EvalIndexPosSet(-1);
         }
 
         if (mark is SetMark)
