@@ -52,10 +52,13 @@ public class ModuleGen : ClassBase
         gen.Include(gen.IncludeValueModule);
         gen.Text(gen.NewLine);
 
+        this.ExecuteModuleStruct();
+        gen.Text(gen.NewLine);
+
         this.ExecuteModuleVar();
         gen.Text(gen.NewLine);
 
-        this.ExecuteModuleVarMaide();
+        this.ExecuteModuleEntry();
         gen.Text(gen.NewLine);
 
         this.ExecuteClassList();
@@ -65,7 +68,7 @@ public class ModuleGen : ClassBase
         return true;
     }
 
-    public virtual bool ExecuteModuleVar()
+    public virtual bool ExecuteModuleStruct()
     {
         ClassGen gen;
         gen = this.Gen;
@@ -80,7 +83,7 @@ public class ModuleGen : ClassBase
         return true;
     }
 
-    public virtual bool ExecuteModuleVarMaide()
+    public virtual bool ExecuteModuleVar()
     {
         ClassGen gen;
         gen = this.Gen;
@@ -115,6 +118,11 @@ public class ModuleGen : ClassBase
 
         gen.Text(gen.LimitBraceRite);
         gen.Text(gen.NewLine);
+        return true;
+    }
+
+    public virtual bool ExecuteModuleEntry()
+    {
         return true;
     }
 
