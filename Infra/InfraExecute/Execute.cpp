@@ -42,17 +42,23 @@ Int Execute()
         return 272;
     }
 
+    QString initString;
+    initString = moduleString;
+    initString.append("_Init");
+
     QString varString;
     varString = moduleString;
     varString.append("_Var");
 
-    QString initString;
-    varString = moduleString;
-    varString.append("_Init");
-
     QString entryString;
-    varString = moduleString;
-    varString.append("_Entry");
+    entryString = moduleString;
+    entryString.append("_Entry");
+
+    QString countString;
+    countString = moduleString;
+    countString.append("_Count");
+
+
 
 
     Int eval;
