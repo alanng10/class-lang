@@ -3,7 +3,8 @@ include(../exe_console.pri)
 TARGET = class
 
 HEADERS += \
-    Execute.hpp
+    Execute.hpp \
+    Prusate.h
 
 SOURCES += \
     Execute.cpp
