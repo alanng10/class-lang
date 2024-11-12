@@ -454,17 +454,14 @@ Bool Intern_New_QueueClassShareModule(Int module)
     InternNewData* m;
     m = CastPointer(NewData);
 
-    Int* kk;
+    Intern_Module* kk;
     kk = CastPointer(module);
 
-    Int kka;
-    kka = kk[0];
-
-    Int* array;
-    array = CastPointer(kka);
+    Intern_Class* kka;
+    kka = kk->Class;
 
     Int count;
-    count = kk[1];
+    count = kk->Count;
 
     QueueNodeVar;
 
@@ -472,14 +469,11 @@ Bool Intern_New_QueueClassShareModule(Int module)
     i = 0;
     while (i < count)
     {
-        Int a;
-        a = array[i];
-
-        Int* p;
-        p = CastPointer(a);
+        Intern_Class* a;
+        a = &(kka[i]);
 
         Int share;
-        share = p[3];
+        share = (a->Data)[3];
 
         Int ka;
         ka = share;
