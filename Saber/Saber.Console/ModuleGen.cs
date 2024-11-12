@@ -143,7 +143,9 @@ public class ModuleGen : ClassBase
         gen.Text(gen.IndexReturn);
         gen.Text(gen.Space);
 
-        if (this.Module.Entry == null)
+        bool b;
+        b = (this.Module.Entry == null);
+        if (b)
         {
             gen.Text(gen.LimitBraceRoundLite);
             gen.Text(gen.ClassInt);
@@ -155,6 +157,13 @@ public class ModuleGen : ClassBase
             gen.Text(gen.LimitSub);
             gen.Text(gen.One);
             gen.Text(gen.LimitBraceRoundRite);
+        }
+        if (!b)
+        {
+            ClassClass varClass;
+            varClass = this.Module.Class.Get(this.Module.Entry) as ClassClass;
+
+            gen.TextInt(varClass.Index);
         }
 
         gen.Text(gen.LimitSemicolon);
