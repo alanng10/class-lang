@@ -167,6 +167,8 @@ Bool Intern_ArgInit()
     Int count;
     count = Array_CountGet(array);
 
+    count = count - 1;
+
     Int intCount;
     intCount = count * 2;
 
@@ -183,8 +185,11 @@ Bool Intern_ArgInit()
     i = 0;
     while (i < count)
     {
+        Int index;
+        index = i + 1;
+
         Int a;
-        a = Array_ItemGet(array, i);
+        a = Array_ItemGet(array, index);
 
         Int value;
         value = String_ValueGet(a);
