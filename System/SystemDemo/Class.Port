@@ -1,0 +1,19 @@
+[Module]
+SystemDemo:0.00.00
+
+[Import]
+System.Infra
+    Any Any
+    Bool Bool
+    Int Int
+System.Console
+    Console Console
+System.Entry
+    ModuleEntry Entry
+
+[Export]
+
+[Storage]
+
+[Entry]
+Entry
