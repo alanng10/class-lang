@@ -1511,6 +1511,11 @@ public class ClassGen : ClassBase
         Field varField;
         varField = this.ThisField;
 
+        if (!(varField.Virtual == null))
+        {
+            varField = varField.Virtual;
+        }
+
         ClassClass varClass;
         varClass = this.Class;
 
