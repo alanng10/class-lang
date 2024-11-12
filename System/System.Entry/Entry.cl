@@ -77,6 +77,6 @@ class Entry : Any
         }
 
         this.Arg : array;
-        return true;        
+        return true;
     }
 }
