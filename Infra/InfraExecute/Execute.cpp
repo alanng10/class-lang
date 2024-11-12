@@ -22,7 +22,7 @@ Int Execute()
     Int pModuleRef;
     pModuleRef = CastInt(&moduleRef);
     
-    Int ba;
+    Bool ba;
     ba = ExecuteArg(pModuleRef, arg);
 
     if (!ba)
@@ -30,6 +30,17 @@ Int Execute()
         return 271;
     }
 
+    QString moduleString;
+    Int pModuleString;
+    pModuleString = CastInt(&moduleString);
+
+    Bool bb;
+    bb = ExecuteModuleString(pModuleString, pModuleRef);
+
+    if (!bb)
+    {
+        return 272;
+    }
 
 
     Int eval;
@@ -104,7 +115,22 @@ Int ExecuteModuleString(Int result, Int moduleRef)
     QString kab;
     kab = ka->mid(naa + 1);
 
-    
+    Int pkab;
+    pkab = CastInt(&kab);
+
+    Int moduleVer;
+    moduleVer = 0;
+
+    Int paa;
+    paa = CastInt(&moduleVer);
+
+    Bool b;
+    b = ExecuteModuleVer(paa, pkab);
+
+    if (!b)
+    {
+        return false;
+    }
 }
 
 Int ExecuteModuleVer(Int result, Int moduleVer)
