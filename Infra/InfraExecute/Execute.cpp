@@ -209,3 +209,8 @@ Int ExecuteModuleVer(Int result, Int moduleVer)
 
     return true;
 }
+
+Int ExecuteModuleNameString(Int result, Int moduleName)
+{
+    
+}
