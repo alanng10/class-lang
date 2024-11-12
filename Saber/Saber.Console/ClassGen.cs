@@ -94,6 +94,7 @@ public class ClassGen : ClassBase
         this.ExternWord = this.S("Extern");
         this.StringWord = this.S("String");
         this.DataWord = this.S("Data");
+        this.EntryWord = this.S("Entry");
         this.VarOWord = this.S("o");
         this.VarKWord = this.S("k");
         this.VarMWord = this.S("m");
@@ -234,6 +235,7 @@ public class ClassGen : ClassBase
     public virtual String ExternWord { get; set; }
     public virtual String StringWord { get; set; }
     public virtual String DataWord { get; set; }
+    public virtual String EntryWord { get; set; }
     public virtual String VarOWord { get; set; }
     public virtual String VarKWord { get; set; }
     public virtual String VarMWord { get; set; }
@@ -1147,8 +1149,15 @@ public class ClassGen : ClassBase
     {
         this.ModuleVarName(module.Ref);
         this.Text(this.NameCombine);
-        this.Text(this.ModuleWord);
         this.Text(this.VarWord);
+        return true;
+    }
+
+    public virtual bool ModuleEntryName(ClassModule module)
+    {
+        this.ModuleVarName(module.Ref);
+        this.Text(this.NameCombine);
+        this.Text(this.EntryWord);
         return true;
     }
 
