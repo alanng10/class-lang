@@ -13,7 +13,8 @@ SOURCES += \
     Execute.cpp \
     Main.c
 
-LIBS += -L$$PWD/../../Out/Class/
+LIBS += -L$$PWD/../../Out/InfraDeploy/ \
+    -L$$PWD/../../Out/InfraIntern-Windows-Release/release/
 
 LIBS += -lInfra \
     -lInfraIntern
