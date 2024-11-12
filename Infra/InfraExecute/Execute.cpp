@@ -131,6 +131,9 @@ Int ExecuteModuleString(Int result, Int moduleRef)
     {
         return false;
     }
+
+    QString moduleVerString;
+    moduleVerString = QString::number(moduleVer, 16);
 }
 
 Int ExecuteModuleVer(Int result, Int moduleVer)
