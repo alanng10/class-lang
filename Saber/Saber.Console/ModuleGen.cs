@@ -91,7 +91,7 @@ public class ModuleGen : ClassBase
         gen.Text(gen.ClassInt);
         gen.Text(gen.Space);
 
-        gen.ModuleVarName(this.Module);
+        gen.ModuleVarName(this.Module.Ref);
         gen.Text(gen.LimitBraceRoundLite);
         gen.Text(gen.LimitBraceRoundRite);
         gen.Text(gen.NewLine);
@@ -129,7 +129,7 @@ public class ModuleGen : ClassBase
         gen.Text(gen.ClassInt);
         gen.Text(gen.Space);
 
-        gen.ModuleEntryName(this.Module);
+        gen.ModuleEntryName(this.Module.Ref);
         gen.Text(gen.LimitBraceRoundLite);
         gen.Text(gen.LimitBraceRoundRite);
         gen.Text(gen.NewLine);
