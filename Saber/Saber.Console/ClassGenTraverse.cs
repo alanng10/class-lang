@@ -469,9 +469,8 @@ public class ClassGenTraverse : Traverse
 
         long k;
         k = gen.ParamCount;
-        k = -k;
 
-        gen.EvalFrameValueGet(k, varA);
+        gen.EvalFrameValueGet(-(k + 1), varA);
 
         gen.EvalValueSet(0, varA);
 
