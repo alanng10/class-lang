@@ -147,14 +147,14 @@ Int Execute()
     }
 
     Int entryClass;
-    entryClass = entryModule->Class[entryClassIndex].Var;
+    entryClass = (entryModule->Class[entryClassIndex].Var);
 
     Int entryModuleInit;
     entryModuleInit = CastInt(initState);
 
     Int eval;
 
-    eval = Intern_Init(entryClass);
+    eval = Intern_Init(entryClass, entryModuleInit, moduleCount);
 
     Int a;
     a = Intern_Execute(eval);
