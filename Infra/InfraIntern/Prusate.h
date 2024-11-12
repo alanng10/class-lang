@@ -69,3 +69,5 @@ Intern_Api Int Intern_Value_Int();
 Intern_Api Int Intern_Value_String();
 
 Intern_Api Int Intern_Base_Set(Intern_Class* varClass, Intern_Class* baseClass, Int count);
+
+Intern_Api Int Intern_Module_Set(Int module);
