@@ -55,6 +55,9 @@ public class ModuleGen : ClassBase
         this.ExecuteModuleVar();
         gen.Text(gen.NewLine);
 
+        this.ExecuteModuleVarMaide();
+        gen.Text(gen.NewLine);
+
         this.ExecuteClassList();
         gen.Text(gen.NewLine);
 
@@ -74,6 +77,22 @@ public class ModuleGen : ClassBase
 
         gen.Text(gen.LimitSemicolon);
         gen.Text(gen.NewLine);
+        return true;
+    }
+
+    public virtual bool ExecuteModuleVarMaide()
+    {
+        ClassGen gen;
+        gen = this.Gen;
+
+        gen.Text(gen.ClassInt);
+        gen.Text(gen.Space);
+
+        gen.ModuleVarMaideName(this.Module);
+        gen.Text(gen.LimitBraceRoundLite);
+        gen.Text(gen.LimitBraceRoundRite);
+        gen.Text(gen.NewLine);
+
         return true;
     }
 
