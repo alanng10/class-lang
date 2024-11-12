@@ -148,6 +148,7 @@ public class ModuleGen : ClassBase
         if (b)
         {
             gen.Text(gen.LimitBraceRoundLite);
+            gen.Text(gen.LimitBraceRoundLite);
             gen.Text(gen.ClassInt);
             gen.Text(gen.LimitBraceRoundRite);
             gen.Text(gen.LimitBraceRoundLite);
@@ -156,6 +157,7 @@ public class ModuleGen : ClassBase
             gen.Text(gen.LimitBraceRoundRite);
             gen.Text(gen.LimitSub);
             gen.Text(gen.One);
+            gen.Text(gen.LimitBraceRoundRite);
             gen.Text(gen.LimitBraceRoundRite);
         }
         if (!b)
