@@ -663,12 +663,9 @@ public class ClassGen : ClassBase
         this.Text(this.LimitAre);
         this.Text(this.Space);
 
-        this.Text(this.CastInt);
-        this.Text(this.LimitBraceRoundLite);
         this.Text(this.VarKWord);
         this.Text(this.LimitDotPointer);
-        this.Text(this.DataWord);
-        this.Text(this.LimitBraceRoundRite);
+        this.Text(this.VarWord);
 
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
