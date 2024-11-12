@@ -320,6 +320,14 @@ public class ModuleGen : ClassBase
         this.ExecuteImportModuleInit();
 
         gen.TextIndent();
+        gen.Text(gen.InternModuleSet);
+        gen.Text(gen.LimitBraceRoundLite);
+        gen.Text(gen.VarOWord);
+        gen.Text(gen.LimitBraceRoundRite);
+        gen.Text(gen.LimitSemicolon);
+        gen.Text(gen.NewLine);
+
+        gen.TextIndent();
         gen.Text(gen.VarOWord);
         gen.Text(gen.LimitDotPointer);
         gen.Text(gen.ClassWord);
