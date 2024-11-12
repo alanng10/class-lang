@@ -834,6 +834,27 @@ public class PortLoad : ClassBase
             return true;
         }
 
+        bool b;
+        b = false;
+
+        if (!this.NameCheck.IsName(this.TA(entry)))
+        {
+            b = true;
+        }
+
+        if (this.ImportClass.Valid(entry))
+        {
+            b = true;
+        }
+
+        if (b)
+        {
+            this.ErrorAdd(this.ErrorKind.EntryUnachievable, entry);
+
+            this.Status = 110;
+            return false;
+        }
+
         this.Module.Entry = entry;
         return true;
     }
