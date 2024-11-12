@@ -105,27 +105,21 @@ Bool Intern_ClassSharePhoreInit()
 
 Bool Intern_ClassSharePhoreInitModule(Int module)
 {
-    Int* kk;
+    Intern_Module* kk;
     kk = CastPointer(module);
 
-    Int ka;
-    ka = kk[0];
-
-    Int* array;
-    array = CastPointer(ka);
+    Intern_Class* array;
+    array = kk->Class;
 
     Int count;
-    count = kk[1];
+    count = kk->Count;
 
     Int i;
     i = 0;
     while (i < count)
     {
-        Int a;
-        a = array[i];
-
-        Int* p;
-        p = CastPointer(a);
+        Intern_Class* a;
+        a = &(array[i]);
 
         Int phore;
         phore = Phore_New();
@@ -134,7 +128,7 @@ Bool Intern_ClassSharePhoreInitModule(Int module)
 
         Phore_Init(phore);
 
-        p[4] = phore;
+        (a->Data)[4] = phore;
 
         i = i + 1;
     } 

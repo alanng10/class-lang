@@ -41,6 +41,7 @@ typedef struct
 {
     Int Init;
     Intern_Class* Class;
+    Int Count;
 }
 Intern_Module;
 
