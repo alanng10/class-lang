@@ -54,6 +54,8 @@ Int Intern_Init(Int entryModule, Int entryClassIndex, Int entryModuleInit, Int m
 
     Intern_Call(eval, 1, 3, 0);
 
+    eval->N = eval->N - 1;
+
     Int a;
     a = ka;
     return a;
