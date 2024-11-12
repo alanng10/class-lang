@@ -1381,18 +1381,12 @@ public class ClassGen : ClassBase
 
         if (stateKind == this.StateKindCall)
         {
-            long ka;
-            ka = k - 1;
-
             bool b;
-            b = (kk < ka);
+            b = (kk < k);
             if (b)
             {
-                long kkk;
-                kkk = kk - ka;
-
                 long posD;
-                posD = kkk;
+                posD = kk - k;
 
                 this.EvalFrameValueGet(posD, varA);
             }
@@ -1400,7 +1394,7 @@ public class ClassGen : ClassBase
             if (!b)
             {
                 long posE;
-                posE = kk - ka;
+                posE = kk - k;
 
                 this.EvalFrameValueGet(posE, varA);
             }
