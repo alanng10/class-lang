@@ -1567,7 +1567,7 @@ public class ClassGen : ClassBase
         if (stateKind == this.StateKindCall)
         {
             long k;
-            k = this.ParamCount - 1;
+            k = this.ParamCount;
 
             ka = varIndex - k;
         }
