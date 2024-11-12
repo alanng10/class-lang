@@ -18,12 +18,12 @@ Int Execute()
     Int arg;
     arg = Array_ItemGet(argArray, 0);
 
-    QString argA;
-    Int pArgA;
-    pArgA = CastInt(&argA);
+    QString moduleRef;
+    Int pModuleRef;
+    pModuleRef = CastInt(&moduleRef);
     
     Int ba;
-    ba = ExecuteArg(pArgA, arg);
+    ba = ExecuteArg(pModuleRef, arg);
 
     if (!ba)
     {
@@ -83,4 +83,9 @@ Int ExecuteArg(Int result, Int arg)
 
     *ke = k;
     return true;
+}
+
+Int ExecuteModuleString(Int result, Int moduleRef)
+{
+
 }
