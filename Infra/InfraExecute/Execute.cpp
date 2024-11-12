@@ -98,25 +98,20 @@ Int ExecuteArg(Int result, Int arg)
 
 Int ExecuteModuleString(Int result, Int moduleRef)
 {
-    QString k;
-
-    QString* ka;
-    ka = (QString*)moduleRef;
-
-    k.append('C');
-    k.append('_');
+    QString* k;
+    k = (QString*)moduleRef;
 
     qsizetype naa;
-    naa = ka->indexOf('-');
+    naa = k->indexOf('-');
 
-    QString kaa;
-    kaa = ka->mid(0, naa);
+    QString ka;
+    ka = k->mid(0, naa);
 
-    QString kab;
-    kab = ka->mid(naa + 1);
+    QString kb;
+    kb = k->mid(naa + 1);
 
-    Int pkaa;
-    pkaa = CastInt(&kaa);
+    Int pka;
+    pka = CastInt(&ka);
 
     QString moduleNameString;
     
@@ -124,15 +119,15 @@ Int ExecuteModuleString(Int result, Int moduleRef)
     pkkk = CastInt(&moduleNameString);
 
     Bool b;
-    b = ExecuteModuleNameString(pkkk, pkaa);
+    b = ExecuteModuleNameString(pkkk, pka);
 
     if (!b)
     {
         return false;
     }
 
-    Int pkab;
-    pkab = CastInt(&kab);
+    Int pkb;
+    pkb = CastInt(&kb);
 
     Int moduleVer;
     moduleVer = 0;
@@ -140,7 +135,7 @@ Int ExecuteModuleString(Int result, Int moduleRef)
     Int paa;
     paa = CastInt(&moduleVer);
 
-    b = ExecuteModuleVer(paa, pkab);
+    b = ExecuteModuleVer(paa, pkb);
 
     if (!b)
     {
