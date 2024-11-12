@@ -512,7 +512,7 @@ public class ClassGen : ClassBase
         this.Text(this.LimitAre);
         this.Text(this.Space);
         this.Text(this.LimitAnd);
-        this.ModuleVarName(this.Class.Module.Ref);
+        this.ModuleStructName(this.Class.Module.Ref);
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
 
@@ -1139,7 +1139,7 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool ModuleVarName(ModuleRef moduleRef)
+    public virtual bool ModuleStructName(ModuleRef moduleRef)
     {
         this.ModuleRef(moduleRef);
         return true;
@@ -1147,7 +1147,7 @@ public class ClassGen : ClassBase
 
     public virtual bool ModuleVarMaideName(ClassModule module)
     {
-        this.ModuleVarName(module.Ref);
+        this.ModuleStructName(module.Ref);
         this.Text(this.NameCombine);
         this.Text(this.VarWord);
         return true;
@@ -1155,7 +1155,7 @@ public class ClassGen : ClassBase
 
     public virtual bool ModuleEntryName(ClassModule module)
     {
-        this.ModuleVarName(module.Ref);
+        this.ModuleStructName(module.Ref);
         this.Text(this.NameCombine);
         this.Text(this.EntryWord);
         return true;
@@ -1171,7 +1171,7 @@ public class ClassGen : ClassBase
 
     public virtual bool ModuleClassVarName(ClassClass varClass)
     {
-        this.ModuleVarName(varClass.Module.Ref);
+        this.ModuleStructName(varClass.Module.Ref);
         this.Text(this.LimitDot);
         this.Text(this.ClassWord);
         this.Text(this.LimitBraceSquareLite);

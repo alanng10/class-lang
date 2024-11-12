@@ -88,7 +88,7 @@ public class ModuleHeaderGen : ClassBase
         gen.Text(gen.InternModuleStruct);
         gen.Text(gen.Space);
 
-        gen.ModuleVarName(this.Module.Ref);
+        gen.ModuleStructName(this.Module.Ref);
 
         gen.Text(gen.LimitSemicolon);
         gen.Text(gen.NewLine);
@@ -120,7 +120,7 @@ public class ModuleHeaderGen : ClassBase
             gen.Text(gen.InternModuleStruct);
             gen.Text(gen.Space);
 
-            gen.ModuleVarName(module);
+            gen.ModuleStructName(module);
 
             gen.Text(gen.LimitSemicolon);
             gen.Text(gen.NewLine);
