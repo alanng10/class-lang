@@ -97,6 +97,38 @@ Int Execute()
     const char* countStringU;
     countStringU = countStringK.constData();
 
+    Intern_Module_State initState;
+    initState = (Intern_Module_State)library.resolve(initStringU);
+
+    if (initState == null)
+    {
+        return 281;
+    }
+
+    Intern_Module_State varState;
+    varState = (Intern_Module_State)library.resolve(varStringU);
+
+    if (varState == null)
+    {
+        return 282;
+    }
+
+    Intern_Module_State entryState;
+    entryState = (Intern_Module_State)library.resolve(entryStringU);
+
+    if (entryState == null)
+    {
+        return 283;
+    }
+
+    Intern_Module_State countState;
+    countState = (Intern_Module_State)library.resolve(countStringU);
+
+    if (countState == null)
+    {
+        return 284;
+    }
+
 
     Int eval;
 
