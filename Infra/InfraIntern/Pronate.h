@@ -34,8 +34,6 @@ extern Int ModuleArray;
 
 extern Int ModuleArrayCount;
 
-extern Int NewData;
-
 extern Int ThreadArray;
 
 extern Int ArgArray;
