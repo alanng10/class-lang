@@ -1145,7 +1145,7 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool ModuleVarMaideName(ClassModule module)
+    public virtual bool ModuleVarName(ClassModule module)
     {
         this.ModuleStructName(module.Ref);
         this.Text(this.NameCombine);
