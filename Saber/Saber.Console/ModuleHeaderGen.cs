@@ -63,6 +63,12 @@ public class ModuleHeaderGen : ClassBase
         this.ExecuteExternModuleInit();
         gen.Text(gen.NewLine);
 
+        this.ExecuteExternModuleVar();
+        gen.Text(gen.NewLine);
+
+        this.ExecuteExternModuleEntry();
+        gen.Text(gen.NewLine);
+
         this.ExecuteExternImportModuleStruct();
         gen.Text(gen.NewLine);
 
