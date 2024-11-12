@@ -1516,13 +1516,12 @@ public class ClassGen : ClassBase
 
         long k;
         k = this.ParamCount;
-        k = -k;
 
         long kk;
         kk = varClass.FieldStart;
         kk = kk + varField.Index;
 
-        this.EvalFrameValueGet(k, varA);
+        this.EvalFrameValueGet(-(k + 1), varA);
 
         this.ExecuteFieldData(varA, kk);
 
