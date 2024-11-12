@@ -1585,7 +1585,7 @@ public class ClassGen : ClassBase
         while (iter.Next())
         {
             Var kk;
-            kk = (Var)iter.Value;
+            kk = iter.Value as Var;
 
             long ka;
             ka = this.LocalVarFrameValueIndex(kk.Index);
