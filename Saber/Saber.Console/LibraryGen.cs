@@ -440,6 +440,7 @@ public class LibraryGen : ClassBase
     {
         this.ModuleGen.Gen = this.ClassGen;
         this.ModuleGen.Module = this.Module;
+        this.ModuleGen.ModuleTableCount = this.ModuleTable.Count;
         this.ModuleGen.ClassInit = this.ClassInitArray;
 
         this.ModuleGen.Execute();
@@ -448,6 +449,7 @@ public class LibraryGen : ClassBase
 
         this.ModuleGen.Result = null;
         this.ModuleGen.ClassInit = null;
+        this.ModuleGen.ModuleTableCount = 0;
         this.ModuleGen.Module = null;
         this.ModuleGen.Gen = null;
 
