@@ -367,7 +367,10 @@ Int ExecuteModuleNameString(Int result, Int moduleName)
         Byte ka;
         ka = na.toLatin1();
 
-        if (!(!(ka < '0' | '9' < ka) | !(ka < 'A' | 'Z' < ka) | !(ka < 'a' | 'z' < ka) | (ka == '_') | (ka == '.')))
+        Bool b;
+        b = ExecuteValidModuleNameChar(ka);
+
+        if (!b)
         {
             return false;
         }
@@ -407,6 +410,31 @@ Int ExecuteModuleNameString(Int result, Int moduleName)
 
     *ke = a;
     return true;
+}
+
+Int ExecuteValidModuleNameChar(Int n)
+{
+    Bool ba;
+    ba = !((n < '0') | ('9' < n));
+
+    Bool bb;
+    bb = !((n < 'A') | ('Z' < n));
+
+    Bool bc;
+    bc = !((n < 'a') | ('z' < n));
+
+    Bool bd;
+    bd = (n == '_');
+
+    Bool be;
+    be = (n == '.');
+    
+    Bool b;
+    b = ba | bb | bc | bd | be;
+
+    Bool a;
+    a = b;
+    return a;
 }
 
 Int ExecuteHexDigitChar(Int value)
