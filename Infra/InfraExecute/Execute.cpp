@@ -87,5 +87,45 @@ Int ExecuteArg(Int result, Int arg)
 
 Int ExecuteModuleString(Int result, Int moduleRef)
 {
+    QString k;
 
+    QString* ka;
+    ka = (QString*)moduleRef;
+
+    k.append('C');
+    k.append('_');
+
+    qsizetype naa;
+    naa = ka->indexOf('-');
+
+    QString kaa;
+    kaa = ka->mid(0, naa);
+
+    QString kab;
+    kab = ka->mid(naa + 1);
+
+
+}
+
+Int ExecuteModuleVer(Int moduleVer)
+{
+    QString* k;
+    k = (QString*)moduleVer;
+
+    qsizetype na;
+    na = k->indexOf('.');
+
+    qsizetype nb;
+    nb = k->indexOf('.', na + 1);
+
+    QString ka;
+    ka = k->mid(0, na);
+
+    qsizetype countA;
+    countA = nb - (na + 1);
+
+    QString kb;
+    kb = k->mid(na, countA);
+
+    
 }
