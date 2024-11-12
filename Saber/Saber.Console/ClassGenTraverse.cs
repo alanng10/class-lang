@@ -185,16 +185,13 @@ public class ClassGenTraverse : Traverse
         varA = gen.VarA;
 
         long k;
-        k = gen.ParamCount;
-
-        long ka;
-        ka = gen.LocalVarCount + k;
+        k = gen.ParamCount - 1;
 
         gen.EvalValueGet(1, varA);
 
-        gen.EvalFrameValueSet(-k, varA);
+        gen.EvalFrameValueSet(-(k + 1), varA);
 
-        gen.EvalIndexPosSet(-ka);
+        gen.EvalIndexFramePosSet(-k);
 
         gen.Return();
         return true;
