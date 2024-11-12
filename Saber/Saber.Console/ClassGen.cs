@@ -58,6 +58,8 @@ public class ClassGen : ClassBase
         this.BaseMask = this.S("0x0ff0000000000000");
         this.MemoryIndexMask = this.S("0x000fffffffffffff");
         this.ClassInt = this.S("Int");
+        this.ClassSInt = this.S("SInt");
+        this.ClassInt32 = this.S("Int32");
         this.ClassEval = this.S("Eval");
         this.ClassCompState = this.S("Intern_State");
         this.InternNewMaide = this.S("Intern_New");
@@ -73,7 +75,6 @@ public class ClassGen : ClassBase
         this.RefKindIntMacro = this.S("RefKindInt");
         this.RefKindStringValueMacro = this.S("RefKindStringValue");
         this.RefKindStringValueDataMacro = this.S("RefKindStringValueData");
-        this.ClassInt32 = this.S("Int32");
         this.StateGet = this.S("G");
         this.StateSet = this.S("S");
         this.StateCall = this.S("C");
@@ -199,6 +200,8 @@ public class ClassGen : ClassBase
     public virtual String BaseMask { get; set; }
     public virtual String MemoryIndexMask { get; set; }
     public virtual String ClassInt { get; set; }
+    public virtual String ClassSInt { get; set; }
+    public virtual String ClassInt32 { get; set; }
     public virtual String ClassEval { get; set; }
     public virtual String ClassCompState { get; set; }
     public virtual String InternNewMaide { get; set; }
@@ -214,7 +217,6 @@ public class ClassGen : ClassBase
     public virtual String RefKindIntMacro { get; set; }
     public virtual String RefKindStringValueMacro { get; set; }
     public virtual String RefKindStringValueDataMacro { get; set; }
-    public virtual String ClassInt32 { get; set; }
     public virtual String StateGet { get; set; }
     public virtual String StateSet { get; set; }
     public virtual String StateCall { get; set; }
