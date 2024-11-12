@@ -129,8 +129,8 @@ Int Execute()
         return 284;
     }
 
-    Intern_Module* entryModule;
-    entryModule = (Intern_Module*)varState();
+    Int entryModule;
+    entryModule = varState();
 
     Int entryClassIndex;
     entryClassIndex = entryState();
@@ -146,15 +146,12 @@ Int Execute()
         return 285;
     }
 
-    Int entryClass;
-    entryClass = (entryModule->Class[entryClassIndex].Var);
-
     Int entryModuleInit;
     entryModuleInit = CastInt(initState);
 
     Int eval;
 
-    eval = Intern_Init(entryClass, entryModuleInit, moduleCount);
+    eval = Intern_Init(entryModule, entryClassIndex, entryModuleInit, moduleCount);
 
     Int a;
     a = Intern_Execute(eval);
