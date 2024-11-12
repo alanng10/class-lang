@@ -70,7 +70,7 @@ Int Execute()
 
     if (!bc)
     {
-        return 273;
+        return 280;
     }
 
     QByteArray initStringK;
