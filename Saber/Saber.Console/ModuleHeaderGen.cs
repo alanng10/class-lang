@@ -57,7 +57,7 @@ public class ModuleHeaderGen : ClassBase
         gen.Include(gen.IncludeValueInfraIntern);
         gen.Text(gen.NewLine);
 
-        this.ExecuteExternModuleVar();
+        this.ExecuteExternModuleStruct();
         gen.Text(gen.NewLine);
 
         this.ExecuteExternModuleInit();
@@ -73,7 +73,7 @@ public class ModuleHeaderGen : ClassBase
         return true;
     }
 
-    public virtual bool ExecuteExternModuleVar()
+    public virtual bool ExecuteExternModuleStruct()
     {
         ClassGen gen;
         gen = this.Gen;
