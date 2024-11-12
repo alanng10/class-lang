@@ -72,6 +72,7 @@ public class ClassGen : ClassBase
         this.InternClassStruct = this.S("Intern_Class");
         this.InternModuleStruct = this.S("Intern_Module");
         this.InternBaseSet = this.S("Intern_Base_Set");
+        this.InternModuleSet = this.S("Intern_Module_Set");
         this.RefKindIntMacro = this.S("RefKindInt");
         this.RefKindStringValueMacro = this.S("RefKindStringValue");
         this.RefKindStringValueDataMacro = this.S("RefKindStringValueData");
@@ -215,6 +216,7 @@ public class ClassGen : ClassBase
     public virtual String InternClassStruct { get; set; }
     public virtual String InternModuleStruct { get; set; }
     public virtual String InternBaseSet { get; set; }
+    public virtual String InternModuleSet { get; set; }
     public virtual String RefKindIntMacro { get; set; }
     public virtual String RefKindStringValueMacro { get; set; }
     public virtual String RefKindStringValueDataMacro { get; set; }
