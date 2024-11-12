@@ -7,14 +7,25 @@ Int ArgArray;
 
 Int ArgCount;
 
-Int Intern_Init(Int entryClass, Int entryModuleArray, Int entryModuleArrayCount)
+Int Intern_Init(Int entryClass, Int entryModuleInit, Int moduleCount)
 {
     Intern_ArgInit();
 
     Intern_NewInit();
 
-    ModuleArray = entryModuleArray;
-    ModuleArrayCount = entryModuleArrayCount;
+    Int count;
+    count = moduleCount;
+
+    Int dataCount;
+    dataCount = count * Constant_IntByteCount();
+
+    ModuleArray = New(dataCount);
+    ModuleArrayCount = count;
+
+    Intern_Module_State moduleInit;
+    moduleInit = (Intern_Module_State)entryModuleInit;
+
+    moduleInit();
 
     Intern_ClassSharePhoreInit();
 

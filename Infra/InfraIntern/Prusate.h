@@ -44,6 +44,8 @@ typedef struct
 }
 Intern_Module;
 
+typedef Int (*Intern_Module_State)();
+
 typedef Int (*Intern_State)(Eval* eval, Int frame);
 
 Intern_Api extern Int Intern_Value_Ref;
