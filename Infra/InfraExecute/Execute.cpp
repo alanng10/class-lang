@@ -230,6 +230,11 @@ Int ExecuteModuleNameString(Int result, Int moduleName)
         Byte ka;
         ka = na.toLatin1();
 
+        if (!(!(ka < '0' | '9' < ka) | !(ka < 'A' | 'Z' < ka) | !(ka < 'a' | 'z' < ka) | (ka == '_') | (ka == '.')))
+        {
+            return false;
+        }
+
         Int kk;
         kk = ka;
 
