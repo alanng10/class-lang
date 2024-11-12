@@ -1,9 +1,6 @@
 #pragma once
 
-extern "C"
-{
-#include "Prusate.h"
-}
+#include "Pronate.hpp"
 
 #include <QString>
 #include <QLibrary>

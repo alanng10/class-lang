@@ -4,10 +4,14 @@ TARGET = class
 
 HEADERS += \
     Execute.hpp \
+    Main.h \
+    Pronate.h \
+    Pronate.hpp \
     Prusate.h
 
 SOURCES += \
-    Execute.cpp
+    Execute.cpp \
+    Main.c
 
 LIBS += -L$$PWD/../../../../../Out/Class/
 
