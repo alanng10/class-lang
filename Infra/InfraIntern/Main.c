@@ -9,8 +9,6 @@ Int ArgCount;
 
 Int Intern_Init(Int entryClass, Int entryModuleArray, Int entryModuleArrayCount)
 {
-    Main_Init();
-
     Intern_ArgInit();
 
     Intern_NewInit();
@@ -63,8 +61,6 @@ Int Intern_Execute(Int ka)
 
 Int Intern_Final(Int eval)
 {
-    Main_Final();
-
     return true;
 }
 
