@@ -1147,17 +1147,17 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool ModuleVarName(ClassModule module)
+    public virtual bool ModuleVarName(ModuleRef module)
     {
-        this.ModuleStructName(module.Ref);
+        this.ModuleStructName(module);
         this.Text(this.NameCombine);
         this.Text(this.VarWord);
         return true;
     }
 
-    public virtual bool ModuleEntryName(ClassModule module)
+    public virtual bool ModuleEntryName(ModuleRef module)
     {
-        this.ModuleStructName(module.Ref);
+        this.ModuleStructName(module);
         this.Text(this.NameCombine);
         this.Text(this.EntryWord);
         return true;

@@ -150,6 +150,46 @@ public class ModuleHeaderGen : ClassBase
         return true;
     }
 
+    public virtual bool ExecuteExternModuleVar()
+    {
+        ClassGen gen;
+        gen = this.Gen;
+
+        gen.Text(gen.ExportWord);
+        gen.Text(gen.ApiWord);
+        gen.Text(gen.Space);
+
+        gen.Text(gen.ClassInt);
+        gen.Text(gen.Space);
+
+        gen.ModuleVarName(this.Module);
+        gen.Text(gen.LimitBraceRoundLite);
+        gen.Text(gen.LimitBraceRoundRite);
+        gen.Text(gen.LimitSemicolon);
+        gen.Text(gen.NewLine);
+        return true;
+    }
+
+    public virtual bool ExecuteExternModuleEntry()
+    {
+        ClassGen gen;
+        gen = this.Gen;
+
+        gen.Text(gen.ExportWord);
+        gen.Text(gen.ApiWord);
+        gen.Text(gen.Space);
+
+        gen.Text(gen.ClassInt);
+        gen.Text(gen.Space);
+
+        gen.ModuleEntryName(this.Module);
+        gen.Text(gen.LimitBraceRoundLite);
+        gen.Text(gen.LimitBraceRoundRite);
+        gen.Text(gen.LimitSemicolon);
+        gen.Text(gen.NewLine);
+        return true;
+    }
+
     public virtual bool ExecuteExternImportModuleInit()
     {
         ClassGen gen;
