@@ -224,11 +224,11 @@ Int ExecuteModuleString(Int result, Int moduleRef)
 
     QString moduleNameString;
     
-    Int pkkk;
-    pkkk = CastInt(&moduleNameString);
+    Int pkka;
+    pkka = CastInt(&moduleNameString);
 
     Bool b;
-    b = ExecuteModuleNameString(pkkk, pka);
+    b = ExecuteModuleNameString(pkka, pka);
 
     if (!b)
     {
@@ -252,7 +252,16 @@ Int ExecuteModuleString(Int result, Int moduleRef)
     }
 
     QString moduleVerString;
-    moduleVerString = QString::number(moduleVer, 16);
+    
+    Int pkkb;
+    pkkb = CastInt(&moduleVerString);
+
+    b = ExecuteModuleVerString(pkkb, moduleVer);
+
+    if (!b)
+    {
+        return false;
+    }
 
     QString a;
 
@@ -401,6 +410,46 @@ Int ExecuteModuleNameString(Int result, Int moduleName)
 
         a.append(kba);
         a.append(kbb);
+
+        i = i + 1;
+    }
+
+    QString* ke;
+    ke = (QString*)result;
+
+    *ke = a;
+    return true;
+}
+
+Int ExecuteModuleVerString(Int result, Int moduleVer)
+{
+    QString a;
+
+    Int count;
+    count = 15;
+
+    Int i;
+    i = 0;
+    while (i < count)
+    {
+        Int shift;
+        shift = i * 4;
+
+        Int k;
+        k = moduleVer;
+        k = k >> shift;
+        k = k & 0xf;
+
+        Int n;
+        n = ExecuteHexDigitChar(k);
+
+        Byte kk;
+        kk = n;
+
+        QChar ka;
+        ka = QChar(kk);
+
+        a.append(ka);
 
         i = i + 1;
     }
