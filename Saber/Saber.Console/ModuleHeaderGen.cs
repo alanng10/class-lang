@@ -69,6 +69,9 @@ public class ModuleHeaderGen : ClassBase
         this.ExecuteExternModuleEntry();
         gen.Text(gen.NewLine);
 
+        this.ExecuteExternModuleCount();
+        gen.Text(gen.NewLine);
+
         this.ExecuteExternImportModuleStruct();
         gen.Text(gen.NewLine);
 
@@ -189,6 +192,26 @@ public class ModuleHeaderGen : ClassBase
         gen.Text(gen.Space);
 
         gen.ModuleEntryName(this.Module.Ref);
+        gen.Text(gen.LimitBraceRoundLite);
+        gen.Text(gen.LimitBraceRoundRite);
+        gen.Text(gen.LimitSemicolon);
+        gen.Text(gen.NewLine);
+        return true;
+    }
+
+    public virtual bool ExecuteExternModuleCount()
+    {
+        ClassGen gen;
+        gen = this.Gen;
+
+        gen.Text(gen.ExportWord);
+        gen.Text(gen.ApiWord);
+        gen.Text(gen.Space);
+
+        gen.Text(gen.ClassInt);
+        gen.Text(gen.Space);
+
+        gen.ModuleCountName(this.Module.Ref);
         gen.Text(gen.LimitBraceRoundLite);
         gen.Text(gen.LimitBraceRoundRite);
         gen.Text(gen.LimitSemicolon);
