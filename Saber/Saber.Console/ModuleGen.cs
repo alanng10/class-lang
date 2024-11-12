@@ -62,6 +62,9 @@ public class ModuleGen : ClassBase
         this.ExecuteModuleEntry();
         gen.Text(gen.NewLine);
 
+        this.ExecuteModuleCount();
+        gen.Text(gen.NewLine);
+
         this.ExecuteClassList();
         gen.Text(gen.NewLine);
 
