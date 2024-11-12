@@ -282,10 +282,10 @@ Int ExecuteModuleString(Int result, Int moduleRef)
     return true;
 }
 
-Int ExecuteModuleVer(Int result, Int moduleVer)
+Int ExecuteModuleVer(Int result, Int moduleRefVer)
 {
     QString* k;
-    k = (QString*)moduleVer;
+    k = (QString*)moduleRefVer;
 
     qsizetype na;
     na = k->indexOf('.');

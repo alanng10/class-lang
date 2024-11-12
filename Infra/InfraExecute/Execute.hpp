@@ -7,7 +7,7 @@
 
 Int ExecuteArg(Int result, Int arg);
 Int ExecuteModuleString(Int result, Int moduleRef);
-Int ExecuteModuleVer(Int result, Int moduleVer);
+Int ExecuteModuleVer(Int result, Int moduleRefVer);
 Int ExecuteModuleNameString(Int result, Int moduleName);
 Int ExecuteModuleVerString(Int result, Int moduleVer);
 Int ExecuteHexDigitChar(Int value);
