@@ -9,7 +9,7 @@ Int ArgArray;
 
 Int ArgCount;
 
-Int Intern_Init(Int entryClass, Int entryModuleInit, Int moduleCount)
+Int Intern_Init(Int entryModule, Int entryClassIndex, Int entryModuleInit, Int moduleCount)
 {
     Intern_ArgInit();
 
@@ -28,6 +28,12 @@ Int Intern_Init(Int entryClass, Int entryModuleInit, Int moduleCount)
     moduleInit = (Intern_Module_State)entryModuleInit;
 
     moduleInit();
+
+    Intern_Module* pModule;
+    pModule = CastPointer(entryModule);
+
+    Int entryClass;
+    entryClass = pModule->Class[entryClassIndex].Var;
 
     Intern_ClassSharePhoreInit();
 
