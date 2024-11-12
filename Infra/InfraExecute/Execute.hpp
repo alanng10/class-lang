@@ -9,3 +9,4 @@ Int ExecuteArg(Int result, Int arg);
 Int ExecuteModuleString(Int result, Int moduleRef);
 Int ExecuteModuleVer(Int result, Int moduleVer);
 Int ExecuteModuleNameString(Int result, Int moduleName);
+Int ExecuteHexDigitChar(Int value);

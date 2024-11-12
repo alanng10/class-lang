@@ -82,7 +82,7 @@ Int ExecuteArg(Int result, Int arg)
         }
 
         QChar kk;
-        kk = (QChar)n;
+        kk = QChar(n);
 
         k.append(kk);
 
@@ -212,5 +212,74 @@ Int ExecuteModuleVer(Int result, Int moduleVer)
 
 Int ExecuteModuleNameString(Int result, Int moduleName)
 {
-    
+    QString a;
+
+    QString* k;
+    k = (QString*)moduleName;
+
+    Int count;
+    count = k->length();
+
+    Int i;
+    i = 0;
+    while (i < count)
+    {
+        QChar na;
+        na = k->at(i);
+
+        Byte ka;
+        ka = na.toLatin1();
+
+        Int kk;
+        kk = ka;
+
+        Int upper;
+        Int lower;
+        upper = kk >> 4;
+        lower = kk & 0xf;
+
+        Int upperChar;
+        upperChar = ExecuteHexDigitChar(upper);
+
+        Int lowerChar;
+        lowerChar = ExecuteHexDigitChar(lower);
+
+        Byte kaa;
+        Byte kab;
+        kaa = upperChar;
+        kab = lowerChar;
+
+        QChar kba;
+        QChar kbb;
+        kba = QChar(kaa);
+        kbb = QChar(kab);
+
+        a.append(kba);
+        a.append(kbb);
+
+        i = i + 1;
+    }
+
+    QString* ke;
+    ke = (QString*)result;
+
+    *ke = a;
+    return true;
+}
+
+Int ExecuteHexDigitChar(Int value)
+{
+    if (value < 10)
+    {
+        Int aa;
+        aa = '0' + value;
+        return aa;
+    }
+
+    Int k;
+    k = value - 10;
+
+    Int a;
+    a = 'a' + k;
+    return a;
 }
