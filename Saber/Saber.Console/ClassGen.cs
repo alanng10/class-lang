@@ -1661,7 +1661,7 @@ public class ClassGen : ClassBase
     public virtual bool CompStateEnd()
     {
         long k;
-        k = this.ParamCount - 1;
+        k = this.ParamCount;
 
         this.EvalFrameValueSet(-(k + 1), this.Zero);
 
