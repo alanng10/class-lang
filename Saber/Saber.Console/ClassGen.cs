@@ -1165,7 +1165,6 @@ public class ClassGen : ClassBase
     {
         this.ModuleRef(module);
         this.Text(this.NameCombine);
-        this.Text(this.ModuleWord);
         this.Text(this.InitWord);
         return true;
     }
