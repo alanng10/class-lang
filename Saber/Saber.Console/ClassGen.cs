@@ -87,6 +87,7 @@ public class ClassGen : ClassBase
         this.ItemWord = this.S("Item");
         this.AnyWord = this.S("Any");
         this.InitWord = this.S("Init");
+        this.CountWord = this.S("Count");
         this.VarWord = this.S("Var");
         this.ImportWord = this.S("Import");
         this.ExportWord = this.S("Export");
@@ -229,6 +230,7 @@ public class ClassGen : ClassBase
     public virtual String ItemWord { get; set; }
     public virtual String AnyWord { get; set; }
     public virtual String InitWord { get; set; }
+    public virtual String CountWord { get; set; }
     public virtual String VarWord { get; set; }
     public virtual String ImportWord { get; set; }
     public virtual String ExportWord { get; set; }
