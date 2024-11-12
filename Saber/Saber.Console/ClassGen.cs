@@ -1649,13 +1649,13 @@ public class ClassGen : ClassBase
 
         this.IndentCount = this.IndentCount + 1;
 
-        this.DeclareVar(this.VarA);
-        this.DeclareVar(this.VarB);
-        this.DeclareVar(this.VarC);
-        this.DeclareVar(this.VarD);
-        this.DeclareVar(this.VarSA);
-        this.DeclareVar(this.VarSB);
-        this.DeclareVar(this.VarSC);
+        this.DeclareVar(this.ClassInt, this.VarA);
+        this.DeclareVar(this.ClassInt, this.VarB);
+        this.DeclareVar(this.ClassInt, this.VarC);
+        this.DeclareVar(this.ClassInt, this.VarD);
+        this.DeclareVar(this.ClassSInt, this.VarSA);
+        this.DeclareVar(this.ClassSInt, this.VarSB);
+        this.DeclareVar(this.ClassSInt, this.VarSC);
         this.VarSet(this.VarA, this.Zero);
         this.VarSet(this.VarB, this.Zero);
         this.VarSet(this.VarC, this.Zero);
@@ -2521,11 +2521,11 @@ public class ClassGen : ClassBase
         return true;
     }
 
-    public virtual bool DeclareVar(String varVar)
+    public virtual bool DeclareVar(String varClass, String varVar)
     {
         this.TextIndent();
 
-        this.Text(this.ClassInt);
+        this.Text(varClass);
 
         this.Text(this.Space);
 
