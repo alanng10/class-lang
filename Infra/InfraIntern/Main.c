@@ -3,6 +3,8 @@
 Int ModuleArray;
 Int ModuleArrayCount;
 
+Int ModuleIndex;
+
 Int ArgArray;
 
 Int ArgCount;
@@ -235,5 +237,20 @@ Int Intern_Base_Set(Intern_Class* varClass, Intern_Class* baseClass, Int count)
     p = CastPointer(dest);
 
     p[count] = CastInt(varClass->BaseItem);
+    return 0;
+}
+
+Int Intern_Module_Set(Intern_Module* module)
+{
+    Int* p;
+    p = CastPointer(ModuleArray);
+
+    Int k;
+    k = CastInt(module);
+
+    p[ModuleIndex] = k;
+
+    ModuleIndex = ModuleIndex + 1;
+
     return 0;
 }
