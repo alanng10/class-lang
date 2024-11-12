@@ -1165,6 +1165,14 @@ public class ClassGen : ClassBase
         return true;
     }
 
+    public virtual bool ModuleCountName(ModuleRef module)
+    {
+        this.ModuleStructName(module);
+        this.Text(this.NameCombine);
+        this.Text(this.CountWord);
+        return true;
+    }
+
     public virtual bool ModuleInitName(ModuleRef module)
     {
         this.ModuleRef(module);
