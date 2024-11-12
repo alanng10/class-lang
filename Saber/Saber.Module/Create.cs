@@ -1011,6 +1011,14 @@ public class Create : InfraCreate
         {
             entryClass = this.ModuleClassGet(h, this.S("Entry"));
 
+            if (entryClass == null)
+            {
+                b = true;
+            }
+        }
+
+        if (!b)
+        {
             if (!(this.ClassInfra.ValidClass(varClass, entryClass, this.SystemClass.Any, this.NullClass)))
             {
                 b = true;
@@ -1019,9 +1027,9 @@ public class Create : InfraCreate
 
         if (b)
         {
-            NodeClass aa;
-            aa = (NodeClass)varClass.Any;
-            this.Error(this.ErrorKind.EntryUnachievable, aa, this.SourceGet(varClass.Index));
+            NodeClass k;
+            k = varClass.Any as NodeClass;
+            this.Error(this.ErrorKind.EntryUnachievable, k, this.SourceGet(varClass.Index));
         }
         return true;
     }
