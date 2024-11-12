@@ -101,14 +101,14 @@ Int ExecuteModuleString(Int result, Int moduleRef)
     QString* k;
     k = (QString*)moduleRef;
 
-    qsizetype naa;
-    naa = k->indexOf('-');
+    qsizetype na;
+    na = k->indexOf('-');
 
     QString ka;
-    ka = k->mid(0, naa);
+    ka = k->mid(0, na);
 
     QString kb;
-    kb = k->mid(naa + 1);
+    kb = k->mid(na + 1);
 
     Int pka;
     pka = CastInt(&ka);
@@ -144,6 +144,24 @@ Int ExecuteModuleString(Int result, Int moduleRef)
 
     QString moduleVerString;
     moduleVerString = QString::number(moduleVer, 16);
+
+    QString a;
+
+    a.append(QChar('C'));
+    a.append(QChar('_'));
+
+    a.append(moduleNameString);
+
+    a.append(QChar('_'));
+
+    a.append(moduleVerString);
+
+    QString* ke;
+    ke = (QString*)result;
+
+    *ke = a;
+
+    return true;
 }
 
 Int ExecuteModuleVer(Int result, Int moduleVer)
