@@ -8,6 +8,7 @@ SOURCES += \
 
 LIBS += -L$$PWD/../../Out/InfraDeploy/
 
-LIBS += -lInfra
+LIBS += -lInfra \
+    -lInfraIntern
 
 INCLUDEPATH += $$PWD/..
