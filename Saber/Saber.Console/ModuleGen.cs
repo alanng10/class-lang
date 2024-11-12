@@ -93,6 +93,28 @@ public class ModuleGen : ClassBase
         gen.Text(gen.LimitBraceRoundRite);
         gen.Text(gen.NewLine);
 
+        gen.Text(gen.LimitBraceLite);
+        gen.Text(gen.NewLine);
+
+        gen.IndentCount = gen.IndentCount + 1;
+
+        gen.TextIndent();
+        gen.Text(gen.IndexReturn);
+        gen.Text(gen.Space);
+        
+        gen.Text(gen.CastInt);
+        gen.Text(gen.LimitBraceRoundLite);
+        gen.Text(gen.LimitAnd);
+        gen.ModuleVarName(this.Module);
+        gen.Text(gen.LimitBraceRoundRite);
+
+        gen.Text(gen.LimitSemicolon);
+        gen.Text(gen.NewLine);
+
+        gen.IndentCount = gen.IndentCount - 1;
+
+        gen.Text(gen.LimitBraceRite);
+        gen.Text(gen.NewLine);
         return true;
     }
 
