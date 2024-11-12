@@ -22,7 +22,7 @@ public class ClassGenTraverse : Traverse
 
         gen.CompStateKind = gen.StateKindGet;
 
-        gen.ParamCount = 1;
+        gen.ParamCount = 0;
 
         gen.LocalVarCount = field.Get.Count - 1;
 
@@ -36,7 +36,7 @@ public class ClassGenTraverse : Traverse
 
         gen.CompStateKind = gen.StateKindSet;
 
-        gen.ParamCount = 2;
+        gen.ParamCount = 1;
 
         gen.LocalVarCount = field.Set.Count - 2;
 
@@ -66,7 +66,7 @@ public class ClassGenTraverse : Traverse
 
         gen.CompStateKind = gen.StateKindCall;
 
-        gen.ParamCount = maide.Param.Count + 1;
+        gen.ParamCount = maide.Param.Count;
 
         gen.LocalVarCount = maide.Call.Count - maide.Param.Count;
 
