@@ -104,10 +104,10 @@ Int ExecuteModuleString(Int result, Int moduleRef)
     QString kab;
     kab = ka->mid(naa + 1);
 
-
+    
 }
 
-Int ExecuteModuleVer(Int moduleVer)
+Int ExecuteModuleVer(Int result, Int moduleVer)
 {
     QString* k;
     k = (QString*)moduleVer;
@@ -125,7 +125,58 @@ Int ExecuteModuleVer(Int moduleVer)
     countA = nb - (na + 1);
 
     QString kb;
-    kb = k->mid(na, countA);
+    kb = k->mid(na + 1, countA);
 
-    
+    QString kc;
+    kc = k->mid(nb + 1);
+
+    if (!(kb.length() == 2))
+    {
+        return false;
+    }
+
+    if (!(kc.length() == 2))
+    {
+        return false;
+    }
+
+    bool b;
+    b = false;
+
+    Int major;
+    major = ka.toULongLong(&b);
+
+    if (!b)
+    {
+        return false;
+    }
+
+    Int minor;
+    minor = kb.toULongLong(&b);
+
+    if (!b)
+    {
+        return false;
+    }
+
+    Int revise;
+    revise = kc.toULongLong(&b);
+
+    if (!b)
+    {
+        return false;
+    }
+
+    Int a;
+    a = 0;
+    a = a | (major << 16);
+    a = a | (minor << 8);
+    a = a | revise;
+
+    Int* ke;
+    ke = (Int*)result;
+
+    *ke = a;
+
+    return true;
 }

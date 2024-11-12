@@ -7,4 +7,4 @@
 
 Int ExecuteArg(Int result, Int arg);
 Int ExecuteModuleString(Int result, Int moduleRef);
-Int ExecuteModuleVer(Int moduleVer);
+Int ExecuteModuleVer(Int result, Int moduleVer);
