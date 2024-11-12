@@ -1671,14 +1671,11 @@ public class ClassGen : ClassBase
     public virtual bool CompStateEnd()
     {
         long k;
-        k = this.ParamCount;
+        k = this.ParamCount - 1;
 
-        long ka;
-        ka = this.LocalVarCount + k;
+        this.EvalFrameValueSet(-(k + 1), this.Zero);
 
-        this.EvalFrameValueSet(-k, this.Zero);
-
-        this.EvalIndexPosSet(-ka);
+        this.EvalIndexFramePosSet(-k);
 
         this.Return();
 
