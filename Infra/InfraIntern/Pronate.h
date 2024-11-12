@@ -40,21 +40,21 @@ extern Int ArgArray;
 
 extern Int ArgCount;
 
-Bool Intern_New_Open();
+Int Intern_New_Open();
 
-Bool Intern_New_Close();
+Int Intern_New_Close();
 
-Bool Intern_New_PhoreSet(Int value);
+Int Intern_New_PhoreSet(Int value);
 
-Bool Intern_New_AllocCapSet(Int value);
+Int Intern_New_AllocCapSet(Int value);
 
 Int Intern_InitThread(Int thread, Int threadAny);
 
-Bool Intern_FinalThread(Int thread);
+Int Intern_FinalThread(Int thread);
 
 Int Intern_InitMainThread();
 
-Bool Intern_Call(Eval* eval, Int thisEvalIndex, Int stateKind, Int stateIndex);
+Int Intern_Call(Eval* eval, Int thisEvalIndex, Int stateKind, Int stateIndex);
 
 Int Intern_State_Thread_Execute(Int thread, Int arg);
 

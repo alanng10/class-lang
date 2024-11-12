@@ -1,6 +1,6 @@
 #include "Call.h"
 
-Bool Intern_Call(Eval* eval, Int thisEvalIndex, Int stateKind, Int stateIndex)
+Int Intern_Call(Eval* eval, Int thisEvalIndex, Int stateKind, Int stateIndex)
 {
     Int varA;
     Int varB;
