@@ -1527,7 +1527,7 @@ public class ClassGen : ClassBase
         }
 
         ClassClass varClass;
-        varClass = this.Class;
+        varClass = varField.Parent;
 
         long k;
         k = this.ParamCount;
