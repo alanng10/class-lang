@@ -115,7 +115,7 @@ class Infra : Any
             ke : less.Execute(lite, rite);
 
             var Bool b;
-            b : (sign<(0, ke));
+            b : (sign <(0, ke));
 
             inf (~b)
             {
@@ -220,7 +220,7 @@ class Infra : Any
         ke : less.Execute(any, k);
 
         var Bool b;
-        b : (sign<(ke, 0));
+        b : (sign <(ke, 0));
         inf (b)
         {
             return this.BinaryFind(array, any, less, start, mid);
