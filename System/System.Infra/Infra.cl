@@ -89,9 +89,9 @@ class Infra : Any
             shiftCount : i * 8;
 
             var Int o;
-            o : bit<(ob, shiftCount);
+            o : bit <(ob, shiftCount);
 
-            oo : bit|(oo, o);
+            oo : bit |(oo, o);
 
             i : i + 1;
         }
@@ -114,7 +114,7 @@ class Infra : Any
             shiftCount : i * 8;
 
             var Int o;
-            o : bit>(oo, shiftCount);
+            o : bit >(oo, shiftCount);
 
             data.Set(index + i, o);
 
