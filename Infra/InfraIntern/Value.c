@@ -5,7 +5,7 @@ Int Intern_Value_Init(Eval* eval, Int frame)
     Int ke;
     ke = BoolTrue;
 
-    Return(ke, 1);
+    Return(ke, 0);
 }
 
 
