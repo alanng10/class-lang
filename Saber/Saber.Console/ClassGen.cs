@@ -488,6 +488,9 @@ public class ClassGen : ClassBase
         long baseIndex;
         baseIndex = this.BaseArray.Count - 1;
 
+        long baseMask;
+        baseMask = baseIndex << 52;
+
         long fieldCount;
         fieldCount = this.Class.FieldStart + this.Class.Field.Count;
 
@@ -583,7 +586,7 @@ public class ClassGen : ClassBase
         this.Text(this.Space);
         this.Text(this.LimitAre);
         this.Text(this.Space);
-        this.TextInt(baseIndex);
+        this.TextIntHex(baseMask);
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
 
