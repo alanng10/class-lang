@@ -32,7 +32,13 @@ Int Intern_Share(Int info, Eval* eval)
 
         p[3] = k;
 
+        eval->S[eval->N] = k;
+
+        eval->N = eval->N + 1;
+
         Intern_Call(eval, 1, 3, 0);
+
+        eval->N = eval->N - 1;
     }
 
     Phore_Close(phore);
