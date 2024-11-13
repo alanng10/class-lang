@@ -14,8 +14,6 @@ public class PortLoad : ClassBase
 
         this.SystemModuleSingle = this.S("System");
         this.SystemModulePre = this.AddClear().Add(this.SystemModuleSingle).Add(this.ClassInfra.Dot).AddResult();
-        this.ClassModuleSingle = this.S("Class");
-        this.ClassModulePre = this.AddClear().Add(this.ClassModuleSingle).Add(this.ClassInfra.Dot).AddResult();
 
         this.SDotRef = this.S(".ref");
         return true;
@@ -42,8 +40,6 @@ public class PortLoad : ClassBase
     protected virtual ModuleRef ModuleRef { get; set; }
     protected virtual String SystemModuleSingle { get; set; }
     protected virtual String SystemModulePre { get; set; }
-    protected virtual String ClassModuleSingle { get; set; }
-    protected virtual String ClassModulePre { get; set; }
     protected virtual String SDotRef { get; set; }
 
     public virtual bool Execute()
@@ -903,20 +899,6 @@ public class PortLoad : ClassBase
         if (!b)
         {
             if (this.TextStart(textName, this.TB(this.SystemModulePre)))
-            {
-                b = true;
-            }
-        }
-        if (!b)
-        {
-            if (this.TextSame(textName, this.TB(this.ClassModuleSingle)))
-            {
-                b = true;
-            }
-        }
-        if (!b)
-        {
-            if (this.TextStart(textName, this.TB(this.ClassModulePre)))
             {
                 b = true;
             }
