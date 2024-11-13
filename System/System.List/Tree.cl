@@ -367,12 +367,12 @@ class Tree : Any
 
     maide private Int Sign(var Int u)
     {
-        inf (sign<(u, 0))
+        inf (sign <(u, 0))
         {
             return 0 - this.DirectValue;
         }
 
-        inf (sign<(0, u))
+        inf (sign <(0, u))
         {
             return this.DirectValue;
         }
@@ -630,7 +630,7 @@ class Tree : Any
                 b : true;
             }
 
-            inf (sign<(k, 0))
+            inf (sign <(k, 0))
             {
                 parentNode : currentNode;
 
@@ -639,7 +639,7 @@ class Tree : Any
                 currentNode : currentNode.ChildLite;
             }
 
-            inf (sign<(0, k))
+            inf (sign <(0, k))
             {
                 parentNode : currentNode;
 
