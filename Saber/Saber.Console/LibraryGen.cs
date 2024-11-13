@@ -390,6 +390,12 @@ public class LibraryGen : ClassBase
             Array baseArray;
             baseArray = this.ClassBaseArray.GetAt(i) as Array;
 
+            if (0x100 < baseArray.Count)
+            {
+                this.Status = 15;
+                return false;
+            }
+
             ClassComp classComp;
             classComp = this.ClassCompArray.GetAt(i) as ClassComp;
 
