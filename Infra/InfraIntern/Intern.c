@@ -231,7 +231,7 @@ Int* Intern_Intern_FieldMemory(Int o, Int index)
 {
     Int k;
     k = o;
-    RefMemory(k);
+    RefKindClear(k);
 
     Int* a;
     a = CastPointer(k);
