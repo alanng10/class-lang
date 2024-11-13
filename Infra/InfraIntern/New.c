@@ -95,6 +95,17 @@ Int Intern_New(Int kind, Int info, Eval* eval)
     
     ke = ke | kka;
 
+    if (kind == RefKindAny)
+    {
+        Int* ppp;
+        ppp = CastPointer(info);
+
+        Int baseMask;
+        baseMask = ppp[1];
+
+        ke = ke | baseMask;
+    }
+
     m->TotalAllocCount = m->TotalAllocCount + dataCount;
 
     eval->S[eval->N] = ke;
