@@ -43,7 +43,7 @@ public class ClassCompGen : Any
         while (i < count)
         {
             ClassClass kk;
-            kk = (ClassClass)array.GetAt(i);
+            kk = array.GetAt(i) as ClassClass;
 
             this.ExecuteSetClass(k, kk);
 
@@ -71,7 +71,7 @@ public class ClassCompGen : Any
         while (iter.Next())
         {
             Field field;
-            field = (Field)iter.Value;
+            field = iter.Value as Field;
 
             Field k;
             k = field;
@@ -106,7 +106,7 @@ public class ClassCompGen : Any
         while (iter.Next())
         {
             Maide maide;
-            maide = (Maide)iter.Value;
+            maide = iter.Value as Maide;
 
             Maide k;
             k = maide;
