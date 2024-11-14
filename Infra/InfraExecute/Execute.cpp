@@ -10,7 +10,7 @@ Int Execute()
     Int argCount;
     argCount = Array_CountGet(argArray);
 
-    if (!(argCount == 1))
+    if (argCount < 1)
     {
         return 270;
     }
