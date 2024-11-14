@@ -700,9 +700,12 @@ public class ModuleLoad : ClassBase
                 }
             }
 
-            if (!(k.Virtual == null))
+            if (!ba)
             {
-                k = k.Virtual;
+                if (!(k.Virtual == null))
+                {
+                    k = k.Virtual;
+                }
             }
 
             a.Virtual = k;
@@ -763,9 +766,12 @@ public class ModuleLoad : ClassBase
                 }
             }
 
-            if (!(k.Virtual == null))
+            if (!ba)
             {
-                k = k.Virtual;
+                if (!(k.Virtual == null))
+                {
+                    k = k.Virtual;
+                }
             }
 
             a.Virtual = k;
