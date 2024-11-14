@@ -44,7 +44,7 @@ public class ClassGen : ClassBase
         this.EvalFrameVar = this.S("f");
         this.IntValueHexPre = this.S("0x");
         this.BaseBitRightCount = this.S("52");
-        this.RefKindBitRightCount = this.S("60");
+        this.RefKindBitRiteCount = this.S("60");
         this.RefBitCount = this.S("4");
         this.RefKindAny = this.S("1");
         this.RefKindBool = this.S("2");
@@ -188,7 +188,7 @@ public class ClassGen : ClassBase
     public virtual String EvalFrameVar { get; set; }
     public virtual String IntValueHexPre { get; set; }
     public virtual String BaseBitRightCount { get; set; }
-    public virtual String RefKindBitRightCount { get; set; }
+    public virtual String RefKindBitRiteCount { get; set; }
     public virtual String RefBitCount { get; set; }
     public virtual String RefKindAny { get; set; }
     public virtual String RefKindBool { get; set; }
@@ -2243,7 +2243,7 @@ public class ClassGen : ClassBase
 
         this.EvalValueGet(thisEvalIndex, varC);
 
-        this.OperateLimit(varA, varC, this.RefKindBitRightCount, this.LimitBitRite);
+        this.OperateLimit(varA, varC, this.RefKindBitRiteCount, this.LimitBitRite);
 
         this.OperateLimitSame(varB, varA, refKind);
 
@@ -2294,7 +2294,7 @@ public class ClassGen : ClassBase
 
         this.VarSet(varB, varA);
 
-        this.OperateLimit(varB, varB, this.RefKindBitRightCount, this.LimitBitRite);
+        this.OperateLimit(varB, varB, this.RefKindBitRiteCount, this.LimitBitRite);
 
         this.OperateLimitSame(varB, varB, this.RefKindAny);
 
@@ -2344,7 +2344,7 @@ public class ClassGen : ClassBase
 
         this.VarSet(varB, varA);
 
-        this.OperateLimit(varB, varB, this.RefKindBitRightCount, this.LimitBitRite);
+        this.OperateLimit(varB, varB, this.RefKindBitRiteCount, this.LimitBitRite);
 
         this.OperateLimitSame(varB, varB, refKind);
 
@@ -2368,7 +2368,7 @@ public class ClassGen : ClassBase
 
         this.VarSet(varB, varA);
 
-        this.OperateLimit(varB, varB, this.RefKindBitRightCount, this.LimitBitRite);
+        this.OperateLimit(varB, varB, this.RefKindBitRiteCount, this.LimitBitRite);
 
         this.OperateLimitSame(varC, varB, refKindA);
 
