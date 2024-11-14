@@ -43,7 +43,7 @@ public class ClassGen : ClassBase
         this.EvalIndexVar = this.S("N");
         this.EvalFrameVar = this.S("f");
         this.IntValueHexPre = this.S("0x");
-        this.BaseBitRightCount = this.S("52");
+        this.BaseBitRiteCount = this.S("52");
         this.RefKindBitRiteCount = this.S("60");
         this.RefBitCount = this.S("4");
         this.RefKindAny = this.S("1");
@@ -187,7 +187,7 @@ public class ClassGen : ClassBase
     public virtual String EvalIndexVar { get; set; }
     public virtual String EvalFrameVar { get; set; }
     public virtual String IntValueHexPre { get; set; }
-    public virtual String BaseBitRightCount { get; set; }
+    public virtual String BaseBitRiteCount { get; set; }
     public virtual String RefKindBitRiteCount { get; set; }
     public virtual String RefBitCount { get; set; }
     public virtual String RefKindAny { get; set; }
@@ -1305,7 +1305,7 @@ public class ClassGen : ClassBase
 
         this.VarMaskClear(varD, this.BaseMask);
 
-        this.OperateLimit(varD, varD, this.BaseBitRightCount, this.LimitBitRite);
+        this.OperateLimit(varD, varD, this.BaseBitRiteCount, this.LimitBitRite);
 
         this.VarSetDerefVar(varC, varC, varD);
 
