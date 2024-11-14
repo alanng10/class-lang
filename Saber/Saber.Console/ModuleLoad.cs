@@ -631,7 +631,6 @@ public class ModuleLoad : ClassBase
             return false;
         }
 
-
         this.ListInfra.TableAdd(this.VirtualClassTable, varClass, varClass);
 
         return true;
