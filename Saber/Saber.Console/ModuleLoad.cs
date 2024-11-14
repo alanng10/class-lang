@@ -21,6 +21,7 @@ public class ModuleLoad : ClassBase
     protected virtual BinaryBinary Binary { get; set; }
     protected virtual Array ClassArray { get; set; }
     protected virtual Array ImportArray { get; set; }
+    protected virtual Table VirtualClassTable { get; set; }
     protected virtual ClassClass AnyClass { get; set; }
     protected virtual String SSystemDotInfra { get; set; }
     protected virtual String SAny { get; set; }
@@ -564,26 +565,22 @@ public class ModuleLoad : ClassBase
 
     protected virtual bool SetVirtualList()
     {
-        Array array;
-        array = this.Binary.Part;
+        this.VirtualClassTable = this.ClassInfra.TableCreateRefLess();
 
         Array classArray;
         classArray = this.ClassArray;
 
         long count;
-        count = array.Count;
+        count = classArray.Count;
         long i;
         i = 0;
         while (i < count)
         {
             ClassClass varClass;
-            varClass = (ClassClass)classArray.GetAt(i);
-
-            BinaryPart a;
-            a = (BinaryPart)array.GetAt(i);
+            varClass = classArray.GetAt(i) as ClassClass;
 
             bool b;
-            b = this.SetVirtual(varClass, a);
+            b = this.VirtualClassSet(varClass);
             if (!b)
             {
                 return false;
@@ -591,18 +588,64 @@ public class ModuleLoad : ClassBase
 
             i = i + 1;
         }
+
+        this.VirtualClassTable = null;
         return true;
     }
 
-    protected virtual bool SetVirtual(ClassClass varClass, BinaryPart part)
+    protected virtual bool VirtualClassSet(ClassClass varClass)
+    {
+        if (this.VirtualClassTable.Valid(varClass))
+        {
+            return true;
+        }
+
+        if (!(varClass.Module == this.Module))
+        {
+            return true;
+        }
+
+        ClassClass ka;
+        ka = null;
+        if (!(varClass == this.AnyClass))
+        {
+            ka = varClass.Base;
+        }
+
+        if (!(ka == null))
+        {
+            bool ba;
+            ba = this.VirtualClassSet(ka);
+
+            if (!ba)
+            {
+                return false;
+            }
+        }
+
+        bool b;
+        b = this.VirtualClassPartSet(varClass);
+
+        if (!b)
+        {
+            return false;
+        }
+
+
+        this.ListInfra.TableAdd(this.VirtualClassTable, varClass, varClass);
+
+        return true;
+    }
+
+    protected virtual bool VirtualClassPartSet(ClassClass varClass)
     {
         bool b;
-        b = this.SetVirtualField(varClass, part.Field);
+        b = this.VirtualClassFieldSet(varClass);
         if (!b)
         {
             return false;
         }
-        b = this.SetVirtualMaide(varClass, part.Maide);
+        b = this.VirtualClassMaideSet(varClass);
         if (!b)
         {
             return false;
@@ -610,7 +653,7 @@ public class ModuleLoad : ClassBase
         return true;
     }
 
-    protected virtual bool SetVirtualField(ClassClass varClass, Array binaryField)
+    protected virtual bool VirtualClassFieldSet(ClassClass varClass)
     {
         ClassInfra classInfra;
         classInfra = this.ClassInfra;
@@ -658,12 +701,17 @@ public class ModuleLoad : ClassBase
                 }
             }
 
+            if (!(k.Virtual == null))
+            {
+                k = k.Virtual;
+            }
+
             a.Virtual = k;
         }
         return true;
     }
 
-    protected virtual bool SetVirtualMaide(ClassClass varClass, Array binaryMaide)
+    protected virtual bool VirtualClassMaideSet(ClassClass varClass)
     {
         ClassInfra classInfra;
         classInfra = this.ClassInfra;
@@ -714,6 +762,11 @@ public class ModuleLoad : ClassBase
                 {
                     return false;
                 }
+            }
+
+            if (!(k.Virtual == null))
+            {
+                k = k.Virtual;
             }
 
             a.Virtual = k;
