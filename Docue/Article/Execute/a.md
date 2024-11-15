@@ -13,6 +13,12 @@ This tier is faster than effect load.
 
 The fourth tier is effect load.
 
+First tier and second tier has high execute certainty.
+
+Third tier has low execute certainty.
+
+Fourth tier has lowest execute certainty.
+
 Module execute speeds is measured in count of function call base line maximum duration.
 
 Class system programming module Infra memory allocation maide returns
