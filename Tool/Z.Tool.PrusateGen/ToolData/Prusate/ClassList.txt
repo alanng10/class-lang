@@ -108,7 +108,7 @@ Draw
     Fill
     FillPos
     Line
-    Face
+    Font
     Form
     Comp
     FillPosThisSet()
