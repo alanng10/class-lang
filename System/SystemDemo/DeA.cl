@@ -27,6 +27,15 @@ class DeA : Dem
         a : h.Result();
 
         console.Out.Write(a);
+
+
+        var Data ka;
+        ka : new Data;
+        ka.Count : 10 * 1024 * 1024;
+        ka.Init();
+
+        console.Out.Write("Demo HHHH\n");
+
         return true;
     }
 

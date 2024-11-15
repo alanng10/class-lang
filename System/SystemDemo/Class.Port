@@ -7,6 +7,7 @@ System.Infra
     Bool Bool
     Int Int
     String String
+    Data Data
 System.Text
     StringComp StringComp
     StringAdd StringAdd
