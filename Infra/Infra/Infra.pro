@@ -11,7 +11,7 @@ HEADERS += \
     Data.h \
     Draw.hpp \
     Entry.h \
-    Face.hpp \
+    Font.hpp \
     Form.hpp \
     Format.h \
     FormatArg.h \
@@ -71,7 +71,7 @@ SOURCES += \
     Data.c \
     Draw.cpp \
     Entry.c \
-    Face.cpp \
+    Font.cpp \
     Form.cpp \
     Format.c \
     FormatArg.c \
