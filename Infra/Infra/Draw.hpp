@@ -17,7 +17,7 @@ struct Draw
     Int Out;
     Int Fill;
     Int Line;
-    Int Face;
+    Int Font;
     Int Form;
     Int Comp;
     Int FillPos;
@@ -25,7 +25,7 @@ struct Draw
     Int OutAlpha;
     Int TextData;
     QPainter* Intern;
-    QFont* InternDefaultFace;
+    QFont* InternDefaultFont;
     QString* InternText;
     QTransform* InternIdentityForm;
 };

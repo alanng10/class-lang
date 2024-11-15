@@ -33,7 +33,7 @@ Int Draw_Init(Int o)
 
     QFont* ua;
     ua = new QFont(QApplication::font());
-    m->InternDefaultFace = ua;
+    m->InternDefaultFont = ua;
 
     QPainter* u;
     u = new QPainter;
@@ -47,7 +47,7 @@ Int Draw_Final(Int o)
     m = CP(o);
 
     delete m->Intern;
-    delete m->InternDefaultFace;
+    delete m->InternDefaultFont;
     delete m->InternText;
     delete m->InternIdentityForm;
 
@@ -149,21 +149,21 @@ Int Draw_LineSet(Int o, Int value)
     return true;
 }
 
-CppFieldGet(Draw, Face)
+CppFieldGet(Draw, Font)
 
-Int Draw_FaceSet(Int o, Int value)
+Int Draw_FontSet(Int o, Int value)
 {
     Draw* m;
     m = CP(o);
-    m->Face = value;
-    if (m->Face == null)
+    m->Font = value;
+    if (m->Font == null)
     {
-        m->Intern->setFont(*(m->InternDefaultFace));
+        m->Intern->setFont(*(m->InternDefaultFont));
         return true;
     }
 
     Int u;
-    u = Font_Intern(m->Face);
+    u = Font_Intern(m->Font);
     QFont* uu;
     uu = (QFont*)u;
     m->Intern->setFont(*uu);
