@@ -6,6 +6,7 @@ System.Infra
     Any Any
     Bool Bool
     Int Int
+    String String
 System.Console
     Console Console
 System.Entry
