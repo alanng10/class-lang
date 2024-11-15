@@ -41,8 +41,8 @@ typedef Int32 Char;
 #define Constant_ByteHexDigitCount() (2)
 #define Constant_HexDigitBitCount() (4)
 
-#define CastInt(o) ((Int)o)
-#define CastPointer(o) ((void*)o)
+#define CastInt(o) ((Int)(o))
+#define CastPointer(o) ((void*)(o))
 
 #define InfraApiNew(c) \
 Infra_Api Int c##_New();\
