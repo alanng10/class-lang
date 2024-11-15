@@ -6,9 +6,10 @@ The first tier is operate and execute lang elements except new, share, get, set 
 This tier is the fastest. It is faster than function call and effect load.
 
 The second tier is function call. This includes get, set, and call.
-This tier is the second fastest. It is faster than effect load.
+This tier is the second fastest. It is faster than memory allocation call and effect load.
 
 The third tier is memory allocation call. This includes new and share.
+This tier is faster than effect load.
 
 The fourth tier is effect load.
 
