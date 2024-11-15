@@ -160,7 +160,7 @@ public class Draw : Any
             {
                 u = this.FaceData.Intern;
             }
-            Extern.Draw_FaceSet(this.Intern, u);
+            Extern.Draw_FontSet(this.Intern, u);
         }
     }
 
