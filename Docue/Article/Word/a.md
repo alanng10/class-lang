@@ -60,7 +60,7 @@ Word "execute" has meaning that is do until done.
 
 Word "port" has meaning that is represented entity.
 
-Word "make" has meaning that is do resulting.
+Word "make" has meaning that is do new entity.
 
 Word "state" has meaning that is executable entity.
 
