@@ -149,8 +149,8 @@ Image
     VideoOut()
     DataCreate()
 
-Face
-    Family
+Font
+    Name
     Size
     Weight
     Italic
