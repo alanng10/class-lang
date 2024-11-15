@@ -28,7 +28,6 @@ class DeA : Dem
 
         console.Out.Write(a);
 
-
         var Data ka;
         ka : new Data;
         ka.Count : 10 * 1024 * 1024;
