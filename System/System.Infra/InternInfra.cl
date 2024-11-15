@@ -63,7 +63,7 @@ class InternInfra : Any
 
             internIntern.DataSet(data, index + i, o);
 
-            i = i + 1;
+            i : i + 1;
         }
         return true;
     }
