@@ -2,9 +2,9 @@
 
 Int Memory_M_K;
 
-Int New(Int count)
+Int New(Int k)
 {
-    if (count == 0)
+    if (k == 0)
     {
         Int d;
         d = CastInt(&Memory_M_K);
@@ -12,11 +12,45 @@ Int New(Int count)
     }
 
     void* p;
-    p = calloc(1, count);
+    p = calloc(1, k);
 
     if (p == null)
     {
         Exit(0x100);
+    }
+
+    Int kaa;
+    kaa = 4 * 1024;
+
+    Int ka;
+    ka = k / kaa;
+
+    Int kk;
+    kk = ka * kaa;
+
+    Int kh;
+    kh = k - kk;
+
+    if (0 < kh)
+    {
+        ka = ka + 1;
+    }
+
+    Byte* pp;
+    pp = p;
+
+    Int count;
+    count = ka;
+    Int i;
+    i = 0;
+    while (i < count)
+    {
+        Int index;
+        index = i * kaa;
+
+        pp[index] = 0;
+
+        i = i + 1;
     }
 
     Int a;
