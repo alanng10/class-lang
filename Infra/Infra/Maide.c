@@ -29,7 +29,7 @@ Int New(Int k)
     return a;
 }
 
-Int TriggerAlloc(Int k, Int memory)
+Int TrigAlloc(Int k, Int memory)
 {
     Int kaa;
     kaa = 4 * 1024;
