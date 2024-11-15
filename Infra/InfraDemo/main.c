@@ -59,7 +59,7 @@ Int PointListCount;
 
 Int PointListData;
 
-Int Face;
+Int Font;
 
 Int TextAlignHoriz;
 Int TextAlignVert;
@@ -422,7 +422,7 @@ Bool DrawHandle(Int frame, Int arg)
     Draw_ExecuteRect(Draw, RectA);
 
 
-    Draw_FaceSet(Draw, Face);
+    Draw_FontSet(Draw, Font);
 
     Draw_LineSet(Draw, PenText);
 
@@ -430,7 +430,7 @@ Bool DrawHandle(Int frame, Int arg)
 
     Draw_ExecuteText(Draw, Text, TextAlignHoriz, TextAlignVert, false, RectA, RectB);
 
-    Draw_FaceSet(Draw, null);
+    Draw_FontSet(Draw, null);
 
 
     Draw_End(Draw);
@@ -697,18 +697,18 @@ int main(int argc, char* argv[])
     }
 
 
-    Int faceFamily;
-    faceFamily = String_ConstantCreate(CastInt("Source Sans 3"));
+    Int fontName;
+    fontName = String_ConstantCreate(CastInt("Source Sans 3"));
 
-    Face = Face_New();
-    Face_FamilySet(Face, faceFamily);
-    Face_SizeSet(Face, 16);
-    Face_WeightSet(Face, 600);
-    Face_ItalicSet(Face, true);
-    Face_UnderlineSet(Face, true);
-    Face_OverlineSet(Face, true);
-    Face_StrikeoutSet(Face, true);
-    Face_Init(Face);
+    Font = Font_New();
+    Font_NameSet(Font, fontName);
+    Font_SizeSet(Font, 16);
+    Font_WeightSet(Font, 600);
+    Font_ItalicSet(Font, true);
+    Font_UnderlineSet(Font, true);
+    Font_OverlineSet(Font, true);
+    Font_StrikeoutSet(Font, true);
+    Font_Init(Font);
 
     TextAlignHoriz = Stat_TextAlignEnd(Stat);
     TextAlignVert = Stat_TextAlignMid(Stat);
@@ -1485,15 +1485,15 @@ int main(int argc, char* argv[])
 
 
 
-    Face_Final(Face);
+    Font_Final(Font);
 
 
-    Face_Delete(Face);
+    Font_Delete(Font);
 
 
 
 
-    String_ConstantDelete(faceFamily);
+    String_ConstantDelete(fontName);
 
 
 
