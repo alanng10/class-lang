@@ -5,6 +5,7 @@ class StringComp : Any
         base.Init();
         this.InternIntern : share Intern;
         this.InternInfra : share InternInfra;
+        this.InfraInfra : share InfraInfra;
         return true;
     }
     
