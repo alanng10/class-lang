@@ -1,6 +1,6 @@
 namespace View.Draw;
 
-public class Face : Any
+public class Font : Any
 {
     public override bool Init()
     {

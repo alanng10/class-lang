@@ -144,7 +144,7 @@ public class Draw : Any
 
     protected virtual Slash LineData { get; set; }
 
-    public virtual Face Face
+    public virtual Font Face
     {
         get
         {
@@ -164,7 +164,7 @@ public class Draw : Any
         }
     }
 
-    protected virtual Face FaceData { get; set; }
+    protected virtual Font FaceData { get; set; }
 
     public virtual Comp Comp
     {
