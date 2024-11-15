@@ -1,17 +1,17 @@
 #include "Font.hpp"
 
-CppClassNew(Face)
+CppClassNew(Font)
 
-Int Face_Init(Int o)
+Int Font_Init(Int o)
 {
-    Face* m;
+    Font* m;
     m = CP(o);
 
     QString familyString;
     Int ua;
     ua = CastInt(&familyString);
 
-    String_QStringSet(ua, m->Family);
+    String_QStringSet(ua, m->Name);
 
     int sizeU;
     sizeU = m->Size;
@@ -39,26 +39,26 @@ Int Face_Init(Int o)
     return true;
 }
 
-Int Face_Final(Int o)
+Int Font_Final(Int o)
 {
-    Face* m;
+    Font* m;
     m = CP(o);
 
     delete m->Intern;
     return true;
 }
 
-CppField(Face, Family)
-CppField(Face, Size)
-CppField(Face, Weight)
-CppField(Face, Italic)
-CppField(Face, Underline)
-CppField(Face, Overline)
-CppField(Face, Strikeout)
+CppField(Font, Name)
+CppField(Font, Size)
+CppField(Font, Weight)
+CppField(Font, Italic)
+CppField(Font, Underline)
+CppField(Font, Overline)
+CppField(Font, Strikeout)
 
-Int Face_Intern(Int o)
+Int Font_Intern(Int o)
 {
-    Face* m;
+    Font* m;
     m = CP(o);
     Int a;
     a = CastInt(m->Intern);

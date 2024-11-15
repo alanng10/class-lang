@@ -6,9 +6,9 @@
 
 #include "Pronate.hpp"
 
-struct Face
+struct Font
 {
-    Int Family;
+    Int Name;
     Int Size;
     Int Weight;
     Int Italic;
@@ -18,4 +18,4 @@ struct Face
     QFont* Intern;
 };
 
-#define CP(a) ((Face*)(a))
+#define CP(a) ((Font*)(a))
