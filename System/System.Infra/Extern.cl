@@ -303,24 +303,24 @@ class Extern : Any
     maide prusate Int Image_VideoOut(var Int o) { }
     maide prusate Int Image_DataCreate(var Int o) { }
 
-    maide prusate Int Face_New() { }
-    maide prusate Int Face_Delete(var Int o) { }
-    maide prusate Int Face_Init(var Int o) { }
-    maide prusate Int Face_Final(var Int o) { }
-    maide prusate Int Face_FamilyGet(var Int o) { }
-    maide prusate Int Face_FamilySet(var Int o, var Int value) { }
-    maide prusate Int Face_SizeGet(var Int o) { }
-    maide prusate Int Face_SizeSet(var Int o, var Int value) { }
-    maide prusate Int Face_WeightGet(var Int o) { }
-    maide prusate Int Face_WeightSet(var Int o, var Int value) { }
-    maide prusate Int Face_ItalicGet(var Int o) { }
-    maide prusate Int Face_ItalicSet(var Int o, var Int value) { }
-    maide prusate Int Face_UnderlineGet(var Int o) { }
-    maide prusate Int Face_UnderlineSet(var Int o, var Int value) { }
-    maide prusate Int Face_OverlineGet(var Int o) { }
-    maide prusate Int Face_OverlineSet(var Int o, var Int value) { }
-    maide prusate Int Face_StrikeoutGet(var Int o) { }
-    maide prusate Int Face_StrikeoutSet(var Int o, var Int value) { }
+    maide prusate Int Font_New() { }
+    maide prusate Int Font_Delete(var Int o) { }
+    maide prusate Int Font_Init(var Int o) { }
+    maide prusate Int Font_Final(var Int o) { }
+    maide prusate Int Font_NameGet(var Int o) { }
+    maide prusate Int Font_NameSet(var Int o, var Int value) { }
+    maide prusate Int Font_SizeGet(var Int o) { }
+    maide prusate Int Font_SizeSet(var Int o, var Int value) { }
+    maide prusate Int Font_WeightGet(var Int o) { }
+    maide prusate Int Font_WeightSet(var Int o, var Int value) { }
+    maide prusate Int Font_ItalicGet(var Int o) { }
+    maide prusate Int Font_ItalicSet(var Int o, var Int value) { }
+    maide prusate Int Font_UnderlineGet(var Int o) { }
+    maide prusate Int Font_UnderlineSet(var Int o, var Int value) { }
+    maide prusate Int Font_OverlineGet(var Int o) { }
+    maide prusate Int Font_OverlineSet(var Int o, var Int value) { }
+    maide prusate Int Font_StrikeoutGet(var Int o) { }
+    maide prusate Int Font_StrikeoutSet(var Int o, var Int value) { }
 
     maide prusate Int Form_New() { }
     maide prusate Int Form_Delete(var Int o) { }

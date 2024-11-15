@@ -3640,18 +3640,18 @@ Int Intern_Extern_Image_DataCreate(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_Face_New(Eval* eval, Int frame)
+Int Intern_Extern_Font_New(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 0;
 
     Int a;
-    a = Face_New();
+    a = Font_New();
 
     Return;
 }
 
-Int Intern_Extern_Face_Delete(Eval* eval, Int frame)
+Int Intern_Extern_Font_Delete(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -3659,12 +3659,12 @@ Int Intern_Extern_Face_Delete(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Face_Delete(a0);
+    a = Font_Delete(a0);
 
     Return;
 }
 
-Int Intern_Extern_Face_Init(Eval* eval, Int frame)
+Int Intern_Extern_Font_Init(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -3672,12 +3672,12 @@ Int Intern_Extern_Face_Init(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Face_Init(a0);
+    a = Font_Init(a0);
 
     Return;
 }
 
-Int Intern_Extern_Face_Final(Eval* eval, Int frame)
+Int Intern_Extern_Font_Final(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -3685,12 +3685,12 @@ Int Intern_Extern_Face_Final(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Face_Final(a0);
+    a = Font_Final(a0);
 
     Return;
 }
 
-Int Intern_Extern_Face_FamilyGet(Eval* eval, Int frame)
+Int Intern_Extern_Font_NameGet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -3698,12 +3698,12 @@ Int Intern_Extern_Face_FamilyGet(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Face_FamilyGet(a0);
+    a = Font_NameGet(a0);
 
     Return;
 }
 
-Int Intern_Extern_Face_FamilySet(Eval* eval, Int frame)
+Int Intern_Extern_Font_NameSet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -3712,12 +3712,12 @@ Int Intern_Extern_Face_FamilySet(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = Face_FamilySet(a0, a1);
+    a = Font_NameSet(a0, a1);
 
     Return;
 }
 
-Int Intern_Extern_Face_SizeGet(Eval* eval, Int frame)
+Int Intern_Extern_Font_SizeGet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -3725,12 +3725,12 @@ Int Intern_Extern_Face_SizeGet(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Face_SizeGet(a0);
+    a = Font_SizeGet(a0);
 
     Return;
 }
 
-Int Intern_Extern_Face_SizeSet(Eval* eval, Int frame)
+Int Intern_Extern_Font_SizeSet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -3739,12 +3739,12 @@ Int Intern_Extern_Face_SizeSet(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = Face_SizeSet(a0, a1);
+    a = Font_SizeSet(a0, a1);
 
     Return;
 }
 
-Int Intern_Extern_Face_WeightGet(Eval* eval, Int frame)
+Int Intern_Extern_Font_WeightGet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -3752,12 +3752,12 @@ Int Intern_Extern_Face_WeightGet(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Face_WeightGet(a0);
+    a = Font_WeightGet(a0);
 
     Return;
 }
 
-Int Intern_Extern_Face_WeightSet(Eval* eval, Int frame)
+Int Intern_Extern_Font_WeightSet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -3766,12 +3766,12 @@ Int Intern_Extern_Face_WeightSet(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = Face_WeightSet(a0, a1);
+    a = Font_WeightSet(a0, a1);
 
     Return;
 }
 
-Int Intern_Extern_Face_ItalicGet(Eval* eval, Int frame)
+Int Intern_Extern_Font_ItalicGet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -3779,12 +3779,12 @@ Int Intern_Extern_Face_ItalicGet(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Face_ItalicGet(a0);
+    a = Font_ItalicGet(a0);
 
     Return;
 }
 
-Int Intern_Extern_Face_ItalicSet(Eval* eval, Int frame)
+Int Intern_Extern_Font_ItalicSet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -3793,12 +3793,12 @@ Int Intern_Extern_Face_ItalicSet(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = Face_ItalicSet(a0, a1);
+    a = Font_ItalicSet(a0, a1);
 
     Return;
 }
 
-Int Intern_Extern_Face_UnderlineGet(Eval* eval, Int frame)
+Int Intern_Extern_Font_UnderlineGet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -3806,12 +3806,12 @@ Int Intern_Extern_Face_UnderlineGet(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Face_UnderlineGet(a0);
+    a = Font_UnderlineGet(a0);
 
     Return;
 }
 
-Int Intern_Extern_Face_UnderlineSet(Eval* eval, Int frame)
+Int Intern_Extern_Font_UnderlineSet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -3820,12 +3820,12 @@ Int Intern_Extern_Face_UnderlineSet(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = Face_UnderlineSet(a0, a1);
+    a = Font_UnderlineSet(a0, a1);
 
     Return;
 }
 
-Int Intern_Extern_Face_OverlineGet(Eval* eval, Int frame)
+Int Intern_Extern_Font_OverlineGet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -3833,12 +3833,12 @@ Int Intern_Extern_Face_OverlineGet(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Face_OverlineGet(a0);
+    a = Font_OverlineGet(a0);
 
     Return;
 }
 
-Int Intern_Extern_Face_OverlineSet(Eval* eval, Int frame)
+Int Intern_Extern_Font_OverlineSet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -3847,12 +3847,12 @@ Int Intern_Extern_Face_OverlineSet(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = Face_OverlineSet(a0, a1);
+    a = Font_OverlineSet(a0, a1);
 
     Return;
 }
 
-Int Intern_Extern_Face_StrikeoutGet(Eval* eval, Int frame)
+Int Intern_Extern_Font_StrikeoutGet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -3860,12 +3860,12 @@ Int Intern_Extern_Face_StrikeoutGet(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Face_StrikeoutGet(a0);
+    a = Font_StrikeoutGet(a0);
 
     Return;
 }
 
-Int Intern_Extern_Face_StrikeoutSet(Eval* eval, Int frame)
+Int Intern_Extern_Font_StrikeoutSet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -3874,7 +3874,7 @@ Int Intern_Extern_Face_StrikeoutSet(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = Face_StrikeoutSet(a0, a1);
+    a = Font_StrikeoutSet(a0, a1);
 
     Return;
 }
