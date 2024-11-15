@@ -19,6 +19,18 @@ Int New(Int k)
         Exit(0x100);
     }
 
+    Int memory;
+    memory = CastInt(p);
+
+    TriggerAlloc(k, memory);
+
+    Int a;
+    a = memory;
+    return a;
+}
+
+Int TriggerAlloc(Int k, Int memory)
+{
     Int kaa;
     kaa = 4 * 1024;
 
@@ -36,11 +48,12 @@ Int New(Int k)
         ka = ka + 1;
     }
 
-    Byte* pp;
-    pp = p;
+    Byte* p;
+    p = CastPointer(memory);
 
     Int count;
     count = ka;
+
     Int i;
     i = 0;
     while (i < count)
@@ -48,14 +61,12 @@ Int New(Int k)
         Int index;
         index = i * kaa;
 
-        pp[index] = 0;
+        p[index] = 0;
 
         i = i + 1;
     }
 
-    Int a;
-    a = CastInt(p);
-    return a;
+    return true;
 }
 
 Int Delete(Int o)

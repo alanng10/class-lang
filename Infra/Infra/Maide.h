@@ -4,3 +4,5 @@
 #include <string.h>
 
 #include "Pronate.h"
+
+Int TriggerAlloc(Int k, Int memory);
