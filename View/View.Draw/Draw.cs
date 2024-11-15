@@ -148,23 +148,23 @@ public class Draw : Any
     {
         get
         {
-            return this.FaceData;
+            return this.FontData;
         }
         set
         {
-            this.FaceData = value;
+            this.FontData = value;
 
             ulong u;
             u = 0;
-            if (!(this.FaceData == null))
+            if (!(this.FontData == null))
             {
-                u = this.FaceData.Intern;
+                u = this.FontData.Intern;
             }
             Extern.Draw_FontSet(this.Intern, u);
         }
     }
 
-    protected virtual Font FaceData { get; set; }
+    protected virtual Font FontData { get; set; }
 
     public virtual Comp Comp
     {
