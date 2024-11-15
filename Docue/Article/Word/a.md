@@ -236,6 +236,8 @@ Word "digit" has meaning that is number character.
 
 Word "format" has meaning that is interpreted in. 
 
+Word "parse" has meaning that is text interpret.
+
 Word "fill" has meaning that is set value in entire range.
 
 Word "join" has meaning that is combine.
