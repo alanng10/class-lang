@@ -7,9 +7,9 @@ Int Font_Init(Int o)
     Font* m;
     m = CP(o);
 
-    QString familyString;
+    QString nameString;
     Int ua;
-    ua = CastInt(&familyString);
+    ua = CastInt(&nameString);
 
     String_QStringSet(ua, m->Name);
 
@@ -31,7 +31,7 @@ Int Font_Init(Int o)
     bool strikeoutU;
     strikeoutU = m->Strikeout;
 
-    m->Intern = new QFont(familyString, sizeU, weightU, italicU);
+    m->Intern = new QFont(nameString, sizeU, weightU, italicU);
     m->Intern->setStyleHint(QFont::AnyStyle, QFont::PreferAntialias);
     m->Intern->setUnderline(underlineU);
     m->Intern->setOverline(overlineU);
