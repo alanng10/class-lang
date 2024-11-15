@@ -1,14 +1,16 @@
 # Execute
 
-Class System has 3 tier of execute certainty when execute module.
+Class System has 4 tier of execute certainty when execute module.
 
 The first tier is operate and execute lang elements except new, share, get, set and call.
 This tier is the fastest. It is faster than function call and effect load.
 
-The second tier is function call.
+The second tier is function call. This includes get, set, and call.
 This tier is the second fastest. It is faster than effect load.
 
-The third tier is effect load.
+The third tier is memory allocation call. This includes new and share.
+
+The fourth tier is effect load.
 
 Module execute speeds is measured in count of function call base line maximum duration.
 
