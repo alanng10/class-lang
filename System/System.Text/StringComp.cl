@@ -157,7 +157,7 @@ class StringComp : Any
     maide prusate Int Char(var String string, var Int index)
     {
         var Int count;
-        count = this.Count(string);
+        count : this.Count(string);
 
         inf (~this.InfraInfra.ValidIndex(count, index))
         {
