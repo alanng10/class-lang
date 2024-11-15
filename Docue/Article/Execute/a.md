@@ -2,7 +2,7 @@
 
 Class System has 3 tier of execute certainty when execute module.
 
-The first tier is operate and execute lang elements.
+The first tier is operate and execute lang elements except get, set and call.
 This tier is the fastest. It is faster than function call and effect load.
 
 The second tier is function call.
