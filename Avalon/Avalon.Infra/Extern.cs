@@ -245,8 +245,8 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Draw_FillPosSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Draw_LineGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong Draw_LineSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Draw_FaceGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Draw_FaceSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Draw_FontGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Draw_FontSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Draw_FormGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong Draw_FormSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Draw_CompGet(ulong o);

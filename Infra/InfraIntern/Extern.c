@@ -2823,7 +2823,7 @@ Int Intern_Extern_Draw_LineSet(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_Draw_FaceGet(Eval* eval, Int frame)
+Int Intern_Extern_Draw_FontGet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -2831,12 +2831,12 @@ Int Intern_Extern_Draw_FaceGet(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Draw_FaceGet(a0);
+    a = Draw_FontGet(a0);
 
     Return;
 }
 
-Int Intern_Extern_Draw_FaceSet(Eval* eval, Int frame)
+Int Intern_Extern_Draw_FontSet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -2845,7 +2845,7 @@ Int Intern_Extern_Draw_FaceSet(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = Draw_FaceSet(a0, a1);
+    a = Draw_FontSet(a0, a1);
 
     Return;
 }

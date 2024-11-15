@@ -236,8 +236,8 @@ class Extern : Any
     maide prusate Int Draw_FillPosSet(var Int o, var Int value) { }
     maide prusate Int Draw_LineGet(var Int o) { }
     maide prusate Int Draw_LineSet(var Int o, var Int value) { }
-    maide prusate Int Draw_FaceGet(var Int o) { }
-    maide prusate Int Draw_FaceSet(var Int o, var Int value) { }
+    maide prusate Int Draw_FontGet(var Int o) { }
+    maide prusate Int Draw_FontSet(var Int o, var Int value) { }
     maide prusate Int Draw_FormGet(var Int o) { }
     maide prusate Int Draw_FormSet(var Int o, var Int value) { }
     maide prusate Int Draw_CompGet(var Int o) { }
