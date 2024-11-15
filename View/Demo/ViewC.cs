@@ -36,13 +36,13 @@ class ViewC : ViewView
         rect.Size.Wed = this.MathInt(300);
         rect.Size.Het = this.MathInt(100);
 
-        draw.Face = this.Face;
+        draw.Font = this.Face;
         draw.Line = this.TextPen;
 
         draw.ExecuteText(this.Text, this.TextAlign, false, rect);
 
         draw.Line = null;
-        draw.Face = null;
+        draw.Font = null;
         return true;
     }
 }

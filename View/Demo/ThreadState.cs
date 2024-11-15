@@ -128,7 +128,7 @@ class ThreadState : State
         face.Strikeout = false;
         face.Init();
 
-        draw.Face = face;
+        draw.Font = face;
         draw.Line = slash;
         draw.Comp = compList.DestOut;
         draw.ExecuteText(text, textAlign, false, rectA);

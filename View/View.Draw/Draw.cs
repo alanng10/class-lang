@@ -144,7 +144,7 @@ public class Draw : Any
 
     protected virtual Slash LineData { get; set; }
 
-    public virtual Font Face
+    public virtual Font Font
     {
         get
         {
