@@ -22,6 +22,8 @@ Word "info" has meaning that is interpreted.
 
 Word "all" has meaning that is anything included.
 
+Word "source" has meaning that is make dependency.
+
 Word "docue" has meaning that is document.
 
 Word "define" has meaning that is definition.
