@@ -22,7 +22,7 @@ Int New(Int k)
     Int memory;
     memory = CastInt(p);
 
-    TriggerAlloc(k, memory);
+    TrigAlloc(k, memory);
 
     Int a;
     a = memory;
