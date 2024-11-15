@@ -386,6 +386,8 @@ Word "sec" has meaning that is date second.
 
 Word "total" has meaning that is entire sum.
 
+Word "trig" has meaning that is trigger.
+
 Word "media" has meaning that is contain video and audio.
 
 Word "play" has meaning that is execute media effect.
