@@ -122,6 +122,21 @@ class DeA : Dem
 
         k : this.StringBoolArg(true, true, 8, 8, this.Char("="));
 
+        this.Console.Out.Write("Demo Text 5555\n");
+
+        this.Console.Out.Write(k);
+
+        this.Console.Out.Write("Demo Text 6666\n");
+
+        k : this.StringTextArg(text, false, 9, 9, this.Char("0"));
+
+        this.Console.Out.Write("Demo Text 7777\n");
+
+        inf (k = null)
+        {
+            this.Console.Out.Write("Demo Text StringTextArg Null\n");
+        }
+
         this.Console.Out.Write(k);
 
         return true;
@@ -165,7 +180,7 @@ class DeA : Dem
 
         b : this.Format.ExecuteArgCount(this.FormatArg);
 
-        inf (!b)
+        inf (~b)
         {
             return null;
         }
@@ -175,7 +190,7 @@ class DeA : Dem
 
         b : this.Format.ExecuteArgResult(this.FormatArg, k);
 
-        inf (!b)
+        inf (~b)
         {
             return null;
         }
