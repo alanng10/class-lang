@@ -17,7 +17,7 @@ class ThreadState : State
 
         share Console.Out.Write("Thread State ExecuteMain Start\n");
 
-        this.Thread.ExxecuteMain();
+        this.Thread.ExecuteMain();
 
         share Console.Out.Write("Thread State ExecuteMain End\n");
 
