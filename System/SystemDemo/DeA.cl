@@ -142,7 +142,7 @@ class DeA : Dem
         return true;
     }
 
-    maide prusate String StringBoolArg(var Bool bool, var Bool alignLeft, var Int fieldWidth, var Int maxWidth, var Int fillChar)
+    maide prusate String StringBool(var Bool bool, var Bool alignLeft, var Int fieldWidth, var Int maxWidth, var Int fillChar)
     {
         var FormatArg arg;
         arg : this.FormatArg;
@@ -159,7 +159,7 @@ class DeA : Dem
         return this.StringWrite();
     }
 
-    maide prusate String StringIntArg(var Int int, var Int varBase, var Bool alignLeft, var Int fieldWidth, var Int maxWidth, var Int fillChar)
+    maide prusate String StringInt(var Int int, var Int varBase, var Bool alignLeft, var Int fieldWidth, var Int maxWidth, var Int fillChar)
     {
         var FormatArg arg;
         arg : this.FormatArg;
@@ -176,7 +176,7 @@ class DeA : Dem
         return this.StringWrite();
     }
 
-    maide prusate String StringTextArg(var Text text, var Bool alignLeft, var Int fieldWidth, var Int maxWidth, var Int fillChar)
+    maide prusate String StringText(var Text text, var Bool alignLeft, var Int fieldWidth, var Int maxWidth, var Int fillChar)
     {
         var FormatArg arg;
         arg : this.FormatArg;
@@ -190,10 +190,10 @@ class DeA : Dem
         arg.FillChar : fillChar;
         arg.Form : null;
 
-        return this.StringWrite();
+        return this.StringFormat();
     }
 
-    maide prusate String StringWrite()
+    maide prusate String StringFormat()
     {
         var Bool b;
 
