@@ -110,7 +110,6 @@ class DeA : Dem
 
         text : this.TextCreate("ffffffffffffffff");
 
-        var Int na;
         na : this.IntParse.Execute(text, 16, null);
 
         inf (na = null)
@@ -120,7 +119,6 @@ class DeA : Dem
 
         text : this.TextCreate("0000000000000000");
 
-        var Int na;
         na : this.IntParse.Execute(text, 16, null);
 
         inf (na = null)
