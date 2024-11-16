@@ -11,7 +11,7 @@ class TimeEventA : TimeEvent
 
         share Console.Out.Write("Time Event Elapse Phore Close\n");
 
-        this.Thread.Exit();
+        this.Thread.Exit(0);
 
         return true;
     }
