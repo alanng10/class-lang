@@ -14,7 +14,7 @@ class FormInfra : Any
         var Int ka;
         var Int kb;
         ka : this.Char("0");
-        ka : this.Char("9");
+        kb : this.Char("9");
 
         return this.Range(ka, kb, n);
     }
