@@ -49,7 +49,7 @@ class Network : Any
         extern : this.Extern;
 
         var Bool b;
-        b : (this.HostPeer = 0);
+        b : (this.HostPeer = null);
         inf (b)
         {
             this.Intern : extern.Network_New();
@@ -78,7 +78,7 @@ class Network : Any
         extern : this.Extern;
 
         var Bool b;
-        b : (this.HostPeer = 0);
+        b : (this.HostPeer = null);
         inf (b)
         {
             extern.Network_Final(this.Intern);

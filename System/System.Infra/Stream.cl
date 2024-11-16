@@ -16,7 +16,7 @@ class Stream : Any
         extern.Range_Init(this.InternRange);
         
         var Bool b;
-        b : (this.SetIntern = 0);
+        b : (this.SetIntern = null);
         
         inf (b)
         {
@@ -36,7 +36,7 @@ class Stream : Any
         var Extern extern;
         extern : this.Extern;
         
-        inf (this.SetIntern = 0)
+        inf (this.SetIntern = null)
         {
             extern.Stream_Final(this.Intern);
             extern.Stream_Delete(this.Intern);
