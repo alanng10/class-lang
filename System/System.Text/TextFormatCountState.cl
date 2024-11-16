@@ -6,7 +6,7 @@ class TextFormatCountState : FormatCountState
         arg : cast FormatArg(this.Arg);
         
         var Text text;
-        text = cast Text(arg.Value);
+        text : cast Text(arg.Value);
         
         var Int a;
         a : text.Range.Count;
