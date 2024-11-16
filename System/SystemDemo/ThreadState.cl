@@ -17,7 +17,7 @@ class ThreadState : State
         share Console.Out.Write("Thread State ExecuteMain Start\n");
 
         var ThreadThis threadThis;
-        threadThis : new TheradThis;
+        threadThis : new ThreadThis;
         threadThis.Init();
 
         threadThis.Thread.ExecuteMain();

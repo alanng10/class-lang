@@ -11,7 +11,7 @@ class TimeEventA : TimeEvent
         share Console.Out.Write("Time Event Elapse Phore Close\n");
 
         var ThreadThis threadThis;
-        threadThis : new TheradThis;
+        threadThis : new ThreadThis;
         threadThis.Init();
 
         threadThis.Thread.Exit(0);
