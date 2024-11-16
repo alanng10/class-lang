@@ -106,7 +106,41 @@ class DeA : Dem
             this.Console.Out.Write("Demo IntParse 1111\n");
         }
 
+        this.Console.Out.Write("Demo Text 1111\n");
+
+        text : this.TextCreate("3 4Eh");
+
+        this.Console.Out.Write("Demo Text 2222\n");
+
+        k : this.StringCreate(text);
+
+        this.Console.Out.Write("Demo Text 3333\n");
+
+        this.Console.Out.Write(k);
+
+        this.Console.Out.Write("Demo Text 4444\n");
+
+        k : this.StringTextArg(text, false, 7, 7, this.TextInfra.Char("0"));
+
+        this.Console.Out.Write(k);
+
         return true;
+    }
+
+    maide prusate String StringTextArg(var Text text, var Bool alignLeft, var Int fieldWidth, var Int maxWidth, var Int fillChar)
+    {
+        var FormatArg arg;
+        arg : this.FormatArg;
+
+        arg.Kind : 2;
+        arg.Value : text;
+        arg.Base : 0;
+        arg.AlignLeft : alignLeft;
+        arg.FieldWidth : fieldWidth;
+        arg.MaxWidth : maxWidth;
+        arg.FillChar : fillChar;
+
+        return this.StringWrite();
     }
 
     maide prusate String StringWrite()
@@ -119,7 +153,7 @@ class DeA : Dem
         this.Format.ExecuteArgResult(this.FormatArg, k);
 
         var String a;
-        a : this.StringCreate(aa);
+        a : this.StringCreate(k);
 
         return a;
     }
@@ -127,6 +161,11 @@ class DeA : Dem
     maide prusate String StringCreate(var Text text)
     {
         return this.TextInfra.StringCreate(text);
+    }
+
+    maide prusate Text TextCreate(var String k)
+    {
+        return this.TextInfra.TextCreateStringData(k, null);
     }
 
     maide private DeA AddClear()
