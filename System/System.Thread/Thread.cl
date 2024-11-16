@@ -62,6 +62,20 @@ class Thread : Any
     
     field prusate State ExecuteState { get { return data; } set { data : value; } }
     field prusate Any Any { get { return data; } set { data : value; } }
+
+    field prusate Int Status
+    {
+        get
+        {
+            var Int a;
+            a : this.Extern.Thread_StatusGet(this.Intern);
+            return a;
+        }
+        set
+        {
+        }
+    }
+
     field private Intern InternIntern { get { return data; } set { data : value; } }
     field private Extern Extern { get { return data; } set { data : value; } }
     field private InternInfra InternInfra { get { return data; } set { data : value; } }
