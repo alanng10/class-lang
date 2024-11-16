@@ -108,7 +108,7 @@ class DeA : Dem
 
         this.Console.Out.Write("Demo Text 1111\n");
 
-        text : this.TextCreate("h j");
+        text : this.TextCreate("h j\n");
 
         this.Console.Out.Write("Demo Text 2222\n");
 
@@ -128,16 +128,11 @@ class DeA : Dem
 
         this.Console.Out.Write("Demo Text 6666\n");
 
-        k : this.StringText(text, true, 6, 6, this.Char("#"));
+        k : this.StringText(text, false, 6, 6, this.Char("#"));
 
         this.Console.Out.Write("Demo Text 7777\n");
 
         this.Console.Out.Write(k);
-
-        inf (this.TextInfra = this.TextInfra)
-        {
-            this.Console.Out.Write("Demo Text 8888\n");
-        }
 
         return true;
     }
