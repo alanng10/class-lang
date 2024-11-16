@@ -132,8 +132,8 @@ public class Infra : Any
 
         o = o & ka;
 
-        long revision;
-        revision = o & 0xff;
+        long revise;
+        revise = o & 0xff;
 
         long minor;
         minor = (o >> 8) & 0xff;
@@ -156,7 +156,7 @@ public class Infra : Any
         arg.MaxWidth = 2;
         arg.FillChar = '0';
 
-        arg.Value.Int = revision;
+        arg.Value.Int = revise;
 
         write.ExecuteArgCount(arg);
 
