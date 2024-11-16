@@ -13,8 +13,8 @@ public class Base : Any
 
         this.StringAdd = this.CreateStringAdd();
 
-        this.Write = this.CreateWrite();
-        this.WriteArg = this.CreateWriteArg();
+        this.Format = this.CreateFormat();
+        this.FormatArg = this.CreateFormatArg();
 
         this.IntParse = this.CreateIntParse();
 
@@ -65,8 +65,8 @@ public class Base : Any
     protected virtual StringData StringDataD { get; set; }
     protected virtual StringData StringDataE { get; set; }
     protected virtual StringData StringDataF { get; set; }
-    protected virtual Write Write { get; set; }
-    protected virtual WriteArg WriteArg { get; set; }
+    protected virtual Format Format { get; set; }
+    protected virtual FormatArg FormatArg { get; set; }
     protected virtual String Indent { get; set; }
 
     protected virtual StringAdd CreateStringAdd()
@@ -77,18 +77,18 @@ public class Base : Any
         return a;
     }
 
-    protected virtual Write CreateWrite()
+    protected virtual Format CreateFormat()
     {
-        Write a;
-        a = new Write();
+        Format a;
+        a = new Format();
         a.Init();
         return a;
     }
 
-    protected virtual WriteArg CreateWriteArg()
+    protected virtual FormatArg CreateFormatArg()
     {
-        WriteArg a;
-        a = new WriteArg();
+        FormatArg a;
+        a = new FormatArg();
         a.Init();
         return a;
     }
@@ -241,8 +241,8 @@ public class Base : Any
 
     public virtual String StringIntArg(long n, long varBase, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
     {
-        WriteArg arg;
-        arg = this.WriteArg;
+        FormatArg arg;
+        arg = this.FormatArg;
 
         arg.Kind = 1;
         arg.Value.Int = n;
@@ -257,8 +257,8 @@ public class Base : Any
 
     public virtual String StringTextArg(Text text, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
     {
-        WriteArg arg;
-        arg = this.WriteArg;
+        FormatArg arg;
+        arg = this.FormatArg;
 
         arg.Kind = 2;
         arg.Value.Any = text;
@@ -273,12 +273,12 @@ public class Base : Any
 
     public virtual String StringWrite()
     {
-        this.Write.ExecuteArgCount(this.WriteArg);
+        this.Format.ExecuteArgCount(this.FormatArg);
 
         Text aa;
-        aa = this.TextInfra.TextCreate(this.WriteArg.Count);
+        aa = this.TextInfra.TextCreate(this.FormatArg.Count);
 
-        this.Write.ExecuteArgResult(this.WriteArg, aa);
+        this.Format.ExecuteArgResult(this.FormatArg, aa);
 
         String a;
         a = this.StringCreate(aa);

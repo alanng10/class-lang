@@ -141,12 +141,12 @@ public class Infra : Any
         long major;
         major = o >> 16;
 
-        Write write;
-        write = new Write();
+        Format write;
+        write = new Format();
         write.Init();
 
-        WriteArg arg;
-        arg = new WriteArg();
+        FormatArg arg;
+        arg = new FormatArg();
         arg.Init();
 
         arg.Kind = 1;
