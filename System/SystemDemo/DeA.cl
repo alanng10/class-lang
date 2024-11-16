@@ -120,11 +120,27 @@ class DeA : Dem
 
         this.Console.Out.Write("Demo Text 4444\n");
 
-        k : this.StringTextArg(text, false, 7, 7, this.TextInfra.Char("0"));
+        k : this.StringBoolArg(true, false, 7, 7, this.TextInfra.Char("0"));
 
         this.Console.Out.Write(k);
 
         return true;
+    }
+
+    maide prusate String StringBoolArg(var Bool bool, var Bool alignLeft, var Int fieldWidth, var Int maxWidth, var Int fillChar)
+    {
+        var FormatArg arg;
+        arg : this.FormatArg;
+
+        arg.Kind : 0;
+        arg.Value : bool;
+        arg.Base : 0;
+        arg.AlignLeft : alignLeft;
+        arg.FieldWidth : fieldWidth;
+        arg.MaxWidth : maxWidth;
+        arg.FillChar : fillChar;
+
+        return this.StringWrite();
     }
 
     maide prusate String StringTextArg(var Text text, var Bool alignLeft, var Int fieldWidth, var Int maxWidth, var Int fillChar)
