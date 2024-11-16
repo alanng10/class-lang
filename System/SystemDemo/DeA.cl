@@ -122,7 +122,7 @@ class DeA : Dem
 
         this.Console.Out.Write("Demo Text 4444\n");
 
-        k : this.StringBool(true, true, 8, 8, this.Char("="));
+        k : this.StringBoolFormat(true, true, 8, 8, this.Char("="));
 
         this.Console.Out.Write("Demo Text 5555\n");
 
@@ -130,7 +130,7 @@ class DeA : Dem
 
         this.Console.Out.Write("Demo Text 6666\n");
 
-        k : this.StringText(text, false, 6, 6, this.Char("#"));
+        k : this.StringTextFormat(text, false, 6, 6, this.Char("#"));
 
         this.Console.Out.Write("Demo Text 7777\n");
 
@@ -138,16 +138,33 @@ class DeA : Dem
 
         this.Console.Out.Write("Demo Text 8888\n");
 
-        k : this.StringInt(0h1e4fd8, 16, true, 10, null, this.Char("="));
+        k : this.StringIntFormat(0h1e4fd8, 16, true, 10, null, this.Char("="));
 
         this.Console.Out.Write("Demo Text 9999\n");
 
+        this.Console.Out.Write(this.AddClear().Add(k).AddLine().AddResult());
+
+        this.Console.Out.Write(this.AddClear().Add(this.StringInt(89542)).AddLine().AddResult());
+
+        this.Console.Out.Write("Demo Storage 1111\n");
+
+        k : this.StorageInfra.TextRead("../../DemoA.txt");
+
+        this.Console.Out.Write("Demo Storage 2222\n");
+
         this.Console.Out.Write(k);
+
+        this.Console.Out.Write("Demo Execute End\n");
 
         return true;
     }
 
-    maide prusate String StringBool(var Bool bool, var Bool alignLeft, var Int fieldWidth, var Int maxWidth, var Int fillChar)
+    maide prusate String StringInt(var Int int)
+    {
+        return this.StringIntFormat(int, 10, false, 0, null, 0);
+    }
+
+    maide prusate String StringBoolFormat(var Bool bool, var Bool alignLeft, var Int fieldWidth, var Int maxWidth, var Int fillChar)
     {
         var FormatArg arg;
         arg : this.FormatArg;
@@ -164,7 +181,7 @@ class DeA : Dem
         return this.StringFormat();
     }
 
-    maide prusate String StringInt(var Int int, var Int varBase, var Bool alignLeft, var Int fieldWidth, var Int maxWidth, var Int fillChar)
+    maide prusate String StringIntFormat(var Int int, var Int varBase, var Bool alignLeft, var Int fieldWidth, var Int maxWidth, var Int fillChar)
     {
         var FormatArg arg;
         arg : this.FormatArg;
@@ -181,7 +198,7 @@ class DeA : Dem
         return this.StringFormat();
     }
 
-    maide prusate String StringText(var Text text, var Bool alignLeft, var Int fieldWidth, var Int maxWidth, var Int fillChar)
+    maide prusate String StringTextFormat(var Text text, var Bool alignLeft, var Int fieldWidth, var Int maxWidth, var Int fillChar)
     {
         var FormatArg arg;
         arg : this.FormatArg;
@@ -240,24 +257,24 @@ class DeA : Dem
         return this.TextInfra.TextCreateStringData(k, null);
     }
 
-    maide private DeA AddClear()
+    maide prusate DeA AddClear()
     {
         this.StringAdd.Clear();
         return this;
     }
 
-    maide private String AddResult()
+    maide prusate String AddResult()
     {
         return this.StringAdd.Result();
     }
 
-    maide private DeA Add(var String k)
+    maide prusate DeA Add(var String k)
     {
         this.TextInfra.AddString(this.StringAdd, k);
         return this;
     }
 
-    maide private DeA AddLine()
+    maide prusate DeA AddLine()
     {
         return this.Add("\n");
     }
