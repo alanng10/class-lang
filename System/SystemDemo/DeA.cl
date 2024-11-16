@@ -10,7 +10,8 @@ class DeA : Dem
         console.Out.Write("Demo ABCD AAAA BBBB\n");
 
         var String k;
-        k : console.Inn.Read();
+        #k : console.Inn.Read();
+        k : "kkk";
 
         this.TextInfra : share TextInfra;
 
@@ -28,14 +29,14 @@ class DeA : Dem
 
         console.Out.Write(a);
 
-        console.Inn.Read();
+        #console.Inn.Read();
 
-        var Data ka;
-        ka : new Data;
-        ka.Count : 10 * 1024 * 1024;
-        ka.Init();
+        #var Data ka;
+        #ka : new Data;
+        #ka.Count : 10 * 1024 * 1024;
+        #ka.Init();
 
-        console.Inn.Read();
+        #console.Inn.Read();
 
         console.Out.Write("Demo HHHH\n");
 
@@ -83,6 +84,25 @@ class DeA : Dem
         
         var Text text;
         text : this.TextInfra.TextCreateStringData("1000", null);
+
+        var Int nn;
+        nn : this.TextInfra.Char("9");
+
+        var Bool ba;
+        ba : this.TextInfra.Digit(nn);
+
+        inf (ba)
+        {
+            console.Out.Write("Demo Digit 1111\n");
+        }
+
+        var Int kkk;
+        kkk : this.TextInfra.DigitValue(nn, 10);
+
+        inf (kkk = 9)
+        {
+            console.Out.Write("Demo DigitValue 1111\n");
+        }
 
         #var String kk;
         #kk : this.StringComp.CreateData(text.Data, text.Range);
