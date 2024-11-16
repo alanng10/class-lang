@@ -156,7 +156,7 @@ class DeA : Dem
         arg.FillChar : fillChar;
         arg.Form : null;
 
-        return this.StringWrite();
+        return this.StringFormat();
     }
 
     maide prusate String StringInt(var Int int, var Int varBase, var Bool alignLeft, var Int fieldWidth, var Int maxWidth, var Int fillChar)
@@ -173,7 +173,7 @@ class DeA : Dem
         arg.FillChar : fillChar;
         arg.Form : null;
 
-        return this.StringWrite();
+        return this.StringFormat();
     }
 
     maide prusate String StringText(var Text text, var Bool alignLeft, var Int fieldWidth, var Int maxWidth, var Int fillChar)
