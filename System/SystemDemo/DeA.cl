@@ -112,21 +112,6 @@ class DeA : Dem
 
         this.Console.Out.Write("Demo Text 2222\n");
 
-        inf (text.Range = null)
-        {
-            this.Console.Out.Write("Demo Text 2222 1111\n");
-        }
-
-        inf (text.Range.Index = null)
-        {
-            this.Console.Out.Write("Demo Text 2222 2222\n");
-        }
-
-        inf (text.Range.Count = null)
-        {
-            this.Console.Out.Write("Demo Text 2222 3333\n");
-        }
-
         k : this.StringCreate(text);
 
         this.Console.Out.Write("Demo Text 3333\n");
@@ -146,11 +131,6 @@ class DeA : Dem
         k : this.StringTextArg(text, false, 9, 9, this.Char("0"));
 
         this.Console.Out.Write("Demo Text 7777\n");
-
-        inf (k = null)
-        {
-            this.Console.Out.Write("Demo Text StringTextArg Null\n");
-        }
 
         this.Console.Out.Write(k);
 
