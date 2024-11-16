@@ -113,7 +113,7 @@ class DeA : Dem
         var Int na;
         na : this.IntParse.Execute(text, 16, null);
 
-        inf (na == null)
+        inf (na = null)
         {
             this.Console.Out.Write("Demo IntParse 2222\n");
         }
@@ -123,7 +123,7 @@ class DeA : Dem
         var Int na;
         na : this.IntParse.Execute(text, 16, null);
 
-        inf (na == null)
+        inf (na = null)
         {
             this.Console.Out.Write("Demo IntParse 3333\n");
         }
