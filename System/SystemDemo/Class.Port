@@ -16,6 +16,8 @@ System.Text
     StringComp StringComp
     StringAdd StringAdd
     TextInfra Infra
+System.Storage
+    StorageInfra Infra
 System.Console
     Console Console
 System.Entry

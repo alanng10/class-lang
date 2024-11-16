@@ -4,6 +4,7 @@ class DeA : Dem
     {
         base.Init();
         this.TextInfra : share TextInfra;
+        this.StorageInfra : share StorageInfra;
         this.StringComp : share StringComp;
         this.Console : share Console;
 
@@ -15,6 +16,7 @@ class DeA : Dem
     }
 
     field precate TextInfra TextInfra { get { return data; } set { data : value; } }
+    field precate StorageInfra StorageInfra { get { return data; } set { data : value; } }
     field precate StringComp StringComp { get { return data; } set { data : value; } }
     field precate Console Console { get { return data; } set { data : value; } }
     field private Format Format { get { return data; } set { data : value; } }
