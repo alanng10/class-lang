@@ -222,6 +222,8 @@ class DeA : Dem
 
         this.Console.Out.Write("Demo Phore Open After 1111\n");
 
+        thread.Wait();
+
         thread.Final();
 
         phore.Final();
