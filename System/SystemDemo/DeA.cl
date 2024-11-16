@@ -223,6 +223,8 @@ class DeA : Dem
 
         thread.Wait();
 
+        this.Console.Out.Write(this.AddClear().Add("Thread Status: ").Add(this.StringInt(thread.Status)).AddLine().AddResult());
+
         thread.Final();
 
         phore.Final();

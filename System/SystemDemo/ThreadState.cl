@@ -20,11 +20,14 @@ class ThreadState : State
         threadThis : new ThreadThis;
         threadThis.Init();
 
-        threadThis.Thread.ExecuteMain();
+        var Int a;
+        a : threadThis.Thread.ExecuteMain();
 
         share Console.Out.Write("Thread State ExecuteMain End\n");
 
         timeEvent.Final();
+
+        this.Result : a;
 
         return true;
     }
