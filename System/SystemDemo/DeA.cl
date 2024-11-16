@@ -161,12 +161,24 @@ class DeA : Dem
 
     maide prusate String StringWrite()
     {
-        this.Format.ExecuteArgCount(this.FormatArg);
+        var Bool b;
+
+        b : this.Format.ExecuteArgCount(this.FormatArg);
+
+        inf (!b)
+        {
+            return null;
+        }
 
         var Text k;
         k : this.TextInfra.TextCreate(this.FormatArg.Count);
 
-        this.Format.ExecuteArgResult(this.FormatArg, k);
+        b : this.Format.ExecuteArgResult(this.FormatArg, k);
+
+        inf (!b)
+        {
+            return null;
+        }
 
         var String a;
         a : this.StringCreate(k);
