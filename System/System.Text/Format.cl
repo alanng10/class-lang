@@ -525,7 +525,7 @@ class Format : Any
         {
             return false;
         }
-        
+
         inf (arg.Value = null)
         {
             return false;
