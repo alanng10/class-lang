@@ -134,6 +134,14 @@ class DeA : Dem
 
         this.Console.Out.Write(k);
 
+        this.Console.Out.Write("Demo Text 8888\n");
+
+        k : this.StringInt(1000000, 10, false, 0, null, 0);
+
+        this.Console.Out.Write("Demo Text 9999\n");
+
+        this.Console.Out.Write(k);
+
         return true;
     }
 
