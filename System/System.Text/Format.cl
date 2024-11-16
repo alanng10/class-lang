@@ -538,7 +538,7 @@ class Format : Any
                 return false;
             }
         }
-        inf (kind = 3)
+        inf (kind = 2)
         {
             var Text text;
             text : cast Text(arg.Value);
