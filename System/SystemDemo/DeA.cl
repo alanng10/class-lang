@@ -120,7 +120,7 @@ class DeA : Dem
 
         this.Console.Out.Write("Demo Text 4444\n");
 
-        k : this.StringBoolArg(true, true, 8, 8, this.Char("="));
+        k : this.StringBool(true, true, 8, 8, this.Char("="));
 
         this.Console.Out.Write("Demo Text 5555\n");
 
@@ -128,7 +128,7 @@ class DeA : Dem
 
         this.Console.Out.Write("Demo Text 6666\n");
 
-        k : this.StringTextArg(text, true, 6, 6, this.Char("#"));
+        k : this.StringText(text, true, 6, 6, this.Char("#"));
 
         this.Console.Out.Write("Demo Text 7777\n");
 
