@@ -159,6 +159,23 @@ class DeA : Dem
         return this.StringWrite();
     }
 
+    maide prusate String StringIntArg(var Int int, var Int varBase, var Bool alignLeft, var Int fieldWidth, var Int maxWidth, var Int fillChar)
+    {
+        var FormatArg arg;
+        arg : this.FormatArg;
+
+        arg.Kind : 1;
+        arg.Value : int;
+        arg.Base : varBase;
+        arg.AlignLeft : alignLeft;
+        arg.FieldWidth : fieldWidth;
+        arg.MaxWidth : maxWidth;
+        arg.FillChar : fillChar;
+        arg.Form : null;
+
+        return this.StringWrite();
+    }
+
     maide prusate String StringTextArg(var Text text, var Bool alignLeft, var Int fieldWidth, var Int maxWidth, var Int fillChar)
     {
         var FormatArg arg;
