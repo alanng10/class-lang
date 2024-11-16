@@ -8,6 +8,7 @@ System.Infra
     Int Int
     String String
     Data Data
+    State State
 System.Text
     Text Text
     Format Format
@@ -16,6 +17,11 @@ System.Text
     StringComp StringComp
     StringAdd StringAdd
     TextInfra Infra
+System.Thread
+    Thread Thread
+    Phore Phore
+System.Time
+    TimeEvent Event
 System.Storage
     StorageInfra Infra
 System.Console
