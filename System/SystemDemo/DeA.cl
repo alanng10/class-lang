@@ -120,7 +120,7 @@ class DeA : Dem
 
         this.Console.Out.Write("Demo Text 4444\n");
 
-        k : this.StringBoolArg(true, false, 7, 7, this.TextInfra.Char("0"));
+        k : this.StringBoolArg(true, true, 8, 8, this.Char("="));
 
         this.Console.Out.Write(k);
 
@@ -177,6 +177,11 @@ class DeA : Dem
     maide prusate String StringCreate(var Text text)
     {
         return this.TextInfra.StringCreate(text);
+    }
+
+    maide prusate Int Char(var String k)
+    {
+        return this.TextInfra.Char(k);
     }
 
     maide prusate Text TextCreate(var String k)
