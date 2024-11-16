@@ -109,6 +109,21 @@ class DeA : Dem
         return true;
     }
 
+    maide prusate String StringWrite()
+    {
+        this.Format.ExecuteArgCount(this.FormatArg);
+
+        var Text k;
+        k : this.TextInfra.TextCreate(this.FormatArg.Count);
+
+        this.Format.ExecuteArgResult(this.FormatArg, k);
+
+        var String a;
+        a : this.StringCreate(aa);
+
+        return a;
+    }
+
     maide prusate String StringCreate(var Text text)
     {
         return this.TextInfra.StringCreate(text);
