@@ -14,7 +14,7 @@ class TimeEventA : TimeEvent
         threadThis : new ThreadThis;
         threadThis.Init();
 
-        threadThis.Thread.Exit(0);
+        threadThis.Thread.Exit(93824);
 
         return true;
     }
