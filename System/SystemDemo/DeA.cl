@@ -126,13 +126,31 @@ class DeA : Dem
             this.Console.Out.Write("Demo IntParse 3333\n");
         }
 
+        text : this.TextCreate("1000000000000000");
+
+        na : this.IntParse.Execute(text, 16, null);
+
+        inf (na = null)
+        {
+            this.Console.Out.Write("Demo IntParse 4444\n");
+        }
+
         text : this.TextCreate("000000000000000");
 
         na : this.IntParse.Execute(text, 16, null);
 
         inf (na = 0)
         {
-            this.Console.Out.Write("Demo IntParse 4444\n");
+            this.Console.Out.Write("Demo IntParse 5555\n");
+        }
+
+        text : this.TextCreate("800000000000000");
+
+        na : this.IntParse.Execute(text, 16, null);
+
+        inf (na = 0h800000000000000)
+        {
+            this.Console.Out.Write("Demo IntParse 6666\n");
         }
 
         this.Console.Out.Write("Demo Text 1111\n");
