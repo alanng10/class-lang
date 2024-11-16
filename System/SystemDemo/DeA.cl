@@ -199,6 +199,10 @@ class DeA : Dem
 
         this.Console.Out.Write(k);
 
+        var Phore phore;
+        phore : new Phore;
+        phore.Init();
+
         var ThreadState threadState;
         threadState : new ThreadState;
         threadState.Init();
@@ -208,10 +212,19 @@ class DeA : Dem
         thread.Init();
 
         threadState.Thread : thread;
+        threadState.Phore : phore
 
         thread.ExecuteState : threadState;
 
+        thread.Execute();
+
+        phore.Open();
+
+        this.Console.Out.Write("Demo Phore Open After 1111\n");
+
         thread.Final();
+
+        phore.Final();
 
         this.Console.Out.Write("Demo Execute End\n");
 
