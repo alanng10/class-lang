@@ -112,6 +112,21 @@ class DeA : Dem
 
         this.Console.Out.Write("Demo Text 2222\n");
 
+        inf (text.Range = null)
+        {
+            this.Console.Out.Write("Demo Text 2222 1111\n");
+        }
+
+        inf (text.Range.Index = null)
+        {
+            this.Console.Out.Write("Demo Text 2222 2222\n");
+        }
+
+        inf (text.Range.Count = null)
+        {
+            this.Console.Out.Write("Demo Text 2222 3333\n");
+        }
+
         k : this.StringCreate(text);
 
         this.Console.Out.Write("Demo Text 3333\n");
@@ -154,6 +169,7 @@ class DeA : Dem
         arg.FieldWidth : fieldWidth;
         arg.MaxWidth : maxWidth;
         arg.FillChar : fillChar;
+        arg.Form : null;
 
         return this.StringWrite();
     }
@@ -170,6 +186,7 @@ class DeA : Dem
         arg.FieldWidth : fieldWidth;
         arg.MaxWidth : maxWidth;
         arg.FillChar : fillChar;
+        arg.Form : null;
 
         return this.StringWrite();
     }
