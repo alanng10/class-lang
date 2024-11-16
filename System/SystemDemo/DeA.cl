@@ -211,7 +211,6 @@ class DeA : Dem
         thread : new Thread;
         thread.Init();
 
-        threadState.Thread : thread;
         threadState.Phore : phore;
 
         thread.ExecuteState : threadState;

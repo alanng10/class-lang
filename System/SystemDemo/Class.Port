@@ -20,6 +20,7 @@ System.Text
 System.Thread
     Thread Thread
     Phore Phore
+    ThreadThis This
 System.Time
     TimeEvent Event
 System.Storage

@@ -1,6 +1,5 @@
 class TimeEventA : TimeEvent
 {
-    field prusate Thread Thread { get { return data; } set { data : value; } }    
     field prusate Phore Phore { get { return data; } set { data : value; } }
 
     maide prusate Bool Elapse()
@@ -11,7 +10,11 @@ class TimeEventA : TimeEvent
 
         share Console.Out.Write("Time Event Elapse Phore Close\n");
 
-        this.Thread.Exit(0);
+        var ThreadThis threadThis;
+        threadThis : new TheradThis;
+        threadThis.Init();
+
+        threadThis.Thread.Exit(0);
 
         return true;
     }

@@ -1,6 +1,5 @@
 class ThreadState : State
 {
-    field prusate Thread Thread { get { return data; } set { data : value; } }
     field prusate Phore Phore { get { return data; } set { data : value; } }
 
     maide prusate Bool Execute()
@@ -11,14 +10,17 @@ class ThreadState : State
 
         timeEvent.Time : 3 * 1000;
 
-        timeEvent.Thread : this.Thread;
         timeEvent.Phore : this.Phore;
 
         timeEvent.Start();
 
         share Console.Out.Write("Thread State ExecuteMain Start\n");
 
-        this.Thread.ExecuteMain();
+        var ThreadThis threadThis;
+        threadThis : new TheradThis;
+        threadThis.Init();
+
+        threadThis.Thread.ExecuteMain();
 
         share Console.Out.Write("Thread State ExecuteMain End\n");
 
