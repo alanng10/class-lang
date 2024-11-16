@@ -83,7 +83,7 @@ class DeA : Dem
         #console.Inn.Read();
 
         this.Console.Out.Write("Demo HHHH\n");
-        
+
         var Text text;
         text : this.TextInfra.TextCreateStringData("fffffffffffffff", null);
 
