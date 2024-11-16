@@ -6,8 +6,16 @@ class Phore : Any
         this.Extern : share Extern;
         var Extern extern;
         extern : this.Extern;
+
+        var Int k;
+        k : 0;
+        inf (~(this.InitCount = null))
+        {
+            k : this.InitCount;
+        }
+
         this.Intern : extern.Phore_New();
-        extern.Phore_InitCountSet(this.Intern, this.InitCount);
+        extern.Phore_InitCountSet(this.Intern, k);
         extern.Phore_Init(this.Intern);
         return true;
     }
