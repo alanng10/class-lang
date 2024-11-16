@@ -11,6 +11,8 @@ class ThreadState : State
 
         timeEvent.Time : 3 * 1000;
 
+        timeEvent.Phore : this.Phore;
+
         timeEvent.Start();
 
         share Console.Out.Write("Thread State ExecuteMain Start\n");

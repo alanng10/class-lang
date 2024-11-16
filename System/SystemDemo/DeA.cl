@@ -199,6 +199,20 @@ class DeA : Dem
 
         this.Console.Out.Write(k);
 
+        var ThreadState threadState;
+        threadState : new ThreadState;
+        threadState.Init();
+
+        var Thread thread;
+        thread : new Thread;
+        thread.Init();
+
+        threadState.Thread : thread;
+
+        thread.ExecuteState : threadState;
+
+        thread.Final();
+
         this.Console.Out.Write("Demo Execute End\n");
 
         return true;
