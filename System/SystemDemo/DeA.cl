@@ -154,14 +154,6 @@ class DeA : Dem
 
         this.Console.Out.Write(k);
 
-        this.Console.Out.Write("Demo Storage 3333\n");
-        
-        this.StorageInfra.TextWrite("../../DemoB.txt", "Demo Storage Read 1111 2222\n");
-        
-        k : this.StorageInfra.TextRead("../../DemoB.txt");
-
-        this.Console.Out.Write("Demo Storage 4444\n");
-        
         this.Console.Out.Write(k);
 
         this.Console.Out.Write("Demo Execute End\n");
