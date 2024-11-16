@@ -331,7 +331,7 @@ class Format : Any
 
             inf (~baa)
             {
-                n : form.Execute(n);    
+                n : form.Execute(n);
             }
             
             textInfra.DataCharSet(destData, destIndex + i, n);
