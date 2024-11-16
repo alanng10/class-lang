@@ -154,8 +154,6 @@ class DeA : Dem
 
         this.Console.Out.Write(k);
 
-        this.Console.Out.Write(k);
-
         this.Console.Out.Write("Demo Execute End\n");
 
         return true;
