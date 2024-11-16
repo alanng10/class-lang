@@ -136,7 +136,7 @@ class DeA : Dem
 
         this.Console.Out.Write("Demo Text 8888\n");
 
-        k : this.StringInt(1000000, 10, false, 0, null, 0);
+        k : this.StringInt(0h1e4fd8, 16, true, 10, null, this.Char("="));
 
         this.Console.Out.Write("Demo Text 9999\n");
 
