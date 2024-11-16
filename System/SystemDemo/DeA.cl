@@ -83,7 +83,7 @@ class DeA : Dem
         this.IntParse.Init();
         
         var Text text;
-        text : this.TextInfra.TextCreateStringData("1000", null);
+        text : this.TextInfra.TextCreateStringData("fffffffffffffff", null);
 
         var Int nn;
         nn : this.TextInfra.Char("9");
@@ -110,14 +110,30 @@ class DeA : Dem
         #console.Out.Write(kk);
 
         var Int na;
-        na : this.IntParse.Execute(text, 10, null);
+        na : this.IntParse.Execute(text, 16, null);
 
-        inf (na = 1000)
+        inf (na = 0hfffffffffffffff)
         {
             console.Out.Write("Demo IntParse 1111\n");
         }
 
         return true;
+    }
+
+    maide precate Format CreateFormat()
+    {
+        var Format a;
+        a : new Format;
+        a.Init();
+        return a;
+    }
+
+    maide precate FormatArg CreateFormatArg()
+    {
+        var FormatArg a;
+        a : new FormatArg;
+        a.Init();
+        return a;
     }
 
     field precate TextInfra TextInfra { get { return data; } set { data : value; } }

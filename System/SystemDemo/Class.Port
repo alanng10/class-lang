@@ -10,6 +10,8 @@ System.Infra
     Data Data
 System.Text
     Text Text
+    Format Format
+    FormatArg FormatArg
     IntParse IntParse
     StringComp StringComp
     StringAdd StringAdd
