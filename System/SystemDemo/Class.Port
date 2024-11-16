@@ -9,6 +9,8 @@ System.Infra
     String String
     Data Data
 System.Text
+    Text Text
+    IntParse IntParse
     StringComp StringComp
     StringAdd StringAdd
     TextInfra Infra

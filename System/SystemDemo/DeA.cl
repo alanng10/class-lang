@@ -39,8 +39,68 @@ class DeA : Dem
 
         console.Out.Write("Demo HHHH\n");
 
+        console.Out.Write("Demo 1111\n");
+
+        inf (true)
+        {
+            console.Out.Write("Demo True\n");
+        }
+
+        console.Out.Write("Demo 2222\n");
+ 
+        inf (false)
+        {
+            console.Out.Write("Demo False\n");
+        }
+
+        console.Out.Write("Demo 3333\n");
+
+        inf (null)
+        {
+            console.Out.Write("Demo Null\n");
+        }
+
+        console.Out.Write("Demo 4444\n");
+
+        inf (null & null)
+        {
+            console.Out.Write("Demo Null and Null\n");
+        }
+
+        console.Out.Write("Demo 5555\n");
+
+        inf (~(null | null))
+        {
+            console.Out.Write("Demo not (Null orn Null)\n");
+        }
+
+        console.Out.Write("Demo 6666\n");
+
+        this.StringComp : share StringComp;
+
+        this.IntParse : new IntParse;
+        this.IntParse.Init();
+        
+        var Text text;
+        text : this.TextInfra.TextCreateStringData("1000", null);
+
+        #var String kk;
+        #kk : this.StringComp.CreateData(text.Data, text.Range);
+
+        #console.Out.Write(kk);
+
+        var Int na;
+        na : this.IntParse.Execute(text, 10, null);
+
+        inf (na = 1000)
+        {
+            console.Out.Write("Demo IntParse 1111\n");
+        }
+
         return true;
     }
 
     field precate TextInfra TextInfra { get { return data; } set { data : value; } }
+    field precate StringComp StringComp { get { return data; } set { data : value; } }
+    field private IntParse IntParse { get { return data; } set { data : value; } }
 }
