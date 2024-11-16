@@ -11,6 +11,7 @@ class ThreadState : State
 
         timeEvent.Time : 3 * 1000;
 
+        timeEvent.Thread : this.Thread;
         timeEvent.Phore : this.Phore;
 
         timeEvent.Start();
