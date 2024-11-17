@@ -595,10 +595,12 @@ public class Console : ClassBase
         this.LibraryGen.ModuleTable = this.ModuleTable;
         this.LibraryGen.ImportClass = this.ImportClass;
         this.LibraryGen.SystemClass = this.Create.Module.SystemClass;
+        this.LibraryGen.ClassPath = this.ClassPath;
 
         bool bb;
         bb = this.LibraryGen.Execute();
 
+        this.LibraryGen.ClassPath = null;
         this.LibraryGen.SystemClass = null;
         this.LibraryGen.ImportClass = null;
         this.LibraryGen.ModuleTable = null;
