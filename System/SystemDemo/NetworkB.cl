@@ -127,7 +127,51 @@ class NetworkB : Network
 
         inf (ka = 1)
         {
+            var Int n0;
+            var Int n1;
+            var Int n2;
+            var Int n3;
+            n0 : data.Get(0);
+            n1 : data.Get(1);
+            n2 : data.Get(2);
+            n3 : data.Get(3);
 
+            var Bool ba;
+            ba : (a0 = 11 & a1 = 57 & a2 = 98 & a3 = 149);
+
+            inf (ba)
+            {
+                share Console.Out.Write("Network Host Case 1 Success\n");
+
+                this.Stage : 2;
+
+                data.Set(0, this.Stage);
+
+                range.Count : 1;
+
+                this.Stream.Write(data, range);
+            }
+            inf (~ba)
+            {
+                share Console.Out.Write("Network Host Case 1 Read Data Invalid\n");
+                this.StatusCode : 4610;
+                return false;
+            }
         }
+
+        inf (ka = 2)
+        {
+            var String kaa;
+            kaa : this.StringComp.CreateData(data, null);
+
+            var String kka;
+            kka : this.ThreadState.AddClear().Add("Network Host Case 2 Read Text: ").Add(kaa).AddLine().AddResult();
+
+            share Console.Out.Write(kka);
+
+            this.ThreadState.ExitNetwork(0);
+            return true;
+        }
+        return true;
     }
 }
