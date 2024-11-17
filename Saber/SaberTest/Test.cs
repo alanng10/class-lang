@@ -315,10 +315,10 @@ public class Test : ClassBase
         }
 
         String u;
-        u = this.StringTextArg(this.TA(set), true, 8, -1, ' ');
+        u = this.StringTextFormat(this.TA(set), true, 8, -1, ' ');
 
         String k;
-        k = this.StringTextArg(this.TA(kind), true, 24, -1, ' ');
+        k = this.StringTextFormat(this.TA(kind), true, 24, -1, ' ');
 
         String j;
         j = unit;
@@ -327,7 +327,7 @@ public class Test : ClassBase
         number = this.UnitIndex + 1;
 
         String p;
-        p = this.StringIntArg(number, 10, false, 3, -1, '0');
+        p = this.StringIntFormat(number, 10, false, 3, -1, '0');
 
         String t;
         t = this.ResultSpace;
