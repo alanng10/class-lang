@@ -45,22 +45,22 @@ class ThreadNetworkState : StateA
 
         network.Final();
 
-        this.Network = null;
+        this.Network : null;
 
-        string k;
-        k = null;
-        bool b;
-        b = (o == 0);
-        if (b)
+        var String k;
+
+        var Bool b;
+        b : (ka = 0);
+        inf (b)
         {
-            k = "Success";
+            k : "Success";
         }
-        if (!b)
+        inf (~b)
         {
-            k = "Fail";
+            k : "Fail";
         }
 
-        Console.This.Out.Write(this.S("Network " + k + ", code: " + o + "\n"));
+        share Console.Out.Write(this.AddClear().Add("Network ").Add(k).Add(", code: ").Add(this.StringInt(ka)).AddLine().AddResult()));
         return true;
     }
 }
