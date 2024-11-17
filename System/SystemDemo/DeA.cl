@@ -231,6 +231,8 @@ class DeA : Dem
 
         this.ExecuteNetwork();
 
+        this.ExecuteNetworkProgram();
+
         this.Console.Out.Write("Demo Execute End\n");
 
         return true;
@@ -277,9 +279,9 @@ class DeA : Dem
         return true;
     }
 
-    maide private Bool ExecuteNetworkProcess()
+    maide private Bool ExecuteNetworkProgram()
     {
-        this.Console.Out.Write("Network Process Start\n");
+        this.Console.Out.Write("Network Program Start\n");
 
         var Thread hostThread;
         hostThread : new Thread;
@@ -316,7 +318,7 @@ class DeA : Dem
 
         hostThread.Final();
 
-        this.Console.Out.Write("Network Process End\n");
+        this.Console.Out.Write("Network Program End\n");
 
         return true;
     }
