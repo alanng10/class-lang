@@ -46,6 +46,10 @@ public class ThreadNetworkState : State
         long o;
         o = thread.ExecuteMain();
 
+        network.Final();
+
+        this.Network = null;
+
         string k;
         k = null;
         bool b;
@@ -69,10 +73,6 @@ public class ThreadNetworkState : State
         network = this.Network;
 
         network.Close();
-
-        network.Final();
-
-        this.Network = null;
 
         ThreadThis varThis;
         varThis = new ThreadThis();
