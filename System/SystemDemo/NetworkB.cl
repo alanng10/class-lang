@@ -3,6 +3,7 @@ class NetworkB : Network
     maide prusate Bool Init()
     {
         base.Init();
+        this.StringComp : share StringComp;
         this.NetworkStatusList : share NetworkStatusList;
         this.NetworkCaseList : share NetworkCaseList;
 
@@ -18,6 +19,7 @@ class NetworkB : Network
     }
 
     field prusate ThreadNetworkHostState ThreadState { get { return data; } set { data : value; } }
+    field precate StringComp StringComp { get { return data; } set { data : value; } }
     field precate NetworkStatusList NetworkStatusList { get { return data; } set { data : value; } }
     field precate NetworkCaseList NetworkCaseList { get { return data; } set { data : value; } }
     field precate Data Data { get { return data; } set { data : value; } }
