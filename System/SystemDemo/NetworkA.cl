@@ -133,7 +133,7 @@ class NetworkA : Network
             {
                 share Console.Out.Write("Network Case 0 Success\n");
 
-                this.Stage : 1
+                this.Stage : 1;
 
                 data.Set(0, 11);
                 data.Set(1, 57);
@@ -147,7 +147,7 @@ class NetworkA : Network
 
             inf (~b)
             {
-                share Console.Out,Write("Network Case 0 Read Data Invalid\n");
+                share Console.Out.Write("Network Case 0 Read Data Invalid\n");
                 this.StatusCode : 4110;
                 return false;
             }
