@@ -231,15 +231,15 @@ public class Base : Any
 
     public virtual String StringInt(long n)
     {
-        return this.StringIntArg(n, 10, false, 1, -1, 0);
+        return this.StringIntFormat(n, 10, false, 1, -1, 0);
     }
 
     public virtual String StringIntHex(long n)
     {
-        return this.StringIntArg(n, 16, false, 15, 15, '0');
+        return this.StringIntFormat(n, 16, false, 15, 15, '0');
     }
 
-    public virtual String StringIntArg(long n, long varBase, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
+    public virtual String StringIntFormat(long n, long varBase, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
     {
         FormatArg arg;
         arg = this.FormatArg;
@@ -252,10 +252,10 @@ public class Base : Any
         arg.MaxWidth = maxWidth;
         arg.FillChar = fillChar;
 
-        return this.StringWrite();
+        return this.StringFormat();
     }
 
-    public virtual String StringTextArg(Text text, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
+    public virtual String StringTextFormat(Text text, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
     {
         FormatArg arg;
         arg = this.FormatArg;
@@ -268,10 +268,10 @@ public class Base : Any
         arg.MaxWidth = maxWidth;
         arg.FillChar = fillChar;
 
-        return this.StringWrite();
+        return this.StringFormat();
     }
 
-    public virtual String StringWrite()
+    public virtual String StringFormat()
     {
         this.Format.ExecuteArgCount(this.FormatArg);
 
