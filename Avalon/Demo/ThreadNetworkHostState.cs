@@ -39,6 +39,11 @@ class ThreadNetworkHostState : State
         long o;
         o = thread.ExecuteMain();
 
+        this.Demo.Host.Final();
+
+        this.Demo.Peer = null;
+        this.Demo.Host = null;
+
         string k;
         k = null;
         bool b;
@@ -64,11 +69,6 @@ class ThreadNetworkHostState : State
         this.Demo.Host.ClosePeer(peer);
 
         this.Demo.Host.Close();
-
-        this.Demo.Host.Final();
-
-        this.Demo.Peer = null;
-        this.Demo.Host = null;
 
         ThreadThis varThis;
         varThis = new ThreadThis();
