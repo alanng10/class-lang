@@ -137,7 +137,7 @@ class NetworkB : Network
             n3 : data.Get(3);
 
             var Bool ba;
-            ba : (a0 = 11 & a1 = 57 & a2 = 98 & a3 = 149);
+            ba : (n0 = 11 & n1 = 57 & n2 = 98 & n3 = 149);
 
             inf (ba)
             {
