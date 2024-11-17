@@ -314,7 +314,7 @@ class DeA : Dem
 
         hostThread.Wait();
 
-        networkThread.Final();
+        program.Final();
 
         hostThread.Final();
 
