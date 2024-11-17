@@ -7,7 +7,7 @@ class NetworkB : NetworkNetwork
         base.Init();
 
         this.Data = new Data();
-        this.Data.Count = 10;
+        this.Data.Count = 5 * sizeof(uint);
         this.Data.Init();
 
         this.Range = new Range();
@@ -78,7 +78,7 @@ class NetworkB : NetworkNetwork
         }
         if (cc == 2)
         {
-            count = 10;
+            count = 20;
         }
 
         if (a < count)
