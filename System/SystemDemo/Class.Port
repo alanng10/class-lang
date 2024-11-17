@@ -39,6 +39,8 @@ System.Entry
     ModuleEntry Entry
 
 [Export]
+StateA
+ThreadNetworkState
 
 [Storage]
 
