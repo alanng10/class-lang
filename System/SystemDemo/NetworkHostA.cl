@@ -4,6 +4,12 @@ class NetworkHostA : NetworkHost
 
     maide prusate Bool NewPeer()
     {
+        inf (~(this.ThreadState.Peer = null))
+        {
+            share Console.Out.Write("Network Peer is more one\n");
+            return false;
+        }
+
         var Network network;
         network : this.OpenPeer();
 
