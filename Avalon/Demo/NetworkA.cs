@@ -7,9 +7,10 @@ public class NetworkA : NetworkNetwork
         base.Init();
 
         this.TextInfra = TextInfra.This;
+        this.StringComp = StringComp.This;
 
         this.Data = new Data();
-        this.Data.Count = 10;
+        this.Data.Count = 5 * sizeof(uint);
         this.Data.Init();
 
         this.Range = new Range();
@@ -26,6 +27,7 @@ public class NetworkA : NetworkNetwork
     public virtual long Stage { get; set; }
 
     protected virtual TextInfra TextInfra { get; set; }
+    protected virtual StringComp StringComp { get; set; }
 
     public override bool CaseEvent()
     {
@@ -170,24 +172,24 @@ public class NetworkA : NetworkNetwork
                 TextInfra textInfra;
                 textInfra = this.TextInfra;
 
-                string oo;
-                oo = "Fy Oi";
+                String oo;
+                oo = this.S("Fy Oi");
 
-                int countA;
-                countA = oo.Length;
-                int i;
+                long countA;
+                countA = this.StringComp.Count(oo);
+                long i;
                 i = 0;
                 while (i < countA)
                 {
-                    char oc;
-                    oc = oo[i];
+                    long nn;
+                    nn = this.StringComp.Char(oo, i);
 
-                    textInfra.DataCharSet(data, i, oc);
+                    textInfra.DataCharSet(data, i, nn);
 
                     i = i + 1;
                 }
 
-                range.Count = 10;
+                range.Count = data.Count;
 
                 this.Stream.Write(data, range);
 
