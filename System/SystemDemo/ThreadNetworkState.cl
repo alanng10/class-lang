@@ -5,16 +5,12 @@ class ThreadNetworkState : StateA
         base.Init();
         this.NetworkStatusList : share NetworkStatusList;
         this.NetworkCaseList : share NetworkCaseList;
-
-        this.DeA : new DeA;
-        this.DeA.Init();
         return true;
     }
 
     field precate NetworkStatusList NetworkStatusList { get { return data; } set { data : value; } }
     field precate NetworkCaseList NetworkCaseList { get { return data; } set { data : value; } }
     field precate NetworkA Network { get { return data; } set { data : value; } }
-    field precate DeA DeA { get { return data; } set { data : value; } }
 
     maide prusate Bool Execute()
     {
