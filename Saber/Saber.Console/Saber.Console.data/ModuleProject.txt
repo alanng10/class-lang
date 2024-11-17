@@ -8,7 +8,7 @@ HEADERS += \
 SOURCES += \
     *.c
 
-LIBS += -L$$PWD/../../../../../Out/Class/
+LIBS += -L$$PWD/../../../#ClassPath#
 
 LIBS += -lInfra \
     -lInfraIntern#Import#
