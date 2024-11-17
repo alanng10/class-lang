@@ -53,4 +53,18 @@ class ThreadNetworkHostState : StateA
         share Console.Out.Write(this.AddClear().Add("Network Host ").Add(k).Add(", status: ").Add(this.StringInt(ka)).AddLine().AddResult()));
         return true;
     }
+
+    maide prusate Bool ExitNetwork(var Int status)
+    {
+        this.Host.ClosePeer(this.Peer);
+
+        this.Host.Close();
+
+        var ThreadThis varThis;
+        varThis : new ThreadThis();
+        varThis.Init();
+
+        varThis.Thread.Exit(status);
+        return true;
+    }
 }
