@@ -183,14 +183,14 @@ class NetworkA : Network
 
                     i : i + 1;
                 }
+
+                range.Count : data.Count;
+
+                this.Stream.Write(data, range);
+
+                this.ThreadState.ExitNetwork(0);
+                return true;
             }
-
-            range.Count : data.Count;
-
-            this.Stream.Write(data, range);
-
-            this.ThreadState.ExitNetwork(0);
-            return true;
         }
     }
 }
