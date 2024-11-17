@@ -113,7 +113,7 @@ class NetworkA : Network
 
             inf (!b)
             {
-                this.StatusCode : 4100;
+                this.StatusCode : 4010;
                 return false;
             }
         }
