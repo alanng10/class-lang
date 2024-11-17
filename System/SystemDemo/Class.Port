@@ -39,6 +39,9 @@ System.Entry
     ModuleEntry Entry
 
 [Export]
+DeA
+Dem
+Demo
 StateA
 ThreadNetworkState
 
