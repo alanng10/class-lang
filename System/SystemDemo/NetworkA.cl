@@ -50,7 +50,7 @@ class NetworkA : Network
     {
         var Bool b;
         b : this.StatusExecute();
-        inf (!b)
+        inf (~b)
         {
             this.ThreadState.ExitNetwork(this.StatusCode);
         }
@@ -59,12 +59,56 @@ class NetworkA : Network
 
     maide private Bool StatusExecute()
     {
-        inf (!(this.Status == this.NetworkStatusList.NoError))
+        inf (~(this.Status == this.NetworkStatusList.NoError))
         {
             this.StatusCode : 4000 + this.Status.Index;
             return false;
         }
 
         return true;
+    }
+
+    maide prusate Bool DataEvent()
+    {
+        var Bool b;
+        b : this.DataExecute();
+        inf (~b)
+        {
+            this.ThreadState.ExitNetwork(this.StatusCode);
+        }
+        return true;
+    }
+
+    maide private Bool DataExecute()
+    {
+        var Int k;
+        k : this.ReadyCount;
+
+        inf (~(k < 1))
+        {
+            var Data data;
+            data : this.Data;
+
+            var Range range;
+            range : this.Range;
+            range.Index : 0;
+            range.Count : 1;
+
+            this.Stream.Read(data, range);
+
+            var Int n;
+            n : data.Get(0);
+
+            var Bool b;
+            b : n = 53;
+
+            inf (b)
+            {
+                share Console.Out.Write("Network Success\n");
+
+                this.ThreadState.ExitNetwork(0);
+                return true;
+            }
+        }
     }
 }
