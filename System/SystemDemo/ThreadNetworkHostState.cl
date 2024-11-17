@@ -12,7 +12,7 @@ class ThreadNetworkHostState : StateA
         port : new NetworkPort;
         port.Init();
         port.Kind : portKindList.LocalHost;
-        port.Host = 59843;
+        port.Host : 59843;
 
         var NetworkHostA host;
         host : new NetworkHostA;
