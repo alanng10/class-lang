@@ -15,7 +15,7 @@ class NetworkA : Network
         return true;
     }
 
-    field prusate ThreadNetworkState ThreadNetworkState { get { return data; } set { data : value; } }
+    field prusate ThreadNetworkState ThreadState { get { return data; } set { data : value; } }
     field precate NetworkStatusList NetworkStatusList { get { return data; } set { data : value; } }
     field precate NetworkCaseList NetworkCaseList { get { return data; } set { data : value; } }
     field precate Data Data { get { return data; } set { data : value; } }
