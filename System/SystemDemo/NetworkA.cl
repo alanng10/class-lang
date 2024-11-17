@@ -30,7 +30,7 @@ class NetworkA : Network
     {
         inf (!(this.Status == this.NetworkStatusList.NoError))
         {
-            this.StatusCode = 4000 + this.Status.Index;
+            this.StatusCode : 4000 + this.Status.Index;
             return false;
         }
 
