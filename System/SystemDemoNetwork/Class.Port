@@ -1,0 +1,25 @@
+[Module]
+SystemDemoNetwork:0.00.00
+
+[Import]
+System.Infra
+    Any Any
+    Bool Bool
+    Int Int
+    String String
+System.Entry
+    ModuleEntry Entry
+SystemDemo:0.00.00
+    ThreadNetworkState ThreadNetworkState
+
+[Export]
+DeA
+Dem
+Demo
+StateA
+ThreadNetworkState
+
+[Storage]
+
+[Entry]
+Entry
