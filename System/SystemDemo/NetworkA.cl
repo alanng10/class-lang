@@ -191,6 +191,14 @@ class NetworkA : Network
                 this.ThreadState.ExitNetwork(0);
                 return true;
             }
+
+            inf (~ba)
+            {
+                share Console.Out.Write("Network Case 1 Read Data Invalid\n");
+                this.StatusCode = 4011;
+                return false;
+            }
         }
+        return true;
     }
 }
