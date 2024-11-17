@@ -68,15 +68,15 @@ class NetworkB : Network
 
         var Int ka;
         ka : this.Stage;
-        inf (ka : 0)
+        inf (ka = 0)
         {
             count : 1;
         }
-        inf (ka : 1)
+        inf (ka = 1)
         {
             count : 4;
         }
-        inf (ka : 2)
+        inf (ka = 2)
         {
             count : 20;
         }
