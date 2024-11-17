@@ -229,6 +229,8 @@ class DeA : Dem
 
         phore.Final();
 
+        this.ExecuteNetwork();
+
         this.Console.Out.Write("Demo Execute End\n");
 
         return true;
