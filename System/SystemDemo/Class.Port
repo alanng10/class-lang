@@ -8,6 +8,7 @@ System.Infra
     Int Int
     String String
     Data Data
+    Range Range
     State State
 System.Text
     Text Text
@@ -25,6 +26,9 @@ System.Time
     TimeEvent Event
 System.Storage
     StorageInfra Infra
+System.Network
+    Network Network
+    Host Host
 System.Console
     Console Console
 System.Entry
