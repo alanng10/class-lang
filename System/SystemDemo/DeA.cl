@@ -277,6 +277,50 @@ class DeA : Dem
         return true;
     }
 
+    maide private Bool ExecuteNetworkProcess()
+    {
+        this.Console.Out.Write("Network Process Start\n");
+
+        var Thread hostThread;
+        hostThread : new Thread;
+        hostThread.Init();
+
+        var ThreadNetworkHostState hostState;
+        hostState : new ThreadNetworkHostState;
+        hostState.Init();
+
+        hostThread.ExecuteState : hostState;
+
+        hostThread.Execute();
+
+        var List list;
+        list : new List;
+        list.Init();
+        list.Add("SystemDemoNetwork-0.00.00");
+
+        var Program program;
+        program : new Program;
+        program.Init();
+        program.Name : "class.exe";
+        program.Argue : list;
+        program.WorkFold : null;
+        program.Environ : null;
+
+        program.Execute();
+
+        program.Wait();
+
+        hostThread.Wait();
+
+        networkThread.Final();
+
+        hostThread.Final();
+
+        this.Console.Out.Write("Network Process End\n");
+
+        return true;
+    }
+
     maide prusate String StringInt(var Int int)
     {
         return this.StringIntFormat(int, 10, false, 0, null, 0);
