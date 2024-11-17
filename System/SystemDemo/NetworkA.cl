@@ -101,7 +101,7 @@ class NetworkA : Network
         {
             count : 1;
         }
-        inf (ka : 1)
+        inf (ka = 1)
         {
             count : 1;
         }
@@ -195,7 +195,7 @@ class NetworkA : Network
             inf (~ba)
             {
                 share Console.Out.Write("Network Case 1 Read Data Invalid\n");
-                this.StatusCode = 4111;
+                this.StatusCode : 4111;
                 return false;
             }
         }
