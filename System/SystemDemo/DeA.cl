@@ -234,6 +234,47 @@ class DeA : Dem
         return true;
     }
 
+    maide private Bool ExecuteNetwork()
+    {
+        this.Console.Out.Write("Network Start\n");
+
+        var Thread hostThread;
+        hostThread : new Thread;
+        hostThread.Init();
+
+        var ThreadNetworkHostState hostState;
+        hostState : new ThreadNetworkHostState;
+        hostState.Init();
+
+        hostThread.ExecuteState : hostState;
+
+        hostThread.Execute();
+
+        var Thread networkThread;
+        networkThread : new Thread;
+        networkThread.Init();
+
+        var ThreadNetworkState networkState;
+        networkState : new ThreadNetworkState;
+        networkState.Init();
+
+        networkThread.ExecuteState : networkState;
+
+        networkThread.Execute();
+
+        networkThread.Wait();
+
+        hostThread.Wait();
+
+        networkThread.Final();
+
+        hostThread.Final();
+
+        this.Console.Out.Write("Network End\n");
+
+        return true;
+    }
+
     maide prusate String StringInt(var Int int)
     {
         return this.StringIntFormat(int, 10, false, 0, null, 0);
