@@ -20,6 +20,7 @@ class NetworkA : Network
     field precate NetworkCaseList NetworkCaseList { get { return data; } set { data : value; } }
     field precate Data Data { get { return data; } set { data : value; } }
     field precate Range Range { get { return data; } set { data : value; } }
+    field precate Int StatusCode { get { return data; } set { data : value; } }
 
     maide prusate Bool CaseEvent()
     {
@@ -108,6 +109,12 @@ class NetworkA : Network
 
                 this.ThreadState.ExitNetwork(0);
                 return true;
+            }
+
+            inf (!b)
+            {
+                this.StatusCode : 4100;
+                return false;
             }
         }
     }
