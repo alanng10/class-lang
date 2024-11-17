@@ -148,7 +148,7 @@ class NetworkA : Network
             inf (~b)
             {
                 share Console.Out,Write("Network Case 0 Read Data Invalid\n");
-                this.StatusCode : 4010;
+                this.StatusCode : 4110;
                 return false;
             }
         }
@@ -195,7 +195,7 @@ class NetworkA : Network
             inf (~ba)
             {
                 share Console.Out.Write("Network Case 1 Read Data Invalid\n");
-                this.StatusCode = 4011;
+                this.StatusCode = 4111;
                 return false;
             }
         }

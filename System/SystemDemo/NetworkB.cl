@@ -7,11 +7,13 @@ class NetworkB : Network
         this.NetworkCaseList : share NetworkCaseList;
 
         this.Data : new Data;
-        this.Data.Count : 1;
+        this.Data.Count : 5 * 4;
         this.Data.Init();
 
         this.Range : new Range;
         this.Range.Init();
+
+        this.Stage : 0;
         return true;
     }
 
@@ -21,6 +23,7 @@ class NetworkB : Network
     field precate Data Data { get { return data; } set { data : value; } }
     field precate Range Range { get { return data; } set { data : value; } }
     field precate Int StatusCode { get { return data; } set { data : value; } }
+    field precate Int Stage { get { return data; } set { data : value; } }
 
     maide prusate Bool StatusEvent()
     {
@@ -60,41 +63,71 @@ class NetworkB : Network
         var Int k;
         k : this.ReadyCount;
 
-        inf (~(k < 1))
+        var Int count;
+        count : 0;
+
+        var Int ka;
+        ka : this.Stage;
+        inf (ka : 0)
         {
-            var Data data;
-            data : this.Data;
+            count : 1;
+        }
+        inf (ka : 1)
+        {
+            count : 4;
+        }
+        inf (ka : 2)
+        {
+            count : 20;
+        }
 
-            var Range range;
-            range : this.Range;
-            range.Index : 0;
-            range.Count : 1;
+        inf (k < count)
+        {
+            return true;
+        }
 
-            this.Stream.Read(data, range);
+        var Data data;
+        data : this.Data;
 
+        var Range range;
+        range : this.Range;
+        range.Index : 0;
+        range.Count : count;
+
+        this.Stream.Read(data, range);
+
+        inf (ka = 0)
+        {
             var Int n;
             n : data.Get(0);
 
             var Bool b;
-            b : n = 91;
+            b : n = 58;
 
             inf (b)
             {
-                data.Set(0, 53);
+                share Console.Out.Write("Network Host Case 0 Success\n");
+
+                this.Stage : 1;
+
+                data.Set(0, this.Stage);
+
+                range.Count : 1;
 
                 this.Stream.Write(data, range);
-
-                share Console.Out.Write("Network Host Read Success\n");
-
-                this.ThreadState.ExitNetwork(0);
-                return true;
             }
 
             inf (~b)
             {
-                this.StatusCode : 4510;
+                share Console.Out.Write("Network Host Case 0 Read Data Invalid\n");
+                this.StatusCode : 4610;
                 return false;
             }
+        }
+
+        inf (ka = 1)
+        {
+
         }
     }
 }
