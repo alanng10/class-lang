@@ -56,7 +56,7 @@ class ThreadNetworkState : StateA
             k : "Fail";
         }
 
-        share Console.Out.Write(this.AddClear().Add("Network ").Add(k).Add(", status: ").Add(this.StringInt(ka)).AddLine().AddResult()));
+        share Console.Out.Write(this.AddClear().Add("Network ").Add(k).Add(", status: ").Add(this.StringInt(ka)).AddLine().AddResult());
         return true;
     }
 
@@ -65,7 +65,7 @@ class ThreadNetworkState : StateA
         this.Network.Close();
 
         var ThreadThis varThis;
-        varThis : new ThreadThis();
+        varThis : new ThreadThis;
         varThis.Init();
 
         varThis.Thread.Exit(status);

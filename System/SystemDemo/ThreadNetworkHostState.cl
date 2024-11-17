@@ -50,7 +50,7 @@ class ThreadNetworkHostState : StateA
             k : "Fail";
         }
 
-        share Console.Out.Write(this.AddClear().Add("Network Host ").Add(k).Add(", status: ").Add(this.StringInt(ka)).AddLine().AddResult()));
+        share Console.Out.Write(this.AddClear().Add("Network Host ").Add(k).Add(", status: ").Add(this.StringInt(ka)).AddLine().AddResult());
         return true;
     }
 
@@ -61,7 +61,7 @@ class ThreadNetworkHostState : StateA
         this.Host.Close();
 
         var ThreadThis varThis;
-        varThis : new ThreadThis();
+        varThis : new ThreadThis;
         varThis.Init();
 
         varThis.Thread.Exit(status);
