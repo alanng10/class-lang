@@ -31,6 +31,8 @@ System.Network
     Host Host
     NetworkStatusList StatusList
     NetworkCaseList CaseList
+    NetworkPort Port
+    NetworkPortKindList PortKindList
 System.Console
     Console Console
 System.Entry
