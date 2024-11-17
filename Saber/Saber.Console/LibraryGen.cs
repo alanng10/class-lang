@@ -533,6 +533,7 @@ public class LibraryGen : ClassBase
         k = this.TA(this.ModuleProjectText);
         k = this.Place(k, "#Name#", this.ModuleRefString);
         k = this.Place(k, "#Import#", import);
+        k = this.Place(k, "#ClassPath#", this.ClassPath);
 
         String ka;
         ka = this.StringCreate(k);
