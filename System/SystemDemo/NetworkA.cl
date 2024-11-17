@@ -111,7 +111,7 @@ class NetworkA : Network
                 return true;
             }
 
-            inf (!b)
+            inf (~b)
             {
                 this.StatusCode : 4010;
                 return false;

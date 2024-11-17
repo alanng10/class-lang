@@ -90,7 +90,7 @@ class NetworkB : Network
                 return true;
             }
 
-            inf (!b)
+            inf (~b)
             {
                 this.StatusCode : 4510;
                 return false;
