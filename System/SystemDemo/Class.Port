@@ -29,6 +29,8 @@ System.Storage
 System.Network
     Network Network
     Host Host
+    NetworkStatusList StatusList
+    NetworkCaseList CaseList
 System.Console
     Console Console
 System.Entry
