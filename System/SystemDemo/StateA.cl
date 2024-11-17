@@ -11,6 +11,11 @@ class StateA : State
 
     field precate DeA DeA { get { return data; } set { data : value; } }
 
+    maide prusate String StringInt(var Int int)
+    {
+        return this.DeA.StringInt(int);
+    }
+
     maide prusate StateA AddClear()
     {
         this.DeA.AddClear();
