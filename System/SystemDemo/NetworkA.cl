@@ -60,7 +60,7 @@ class NetworkA : Network
 
     maide private Bool StatusExecute()
     {
-        inf (~(this.Status == this.NetworkStatusList.NoError))
+        inf (~(this.Status = this.NetworkStatusList.NoError))
         {
             this.StatusCode : 4000 + this.Status.Index;
             return false;

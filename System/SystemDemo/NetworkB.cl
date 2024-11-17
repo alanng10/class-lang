@@ -35,7 +35,7 @@ class NetworkB : Network
 
     maide private Bool StatusExecute()
     {
-        inf (~(this.Status == this.NetworkStatusList.NoError))
+        inf (~(this.Status = this.NetworkStatusList.NoError))
         {
             this.StatusCode : 4500 + this.Status.Index;
             return false;
