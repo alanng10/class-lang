@@ -28,7 +28,7 @@ System.Storage
     StorageInfra Infra
 System.Network
     Network Network
-    Host Host
+    NetworkHost Host
     NetworkStatusList StatusList
     NetworkCaseList CaseList
     NetworkPort Port
