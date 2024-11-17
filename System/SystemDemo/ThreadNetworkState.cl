@@ -10,7 +10,7 @@ class ThreadNetworkState : StateA
 
     field precate NetworkStatusList NetworkStatusList { get { return data; } set { data : value; } }
     field precate NetworkCaseList NetworkCaseList { get { return data; } set { data : value; } }
-    field precate NetworkA Network { get { return data; } set { data : value; } }
+    field private NetworkA Network { get { return data; } set { data : value; } }
 
     maide prusate Bool Execute()
     {
