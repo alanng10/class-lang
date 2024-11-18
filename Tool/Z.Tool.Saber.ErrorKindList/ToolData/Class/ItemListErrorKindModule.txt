@@ -29,3 +29,5 @@ ImportNameUnavailable
 ImportClassUndefined
 ExportInvalid
 ExportUnachievable
+StorageDestInvalid
+StorageSourceInvalid
