@@ -55,6 +55,8 @@ public class ErrorKindList : Any
         this.ExportUnachievable = this.AddItem("ExportUnachievable");
         this.StorageDestInvalid = this.AddItem("StorageDestInvalid");
         this.StorageSourceInvalid = this.AddItem("StorageSourceInvalid");
+        this.StorageDestUnavailable = this.AddItem("StorageDestUnavailable");
+        this.StorageSourceUnachievable = this.AddItem("StorageSourceUnachievable");
         return true;
     }
 
@@ -91,6 +93,8 @@ public class ErrorKindList : Any
     public virtual ErrorKind ExportUnachievable { get; set; }
     public virtual ErrorKind StorageDestInvalid { get; set; }
     public virtual ErrorKind StorageSourceInvalid { get; set; }
+    public virtual ErrorKind StorageDestUnavailable { get; set; }
+    public virtual ErrorKind StorageSourceUnachievable { get; set; }
 
     protected virtual TextStringValue StringValue { get; set; }
 
@@ -119,7 +123,7 @@ public class ErrorKindList : Any
 
     protected virtual Array Array { get; set; }
 
-    protected virtual long ArrayCount { get { return 33; } set { } }
+    protected virtual long ArrayCount { get { return 35; } set { } }
 
     public virtual long Count { get; set; }
     
