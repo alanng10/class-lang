@@ -415,7 +415,7 @@ class DeA : Dem
         {
             kaa : "Success";
         }
-        inf (!b)
+        inf (~b)
         {
             kaa : "Error";
         }
