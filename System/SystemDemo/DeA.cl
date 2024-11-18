@@ -13,9 +13,9 @@ class DeA : Dem
         this.IntParse : this.CreateIntParse();
         this.StringAdd : this.CreateStringAdd();
 
-        this.TLess : this.CreateTextLess();
         this.CharLess : this.CreateCharLess();
         this.TForm : this.CreateTextForm();
+        this.TLess : this.CreateTextLess();
 
         this.TextA : this.CreateText();
         this.TextB : this.CreateText();
