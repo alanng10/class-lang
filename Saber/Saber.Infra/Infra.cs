@@ -32,7 +32,7 @@ public class Infra : Any
         this.Hyphen = this.S("-");
         this.Space = this.S(" ");
         this.IntSignValueNegativeMax = this.InfraInfra.IntCapValue / 2;
-        this.IntSignValuePositiveMax = this.IntSignValueNegativeMax - 1;
+        this.IntSignValuePositeMax = this.IntSignValueNegativeMax - 1;
         return true;
     }
 
@@ -42,7 +42,7 @@ public class Infra : Any
     public virtual String Dot { get; set; }
     public virtual String Hyphen { get; set; }
     public virtual String Space { get; set; }
-    public virtual long IntSignValuePositiveMax { get; set; }
+    public virtual long IntSignValuePositeMax { get; set; }
     public virtual long IntSignValueNegativeMax { get; set; }
 
     protected virtual InfraInfra InfraInfra { get; set; }
