@@ -56,6 +56,23 @@ class DeA : Dem
         return a;
     }
 
+    maide precate Text CreateText()
+    {
+        var Text a;
+        a : new Text;
+        a.Init();
+        a.Range : new Range;
+        a.Range.Init();
+        return a;
+    }
+
+    maide precate StringData CreateStringData()
+    {
+        var StringData a;
+        a : new StringData;
+        a.Init();
+        return a;
+    }
 
     maide prusate Bool Execute()
     {
