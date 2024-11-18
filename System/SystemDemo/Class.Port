@@ -10,15 +10,19 @@ System.Infra
     Data Data
     Range Range
     State State
+    IntLess IntLess
 System.List
     List List
 System.Text
     Text Text
+    TextForm Form
+    TextLess Less
     Format Format
     FormatArg FormatArg
     IntParse IntParse
     StringComp StringComp
     StringAdd StringAdd
+    StringData StringData
     TextInfra Infra
 System.Thread
     Thread Thread
