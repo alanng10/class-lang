@@ -10,4 +10,5 @@ class Demo : Any
     }
 
     field precate Int Aa { get { share Console.Out.Write("Demo Field Get\n"); } set { share Console.Out.Write("Demo Field Set\n"); } }
+    field precate String Ake { get { return data; } set { data : value; } }
 }
