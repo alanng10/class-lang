@@ -173,10 +173,6 @@ class DeA : Dem
 
         this.ExecuteTime();
 
-        k : this.StorageInfra.TextRead("../../DemoA.txt");
-
-        this.Console.Out.Write(this.AddClear().Add("Storage Read: ").Add(k).AddLine().AddResult());
-
         var Phore phore;
         phore : new Phore;
         phore.Init();
@@ -206,6 +202,8 @@ class DeA : Dem
         thread.Final();
 
         phore.Final();
+
+        this.ExecuteStorage();
 
         this.ExecuteNetwork();
 
@@ -392,6 +390,36 @@ class DeA : Dem
 
         this.Console.Out.Write(k);
 
+        return true;
+    }
+
+    maide private Bool ExecuteStorage()
+    {
+        var String k;
+        k : this.StorageInfra.TextRead("../../DemoA.txt");
+
+        this.Console.Out.Write(this.AddClear().Add("Storage Read: ").Add(k).AddLine().AddResult());
+
+        this.StorageComp.ThisFoldSet("..");
+
+        var String ka;
+        ka : this.StorageInfra.TextRead("../DemoA.txt");
+
+        var Bool b;
+        b : (this.TextSame(this.TA(ka), this.TB(k)));
+        
+        var String kaa;
+        inf (b)
+        {
+            kaa : "Success";
+        }
+        inf (!b)
+        {
+            kaa : "Error";
+        }
+        this.Console.Out.Write(this.AddClear().Add("StorageComp ThisFold Set Read ").Add(kaa).AddLine().AddResult());
+
+        this.StorageComp.ThisFoldSet("Class");
         return true;
     }
 
