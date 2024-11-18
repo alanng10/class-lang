@@ -8,8 +8,9 @@ class ThreadState : State
         timeEvent : new TimeEventA;
         timeEvent.Init();
 
-        timeEvent.Time : 3 * 1000;
+        timeEvent.Time : 1 * 1000;
 
+        timeEvent.ThreadState : this;
         timeEvent.Phore : this.Phore;
 
         timeEvent.Start();
