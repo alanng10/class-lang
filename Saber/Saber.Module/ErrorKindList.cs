@@ -53,6 +53,8 @@ public class ErrorKindList : Any
         this.ImportClassUndefined = this.AddItem("ImportClassUndefined");
         this.ExportInvalid = this.AddItem("ExportInvalid");
         this.ExportUnachievable = this.AddItem("ExportUnachievable");
+        this.StorageDestInvalid = this.AddItem("StorageDestInvalid");
+        this.StorageSourceInvalid = this.AddItem("StorageSourceInvalid");
         return true;
     }
 
@@ -87,6 +89,8 @@ public class ErrorKindList : Any
     public virtual ErrorKind ImportClassUndefined { get; set; }
     public virtual ErrorKind ExportInvalid { get; set; }
     public virtual ErrorKind ExportUnachievable { get; set; }
+    public virtual ErrorKind StorageDestInvalid { get; set; }
+    public virtual ErrorKind StorageSourceInvalid { get; set; }
 
     protected virtual TextStringValue StringValue { get; set; }
 
@@ -115,7 +119,7 @@ public class ErrorKindList : Any
 
     protected virtual Array Array { get; set; }
 
-    protected virtual long ArrayCount { get { return 31; } set { } }
+    protected virtual long ArrayCount { get { return 33; } set { } }
 
     public virtual long Count { get; set; }
     
