@@ -262,7 +262,7 @@ class DeA : Dem
         var String ka;
         ka : cast String(k);
 
-        inf (~(ka = null))
+        inf (this.TextSame(this.TA(ka), this.TB("LKs s9 &")))
         {
             this.Console.Out.Write("Demo Value Cast 5555\n");
         }
@@ -498,6 +498,11 @@ class DeA : Dem
         text.Range.Index : 0;
         text.Range.Count : this.StringCount(k);
         return text;
+    }
+
+    maide prusate Bool TextSame(var Text text, var Text other)
+    {
+        return this.TextInfra.Same(text, other, this.TLess);
     }
 
     maide prusate Int StringCount(var String k)
