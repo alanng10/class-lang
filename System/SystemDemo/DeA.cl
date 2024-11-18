@@ -96,11 +96,11 @@ class DeA : Dem
 
         k : this.StringBoolFormat(true, true, 8, 8, this.Char("="));
 
-        this.Console.Out.Write(k);
+        this.Console.Out.Write(this.AddClear().Add(k).AddLine().AddResult());
 
         k : this.StringTextFormat(text, false, 6, 6, this.Char("#"));
 
-        this.Console.Out.Write(k);
+        this.Console.Out.Write(this.AddClear().Add(k).AddLine().AddResult());
 
         k : this.StringIntFormat(0h1e4fd8, 16, true, 10, null, this.Char("="));
 
