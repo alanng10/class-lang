@@ -420,6 +420,16 @@ class DeA : Dem
         return true;
     }
 
+    maide prusate Text TextString(var String k, var Text text, var StringData data)
+    {
+        data.ValueString : k;
+
+        text.Data : data;
+        text.Range.Index : 0;
+        text.Range.Count : this.StringCount(o);
+        return text;
+    }
+
     maide prusate String StringInt(var Int int)
     {
         return this.StringIntFormat(int, 10, false, 0, null, 0);
