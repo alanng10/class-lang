@@ -778,6 +778,9 @@ public class PortLoad : ClassBase
         Array array;
         array = this.Port.Storage;
 
+        bool b;
+        b = false;
+
         long count;
         count = array.Count;
         long i;
@@ -792,22 +795,35 @@ public class PortLoad : ClassBase
             sourcePath = a.SourcePath;
             destPath = a.Path;
 
-            if (!pathCheck.IsValidSourcePath(this.TA(sourcePath)))
+            bool ba;
+            ba = false;
+
+            if (!ba)
             {
-                this.Status = 100;
-                return false;
+                if (!pathCheck.IsValidSourcePath(this.TA(sourcePath)))
+                {
+                    this.ErrorAdd(this.ErrorKind.StorageSourceInvalid, sourcePath);
+                }
             }
 
-            if (!pathCheck.IsValidDestPath(this.TA(destPath)))
+            if (!ba)
             {
-                this.Status = 100;
-                return false;
+                if (!pathCheck.IsValidDestPath(this.TA(destPath)))
+                {
+                    this.ErrorAdd(this.ErrorKind.StorageDestInvalid, destPath);
+                }
             }
+
 
             if (table.Valid(destPath))
             {
                 this.Status = 100;
                 return false;
+            }
+
+            if (ba)
+            {
+                b = true;
             }
 
             PortStorage m;
@@ -819,6 +835,12 @@ public class PortLoad : ClassBase
             listInfra.TableAdd(table, destPath, m);
 
             i = i + 1;
+        }
+
+        if (b)
+        {
+            this.Status = 100;
+            return false;
         }
 
         return true;
