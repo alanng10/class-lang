@@ -1,4 +1,4 @@
-class ThreadState : State
+class ThreadState : StateA
 {
     field prusate Phore Phore { get { return data; } set { data : value; } }
 
