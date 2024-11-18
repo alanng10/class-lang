@@ -85,6 +85,9 @@ class DeA : Dem
         #console.Inn.Read();
 
         #this.Console.Out.Write("Demo HHHH\n");
+
+        this.ExecuteValueCast();
+
         var Text text;
         text : this.TextCreate("h j");
 
@@ -149,6 +152,69 @@ class DeA : Dem
         this.ExecuteNetworkProgram();
 
         this.Console.Out.Write("Demo Execute End\n");
+
+        return true;
+    }
+
+    maide private Bool ExecuteValueCast()
+    {
+        var Any k;
+        k : true;
+
+        var Bool ba;
+        ba : cast Bool(k);
+
+        inf (ba)
+        {
+            this.Console.Out.Write("Demo Value Cast 1111\n");
+        }
+
+        k : 1;
+
+        ba : cast Bool(k);
+
+        inf (ba = null)
+        {
+            this.Console.Out.Write("Demo Value Cast 2222\n");
+        }
+
+        k : 7392641;
+
+        var Int na;
+        na : cast Int(k);
+
+        inf (na = 7392641)
+        {
+            this.Console.Out.Write("Demo Value Cast 3333\n");
+        }
+
+        k : true;
+
+        na : cast Int(k);
+
+        inf (na = null)
+        {
+            this.Console.Out.Write("Demo Value Cast 4444\n");
+        }
+
+        k : "LKs s9 &";
+
+        var String ka;
+        ka : cast String(k);
+
+        inf (~(ka = null))
+        {
+            this.Console.Out.Write("Demo Value Cast 5555\n");
+        }
+
+        k : 3492;
+
+        ka : cast String(k);
+
+        inf (ka = null)
+        {
+            this.Console.Out.Write("Demo Value Cast 6666\n");
+        }
 
         return true;
     }
