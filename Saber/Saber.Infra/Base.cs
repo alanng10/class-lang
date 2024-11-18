@@ -359,6 +359,49 @@ public class Base : Any
         return this.TextInfra.LastIndex(text, other, this.TLess);
     }
 
+    public virtual Text TextTrimEnd(Text text)
+    {
+        Text space;
+        space = this.TE(this.ClassInfra.Space);
+
+        long start;
+        start = text.Range.Index;
+
+        long count;
+        count = text.Range.Count;
+
+        long k;
+        k = count;
+
+        text.Range.Count = 1;
+
+        bool b;
+        b = false;
+
+        long i;
+        i = 0;
+        while (!b & i < count)
+        {
+            long index;
+            index = count - 1 - i;
+
+            text.Range.Index = start + index;
+
+            if (!this.TextSame(text, space))
+            {
+                k = index + 1;
+                b = true;
+            }
+
+            i = i + 1;
+        }
+
+        text.Range.Index = start;
+        text.Range.Count = k;
+
+        return text;
+    }
+
     public virtual Array TextLimit(Text text, Text limit)
     {
         return this.TextInfra.Limit(text, limit, this.TLess);
