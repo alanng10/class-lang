@@ -65,6 +65,33 @@ class DeA : Dem
         return a;
     }
 
+    maide precate IntLess CreateCharLess()
+    {
+        var IntLess a;
+        a : new IntLess;
+        a.Init();
+        return a;
+    }
+
+    maide precate TextForm CreateTextForm()
+    {
+        var TextForm a;
+        a : new TextForm;
+        a.Init();
+        return a;
+    }
+
+    maide precate TextLess CreateTextLess()
+    {
+        var TextLess a;
+        a : new TextLess;
+        a.CharLess : this.CharLess;
+        a.LiteForm : this.TForm;
+        a.RiteForm : this.TForm;
+        a.Init();
+        return a;
+    }
+
     maide precate Text CreateText()
     {
         var Text a;
