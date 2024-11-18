@@ -139,7 +139,7 @@ class DeA : Dem
 
         var String k;
         #k : console.Inn.Read();
-        k : "kkk";
+        k : "k l o";
 
         var String a;
         
