@@ -13,6 +13,10 @@ class DeA : Dem
         this.IntParse : this.CreateIntParse();
         this.StringAdd : this.CreateStringAdd();
 
+        this.TLess : this.CreateTextLess();
+        this.CharLess : this.CreateCharLess();
+        this.TForm : this.CreateTextForm();
+
         this.TextA : this.CreateText();
         this.TextB : this.CreateText();
         this.StringDataA : this.CreateStringData();
@@ -24,14 +28,17 @@ class DeA : Dem
     field precate StorageInfra StorageInfra { get { return data; } set { data : value; } }
     field precate StringComp StringComp { get { return data; } set { data : value; } }
     field precate Console Console { get { return data; } set { data : value; } }
-    field private Format Format { get { return data; } set { data : value; } }
-    field private FormatArg FormatArg { get { return data; } set { data : value; } }
-    field private IntParse IntParse { get { return data; } set { data : value; } }
-    field private StringAdd StringAdd { get { return data; } set { data : value; } }
-    field private Text TextA { get { return data; } set { data : value; } }
-    field private Text TextB { get { return data; } set { data : value; } }
-    field private StringData StringDataA { get { return data; } set { data : value; } }
-    field private StringData StringDataB { get { return data; } set { data : value; } }
+    field precate Format Format { get { return data; } set { data : value; } }
+    field precate FormatArg FormatArg { get { return data; } set { data : value; } }
+    field precate IntParse IntParse { get { return data; } set { data : value; } }
+    field precate StringAdd StringAdd { get { return data; } set { data : value; } }
+    field precate TextLess TLess { get { return data; } set { data : value; } }
+    field precate IntLess CharLess { get { return data; } set { data : value; } }
+    field precate TextForm TForm { get { return data; } set { data : value; } }
+    field precate Text TextA { get { return data; } set { data : value; } }
+    field precate Text TextB { get { return data; } set { data : value; } }
+    field precate StringData StringDataA { get { return data; } set { data : value; } }
+    field precate StringData StringDataB { get { return data; } set { data : value; } }
 
     maide precate Format CreateFormat()
     {
