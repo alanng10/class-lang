@@ -10,4 +10,6 @@ class Dem : Demo
         console.Out.Write("Demo ABCD 5555 6666\n");
         return true;
     }
+
+    field precate Int Aa { get { base.Aa; share Console.Out.Write("Dem Field Get\n"); } set { base.Aa : null; share Console.Out.Write("Dem Field Set\n"); } }
 }

@@ -41,6 +41,7 @@ class DeA : Dem
     field precate Text TextB { get { return data; } set { data : value; } }
     field precate StringData StringDataA { get { return data; } set { data : value; } }
     field precate StringData StringDataB { get { return data; } set { data : value; } }
+    field precate Int Aa { get { base.Aa; share Console.Out.Write("DeA Field Get\n"); } set { base.Aa : null; share Console.Out.Write("DeA Field Set\n"); } }
 
     maide precate Format CreateFormat()
     {
@@ -124,6 +125,9 @@ class DeA : Dem
         base.Execute();
 
         this.Console.Out.Write("Demo ABCD AAAA BBBB\n");
+
+        this.Aa;
+        this.Aa : null;
 
         var String k;
         #k : console.Inn.Read();

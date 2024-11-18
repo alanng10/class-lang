@@ -8,4 +8,6 @@ class Demo : Any
         console.Out.Write("Demo ABCD 11112222\n");
         return true;
     }
+
+    field precate Int Aa { get { share Console.Out.Write("Demo Field Get\n"); } set { share Console.Out.Write("Demo Field Set\n"); } }
 }
