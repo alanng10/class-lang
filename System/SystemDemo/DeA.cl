@@ -86,6 +86,73 @@ class DeA : Dem
 
         #this.Console.Out.Write("Demo HHHH\n");
 
+        text : this.TextCreate("h j\n");
+
+        k : this.StringCreate(text);
+
+        this.Console.Out.Write(k);
+
+        this.ExecuteTextIntParse();
+
+        k : this.StringBoolFormat(true, true, 8, 8, this.Char("="));
+
+        this.Console.Out.Write(k);
+
+        k : this.StringTextFormat(text, false, 6, 6, this.Char("#"));
+
+        this.Console.Out.Write(k);
+
+        k : this.StringIntFormat(0h1e4fd8, 16, true, 10, null, this.Char("="));
+
+        this.Console.Out.Write(this.AddClear().Add(k).AddLine().AddResult());
+
+        this.Console.Out.Write(this.AddClear().Add(this.StringInt(89542)).AddLine().AddResult());
+
+        k : this.StorageInfra.TextRead("../../DemoA.txt");
+
+        this.Console.Out.Write(this.AddClear().Add("Storage Read: ").Add(k).AddLine().AddResult());
+
+        var Phore phore;
+        phore : new Phore;
+        phore.Init();
+
+        var ThreadState threadState;
+        threadState : new ThreadState;
+        threadState.Init();
+
+        var Thread thread;
+        thread : new Thread;
+        thread.Init();
+
+        threadState.Phore : phore;
+
+        thread.ExecuteState : threadState;
+
+        thread.Execute();
+
+        phore.Open();
+
+        this.Console.Out.Write("Demo Phore Open After 1111\n");
+
+        thread.Wait();
+
+        this.Console.Out.Write(this.AddClear().Add("Thread Status: ").Add(this.StringInt(thread.Status)).AddLine().AddResult());
+
+        thread.Final();
+
+        phore.Final();
+
+        this.ExecuteNetwork();
+
+        this.ExecuteNetworkProgram();
+
+        this.Console.Out.Write("Demo Execute End\n");
+
+        return true;
+    }
+
+    maide private Bool ExecuteTextIntParse()
+    {
         var Text text;
         text : this.TextInfra.TextCreateStringData("fffffffffffffff", null);
 
@@ -152,66 +219,6 @@ class DeA : Dem
         {
             this.Console.Out.Write("Demo IntParse 6666\n");
         }
-
-        text : this.TextCreate("h j\n");
-
-        k : this.StringCreate(text);
-
-        this.Console.Out.Write(k);
-
-        k : this.StringBoolFormat(true, true, 8, 8, this.Char("="));
-
-        this.Console.Out.Write(k);
-
-        k : this.StringTextFormat(text, false, 6, 6, this.Char("#"));
-
-        this.Console.Out.Write(k);
-
-        k : this.StringIntFormat(0h1e4fd8, 16, true, 10, null, this.Char("="));
-
-        this.Console.Out.Write(this.AddClear().Add(k).AddLine().AddResult());
-
-        this.Console.Out.Write(this.AddClear().Add(this.StringInt(89542)).AddLine().AddResult());
-
-        k : this.StorageInfra.TextRead("../../DemoA.txt");
-
-        this.Console.Out.Write(this.AddClear().Add("Storage Read: ").Add(k).AddLine().AddResult());
-
-        var Phore phore;
-        phore : new Phore;
-        phore.Init();
-
-        var ThreadState threadState;
-        threadState : new ThreadState;
-        threadState.Init();
-
-        var Thread thread;
-        thread : new Thread;
-        thread.Init();
-
-        threadState.Phore : phore;
-
-        thread.ExecuteState : threadState;
-
-        thread.Execute();
-
-        phore.Open();
-
-        this.Console.Out.Write("Demo Phore Open After 1111\n");
-
-        thread.Wait();
-
-        this.Console.Out.Write(this.AddClear().Add("Thread Status: ").Add(this.StringInt(thread.Status)).AddLine().AddResult());
-
-        thread.Final();
-
-        phore.Final();
-
-        this.ExecuteNetwork();
-
-        this.ExecuteNetworkProgram();
-
-        this.Console.Out.Write("Demo Execute End\n");
 
         return true;
     }
