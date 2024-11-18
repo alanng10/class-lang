@@ -1484,7 +1484,7 @@ public class Create : InfraCreate
         }
         if (signNegative)
         {
-            max = this.ClassInfra.IntSignValueNegativeMax;
+            max = this.ClassInfra.IntSignValueNegateMax;
         }
 
         if (max < o)
@@ -1557,7 +1557,7 @@ public class Create : InfraCreate
         }
         if (signNegative)
         {
-            max = this.ClassInfra.IntSignValueNegativeMax;
+            max = this.ClassInfra.IntSignValueNegateMax;
         }
 
         if (max < o)
