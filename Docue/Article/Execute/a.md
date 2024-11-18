@@ -11,7 +11,7 @@ This tier is the second fastest. It is faster than memory allocation call and ef
 The third tier is memory allocation call. This includes new and share.
 This tier is faster than effect load.
 
-The fourth tier is effect load.
+The fourth tier is effect load. This includes storage and network.
 
 First tier and second tier have high execute certainty.
 
