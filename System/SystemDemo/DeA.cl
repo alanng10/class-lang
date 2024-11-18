@@ -12,6 +12,11 @@ class DeA : Dem
         this.FormatArg : this.CreateFormatArg();
         this.IntParse : this.CreateIntParse();
         this.StringAdd : this.CreateStringAdd();
+
+        this.TextA : this.CreateText();
+        this.TextB : this.CreateText();
+        this.StringDataA : this.CreateStringData();
+        this.StringDataB : this.CreateStringData();
         return true;
     }
 
@@ -23,6 +28,10 @@ class DeA : Dem
     field private FormatArg FormatArg { get { return data; } set { data : value; } }
     field private IntParse IntParse { get { return data; } set { data : value; } }
     field private StringAdd StringAdd { get { return data; } set { data : value; } }
+    field private Text TextA { get { return data; } set { data : value; } }
+    field private Text TextB { get { return data; } set { data : value; } }
+    field private StringData StringDataA { get { return data; } set { data : value; } }
+    field private StringData StringDataB { get { return data; } set { data : value; } }
 
     maide precate Format CreateFormat()
     {
