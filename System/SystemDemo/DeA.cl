@@ -496,8 +496,13 @@ class DeA : Dem
 
         text.Data : data;
         text.Range.Index : 0;
-        text.Range.Count : this.StringCount(o);
+        text.Range.Count : this.StringCount(k);
         return text;
+    }
+
+    maide prusate Int StringCount(var String k)
+    {
+        return this.StringComp.Count(k);
     }
 
     maide prusate String StringInt(var Int int)
