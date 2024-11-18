@@ -396,6 +396,11 @@ public class Base : Any
             i = i + 1;
         }
 
+        if (!b)
+        {
+            k = 0;
+        }
+
         text.Range.Index = start;
         text.Range.Count = k;
 
