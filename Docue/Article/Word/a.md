@@ -178,9 +178,9 @@ Word "minor" has meaning that is minor comp.
 
 Word "revise" has meaning that is revise comp.
 
-Word "posi" has meaning that is positive.
+Word "posite" has meaning that is positive.
 
-Word "nega" has meaning that is negative.
+Word "negate" has meaning that is negative.
 
 Word "task" has meaning that is to be done.
 
