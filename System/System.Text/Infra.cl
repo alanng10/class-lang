@@ -676,11 +676,11 @@ class Infra : Any
         var IntLess charLess;
         charLess : new IntLess;
         charLess.Init();
-        
+
         var Form form;
         form : new Form;
         form.Init();
-        
+
         var StringLess a;
         a : new StringLess;
         a.CharLess : charLess;
