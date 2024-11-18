@@ -84,7 +84,7 @@ class DeA : Dem
 
         #console.Inn.Read();
 
-        this.Console.Out.Write("Demo HHHH\n");
+        #this.Console.Out.Write("Demo HHHH\n");
 
         var Text text;
         text : this.TextInfra.TextCreateStringData("fffffffffffffff", null);
@@ -153,51 +153,29 @@ class DeA : Dem
             this.Console.Out.Write("Demo IntParse 6666\n");
         }
 
-        this.Console.Out.Write("Demo Text 1111\n");
-
         text : this.TextCreate("h j\n");
-
-        this.Console.Out.Write("Demo Text 2222\n");
 
         k : this.StringCreate(text);
 
-        this.Console.Out.Write("Demo Text 3333\n");
-
         this.Console.Out.Write(k);
-
-        this.Console.Out.Write("Demo Text 4444\n");
 
         k : this.StringBoolFormat(true, true, 8, 8, this.Char("="));
 
-        this.Console.Out.Write("Demo Text 5555\n");
-
         this.Console.Out.Write(k);
-
-        this.Console.Out.Write("Demo Text 6666\n");
 
         k : this.StringTextFormat(text, false, 6, 6, this.Char("#"));
 
-        this.Console.Out.Write("Demo Text 7777\n");
-
         this.Console.Out.Write(k);
 
-        this.Console.Out.Write("Demo Text 8888\n");
-
         k : this.StringIntFormat(0h1e4fd8, 16, true, 10, null, this.Char("="));
-
-        this.Console.Out.Write("Demo Text 9999\n");
 
         this.Console.Out.Write(this.AddClear().Add(k).AddLine().AddResult());
 
         this.Console.Out.Write(this.AddClear().Add(this.StringInt(89542)).AddLine().AddResult());
 
-        this.Console.Out.Write("Demo Storage 1111\n");
-
         k : this.StorageInfra.TextRead("../../DemoA.txt");
 
-        this.Console.Out.Write("Demo Storage 2222\n");
-
-        this.Console.Out.Write(k);
+        this.Console.Out.Write(this.AddClear().Add("Storage Read: ").Add(k).AddLine().AddResult());
 
         var Phore phore;
         phore : new Phore;
