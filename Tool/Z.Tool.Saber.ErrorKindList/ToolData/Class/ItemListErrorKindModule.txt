@@ -31,3 +31,5 @@ ExportInvalid
 ExportUnachievable
 StorageDestInvalid
 StorageSourceInvalid
+StorageDestUnavailable
+StorageSourceUnachievable
