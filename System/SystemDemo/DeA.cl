@@ -225,8 +225,22 @@ class DeA : Dem
 
     maide private Bool ExecuteTime()
     {
+        var Time time;
+        time : new Time;
+        time.Init();
+        
+        this.ConsoleWriteTime("Demo time init : ", time);
+        
+        time.This();
+        this.ConsoleWriteTime("Demo time current : ", time);
 
+        time.ToPos(2 * 60 * 60);
+        this.ConsoleWriteTime("Demo time ToPos : ", time);
 
+        time.AddTick(200 * 1000);
+        this.ConsoleWriteTime("Demo time AddTick : ", time);
+
+        time.Final();
         return true;
     }
 
@@ -242,10 +256,11 @@ class DeA : Dem
             .Add(", sec: ").Add(this.StringInt(time.Sec))
             .Add(", tick: ").Add(this.StringInt(time.Tick))
             .Add(", pos: ").Add(this.StringInt(time.Pos))
+            .Add(", total tick: ").Add(this.StringIntFormat(time.TotalTick, 10, false, 0, null, this.Char("0")))
             .AddLine();
 
         var String k;
-        k = this.AddResult();
+        k : this.AddResult();
 
         this.Console.Out.Write(k);
 
