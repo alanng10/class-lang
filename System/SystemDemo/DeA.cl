@@ -420,6 +420,16 @@ class DeA : Dem
         return true;
     }
 
+    maide prusate Text TA(var String k)
+    {
+        return this.TextString(k, this.TextA, this.StringDataA);
+    }
+
+    maide prusate Text TB(var String k)
+    {
+        return this.TextString(k, this.TextB, this.StringDataB);
+    }
+
     maide prusate Text TextString(var String k, var Text text, var StringData data)
     {
         data.ValueString : k;
