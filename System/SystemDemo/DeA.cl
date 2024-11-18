@@ -108,6 +108,8 @@ class DeA : Dem
 
         this.Console.Out.Write(this.AddClear().Add(this.StringInt(89542)).AddLine().AddResult());
 
+        this.ExecuteTime();
+
         k : this.StorageInfra.TextRead("../../DemoA.txt");
 
         this.Console.Out.Write(this.AddClear().Add("Storage Read: ").Add(k).AddLine().AddResult());
