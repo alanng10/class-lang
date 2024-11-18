@@ -86,7 +86,7 @@ class DeA : Dem
 
         #this.Console.Out.Write("Demo HHHH\n");
         var Text text;
-        text : this.TextCreate("h j\n");
+        text : this.TextCreate("h j");
 
         k : this.StringCreate(text);
 
@@ -98,7 +98,7 @@ class DeA : Dem
 
         this.Console.Out.Write(this.AddClear().Add(k).AddLine().AddResult());
 
-        k : this.StringTextFormat(text, false, 6, 6, this.Char("#"));
+        k : this.StringTextFormat(text, true, 6, 6, this.Char("#"));
 
         this.Console.Out.Write(this.AddClear().Add(k).AddLine().AddResult());
 
