@@ -25,6 +25,7 @@ System.Thread
     Phore Phore
     ThreadThis This
 System.Time
+    Time Time
     TimeEvent Event
 System.Storage
     StorageInfra Infra
