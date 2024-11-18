@@ -223,6 +223,35 @@ class DeA : Dem
         return true;
     }
 
+    maide private Bool ExecuteTime()
+    {
+
+
+        return true;
+    }
+
+    maide private Bool ConsoleWriteTime(var String prefix, var Time time)
+    {
+        this.AddClear().Add(prefix);
+
+        this.Add("yea: ").Add(this.StringInt(time.Yea))
+            .Add(", mon: ").Add(this.StringInt(time.Mon))
+            .Add(", day: ").Add(this.StringInt(time.Day))
+            .Add(", our: ").Add(this.StringInt(time.Our))
+            .Add(", min: ").Add(this.StringInt(time.Min))
+            .Add(", sec: ").Add(this.StringInt(time.Sec))
+            .Add(", tick: ").Add(this.StringInt(time.Tick))
+            .Add(", pos: ").Add(this.StringInt(time.Pos))
+            .AddLine();
+
+        var String k;
+        k = this.AddResult();
+
+        this.Console.Out.Write(k);
+
+        return true;
+    }
+
     maide private Bool ExecuteNetwork()
     {
         this.Console.Out.Write("Network Start\n");
