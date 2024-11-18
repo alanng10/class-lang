@@ -276,6 +276,8 @@ Word "block" has meaning that is group block.
 
 Word "post" has meaning that is queued event.
 
+Word "elapse" has meaning that is pass duration. 
+
 Word "path" has meaning that is way.
 
 Word "relate" has meaning that is relative.
