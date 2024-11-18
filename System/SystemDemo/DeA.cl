@@ -137,6 +137,24 @@ class DeA : Dem
 
         this.Console.Out.Write(this.AddClear().Add("Demo Base Field Data: ").Add(kkk).AddLine().AddResult());
 
+        var Int count;
+        count : 3;
+        var Int i;
+        i : 0;
+        while (i < count)
+        {
+            var Int nak;
+            
+            inf (nak = null)
+            {
+                this.Console.Out.Write("Demo While Local Var 1111\n");
+            }
+            nak : 2;
+
+            i : i + 1;
+        }
+
+
         var String k;
         #k : console.Inn.Read();
         k : "k l o";
