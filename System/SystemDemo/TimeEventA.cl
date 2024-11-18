@@ -2,6 +2,7 @@ class TimeEventA : TimeEvent
 {
     maide prusate Bool Init()
     {
+        base.Init();
         this.Count : 0;
         return true;
     }
