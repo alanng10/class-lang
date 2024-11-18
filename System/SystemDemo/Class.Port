@@ -32,6 +32,7 @@ System.Time
     Time Time
     TimeEvent Event
 System.Storage
+    StorageComp Comp
     StorageInfra Infra
 System.Network
     Network Network
