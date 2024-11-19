@@ -1,6 +1,6 @@
 namespace Saber.Infra;
 
-public class AddWriteOperate : WriteOperate
+public class SetWriteOperate : WriteOperate
 {
     public override bool Init()
     {
