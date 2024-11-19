@@ -381,6 +381,79 @@ class DeA : Dem
         return true;
     }
 
+    maide private Bool ExecuteMemoryStream()
+    {
+        var Memory memory;
+        memory : new Memory;
+        memory.Init();
+
+        memory.Open();
+
+        var Stream stream;
+        stream : memory.Stream;
+
+        var String ka;
+        ka : "K o e f";
+
+        var Data data;
+        data : this.TextCreate(ka);
+
+        var Range range;
+        range : new Range;
+        range.Init();
+        range.Index : 0;
+        range.Count : data.Count;
+
+        stream.Write(data, range);
+
+        ka : "* [ 19";
+
+        data : this.TextInfra.StringDataCreateString(ka);
+
+        range.Count : data.Count;
+
+        stream.Write(data, range);
+
+        data : new Data;
+        data.Count : 10 * 4;
+        data.Init();
+
+        range.Count : data.Count;
+
+        stream.PosSet(3 * 4);
+
+        stream.Read(data, range);
+
+        var String kaa;
+        kaa: this.StringComp.CreateData(data, null);
+
+        var String kb;
+        kb : " e f* [ 19";
+
+        var Bool b;
+        b : this.TextSame(this.TA(kaa), this.TB(kb));
+
+        var String kaaa;
+
+        inf (b)
+        {
+            kaaa : "Success";
+        }
+
+        inf (~b)
+        {
+            kaaa : "Error";
+        }
+
+        this.Console.Out.Write(this.AddClear().Add("Memory Stream read write ").Add(kaaa).AddLine().AddResult());
+
+        memory.Close();
+
+        memory.Final();
+
+        return true;
+    }
+
     maide private Bool ExecuteTime()
     {
         var Time time;
