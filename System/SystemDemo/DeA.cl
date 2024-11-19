@@ -181,7 +181,7 @@ class DeA : Dem
         this.ExecuteValueCast();
 
         var Text text;
-        text : this.TextCreate("h j");
+        text : this.TextCreate("h j\n");
 
         k : this.StringCreate(text);
 
