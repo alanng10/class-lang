@@ -36,7 +36,7 @@ System.Time
     TimeEvent Event
 System.Storage
     Storage Storage
-    StorageMode StorageMode
+    StorageMode Mode
     StorageComp Comp
     StorageInfra Infra
 System.Network
