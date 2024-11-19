@@ -189,19 +189,9 @@ class DeA : Dem
 
         this.ExecuteTextIntParse();
 
-        k : this.StringBoolFormat(true, true, 8, 8, this.Char("="));
+        this.ExecuteFormat();
 
-        this.Console.Out.Write(this.AddClear().Add(k).AddLine().AddResult());
-
-        k : this.StringTextFormat(text, true, 6, 6, this.Char("#"));
-
-        this.Console.Out.Write(this.AddClear().Add(k).AddLine().AddResult());
-
-        k : this.StringIntFormat(0h1e4fd8, 16, true, 10, null, this.Char("="));
-
-        this.Console.Out.Write(this.AddClear().Add(k).AddLine().AddResult());
-
-        this.Console.Out.Write(this.AddClear().Add(this.StringInt(89542)).AddLine().AddResult());
+        this.ExecuteMemoryStream();
 
         this.ExecuteTime();
 
@@ -377,6 +367,28 @@ class DeA : Dem
         {
             this.Console.Out.Write("Demo IntParse 6666\n");
         }
+
+        return true;
+    }
+    
+    maide private Bool ExecuteFormat()
+    {
+        var Text text;
+        text : this.TextCreate("L o(");
+
+        k : this.StringBoolFormat(true, true, 8, 8, this.Char("="));
+
+        this.Console.Out.Write(this.AddClear().Add(k).AddLine().AddResult());
+
+        k : this.StringTextFormat(text, true, 6, 6, this.Char("#"));
+
+        this.Console.Out.Write(this.AddClear().Add(k).AddLine().AddResult());
+
+        k : this.StringIntFormat(0h1e4fd8, 16, true, 10, null, this.Char("="));
+
+        this.Console.Out.Write(this.AddClear().Add(k).AddLine().AddResult());
+
+        this.Console.Out.Write(this.AddClear().Add(this.StringInt(89542)).AddLine().AddResult());
 
         return true;
     }
