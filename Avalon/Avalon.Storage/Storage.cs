@@ -71,10 +71,13 @@ public class Storage : Any
         Extern.Storage_ModeSet(this.Intern, modeU);
         Extern.Storage_StreamSet(this.Intern, k);
         Extern.Storage_Open(this.Intern);
-        if (this.Status == this.StorageStatusList.NoError)
+        if (!(this.Status == this.StorageStatusList.NoError))
         {
-            this.Stream = this.DataStream;
+            return false;
         }
+
+        this.Stream = this.DataStream;
+
         return true;
     }
 

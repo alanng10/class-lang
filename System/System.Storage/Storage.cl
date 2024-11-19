@@ -80,9 +80,9 @@ class Storage : Any
         {
             return false;
         }
-        
+
         this.Stream : this.DataStream;
-        
+
         return true;
     }
 
