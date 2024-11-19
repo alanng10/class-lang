@@ -747,7 +747,6 @@ class Demo : Any
         mode.Init();
         mode.Read = true;
         mode.Write = true;
-        mode.New = true;
 
         storage.Path = this.S("DemoData/StorageStream.txt");
         storage.Mode = mode;
