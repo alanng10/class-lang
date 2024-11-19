@@ -376,6 +376,7 @@ class DeA : Dem
         var Text text;
         text : this.TextCreate("L o(");
 
+        var String k;
         k : this.StringBoolFormat(true, true, 8, 8, this.Char("="));
 
         this.Console.Out.Write(this.AddClear().Add(k).AddLine().AddResult());
