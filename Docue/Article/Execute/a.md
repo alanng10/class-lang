@@ -8,7 +8,7 @@ This tier is the fastest. It is faster than function call and effect load.
 The second tier is function call. This includes get, set, and call.
 This tier is the second fastest. It is faster than memory allocation call and effect load.
 
-The third tier is memory allocation call. This includes new and share.
+The third tier is memory allocation call. This includes new and share, and time effect and console inn and out effect.
 This tier is faster than effect load.
 
 The fourth tier is effect load. This includes storage and network.
