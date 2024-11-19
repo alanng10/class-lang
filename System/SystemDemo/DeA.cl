@@ -227,6 +227,8 @@ class DeA : Dem
 
         this.ExecuteStorage();
 
+        this.ExecuteStorageStream();
+
         this.ExecuteNetwork();
 
         this.ExecuteNetworkProgram();
@@ -538,6 +540,89 @@ class DeA : Dem
         this.Console.Out.Write(this.AddClear().Add("StorageComp ThisFold Set Read ").Add(kaa).AddLine().AddResult());
 
         this.StorageComp.ThisFoldSet("Class");
+        return true;
+    }
+
+    maide private Bool ExecuteStorageStream()
+    {
+        var Storage storage;
+        storage : new Storage;
+        storage.Init();
+
+        var StorageMode mode;
+        mode : new StorageMode;
+        mode.Init();
+        mode.Read : true;
+        mode.Write : true;
+        mode.New : true;
+
+        storage.Path : "../../StorageStream.txt";
+        storage.Mode : mode;
+
+        storage.Open();
+
+        var Stream stream;
+        stream : storage.Stream;
+
+        var String ka;
+        ka : "K o e f";
+
+        var Data data;
+        data : this.TextInfra.StringDataCreateString(ka);
+
+        var Range range;
+        range : new Range;
+        range.Init();
+        range.Index : 0;
+        range.Count : data.Count;
+
+        stream.Write(data, range);
+
+        ka : "* [ 19";
+
+        data : this.TextInfra.StringDataCreateString(ka);
+
+        range.Count : data.Count;
+
+        stream.Write(data, range);
+
+        data : new Data;
+        data.Count : 10 * 4;
+        data.Init();
+
+        range.Count : data.Count;
+
+        stream.PosSet(3 * 4);
+
+        stream.Read(data, range);
+
+        var String kaa;
+        kaa: this.StringComp.CreateData(data, null);
+
+        var String kb;
+        kb : " e f* [ 19";
+
+        var Bool b;
+        b : this.TextSame(this.TA(kaa), this.TB(kb));
+
+        var String kaaa;
+
+        inf (b)
+        {
+            kaaa : "Success";
+        }
+
+        inf (~b)
+        {
+            kaaa : "Error";
+        }
+
+        this.Console.Out.Write(this.AddClear().Add("Storage Stream read write ").Add(kaaa).AddLine().AddResult());
+
+        storage.Close();
+
+        storage.Final();
+
         return true;
     }
 
