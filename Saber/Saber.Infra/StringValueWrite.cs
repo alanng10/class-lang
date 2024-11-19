@@ -14,9 +14,9 @@ public class StringValueWrite : Any
         this.CountWriteOperate = new CountWriteOperate();
         this.CountWriteOperate.Write = this;
         this.CountWriteOperate.Init();
-        this.AddWriteOperate = new SetWriteOperate();
-        this.AddWriteOperate.Write = this;
-        this.AddWriteOperate.Init();
+        this.SetWriteOperate = new SetWriteOperate();
+        this.SetWriteOperate.Write = this;
+        this.SetWriteOperate.Init();
         return true;
     }
 
@@ -25,7 +25,7 @@ public class StringValueWrite : Any
     protected virtual Infra ClassInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
     public virtual CountWriteOperate CountWriteOperate { get; set; }
-    public virtual SetWriteOperate AddWriteOperate { get; set; }
+    public virtual SetWriteOperate SetWriteOperate { get; set; }
 
     public virtual WriteOperate WriteOperate { get; set; }
 
@@ -55,7 +55,7 @@ public class StringValueWrite : Any
         this.Data.Count = k;
         this.Data.Init();
 
-        this.WriteOperate = this.AddWriteOperate;
+        this.WriteOperate = this.SetWriteOperate;
         this.Index = 0;
         this.ExecuteValueString(text);
 

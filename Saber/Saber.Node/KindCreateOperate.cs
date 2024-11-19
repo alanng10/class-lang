@@ -152,7 +152,7 @@ public class KindCreateOperate : CreateOperate
         oa = oa * sizeof(ulong);
         this.InfraInfra.DataIntSet(arg.StringValueCountData, oa, count);
         
-        write.WriteOperate = write.AddWriteOperate;
+        write.WriteOperate = write.SetWriteOperate;
         write.Index = indexA;
         write.Data = arg.StringValueTextData;
         write.ExecuteValueString(text);
