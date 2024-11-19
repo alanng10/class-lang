@@ -30,7 +30,7 @@ class Memory : Any
     {
         inf (~(this.Stream = null))
         {
-            return true;
+            return false;
         }
         
         var Stream stream;
