@@ -63,6 +63,7 @@ class Demo : Any
         this.ExecuteMemoryStream();
         this.ExecuteTime();
         this.ExecuteStorage();
+        this.ExecuteStorageStream();
         this.ExecuteStorageComp();
 
         this.ExecuteDemoThread();
@@ -733,6 +734,92 @@ class Demo : Any
         storage.Close();
         storage.Final();
         return o;
+    }
+
+    private bool ExecuteStorageStream()
+    {
+        Storage storage;
+        storage = new Storage();
+        storage.Init();
+
+        StorageMode mode;
+        mode = new StorageMode();
+        mode.Init();
+        mode.Read = true;
+        mode.Write = true;
+        mode.New = true;
+
+        storage.Path = this.S("DemoData/StorageStream.txt");
+        storage.Mode = mode;
+
+        storage.Open();
+
+        Stream stream;
+        stream = storage.Stream;
+
+        String ka;
+        ka = this.S("K o e f");
+
+        Data data;
+        data = this.TextInfra.StringDataCreateString(ka);
+
+        Range range;
+        range = new Range();
+        range.Init();
+        range.Count = data.Count;
+
+        stream.Write(data, range);
+
+        ka = this.S("* [ 19");
+
+        data = this.TextInfra.StringDataCreateString(ka);
+
+        range.Count = data.Count;
+
+        stream.Write(data, range);
+
+        data = new Data();
+        data.Count = 10 * sizeof(uint);
+        data.Init();
+
+        range.Count = data.Count;
+
+        stream.PosSet(3 * sizeof(uint));
+
+        stream.Read(data, range);
+
+        String kaa;
+        kaa = this.StringComp.CreateData(data, null);
+
+        StringLess less;
+        less = this.TextInfra.StringLessCreate();
+
+        String kb;
+        kb = this.S(" e f* [ 19");
+
+        long na;
+        na = less.Execute(kaa, kb);
+
+        String kaaa;
+        kaaa = null;
+
+        if (na == 0)
+        {
+            kaaa = this.S("Success");
+        }
+
+        if (!(na == 0))
+        {
+            kaaa = this.S("Error");
+        }
+
+        this.Console.Out.Write(this.AddClear().AddS("Storage Stream read write ").Add(kaaa).AddLine().AddResult());
+
+        storage.Close();
+
+        storage.Final();
+
+        return true;
     }
 
     private bool ExecuteStorageComp()
