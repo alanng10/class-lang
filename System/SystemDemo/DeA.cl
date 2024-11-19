@@ -554,7 +554,6 @@ class DeA : Dem
         mode.Init();
         mode.Read : true;
         mode.Write : true;
-        mode.New : true;
 
         storage.Path : "../../StorageStream.txt";
         storage.Mode : mode;
