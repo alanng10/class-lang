@@ -418,13 +418,21 @@ class Demo : Any
 
         stream.Write(data, range);
 
+        ka = this.S("* [ 19");
+
+        data = this.TextInfra.StringDataCreateString(ka);
+
+        range.Count = data.Count;
+
+        stream.Write(data, range);
+
         data = new Data();
-        data.Count = 6 * sizeof(uint);
+        data.Count = 10 * sizeof(uint);
         data.Init();
 
         range.Count = data.Count;
 
-        stream.PosSet(1 * sizeof(uint));
+        stream.PosSet(3 * sizeof(uint));
 
         stream.Read(data, range);
 
@@ -435,7 +443,7 @@ class Demo : Any
         less = this.TextInfra.StringLessCreate();
 
         String kb;
-        kb = this.S(" o e f");
+        kb = this.S(" e f* [ 19");
 
         long na;
         na = less.Execute(kaa, kb);
