@@ -441,6 +441,8 @@ class Demo : Any
         na = less.Execute(kaa, kb);
 
         String kaaa;
+        kaaa = null;
+
         if (na == 0)
         {
             kaaa = this.S("Success");
@@ -451,7 +453,7 @@ class Demo : Any
             kaaa = this.S("Error");
         }
 
-        this.Console.Out.Write(this.AddClear().AddS("Memory Stream read write ").Add(kaa).AddLine().AddResult());
+        this.Console.Out.Write(this.AddClear().AddS("Memory Stream read write ").Add(kaaa).AddLine().AddResult());
 
         memory.Close();
 
