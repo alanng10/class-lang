@@ -28,6 +28,9 @@ System.Thread
     Thread Thread
     Phore Phore
     ThreadThis This
+System.Stream
+    Stream Stream
+    Memory Memory
 System.Time
     Time Time
     TimeEvent Event
