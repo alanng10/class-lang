@@ -60,6 +60,7 @@ class Demo : Any
         this.ExecuteRand();
         this.ExecuteFormat();
         this.ExecuteIntParse();
+        this.ExecuteMemoryStream();
         this.ExecuteTime();
         this.ExecuteStorage();
         this.ExecuteStorageComp();
@@ -389,6 +390,72 @@ class Demo : Any
             ;
 
         this.Console.Out.Write(ka);
+
+        return true;
+    }
+
+    private bool ExecuteMemoryStream()
+    {
+        Memory memory;
+        memory = new Memory();
+        memory.Init();
+
+        memory.Open();
+
+        Stream stream;
+        stream = memory.Stream;
+
+        String ka;
+        ka = this.S("K o e f");
+
+        Data data;
+        data = this.TextInfra.StringDataCreateString(ka);
+
+        Range range;
+        range = new Range();
+        range.Init();
+        range.Count = data.Count;
+
+        stream.Write(data, range);
+
+        data = new Data();
+        data.Count = 6 * sizeof(uint);
+        data.Init();
+
+        range.Count = data.Count;
+
+        stream.PosSet(1 * sizeof(uint));
+
+        stream.Read(data, range);
+
+        String kaa;
+        kaa = this.StringComp.CreateData(data, null);
+
+        StringLess less;
+        less = this.TextInfra.StringLessCreate();
+
+        String kb;
+        kb = this.S(" o e f");
+
+        long na;
+        na = less.Execute(kaa, kb);
+
+        String kaaa;
+        if (na == 0)
+        {
+            kaaa = this.S("Success");
+        }
+
+        if (!(na == 0))
+        {
+            kaaa = this.S("Error");
+        }
+
+        this.Console.Out.Write(this.AddClear().AddS("Memory Stream read write ").Add(kaa).AddLine().AddResult());
+
+        memory.Close();
+
+        memory.Final();
 
         return true;
     }
