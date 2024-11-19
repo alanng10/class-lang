@@ -409,7 +409,7 @@ class DeA : Dem
         ka : "K o e f";
 
         var Data data;
-        data : this.TextCreate(ka);
+        data : this.TextInfra.StringDataCreateString(ka);
 
         var Range range;
         range : new Range;
