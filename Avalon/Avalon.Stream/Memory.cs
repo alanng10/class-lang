@@ -24,7 +24,7 @@ public class Memory : Any
     {
         if (!(this.Stream == null))
         {
-            return true;
+            return false;
         }
 
         Stream stream;
