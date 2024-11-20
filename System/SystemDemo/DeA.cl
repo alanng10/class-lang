@@ -184,7 +184,9 @@ class DeA : Dem
         #this.Console.Out.Write("Demo HHHH\n");
 
         this.ExecuteValueCast();
-
+        
+        this.ExecuteList();
+        
         var Text text;
         text : this.TextCreate("h j\n");
 
