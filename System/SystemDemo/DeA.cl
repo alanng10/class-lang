@@ -157,7 +157,7 @@ class DeA : Dem
         kkk : this.Ake;
 
         var Bool baab;
-        baab : this.TextSame(this.TA(kkk), this.TB(kaaa));
+        baab : kkk = kaaa;
 
         this.Console.Out.Write(this.AddClear().Add("Demo Base Field Data ").Add(this.StatusString(baab)).AddLine().AddResult());
 
