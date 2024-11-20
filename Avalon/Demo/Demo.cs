@@ -109,6 +109,65 @@ class Demo : Any
 
     private bool ExecuteList()
     {
+        this.ExecuteListList();
+        this.ExecuteListTable();
+        return true;
+    }
+
+    private bool ExecuteListList()
+    {
+        List list;
+        list = new List();
+        list.Init();
+
+        object indexA;
+        object indexB;
+        this.ListAddInt(list, 983501);
+        indexA = this.ListAddInt(list, 6728);
+        indexB = this.ListAddInt(list, 8197);
+
+        Array array;
+        array = this.ListInfra.ArrayCreateList(list);
+
+        bool b;
+        b = (array.Count == 3);
+        b = b & this.ArrayIntSame(array, 0, 983501);
+        b = b & this.ArrayIntSame(array, 1, 6728);
+        b = b & this.ArrayIntSame(array, 2, 8197);
+
+        this.Console.Out.Write(this.AddClear().AddS("List Add ").Add(this.StatusString(b)).AddLine().AddResult());
+
+        list.Rem(indexA);
+
+        array = this.ListInfra.ArrayCreateList(list);
+
+        b = (array.Count == 2);
+        b = b & this.ArrayIntSame(array, 0, 983501);
+        b = b & this.ArrayIntSame(array, 1, 8197);
+
+        this.Console.Out.Write(this.AddClear().AddS("List Rem ").Add(this.StatusString(b)).AddLine().AddResult());
+
+        Value ka;
+        ka = new Value();
+        ka.Init();
+        ka.Int = 792461;
+
+        list.Ins(indexB, ka);
+
+        array = this.ListInfra.ArrayCreateList(list);
+
+        b = (array.Count == 3);
+        b = b & this.ArrayIntSame(array, 0, 983501);
+        b = b & this.ArrayIntSame(array, 1, 792461);
+        b = b & this.ArrayIntSame(array, 2, 8197);
+
+        this.Console.Out.Write(this.AddClear().AddS("List Ins ").Add(this.StatusString(b)).AddLine().AddResult());
+
+        return true;
+    }
+
+    private bool ExecuteListTable()
+    {
         RefLess less;
         less = new RefLess();
         less.Init();
@@ -171,6 +230,16 @@ class Demo : Any
         this.Console.Out.Write(this.AddClear().AddS("Table Ins ").Add(this.StatusString(b)).AddLine().AddResult());
 
         return true;
+    }
+
+    private object ListAddInt(List list, long n)
+    {
+        Value k;
+        k = new Value();
+        k.Init();
+        k.Int = n;
+
+        return list.Add(k);
     }
 
     private bool TableAddInt(Table table, long n)
