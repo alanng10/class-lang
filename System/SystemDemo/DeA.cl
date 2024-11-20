@@ -432,14 +432,9 @@ class DeA : Dem
         return list.Add(n);
     }
 
-    private bool TableAddInt(Table table, long n)
+    maide private bool TableAddInt(var Table table, var Int n)
     {
-        Value k;
-        k = new Value();
-        k.Init();
-        k.Int = n;
-
-        this.ListInfra.TableAdd(table, k, k);
+        this.ListInfra.TableAdd(table, n, n);
         return true;
     }
 
