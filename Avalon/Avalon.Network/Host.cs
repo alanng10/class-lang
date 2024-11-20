@@ -11,7 +11,7 @@ public class Host : Any
     public override bool Init()
     {
         base.Init();
-        this.InternIntern = InternIntern.This;
+        this.InternIntern = global::Avalon.Infra.Intern.This;
         this.InternInfra = InternInfra.This;
         this.NetworkInfra = Infra.This;
         this.InternHandle = new Handle();
@@ -49,7 +49,7 @@ public class Host : Any
     }
 
     public virtual Port Port { get; set; }
-    private InternIntern InternIntern { get; set; }
+    private Intern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
     private Infra NetworkInfra { get; set; }
     private ulong Intern { get; set; }
@@ -140,8 +140,8 @@ public class Host : Any
 
     internal static ulong InternNewPeer(ulong networkServer, ulong arg)
     {
-        InternIntern internIntern;
-        internIntern = InternIntern.This;
+        Intern internIntern;
+        internIntern = global::Avalon.Infra.Intern.This;
 
         object ao;
         ao = internIntern.HandleTarget(arg);
