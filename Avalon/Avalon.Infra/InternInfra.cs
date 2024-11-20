@@ -81,10 +81,9 @@ public class InternInfra : Any
         countA = (long)count;
 
         String a;
-        a = new String();
-        a.Value = value;
-        a.Count = countA;
-        a.Init();
+        a = this.InternIntern.StringNew();
+        this.InternIntern.StringValueSet(a, value);
+        this.InternIntern.StringCountSet(a, countA);
         return a;
     }
 
