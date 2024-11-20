@@ -17,6 +17,32 @@ public class Intern : Any
     [SystemThreadStatic]
     public static object ThisThread = null;
 
+    public virtual object DataNew(long count)
+    {
+        return new byte[count];
+    }
+
+    public virtual long DataGet(object data, long index)
+    {
+        byte[] k;
+        k = data as byte[];
+
+        return k[index];
+    }
+
+    public virtual bool DataSet(object data, long index, long value)
+    {
+        byte[] k;
+        k = data as byte[];
+
+        byte ob;
+        ob = (byte)value;
+
+        k[index] = ob;
+
+        return true;
+    }
+
     public virtual ulong MaidePointer(SystemDelegate d)
     {
         SystemIntPtr u;
