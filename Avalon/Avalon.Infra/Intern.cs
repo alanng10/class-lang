@@ -43,6 +43,29 @@ public class Intern : Any
         return true;
     }
 
+    public virtual object ArrayNew(long count)
+    {
+        return new object[count];
+    }
+
+    public virtual object ArrayGet(object array, long index)
+    {
+        object[] k;
+        k = array as object[];
+
+        return k[index];
+    }
+
+    public virtual bool ArraySet(object array, long index, long value)
+    {
+        object[] k;
+        k = array as object[];
+
+        k[index] = value;
+
+        return true;
+    }
+
     public virtual ulong MaidePointer(SystemDelegate d)
     {
         SystemIntPtr u;
