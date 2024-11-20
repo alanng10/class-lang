@@ -26,45 +26,6 @@ public class Intern : Any
         return a;
     }
 
-    public virtual bool CopyText(ulong dest, byte[] source, ulong index, ulong count)
-    {
-        unsafe
-        {
-            fixed (byte* p = source)
-            {
-                char* pa;
-                pa = (char*)p;
-                pa = pa + index;
-                ulong u;
-                u = (ulong)pa;
-
-                ulong oa;
-                oa = count * sizeof(char);
-                Extern.Copy(dest, u, oa);
-            }
-        }
-        return true;
-    }
-
-    public virtual bool CopyString(ulong dest, string source, ulong index, ulong count)
-    {
-        unsafe
-        {
-            fixed (char* p = source)
-            {
-                char* pa;
-                pa = p + index;
-                ulong u;
-                u = (ulong)pa;
-
-                ulong oa;
-                oa = count * sizeof(char);
-                Extern.Copy(dest, u, oa);
-            }
-        }
-        return true;
-    }
-
     public virtual ulong TextCodeCount(ulong innKind, ulong outKind, ulong data, ulong dataIndex, ulong dataCount)
     {
         ulong dataValue;
