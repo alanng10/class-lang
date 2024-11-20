@@ -17,6 +17,33 @@ public class Intern : Any
     [SystemThreadStatic]
     public static object ThisThread = null;
 
+    public virtual String StringNew()
+    {
+        return new String();
+    }
+
+    public virtual object StringValueGet(String k)
+    {
+        return k.Value;
+    }
+
+    public virtual bool StringValueSet(String k, object value)
+    {
+        k.Value = value;
+        return true;
+    }
+
+    public virtual long StringCountGet(String k)
+    {
+        return k.Count;
+    }
+
+    public virtual bool StringCountSet(String k, long value)
+    {
+        k.Count = value;
+        return true;
+    }
+
     public virtual object DataNew(long count)
     {
         return new byte[count];
