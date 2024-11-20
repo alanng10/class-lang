@@ -992,7 +992,7 @@ class Demo : Any
         }
         b = storageComp.FileDelete(this.S(pathB));
 
-        this.Console.Out.Write(this.S("File Delete " + this.StatusString(b) + "\n"));
+        this.Console.Out.Write(this.AddClear().AddS("File Delete ").Add(this.StatusString(b)).AddLine().AddResult());
 
 
         string pathC;
@@ -1009,7 +1009,7 @@ class Demo : Any
 
         b = storageComp.FoldCreate(this.S(pathC));
 
-        this.Console.Out.Write(this.S("Fold Create " + this.StatusString(b) + "\n"));
+        this.Console.Out.Write(this.AddClear().AddS("Fold Create ").Add(this.StatusString(b)).AddLine().AddResult());
 
         string pathCa;
         pathCa = "DemoData/FoldCopy";
@@ -1026,7 +1026,7 @@ class Demo : Any
 
         b = storageComp.FoldCopy(this.S(pathCa), this.S(destPathCa));
 
-        this.Console.Out.Write(this.S("Fold Copy " + this.StatusString(b) + "\n"));
+        this.Console.Out.Write(this.AddClear().AddS("Fold Copy ").Add(this.StatusString(b)).AddLine().AddResult());
 
         string pathCb;
         pathCb = "DemoData/RemoveFoldA";
