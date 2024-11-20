@@ -210,6 +210,30 @@ public class Infra : Any
         return a;
     }
 
+    public virtual long BaseCount(Class varClass, Class anyClass)
+    {
+        Class c;
+        c = varClass;
+
+        long k;
+        k = 0;
+
+        while (!(c == null))
+        {
+            k = k + 1;
+
+            Class ka;
+            ka = null;
+            if (!(c == anyClass))
+            {
+                ka = c.Base;
+            }
+            c = ka;
+        }
+
+        return k;
+    }
+
     public virtual bool ValidClass(Class varClass, Class requiredClass, Class anyClass, Class nullClass)
     {
         Class thisClass;
