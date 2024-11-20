@@ -137,21 +137,21 @@ class InternInfra : Any
     {
         var Any value;
         value : this.InternIntern.StringValueGet(k);
-        
+
         var Int count;
         count : this.InternIntern.StringCountGet(k);
-        
+
         var Int ka;
         ka : count * 4;
-        
-        var Int kk;
-        kk : this.Extern.New(ka);
-        
-        this.CopyFromByteArray(kk, value, 0, ka);
-        
+
         var Extern extern;
         extern : this.Extern;
-        
+
+        var Int kk;
+        kk : extern.New(ka);
+
+        this.CopyFromByteArray(kk, value, 0, ka);
+
         var Int a;
         a : extern.String_New();
         extern.String_Init(a);
