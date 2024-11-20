@@ -2,6 +2,37 @@ namespace Demo;
 
 class Demo : Any
 {
+    public override bool Init()
+    {
+        base.Init();
+        this.InfraInfra = InfraInfra.This;
+        this.ListInfra = ListInfra.This;
+        this.TextInfra = TextInfra.This;
+        this.MathInfra = MathInfra.This;
+        this.StorageInfra = StorageInfra.This;
+        this.StringComp = StringComp.This;
+        this.TextCode = TextCode.This;
+        this.TextCodeKindList = TextCodeKindList.This;
+        this.StorageStatusList = StorageStatusList.This;
+        this.StorageComp = StorageComp.This;
+        this.NetworkPortKindList = NetworkPortKindList.This;
+        this.NetworkCaseList = NetworkCaseList.This;
+        this.NetworkStatusList = NetworkStatusList.This;
+        this.Console = Console.This;
+
+        this.StringAdd = new StringAdd();
+        this.StringAdd.Init();
+
+        this.Math = new MathMath();
+        this.Math.Init();
+        this.MathComp = new MathComp();
+        this.MathComp.Init();
+
+        this.SSuccess = this.S("Success");
+        this.SError = this.S("Error");
+        return true;
+    }
+
     public NetworkNetwork Peer { get; set; }
     public NetworkHostA Host { get; set; }
 
@@ -25,36 +56,11 @@ class Demo : Any
     private StringAdd StringAdd { get; set; }
     private Format Format { get; set; }
     private FormatArg FormatArg { get; set; }
+    private String SSuccess { get; set; }
+    private String SError { get; set; }
 
     public bool Execute()
     {
-        this.InfraInfra = InfraInfra.This;
-        this.ListInfra = ListInfra.This;
-        this.TextInfra = TextInfra.This;
-        this.MathInfra = MathInfra.This;
-        this.StorageInfra = StorageInfra.This;
-        this.StringComp = StringComp.This;
-        this.TextCode = TextCode.This;
-        this.TextCodeKindList = TextCodeKindList.This;
-        this.StorageStatusList = StorageStatusList.This;
-        this.StorageComp = StorageComp.This;
-        this.NetworkPortKindList = NetworkPortKindList.This;
-        this.NetworkCaseList = NetworkCaseList.This;
-        this.NetworkStatusList = NetworkStatusList.This;
-        this.Console = Console.This;
-
-        this.StringAdd = new StringAdd();
-        this.StringAdd.Init();
-
-        ThreadThis varThis;
-        varThis = new ThreadThis();
-        varThis.Init();
-        
-        this.Math = new MathMath();
-        this.Math.Init();
-        this.MathComp = new MathComp();
-        this.MathComp.Init();
-
         this.ExecuteConsole();
         this.ExecuteMath();
         this.ExecuteRand();
@@ -885,29 +891,29 @@ class Demo : Any
         bool exist;
         exist = storageComp.Exist(this.S("DemoData/FoldA/FileA.txt"));
 
-        this.Console.Out.Write(this.AddClear().AddS("File Exist ").AddS(this.StorageCompStatus(exist)).AddLine().AddResult());
+        this.Console.Out.Write(this.AddClear().AddS("File Exist ").AddS(this.StatusString(exist)).AddLine().AddResult());
 
         exist = storageComp.Exist(this.S("DemoData/FoldA"));
 
-        this.Console.Out.Write(this.AddClear().AddS("Fold Exist ").AddS(this.StorageCompStatus(exist)).AddLine().AddResult());
+        this.Console.Out.Write(this.AddClear().AddS("Fold Exist ").AddS(this.StatusString(exist)).AddLine().AddResult());
 
         exist = storageComp.Exist(this.S("DemoData/Dummy"));
 
-        this.Console.Out.Write(this.AddClear().AddS("Dummy Exist ").AddS(this.StorageCompStatus(!exist)).AddLine().AddResult());
+        this.Console.Out.Write(this.AddClear().AddS("Dummy Exist ").AddS(this.StatusString(!exist)).AddLine().AddResult());
 
 
         bool isFold;
         isFold = storageComp.Fold(this.S("DemoData/FoldA/FileA.txt"));
 
-        this.Console.Out.Write(this.AddClear().AddS("File Is Fold ").AddS(this.StorageCompStatus(!isFold)).AddLine().AddResult());
+        this.Console.Out.Write(this.AddClear().AddS("File Is Fold ").AddS(this.StatusString(!isFold)).AddLine().AddResult());
 
         isFold = storageComp.Fold(this.S("DemoData/FoldA"));
 
-        this.Console.Out.Write(this.AddClear().AddS("Fold Is Fold ").AddS(this.StorageCompStatus(isFold)).AddLine().AddResult());
+        this.Console.Out.Write(this.AddClear().AddS("Fold Is Fold ").AddS(this.StatusString(isFold)).AddLine().AddResult());
 
         isFold = storageComp.Fold(this.S("DemoData/Dummy"));
 
-        this.Console.Out.Write(this.AddClear().AddS("Dummy Is Fold ").AddS(this.StorageCompStatus(!isFold)).AddLine().AddResult());
+        this.Console.Out.Write(this.AddClear().AddS("Dummy Is Fold ").AddS(this.StatusString(!isFold)).AddLine().AddResult());
 
         bool b;
 
@@ -934,7 +940,7 @@ class Demo : Any
 
         b = storageComp.Rename(this.S(pathA), this.S(destPathA));
 
-        this.Console.Out.Write(this.S("File Rename " + this.StorageCompStatus(b) + "\n"));
+        this.Console.Out.Write(this.S("File Rename " + this.StatusString(b) + "\n"));
 
         string pathAa;
         pathAa = "DemoData/FoldRename";
@@ -963,7 +969,7 @@ class Demo : Any
 
         b = storageComp.Rename(this.S(pathAa), this.S(destPathAa));
 
-        this.Console.Out.Write(this.S("Fold Rename " + this.StorageCompStatus(b) + "\n"));
+        this.Console.Out.Write(this.S("Fold Rename " + this.StatusString(b) + "\n"));
 
         string path;
         path = "DemoData/DemoCopy.txt";
@@ -973,7 +979,7 @@ class Demo : Any
 
         b = storageComp.FileCopy(this.S(path), this.S(destPath));
 
-        this.Console.Out.Write(this.S("File Copy " + this.StorageCompStatus(b) + "\n"));
+        this.Console.Out.Write(this.S("File Copy " + this.StatusString(b) + "\n"));
 
         string pathB;
         pathB = "DemoData/Remove.txt";
@@ -986,7 +992,7 @@ class Demo : Any
         }
         b = storageComp.FileDelete(this.S(pathB));
 
-        this.Console.Out.Write(this.S("File Delete " + this.StorageCompStatus(b) + "\n"));
+        this.Console.Out.Write(this.S("File Delete " + this.StatusString(b) + "\n"));
 
 
         string pathC;
@@ -1003,7 +1009,7 @@ class Demo : Any
 
         b = storageComp.FoldCreate(this.S(pathC));
 
-        this.Console.Out.Write(this.S("Fold Create " + this.StorageCompStatus(b) + "\n"));
+        this.Console.Out.Write(this.S("Fold Create " + this.StatusString(b) + "\n"));
 
         string pathCa;
         pathCa = "DemoData/FoldCopy";
@@ -1020,7 +1026,7 @@ class Demo : Any
 
         b = storageComp.FoldCopy(this.S(pathCa), this.S(destPathCa));
 
-        this.Console.Out.Write(this.S("Fold Copy " + this.StorageCompStatus(b) + "\n"));
+        this.Console.Out.Write(this.S("Fold Copy " + this.StatusString(b) + "\n"));
 
         string pathCb;
         pathCb = "DemoData/RemoveFoldA";
@@ -1040,7 +1046,7 @@ class Demo : Any
 
         b = storageComp.FoldDelete(this.S(pathCb));
 
-        this.Console.Out.Write(this.S("Fold Delete " + this.StorageCompStatus(b) + "\n"));
+        this.Console.Out.Write(this.S("Fold Delete " + this.StatusString(b) + "\n"));
 
         String foldListPath;
         foldListPath = this.S("DemoData/FoldCopy/FoldA");
@@ -1098,13 +1104,13 @@ class Demo : Any
         return true;
     }
 
-    private string StorageCompStatus(bool b)
+    private String StatusString(bool b)
     {
-        string k;
-        k = "Success";
+        String k;
+        k = this.SSuccess;
         if (!b)
         {
-            k = "Error";
+            k = this.SError;
         }
         return k;
     }
