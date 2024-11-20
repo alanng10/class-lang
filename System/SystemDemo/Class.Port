@@ -15,6 +15,7 @@ System.List
     List List
     Array Array
     Table Table
+    ListEntry Entry
     ListInfra Infra
 System.Text
     Text Text
