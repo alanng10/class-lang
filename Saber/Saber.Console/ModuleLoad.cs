@@ -127,7 +127,7 @@ public class ModuleLoad : ClassBase
         while (i < count)
         {
             BinaryClass o;
-            o = (BinaryClass)array.GetAt(i);
+            o = array.GetAt(i) as BinaryClass;
 
             String name;
             name = o.Name;
@@ -153,7 +153,7 @@ public class ModuleLoad : ClassBase
         if (this.TextSame(this.TA(this.Module.Ref.Name), this.TB(this.SSystemDotInfra)))
         {
             ClassClass oo;
-            oo = (ClassClass)classTable.Get(this.SAny);
+            oo = classTable.Get(this.SAny) as ClassClass;
             if (oo == null)
             {
                 this.Status = 12;
@@ -175,7 +175,7 @@ public class ModuleLoad : ClassBase
         {
             iter.Next();
             ClassClass oa;
-            oa = (ClassClass)iter.Value;
+            oa = iter.Value as ClassClass;
 
             classArray.SetAt(i, oa);
             i = i + 1;
