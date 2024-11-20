@@ -3,6 +3,7 @@ global using String = Avalon.Infra.String;
 global using Range = Avalon.Infra.Range;
 global using Data = Avalon.Infra.Data;
 global using State = Avalon.Infra.State;
+global using RefLess = Avalon.Infra.RefLess;
 global using Value = Avalon.Infra.Value;
 global using InfraInfra = Avalon.Infra.Infra;
 global using List = Avalon.List.List;

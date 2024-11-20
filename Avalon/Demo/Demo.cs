@@ -102,9 +102,53 @@ class Demo : Any
 
     private bool ExecuteList()
     {
-        
+        RefLess less;
+        less = new RefLess();
+        less.Init();
+
+        Table table;
+        table = new Table();
+        table.Less = less;
+        table.Init();
+
+        this.TableAddInt(table, 983501);
+        this.TableAddInt(table, 6728);
+        this.TableAddInt(table, 8197);
+
+        Array array;
+        array = this.ListInfra.ArrayCreateList(table);
+
+        bool b;
+        b = true;
+        b = b & this.ArrayIntSame(array, 0, 983501);
+        b = b & this.ArrayIntSame(array, 1, 6728);
+        b = b & this.ArrayIntSame(array, 2, 8197);
+
+        if (b)
+        {
+            
+        }
 
         return true;
+    }
+
+    private bool TableAddInt(Table table, long n)
+    {
+        Value k;
+        k = new Value();
+        k.Init();
+        k.Int = n;
+
+        this.ListInfra.TableAdd(table, k, k);
+        return true;
+    }
+
+    private bool ArrayIntSame(Array array, long index, long value)
+    {
+        Value k;
+        k = array.GetAt(index) as Value;
+
+        return k.Int == value;
     }
 
     private bool ExecuteMath()
