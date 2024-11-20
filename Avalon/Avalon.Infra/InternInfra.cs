@@ -271,8 +271,8 @@ public class InternInfra : Any
 
     public virtual ulong DataByteListGet(object data, long index, long count)
     {
-        byte[] dataValue;
-        dataValue = data as byte[];
+        Intern internIntern;
+        internIntern = this.InternIntern;
 
         ulong oo;
         oo = 0;
@@ -281,14 +281,14 @@ public class InternInfra : Any
         i = 0;
         while (i < count)
         {
-            byte ob;
-            ob = dataValue[index + i];
+            long ob;
+            ob = internIntern.DataGet(data, index + i);
 
             int shiftCount;
             shiftCount = (int)(i * 8);
 
             ulong o;
-            o = ob;
+            o = (ulong)ob;
             o = o << shiftCount;
 
             oo = oo | o;
