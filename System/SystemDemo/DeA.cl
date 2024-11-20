@@ -338,7 +338,7 @@ class DeA : Dem
         b : b & this.ArrayIntSame(array, 1, 6728);
         b : b & this.ArrayIntSame(array, 2, 8197);
 
-        this.Console.Out.Write(this.AddClear().AddS("List Add ").Add(this.StatusString(b)).AddLine().AddResult());
+        this.Console.Out.Write(this.AddClear().Add("List Add ").Add(this.StatusString(b)).AddLine().AddResult());
 
         list.Rem(indexA);
 
@@ -348,7 +348,7 @@ class DeA : Dem
         b : b & this.ArrayIntSame(array, 0, 983501);
         b : b & this.ArrayIntSame(array, 1, 8197);
 
-        this.Console.Out.Write(this.AddClear().AddS("List Rem ").Add(this.StatusString(b)).AddLine().AddResult());
+        this.Console.Out.Write(this.AddClear().Add("List Rem ").Add(this.StatusString(b)).AddLine().AddResult());
 
         var Int ka;
         ka : 792461;
@@ -362,7 +362,7 @@ class DeA : Dem
         b : b & this.ArrayIntSame(array, 1, 792461);
         b : b & this.ArrayIntSame(array, 2, 8197);
 
-        this.Console.Out.Write(this.AddClear().AddS("List Ins ").Add(this.StatusString(b)).AddLine().AddResult());
+        this.Console.Out.Write(this.AddClear().Add("List Ins ").Add(this.StatusString(b)).AddLine().AddResult());
 
         return true;
     }
@@ -391,7 +391,7 @@ class DeA : Dem
         b : b & this.ArrayIntSame(array, 1, 6728);
         b : b & this.ArrayIntSame(array, 2, 8197);
 
-        this.Console.Out.Write(this.AddClear().AddS("Table Add ").Add(this.StatusString(b)).AddLine().AddResult());
+        this.Console.Out.Write(this.AddClear().Add("Table Add ").Add(this.StatusString(b)).AddLine().AddResult());
 
         var Any kk;
         kk : array.Get(1);
@@ -404,7 +404,7 @@ class DeA : Dem
         b : b & this.ArrayIntSame(array, 0, 983501);
         b : b & this.ArrayIntSame(array, 1, 8197);
 
-        this.Console.Out.Write(this.AddClear().AddS("Table Rem ").Add(this.StatusString(b)).AddLine().AddResult());
+        this.Console.Out.Write(this.AddClear().Add("Table Rem ").Add(this.StatusString(b)).AddLine().AddResult());
 
         kk : array.Get(1);
 
@@ -426,7 +426,7 @@ class DeA : Dem
         b : b & this.ArrayIntSame(array, 1, 792461);
         b : b & this.ArrayIntSame(array, 2, 8197);
 
-        this.Console.Out.Write(this.AddClear().AddS("Table Ins ").Add(this.StatusString(b)).AddLine().AddResult());
+        this.Console.Out.Write(this.AddClear().Add("Table Ins ").Add(this.StatusString(b)).AddLine().AddResult());
 
         return true;
     }
