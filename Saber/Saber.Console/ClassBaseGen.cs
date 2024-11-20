@@ -18,11 +18,6 @@ public class ClassBaseGen : Any
         long count;
         count = this.Class.BaseCount;
 
-        if (0x100 < count)
-        {
-            return false;
-        }
-
         Array array;
         array = this.ListInfra.ArrayCreate(count);
 
