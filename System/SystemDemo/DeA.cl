@@ -448,19 +448,7 @@ class DeA : Dem
         var Bool b;
         b : this.TextSame(this.TA(kaa), this.TB(kb));
 
-        var String kaaa;
-
-        inf (b)
-        {
-            kaaa : "Success";
-        }
-
-        inf (~b)
-        {
-            kaaa : "Error";
-        }
-
-        this.Console.Out.Write(this.AddClear().Add("Memory Stream read write ").Add(kaaa).AddLine().AddResult());
+        this.Console.Out.Write(this.AddClear().Add("Memory Stream read write ").Add(this.StatusString(b)).AddLine().AddResult());
 
         memory.Close();
 
@@ -604,19 +592,7 @@ class DeA : Dem
         var Bool b;
         b : this.TextSame(this.TA(kaa), this.TB(kb));
 
-        var String kaaa;
-
-        inf (b)
-        {
-            kaaa : "Success";
-        }
-
-        inf (~b)
-        {
-            kaaa : "Error";
-        }
-
-        this.Console.Out.Write(this.AddClear().Add("Storage Stream read write ").Add(kaaa).AddLine().AddResult());
+        this.Console.Out.Write(this.AddClear().Add("Storage Stream read write ").Add(this.StatusString(b)).AddLine().AddResult());
 
         storage.Close();
 
@@ -708,6 +684,17 @@ class DeA : Dem
         this.Console.Out.Write("Network Program End\n");
 
         return true;
+    }
+
+    maide private String StatusString(var Bool b)
+    {
+        var String k;
+        k : "Success";
+        inf (~b)
+        {
+            k : "Error";
+        }
+        return k;
     }
 
     maide prusate Text TA(var String k)
