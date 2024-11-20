@@ -307,8 +307,8 @@ public class InternInfra : Any
 
     public virtual bool DataByteListSet(object data, long index, long count, ulong value)
     {
-        byte[] dataValue;
-        dataValue = data as byte[];
+        Intern internIntern;
+        internIntern = this.InternIntern;
 
         long d;
         d = this.IntCapValue - 1;
@@ -328,10 +328,10 @@ public class InternInfra : Any
             ulong o;
             o = oo >> shiftCount;
 
-            byte ob;
-            ob = (byte)o;
+            long oa;
+            oa = (long)o;
 
-            dataValue[index + i] = ob;
+            internIntern.DataSet(data, index + i, oa);
 
             i = i + 1;
         }
