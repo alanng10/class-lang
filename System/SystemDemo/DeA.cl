@@ -212,6 +212,8 @@ class DeA : Dem
 
         this.ExecuteFormat();
 
+        this.ExecuteMath();
+
         this.ExecuteThread();
 
         this.ExecuteMemoryStream();
