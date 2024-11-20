@@ -306,6 +306,155 @@ class DeA : Dem
         return true;
     }
 
+    maide private Bool ExecuteList()
+    {
+        this.ExecuteListList();
+        this.ExecuteListTable();
+        return true;
+    }
+
+    maide private Bool ExecuteListList()
+    {
+        var List list;
+        list : new List;
+        list.Init();
+
+        var Any indexA;
+        var Any indexB;
+        this.ListAddInt(list, 983501);
+        indexA : this.ListAddInt(list, 6728);
+        indexB : this.ListAddInt(list, 8197);
+
+        var Array array;
+        array : this.ListInfra.ArrayCreateList(list);
+
+        var Bool b;
+        b : (array.Count = 3);
+        b : b & this.ArrayIntSame(array, 0, 983501);
+        b : b & this.ArrayIntSame(array, 1, 6728);
+        b : b & this.ArrayIntSame(array, 2, 8197);
+
+        this.Console.Out.Write(this.AddClear().AddS("List Add ").Add(this.StatusString(b)).AddLine().AddResult());
+
+        list.Rem(indexA);
+
+        array = this.ListInfra.ArrayCreateList(list);
+
+        b = (array.Count == 2);
+        b = b & this.ArrayIntSame(array, 0, 983501);
+        b = b & this.ArrayIntSame(array, 1, 8197);
+
+        this.Console.Out.Write(this.AddClear().AddS("List Rem ").Add(this.StatusString(b)).AddLine().AddResult());
+
+        Value ka;
+        ka = new Value();
+        ka.Init();
+        ka.Int = 792461;
+
+        list.Ins(indexB, ka);
+
+        array = this.ListInfra.ArrayCreateList(list);
+
+        b = (array.Count == 3);
+        b = b & this.ArrayIntSame(array, 0, 983501);
+        b = b & this.ArrayIntSame(array, 1, 792461);
+        b = b & this.ArrayIntSame(array, 2, 8197);
+
+        this.Console.Out.Write(this.AddClear().AddS("List Ins ").Add(this.StatusString(b)).AddLine().AddResult());
+
+        return true;
+    }
+
+    private bool ExecuteListTable()
+    {
+        RefLess less;
+        less = new RefLess();
+        less.Init();
+
+        Table table;
+        table = new Table();
+        table.Less = less;
+        table.Init();
+
+        this.TableAddInt(table, 983501);
+        this.TableAddInt(table, 6728);
+        this.TableAddInt(table, 8197);
+
+        Array array;
+        array = this.ListInfra.ArrayCreateList(table);
+
+        bool b;
+        b = (array.Count == 3);
+        b = b & this.ArrayIntSame(array, 0, 983501);
+        b = b & this.ArrayIntSame(array, 1, 6728);
+        b = b & this.ArrayIntSame(array, 2, 8197);
+
+        this.Console.Out.Write(this.AddClear().AddS("Table Add ").Add(this.StatusString(b)).AddLine().AddResult());
+
+        Value kk;
+        kk = array.GetAt(1) as Value;
+
+        table.Rem(kk);
+
+        array = this.ListInfra.ArrayCreateList(table);
+
+        b = (array.Count == 2);
+        b = b & this.ArrayIntSame(array, 0, 983501);
+        b = b & this.ArrayIntSame(array, 1, 8197);
+
+        this.Console.Out.Write(this.AddClear().AddS("Table Rem ").Add(this.StatusString(b)).AddLine().AddResult());
+
+        kk = array.GetAt(1) as Value;
+
+        Value ka;
+        ka = new Value();
+        ka.Init();
+        ka.Int = 792461;
+
+        ListEntry kaa;
+        kaa = new ListEntry();
+        kaa.Init();
+        kaa.Index = ka;
+        kaa.Value = ka;
+
+        table.Ins(kk, kaa);
+
+        array = this.ListInfra.ArrayCreateList(table);
+
+        b = (array.Count == 3);
+        b = b & this.ArrayIntSame(array, 0, 983501);
+        b = b & this.ArrayIntSame(array, 1, 792461);
+        b = b & this.ArrayIntSame(array, 2, 8197);
+
+        this.Console.Out.Write(this.AddClear().AddS("Table Ins ").Add(this.StatusString(b)).AddLine().AddResult());
+
+        return true;
+    }
+
+    maide private Any ListAddInt(var List list, var Int n)
+    {
+        return list.Add(n);
+    }
+
+    private bool TableAddInt(Table table, long n)
+    {
+        Value k;
+        k = new Value();
+        k.Init();
+        k.Int = n;
+
+        this.ListInfra.TableAdd(table, k, k);
+        return true;
+    }
+
+    private bool ArrayIntSame(Array array, long index, long value)
+    {
+        Value k;
+        k = array.GetAt(index) as Value;
+
+        return k.Int == value;
+    }
+
     maide private Bool ExecuteTextIntParse()
     {
         var Text text;
