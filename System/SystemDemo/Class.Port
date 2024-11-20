@@ -18,6 +18,9 @@ System.List
     Table Table
     ListEntry Entry
     ListInfra Infra
+System.Math
+    Math Math
+    MathComp Comp
 System.Text
     Text Text
     TextForm Form

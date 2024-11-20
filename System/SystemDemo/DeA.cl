@@ -5,6 +5,7 @@ class DeA : Dem
         base.Init();
         this.ListInfra : share ListInfra;
         this.TextInfra : share TextInfra;
+        this.Math : share Math;
         this.StorageInfra : share StorageInfra;
         this.StringComp : share StringComp;
         this.StorageComp : share StorageComp;
@@ -28,6 +29,7 @@ class DeA : Dem
 
     field precate ListInfra ListInfra { get { return data; } set { data : value; } }
     field precate TextInfra TextInfra { get { return data; } set { data : value; } }
+    field precate Math Math { get { return data; } set { data : value; } }
     field precate StorageInfra StorageInfra { get { return data; } set { data : value; } }
     field precate StringComp StringComp { get { return data; } set { data : value; } }
     field precate StorageComp StorageComp { get { return data; } set { data : value; } }
@@ -426,6 +428,66 @@ class DeA : Dem
         k : cast Int(array.Get(index));
 
         return k = value;
+    }
+
+    maide private Bool ExecuteMath()
+    {
+        var MathComp ka;
+        ka : new MathComp;
+        ka.Init();
+
+        ka.Cand : 3;
+        ka.Expo : 2;
+
+        var Int aaaa;
+        aaaa : this.Math.ValueTen(ka);
+
+
+
+        return true;
+    }
+
+    maide private Bool ConsoleWriteMathValue(var String prefix, var Int value)
+    {
+        this.Math.Comp(this.MathComp, value);
+        
+        var String ka;
+        ka : this.StringSInt(this.MathComp.Expo);
+
+        var String k;
+
+        k : this.AddClear()
+            .Add(prefix)
+            .Add("Cand: ")
+            .Add(this.StringIntFormat(this.MathComp.Cand, 16, false, 15, 15, this.Char("0")))
+            .Add(", ")
+            .Add("Expo: ")
+            .Add(ka)
+            .AddLine()
+            .AddResult()
+            ;
+
+        this.Console.Out.Write(k);
+
+        return true;
+    }
+
+    maide private String StringSInt(var Int n)
+    {
+        this.AddClear();
+
+        var Int k;
+        k : n;
+        inf (sign <(n, 0))
+        {
+            k : 0 - n;
+        
+            this.Add("-");
+        }
+
+        this.Add(this.StringInt(k));
+
+        return this.AddResult();
     }
 
     maide private Bool ExecuteTextIntParse()
