@@ -102,7 +102,7 @@ public class InternInfra : Any
         ka = (long)dataCount;
 
         object a;
-        a = new byte[ka];
+        a = this.InternIntern.DataNew(ka);
 
         this.InternIntern.CopyToByteArray(value, a, 0, dataCount);
         return a;
