@@ -363,66 +363,64 @@ class DeA : Dem
         return true;
     }
 
-    private bool ExecuteListTable()
+    maide private Bool ExecuteListTable()
     {
-        RefLess less;
-        less = new RefLess();
+        var RefLess less;
+        less : new RefLess;
         less.Init();
 
-        Table table;
-        table = new Table();
-        table.Less = less;
+        var Table table;
+        table : new Table;
+        table.Less : less;
         table.Init();
 
         this.TableAddInt(table, 983501);
         this.TableAddInt(table, 6728);
         this.TableAddInt(table, 8197);
 
-        Array array;
-        array = this.ListInfra.ArrayCreateList(table);
+        var Array array;
+        array : this.ListInfra.ArrayCreateList(table);
 
-        bool b;
-        b = (array.Count == 3);
-        b = b & this.ArrayIntSame(array, 0, 983501);
-        b = b & this.ArrayIntSame(array, 1, 6728);
-        b = b & this.ArrayIntSame(array, 2, 8197);
+        var Bool b;
+        b : (array.Count = 3);
+        b : b & this.ArrayIntSame(array, 0, 983501);
+        b : b & this.ArrayIntSame(array, 1, 6728);
+        b : b & this.ArrayIntSame(array, 2, 8197);
 
         this.Console.Out.Write(this.AddClear().AddS("Table Add ").Add(this.StatusString(b)).AddLine().AddResult());
 
-        Value kk;
-        kk = array.GetAt(1) as Value;
+        var Any kk;
+        kk : array.Get(1);
 
         table.Rem(kk);
 
-        array = this.ListInfra.ArrayCreateList(table);
+        array : this.ListInfra.ArrayCreateList(table);
 
-        b = (array.Count == 2);
-        b = b & this.ArrayIntSame(array, 0, 983501);
-        b = b & this.ArrayIntSame(array, 1, 8197);
+        b : (array.Count = 2);
+        b : b & this.ArrayIntSame(array, 0, 983501);
+        b : b & this.ArrayIntSame(array, 1, 8197);
 
         this.Console.Out.Write(this.AddClear().AddS("Table Rem ").Add(this.StatusString(b)).AddLine().AddResult());
 
-        kk = array.GetAt(1) as Value;
+        kk : array.Get(1);
 
-        Value ka;
-        ka = new Value();
-        ka.Init();
-        ka.Int = 792461;
+        var Int ka;
+        ka : 792461;
 
-        ListEntry kaa;
-        kaa = new ListEntry();
+        var ListEntry kaa;
+        kaa : new ListEntry;
         kaa.Init();
-        kaa.Index = ka;
-        kaa.Value = ka;
+        kaa.Index : ka;
+        kaa.Value : ka;
 
         table.Ins(kk, kaa);
 
-        array = this.ListInfra.ArrayCreateList(table);
+        array : this.ListInfra.ArrayCreateList(table);
 
-        b = (array.Count == 3);
-        b = b & this.ArrayIntSame(array, 0, 983501);
-        b = b & this.ArrayIntSame(array, 1, 792461);
-        b = b & this.ArrayIntSame(array, 2, 8197);
+        b : (array.Count = 3);
+        b : b & this.ArrayIntSame(array, 0, 983501);
+        b : b & this.ArrayIntSame(array, 1, 792461);
+        b : b & this.ArrayIntSame(array, 2, 8197);
 
         this.Console.Out.Write(this.AddClear().AddS("Table Ins ").Add(this.StatusString(b)).AddLine().AddResult());
 
