@@ -447,12 +447,12 @@ class DeA : Dem
         return true;
     }
 
-    private bool ArrayIntSame(Array array, long index, long value)
+    maide private Bool ArrayIntSame(var Array array, var Int index, var Int value)
     {
-        Value k;
-        k = array.GetAt(index) as Value;
+        var Int k;
+        k : cast Int(array.Get(index));
 
-        return k.Int == value;
+        return k = value;
     }
 
     maide private Bool ExecuteTextIntParse()
