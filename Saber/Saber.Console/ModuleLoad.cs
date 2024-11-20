@@ -88,6 +88,12 @@ public class ModuleLoad : ClassBase
             return false;
         }
 
+        b = this.SetBaseCount();
+        if (!b)
+        {
+            return false;
+        }
+
         b = this.SetPartList();
         if (!b)
         {
@@ -343,10 +349,10 @@ public class ModuleLoad : ClassBase
         while (i < count)
         {
             ClassClass varClass;
-            varClass = (ClassClass)classArray.GetAt(i);
+            varClass = classArray.GetAt(i) as ClassClass;
 
             InfraValue a;
-            a = (InfraValue)array.GetAt(i);
+            a = array.GetAt(i) as InfraValue;
 
             ClassClass baseClass;
             baseClass = this.ClassGetIndex(a.Int);
@@ -361,6 +367,29 @@ public class ModuleLoad : ClassBase
 
             i = i + 1;
         }
+        return true;
+    }
+
+    protected virtual bool SetBaseCount()
+    {
+        Array array;
+        array = this.ClassArray;
+
+        long count;
+        count = array.Count;
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            ClassClass varClass;
+            varClass = array.GetAt(i) as ClassClass;
+
+            varClass.BaseCount = this.ClassInfra.BaseCount(varClass, this.AnyClass);
+
+            i = i + 1;
+        }
+
         return true;
     }
 
