@@ -436,7 +436,7 @@ class DeA : Dem
         return list.Add(n);
     }
 
-    maide private bool TableAddInt(var Table table, var Int n)
+    maide private Bool TableAddInt(var Table table, var Int n)
     {
         this.ListInfra.TableAdd(table, n, n);
         return true;
