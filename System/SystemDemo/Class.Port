@@ -13,6 +13,9 @@ System.Infra
     IntLess IntLess
 System.List
     List List
+    Array Array
+    Table Table
+    ListInfra Infra
 System.Text
     Text Text
     TextForm Form

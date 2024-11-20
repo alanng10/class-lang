@@ -3,6 +3,7 @@ class DeA : Dem
     maide prusate Bool Init()
     {
         base.Init();
+        this.ListInfra : share ListInfra;
         this.TextInfra : share TextInfra;
         this.StorageInfra : share StorageInfra;
         this.StringComp : share StringComp;
@@ -25,6 +26,7 @@ class DeA : Dem
         return true;
     }
 
+    field precate ListInfra ListInfra { get { return data; } set { data : value; } }
     field precate TextInfra TextInfra { get { return data; } set { data : value; } }
     field precate StorageInfra StorageInfra { get { return data; } set { data : value; } }
     field precate StringComp StringComp { get { return data; } set { data : value; } }
