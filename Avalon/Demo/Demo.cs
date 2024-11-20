@@ -62,6 +62,7 @@ class Demo : Any
     public bool Execute()
     {
         this.ExecuteConsole();
+        this.ExecuteList();
         this.ExecuteMath();
         this.ExecuteRand();
         this.ExecuteFormat();
