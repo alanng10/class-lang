@@ -29,7 +29,7 @@ public class Network : Any
     public override bool Init()
     {
         base.Init();
-        this.InternIntern = global::Avalon.Infra.Intern.This;
+        this.InternIntern = InternIntern.This;
         this.InternInfra = InternInfra.This;
         this.NetworkInfra = Infra.This;
         this.NetworkStatusList = StatusList.This;
@@ -160,7 +160,7 @@ public class Network : Any
         }
     }
 
-    private Intern InternIntern { get; set; }
+    private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
     private Infra NetworkInfra { get; set; }
     protected virtual StatusList NetworkStatusList { get; set; }
@@ -256,8 +256,8 @@ public class Network : Any
 
     internal static ulong InternStatusEvent(ulong network, ulong arg)
     {
-        Intern internIntern;
-        internIntern = global::Avalon.Infra.Intern.This;
+        InternIntern internIntern;
+        internIntern = InternIntern.This;
 
         object ao;
         ao = internIntern.HandleTarget(arg);
@@ -271,8 +271,8 @@ public class Network : Any
 
     internal static ulong InternCaseEvent(ulong network, ulong arg)
     {
-        Intern internIntern;
-        internIntern = global::Avalon.Infra.Intern.This;
+        InternIntern internIntern;
+        internIntern = InternIntern.This;
 
         object ao;
         ao = internIntern.HandleTarget(arg);
@@ -286,8 +286,8 @@ public class Network : Any
 
     internal static ulong InternDataEvent(ulong network, ulong arg)
     {
-        Intern internIntern;
-        internIntern = global::Avalon.Infra.Intern.This;
+        InternIntern internIntern;
+        internIntern = InternIntern.This;
 
         object ao;
         ao = internIntern.HandleTarget(arg);

@@ -49,7 +49,7 @@ public class Host : Any
     }
 
     public virtual Port Port { get; set; }
-    private Intern InternIntern { get; set; }
+    private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
     private Infra NetworkInfra { get; set; }
     private ulong Intern { get; set; }
@@ -140,8 +140,8 @@ public class Host : Any
 
     internal static ulong InternNewPeer(ulong networkServer, ulong arg)
     {
-        Intern internIntern;
-        internIntern = global::Avalon.Infra.Intern.This;
+        InternIntern internIntern;
+        internIntern = InternIntern.This;
 
         object ao;
         ao = internIntern.HandleTarget(arg);
