@@ -136,6 +136,11 @@ class DeA : Dem
 
         this.Console.Out.Write("Demo ABCD AAAA BBBB\n");
 
+        var Demo demo;
+        demo : new Demo;
+        demo.Init();
+        demo.ExecuteA();
+
         this.Aa;
         this.Aa : null;
 
