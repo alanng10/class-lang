@@ -19,7 +19,10 @@ public class Intern : Any
 
     public virtual String StringNew()
     {
-        return new String();
+        String a;
+        a = new String();
+        a.Init();
+        return a;
     }
 
     public virtual object StringValueGet(String k)
