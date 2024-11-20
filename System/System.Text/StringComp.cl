@@ -80,8 +80,6 @@ class StringComp : Any
     
     maide private String CreateDataValue(var Any data, var Int dataCount, var Range range)
     {
-        var Intern internIntern;
-        internIntern : this.InternIntern;
         var InternInfra internInfra;
         internInfra : this.InternInfra;
 
@@ -117,7 +115,7 @@ class StringComp : Any
         valueCount : count * kka;
 
         var Any value;
-        value : internIntern.DataNew(valueCount);
+        value : this.InternIntern.DataNew(valueCount);
 
         var Int i;
         i : 0;
@@ -138,9 +136,9 @@ class StringComp : Any
 
 
         var String a;
-        a : internIntern.StringNew();
-        internIntern.StringValueSet(a, value);
-        internIntern.StringCountSet(a, count);
+        a : this.InternIntern.StringNew();
+        this.InternIntern.StringValueSet(a, value);
+        this.InternIntern.StringCountSet(a, count);
         return a;
     }
     
