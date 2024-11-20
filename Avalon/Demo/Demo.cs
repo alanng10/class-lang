@@ -153,7 +153,13 @@ class Demo : Any
         ka.Init();
         ka.Int = 792461;
 
-        table.Ins(kk, ka);
+        ListEntry kaa;
+        kaa = new ListEntry();
+        kaa.Init();
+        kaa.Index = ka;
+        kaa.Value = ka;
+
+        table.Ins(kk, kaa);
 
         array = this.ListInfra.ArrayCreateList(table);
 

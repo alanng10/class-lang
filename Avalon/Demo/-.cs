@@ -10,6 +10,7 @@ global using List = Avalon.List.List;
 global using Array = Avalon.List.Array;
 global using Table = Avalon.List.Table;
 global using Iter = Avalon.List.Iter;
+global using ListEntry = Avalon.List.Entry;
 global using ListInfra = Avalon.List.Infra;
 global using MathMath = Avalon.Math.Math;
 global using MathComp = Avalon.Math.Comp;
