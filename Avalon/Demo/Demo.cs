@@ -979,7 +979,7 @@ class Demo : Any
 
         b = storageComp.FileCopy(this.S(path), this.S(destPath));
 
-        this.Console.Out.Write(this.S("File Copy " + this.StatusString(b) + "\n"));
+        this.Console.Out.Write(this.AddClear().AddS("File Copy ").Add(this.StatusString(b)).AddLine().AddResult());
 
         string pathB;
         pathB = "DemoData/Remove.txt";
