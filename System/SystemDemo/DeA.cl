@@ -206,39 +206,11 @@ class DeA : Dem
 
         this.ExecuteFormat();
 
+        this.ExecuteThread();
+
         this.ExecuteMemoryStream();
 
         this.ExecuteTime();
-
-        var Phore phore;
-        phore : new Phore;
-        phore.Init();
-
-        var ThreadState threadState;
-        threadState : new ThreadState;
-        threadState.Init();
-
-        var Thread thread;
-        thread : new Thread;
-        thread.Init();
-
-        threadState.Phore : phore;
-
-        thread.ExecuteState : threadState;
-
-        thread.Execute();
-
-        phore.Open();
-
-        this.Console.Out.Write("Demo Phore Open After 1111\n");
-
-        thread.Wait();
-
-        this.Console.Out.Write(this.AddClear().Add("Thread Status: ").Add(this.StringInt(thread.Status)).AddLine().AddResult());
-
-        thread.Final();
-
-        phore.Final();
 
         this.ExecuteStorage();
 
@@ -547,6 +519,41 @@ class DeA : Dem
         this.Console.Out.Write(this.AddClear().Add(k).AddLine().AddResult());
 
         this.Console.Out.Write(this.AddClear().Add(this.StringInt(89542)).AddLine().AddResult());
+
+        return true;
+    }
+
+    maide private Bool ExecuteThread()
+    {
+        var Phore phore;
+        phore : new Phore;
+        phore.Init();
+
+        var ThreadState threadState;
+        threadState : new ThreadState;
+        threadState.Init();
+
+        var Thread thread;
+        thread : new Thread;
+        thread.Init();
+
+        threadState.Phore : phore;
+
+        thread.ExecuteState : threadState;
+
+        thread.Execute();
+
+        phore.Open();
+
+        this.Console.Out.Write("Demo Phore Open After 1111\n");
+
+        thread.Wait();
+
+        this.Console.Out.Write(this.AddClear().Add("Thread Status: ").Add(this.StringInt(thread.Status)).AddLine().AddResult());
+
+        thread.Final();
+
+        phore.Final();
 
         return true;
     }
