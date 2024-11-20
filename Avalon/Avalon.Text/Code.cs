@@ -17,12 +17,12 @@ public class Code : Any
     public override bool Init()
     {
         base.Init();
-        this.InternIntern = InternIntern.This;
+        this.InternIntern = Intern.This;
         this.InfraInfra = InfraInfra.This;
         return true;
     }
 
-    private InternIntern InternIntern { get; set; }
+    private Intern InternIntern { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
 
     public virtual long ExecuteCount(CodeKind innKind, CodeKind outKind, Data data, Range dataRange)
