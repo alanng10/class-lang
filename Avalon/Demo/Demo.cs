@@ -1173,7 +1173,7 @@ class Demo : Any
 
     private bool ExecuteNetworkProcess()
     {
-        this.Console.Out.Write(this.S("NetworkProcess Start\n"));
+        this.Console.Out.Write(this.S("Network Program Start\n"));
 
         ThreadThread hostThread;
         hostThread = new ThreadThread();
@@ -1210,7 +1210,7 @@ class Demo : Any
 
         hostThread.Final();
 
-        this.Console.Out.Write(this.S("NetworkProcess End\n"));
+        this.Console.Out.Write(this.S("Network Program End\n"));
         return true;
     }
 
