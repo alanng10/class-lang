@@ -11,6 +11,9 @@ class DeA : Dem
         this.StorageComp : share StorageComp;
         this.Console : share Console;
 
+        this.MathComp : new MathComp;
+        this.MathComp.Init();
+
         this.Format : this.CreateFormat();
         this.FormatArg : this.CreateFormatArg();
         this.IntParse : this.CreateIntParse();
@@ -439,11 +442,21 @@ class DeA : Dem
         ka.Cand : 3;
         ka.Expo : 2;
 
-        var Int aaaa;
-        aaaa : this.Math.ValueTen(ka);
+        var Int aa;
+        aa : this.Math.ValueTen(ka);
+        this.ConsoleWriteMathValue("Demo Math ValueTen: ", aa);
 
+        ka.Cand : 5;
+        ka.Expo : 0sn1;
 
+        aa : this.Math.ValueTen(ka);
+        this.ConsoleWriteMathValue("Demo Math ValueTen 2: ", aa);
 
+        aa : this.Math.Sin(0);
+        this.ConsoleWriteMathValue("Demo Math Sin(0): ", aa);
+
+        aa : this.Math.Cos(0);
+        this.ConsoleWriteMathValue("Demo Math Cos(0): ", aa);
         return true;
     }
 
