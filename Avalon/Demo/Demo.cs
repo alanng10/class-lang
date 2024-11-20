@@ -77,7 +77,7 @@ class Demo : Any
         this.ExecuteTimeEvent();
 
         this.ExecuteNetwork();
-        this.ExecuteNetworkProcess();
+        this.ExecuteNetworkProgram();
         return true;
     }
 
@@ -1171,7 +1171,7 @@ class Demo : Any
         return true;
     }
 
-    private bool ExecuteNetworkProcess()
+    private bool ExecuteNetworkProgram()
     {
         this.Console.Out.Write(this.S("Network Program Start\n"));
 
