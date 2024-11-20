@@ -192,8 +192,8 @@ class Demo : Any
 
         this.Console.Out.Write(this.AddClear().AddS("Table Add ").Add(this.StatusString(b)).AddLine().AddResult());
 
-        Value kk;
-        kk = array.GetAt(1) as Value;
+        object kk;
+        kk = array.GetAt(1);
 
         table.Rem(kk);
 
@@ -205,7 +205,7 @@ class Demo : Any
 
         this.Console.Out.Write(this.AddClear().AddS("Table Rem ").Add(this.StatusString(b)).AddLine().AddResult());
 
-        kk = array.GetAt(1) as Value;
+        kk = array.GetAt(1);
 
         Value ka;
         ka = new Value();
