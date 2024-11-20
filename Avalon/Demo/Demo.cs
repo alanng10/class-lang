@@ -940,7 +940,7 @@ class Demo : Any
 
         b = storageComp.Rename(this.S(pathA), this.S(destPathA));
 
-        this.Console.Out.Write(this.S("File Rename " + this.StatusString(b) + "\n"));
+        this.Console.Out.Write(this.AddClear().AddS("File Rename ").Add(this.StatusString(b)).AddLine().AddResult());
 
         string pathAa;
         pathAa = "DemoData/FoldRename";
@@ -969,7 +969,7 @@ class Demo : Any
 
         b = storageComp.Rename(this.S(pathAa), this.S(destPathAa));
 
-        this.Console.Out.Write(this.S("Fold Rename " + this.StatusString(b) + "\n"));
+        this.Console.Out.Write(this.AddClear().AddS("Fold Rename ").Add(this.StatusString(b)).AddLine().AddResult());
 
         string path;
         path = "DemoData/DemoCopy.txt";
