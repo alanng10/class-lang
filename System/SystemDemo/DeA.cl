@@ -131,10 +131,9 @@ class DeA : Dem
         this.Aa;
         this.Aa : null;
 
-        inf (this.Aaa = null)
-        {
-            this.Console.Out.Write("Demo Field Data Default 1111\n");
-        }
+        var Bool baaa;
+        baaa : (this.Aaa = null);
+        this.Console.Out.Write(this.AddClear().Add("Demo Field Data Default ").Add(this.StatusString(baaa)).AddLine().AddResult());
 
         this.Ake : "Ke ad";
 
