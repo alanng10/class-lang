@@ -56,7 +56,7 @@ public class Intern : Any
         return k[index];
     }
 
-    public virtual bool ArraySet(object array, long index, long value)
+    public virtual bool ArraySet(object array, long index, object value)
     {
         object[] k;
         k = array as object[];

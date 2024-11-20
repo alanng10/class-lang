@@ -9,15 +9,15 @@ public class Array : List
         long k;
         k = this.Count;
 
-        this.Value = new object[k];
+        this.Value = this.InternIntern.ArrayNew(k);
         return true;
     }
 
     public override object Start { get { return null; } set { } }
     public override object End { get { return null; } set { } }
-
+    private Intern InternIntern { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
-    private object[] Value { get; set; }
+    private object Value { get; set; }
 
     public override object Add(object item)
     {
@@ -65,7 +65,8 @@ public class Array : List
         {
             return null;
         }
-        return this.Value[index];
+
+        return this.InternIntern.ArrayGet(this.Value, index);
     }
 
     public virtual bool SetAt(long index, object value)
@@ -74,7 +75,8 @@ public class Array : List
         {
             return false;
         }
-        this.Value[index] = value;
+        
+        this.InternIntern.ArraySet(this.Value, index, value);
         return true;
     }
 
