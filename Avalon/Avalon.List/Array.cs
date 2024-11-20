@@ -4,6 +4,7 @@ public class Array : List
 {
     public override bool Init()
     {
+        this.InternIntern = Intern.This;
         this.InfraInfra = InfraInfra.This;
 
         long k;
