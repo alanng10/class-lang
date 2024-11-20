@@ -5,7 +5,7 @@ public class Storage : Any
     public override bool Init()
     {
         base.Init();
-        this.InternIntern = InternIntern.This;
+        this.InternIntern = global::Avalon.Infra.Intern.This;
         this.InternInfra = InternInfra.This;
         this.StorageInfra = Infra.This;
         this.StorageStatusList = StatusList.This;
@@ -41,7 +41,7 @@ public class Storage : Any
         }
     }
     protected virtual StreamStream DataStream { get; set; }
-    private InternIntern InternIntern { get; set; }
+    private Intern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
     protected virtual Infra StorageInfra { get; set; }
     protected virtual StatusList StorageStatusList { get; set; }
