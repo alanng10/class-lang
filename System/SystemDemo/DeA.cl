@@ -338,27 +338,25 @@ class DeA : Dem
 
         list.Rem(indexA);
 
-        array = this.ListInfra.ArrayCreateList(list);
+        array : this.ListInfra.ArrayCreateList(list);
 
-        b = (array.Count == 2);
-        b = b & this.ArrayIntSame(array, 0, 983501);
-        b = b & this.ArrayIntSame(array, 1, 8197);
+        b : (array.Count = 2);
+        b : b & this.ArrayIntSame(array, 0, 983501);
+        b : b & this.ArrayIntSame(array, 1, 8197);
 
         this.Console.Out.Write(this.AddClear().AddS("List Rem ").Add(this.StatusString(b)).AddLine().AddResult());
 
-        Value ka;
-        ka = new Value();
-        ka.Init();
-        ka.Int = 792461;
+        var Int ka;
+        ka : 792461;
 
         list.Ins(indexB, ka);
 
-        array = this.ListInfra.ArrayCreateList(list);
+        array : this.ListInfra.ArrayCreateList(list);
 
-        b = (array.Count == 3);
-        b = b & this.ArrayIntSame(array, 0, 983501);
-        b = b & this.ArrayIntSame(array, 1, 792461);
-        b = b & this.ArrayIntSame(array, 2, 8197);
+        b : (array.Count = 3);
+        b : b & this.ArrayIntSame(array, 0, 983501);
+        b : b & this.ArrayIntSame(array, 1, 792461);
+        b : b & this.ArrayIntSame(array, 2, 8197);
 
         this.Console.Out.Write(this.AddClear().AddS("List Ins ").Add(this.StatusString(b)).AddLine().AddResult());
 
