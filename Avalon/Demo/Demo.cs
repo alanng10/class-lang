@@ -130,10 +130,20 @@ class Demo : Any
         b = b & this.ArrayIntSame(array, 1, 6728);
         b = b & this.ArrayIntSame(array, 2, 8197);
 
-        if (b)
-        {
-            
-        }
+        this.Console.Out.Write(this.AddClear().AddS("Table Add ").Add(this.StatusString(b)).AddLine().AddResult());
+
+        Value kk;
+        kk = array.GetAt(1) as Value;
+
+        table.Rem(kk);
+
+        array = this.ListInfra.ArrayCreateList(table);
+
+        b = true;
+        b = b & this.ArrayIntSame(array, 0, 983501);
+        b = b & this.ArrayIntSame(array, 1, 8197);
+
+        this.Console.Out.Write(this.AddClear().AddS("Table Rem ").Add(this.StatusString(b)).AddLine().AddResult());
 
         return true;
     }
