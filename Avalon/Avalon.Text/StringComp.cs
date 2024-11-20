@@ -17,11 +17,13 @@ public class StringComp : Any
     public override bool Init()
     {
         base.Init();
+        this.InternIntern = Intern.This;
         this.InternInfra = InternInfra.This;
         this.InfraInfra = InfraInfra.This;
         return true;
     }
 
+    private Intern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
 
@@ -41,8 +43,8 @@ public class StringComp : Any
         long dataCount;
         dataCount = count * ko;
 
-        byte[] value;
-        value = new byte[dataCount];
+        object value;
+        value = this.InternIntern.DataNew(dataCount);
 
         long i;
         i = 0;
@@ -57,10 +59,9 @@ public class StringComp : Any
         }
 
         String a;
-        a = new String();
-        a.Value = value;
-        a.Count = count;
-        a.Init();
+        a = this.InternIntern.StringNew();
+        this.InternIntern.StringValueSet(a, value);
+        this.InternIntern.StringCountSet(a, count);
         return a;
     }
 
@@ -70,7 +71,7 @@ public class StringComp : Any
         {
             return null;
         }
-        return this.CreateDataValue(data.Value, range);
+        return this.CreateDataValue(data.Value, data.Count, range);
     }
 
     public virtual String CreateString(String s, Range range)
@@ -79,22 +80,25 @@ public class StringComp : Any
         {
             return null;
         }
-        return this.CreateDataValue(s.Value, range);
+
+        object k;
+        k = this.InternIntern.StringValueGet(s);
+
+        long count;
+        count = this.Count(s);
+        count = count * sizeof(uint);
+
+        return this.CreateDataValue(k, count, range);
     }
 
-    private String CreateDataValue(object data, Range range)
+    private String CreateDataValue(object data, long dataCount, Range range)
     {
         InternInfra internInfra;
         internInfra = this.InternInfra;
 
-        byte[] k;
-        k = data as byte[];
-
         long kka;
         kka = sizeof(uint);
 
-        long dataCount;
-        dataCount = k.LongLength;
         long totalCount;
         totalCount = dataCount / kka;
 
@@ -124,7 +128,7 @@ public class StringComp : Any
         valueCount = count * kka;
 
         object value;
-        value = new byte[valueCount];
+        value = this.InternIntern.DataNew(valueCount);
 
         long i;
         i = 0;
@@ -144,38 +148,40 @@ public class StringComp : Any
         }
 
         String a;
-        a = new String();
-        a.Value = value;
-        a.Count = count;
-        a.Init();
+        a = this.InternIntern.StringNew();
+        this.InternIntern.StringValueSet(a, value);
+        this.InternIntern.StringCountSet(a, count);
         return a;
     }
 
-    public virtual long Count(String o)
+    public virtual long Count(String s)
     {
-        if (o == null)
+        if (s == null)
         {
             return -1;
         }
 
-        return o.Count;
+        return this.InternIntern.StringCountGet(s);
     }
 
-    public virtual long Char(String o, long index)
+    public virtual long Char(String s, long index)
     {
         long count;
-        count = this.Count(o);
+        count = this.Count(s);
 
         if (!this.InfraInfra.ValidIndex(count, index))
         {
             return -1;
         }
 
+        object k;
+        k = this.InternIntern.StringValueGet(s);
+
         long ka;
         ka = index * sizeof(uint);
 
         uint a;
-        a = this.InternInfra.DataCharGet(o.Value, ka);
+        a = this.InternInfra.DataCharGet(k, ka);
         return a;
     }
 }
