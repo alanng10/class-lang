@@ -126,7 +126,7 @@ class Demo : Any
         array = this.ListInfra.ArrayCreateList(table);
 
         bool b;
-        b = true;
+        b = (array.Count == 3);
         b = b & this.ArrayIntSame(array, 0, 983501);
         b = b & this.ArrayIntSame(array, 1, 6728);
         b = b & this.ArrayIntSame(array, 2, 8197);
@@ -140,11 +140,29 @@ class Demo : Any
 
         array = this.ListInfra.ArrayCreateList(table);
 
-        b = true;
+        b = (array.Count == 2);
         b = b & this.ArrayIntSame(array, 0, 983501);
         b = b & this.ArrayIntSame(array, 1, 8197);
 
         this.Console.Out.Write(this.AddClear().AddS("Table Rem ").Add(this.StatusString(b)).AddLine().AddResult());
+
+        kk = array.GetAt(1) as Value;
+
+        Value ka;
+        ka = new Value();
+        ka.Init();
+        ka.Int = 792461;
+
+        table.Ins(kk, ka);
+
+        array = this.ListInfra.ArrayCreateList(table);
+
+        b = (array.Count == 3);
+        b = b & this.ArrayIntSame(array, 0, 983501);
+        b = b & this.ArrayIntSame(array, 1, 792461);
+        b = b & this.ArrayIntSame(array, 2, 8197);
+
+        this.Console.Out.Write(this.AddClear().AddS("Table Ins ").Add(this.StatusString(b)).AddLine().AddResult());
 
         return true;
     }
