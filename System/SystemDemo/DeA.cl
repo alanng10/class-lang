@@ -137,12 +137,18 @@ class DeA : Dem
         baaa : (this.Aaa = null);
         this.Console.Out.Write(this.AddClear().Add("Demo Field Data Default ").Add(this.StatusString(baaa)).AddLine().AddResult());
 
-        this.Ake : "Ke ad";
+        var String kaaa;
+        kaaa : "Ke ad";
+
+        this.Ake : kaaa;
 
         var String kkk;
         kkk : this.Ake;
 
-        this.Console.Out.Write(this.AddClear().Add("Demo Base Field Data: ").Add(kkk).AddLine().AddResult());
+        var Bool baab;
+        baab : this.TextSame(this.TA(kkk), this.TB(kaaa));
+
+        this.Console.Out.Write(this.AddClear().Add("Demo Base Field Data ").Add(this.StatusString(baab)).AddLine().AddResult());
 
         var Int count;
         count : 3;
