@@ -541,20 +541,10 @@ class Demo : Any
         long na;
         na = less.Execute(kaa, kb);
 
-        String kaaa;
-        kaaa = null;
-
-        if (na == 0)
-        {
-            kaaa = this.S("Success");
-        }
-
-        if (!(na == 0))
-        {
-            kaaa = this.S("Error");
-        }
-
-        this.Console.Out.Write(this.AddClear().AddS("Memory Stream read write ").Add(kaaa).AddLine().AddResult());
+        bool ba;
+        ba = (na == 0);
+        
+        this.Console.Out.Write(this.AddClear().AddS("Memory Stream read write ").Add(this.StatusString(ba)).AddLine().AddResult());
 
         memory.Close();
 
@@ -891,20 +881,10 @@ class Demo : Any
         long na;
         na = less.Execute(kaa, kb);
 
-        String kaaa;
-        kaaa = null;
+        bool ba;
+        ba = (na == 0);
 
-        if (na == 0)
-        {
-            kaaa = this.S("Success");
-        }
-
-        if (!(na == 0))
-        {
-            kaaa = this.S("Error");
-        }
-
-        this.Console.Out.Write(this.AddClear().AddS("Storage Stream read write ").Add(kaaa).AddLine().AddResult());
+        this.Console.Out.Write(this.AddClear().AddS("Storage Stream read write ").Add(this.StatusString(ba)).AddLine().AddResult());
 
         storage.Close();
 
