@@ -33,10 +33,10 @@ public class InternInfra : Any
     public virtual ulong StringCreate(String k)
     {
         object value;
-        value = k.Value;
+        value = this.InternIntern.StringValueGet(k);
 
         long count;
-        count = k.Count;
+        count = this.InternIntern.StringCountGet(k);
 
         ulong countA;
         countA = (ulong)count;
