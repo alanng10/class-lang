@@ -5,19 +5,20 @@ public class Data : Any
     public override bool Init()
     {
         base.Init();
+        this.InternIntern = Intern.This;
         this.InfraInfra = Infra.This;
         this.InitValue();
         return true;
     }
 
+    public virtual object Value { get; set; }
     public virtual long Count { get; set; }
+    private Intern InternIntern { get; set; }
     protected virtual Infra InfraInfra { get; set; }
     
-    public virtual object Value { get; set; }
-
     protected virtual bool InitValue()
     {
-        this.Value = new byte[this.Count];
+        this.Value = this.InternIntern.DataNew(this.Count);
         return true;
     }
 
@@ -28,10 +29,7 @@ public class Data : Any
             return -1;
         }
 
-        byte[] k;
-        k = this.Value as byte[];
-
-        return k[index];
+        return this.InternIntern.DataGet(this.Value, index);
     }
 
     public virtual bool Set(long index, long value)
@@ -41,10 +39,7 @@ public class Data : Any
             return false;
         }
 
-        byte[] k;
-        k = this.Value as byte[];
-
-        k[index] = (byte)value;
+        this.InternIntern.DataSet(this.Value, index, value);
         return true;
     }
 
