@@ -5,12 +5,12 @@ public class Entry : Any
     public override bool Init()
     {
         base.Init();
-        this.InternIntern = InternIntern.This;
+        this.InternIntern = Intern.This;
         this.InternInfra = InternInfra.This;
         return true;
     }
 
-    private InternIntern InternIntern { get; set; }
+    private Intern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
     protected virtual TextStringValue TextStringValue { get; set; }
     private StorageComp StorageComp { get; set; }
