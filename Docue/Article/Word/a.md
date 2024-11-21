@@ -182,8 +182,6 @@ Word "posite" has meaning that is positive.
 
 Word "negate" has meaning that is negative.
 
-Word "gen" has meaning that is generate.
-
 Word "task" has meaning that is to be done.
 
 Word "init" has meaning that is initialized.
@@ -333,6 +331,10 @@ Word "status" has meaning that is kind of output.
 Word "error" has meaning that is invalid.
 
 Word "valid" has meaning that is can accept.
+
+Word "gen" has meaning that is generate.
+
+Word "library" has meaning that is machine code module.
 
 Word "draw" has meaning that is comp video.
 
