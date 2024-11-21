@@ -113,6 +113,7 @@ class Demo : Any
         this.ExecuteListList();
         this.ExecuteListTable();
         this.ExecuteListSort();
+        this.ExecuteListFind();
         return true;
     }
 
@@ -270,6 +271,43 @@ class Demo : Any
         b = b & this.ArrayIntSame(array, 4, 2633);
 
         this.Console.Out.Write(this.AddClear().AddS("List Sort ").Add(this.StatusString(b)).AddLine().AddResult());
+        return true;
+    }
+
+    private bool ExecuteListFind()
+    {
+        Array array;
+        array = this.ListInfra.ArrayCreate(5);
+
+        this.ArrayIndex = 0;
+
+        this.ArrayAddInt(array, 91);
+        this.ArrayAddInt(array, 2632);
+        this.ArrayAddInt(array, 8);
+        this.ArrayAddInt(array, 2633);
+        this.ArrayAddInt(array, 2631);
+
+        LessA less;
+        less = new LessA();
+        less.Init();
+
+        Range range;
+        range = new Range();
+        range.Init();
+        range.Count = array.Count;
+
+        Value ka;
+        ka = new Value();
+        ka.Init();
+        ka.Int = 2632;
+
+        long n;
+        n = this.ListInfra.Find(array, ka, less, range);
+
+        bool b;
+        b = (n == 1);
+
+        this.Console.Out.Write(this.AddClear().AddS("List Find ").Add(this.StatusString(b)).AddLine().AddResult());
         return true;
     }
 
