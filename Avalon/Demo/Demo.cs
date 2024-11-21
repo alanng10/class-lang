@@ -349,7 +349,7 @@ class Demo : Any
             .AddS(", ")
             .AddS("Expo: ")
             .AddS(this.MathComp.Expo.ToString())
-            .AddS("\n")
+            .AddLine()
             .AddResult()
             ;
 
@@ -369,18 +369,29 @@ class Demo : Any
         long oa;
         oa = rand.Execute();
 
+        this.ConsoleWriteRand(oa);
+
+        oa = rand.Execute();
+
+        this.ConsoleWriteRand(oa);
+
+        rand.Final();
+        return true;
+    }
+
+    private bool ConsoleWriteRand(long n)
+    {
         String ka;
 
         ka = this.AddClear()
-            .AddS("Demo.ExecuteRand oa: 0h")
-            .AddS(oa.ToString("x15"))
-            .AddS("\n")
+            .AddS("Demo Rand: 0h")
+            .AddS(n.ToString("x15"))
+            .AddLine()
             .AddResult();
-            ;
+        ;
 
         this.Console.Out.Write(ka);
 
-        rand.Final();
         return true;
     }
 
