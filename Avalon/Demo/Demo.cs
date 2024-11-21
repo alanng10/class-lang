@@ -112,6 +112,7 @@ class Demo : Any
     {
         this.ExecuteListList();
         this.ExecuteListTable();
+        this.ExecuteListSort();
         return true;
     }
 
@@ -236,13 +237,39 @@ class Demo : Any
     private bool ExecuteListSort()
     {
         Array array;
-        array = new Array();
-        array.Count = 5;
-        array.Init();
+        array = this.ListInfra.ArrayCreate(5);
 
+        this.ArrayIndex = 0;
 
+        this.ArrayAddInt(array, 91);
+        this.ArrayAddInt(array, 2632);
+        this.ArrayAddInt(array, 8);
+        this.ArrayAddInt(array, 2633);
+        this.ArrayAddInt(array, 2631);
 
+        LessA less;
+        less = new LessA();
+        less.Init();
 
+        Range range;
+        range = new Range();
+        range.Init();
+        range.Count = array.Count;
+
+        Array copyArray;
+        copyArray = this.ListInfra.ArrayCreate(array.Count);
+
+        this.ListInfra.Sort(array, less, range, copyArray);
+
+        bool b;
+        b = true;
+        b = b & this.ArrayIntSame(array, 0, 8);
+        b = b & this.ArrayIntSame(array, 1, 91);
+        b = b & this.ArrayIntSame(array, 2, 2631);
+        b = b & this.ArrayIntSame(array, 3, 2632);
+        b = b & this.ArrayIntSame(array, 4, 2633);
+
+        this.Console.Out.Write(this.AddClear().AddS("List Sort ").Add(this.StatusString(b)).AddLine().AddResult());
         return true;
     }
 
