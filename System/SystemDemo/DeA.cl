@@ -524,18 +524,29 @@ class DeA : Dem
         var Int oa;
         oa : rand.Execute();
 
+        this.ConsoleWriteRand(oa);
+
+        oa : rand.Execute();
+
+        this.ConsoleWriteRand(oa);
+
+        rand.Final();
+        return true;
+    }
+
+    maide private Bool ConsoleWriteRand(var Int n)
+    {
         var String ka;
 
         ka : this.AddClear()
             .Add("Demo Rand: 0h")
-            .Add(this.StringIntFormat(oa, 16, false, 15, 15, this.Char("0")))
+            .Add(this.StringIntFormat(n, 16, false, 15, 15, this.Char("0")))
             .AddLine()
             .AddResult()
             ;
 
         this.Console.Out.Write(ka);
 
-        rand.Final();
         return true;
     }
 
