@@ -168,6 +168,8 @@ Word "create" has meaning that is make from source.
 
 Word "binary" has meaning that is module data.
 
+Word "section" has meaning that is info block.
+
 Word "ref" has meaning that is refer value.
 
 Word "ver" has meaning that is version.
