@@ -308,6 +308,7 @@ class DeA : Dem
     {
         this.ExecuteListList();
         this.ExecuteListTable();
+        this.ExecuteListSort();
         return true;
     }
 
@@ -425,7 +426,7 @@ class DeA : Dem
         return true;
     }
 
-    maide private bool ExecuteListSort()
+    maide private Bool ExecuteListSort()
     {
         var Array array;
         array : this.ListInfra.ArrayCreate(5);
