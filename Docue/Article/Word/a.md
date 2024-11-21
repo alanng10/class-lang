@@ -262,6 +262,8 @@ Word "join" has meaning that is combine.
 
 Word "place" has meaning that is replacement.
 
+Word "arg" has meaning that is parameter any.
+
 Word "main" has meaning that is thread loop.
 
 Word "exit" has meaning that is out of main.
