@@ -424,6 +424,46 @@ class DeA : Dem
         return true;
     }
 
+    maide private bool ExecuteListSort()
+    {
+        var Array array;
+        array : this.ListInfra.ArrayCreate(5);
+
+        this.ArrayIndex : 0;
+
+        this.ArrayAddInt(array, 91);
+        this.ArrayAddInt(array, 2632);
+        this.ArrayAddInt(array, 8);
+        this.ArrayAddInt(array, 2633);
+        this.ArrayAddInt(array, 2631);
+
+        var IntLess less;
+        less : new IntLess;
+        less.Init();
+
+        var Range range;
+        range : new Range;
+        range.Init();
+        range.Index : 0;
+        range.Count : array.Count;
+
+        var Array copyArray;
+        copyArray : this.ListInfra.ArrayCreate(array.Count);
+
+        this.ListInfra.Sort(array, less, range, copyArray);
+
+        var Bool b;
+        b : true;
+        b : b & this.ArrayIntSame(array, 0, 8);
+        b : b & this.ArrayIntSame(array, 1, 91);
+        b : b & this.ArrayIntSame(array, 2, 2631);
+        b : b & this.ArrayIntSame(array, 3, 2632);
+        b : b & this.ArrayIntSame(array, 4, 2633);
+
+        this.Console.Out.Write(this.AddClear().AddS("List Sort ").Add(this.StatusString(b)).AddLine().AddResult());
+        return true;
+    }
+
     maide private Any ListAddInt(var List list, var Int n)
     {
         return list.Add(n);
@@ -432,6 +472,15 @@ class DeA : Dem
     maide private Bool TableAddInt(var Table table, var Int n)
     {
         this.ListInfra.TableAdd(table, n, n);
+        return true;
+    }
+
+    maide private Bool ArrayAddInt(var Array array, var Int n)
+    {
+        array.Set(this.ArrayIndex, n);
+
+        this.ArrayIndex : this.ArrayIndex + 1;
+
         return true;
     }
 
