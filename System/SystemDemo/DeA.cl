@@ -383,6 +383,10 @@ class DeA : Dem
 
         b : b & (ka = 0hf80000000000007);
 
+        ka : bit >>(0h700000000000070, 4);
+
+        b : b & (ka = 0h070000000000007);
+
         this.Console.Out.Write(this.AddClear().Add("Demo Int Operate ").Add(this.StatusString(b)).AddLine().AddResult());
 
         return true;
