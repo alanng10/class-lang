@@ -530,7 +530,7 @@ class DeA : Dem
             .Add("Demo Rand: 0h")
             .Add(this.StringIntFormat(oa, 16, false, 15, 15, this.Char("0")))
             .AddLine()
-            .AddResult();
+            .AddResult()
             ;
 
         this.Console.Out.Write(ka);
