@@ -222,6 +222,8 @@ Word "rem" has meaning that is remove.
 
 Word "mod" has meaning that is change.
 
+Word "item" has meaning that is list one of multiple.
+
 Word "copy" has meaning that is clone.
 
 Word "iter" has meaning that is enumerate.
