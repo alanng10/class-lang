@@ -332,6 +332,7 @@ class DeA : Dem
         this.ExecuteListList();
         this.ExecuteListTable();
         this.ExecuteListSort();
+        this.ExecuteListFind();
         return true;
     }
 
@@ -486,6 +487,59 @@ class DeA : Dem
         b : b & this.ArrayIntSame(array, 4, 2633);
 
         this.Console.Out.Write(this.AddClear().Add("List Sort ").Add(this.StatusString(b)).AddLine().AddResult());
+        return true;
+    }
+
+    maide private Bool ExecuteListFind()
+    {
+        var Array array;
+        array : this.ListInfra.ArrayCreate(5);
+
+        this.ArrayIndex : 0;
+
+        this.ArrayAddInt(array, 8);
+        this.ArrayAddInt(array, 91);
+        this.ArrayAddInt(array, 2631);
+        this.ArrayAddInt(array, 2632);
+        this.ArrayAddInt(array, 2633);
+
+        var IntLess less;
+        less : new IntLess;
+        less.Init();
+
+        var Range range;
+        range : new Range;
+        range.Init();
+        range.Index : 0;
+        range.Count : array.Count;
+
+        var Int ka;
+        ka : 2632;
+
+        var Int n;
+        n : this.ListInfra.Find(array, ka, less, range);
+
+        var Bool ba;
+        ba : (n = 3);
+
+        ka : 8;
+
+        n : this.ListInfra.Find(array, ka, less, range);
+
+        var Bool bb;
+        bb : (n = 0);
+
+        ka : 2633;
+
+        n : this.ListInfra.Find(array, ka, less, range);
+
+        var Bool bc;
+        bc : (n = 4);
+
+        var Bool b;
+        b : ba & bb & bc;
+
+        this.Console.Out.Write(this.AddClear().Add("List Find ").Add(this.StatusString(b)).AddLine().AddResult());
         return true;
     }
 
