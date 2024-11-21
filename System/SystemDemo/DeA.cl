@@ -219,6 +219,8 @@ class DeA : Dem
 
         this.ExecuteMath();
 
+        this.ExecuteRand();
+
         this.ExecuteThread();
 
         this.ExecuteMemoryStream();
@@ -509,6 +511,32 @@ class DeA : Dem
         this.Add(this.StringInt(k));
 
         return this.AddResult();
+    }
+
+    maide private Bool ExecuteRand()
+    {
+        var Rand rand;
+        rand : new Rand;
+        rand.Init();
+
+        rand.Seed : 36719;
+
+        var Int oa;
+        oa : rand.Execute();
+
+        var String ka;
+
+        ka : this.AddClear()
+            .Add("Demo Rand: 0h")
+            .Add(this.StringIntFormat(oa, 16, false, 15, 15, this.Char("0")))
+            .AddLine()
+            .AddResult();
+            ;
+
+        this.Console.Out.Write(ka);
+
+        rand.Final();
+        return true;
     }
 
     maide private Bool ExecuteTextIntParse()

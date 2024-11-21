@@ -21,6 +21,7 @@ System.List
 System.Math
     Math Math
     MathComp Comp
+    Rand Rand
 System.Text
     Text Text
     TextForm Form
