@@ -207,7 +207,9 @@ class DeA : Dem
         #this.Console.Out.Write("Demo HHHH\n");
 
         this.ExecuteValueCast();
-        
+
+        this.ExecuteCast();
+
         this.ExecuteList();
         
         var Text text;
@@ -290,6 +292,37 @@ class DeA : Dem
         b : b & (ka = null);
         
         this.Console.Out.Write(this.AddClear().Add("Demo Value Cast ").Add(this.StatusString(b)).AddLine().AddResult());
+
+        return true;
+    }
+
+    maide private Bool ExecuteCast()
+    {
+        var DeA ka;
+        ka : new DeA;
+        
+        var Any kk;
+        kk : ka;
+
+        var Bool b;
+        b : true;
+
+        var Text kaa;
+        kaa : cast Text(kk);
+
+        b : b & (kaa = null);
+
+        var DeA kab;
+        kab : cast DeA(kk);
+
+        b : b & (kab = ka);
+
+        var Dem kac;
+        kac : cast Dem(kk);
+
+        b : b & (kac = ka);
+
+        this.Console.Out.Write(this.AddClear().Add("Demo Cast ").Add(this.StatusString(b)).AddLine().AddResult());
 
         return true;
     }
