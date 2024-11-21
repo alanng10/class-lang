@@ -188,6 +188,8 @@ Word "negate" has meaning that is negative.
 
 Word "max" has meaning that is maximum.
 
+Word "link" has meaning that is directed way.
+
 Word "task" has meaning that is to be done.
 
 Word "init" has meaning that is initialized.
