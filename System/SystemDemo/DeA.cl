@@ -49,6 +49,7 @@ class DeA : Dem
     field precate Text TextB { get { return data; } set { data : value; } }
     field precate StringData StringDataA { get { return data; } set { data : value; } }
     field precate StringData StringDataB { get { return data; } set { data : value; } }
+    field precate Int ArrayIndex { get { return data; } set { data : value; } }
     field precate Int Aa { get { base.Aa; share Console.Out.Write("DeA Field Get\n"); } set { base.Aa : null; share Console.Out.Write("DeA Field Set\n"); } }
     field precate String Ake { get { return data; } set { base.Ake : value; } }
     field private Int Aaa { get { return data; } set { } }
