@@ -351,6 +351,14 @@ class DeA : Dem
 
         b : b & (ka = 0sn27);
 
+        ka : sign /(0sn1, 0);
+
+        b : b & (ka = 0);
+
+        ka : sign /(0, 0);
+
+        b : b & (ka = 0);
+
         this.Console.Out.Write(this.AddClear().Add("Demo Int Operate ").Add(this.StatusString(b)).AddLine().AddResult());
 
         return true;
