@@ -164,6 +164,8 @@ Word "program" has meaning that is automatic execute.
 
 Word "stage" has meaning that is execute step.
 
+Word "reset" has meaning that is set to start.
+
 Word "create" has meaning that is make from source.
 
 Word "binary" has meaning that is module data.
