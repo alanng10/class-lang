@@ -162,6 +162,9 @@ class DeA : Dem
 
         this.Console.Out.Write(this.AddClear().Add("Demo Base Field Data ").Add(this.StatusString(baab)).AddLine().AddResult());
 
+        var Bool ba;
+        ba : true;
+
         var Int count;
         count : 3;
         var Int i;
@@ -170,14 +173,14 @@ class DeA : Dem
         {
             var Int nak;
             
-            inf (nak = null)
-            {
-                this.Console.Out.Write("Demo While Local Var 1111\n");
-            }
+            ba : ba & (nak = null);
+
             nak : 2;
 
             i : i + 1;
         }
+
+        this.Console.Out.Write(this.AddClear().Add("Demo While Loop Local Var ").Add(this.StatusString(ba)).AddLine().AddResult());
 
 
         var String k;
