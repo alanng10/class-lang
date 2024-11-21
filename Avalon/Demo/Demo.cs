@@ -281,11 +281,11 @@ class Demo : Any
 
         this.ArrayIndex = 0;
 
-        this.ArrayAddInt(array, 91);
-        this.ArrayAddInt(array, 2632);
         this.ArrayAddInt(array, 8);
-        this.ArrayAddInt(array, 2633);
+        this.ArrayAddInt(array, 91);
         this.ArrayAddInt(array, 2631);
+        this.ArrayAddInt(array, 2632);
+        this.ArrayAddInt(array, 2633);
 
         LessA less;
         less = new LessA();
@@ -305,7 +305,7 @@ class Demo : Any
         n = this.ListInfra.Find(array, ka, less, range);
 
         bool b;
-        b = (n == 1);
+        b = (n == 3);
 
         this.Console.Out.Write(this.AddClear().AddS("List Find ").Add(this.StatusString(b)).AddLine().AddResult());
         return true;
@@ -1300,6 +1300,19 @@ class Demo : Any
         {
             k = this.SError;
         }
+        return k;
+    }
+
+    private String BoolString(bool b)
+    {
+        String k;
+        k = this.TextInfra.BoolFalseString;
+
+        if (b)
+        {
+            k = this.TextInfra.BoolTrueString;
+        }
+
         return k;
     }
 
