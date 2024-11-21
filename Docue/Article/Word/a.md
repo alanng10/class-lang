@@ -182,6 +182,8 @@ Word "posite" has meaning that is positive.
 
 Word "negate" has meaning that is negative.
 
+Word "gen" has meaning that is generate.
+
 Word "task" has meaning that is to be done.
 
 Word "init" has meaning that is initialized.
