@@ -462,7 +462,7 @@ class DeA : Dem
         b : b & this.ArrayIntSame(array, 3, 2632);
         b : b & this.ArrayIntSame(array, 4, 2633);
 
-        this.Console.Out.Write(this.AddClear().AddS("List Sort ").Add(this.StatusString(b)).AddLine().AddResult());
+        this.Console.Out.Write(this.AddClear().Add("List Sort ").Add(this.StatusString(b)).AddLine().AddResult());
         return true;
     }
 
