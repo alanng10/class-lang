@@ -304,8 +304,25 @@ class Demo : Any
         long n;
         n = this.ListInfra.Find(array, ka, less, range);
 
+        bool ba;
+        ba = (n == 3);
+
+        ka.Int = 8;
+
+        n = this.ListInfra.Find(array, ka, less, range);
+        
+        bool bb;
+        bb = (n == 0);
+
+        ka.Int = 2633;
+
+        n = this.ListInfra.Find(array, ka, less, range);
+
+        bool bc;
+        bc = (n == 4);
+
         bool b;
-        b = (n == 3);
+        b = ba & bb & bc;
 
         this.Console.Out.Write(this.AddClear().AddS("List Find ").Add(this.StatusString(b)).AddLine().AddResult());
         return true;
