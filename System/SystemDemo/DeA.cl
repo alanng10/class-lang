@@ -210,6 +210,8 @@ class DeA : Dem
 
         this.ExecuteCast();
 
+        this.ExecuteIntOperate();
+
         this.ExecuteList();
         
         var Text text;
