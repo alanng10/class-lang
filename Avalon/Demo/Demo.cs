@@ -310,7 +310,7 @@ class Demo : Any
         ka.Int = 8;
 
         n = this.ListInfra.Find(array, ka, less, range);
-        
+
         bool bb;
         bb = (n == 0);
 
