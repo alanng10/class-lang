@@ -56,6 +56,7 @@ class Demo : Any
     private StringAdd StringAdd { get; set; }
     private Format Format { get; set; }
     private FormatArg FormatArg { get; set; }
+    private long ArrayIndex { get; set; }
     private String SSuccess { get; set; }
     private String SError { get; set; }
 
@@ -232,6 +233,19 @@ class Demo : Any
         return true;
     }
 
+    private bool ExecuteListSort()
+    {
+        Array array;
+        array = new Array();
+        array.Count = 5;
+        array.Init();
+
+
+
+
+        return true;
+    }
+
     private object ListAddInt(List list, long n)
     {
         Value k;
@@ -250,6 +264,20 @@ class Demo : Any
         k.Int = n;
 
         this.ListInfra.TableAdd(table, k, k);
+        return true;
+    }
+
+    private bool ArrayAddInt(Array array, long n)
+    {
+        Value k;
+        k = new Value();
+        k.Init();
+        k.Int = n;
+
+        array.SetAt(this.ArrayIndex, k);
+
+        this.ArrayIndex = this.ArrayIndex + 1;
+
         return true;
     }
 
