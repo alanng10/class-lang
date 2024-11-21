@@ -327,6 +327,33 @@ class DeA : Dem
         return true;
     }
 
+    maide private Bool ExecuteIntOperate()
+    {
+        var Bool b;
+        b : true;
+
+        var Int ka;
+        ka : 1 / 0;
+
+        b : b & (ka = 0);
+
+        ka : 0 / 0;
+
+        b : b & (ka = 0);
+
+        ka : sign *(0sn4, 0sn6);
+
+        b : b & (ka = 24);
+
+        ka : sign *(0sn9, 3);
+
+        b : b & (ka = 0sn27);
+
+        this.Console.Out.Write(this.AddClear().Add("Demo Int Operate ").Add(this.StatusString(b)).AddLine().AddResult());
+
+        return true;
+    }
+
     maide private Bool ExecuteList()
     {
         this.ExecuteListList();
