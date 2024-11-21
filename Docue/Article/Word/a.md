@@ -348,6 +348,8 @@ Word "gen" has meaning that is generate.
 
 Word "library" has meaning that is machine code module.
 
+Word "project" has meaning that is entity being done.
+
 Word "draw" has meaning that is comp video.
 
 Word "brush" has meaning that is draw fill applied.
