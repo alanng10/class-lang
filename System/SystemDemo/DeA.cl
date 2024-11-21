@@ -243,63 +243,50 @@ class DeA : Dem
 
     maide private Bool ExecuteValueCast()
     {
+        var Bool b;
+        b : true;
+
         var Any k;
         k : true;
 
         var Bool ba;
         ba : cast Bool(k);
 
-        inf (ba)
-        {
-            this.Console.Out.Write("Demo Value Cast 1111\n");
-        }
+        b : b & ba;
 
         k : 1;
 
         ba : cast Bool(k);
 
-        inf (ba = null)
-        {
-            this.Console.Out.Write("Demo Value Cast 2222\n");
-        }
+        b : b & (ba = null);
 
         k : 7392641;
 
         var Int na;
         na : cast Int(k);
 
-        inf (na = 7392641)
-        {
-            this.Console.Out.Write("Demo Value Cast 3333\n");
-        }
+        b : b & (na = 7392641);
 
         k : true;
 
         na : cast Int(k);
 
-        inf (na = null)
-        {
-            this.Console.Out.Write("Demo Value Cast 4444\n");
-        }
+        b : b & (na = null);
 
         k : "LKs s9 &";
 
         var String ka;
         ka : cast String(k);
 
-        inf (this.TextSame(this.TA(ka), this.TB("LKs s9 &")))
-        {
-            this.Console.Out.Write("Demo Value Cast 5555\n");
-        }
+        b : b & this.TextSame(this.TA(ka), this.TB("LKs s9 &"));
 
         k : 3492;
 
         ka : cast String(k);
 
-        inf (ka = null)
-        {
-            this.Console.Out.Write("Demo Value Cast 6666\n");
-        }
+        b : b & (ka = null);
+        
+        this.Console.Out.Write(this.AddClear().Add("Demo Value Cast ").Add(this.StatusString(b)).AddLine().AddResult());
 
         return true;
     }
