@@ -594,6 +594,9 @@ class DeA : Dem
 
     maide private Bool ExecuteTextIntParse()
     {
+        var Bool b;
+        b : true;
+
         var Text text;
         text : this.TextInfra.TextCreateStringData("fffffffffffffff", null);
 
@@ -603,63 +606,44 @@ class DeA : Dem
         var Int kkk;
         kkk : this.TextInfra.DigitValue(nn, 10);
 
-        inf (kkk = 9)
-        {
-            this.Console.Out.Write("Demo DigitValue 1111\n");
-        }
+        b : b & (kkk = 9);
 
         var Int na;
         na : this.IntParse.Execute(text, 16, null);
 
-        inf (na = 0hfffffffffffffff)
-        {
-            this.Console.Out.Write("Demo IntParse 1111\n");
-        }
+        b : b & (na = 0hfffffffffffffff);
 
         text : this.TextCreate("ffffffffffffffff");
 
         na : this.IntParse.Execute(text, 16, null);
 
-        inf (na = null)
-        {
-            this.Console.Out.Write("Demo IntParse 2222\n");
-        }
+        b : b & (na = null);
 
         text : this.TextCreate("0000000000000000");
 
         na : this.IntParse.Execute(text, 16, null);
 
-        inf (na = null)
-        {
-            this.Console.Out.Write("Demo IntParse 3333\n");
-        }
+        b : b & (na = null);
 
         text : this.TextCreate("1000000000000000");
 
         na : this.IntParse.Execute(text, 16, null);
 
-        inf (na = null)
-        {
-            this.Console.Out.Write("Demo IntParse 4444\n");
-        }
+        b : b & (na = null);
 
         text : this.TextCreate("000000000000000");
 
         na : this.IntParse.Execute(text, 16, null);
 
-        inf (na = 0)
-        {
-            this.Console.Out.Write("Demo IntParse 5555\n");
-        }
+        b : b & (na = 0);
 
         text : this.TextCreate("800000000000000");
 
         na : this.IntParse.Execute(text, 16, null);
 
-        inf (na = 0h800000000000000)
-        {
-            this.Console.Out.Write("Demo IntParse 6666\n");
-        }
+        b : b & (na = 0h800000000000000);
+
+        this.Console.Out.Write(this.AddClear().Add("Demo Int Parse ").Add(this.StatusString(b)).AddLine().AddResult());
 
         return true;
     }
