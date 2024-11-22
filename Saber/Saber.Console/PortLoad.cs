@@ -826,9 +826,12 @@ public class PortLoad : ClassBase
             destPathK = this.TextTrimEnd(this.TextTrimStart(this.TA(destPathKa)));
             destPath = this.StringCreate(destPathK);
 
+            String sourcePathA;
+            sourcePathA = sourcePath;
+
             if (this.StorageInfra.PathRelate(this.TA(sourcePath), this.TLess))
             {
-                sourcePath = this.AddClear().Add(this.SourceFold).Add(this.TextInfra.PathCombine).Add(sourcePath).AddResult();
+                sourcePathA = this.AddClear().Add(this.SourceFold).Add(this.TextInfra.PathCombine).Add(sourcePath).AddResult();
             }
 
             bool ba;
@@ -836,7 +839,7 @@ public class PortLoad : ClassBase
 
             if (!ba)
             {
-                if (!pathCheck.IsValidSourcePath(this.TA(sourcePath)))
+                if (!pathCheck.IsValidSourcePath(this.TA(sourcePathA)))
                 {
                     this.ErrorAdd(this.ErrorKind.StorageSourceInvalid, sourcePath);
 
@@ -866,7 +869,7 @@ public class PortLoad : ClassBase
 
             if (!ba)
             {
-                if (!this.StorageComp.Exist(sourcePath))
+                if (!this.StorageComp.Exist(sourcePathA))
                 {
                     this.ErrorAdd(this.ErrorKind.StorageSourceUnachievable, sourcePath);
 
