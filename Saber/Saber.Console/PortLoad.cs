@@ -809,7 +809,7 @@ public class PortLoad : ClassBase
         while (i < count)
         {
             PortStorage a;
-            a = (PortStorage)array.GetAt(i);
+            a = array.GetAt(i) as PortStorage;
 
             String sourcePathKa;
             String destPathKa;
