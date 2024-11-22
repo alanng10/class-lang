@@ -1103,12 +1103,12 @@ class Demo : Any
     private bool ExecuteStoragePath()
     {
         Text ka;
-        ka = this.TextInfra.TextCreateStringData(this.S("Demo/FileA.txt"), null);
+        ka = this.TextCreate(this.S("Demo/FileA.txt"));
 
         long k;
         k = this.StorageInfra.EntryPathNameCombine(ka, this.TLess);
 
-        this.Console.Out.Write(this.AddClear().AddS("Storage Path k: ").Add(this.StringIntHex(k)).AddResult());
+        this.Console.Out.Write(this.AddClear().AddS("Storage Path k: ").Add(this.StringIntHex(k)).AddLine().AddResult());
 
         return true;
     }
@@ -1574,6 +1574,11 @@ class Demo : Any
         a = this.StringCreate(aa);
 
         return a;
+    }
+
+    public virtual Text TextCreate(String o)
+    {
+        return this.TextInfra.TextCreateStringData(o, null);
     }
 
     public virtual String StringCreate(Text text)

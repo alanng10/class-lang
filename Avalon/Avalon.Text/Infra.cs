@@ -452,16 +452,16 @@ public class Infra : Any
         while (k == -1 & i < count)
         {
             long index;
-            index = textIndex + count - 1 - i;
+            index = count - 1 - i;
 
-            textRange.Index = index;
+            textRange.Index = textIndex + index;
             textRange.Count = otherCount;
 
             bool b;
             b = this.Same(text, other, less);
             if (b)
             {
-                k = i;
+                k = index;
             }
             i = i + 1;
         }
