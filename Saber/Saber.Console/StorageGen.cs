@@ -58,7 +58,7 @@ public class StorageGen : ClassBase
             combine = this.StorageInfra.EntryPathNameCombine(this.TA(destPath), this.TLess);
 
             String pathA;
-            pathA = destPath;
+            pathA = null;
 
             if (!(combine == -1))
             {
@@ -66,22 +66,27 @@ public class StorageGen : ClassBase
             }
 
             String destFoldPath;
-            destFoldPath = this.AddClear().Add(dataFoldPath).Add(this.TextInfra.PathCombine).Add(pathA).AddResult();
-
-            this.StorageComp.FoldCreate(destFoldPath);
-
-            bool bb;
-
-            bb = this.StorageComp.Exist(destFoldPath);
-            if (!bb)
+            destFoldPath = dataFoldPath;
+            
+            if (!(pathA == null))
             {
-                return false;
-            }
+                destFoldPath = this.AddClear().Add(dataFoldPath).Add(this.TextInfra.PathCombine).Add(pathA).AddResult();
 
-            bb = this.StorageComp.Fold(destFoldPath);
-            if (!bb)
-            {
-                return false;
+                this.StorageComp.FoldCreate(destFoldPath);
+
+                bool bb;
+
+                bb = this.StorageComp.Exist(destFoldPath);
+                if (!bb)
+                {
+                    return false;
+                }
+
+                bb = this.StorageComp.Fold(destFoldPath);
+                if (!bb)
+                {
+                    return false;
+                }
             }
 
             bool fold;
