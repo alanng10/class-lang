@@ -540,10 +540,28 @@ public class PortLoad : ClassBase
         module.Class = classInfra.TableCreateStringLess();
         module.Import = classInfra.TableCreateModuleRefLess();
         module.Export = classInfra.TableCreateStringLess();
-        module.Storage = classInfra.TableCreateStringLess();
+
+        module.Storage = new Table();
+        module.Storage.Less = this.StorageStringLessCreate();
+        module.Storage.Init();
 
         this.Module = module;
         return true;
+    }
+
+    public virtual StringLess StorageStringLessCreate()
+    {
+        LessInt charLess;
+        charLess = new LessInt();
+        charLess.Init();
+
+        StringLess a;
+        a = new StringLess();
+        a.CharLess = charLess;
+        a.LiteForm = this.TextInfra.AlphaSiteForm;
+        a.RiteForm = this.TextInfra.AlphaSiteForm;
+        a.Init();
+        return a;
     }
 
     protected virtual bool SetModuleImport()
