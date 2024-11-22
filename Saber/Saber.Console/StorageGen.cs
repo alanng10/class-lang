@@ -27,6 +27,8 @@ public class StorageGen : ClassBase
 
         this.StorageComp.FoldDelete(dataFoldPath);
 
+        this.StorageComp.FoldCreate(dataFoldPath);
+
         Iter iter;
         iter = this.Module.Storage.IterCreate();
         this.Module.Storage.IterSet(iter);
