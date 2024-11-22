@@ -394,10 +394,7 @@ public class Infra : Any
         i = 0;
         while (k == -1 & i < count)
         {
-            long index;
-            index = textIndex + i;
-
-            textRange.Index = index;
+            textRange.Index = textIndex + i;
             textRange.Count = otherCount;
 
             bool b;
