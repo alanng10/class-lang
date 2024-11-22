@@ -31,6 +31,8 @@ class Demo : Any
         this.MathComp = new MathComp();
         this.MathComp.Init();
 
+        this.TRange = this.CreateRange();
+
         this.SSuccess = this.S("Success");
         this.SError = this.S("Error");
         return true;
@@ -59,9 +61,10 @@ class Demo : Any
     protected virtual TextLess TLess { get; set; }
     protected virtual LessInt CharLess { get; set; }
     protected virtual TextForm TForm { get; set; }
-    private StringAdd StringAdd { get; set; }
-    private Format Format { get; set; }
-    private FormatArg FormatArg { get; set; }
+    protected virtual StringAdd StringAdd { get; set; }
+    protected virtual Format Format { get; set; }
+    protected virtual FormatArg FormatArg { get; set; }
+    protected virtual Range TRange { get; set; }
     private long ArrayIndex { get; set; }
     private String SSuccess { get; set; }
     private String SError { get; set; }
@@ -89,6 +92,14 @@ class Demo : Any
         a.CharLess = this.CharLess;
         a.LiteForm = this.TForm;
         a.RiteForm = this.TForm;
+        a.Init();
+        return a;
+    }
+
+    protected virtual Range CreateRange()
+    {
+        Range a;
+        a = new Range();
         a.Init();
         return a;
     }
@@ -1102,13 +1113,28 @@ class Demo : Any
 
     private bool ExecuteStoragePath()
     {
+        String kaa;
+        kaa = this.S("Demo/FileA.txt");
+
         Text ka;
-        ka = this.TextCreate(this.S("Demo/FileA.txt"));
+        ka = this.TextCreate(kaa);
 
-        long k;
-        k = this.StorageInfra.EntryPathNameCombine(ka, this.TLess);
+        long n;
+        n = this.StorageInfra.EntryPathNameCombine(ka, this.TLess);
 
-        this.Console.Out.Write(this.AddClear().AddS("Storage Path k: ").Add(this.StringIntHex(k)).AddLine().AddResult());
+        String k;
+        k = this.StringCreateRange(kaa, 0, n);
+
+        StringLess less;
+        less = this.TextInfra.StringLessCreate();
+
+        long nn;
+        nn = less.Execute(k, this.S("Demo"));
+
+        bool b;
+        b = (nn == 0);
+
+        this.Console.Out.Write(this.AddClear().AddS("Storage Path ").Add(this.StatusString(b)).AddLine().AddResult());
 
         return true;
     }
@@ -1574,6 +1600,14 @@ class Demo : Any
         a = this.StringCreate(aa);
 
         return a;
+    }
+
+    public virtual String StringCreateRange(String o, long index, long count)
+    {
+        this.TRange.Index = index;
+        this.TRange.Count = count;
+
+        return this.StringComp.CreateString(o, this.TRange);
     }
 
     public virtual Text TextCreate(String o)
