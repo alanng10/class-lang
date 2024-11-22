@@ -29,6 +29,20 @@ public class StorageGen : ClassBase
 
         this.StorageComp.FoldCreate(dataFoldPath);
 
+        bool ba;
+
+        ba = this.StorageComp.Exist(dataFoldPath);
+        if (!ba)
+        {
+            return false;
+        }
+
+        ba = this.StorageComp.Fold(dataFoldPath);
+        if (!ba)
+        {
+            return false;
+        }
+
         Iter iter;
         iter = this.Module.Storage.IterCreate();
         this.Module.Storage.IterSet(iter);
@@ -53,10 +67,10 @@ public class StorageGen : ClassBase
 
             if (fold)
             {
-                bool ba;
-                ba = this.StorageComp.FoldCopy(sourcePath, destPath);
+                bool bb;
+                bb = this.StorageComp.FoldCopy(sourcePath, destPath);
 
-                if (!ba)
+                if (!bb)
                 {
                     return false;
                 }
@@ -64,10 +78,10 @@ public class StorageGen : ClassBase
 
             if (!fold)
             {
-                bool ba;
-                ba = this.StorageComp.FileCopy(sourcePath, destPath);
+                bool bc;
+                bc = this.StorageComp.FileCopy(sourcePath, destPath);
 
-                if (!ba)
+                if (!bc)
                 {
                     return false;
                 }
