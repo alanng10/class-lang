@@ -521,6 +521,7 @@ public class Console : ClassBase
         portLoad.NameCheck = this.NameCheck;
         portLoad.SystemModule = this.MakeSystemModule;
         portLoad.ClassPath = this.ClassPath;
+        portLoad.SourceFold = this.SourceFold;
 
         bool b;
         b = portLoad.Execute();
@@ -536,6 +537,7 @@ public class Console : ClassBase
 
         portLoad.Error = null;
         portLoad.Module = null;
+        portLoad.SourceFold = null;
         portLoad.ClassPath = null;
         portLoad.SystemModule = false;
         portLoad.NameCheck = null;
