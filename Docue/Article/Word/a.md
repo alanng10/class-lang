@@ -206,6 +206,10 @@ Word "start" has meaning that is first at sequence.
 
 Word "end" has meaning that is one after last at sequence.
 
+Word "first" has meaning that is start index.
+
+Word "last" has meaning that is end index.
+
 Word "index" has meaning that is list item identifier.
 
 Word "zero" has meaning that is empty effect.
