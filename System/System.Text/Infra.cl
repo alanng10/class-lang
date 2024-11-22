@@ -379,10 +379,7 @@ class Infra : Any
         i : 0;
         while (k = null & i < count)
         {
-            var Int index;
-            index : textIndex + i;
-
-            textRange.Index : index;
+            textRange.Index : textIndex + i;
             textRange.Count : otherCount;
 
             var Bool b;
@@ -436,16 +433,16 @@ class Infra : Any
         while (k = null & i < count)
         {
             var Int index;
-            index : textIndex + (count - 1) - i;
+            index : (count - 1) - i;
 
-            textRange.Index : index;
+            textRange.Index : textIndex + index;
             textRange.Count : otherCount;
 
             var Bool b;
             b : this.Same(text, other, less);
             inf (b)
             {
-                k : i;
+                k : index;
             }
             i : i + 1;
         }
