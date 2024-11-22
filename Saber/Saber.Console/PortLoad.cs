@@ -882,7 +882,7 @@ public class PortLoad : ClassBase
                 b = true;
             }
 
-            listInfra.TableAdd(table, destPath, sourcePath);
+            listInfra.TableAdd(table, destPath, sourcePathA);
 
             i = i + 1;
         }
