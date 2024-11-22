@@ -70,7 +70,7 @@ ThreadNetworkState
 
 [Storage]
 A.txt:DemoA.txt
-Data/FileA.txt:Data/FileA.txt
+Data/FileA.txt:DataA/FileAa.txt
 
 [Entry]
 Entry
