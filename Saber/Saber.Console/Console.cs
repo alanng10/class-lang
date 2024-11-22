@@ -402,7 +402,7 @@ public class Console : ClassBase
             if (this.SourceFold == null)
             {
                 this.Status = 1010;
-                return false;;
+                return false;
             }
 
             bool baa;
