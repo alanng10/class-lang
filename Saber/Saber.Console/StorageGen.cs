@@ -64,12 +64,10 @@ public class StorageGen : ClassBase
             {
                 pathA = this.StringCreateRange(destPath, 0, combine);
             }
-
-            String destFoldPath;
-            destFoldPath = dataFoldPath;
             
             if (!(pathA == null))
             {
+                String destFoldPath;
                 destFoldPath = this.AddClear().Add(dataFoldPath).Add(this.TextInfra.PathCombine).Add(pathA).AddResult();
 
                 this.StorageComp.FoldCreate(destFoldPath);
