@@ -6,6 +6,7 @@ public class PortLoad : ClassBase
     {
         base.Init();
         this.StorageInfra = StorageInfra.This;
+        this.StorageComp = StorageComp.This;
 
         this.ErrorKind = ErrorKindList.This;
 
@@ -32,6 +33,7 @@ public class PortLoad : ClassBase
     public virtual NameCheck NameCheck { get; set; }
     public virtual String ClassPath { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
+    protected virtual StorageComp StorageComp { get; set; }
     protected virtual ErrorKindList ErrorKind { get; set; }
     protected virtual StoragePathCheck StoragePathCheck { get; set; }
     protected virtual Array ImportModuleRefArray { get; set; }
@@ -790,10 +792,20 @@ public class PortLoad : ClassBase
             PortStorage a;
             a = (PortStorage)array.GetAt(i);
 
+            String sourcePathKa;
+            String destPathKa;
+            sourcePathKa = a.SourcePath;
+            destPathKa = a.Path;
+
+            Text sourcePathK;
             String sourcePath;
+            sourcePathK = this.TextTrimEnd(this.TextTrimStart(this.TA(sourcePathKa)));
+            sourcePath = this.StringCreate(sourcePathK);
+
+            Text destPathK;
             String destPath;
-            sourcePath = a.SourcePath;
-            destPath = a.Path;
+            destPathK = this.TextTrimEnd(this.TextTrimStart(this.TA(destPathKa)));
+            destPath = this.StringCreate(destPathK);
 
             bool ba;
             ba = false;
@@ -803,6 +815,8 @@ public class PortLoad : ClassBase
                 if (!pathCheck.IsValidSourcePath(this.TA(sourcePath)))
                 {
                     this.ErrorAdd(this.ErrorKind.StorageSourceInvalid, sourcePath);
+
+                    ba = true;
                 }
             }
 
@@ -811,14 +825,29 @@ public class PortLoad : ClassBase
                 if (!pathCheck.IsValidDestPath(this.TA(destPath)))
                 {
                     this.ErrorAdd(this.ErrorKind.StorageDestInvalid, destPath);
+
+                    ba = true;
                 }
             }
 
-
-            if (table.Valid(destPath))
+            if (!ba)
             {
-                this.Status = 100;
-                return false;
+                if (table.Valid(destPath))
+                {
+                    this.ErrorAdd(this.ErrorKind.StorageDestUnavailable, destPath);
+
+                    ba = true;
+                }
+            }
+
+            if (!ba)
+            {
+                if (!this.StorageComp.Exist(sourcePath))
+                {
+                    this.ErrorAdd(this.ErrorKind.StorageSourceUnachievable, sourcePath);
+
+                    ba = true;
+                }
             }
 
             if (ba)
