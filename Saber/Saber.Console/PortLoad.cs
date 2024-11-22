@@ -879,13 +879,7 @@ public class PortLoad : ClassBase
                 b = true;
             }
 
-            PortStorage m;
-            m = new PortStorage();
-            m.Init();
-            m.Path = destPath;
-            m.SourcePath = sourcePath;
-
-            listInfra.TableAdd(table, destPath, m);
+            listInfra.TableAdd(table, destPath, sourcePath);
 
             i = i + 1;
         }
