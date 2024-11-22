@@ -89,13 +89,16 @@ public class StorageGen : ClassBase
                 }
             }
 
+            String finalDestPath;
+            finalDestPath = this.AddClear().Add(dataFoldPath).Add(this.TextInfra.PathCombine).Add(destPath).AddResult();
+
             bool fold;
             fold = this.StorageComp.Fold(sourcePath);
 
             if (fold)
             {
                 bool bc;
-                bc = this.StorageComp.FoldCopy(sourcePath, destPath);
+                bc = this.StorageComp.FoldCopy(sourcePath, finalDestPath);
 
                 if (!bc)
                 {
@@ -106,7 +109,7 @@ public class StorageGen : ClassBase
             if (!fold)
             {
                 bool bd;
-                bd = this.StorageComp.FileCopy(sourcePath, destPath);
+                bd = this.StorageComp.FileCopy(sourcePath, finalDestPath);
 
                 if (!bd)
                 {
