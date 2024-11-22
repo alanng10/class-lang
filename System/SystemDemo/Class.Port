@@ -69,7 +69,8 @@ StateA
 ThreadNetworkState
 
 [Storage]
-Demo/A.txt:Data/DemoA.txt
+A.txt:DemoA.txt
+Data/FileA.txt:Data/FileA.txt
 
 [Entry]
 Entry
