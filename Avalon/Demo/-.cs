@@ -20,6 +20,7 @@ global using MathInfra = Avalon.Math.Infra;
 global using Rand = Avalon.Math.Rand;
 global using Text = Avalon.Text.Text;
 global using TextForm = Avalon.Text.Form;
+global using TextLess = Avalon.Text.Less;
 global using Format = Avalon.Text.Format;
 global using FormatArg = Avalon.Text.FormatArg;
 global using TextIntParse = Avalon.Text.IntParse;

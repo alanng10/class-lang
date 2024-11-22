@@ -10,6 +10,7 @@ class Demo : Any
         this.TextInfra = TextInfra.This;
         this.MathInfra = MathInfra.This;
         this.StorageInfra = StorageInfra.This;
+        this.Math = MathMath.This;
         this.StringComp = StringComp.This;
         this.TextCode = TextCode.This;
         this.TextCodeKindList = TextCodeKindList.This;
@@ -20,11 +21,13 @@ class Demo : Any
         this.NetworkStatusList = NetworkStatusList.This;
         this.Console = Console.This;
 
+        this.CharLess = this.CreateCharLess();
+        this.TForm = this.CreateTextForm();
+        this.TLess = this.CreateTextLess();
+
         this.StringAdd = new StringAdd();
         this.StringAdd.Init();
 
-        this.Math = new MathMath();
-        this.Math.Init();
         this.MathComp = new MathComp();
         this.MathComp.Init();
 
@@ -53,12 +56,42 @@ class Demo : Any
 
     public virtual MathMath Math { get; set; }
     protected virtual MathComp MathComp { get; set; }
+    protected virtual TextLess TLess { get; set; }
+    protected virtual LessInt CharLess { get; set; }
+    protected virtual TextForm TForm { get; set; }
     private StringAdd StringAdd { get; set; }
     private Format Format { get; set; }
     private FormatArg FormatArg { get; set; }
     private long ArrayIndex { get; set; }
     private String SSuccess { get; set; }
     private String SError { get; set; }
+
+    protected virtual LessInt CreateCharLess()
+    {
+        LessInt a;
+        a = new LessInt();
+        a.Init();
+        return a;
+    }
+
+    protected virtual TextForm CreateTextForm()
+    {
+        TextForm a;
+        a = new TextForm();
+        a.Init();
+        return a;
+    }
+
+    protected virtual TextLess CreateTextLess()
+    {
+        TextLess a;
+        a = new TextLess();
+        a.CharLess = this.CharLess;
+        a.LiteForm = this.TForm;
+        a.RiteForm = this.TForm;
+        a.Init();
+        return a;
+    }
 
     public bool Execute()
     {
@@ -71,6 +104,7 @@ class Demo : Any
         this.ExecuteMemoryStream();
         this.ExecuteTime();
         this.ExecuteStorage();
+        this.ExecuteStoragePath();
         this.ExecuteStorageStream();
         this.ExecuteStorageComp();
 
@@ -801,23 +835,6 @@ class Demo : Any
         return true;
     }
 
-    private String StringInt(long o)
-    {
-        this.FormatArg.Value.Int = o;
-
-        this.Format.ExecuteArgCount(this.FormatArg);
-
-        Text text;
-        text = this.TextInfra.TextCreate(this.FormatArg.Count);
-
-        this.Format.ExecuteArgResult(this.FormatArg, text);
-
-        String a;
-        a = this.TextInfra.StringCreate(text);
-
-        return a;
-    }
-
     private bool ExecuteStorage()
     {
         StorageInfra infra;
@@ -1079,6 +1096,19 @@ class Demo : Any
         storage.Close();
 
         storage.Final();
+
+        return true;
+    }
+
+    private bool ExecuteStoragePath()
+    {
+        Text ka;
+        ka = this.TextInfra.TextCreateStringData(this.S("Demo/FileA.txt"), null);
+
+        long k;
+        k = this.StorageInfra.EntryPathNameCombine(ka, this.TLess);
+
+        this.Console.Out.Write(this.AddClear().AddS("Storage Path k: ").Add(this.StringIntHex(k)).AddResult());
 
         return true;
     }
@@ -1487,6 +1517,68 @@ class Demo : Any
 
         this.Console.Out.Write(this.S("Demo.ExecuteTimeEventOne Thread Status: 0h" + o.ToString("x8") + "\n"));
         return true;
+    }
+
+    public virtual String StringInt(long n)
+    {
+        return this.StringIntFormat(n, 10, false, 1, -1, 0);
+    }
+
+    public virtual String StringIntHex(long n)
+    {
+        return this.StringIntFormat(n, 16, false, 15, 15, '0');
+    }
+
+    public virtual String StringIntFormat(long n, long varBase, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
+    {
+        FormatArg arg;
+        arg = this.FormatArg;
+
+        arg.Kind = 1;
+        arg.Value.Int = n;
+        arg.Base = varBase;
+        arg.AlignLeft = alignLeft;
+        arg.FieldWidth = fieldWidth;
+        arg.MaxWidth = maxWidth;
+        arg.FillChar = fillChar;
+
+        return this.StringFormat();
+    }
+
+    public virtual String StringTextFormat(Text text, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
+    {
+        FormatArg arg;
+        arg = this.FormatArg;
+
+        arg.Kind = 2;
+        arg.Value.Any = text;
+        arg.Base = 0;
+        arg.AlignLeft = alignLeft;
+        arg.FieldWidth = fieldWidth;
+        arg.MaxWidth = maxWidth;
+        arg.FillChar = fillChar;
+
+        return this.StringFormat();
+    }
+
+    public virtual String StringFormat()
+    {
+        this.Format.ExecuteArgCount(this.FormatArg);
+
+        Text aa;
+        aa = this.TextInfra.TextCreate(this.FormatArg.Count);
+
+        this.Format.ExecuteArgResult(this.FormatArg, aa);
+
+        String a;
+        a = this.StringCreate(aa);
+
+        return a;
+    }
+
+    public virtual String StringCreate(Text text)
+    {
+        return this.TextInfra.StringCreate(text);
     }
 
     public virtual Demo Add(String a)
