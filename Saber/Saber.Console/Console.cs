@@ -624,6 +624,23 @@ public class Console : ClassBase
             return false;
         }
 
+        this.StorageGen.Module = module;
+        this.StorageGen.ModuleRefString = moduleRefString;
+        this.StorageGen.ClassPath = this.ClassPath;
+
+        bool bc;
+        bc = this.StorageGen.Execute();
+
+        this.StorageGen.ClassPath = null;
+        this.StorageGen.ModuleRefString = null;
+        this.StorageGen.Module = null;
+
+        if (!bc)
+        {
+            this.Status = 5500;
+            return false;
+        }
+
         return true;
     }
 
