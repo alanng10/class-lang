@@ -967,17 +967,8 @@ class DeA : Dem
 
         var Bool b;
         b : this.TextSame(this.TA(ka), this.TB(k));
-        
-        var String kaa;
-        inf (b)
-        {
-            kaa : "Success";
-        }
-        inf (~b)
-        {
-            kaa : "Error";
-        }
-        this.Console.Out.Write(this.AddClear().Add("StorageComp ThisFold Set Read ").Add(kaa).AddLine().AddResult());
+
+        this.Console.Out.Write(this.AddClear().Add("StorageComp ThisFold Set Read ").Add(this.StatusString(b)).AddLine().AddResult());
 
         this.StorageComp.ThisFoldSet("..");
         return true;
