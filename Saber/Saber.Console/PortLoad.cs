@@ -10,7 +10,7 @@ public class PortLoad : ClassBase
 
         this.ErrorKind = ErrorKindList.This;
 
-        this.StoragePathCheck = new StoragePathCheck();
+        this.StoragePathCheck = new StoragePathValid();
         this.StoragePathCheck.Init();
 
         this.SystemModuleSingle = this.S("System");
@@ -36,7 +36,7 @@ public class PortLoad : ClassBase
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual StorageComp StorageComp { get; set; }
     protected virtual ErrorKindList ErrorKind { get; set; }
-    protected virtual StoragePathCheck StoragePathCheck { get; set; }
+    protected virtual StoragePathValid StoragePathCheck { get; set; }
     protected virtual Array ImportModuleRefArray { get; set; }
     protected virtual Table BinaryTable { get; set; }
     protected virtual Table ImportDependTable { get; set; }
@@ -790,7 +790,7 @@ public class PortLoad : ClassBase
         ListInfra listInfra;
         listInfra = this.ListInfra;
 
-        StoragePathCheck pathCheck;
+        StoragePathValid pathCheck;
         pathCheck = this.StoragePathCheck;
 
         Table table;
