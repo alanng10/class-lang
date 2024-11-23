@@ -956,11 +956,11 @@ class DeA : Dem
     maide private Bool ExecuteStorage()
     {
         var String k;
-        k : this.StorageInfra.TextRead("SystemDemo-0.00.00.data/A.txt");
+        k : this.StorageInfra.TextRead("SystemDemo-96207.08.47.data/A.txt");
 
         this.Console.Out.Write(this.AddClear().Add("Storage Read: ").Add(k).AddLine().AddResult());
 
-        this.StorageComp.ThisFoldSet("SystemDemo-0.00.00.data");
+        this.StorageComp.ThisFoldSet("SystemDemo-96207.08.47.data");
 
         var String ka;
         ka : this.StorageInfra.TextRead("A.txt");
