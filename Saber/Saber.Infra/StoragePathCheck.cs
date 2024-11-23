@@ -1,6 +1,6 @@
 namespace Saber.Infra;
 
-public class StoragePathCheck : Any
+public class StoragePathValid : Any
 {
     public override bool Init()
     {
