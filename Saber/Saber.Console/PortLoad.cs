@@ -790,8 +790,8 @@ public class PortLoad : ClassBase
         ListInfra listInfra;
         listInfra = this.ListInfra;
 
-        StoragePathValid pathCheck;
-        pathCheck = this.StoragePathValid;
+        StoragePathValid pathValid;
+        pathValid = this.StoragePathValid;
 
         Table table;
         table = this.Module.Storage;
@@ -839,7 +839,7 @@ public class PortLoad : ClassBase
 
             if (!ba)
             {
-                if (!pathCheck.IsValidSourcePath(this.TA(sourcePathA)))
+                if (!pathValid.IsValidSourcePath(this.TA(sourcePathA)))
                 {
                     this.ErrorAdd(this.ErrorKind.StorageSourceInvalid, sourcePath);
 
@@ -849,7 +849,7 @@ public class PortLoad : ClassBase
 
             if (!ba)
             {
-                if (!pathCheck.IsValidDestPath(this.TA(destPath)))
+                if (!pathValid.IsValidDestPath(this.TA(destPath)))
                 {
                     this.ErrorAdd(this.ErrorKind.StorageDestInvalid, destPath);
 
