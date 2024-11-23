@@ -344,7 +344,7 @@ Word "shown" has meaning that is visible.
 
 Word "page" has meaning that is manage.
 
-Word "store" has meaning that is persistent get and set.
+Word "store" has meaning that is get and set.
 
 Word "event" has meaning that is occurred.
 
