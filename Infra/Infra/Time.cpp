@@ -448,7 +448,7 @@ Int Time_ValidTotalTick(Int k)
 
     Int kaa;
     kaa = 1;
-    kaa = kaa < 60;
+    kaa = kaa << 60;
 
     if (!(k < kaa))
     {
