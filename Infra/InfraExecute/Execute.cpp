@@ -429,8 +429,11 @@ Int ExecuteModuleVerString(Int result, Int moduleVer)
     i = 0;
     while (i < count)
     {
+        Int index;
+        index = count - 1 - i;
+
         Int shift;
-        shift = i * 4;
+        shift = index * 4;
 
         Int k;
         k = moduleVer;
