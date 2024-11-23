@@ -956,17 +956,17 @@ class DeA : Dem
     maide private Bool ExecuteStorage()
     {
         var String k;
-        k : this.StorageInfra.TextRead("../../DemoA.txt");
+        k : this.StorageInfra.TextRead("SystemDemo-0.00.00.data/A.txt");
 
         this.Console.Out.Write(this.AddClear().Add("Storage Read: ").Add(k).AddLine().AddResult());
 
-        this.StorageComp.ThisFoldSet("..");
+        this.StorageComp.ThisFoldSet("SystemDemo-0.00.00.data");
 
         var String ka;
-        ka : this.StorageInfra.TextRead("../DemoA.txt");
+        ka : this.StorageInfra.TextRead("A.txt");
 
         var Bool b;
-        b : (this.TextSame(this.TA(ka), this.TB(k)));
+        b : this.TextSame(this.TA(ka), this.TB(k));
         
         var String kaa;
         inf (b)
@@ -979,7 +979,7 @@ class DeA : Dem
         }
         this.Console.Out.Write(this.AddClear().Add("StorageComp ThisFold Set Read ").Add(kaa).AddLine().AddResult());
 
-        this.StorageComp.ThisFoldSet("Class");
+        this.StorageComp.ThisFoldSet("..");
         return true;
     }
 
@@ -995,7 +995,7 @@ class DeA : Dem
         mode.Read : true;
         mode.Write : true;
 
-        storage.Path : "StorageStream.txt";
+        storage.Path : "SystemDemo-0.00.00.data/StorageStream.txt";
         storage.Mode : mode;
 
         storage.Open();
