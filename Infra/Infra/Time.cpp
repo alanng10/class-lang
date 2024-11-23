@@ -78,10 +78,7 @@ Int Time_Set(Int o, Int yea, Int mon, Int day, Int our, Int min, Int sec, Int ti
     Int k;
     k = Time_TotalTickIntern(ka);
 
-    SInt kka;
-    kka = k;
-
-    if (kka < 0)
+    if (!Time_ValidTotalTick(k))
     {
         return false;
     }
@@ -332,22 +329,10 @@ Int Time_AddYea(Int o, Int offset)
     QDateTime u;
     u = m->Intern->addYears(ua);
 
-    Int ka;
-    ka = CastInt(&u);
-
     Int k;
-    k = Time_TotalTickIntern(ka);
+    k = CastInt(&u);
 
-    SInt kka;
-    kka = k;
-
-    if (kka < 0)
-    {
-        return false;
-    }
-
-    (*(m->Intern)) = u;
-    return true;
+    return Time_AddSet(o, k);
 }
 
 Int Time_AddMon(Int o, Int offset)
@@ -359,22 +344,10 @@ Int Time_AddMon(Int o, Int offset)
     QDateTime u;
     u = m->Intern->addMonths(ua);
 
-    Int ka;
-    ka = CastInt(&u);
-
     Int k;
-    k = Time_TotalTickIntern(ka);
+    k = CastInt(&u);
 
-    SInt kka;
-    kka = k;
-
-    if (kka < 0)
-    {
-        return false;
-    }
-
-    (*(m->Intern)) = u;
-    return true;
+    return Time_AddSet(o, k);
 }
 
 Int Time_AddDay(Int o, Int offset)
@@ -386,22 +359,10 @@ Int Time_AddDay(Int o, Int offset)
     QDateTime u;
     u = m->Intern->addDays(ua);
 
-    Int ka;
-    ka = CastInt(&u);
-
     Int k;
-    k = Time_TotalTickIntern(ka);
+    k = CastInt(&u);
 
-    SInt kka;
-    kka = k;
-
-    if (kka < 0)
-    {
-        return false;
-    }
-
-    (*(m->Intern)) = u;
-    return true;
+    return Time_AddSet(o, k);
 }
 
 Int Time_AddTick(Int o, Int offset)
@@ -413,21 +374,29 @@ Int Time_AddTick(Int o, Int offset)
     QDateTime u;
     u = m->Intern->addMSecs(offsetU);
 
-    Int ka;
-    ka = CastInt(&u);
-
     Int k;
-    k = Time_TotalTickIntern(ka);
+    k = CastInt(&u);
 
-    SInt kka;
-    kka = k;
+    return Time_AddSet(o, k);
+}
 
-    if (kka < 0)
+Int Time_AddSet(Int o, Int k)
+{
+    Time* m;
+    m = CP(o);
+
+    Int ka;
+    ka = Time_TotalTickIntern(k);
+
+    if (!Time_ValidTotalTick(ka))
     {
         return false;
     }
 
-    (*(m->Intern)) = u;
+    QDateTime* oa;
+    oa = (QDateTime*)k;
+
+    (*(m->Intern)) = *oa;
     return true;
 }
 
@@ -486,6 +455,28 @@ Int Time_ValidTime(Int our, Int min, Int sec, Int tick)
     Bool a;
     a = bu;
     return a;
+}
+
+Int Time_ValidTotalTick(Int k)
+{
+    SInt ka;
+    ka = k;
+
+    if (ka < 0)
+    {
+        return false;
+    }
+
+    Int kaa;
+    kaa = 1;
+    kaa = kaa < 60;
+
+    if (!(k < kaa))
+    {
+        return false;
+    }
+
+    return true;
 }
 
 Int Time_TotalTickIntern(Int o)

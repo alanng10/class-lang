@@ -13,4 +13,6 @@ struct Time
 
 #define CP(a) ((Time*)(a))
 
+Int Time_AddSet(Int o, Int k);
 Int Time_TotalTickIntern(Int u);
+Int Time_ValidTotalTick(Int k);
