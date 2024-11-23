@@ -342,6 +342,8 @@ Word "grid" has meaning that is table area.
 
 Word "shown" has meaning that is visible.
 
+Word "built" has meaning that is built in.
+
 Word "page" has meaning that is manage.
 
 Word "store" has meaning that is get and set.
