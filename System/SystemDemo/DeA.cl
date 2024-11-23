@@ -986,7 +986,7 @@ class DeA : Dem
         mode.Read : true;
         mode.Write : true;
 
-        storage.Path : "SystemDemo-0.00.00.data/StorageStream.txt";
+        storage.Path : "SystemDemo-96207.08.47.data/StorageStream.txt";
         storage.Mode : mode;
 
         storage.Open();
