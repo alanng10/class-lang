@@ -23,6 +23,7 @@ public class StoragePathValid : Any
         this.TextLess.Init();
 
         this.Combine = this.TextInfra.TextCreateStringData(this.TextInfra.PathCombine, null);
+        this.Slash = this.TextInfra.TextCreateStringData(this.S("/"), null);
         this.BackSlash = this.TextInfra.TextCreateStringData(this.S("\\"), null);
         this.SlashSlash = this.TextInfra.TextCreateStringData(this.S("//"), null);
         this.Dot = this.TextInfra.TextCreateStringData(this.S("."), null);
@@ -36,6 +37,7 @@ public class StoragePathValid : Any
     protected virtual StringValue StringValue { get; set; }
     protected virtual TextLess TextLess { get; set; }
     protected virtual Text Combine { get; set; }
+    protected virtual Text Slash { get; set; }
     protected virtual Text BackSlash { get; set; }
     protected virtual Text SlashSlash { get; set; }
     protected virtual Text Dot { get; set; }
@@ -45,7 +47,31 @@ public class StoragePathValid : Any
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
+
+        if (text.Range.Count < 1)
+        {
+            return false;
+        }
+
+        long ka;
+        long kb;
+        ka = text.Range.Index;
+        kb = text.Range.Count;
+
+        text.Range.Index = ka + kb - 1;
+        text.Range.Count = 1;
+
+        bool b;
+        b = textInfra.Same(text, this.Slash, this.TextLess);
         
+        text.Range.Index = ka;
+        text.Range.Count = kb;
+
+        if (b)
+        {
+            return false;
+        }
+
         long k;
         k = textInfra.Index(text, this.BackSlash, this.TextLess);
 
