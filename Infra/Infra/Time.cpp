@@ -75,16 +75,7 @@ Int Time_Set(Int o, Int yea, Int mon, Int day, Int our, Int min, Int sec, Int ti
     Int ka;
     ka = CastInt(&dtO);
 
-    Int k;
-    k = Time_TotalTickIntern(ka);
-
-    if (!Time_ValidTotalTick(k))
-    {
-        return false;
-    }
-
-    (*(m->Intern)) = dtO;
-    return true;
+    return Time_SetValidTick(o, ka);
 }
 
 Int Time_YeaGet(Int o)
@@ -233,19 +224,7 @@ Int Time_This(Int o)
     Int ka;
     ka = CastInt(&u);
 
-    Int k;
-    k = Time_TotalTickIntern(ka);
-
-    SInt kka;
-    kka = k;
-
-    if (kka < 0)
-    {
-        return false;
-    }
-
-    (*(m->Intern)) = u;
-    return true;
+    return Time_SetValidTick(o, ka);
 }
 
 Int Time_ToPos(Int o, Int pos)
@@ -332,7 +311,7 @@ Int Time_AddYea(Int o, Int offset)
     Int k;
     k = CastInt(&u);
 
-    return Time_AddSet(o, k);
+    return Time_SetValidTick(o, k);
 }
 
 Int Time_AddMon(Int o, Int offset)
@@ -347,7 +326,7 @@ Int Time_AddMon(Int o, Int offset)
     Int k;
     k = CastInt(&u);
 
-    return Time_AddSet(o, k);
+    return Time_SetValidTick(o, k);
 }
 
 Int Time_AddDay(Int o, Int offset)
@@ -362,7 +341,7 @@ Int Time_AddDay(Int o, Int offset)
     Int k;
     k = CastInt(&u);
 
-    return Time_AddSet(o, k);
+    return Time_SetValidTick(o, k);
 }
 
 Int Time_AddTick(Int o, Int offset)
@@ -377,10 +356,10 @@ Int Time_AddTick(Int o, Int offset)
     Int k;
     k = CastInt(&u);
 
-    return Time_AddSet(o, k);
+    return Time_SetValidTick(o, k);
 }
 
-Int Time_AddSet(Int o, Int k)
+Int Time_SetValidTick(Int o, Int k)
 {
     Time* m;
     m = CP(o);
