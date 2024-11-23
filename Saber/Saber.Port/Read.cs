@@ -443,7 +443,7 @@ public class Read : ClassBase
         }
 
         row = row + ka;
-        if (!this.CheckRow(row))
+        if (!this.ValidRow(row))
         {
             return null;
         }
@@ -471,7 +471,7 @@ public class Read : ClassBase
         }
 
         row = row + ka;
-        if (!this.CheckRow(row))
+        if (!this.ValidRow(row))
         {
             return null;
         }
@@ -499,7 +499,7 @@ public class Read : ClassBase
         }
 
         row = row + ka;
-        if (!this.CheckRow(row))
+        if (!this.ValidRow(row))
         {
             return null;
         }
@@ -520,7 +520,7 @@ public class Read : ClassBase
 
         String entry;
         entry = null;
-        if (this.CheckRow(row))
+        if (this.ValidRow(row))
         {
             Text aa;
             aa = this.LineText(row);
@@ -1134,7 +1134,7 @@ public class Read : ClassBase
         return (Text)this.LineList.GetAt(row);
     }
 
-    protected virtual bool CheckRow(long row)
+    protected virtual bool ValidRow(long row)
     {
         return this.InfraInfra.ValidIndex(this.LineList.Count, row);
     }
@@ -1145,7 +1145,7 @@ public class Read : ClassBase
         a = row;
         a = a + 1;
  
-        if (!this.CheckRow(a))
+        if (!this.ValidRow(a))
         {
             return -1;
         }
