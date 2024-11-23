@@ -195,17 +195,6 @@ class DeA : Dem
 
         this.Console.Out.Write(a);
 
-        #console.Inn.Read();
-
-        #var Data ka;
-        #ka : new Data;
-        #ka.Count : 10 * 1024 * 1024;
-        #ka.Init();
-
-        #console.Inn.Read();
-
-        #this.Console.Out.Write("Demo HHHH\n");
-
         this.ExecuteValueCast();
 
         this.ExecuteCast();
@@ -242,6 +231,17 @@ class DeA : Dem
         this.ExecuteNetwork();
 
         this.ExecuteNetworkProgram();
+
+        this.Console.Inn.Read();
+
+        var Data ka;
+        ka : new Data;
+        ka.Count : 10 * 1024 * 1024;
+        ka.Init();
+
+        this.Console.Inn.Read();
+
+        this.Console.Out.Write("Demo HHHH\n");
 
         this.Console.Out.Write("Demo Execute End\n");
 
