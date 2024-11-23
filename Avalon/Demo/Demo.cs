@@ -836,7 +836,8 @@ class Demo : Any
             .AddS(", sec: ").Add(this.StringInt(time.Sec))
             .AddS(", tick: ").Add(this.StringInt(time.Tick))
             .AddS(", pos: ").Add(this.StringInt(time.Pos))
-            .AddS("\n");
+            .AddS(", total tick: ").Add(this.StringInt(time.TotalTick))
+            .AddLine();
 
         String k;
         k = this.AddResult();
@@ -855,9 +856,7 @@ class Demo : Any
         
         String k;
         k = infra.TextRead(this.S("DemoData/Demo.txt"));
-        this.Console.Out.Write(this.S("Demo.txt text: \n"));
-        this.Console.Out.Write(k);
-        this.Console.Out.Write(this.S("\n"));
+        this.Console.Out.Write(this.AddClear().AddS("Demo.txt text: ").AddLine().Add(k).AddLine().AddResult());
 
         string ou;
         ou = "DemoData/Demo2.txt";
