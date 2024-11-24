@@ -343,6 +343,11 @@ class DeA : Dem
 
         b : b & (ka = 0);
 
+        var Bool ba;
+        ba : sign <(0sn11, 0sn10); 
+
+        b : b & ba;
+
         ka : sign *(0sn4, 0sn6);
 
         b : b & (ka = 24);
