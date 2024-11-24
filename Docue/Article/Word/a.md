@@ -364,6 +364,8 @@ Word "project" has meaning that is entity being done.
 
 Word "draw" has meaning that is comp video.
 
+Word "image" has meaning that is pixel rect.
+
 Word "brush" has meaning that is draw fill applied.
 
 Word "slash" has meaning that is draw line applied.
