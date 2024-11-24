@@ -400,6 +400,8 @@ Word "angle" has meaning that is direct.
 
 Word "quad" has meaning that is four point shape.
 
+Word "point" has meaning that is smallest entity.
+
 Word "tune" has meaning that is comp audio.
 
 Word "plane" has meaning that is plane time line.
