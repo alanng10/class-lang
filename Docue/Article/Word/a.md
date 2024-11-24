@@ -378,6 +378,8 @@ Word "line" has meaning that is region line.
 
 Word "color" has meaning that is vision value.
 
+Word "polate" has meaning that is interpolate.
+
 Word "area" has meaning that is region.
 
 Word "pos" has meaning that is position in signed int.
