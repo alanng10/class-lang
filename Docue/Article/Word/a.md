@@ -414,6 +414,10 @@ Word "tune" has meaning that is comp audio.
 
 Word "plane" has meaning that is plane time line.
 
+Word "reque" has meaning that is request.
+
+Word "respon" has meaning that is response.
+
 Word "tick" has meaning that is smallest duration.
 
 Word "yea" has meaning that is date year.
