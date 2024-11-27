@@ -34,6 +34,8 @@ Word "comment" has meaning that is comment info.
 
 Word "tool" has meaning that is be used.
 
+Word "auto" has meaning that is entity to do effect.
+
 Word "node" has meaning that is entity.
 
 Word "lang" has meaning that is language.
