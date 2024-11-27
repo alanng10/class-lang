@@ -406,6 +406,8 @@ Word "think" has meaning that is thinking.
 
 Word "prac" has meaning that is practical limit.
 
+Word "config" has meaning that is configured.
+
 Word "termal" has meaning that is terminal.
 
 Word "comma" has meaning that is command.
