@@ -182,7 +182,7 @@ Word "binary" has meaning that is module data.
 
 Word "section" has meaning that is info block.
 
-Word "traverse" has meaning that is pass node link.
+Word "verse" has meaning that is pass node link.
 
 Word "virtual" has meaning that is ported state.
 
