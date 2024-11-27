@@ -408,6 +408,8 @@ Word "prac" has meaning that is practical limit.
 
 Word "config" has meaning that is configured.
 
+Word "plain" has meaning that is entirely plain.
+
 Word "termal" has meaning that is terminal.
 
 Word "comma" has meaning that is command.
