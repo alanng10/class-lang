@@ -178,6 +178,8 @@ Word "section" has meaning that is info block.
 
 Word "traverse" has meaning that is pass node link.
 
+Word "grammar" has meaning that is language applicable way.
+
 Word "syntax" has meaning that is parse required text.
 
 Word "ref" has meaning that is refer value.
