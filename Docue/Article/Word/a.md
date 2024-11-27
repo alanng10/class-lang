@@ -336,6 +336,8 @@ Word "entry" has meaning that is associate entity.
 
 Word "exist" has meaning that is presence.
 
+Word "rename" has meaning that is change name.
+
 Word "host" has meaning that is site hold.
 
 Word "peer" has meaning that is co op.
