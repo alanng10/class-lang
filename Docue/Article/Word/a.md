@@ -22,7 +22,7 @@ Word "info" has meaning that is interpreted.
 
 Word "all" has meaning that is anything included.
 
-Word "ideal" has meaning that is most perfect.
+Word "ideal" has meaning that is most satisfy requirement.
 
 Word "source" has meaning that is make dependency.
 
