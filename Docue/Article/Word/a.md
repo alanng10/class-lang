@@ -356,6 +356,8 @@ Word "work" has meaning that is being done.
 
 Word "environ" has meaning that is environment.
 
+Word "authen" has meaning that is shown valid.
+
 Word "view" has meaning that is presentation.
 
 Word "child" has meaning that is sub entity.
