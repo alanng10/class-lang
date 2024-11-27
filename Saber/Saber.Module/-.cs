@@ -91,4 +91,4 @@ global using IntSignValue = Saber.Node.IntSignValue;
 global using IntHexSignValue = Saber.Node.IntHexSignValue;
 global using StringValue = Saber.Node.StringValue;
 global using NodeNode = Saber.Node.Node;
-global using NodeTraverse = Saber.Node.Traverse;
+global using NodeTraverse = Saber.Node.Travel;
