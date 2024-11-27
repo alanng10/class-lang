@@ -398,7 +398,7 @@ Word "mind" has meaning that is think entity.
 
 Word "think" has meaning that is thinking.
 
-Word "cap" has meaning that is practical limit.
+Word "prac" has meaning that is practical limit.
 
 Word "red" has meaning that is color col.
 
