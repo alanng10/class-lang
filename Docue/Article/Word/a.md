@@ -400,6 +400,8 @@ Word "think" has meaning that is thinking.
 
 Word "prac" has meaning that is practical limit.
 
+Word "termin" has meaning that is terminal.
+
 Word "red" has meaning that is color col.
 
 Word "green" has meaning that is color hor.
