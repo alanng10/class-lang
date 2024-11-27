@@ -422,6 +422,10 @@ Word "blue" has meaning that is color row.
 
 Word "polate" has meaning that is interpolate.
 
+Word "linear" has meaning that is linear rate.
+
+Word "radial" has meaning that is radial rate.
+
 Word "area" has meaning that is region.
 
 Word "pos" has meaning that is position in signed int.
