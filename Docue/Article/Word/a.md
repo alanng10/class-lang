@@ -338,6 +338,8 @@ Word "exist" has meaning that is presence.
 
 Word "rename" has meaning that is set name.
 
+Word "delete" has meaning that is remove presence.
+
 Word "host" has meaning that is site hold.
 
 Word "peer" has meaning that is co op.
