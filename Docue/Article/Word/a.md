@@ -178,6 +178,8 @@ Word "section" has meaning that is info block.
 
 Word "traverse" has meaning that is pass node link.
 
+Word "syntax" has meaning that is parse rule.
+
 Word "ref" has meaning that is refer value.
 
 Word "ver" has meaning that is version.
