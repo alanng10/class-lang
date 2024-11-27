@@ -396,6 +396,8 @@ Word "vision" has meaning that is view in mind.
 
 Word "mind" has meaning that is think entity.
 
+Word "think" has meaning that is thinking.
+
 Word "red" has meaning that is color col.
 
 Word "green" has meaning that is color hor.
