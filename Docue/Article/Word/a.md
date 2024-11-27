@@ -318,6 +318,8 @@ Word "elapse" has meaning that is pass duration.
 
 Word "path" has meaning that is way.
 
+Word "mode" has meaning that is configed way.
+
 Word "relate" has meaning that is relative.
 
 Word "combine" has meaning that is combo.
