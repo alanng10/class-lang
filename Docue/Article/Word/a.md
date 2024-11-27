@@ -386,6 +386,12 @@ Word "line" has meaning that is region line.
 
 Word "color" has meaning that is vision value.
 
+Word "red" has meaning that is color col.
+
+Word "green" has meaning that is color hor.
+
+Word "blue" has meaning that is color row.
+
 Word "polate" has meaning that is interpolate.
 
 Word "area" has meaning that is region.
