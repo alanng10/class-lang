@@ -174,8 +174,6 @@ Word "create" has meaning that is make from source.
 
 Word "binary" has meaning that is module data.
 
-Word "proto" has meaning that is protocol.
-
 Word "section" has meaning that is info block.
 
 Word "traverse" has meaning that is pass node link.
@@ -203,6 +201,8 @@ Word "stack" has meaning that is put on top of.
 Word "queue" has meaning that is put at after back.
 
 Word "task" has meaning that is to be done.
+
+Word "proto" has meaning that is protocol.
 
 Word "init" has meaning that is initialized.
 
