@@ -71,7 +71,7 @@ class ViewA : ViewView
 
         this.Form.Pos(ooa, oob);
 
-        this.Form.Rotate(angle);
+        this.Form.Angle(angle);
 
         draw.Form = this.Form;
         draw.FormSet();

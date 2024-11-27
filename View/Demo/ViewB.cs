@@ -50,7 +50,7 @@ class ViewB : ViewView
 
         this.Form.Reset();
 
-        this.Form.Rotate(angle);
+        this.Form.Angle(angle);
 
         this.Form.Scale(horizScale, vertScale);
 
