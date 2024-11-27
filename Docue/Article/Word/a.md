@@ -336,7 +336,7 @@ Word "entry" has meaning that is associate entity.
 
 Word "exist" has meaning that is presence.
 
-Word "rename" has meaning that is change name.
+Word "rename" has meaning that is set name.
 
 Word "host" has meaning that is site hold.
 
