@@ -48,6 +48,8 @@ Word "arch" has meaning that is architecture.
 
 Word "require" has meaning that is prerequisite.
 
+Word "license" has meaning that is license grant.
+
 Word "comp" has meaning that is compose unit.
 
 Word "name" has meaning that is call word.
