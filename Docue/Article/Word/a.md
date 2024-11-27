@@ -346,6 +346,8 @@ Word "rename" has meaning that is set name.
 
 Word "delete" has meaning that is remove presence.
 
+Word "permit" has meaning that is permission.
+
 Word "host" has meaning that is site hold.
 
 Word "peer" has meaning that is co op.
