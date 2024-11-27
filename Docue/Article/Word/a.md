@@ -182,6 +182,8 @@ Word "grammar" has meaning that is language applicable way.
 
 Word "syntax" has meaning that is parse required text.
 
+Word "core" has meaning that is core of whole.
+
 Word "ref" has meaning that is refer value.
 
 Word "ver" has meaning that is version.
