@@ -358,6 +358,8 @@ Word "environ" has meaning that is environment.
 
 Word "authen" has meaning that is shown valid.
 
+Word "author" has meaning that is given permission.
+
 Word "view" has meaning that is presentation.
 
 Word "child" has meaning that is sub entity.
