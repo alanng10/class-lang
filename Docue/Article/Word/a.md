@@ -198,6 +198,10 @@ Word "max" has meaning that is maximum.
 
 Word "link" has meaning that is directed way.
 
+Word "stack" has meaning that is put on top of.
+
+Word "queue" has meaning that is put at after back.
+
 Word "task" has meaning that is to be done.
 
 Word "init" has meaning that is initialized.
