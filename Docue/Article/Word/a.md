@@ -46,6 +46,8 @@ Word "plat" has meaning that is platform.
 
 Word "arch" has meaning that is architecture.
 
+Word "require" has meaning that is requirement.
+
 Word "comp" has meaning that is compose unit.
 
 Word "name" has meaning that is call word.
