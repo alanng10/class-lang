@@ -426,6 +426,8 @@ Word "linear" has meaning that is linear rate.
 
 Word "radial" has meaning that is radial rate.
 
+Word "conical" has meaning that is conical rate.
+
 Word "area" has meaning that is region.
 
 Word "pos" has meaning that is position in signed int.
