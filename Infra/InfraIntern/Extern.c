@@ -9583,7 +9583,7 @@ Int Intern_Extern_Stat_CompDestOut(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_Stat_ImageBinaryBmp(Eval* eval, Int frame)
+Int Intern_Extern_Stat_ImageFormatBmp(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -9591,12 +9591,12 @@ Int Intern_Extern_Stat_ImageBinaryBmp(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Stat_ImageBinaryBmp(a0);
+    a = Stat_ImageFormatBmp(a0);
 
     Return;
 }
 
-Int Intern_Extern_Stat_ImageBinaryJpg(Eval* eval, Int frame)
+Int Intern_Extern_Stat_ImageFormatJpg(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -9604,12 +9604,12 @@ Int Intern_Extern_Stat_ImageBinaryJpg(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Stat_ImageBinaryJpg(a0);
+    a = Stat_ImageFormatJpg(a0);
 
     Return;
 }
 
-Int Intern_Extern_Stat_ImageBinaryPng(Eval* eval, Int frame)
+Int Intern_Extern_Stat_ImageFormatPng(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -9617,7 +9617,7 @@ Int Intern_Extern_Stat_ImageBinaryPng(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Stat_ImageBinaryPng(a0);
+    a = Stat_ImageFormatPng(a0);
 
     Return;
 }

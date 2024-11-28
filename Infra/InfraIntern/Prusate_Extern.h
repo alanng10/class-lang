@@ -799,7 +799,7 @@ Intern_Api Int Intern_Extern_Stat_CompSourceIn(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Stat_CompDestIn(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Stat_CompSourceOut(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Stat_CompDestOut(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Stat_ImageBinaryBmp(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Stat_ImageBinaryJpg(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Stat_ImageBinaryPng(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Stat_ImageFormatBmp(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Stat_ImageFormatJpg(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Stat_ImageFormatPng(Eval* e, Int f);
 

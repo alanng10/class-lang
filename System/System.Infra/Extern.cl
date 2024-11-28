@@ -797,8 +797,8 @@ class Extern : Any
     maide prusate Int Stat_CompDestIn(var Int o) { }
     maide prusate Int Stat_CompSourceOut(var Int o) { }
     maide prusate Int Stat_CompDestOut(var Int o) { }
-    maide prusate Int Stat_ImageBinaryBmp(var Int o) { }
-    maide prusate Int Stat_ImageBinaryJpg(var Int o) { }
-    maide prusate Int Stat_ImageBinaryPng(var Int o) { }
+    maide prusate Int Stat_ImageFormatBmp(var Int o) { }
+    maide prusate Int Stat_ImageFormatJpg(var Int o) { }
+    maide prusate Int Stat_ImageFormatPng(var Int o) { }
 
 }
