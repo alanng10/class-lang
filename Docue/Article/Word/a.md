@@ -428,8 +428,6 @@ Word "termal" has meaning that is terminal.
 
 Word "comma" has meaning that is command.
 
-Word "shell" has meaning that is terminal lang.
-
 Word "red" has meaning that is color col.
 
 Word "green" has meaning that is color hor.
