@@ -1,11 +1,11 @@
-namespace Z.Tool.Mirai.SlashJoinList;
+namespace Z.Tool.View.SlashJoinList;
 
 public class Gen : SourceGen
 {
     public override bool Init()
     {
         base.Init();
-        this.Module = this.S("Mirai.Draw");
+        this.Module = this.S("View.Draw");
         this.ClassName = this.S("SlashJoinList");
         this.BaseClassName = this.S("Any");
         this.AnyClassName = this.S("Any");
