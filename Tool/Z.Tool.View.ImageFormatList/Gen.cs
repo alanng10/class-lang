@@ -9,10 +9,10 @@ public class Gen : SourceGen
         this.ClassName = this.S("ImageFormatList");
         this.BaseClassName = this.S("Any");
         this.AnyClassName = this.S("Any");
-        this.ItemClassName = this.S("ImageBinary");
+        this.ItemClassName = this.S("ImageFormat");
         this.ArrayClassName = this.S("Array");
         this.Export = true;
-        this.StatItemClassName = this.S("ImageBinary");
+        this.StatItemClassName = this.S("ImageFormat");
         this.ItemListFileName = this.GetStatItemListFileName();
         return true;
     }
