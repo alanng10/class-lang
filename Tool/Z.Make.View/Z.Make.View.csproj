@@ -10,6 +10,7 @@
         <ProjectReference Include="../Z.Tool.View.SlashCapList/Z.Tool.View.SlashCapList.csproj" />
         <ProjectReference Include="../Z.Tool.View.SlashJoinList/Z.Tool.View.SlashJoinList.csproj" />
         <ProjectReference Include="../Z.Tool.View.SlashLineList/Z.Tool.View.SlashLineList.csproj" />
+        <ProjectReference Include="../Z.Tool.View.DrawCompList/Z.Tool.View.DrawCompList.csproj" />
     </ItemGroup>
 
 </Project>
