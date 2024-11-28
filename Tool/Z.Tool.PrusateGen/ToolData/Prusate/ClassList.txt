@@ -202,7 +202,6 @@ ImageWrite
     Stream
     Image
     Format
-    Quality
     Execute()
 
 VideoOut
