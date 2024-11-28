@@ -1,4 +1,4 @@
-namespace Z.Tool.Mirai.DrawCompList;
+namespace Z.Tool.View.DrawCompList;
 
 class Entry : EntryEntry
 {
