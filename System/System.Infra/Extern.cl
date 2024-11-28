@@ -403,10 +403,8 @@ class Extern : Any
     maide prusate Int ImageWrite_StreamSet(var Int o, var Int value) { }
     maide prusate Int ImageWrite_ImageGet(var Int o) { }
     maide prusate Int ImageWrite_ImageSet(var Int o, var Int value) { }
-    maide prusate Int ImageWrite_BinaryGet(var Int o) { }
-    maide prusate Int ImageWrite_BinarySet(var Int o, var Int value) { }
-    maide prusate Int ImageWrite_QualityGet(var Int o) { }
-    maide prusate Int ImageWrite_QualitySet(var Int o, var Int value) { }
+    maide prusate Int ImageWrite_FormatGet(var Int o) { }
+    maide prusate Int ImageWrite_FormatSet(var Int o, var Int value) { }
 
     maide prusate Int ImageWrite_Execute(var Int o) { }
 

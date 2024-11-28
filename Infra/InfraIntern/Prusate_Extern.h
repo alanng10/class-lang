@@ -405,10 +405,8 @@ Intern_Api Int Intern_Extern_ImageWrite_StreamGet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_ImageWrite_StreamSet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_ImageWrite_ImageGet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_ImageWrite_ImageSet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_ImageWrite_BinaryGet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_ImageWrite_BinarySet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_ImageWrite_QualityGet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_ImageWrite_QualitySet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_ImageWrite_FormatGet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_ImageWrite_FormatSet(Eval* e, Int f);
 
 Intern_Api Int Intern_Extern_ImageWrite_Execute(Eval* e, Int f);
 

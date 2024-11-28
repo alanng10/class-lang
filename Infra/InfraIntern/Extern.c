@@ -4847,7 +4847,7 @@ Int Intern_Extern_ImageWrite_ImageSet(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_ImageWrite_BinaryGet(Eval* eval, Int frame)
+Int Intern_Extern_ImageWrite_FormatGet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -4855,12 +4855,12 @@ Int Intern_Extern_ImageWrite_BinaryGet(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = ImageWrite_BinaryGet(a0);
+    a = ImageWrite_FormatGet(a0);
 
     Return;
 }
 
-Int Intern_Extern_ImageWrite_BinarySet(Eval* eval, Int frame)
+Int Intern_Extern_ImageWrite_FormatSet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -4869,34 +4869,7 @@ Int Intern_Extern_ImageWrite_BinarySet(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = ImageWrite_BinarySet(a0, a1);
-
-    Return;
-}
-
-Int Intern_Extern_ImageWrite_QualityGet(Eval* eval, Int frame)
-{
-    Int paramCount;
-    paramCount = 1;
-
-    Param(0);
-
-    Int a;
-    a = ImageWrite_QualityGet(a0);
-
-    Return;
-}
-
-Int Intern_Extern_ImageWrite_QualitySet(Eval* eval, Int frame)
-{
-    Int paramCount;
-    paramCount = 2;
-
-    Param(0);
-    Param(1);
-
-    Int a;
-    a = ImageWrite_QualitySet(a0, a1);
+    a = ImageWrite_FormatSet(a0, a1);
 
     Return;
 }

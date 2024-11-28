@@ -414,10 +414,8 @@ Infra_Api Int ImageWrite_StreamGet(Int o);
 Infra_Api Int ImageWrite_StreamSet(Int o, Int value);
 Infra_Api Int ImageWrite_ImageGet(Int o);
 Infra_Api Int ImageWrite_ImageSet(Int o, Int value);
-Infra_Api Int ImageWrite_BinaryGet(Int o);
-Infra_Api Int ImageWrite_BinarySet(Int o, Int value);
-Infra_Api Int ImageWrite_QualityGet(Int o);
-Infra_Api Int ImageWrite_QualitySet(Int o, Int value);
+Infra_Api Int ImageWrite_FormatGet(Int o);
+Infra_Api Int ImageWrite_FormatSet(Int o, Int value);
 
 Infra_Api Int ImageWrite_Execute(Int o);
 
