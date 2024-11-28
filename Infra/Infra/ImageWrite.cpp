@@ -33,7 +33,7 @@ Int ImageWrite_Final(Int o)
 
 CppField(ImageWrite, Stream)
 CppField(ImageWrite, Image)
-CppField(ImageWrite, Binary)
+CppField(ImageWrite, Format)
 CppField(ImageWrite, Quality)
 
 Int ImageWrite_Execute(Int o)
@@ -42,7 +42,7 @@ Int ImageWrite_Execute(Int o)
     m = CP(o);
 
     Int format;
-    format = m->Binary;
+    format = m->Format;
     if (format == null)
     {
         return false;
