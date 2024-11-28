@@ -8,6 +8,7 @@
     <ItemGroup>
         <ProjectReference Include="../Z.Tool.View.BrushKindList/Z.Tool.View.BrushKindList.csproj" />
         <ProjectReference Include="../Z.Tool.View.SlashCapList/Z.Tool.View.SlashCapList.csproj" />
+        <ProjectReference Include="../Z.Tool.View.SlashJoinList/Z.Tool.View.SlashJoinList.csproj" />
     </ItemGroup>
 
 </Project>
