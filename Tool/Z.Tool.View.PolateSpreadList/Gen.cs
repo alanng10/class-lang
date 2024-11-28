@@ -1,11 +1,11 @@
-namespace Z.Tool.Mirai.PolateSpreadList;
+namespace Z.Tool.View.PolateSpreadList;
 
 public class Gen : SourceGen
 {
     public override bool Init()
     {
         base.Init();
-        this.Module = this.S("Mirai.Draw");
+        this.Module = this.S("View.Draw");
         this.ClassName = this.S("PolateSpreadList");
         this.BaseClassName = this.S("Any");
         this.AnyClassName = this.S("Any");

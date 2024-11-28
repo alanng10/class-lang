@@ -1,4 +1,4 @@
-namespace Z.Tool.Mirai.PolateSpreadList;
+namespace Z.Tool.View.PolateSpreadList;
 
 class Entry : EntryEntry
 {
