@@ -412,10 +412,8 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong ImageWrite_StreamSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong ImageWrite_ImageGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong ImageWrite_ImageSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong ImageWrite_BinaryGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong ImageWrite_BinarySet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong ImageWrite_QualityGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong ImageWrite_QualitySet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong ImageWrite_FormatGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong ImageWrite_FormatSet(ulong o, ulong value);
 
     [DllImport(InfraLib)] public extern static ulong ImageWrite_Execute(ulong o);
 
