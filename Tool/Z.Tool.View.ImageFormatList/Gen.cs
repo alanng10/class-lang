@@ -1,12 +1,12 @@
-namespace Z.Tool.Mirai.ImageBinaryList;
+namespace Z.Tool.View.ImageFormatList;
 
 public class Gen : SourceGen
 {
     public override bool Init()
     {
         base.Init();
-        this.Module = this.S("Mirai.Draw");
-        this.ClassName = this.S("ImageBinaryList");
+        this.Module = this.S("View.Draw");
+        this.ClassName = this.S("ImageFormatList");
         this.BaseClassName = this.S("Any");
         this.AnyClassName = this.S("Any");
         this.ItemClassName = this.S("ImageBinary");

@@ -1,4 +1,4 @@
-namespace Z.Tool.Mirai.ImageBinaryList;
+namespace Z.Tool.View.ImageFormatList;
 
 class Entry : EntryEntry
 {
