@@ -123,7 +123,7 @@ SOURCES += \
     Stat_PolateKind.cpp \
     Stat_PolateSpread.cpp \
     Stat_Comp.cpp \
-    Stat_ImageBinary.cpp \
+    Stat_ImageFormat.cpp \
     State.c \
     Storage.cpp \
     StorageComp.cpp \
