@@ -1,11 +1,11 @@
-namespace Z.Tool.Mirai.BrushKindList;
+namespace Z.Tool.View.BrushKindList;
 
 public class Gen : SourceGen
 {
     public override bool Init()
     {
         base.Init();
-        this.Module = this.S("Mirai.Draw");
+        this.Module = this.S("View.Draw");
         this.ClassName = this.S("BrushKindList");
         this.BaseClassName = this.S("Any");
         this.AnyClassName = this.S("Any");
