@@ -25,7 +25,7 @@ public class ReadList : ToolBase
         this.ExecuteList("PolateKind");
         this.ExecuteList("PolateSpread");
         this.ExecuteList("Comp");
-        this.ExecuteList("ImageBinary");
+        this.ExecuteList("ImageFormat");
 
         bool b;
         b = this.SetStatMethod();
