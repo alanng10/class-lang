@@ -1,11 +1,11 @@
-namespace Z.Tool.Mirai.SlashCapList;
+namespace Z.Tool.View.SlashCapList;
 
 public class Gen : SourceGen
 {
     public override bool Init()
     {
         base.Init();
-        this.Module = this.S("Mirai.Draw");
+        this.Module = this.S("View.Draw");
         this.ClassName = this.S("SlashCapList");
         this.BaseClassName = this.S("Any");
         this.AnyClassName = this.S("Any");
