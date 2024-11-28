@@ -201,7 +201,7 @@ ImageRead
 ImageWrite
     Stream
     Image
-    Binary
+    Format
     Quality
     Execute()
 
