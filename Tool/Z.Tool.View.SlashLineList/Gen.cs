@@ -1,11 +1,11 @@
-namespace Z.Tool.Mirai.SlashLineList;
+namespace Z.Tool.View.SlashLineList;
 
 public class Gen : SourceGen
 {
     public override bool Init()
     {
         base.Init();
-        this.Module = this.S("Mirai.Draw");
+        this.Module = this.S("View.Draw");
         this.ClassName = this.S("SlashLineList");
         this.BaseClassName = this.S("Any");
         this.AnyClassName = this.S("Any");

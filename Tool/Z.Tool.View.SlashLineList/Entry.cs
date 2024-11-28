@@ -1,4 +1,4 @@
-namespace Z.Tool.Mirai.SlashLineList;
+namespace Z.Tool.View.SlashLineList;
 
 class Entry : EntryEntry
 {
