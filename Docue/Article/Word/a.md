@@ -426,7 +426,7 @@ Word "plain" has meaning that is entirely plain.
 
 Word "termal" has meaning that is terminal.
 
-Word "comma" has meaning that is command.
+Word "command" has meaning that is char list command.
 
 Word "red" has meaning that is color col.
 
