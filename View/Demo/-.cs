@@ -44,7 +44,6 @@ global using DrawImage = View.Draw.Image;
 global using DrawImageRead = View.Draw.ImageRead;
 global using DrawImageWrite = View.Draw.ImageWrite;
 global using DrawImageFormat = View.Draw.ImageBinary;
-global using DrawImageFormatList = View.Draw.ImageBinaryList;
 global using DrawBrush = View.Draw.Brush;
 global using DrawBrushKind = View.Draw.BrushKind;
 global using DrawBrushKindList = View.Draw.BrushKindList;
