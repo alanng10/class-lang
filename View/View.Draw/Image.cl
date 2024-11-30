@@ -3,8 +3,8 @@ class Image : Any
     maide prusate Bool Init()
     {
         base.Init();
-        this.InternIntern : share Intern;
         this.Extern : share Extern;
+        this.InternInfra : share InternInfra;
         this.InfraInfra : share InfraInfra;
         this.DrawInfra : share Infra;
 
@@ -58,8 +58,8 @@ class Image : Any
     }
 
     field prusate Any Ident { get { return data; } set { data : value; } }
-    field private Intern InternIntern { get { return data; } set { data : value; } }    
     field private Extern Extern { get { return data; } set { data : value; } }    
+    field private InternInfra InternInfra { get { return data; } set { data : value; } }    
     field precate InfraInfra InfraInfra { get { return data; } set { data : value; } }
     field precate Infra DrawInfra { get { return data; } set { data : value; } }
     field pronate Int Intern { get { return data; } set { data : value; } }
@@ -89,7 +89,55 @@ class Image : Any
         var Int h;
         w : this.Size.Wed;
         h : this.Size.Het;
-        var Int k;
+        var Int ka;
+        ka : this.DrawInfra.PixelByteCount;
         
+        var Int kh;
+        kh : w;
+        kh : kh * h;
+        kh : kh * ka;
+        
+        var Int count;
+        count : kh;
+        
+        inf (~this.InfraInfra.ValidRange(data.Count, index, count))
+        {
+            return false;
+        }
+        
+        var Int a;
+        a : this.Extern.Data_ValueGet(this.InternData);
+        
+        this.InternInfra.CopyToByteArray(a, data.Value, index, count);
+        return true;
+    }
+
+    maide prusate Bool DataSet(var Data data, var Int index)
+    {
+        var Int w;
+        var Int h;
+        w : this.Size.Wed;
+        h : this.Size.Het;
+        var Int ka;
+        ka : this.DrawInfra.PixelByteCount;
+
+        var Int kh;
+        kh : w;
+        kh : kh * h;
+        kh : kh * ka;
+
+        var Int count;
+        count : kh;
+
+        inf (~this.InfraInfra.ValidRange(data.Count, index, count))
+        {
+            return false;
+        }
+
+        var Int a;
+        a : this.Extern.Data_ValueGet(this.InternData);
+
+        this.InternInfra.CopyFromByteArray(a, data.Value, index, count);
+        return true;
     }
 }
