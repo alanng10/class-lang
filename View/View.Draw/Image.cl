@@ -91,23 +91,23 @@ class Image : Any
         h : this.Size.Het;
         var Int ka;
         ka : this.DrawInfra.PixelByteCount;
-        
+
         var Int kh;
         kh : w;
         kh : kh * h;
         kh : kh * ka;
-        
+
         var Int count;
         count : kh;
-        
+
         inf (~this.InfraInfra.ValidRange(data.Count, index, count))
         {
             return false;
         }
-        
+
         var Int a;
         a : this.Extern.Data_ValueGet(this.InternData);
-        
+
         this.InternInfra.CopyToByteArray(a, data.Value, index, count);
         return true;
     }
