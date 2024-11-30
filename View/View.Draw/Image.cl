@@ -82,4 +82,14 @@ class Image : Any
         extern.Image_DataCreate(this.Intern);
         return true;
     }
+
+    maide prusate Bool DataGet(var Data data, var Int index)
+    {
+        var Int w;
+        var Int h;
+        w : this.Size.Wed;
+        h : this.Size.Het;
+        var Int k;
+        
+    }
 }

@@ -80,16 +80,16 @@ public class Image : Any
         long h;
         w = this.Size.Wed;
         h = this.Size.Het;
-        long k;
-        k = this.DrawInfra.PixelByteCount;
-
         long ka;
-        ka = w;
-        ka = ka * h;
-        ka = ka * k;
+        ka = this.DrawInfra.PixelByteCount;
+
+        long kh;
+        kh = w;
+        kh = kh * h;
+        kh = kh * ka;
 
         long count;
-        count = ka;
+        count = kh;
 
         if (!this.InfraInfra.ValidRange(data.Count, index, count))
         {
@@ -114,16 +114,16 @@ public class Image : Any
         long h;
         w = this.Size.Wed;
         h = this.Size.Het;
-        long k;
-        k = this.DrawInfra.PixelByteCount;
-
         long ka;
-        ka = w;
-        ka = ka * h;
-        ka = ka * k;
+        ka = this.DrawInfra.PixelByteCount;
+
+        long kh;
+        kh = w;
+        kh = kh * h;
+        kh = kh * ka;
 
         long count;
-        count = ka;
+        count = kh;
 
         if (!this.InfraInfra.ValidRange(data.Count, index, count))
         {
