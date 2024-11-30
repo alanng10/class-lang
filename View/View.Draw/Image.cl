@@ -65,4 +65,21 @@ class Image : Any
     field pronate Int Intern { get { return data; } set { data : value; } }
     field private Int InternSize { get { return data; } set { data : value; } }
     field private Int InternData { get { return data; } set { data : value; } }
+    
+    maide prusate Bool DataCreate()
+    {
+        var Int wed;
+        var Int het;
+        wed : this.Size.Wed;
+        het : this.Size.Het;
+        
+        var Extern extern;
+        extern : this.Extern;
+
+        extern.Size_WedSet(this.InternSize, wed);
+        extern.Size_HetSet(this.InternSize, het);
+        
+        extern.Image_DataCreate(this.Intern);
+        return true;
+    }
 }
