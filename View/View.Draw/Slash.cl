@@ -32,6 +32,7 @@ class Slash : Any
     field prusate SlashLine Line { get { return data; } set { data : value; } }
     field prusate Int Size { get { return data; } set { data : value; } }
     field prusate SlashCap Cap { get { return data; } set { data : value; } }
-    field prusate SlashJoin Join { get { return data; } set { data : value; } }
+    field prusate SlashJoin Join { get { return data; } set { data : value; } }    
+    field private Extern Extern { get { return data; } set { data : value; } }    
     field pronate Int Intern { get { return data; } set { data : value; } }
 }
