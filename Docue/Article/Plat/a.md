@@ -1,6 +1,8 @@
 # Plat
 
-Class is a plat by module infrastructure and module making.
+Class is a plat.
+The plat is System.
+The plat has modules for module making.
 
 Class plat has arch.
 
@@ -18,5 +20,3 @@ View modules layer on top of System in the arch.
 Page modules layer on top of Store modules and Class compiler modules in the arch.
 
 Tool modules layer on top of View modules and Class compiler modules in the arch.
-
-Class is a plat to execute and a plat to do module making.
