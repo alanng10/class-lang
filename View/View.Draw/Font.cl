@@ -9,13 +9,13 @@ class Font : Any
         this.InternName : this.InternInfra.StringCreate(this.Name);
 
         var Int italicK;
-        italicK : this.InternInfra.InternBool(this.Italic);
+        italicK : this.InternInfra.Bool(this.Italic);
         var Int underlineK;
-        underlineK : this.InternInfra.InternBool(this.Underline);
+        underlineK : this.InternInfra.Bool(this.Underline);
         var Int overlineK;
-        overlineK : this.InternInfra.InternBool(this.Overline);
+        overlineK : this.InternInfra.Bool(this.Overline);
         var Int strikeoutK;
-        strikeoutK : this.InternInfra.InternBool(this.Strikeout);
+        strikeoutK : this.InternInfra.Bool(this.Strikeout);
 
         var Extern extern;
         extern : this.Extern;
