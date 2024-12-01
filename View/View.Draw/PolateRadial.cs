@@ -7,14 +7,11 @@ public class PolateRadial : Any
         base.Init();
         this.InternInfra = InternInfra.This;
 
-        Pos pos;
-        pos = this.CenterPos;
         this.InternCenterPos = this.InternInfra.PosCreate();
-        this.InternInfra.PosSet(this.InternCenterPos, pos.Col, pos.Row);
+        this.InternInfra.PosSet(this.InternCenterPos, this.CenterPos.Col, this.CenterPos.Row);
 
-        pos = this.FocusPos;
         this.InternFocusPos = this.InternInfra.PosCreate();
-        this.InternInfra.PosSet(this.InternFocusPos, pos.Col, pos.Row);
+        this.InternInfra.PosSet(this.InternFocusPos, this.FocusPos.Col, this.FocusPos.Row);
 
         ulong centerRadiusK;
         centerRadiusK = (ulong)(this.CenterRadius);
