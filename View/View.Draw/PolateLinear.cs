@@ -5,7 +5,6 @@ public class PolateLinear : Any
     public override bool Init()
     {
         base.Init();
-        this.InternIntern = InternIntern.This;
         this.InternInfra = InternInfra.This;
 
         Pos pos;
@@ -37,8 +36,6 @@ public class PolateLinear : Any
 
     public virtual Pos StartPos { get; set; }
     public virtual Pos EndPos { get; set; }
-
-    private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
     internal virtual ulong Intern { get; set; }
     private ulong InternEndPos { get; set; }
