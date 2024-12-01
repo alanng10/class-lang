@@ -7,32 +7,32 @@ public class Brush : Any
         base.Init();
         BrushInfra infra;
         infra = BrushInfra.This;
-        ulong kindU;
-        kindU = this.Kind.Intern;
-        ulong colorU;
-        colorU = 0;
+        ulong kindK;
+        kindK = this.Kind.Intern;
+        ulong colorK;
+        colorK = 0;
         if (!(this.Color == null))
         {
-            colorU = infra.InternColor(this.Color);
+            colorK = infra.InternColor(this.Color);
         }
-        ulong imageU;
-        imageU = 0;
+        ulong imageK;
+        imageK = 0;
         if (!(this.Image == null))
         {
-            imageU = this.Image.Ident;
+            imageK = this.Image.Ident;
         }
-        ulong polateU;
-        polateU = 0;
+        ulong polateK;
+        polateK = 0;
         if (!(this.Polate == null))
         {
-            polateU = this.Polate.Intern;
+            polateK = this.Polate.Intern;
         }
 
         this.Intern = Extern.Brush_New();
-        Extern.Brush_KindSet(this.Intern, kindU);
-        Extern.Brush_ColorSet(this.Intern, colorU);
-        Extern.Brush_ImageSet(this.Intern, imageU);
-        Extern.Brush_PolateSet(this.Intern, polateU);
+        Extern.Brush_KindSet(this.Intern, kindK);
+        Extern.Brush_ColorSet(this.Intern, colorK);
+        Extern.Brush_ImageSet(this.Intern, imageK);
+        Extern.Brush_PolateSet(this.Intern, polateK);
         Extern.Brush_Init(this.Intern);
         return true;
     }
