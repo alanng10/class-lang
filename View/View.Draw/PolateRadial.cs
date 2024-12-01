@@ -5,7 +5,6 @@ public class PolateRadial : Any
     public override bool Init()
     {
         base.Init();
-        this.InternIntern = InternIntern.This;
         this.InternInfra = InternInfra.This;
 
         Pos pos;
@@ -46,8 +45,6 @@ public class PolateRadial : Any
     public virtual long CenterRadius { get; set; }
     public virtual Pos FocusPos { get; set; }
     public virtual long FocusRadius { get; set; }
-
-    private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
     internal virtual ulong Intern { get; set; }
     private ulong InternFocusPos { get; set; }
