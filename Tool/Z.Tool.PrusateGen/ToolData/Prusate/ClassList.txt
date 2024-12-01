@@ -135,7 +135,7 @@ Brush
 Slash
     Brush
     Line
-    Width
+    Size
     Cap
     Join
 
