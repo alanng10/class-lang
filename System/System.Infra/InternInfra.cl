@@ -259,6 +259,17 @@ class InternInfra : Any
         return true;
     }
 
+    maide prusate Int Bool(var Bool k)
+    {
+        var Int a;
+        a : 0;
+        inf (k)
+        {
+            a : 1;
+        }
+        return a;
+    }
+
     maide prusate Bool StreamRead(var Int stream, var Any dataValue, var Int data, var Int range)
     {
         var Int k;
