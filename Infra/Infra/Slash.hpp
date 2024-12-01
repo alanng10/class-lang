@@ -9,7 +9,7 @@ struct Slash
 {
     Int Brush;
     Int Line;
-    Int Width;
+    Int Size;
     Int Cap;
     Int Join;
     QPen* Intern;
