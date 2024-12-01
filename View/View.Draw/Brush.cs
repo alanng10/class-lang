@@ -7,8 +7,6 @@ public class Brush : Any
         base.Init();
         BrushInfra infra;
         infra = BrushInfra.This;
-        ulong kindK;
-        kindK = this.Kind.Intern;
         ulong colorK;
         colorK = 0;
         if (!(this.Color == null))
@@ -29,7 +27,7 @@ public class Brush : Any
         }
 
         this.Intern = Extern.Brush_New();
-        Extern.Brush_KindSet(this.Intern, kindK);
+        Extern.Brush_KindSet(this.Intern, this.Kind.Intern);
         Extern.Brush_ColorSet(this.Intern, colorK);
         Extern.Brush_ImageSet(this.Intern, imageK);
         Extern.Brush_PolateSet(this.Intern, polateK);
