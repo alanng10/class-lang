@@ -23,4 +23,28 @@ class PolateRadial : Any
         extern.PolateRadial_Init(this.Intern);
         return true;
     }
+
+    maide prusate Bool Final()
+    {
+        var Extern extern;
+        extern : this.Extern;
+
+        extern.PolateRadial_Final(this.Intern);
+        extern.PolateRadial_Delete(this.Intern);
+
+        this.InternInfra.PosDelete(this.InternFocusPos);
+
+        this.InternInfra.PosDelete(this.InternCenterPos);
+        return true;
+    }
+
+    field prusate Pos CenterPos { get { return data; } set { data : value; } }
+    field prusate Int CenterRadius { get { return data; } set { data : value; } }
+    field prusate Pos FocusPos { get { return data; } set { data : value; } }
+    field prusate Int FocusRadius { get { return data; } set { data : value; } }
+    field private Extern Extern { get { return data; } set { data : value; } }
+    field private InternInfra InternInfra { get { return data; } set { data : value; } }
+    field pronate Int Intern { get { return data; } set { data : value; } }
+    field private Int InternFocusPos { get { return data; } set { data : value; } }
+    field private Int InternCenterPos { get { return data; } set { data : value; } }
 }
