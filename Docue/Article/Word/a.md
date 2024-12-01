@@ -488,7 +488,7 @@ Word "config" has meaning that is configured.
 
 Word "plain" has meaning that is entirely plain.
 
-Word "termal" has meaning that is terminal.
+Word "termina" has meaning that is terminal.
 
 Word "command" has meaning that is char list command.
 
