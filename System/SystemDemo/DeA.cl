@@ -850,12 +850,14 @@ class DeA : Dem
 
         thread.Wait();
 
-        this.Console.Out.Write(this.AddClear().Add("Thread Status: ").Add(this.StringInt(thread.Status)).AddLine().AddResult());
+        var Bool b;
+        b : thread.Status = 93824;
 
         thread.Final();
 
         phore.Final();
 
+        this.Console.Out.Write(this.AddClear().Add("Thread ").Add(this.StatusString(b).AddLine().AddResult());
         return true;
     }
 
