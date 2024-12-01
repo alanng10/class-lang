@@ -574,7 +574,7 @@ int main(int argc, char* argv[])
 
     Slash_LineSet(PenRect, penRectLine);
 
-    Slash_WidthSet(PenRect, 10);
+    Slash_SizeSet(PenRect, 10);
 
     Slash_CapSet(PenRect, penRectCap);
 
