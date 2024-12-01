@@ -18,9 +18,9 @@ public class PolateRadial : Any
         this.InternInfra.PosSet(this.InternFocusPos, pos.Col, pos.Row);
 
         ulong centerRadiusK;
-        centerRadiusK = (ulong)(this.CenterTangent);
+        centerRadiusK = (ulong)(this.CenterRadius);
         ulong focusRadiusK;
-        focusRadiusK = (ulong)(this.FocusTangent);
+        focusRadiusK = (ulong)(this.FocusRadius);
 
         this.Intern = Extern.PolateRadial_New();
         Extern.PolateRadial_CenterPosSet(this.Intern, this.InternCenterPos);
@@ -43,9 +43,9 @@ public class PolateRadial : Any
     }
 
     public virtual Pos CenterPos { get; set; }
-    public virtual long CenterTangent { get; set; }
+    public virtual long CenterRadius { get; set; }
     public virtual Pos FocusPos { get; set; }
-    public virtual long FocusTangent { get; set; }
+    public virtual long FocusRadius { get; set; }
 
     private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
