@@ -43,4 +43,16 @@ class Font : Any
         this.InternInfra.StringDelete(this.InternName);
         return true;
     }
+
+    field prusate String Name { get { return data; } set { data : value; } }
+    field prusate Int Size { get { return data; } set { data : value; } }
+    field prusate Int Weight { get { return data; } set { data : value; } }
+    field prusate Bool Italic { get { return data; } set { data : value; } }
+    field prusate Bool Underline { get { return data; } set { data : value; } }
+    field prusate Bool Overline { get { return data; } set { data : value; } }
+    field prusate Bool Strikeout { get { return data; } set { data : value; } }
+    field private Extern Extern { get { return data; } set { data : value; } }
+    field private InternInfra InternInfra { get { return data; } set { data : value; } }
+    field pronate Int Intern { get { return data; } set { data : value; } }
+    field private Int InternName { get { return data; } set { data : value; } }
 }
