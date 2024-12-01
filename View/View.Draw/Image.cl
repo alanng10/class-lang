@@ -8,11 +8,11 @@ class Image : Any
         this.InfraInfra : share InfraInfra;
         this.DrawInfra : share Infra;
 
-        var Extern extern;
-        extern : this.Extern;
-        
         this.Size : new Size;
         this.Size.Init();
+
+        var Extern extern;
+        extern : this.Extern;
 
         this.InternData : extern.Data_New();
         extern.Data_Init(this.InternData);
