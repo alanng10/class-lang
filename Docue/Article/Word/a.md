@@ -410,22 +410,6 @@ Word "line" has meaning that is region line.
 
 Word "color" has meaning that is vision value.
 
-Word "vision" has meaning that is view in mind.
-
-Word "mind" has meaning that is think entity.
-
-Word "think" has meaning that is thinking.
-
-Word "prac" has meaning that is practical limit.
-
-Word "config" has meaning that is configured.
-
-Word "plain" has meaning that is entirely plain.
-
-Word "termal" has meaning that is terminal.
-
-Word "command" has meaning that is char list command.
-
 Word "red" has meaning that is color col.
 
 Word "green" has meaning that is color hor.
@@ -491,6 +475,22 @@ Word "pixel" has meaning that is color point.
 Word "tune" has meaning that is comp audio.
 
 Word "plane" has meaning that is plane time line.
+
+Word "vision" has meaning that is view in mind.
+
+Word "mind" has meaning that is think entity.
+
+Word "think" has meaning that is thinking.
+
+Word "prac" has meaning that is practical limit.
+
+Word "config" has meaning that is configured.
+
+Word "plain" has meaning that is entirely plain.
+
+Word "termal" has meaning that is terminal.
+
+Word "command" has meaning that is char list command.
 
 Word "reque" has meaning that is request.
 
