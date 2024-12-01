@@ -488,6 +488,8 @@ Word "respon" has meaning that is response.
 
 Word "secure" has meaning that is security.
 
+Word "secret" has meaning that is private info.
+
 Word "tick" has meaning that is smallest duration.
 
 Word "yea" has meaning that is date year.
