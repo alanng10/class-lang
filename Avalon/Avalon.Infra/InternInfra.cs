@@ -141,16 +141,16 @@ public class InternInfra : Any
 
     public virtual ulong PosCreate()
     {
-        ulong o;
-        o = Extern.Pos_New();
-        Extern.Pos_Init(o);
-        return o;
+        ulong a;
+        a = Extern.Pos_New();
+        Extern.Pos_Init(a);
+        return a;
     }
 
-    public virtual bool PosDelete(ulong o)
+    public virtual bool PosDelete(ulong a)
     {
-        Extern.Pos_Final(o);
-        Extern.Pos_Delete(o);
+        Extern.Pos_Final(a);
+        Extern.Pos_Delete(a);
         return true;
     }
 
@@ -239,32 +239,6 @@ public class InternInfra : Any
 
         Extern.Size_WedSet(size, w);
         Extern.Size_HetSet(size, h);
-        return true;
-    }
-
-    public virtual bool ValidIndex(long count, long index)
-    {
-        return this.ValidRange(count, index, 1);
-    }
-
-    public virtual bool ValidRange(long totalCount, long index, long count)
-    {
-        if (totalCount < 0)
-        {
-            return false;
-        }
-        if (index < 0)
-        {
-            return false;
-        }
-        if (count < 0)
-        {
-            return false;
-        }
-        if (totalCount < index + count)
-        {
-            return false;
-        }
         return true;
     }
 

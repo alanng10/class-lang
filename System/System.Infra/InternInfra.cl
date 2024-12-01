@@ -230,7 +230,35 @@ class InternInfra : Any
         extern.State_Delete(o);
         return true;        
     }
-    
+
+    maide prusate Int PosCreate()
+    {
+        var Extern extern;
+        extern : this.Extern;
+        var Int a;
+        a : extern.Pos_New();
+        extern.Pos_Init(a);
+        return a;
+    }
+
+    maide prusate Bool PosDelete(var Int a)
+    {
+        var Extern extern;
+        extern : this.Extern;
+        extern.Pos_Final(a);
+        extern.Pos_Delete(a);
+        return true;
+    }
+
+    maide prusate Bool PosSet(var Int pos, var Int col, var Int row)
+    {
+        var Extern extern;
+        extern : this.Extern;
+        extern.Pos_ColSet(pos, col);
+        extern.Pos_RowSet(pos, row);
+        return true;
+    }
+
     maide prusate Bool StreamRead(var Int stream, var Any dataValue, var Int data, var Int range)
     {
         var Int k;
