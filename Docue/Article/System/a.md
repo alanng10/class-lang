@@ -7,3 +7,4 @@ System modules classes have execute certainty enough to be used in any module th
 System modules abstract is not tagged with the existence of specific form.
 
 System is base to do execute.
+System is plat to do execute.
