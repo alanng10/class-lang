@@ -482,7 +482,7 @@ Word "mind" has meaning that is think entity.
 
 Word "think" has meaning that is thinking.
 
-Word "prac" has meaning that is practical limit.
+Word "practic" has meaning that is practical limit.
 
 Word "config" has meaning that is configured.
 
