@@ -5,7 +5,6 @@ public class Font : Any
     public override bool Init()
     {
         base.Init();
-        this.InternIntern = InternIntern.This;
         this.InternInfra = InternInfra.This;
 
         this.InternName = this.InternInfra.StringCreate(this.Name);
@@ -51,8 +50,6 @@ public class Font : Any
     public virtual bool Underline { get; set; }
     public virtual bool Overline { get; set; }
     public virtual bool Strikeout { get; set; }
-
-    private InternIntern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
     internal virtual ulong Intern { get; set; }
     private ulong InternName { get; set; }
