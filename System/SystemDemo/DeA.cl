@@ -857,7 +857,7 @@ class DeA : Dem
 
         phore.Final();
 
-        this.Console.Out.Write(this.AddClear().Add("Thread ").Add(this.StatusString(b).AddLine().AddResult());
+        this.Console.Out.Write(this.AddClear().Add("Thread ").Add(this.StatusString(b)).AddLine().AddResult());
         return true;
     }
 
@@ -913,12 +913,11 @@ class DeA : Dem
         var Bool b;
         b : this.TextSame(this.TA(kaa), this.TB(kb));
 
-        this.Console.Out.Write(this.AddClear().Add("Memory Stream read write ").Add(this.StatusString(b)).AddLine().AddResult());
-
         memory.Close();
 
         memory.Final();
 
+        this.Console.Out.Write(this.AddClear().Add("Memory Stream read write ").Add(this.StatusString(b)).AddLine().AddResult());
         return true;
     }
 
