@@ -3401,7 +3401,7 @@ Int Intern_Extern_Slash_LineSet(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_Slash_WidthGet(Eval* eval, Int frame)
+Int Intern_Extern_Slash_SizeGet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -3409,12 +3409,12 @@ Int Intern_Extern_Slash_WidthGet(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Slash_WidthGet(a0);
+    a = Slash_SizeGet(a0);
 
     Return;
 }
 
-Int Intern_Extern_Slash_WidthSet(Eval* eval, Int frame)
+Int Intern_Extern_Slash_SizeSet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -3423,7 +3423,7 @@ Int Intern_Extern_Slash_WidthSet(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = Slash_WidthSet(a0, a1);
+    a = Slash_SizeSet(a0, a1);
 
     Return;
 }
