@@ -8,28 +8,22 @@ public class Polate : Any
         this.InternIntern = InternIntern.This;
         this.KindList = PolateKindList.This;
 
-        ulong kindU;
-        kindU = this.Kind.Intern;
-        ulong valueU;
-        valueU = 0;
+        ulong valueK;
+        valueK = 0;
         if (this.Kind == this.KindList.Linear)
         {
-            valueU = this.Linear.Intern;
+            valueK = this.Linear.Intern;
         }
         if (this.Kind == this.KindList.Radial)
         {
-            valueU = this.Radial.Intern;
+            valueK = this.Radial.Intern;
         }
-        ulong stopU;
-        stopU = this.Stop.Intern;
-        ulong spreadU;
-        spreadU = this.Spread.Intern;
 
         this.Intern = Extern.Polate_New();
-        Extern.Polate_KindSet(this.Intern, kindU);
-        Extern.Polate_ValueSet(this.Intern, valueU);
-        Extern.Polate_StopSet(this.Intern, stopU);
-        Extern.Polate_SpreadSet(this.Intern, spreadU);
+        Extern.Polate_KindSet(this.Intern, this.Kind.Intern);
+        Extern.Polate_ValueSet(this.Intern, valueK);
+        Extern.Polate_StopSet(this.Intern, this.Stop.Intern);
+        Extern.Polate_SpreadSet(this.Intern, this.Spread.Intern);
         Extern.Polate_Init(this.Intern);
         return true;
     }
