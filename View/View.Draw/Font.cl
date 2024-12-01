@@ -31,4 +31,16 @@ class Font : Any
         extern.Font_Init(this.Intern);
         return true;
     }
+
+    maide prusate Bool Final()
+    {
+        var Extern extern;
+        extern : this.Extern;
+
+        extern.Font_Final(this.Intern);
+        extern.Font_Delete(this.Intern);
+
+        this.InternInfra.StringDelete(this.InternName);
+        return true;
+    }
 }
