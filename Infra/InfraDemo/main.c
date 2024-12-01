@@ -611,7 +611,7 @@ int main(int argc, char* argv[])
 
     Slash_LineSet(PenText, penTextLine);
 
-    Slash_WidthSet(PenText, 4);
+    Slash_SizeSet(PenText, 4);
 
     Slash_CapSet(PenText, penTextCap);
 
