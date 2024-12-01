@@ -660,6 +660,12 @@ class DeA : Dem
         aa : this.Math.ValueTen(ka);
         this.ConsoleWriteMathValue("Demo Math ValueTen 2: ", aa);
 
+        ka.Cand : 0sn1;
+        ka.Expo : 0sn2;
+
+        aa : this.Math.Value(ka);
+        this.ConsoleWriteMathValue("Demo Math Value: ", aa);
+
         aa : this.Math.Sin(0);
         this.ConsoleWriteMathValue("Demo Math Sin(0): ", aa);
 
