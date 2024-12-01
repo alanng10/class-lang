@@ -486,6 +486,8 @@ Word "reque" has meaning that is request.
 
 Word "respon" has meaning that is response.
 
+Word "secure" has meaning that is security.
+
 Word "tick" has meaning that is smallest duration.
 
 Word "yea" has meaning that is date year.
