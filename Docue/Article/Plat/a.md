@@ -17,4 +17,6 @@ View modules layer on top of System in the arch.
 
 Page modules layer on top of Store modules and Class compiler modules in the arch.
 
+Tool modules layer on top of View modules and Class compiler modules in the arch.
+
 Class is a plat to execute and a plat to do module making.
