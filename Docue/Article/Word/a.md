@@ -444,6 +444,8 @@ Word "conical" has meaning that is conical rate.
 
 Word "stop" has meaning that is source and dest.
 
+Word "spread" has meaning that is rate spread.
+
 Word "radius" has meaning that is round radius.
 
 Word "area" has meaning that is region.
