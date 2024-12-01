@@ -17,16 +17,16 @@ public class PolateRadial : Any
         this.InternFocusPos = this.InternInfra.PosCreate();
         this.InternInfra.PosSet(this.InternFocusPos, pos.Col, pos.Row);
 
-        ulong centerRadiusU;
-        centerRadiusU = (ulong)(this.CenterTangent);
-        ulong focusRadiusU;
-        focusRadiusU = (ulong)(this.FocusTangent);
+        ulong centerRadiusK;
+        centerRadiusK = (ulong)(this.CenterTangent);
+        ulong focusRadiusK;
+        focusRadiusK = (ulong)(this.FocusTangent);
 
         this.Intern = Extern.PolateRadial_New();
         Extern.PolateRadial_CenterPosSet(this.Intern, this.InternCenterPos);
-        Extern.PolateRadial_CenterRadiusSet(this.Intern, centerRadiusU);
+        Extern.PolateRadial_CenterRadiusSet(this.Intern, centerRadiusK);
         Extern.PolateRadial_FocusPosSet(this.Intern, this.InternFocusPos);
-        Extern.PolateRadial_FocusRadiusSet(this.Intern, focusRadiusU);
+        Extern.PolateRadial_FocusRadiusSet(this.Intern, focusRadiusK);
         Extern.PolateRadial_Init(this.Intern);
         return true;
     }
