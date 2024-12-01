@@ -308,8 +308,6 @@ Word "has" has meaning that is got.
 
 Word "can" has meaning that is option available.
 
-Word "font" has meaning that is char style.
-
 Word "phore" has meaning that is thread sync.
 
 Word "square" has meaning that is cube.
@@ -447,6 +445,18 @@ Word "stop" has meaning that is source and dest.
 Word "spread" has meaning that is rate spread.
 
 Word "radius" has meaning that is round radius.
+
+Word "font" has meaning that is char style.
+
+Word "weight" has meaning that is bold rate.
+
+Word "italic" has meaning that is italic style.
+
+Word "underline" has meaning that is underline style.
+
+Word "overline" has meaning that is overline style.
+
+Word "strikeout" has meaning that is strikeout style.
 
 Word "area" has meaning that is region.
 
