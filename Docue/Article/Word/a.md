@@ -442,6 +442,8 @@ Word "radial" has meaning that is radial rate.
 
 Word "conical" has meaning that is conical rate.
 
+Word "stop" has meaning that is source and dest.
+
 Word "radius" has meaning that is round radius.
 
 Word "area" has meaning that is region.
