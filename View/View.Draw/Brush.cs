@@ -17,9 +17,9 @@ public class Brush : Any
         }
         ulong imageU;
         imageU = 0;
-        if (!(this.Video == null))
+        if (!(this.Image == null))
         {
-            imageU = this.Video.Ident;
+            imageU = this.Image.Ident;
         }
         ulong polateU;
         polateU = 0;
@@ -47,6 +47,6 @@ public class Brush : Any
     public virtual BrushKind Kind { get; set; }
     public virtual Color Color { get; set; }
     public virtual Polate Polate { get; set; }
-    public virtual Image Video { get; set; }
+    public virtual Image Image { get; set; }
     internal virtual ulong Intern { get; set; }
 }
