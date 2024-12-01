@@ -5,7 +5,6 @@ public class Polate : Any
     public override bool Init()
     {
         base.Init();
-        this.InternIntern = InternIntern.This;
         this.KindList = PolateKindList.This;
 
         ulong valueK;
@@ -40,8 +39,6 @@ public class Polate : Any
     public virtual PolateRadial Radial { get; set; }
     public virtual PolateStop Stop { get; set; }
     public virtual PolateSpread Spread { get; set; }
-
-    private InternIntern InternIntern { get; set; }
     protected virtual PolateKindList KindList { get; set; }
     internal virtual ulong Intern { get; set; }
 }
