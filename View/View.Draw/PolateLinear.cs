@@ -7,14 +7,11 @@ public class PolateLinear : Any
         base.Init();
         this.InternInfra = InternInfra.This;
 
-        Pos pos;
-        pos = this.StartPos;
         this.InternStartPos = this.InternInfra.PosCreate();
-        this.InternInfra.PosSet(this.InternStartPos, pos.Col, pos.Row);
+        this.InternInfra.PosSet(this.InternStartPos, this.StartPos.Col, this.StartPos.Row);
 
-        pos = this.EndPos;
         this.InternEndPos = this.InternInfra.PosCreate();
-        this.InternInfra.PosSet(this.InternEndPos, pos.Col, pos.Row);
+        this.InternInfra.PosSet(this.InternEndPos, this.EndPos.Col, this.EndPos.Row);
 
         this.Intern = Extern.PolateLinear_New();
         Extern.PolateLinear_StartPosSet(this.Intern, this.InternStartPos);
