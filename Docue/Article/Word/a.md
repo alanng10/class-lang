@@ -310,7 +310,7 @@ Word "can" has meaning that is option available.
 
 Word "font" has meaning that is char style.
 
-Word "phore" has meaning that is thread synchronization.
+Word "phore" has meaning that is thread sync.
 
 Word "square" has meaning that is cube.
 
