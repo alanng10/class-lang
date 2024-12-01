@@ -41,7 +41,7 @@ class Math : Any
         var Int ka;
         ka : value;
         ka : bit <(ka, 10);
-        ka : bit >(ka, 10);
+        ka : bit >>(ka, 10);
 
         var Int kb;
         kb : value;
