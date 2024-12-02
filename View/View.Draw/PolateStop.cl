@@ -35,7 +35,18 @@ class PolateStop : Any
         var Int colorK;
         colorK : this.DrawInfra.InternColor(point.Color);
         
-        this.Exern.PolateStop_PointSet(this.Intern, index, point.Pos, colorK);
+        this.Extern.PolateStop_PointSet(this.Intern, index, point.Pos, colorK);
+        return true;
+    }
+
+    maide prusate Bool PointGet(var Int index, var PolateStopPoint result)
+    {
+        result.Pos : this.Extern.PolateStop_PointGetPos(this.Intern, index);
+        
+        var Int colorK;
+        colorK : this.Extern.PolateStop_PointGetColor(this.Intern, index);
+        
+        this.DrawInfra.ColorSet(result.Color, colorK);
         return true;
     }
 }
