@@ -29,19 +29,31 @@ Int Form_Reset(Int o)
     return true;
 }
 
-Int Form_Offset(Int o, Int offsetLeft, Int offsetUp)
+Int Form_Pos(Int o, Int col, Int row)
 {
     Form* m;
     m = CP(o);
-    ValidValue(offsetLeft);
-    InternValue(offsetLeft);
-    ValidDouble(offsetLeftU);
+    ValidValue(col);
+    InternValue(col);
+    ValidDouble(colU);
 
-    ValidValue(offsetUp);
-    InternValue(offsetUp);
-    ValidDouble(offsetUpU);
+    ValidValue(row);
+    InternValue(row);
+    ValidDouble(rowU);
 
-    m->Intern->translate(offsetLeftU, offsetUpU);
+    m->Intern->translate(colU, rowU);
+    return true;
+}
+
+Int Form_Angle(Int o, Int angle)
+{
+    Form* m;
+    m = CP(o);
+    ValidValue(angle);
+    InternValue(angle);
+    ValidDouble(angleU);
+
+    m->Intern->rotate(angleU);
     return true;
 }
 
@@ -58,18 +70,6 @@ Int Form_Scale(Int o, Int horizScale, Int vertScale)
     ValidDouble(vertScaleU);
 
     m->Intern->scale(horizScaleU, vertScaleU);
-    return true;
-}
-
-Int Form_Rotate(Int o, Int angle)
-{
-    Form* m;
-    m = CP(o);
-    ValidValue(angle);
-    InternValue(angle);
-    ValidDouble(angleU);
-
-    m->Intern->rotate(angleU);
     return true;
 }
 
@@ -130,7 +130,7 @@ Int Form_ValueSet(Int o, Int row, Int col, Int value)
     return true;
 }
 
-Int Form_Multiply(Int o, Int other)
+Int Form_Mul(Int o, Int other)
 {
     Form* m;
     m = CP(o);
@@ -144,7 +144,7 @@ Int Form_Multiply(Int o, Int other)
     return true;
 }
 
-Int Form_IsIdentity(Int o)
+Int Form_Ident(Int o)
 {
     Form* m;
     m = CP(o);
