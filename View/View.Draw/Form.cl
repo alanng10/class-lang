@@ -104,4 +104,14 @@ class Form : Any
         a : ~(k = 0);
         return a;
     }
+
+    maide prusate Bool Scale(var Int horizScale, var Int vertScale)
+    {
+        var Int k;
+        k : this.Extern.Form_Scale(this.Intern, horizScale, vertScale);
+
+        var Bool a;
+        a : ~(k = 0);
+        return a;
+    }
 }
