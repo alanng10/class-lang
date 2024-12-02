@@ -76,7 +76,7 @@ public class Form : Any
         return true;
     }
 
-    public virtual bool IsIdentity()
+    public virtual bool Ident()
     {
         ulong u;
         u = Extern.Form_IsIdentity(this.Intern);
