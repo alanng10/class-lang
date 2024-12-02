@@ -25,7 +25,6 @@ public class PolateStop : Any
     }
 
     public virtual long Count { get; set; }
-
     protected virtual Infra DrawInfra { get; set; }
     internal virtual ulong Intern { get; set; }
 
