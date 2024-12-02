@@ -78,4 +78,20 @@ class Form : Any
         a : ~(k = 0);
         return a;
     }
+
+    maide prusate Bool Reset()
+    {
+        this.Extern.Form_Reset(this.Intern);
+        return true;
+    }
+
+    maide prusate Bool Pos(var Int col, var Int row)
+    {
+        var Int k;
+        k : this.Extern.Form_Pos(this.Intern, col, row);
+
+        var Bool a;
+        a : ~(k = 0);
+        return a;
+    }
 }
