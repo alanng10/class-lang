@@ -105,10 +105,10 @@ class Form : Any
         return a;
     }
 
-    maide prusate Bool Scale(var Int horizScale, var Int vertScale)
+    maide prusate Bool Scale(var Int horiz, var Int vert)
     {
         var Int k;
-        k : this.Extern.Form_Scale(this.Intern, horizScale, vertScale);
+        k : this.Extern.Form_Scale(this.Intern, horiz, vert);
 
         var Bool a;
         a : ~(k = 0);
