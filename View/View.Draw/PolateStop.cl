@@ -24,4 +24,18 @@ class PolateStop : Any
         extern.PolateStop_Delete(this.Intern);
         return true;
     }
+
+    field prusate Int Count { get { return data; } set { data : value; } }
+    field private Extern Extern { get { return data; } set { data : value; } }
+    field precate Infra DrawInfra { get { return data; } set { data : value; } }
+    field pronate Int Intern { get { return data; } set { data : value; } }
+
+    maide prusate Bool PointSet(var Int index, var PolateStopPoint point)
+    {
+        var Int colorK;
+        colorK : this.DrawInfra.InternColor(point.Color);
+        
+        this.Exern.PolateStop_PointSet(this.Intern, index, point.Pos, colorK);
+        return true;
+    }
 }
