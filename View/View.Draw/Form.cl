@@ -44,7 +44,7 @@ class Form : Any
     field precate InfaInfra InfraInfra { get { return data; } set { data : value; } }
     field private Int Intern { get { return data; } set { data : value; } }
 
-    maide prusate Int ValueGet(var Int col, var Int rows)
+    maide prusate Int ValueGet(var Int col, var Int row)
     {
         inf (~this.ValidCol(col))
         {
@@ -57,6 +57,25 @@ class Form : Any
 
         var Int a;
         a : this.Extern.Form_ValueGet(this.Intern, col, row);
+        return a;
+    }
+
+    maide prusate Bool ValueSet(var Int col, var Int row, var Int value)
+    {
+        inf (~this.ValidCol(col))
+        {
+            return null;
+        }
+        inf (~this.ValidRow(row))
+        {
+            return null;
+        }
+
+        var Int k;
+        k : this.Extern.Form_ValueSet(this.Intern, col, row, value);
+
+        var Bool a;
+        a : ~(k = 0);
         return a;
     }
 }
