@@ -12,15 +12,15 @@ public class Form : Any
         return true;
     }
 
-    protected virtual InfraInfra InfraInfra { get; set; }
-    internal virtual ulong Intern { get; set; }
-
     public virtual bool Final()
     {
         Extern.Form_Final(this.Intern);
         Extern.Form_Delete(this.Intern);
         return true;
     }
+
+    protected virtual InfraInfra InfraInfra { get; set; }
+    internal virtual ulong Intern { get; set; }
 
     public virtual long ValueGet(long row, long col)
     {
