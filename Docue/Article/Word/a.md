@@ -430,6 +430,8 @@ Word "spread" has meaning that is rate spread.
 
 Word "radius" has meaning that is round radius.
 
+Word "ident" has meaning that is identity.
+
 Word "font" has meaning that is char style.
 
 Word "weight" has meaning that is bold rate.
