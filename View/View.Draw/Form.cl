@@ -114,4 +114,15 @@ class Form : Any
         a : ~(k = 0);
         return a;
     }
+
+    maide prusate Bool Mul(var Form other)
+    {
+        this.Extern.Form_Mul(this.Intern, other.Intern);
+        return true;
+    }
+
+    maide prusate Bool ValidCol(var Int index)
+    {
+        return this.InfraInfra.ValidIndex(3, index);
+    }
 }

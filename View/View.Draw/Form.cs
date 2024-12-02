@@ -142,12 +142,12 @@ public class Form : Any
         return true;
     }
 
-    public virtual bool ValidRow(long index)
+    public virtual bool ValidCol(long index)
     {
         return this.InfraInfra.ValidIndex(3, index);
     }
 
-    public virtual bool ValidCol(long index)
+    public virtual bool ValidRow(long index)
     {
         return this.InfraInfra.ValidIndex(3, index);
     }
