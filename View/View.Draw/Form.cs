@@ -93,11 +93,11 @@ public class Form : Any
         colU = (ulong)col;
         rowU = (ulong)row;
 
-        ulong u;
-        u = Extern.Form_Offset(this.Intern, colU, rowU);
+        ulong k;
+        k = Extern.Form_Offset(this.Intern, colU, rowU);
 
         bool a;
-        a = !(u == 0);
+        a = !(k == 0);
         return a;
     }
 
@@ -106,11 +106,11 @@ public class Form : Any
         ulong angleU;
         angleU = (ulong)angle;
 
-        ulong u;
-        u = Extern.Form_Rotate(this.Intern, angleU);
+        ulong k;
+        k = Extern.Form_Rotate(this.Intern, angleU);
 
         bool a;
-        a = !(u == 0);
+        a = !(k == 0);
         return a;
     }
 
@@ -121,11 +121,11 @@ public class Form : Any
         horizScaleU = (ulong)horizScale;
         vertScaleU = (ulong)vertScale;
 
-        ulong u;
-        u = Extern.Form_Scale(this.Intern, horizScaleU, vertScaleU);
+        ulong k;
+        k = Extern.Form_Scale(this.Intern, horizScaleU, vertScaleU);
 
         bool a;
-        a = !(u == 0);
+        a = !(k == 0);
         return a;
     }
 
