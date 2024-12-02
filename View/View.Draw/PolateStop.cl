@@ -30,15 +30,6 @@ class PolateStop : Any
     field precate Infra DrawInfra { get { return data; } set { data : value; } }
     field pronate Int Intern { get { return data; } set { data : value; } }
 
-    maide prusate Bool PointSet(var Int index, var PolateStopPoint point)
-    {
-        var Int colorK;
-        colorK : this.DrawInfra.InternColor(point.Color);
-        
-        this.Extern.PolateStop_PointSet(this.Intern, index, point.Pos, colorK);
-        return true;
-    }
-
     maide prusate Bool PointGet(var Int index, var PolateStopPoint result)
     {
         result.Pos : this.Extern.PolateStop_PointGetPos(this.Intern, index);
@@ -47,6 +38,15 @@ class PolateStop : Any
         colorK : this.Extern.PolateStop_PointGetColor(this.Intern, index);
         
         this.DrawInfra.ColorSet(result.Color, colorK);
+        return true;
+    }
+
+    maide prusate Bool PointSet(var Int index, var PolateStopPoint point)
+    {
+        var Int colorK;
+        colorK : this.DrawInfra.InternColor(point.Color);
+        
+        this.Extern.PolateStop_PointSet(this.Intern, index, point.Pos, colorK);
         return true;
     }
 }
