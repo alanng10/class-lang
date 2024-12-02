@@ -43,4 +43,9 @@ class Form : Any
     field private Extern Extern { get { return data; } set { data : value; } }
     field precate InfaInfra InfraInfra { get { return data; } set { data : value; } }
     field private Int Intern { get { return data; } set { data : value; } }
+
+    maide prusate Int ValueGet(var Int row, var Int col)
+    {
+        
+    }
 }
