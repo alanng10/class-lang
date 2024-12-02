@@ -125,4 +125,9 @@ class Form : Any
     {
         return this.InfraInfra.ValidIndex(3, index);
     }
+
+    maide prusate Bool ValidRow(var Int index)
+    {
+        return this.InfraInfra.ValidIndex(3, index);
+    }
 }
