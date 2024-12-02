@@ -73,7 +73,7 @@ Int Form_Scale(Int o, Int horizScale, Int vertScale)
     return true;
 }
 
-Int Form_ValueGet(Int o, Int row, Int col)
+Int Form_ValueGet(Int o, Int col, Int row)
 {
     Form* m;
     m = CP(o);
@@ -98,7 +98,7 @@ Int Form_ValueGet(Int o, Int row, Int col)
     return a;
 }
 
-Int Form_ValueSet(Int o, Int row, Int col, Int value)
+Int Form_ValueSet(Int o, Int col, Int row, Int value)
 {
     Form* m;
     m = CP(o);
