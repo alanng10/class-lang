@@ -24,6 +24,22 @@ class Form : Any
         return true;
     }
 
+    field prusate Bool Ident
+    {
+        get
+        {
+            var Int k;
+            k : this.Extern.Form_Ident(this.Intern);
+
+            var Bool a;
+            a : ~(k = 0);
+            return a;
+        }
+        set
+        {
+        }
+    }
+
     field private Extern Extern { get { return data; } set { data : value; } }
     field precate InfaInfra InfraInfra { get { return data; } set { data : value; } }
     field private Int Intern { get { return data; } set { data : value; } }
