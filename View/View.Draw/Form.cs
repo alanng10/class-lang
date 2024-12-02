@@ -121,15 +121,15 @@ public class Form : Any
         return a;
     }
 
-    public virtual bool Scale(long horizScale, long vertScale)
+    public virtual bool Scale(long horiz, long vert)
     {
-        ulong horizScaleU;
-        ulong vertScaleU;
-        horizScaleU = (ulong)horizScale;
-        vertScaleU = (ulong)vertScale;
+        ulong horizU;
+        ulong vertU;
+        horizU = (ulong)horiz;
+        vertU = (ulong)vert;
 
         ulong k;
-        k = Extern.Form_Scale(this.Intern, horizScaleU, vertScaleU);
+        k = Extern.Form_Scale(this.Intern, horizU, vertU);
 
         bool a;
         a = !(k == 0);
