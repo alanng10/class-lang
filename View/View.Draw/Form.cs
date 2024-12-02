@@ -78,11 +78,11 @@ public class Form : Any
 
     public virtual bool Ident()
     {
-        ulong u;
-        u = Extern.Form_IsIdentity(this.Intern);
+        ulong k;
+        k = Extern.Form_Ident(this.Intern);
 
         bool a;
-        a = !(u == 0);
+        a = !(k == 0);
         return a;
     }
 
@@ -94,7 +94,7 @@ public class Form : Any
         rowU = (ulong)row;
 
         ulong k;
-        k = Extern.Form_Offset(this.Intern, colU, rowU);
+        k = Extern.Form_Pos(this.Intern, colU, rowU);
 
         bool a;
         a = !(k == 0);
@@ -107,7 +107,7 @@ public class Form : Any
         angleU = (ulong)angle;
 
         ulong k;
-        k = Extern.Form_Rotate(this.Intern, angleU);
+        k = Extern.Form_Angle(this.Intern, angleU);
 
         bool a;
         a = !(k == 0);
@@ -131,7 +131,7 @@ public class Form : Any
 
     public virtual bool Mul(Form other)
     {
-        Extern.Form_Multiply(this.Intern, other.Intern);
+        Extern.Form_Mul(this.Intern, other.Intern);
         return true;
     }
 
