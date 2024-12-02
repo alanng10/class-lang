@@ -37,10 +37,10 @@ public class Form : Any
         ulong c;
         r = (ulong)row;
         c = (ulong)col;
-        ulong u;
-        u = Extern.Form_ValueGet(this.Intern, r, c);
+        ulong k;
+        k = Extern.Form_ValueGet(this.Intern, r, c);
         long a;
-        a = (long)u;
+        a = (long)k;
         return a;
     }
 
@@ -65,11 +65,9 @@ public class Form : Any
         ulong k;
         k = Extern.Form_ValueSet(this.Intern, r, c, u);
 
-        if (k == 0)
-        {
-            return false;
-        }
-        return true;
+        bool a;
+        a = !(k == 0);
+        return a;
     }
 
     public virtual bool Reset()
