@@ -374,13 +374,13 @@ Bool DrawHandle(Int frame, Int arg)
 
     Form_Reset(Form);
 
-    Form_Offset(Form, MathInt(-780), MathInt(-450));
+    Form_Pos(Form, MathInt(-780), MathInt(-450));
 
     Form_Scale(Form, MathInt(1), Math_Value(0, 1 * scaleFactor + (1 << 18), -20));
 
-    Form_Rotate(Form, MathInt(RotateAngle + 30));
+    Form_Angle(Form, MathInt(RotateAngle + 30));
 
-    Form_Offset(Form, MathInt(1080), MathInt(-600));
+    Form_Pos(Form, MathInt(1080), MathInt(-600));
 
 
     Draw_FormSet(Draw, Form);
@@ -397,7 +397,7 @@ Bool DrawHandle(Int frame, Int arg)
 
     Form_Reset(Form);
 
-    Form_Offset(Form, MathInt(500), MathInt(100));
+    Form_Pos(Form, MathInt(500), MathInt(100));
 
     Draw_FormSet(Draw, Form);
 
