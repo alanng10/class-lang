@@ -336,13 +336,13 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Form_Init(ulong o);
     [DllImport(InfraLib)] public extern static ulong Form_Final(ulong o);
     [DllImport(InfraLib)] public extern static ulong Form_Reset(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Form_Offset(ulong o, ulong offsetLeft, ulong offsetUp);
+    [DllImport(InfraLib)] public extern static ulong Form_Pos(ulong o, ulong col, ulong row);
+    [DllImport(InfraLib)] public extern static ulong Form_Angle(ulong o, ulong angle);
     [DllImport(InfraLib)] public extern static ulong Form_Scale(ulong o, ulong horizScale, ulong vertScale);
-    [DllImport(InfraLib)] public extern static ulong Form_Rotate(ulong o, ulong angle);
     [DllImport(InfraLib)] public extern static ulong Form_ValueGet(ulong o, ulong row, ulong col);
     [DllImport(InfraLib)] public extern static ulong Form_ValueSet(ulong o, ulong row, ulong col, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Form_Multiply(ulong o, ulong other);
-    [DllImport(InfraLib)] public extern static ulong Form_IsIdentity(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Form_Mul(ulong o, ulong other);
+    [DllImport(InfraLib)] public extern static ulong Form_Ident(ulong o);
     [DllImport(InfraLib)] public extern static ulong Form_IsInvertible(ulong o);
     [DllImport(InfraLib)] public extern static ulong Form_Invert(ulong o, ulong result);
     [DllImport(InfraLib)] public extern static ulong Form_Transpose(ulong o, ulong result);

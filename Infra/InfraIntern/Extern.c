@@ -3942,7 +3942,7 @@ Int Intern_Extern_Form_Reset(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_Form_Offset(Eval* eval, Int frame)
+Int Intern_Extern_Form_Pos(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 3;
@@ -3952,7 +3952,21 @@ Int Intern_Extern_Form_Offset(Eval* eval, Int frame)
     Param(2);
 
     Int a;
-    a = Form_Offset(a0, a1, a2);
+    a = Form_Pos(a0, a1, a2);
+
+    Return;
+}
+
+Int Intern_Extern_Form_Angle(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 2;
+
+    Param(0);
+    Param(1);
+
+    Int a;
+    a = Form_Angle(a0, a1);
 
     Return;
 }
@@ -3968,20 +3982,6 @@ Int Intern_Extern_Form_Scale(Eval* eval, Int frame)
 
     Int a;
     a = Form_Scale(a0, a1, a2);
-
-    Return;
-}
-
-Int Intern_Extern_Form_Rotate(Eval* eval, Int frame)
-{
-    Int paramCount;
-    paramCount = 2;
-
-    Param(0);
-    Param(1);
-
-    Int a;
-    a = Form_Rotate(a0, a1);
 
     Return;
 }
@@ -4017,7 +4017,7 @@ Int Intern_Extern_Form_ValueSet(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_Form_Multiply(Eval* eval, Int frame)
+Int Intern_Extern_Form_Mul(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -4026,12 +4026,12 @@ Int Intern_Extern_Form_Multiply(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = Form_Multiply(a0, a1);
+    a = Form_Mul(a0, a1);
 
     Return;
 }
 
-Int Intern_Extern_Form_IsIdentity(Eval* eval, Int frame)
+Int Intern_Extern_Form_Ident(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -4039,7 +4039,7 @@ Int Intern_Extern_Form_IsIdentity(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Form_IsIdentity(a0);
+    a = Form_Ident(a0);
 
     Return;
 }

@@ -327,13 +327,13 @@ class Extern : Any
     maide prusate Int Form_Init(var Int o) { }
     maide prusate Int Form_Final(var Int o) { }
     maide prusate Int Form_Reset(var Int o) { }
-    maide prusate Int Form_Offset(var Int o, var Int offsetLeft, var Int offsetUp) { }
+    maide prusate Int Form_Pos(var Int o, var Int col, var Int row) { }
+    maide prusate Int Form_Angle(var Int o, var Int angle) { }
     maide prusate Int Form_Scale(var Int o, var Int horizScale, var Int vertScale) { }
-    maide prusate Int Form_Rotate(var Int o, var Int angle) { }
     maide prusate Int Form_ValueGet(var Int o, var Int row, var Int col) { }
     maide prusate Int Form_ValueSet(var Int o, var Int row, var Int col, var Int value) { }
-    maide prusate Int Form_Multiply(var Int o, var Int other) { }
-    maide prusate Int Form_IsIdentity(var Int o) { }
+    maide prusate Int Form_Mul(var Int o, var Int other) { }
+    maide prusate Int Form_Ident(var Int o) { }
     maide prusate Int Form_IsInvertible(var Int o) { }
     maide prusate Int Form_Invert(var Int o, var Int result) { }
     maide prusate Int Form_Transpose(var Int o, var Int result) { }

@@ -356,13 +356,13 @@ Infra_Api Int Font_StrikeoutSet(Int o, Int value);
 
 InfraApiNew(Form)
 Infra_Api Int Form_Reset(Int o);
-Infra_Api Int Form_Offset(Int o, Int offsetLeft, Int offsetUp);
+Infra_Api Int Form_Pos(Int o, Int col, Int row);
+Infra_Api Int Form_Angle(Int o, Int angle);
 Infra_Api Int Form_Scale(Int o, Int horizScale, Int vertScale);
-Infra_Api Int Form_Rotate(Int o, Int angle);
 Infra_Api Int Form_ValueGet(Int o, Int row, Int col);
 Infra_Api Int Form_ValueSet(Int o, Int row, Int col, Int value);
-Infra_Api Int Form_Multiply(Int o, Int other);
-Infra_Api Int Form_IsIdentity(Int o);
+Infra_Api Int Form_Mul(Int o, Int other);
+Infra_Api Int Form_Ident(Int o);
 Infra_Api Int Form_IsInvertible(Int o);
 Infra_Api Int Form_Invert(Int o, Int result);
 Infra_Api Int Form_Transpose(Int o, Int result);
