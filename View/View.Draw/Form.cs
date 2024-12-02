@@ -39,23 +39,23 @@ public class Form : Any
     protected virtual InfraInfra InfraInfra { get; set; }
     internal virtual ulong Intern { get; set; }
 
-    public virtual long ValueGet(long row, long col)
+    public virtual long ValueGet(long col, long row)
     {
-        if (!this.ValidRow(row))
-        {
-            return -1;
-        }
         if (!this.ValidCol(col))
         {
             return -1;
         }
+        if (!this.ValidRow(row))
+        {
+            return -1;
+        }
 
-        ulong r;
         ulong c;
-        r = (ulong)row;
+        ulong r;
         c = (ulong)col;
+        r = (ulong)row;
         ulong k;
-        k = Extern.Form_ValueGet(this.Intern, r, c);
+        k = Extern.Form_ValueGet(this.Intern, c, r);
         long a;
         a = (long)k;
         return a;
