@@ -94,4 +94,14 @@ class Form : Any
         a : ~(k = 0);
         return a;
     }
+
+    maide prusate Bool Angle(var Int angle)
+    {
+        var Int k;
+        k : this.Extern.Form_Angle(this.Intern, angle);
+
+        var Bool a;
+        a : ~(k = 0);
+        return a;
+    }
 }
