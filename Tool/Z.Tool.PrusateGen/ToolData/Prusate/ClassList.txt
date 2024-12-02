@@ -160,13 +160,13 @@ Font
 
 Form
     Reset()
-    Offset(offsetLeft, offsetUp)
+    Pos(col, row)
+    Angle(angle)
     Scale(horizScale, vertScale)
-    Rotate(angle)
     ValueGet(row, col)
     ValueSet(row, col, value)
-    Multiply(other)
-    IsIdentity()
+    Mul(other)
+    Ident()
     IsInvertible()
     Invert(result)
     Transpose(result)
