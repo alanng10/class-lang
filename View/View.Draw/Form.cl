@@ -14,5 +14,17 @@ class Form : Any
         return true;
     }
 
+    maide prusate Bool Final()
+    {
+        var Extern extern;
+        extern : this.Extern;
 
+        extern.Form_Final(this.Intern);
+        extern.Form_Delete(this.Intern);
+        return true;
+    }
+
+    field private Extern Extern { get { return data; } set { data : value; } }
+    field precate InfaInfra InfraInfra { get { return data; } set { data : value; } }
+    field private Int Intern { get { return data; } set { data : value; } }
 }

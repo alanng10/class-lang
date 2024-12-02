@@ -19,6 +19,23 @@ public class Form : Any
         return true;
     }
 
+
+    public virtual bool Ident
+    {
+        get
+        {
+            ulong k;
+            k = Extern.Form_Ident(this.Intern);
+    
+            bool a;
+            a = !(k == 0);
+            return a;
+        }
+        set
+        {
+        }
+    }
+
     protected virtual InfraInfra InfraInfra { get; set; }
     internal virtual ulong Intern { get; set; }
 
@@ -74,16 +91,6 @@ public class Form : Any
     {
         Extern.Form_Reset(this.Intern);
         return true;
-    }
-
-    public virtual bool Ident()
-    {
-        ulong k;
-        k = Extern.Form_Ident(this.Intern);
-
-        bool a;
-        a = !(k == 0);
-        return a;
     }
 
     public virtual bool Pos(long col, long row)
