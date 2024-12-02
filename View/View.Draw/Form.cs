@@ -61,26 +61,26 @@ public class Form : Any
         return a;
     }
 
-    public virtual bool ValueSet(long row, long col, long value)
+    public virtual bool ValueSet(long col, long row, long value)
     {
-        if (!this.ValidRow(row))
-        {
-            return false;
-        }
         if (!this.ValidCol(col))
         {
             return false;
         }
+        if (!this.ValidRow(row))
+        {
+            return false;
+        }
 
-        ulong r;
         ulong c;
-        r = (ulong)row;
+        ulong r;
         c = (ulong)col;
+        r = (ulong)row;
         ulong u;
         u = (ulong)value;
 
         ulong k;
-        k = Extern.Form_ValueSet(this.Intern, r, c, u);
+        k = Extern.Form_ValueSet(this.Intern, c, r, u);
 
         bool a;
         a = !(k == 0);
