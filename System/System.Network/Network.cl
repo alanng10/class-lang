@@ -57,7 +57,7 @@ class Network : Any
         }
         inf (~b)
         {
-            this.Intern : this.HostPeer;
+            this.Intern : cast Int(this.HostPeer);
 
             var Int ident;
             ident : extern.Network_StreamGet(this.Intern);
@@ -96,7 +96,7 @@ class Network : Any
         return true;
     }
 
-    field prusate Int HostPeer { get { return data; } set { data : value; } }
+    field prusate Any HostPeer { get { return data; } set { data : value; } }
     field prusate String HostName { get { return data; } set { data : value; } }
     field prusate Int HostPort { get { return data; } set { data : value; } }
     field prusate StreamStream Stream { get { return data; } set { data : value; } }
