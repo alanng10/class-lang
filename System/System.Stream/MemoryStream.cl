@@ -14,7 +14,7 @@ class MemoryStream : Stream
         return true;
     }
     
-    field prusate Int Ident
+    field prusate Any Ident
     {
         get
         {
