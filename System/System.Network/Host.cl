@@ -86,7 +86,7 @@ class Host : Any
     maide prusate Bool ClosePeer(var Network a)
     {
         var Int k;
-        k : a.HostPeer;
+        k : cast Int(a.HostPeer);
 
         this.FinalPeer(a);
 
