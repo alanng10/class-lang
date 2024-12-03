@@ -17,7 +17,7 @@ class Stream : StreamStream
 
     field prusate Int InitIdent { get { return data; } set { data : value; } }
 
-    field prusate Int Ident
+    field prusate Any Ident
     {
         get
         {
