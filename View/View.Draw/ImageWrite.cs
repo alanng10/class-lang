@@ -19,7 +19,7 @@ public class ImageWrite : Any
 
     public virtual Stream Stream { get; set; }
     public virtual Image Image { get; set; }
-    public virtual ImageBinary Binary { get; set; }
+    public virtual ImageBinary Format { get; set; }
 
     private ulong Intern { get; set; }
 
@@ -29,7 +29,7 @@ public class ImageWrite : Any
         k = (ulong)this.Stream.Ident;
 
         Extern.ImageWrite_StreamSet(this.Intern, k);
-        Extern.ImageWrite_FormatSet(this.Intern, this.Binary.Intern);
+        Extern.ImageWrite_FormatSet(this.Intern, this.Format.Intern);
         Extern.ImageWrite_ImageSet(this.Intern, this.Image.Ident);
 
         ulong u;
