@@ -177,7 +177,7 @@ class NetworkB : Network
             var Bool bb;
             bb : kee = 0;
 
-            share Console.Out.Write(this.ThreadState.AddClear().Add("Network Host Case 2 ").Add(this.StatusString(bb)).AddLine().AddResult());
+            share Console.Out.Write(this.ThreadState.AddClear().Add("Network Host Case 2 ").Add(this.ThreadState.StatusString(bb)).AddLine().AddResult());
 
             this.ThreadState.ExitNetwork(0);
             return true;
