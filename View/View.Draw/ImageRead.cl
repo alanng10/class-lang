@@ -30,9 +30,23 @@ class ImageRead : Any
 
     maide prusate Bool Execute()
     {
+        var Int streamK;
+        streamK : cast Int(this.Stream.Ident);
+
         var Extern extern;
         extern : this.Extern;
 
-        
+        extern.ImageRead.StreamSet(this.Intern, streamK);
+        extern.ImageRead.ImageSet(this.Intern, this.Image.Intern);
+
+        var Int k;
+        k : extern.ImageRead_Execute(this.Intern);
+
+        extern.ImageRead_ImageSet(this.Intern, 0);
+        extern.ImageRead_StreamSet(this.Intern, 0);
+
+        var Bool a;
+        a : ~(k = 0);
+        return a;
     }
 }
