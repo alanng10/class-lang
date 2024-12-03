@@ -178,12 +178,15 @@ class Network : Any
         this.InternHostName : this.InternInfra.StringCreate(this.HostName);
         this.DataStream : this.StreamCreate();
 
+        var Int streamK;
+        streamK : cast Int(this.DataStream.Ident);
+
         var Extern extern;
         extern : this.Extern;
 
         extern.Network_HostNameSet(this.Intern, this.InternHostName);
         extern.Network_HostPortSet(this.Intern, this.HostPort);
-        extern.Network_StreamSet(this.Intern, this.DataStream.Ident);
+        extern.Network_StreamSet(this.Intern, streamK);
         extern.Network_Open(this.Intern);
         return true;
     }
