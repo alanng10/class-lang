@@ -14,7 +14,7 @@ class Stream : StreamStream
         return true;
     }
     
-    field prusate Int Ident
+    field prusate Any Ident
     {
         get
         {
