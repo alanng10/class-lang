@@ -94,7 +94,7 @@ class Host : Any
         return true;
     }
 
-    maide precate Network CreatePeer(var Int peer)
+    maide precate Network CreatePeer(var Any peer)
     {
         var Network a;
         a : new Network;
