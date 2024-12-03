@@ -32,6 +32,7 @@ System.Text
     StringComp StringComp
     StringAdd StringAdd
     StringData StringData
+    StringLess StringLess
     TextInfra Infra
 System.Thread
     Thread Thread
