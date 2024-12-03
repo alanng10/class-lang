@@ -37,8 +37,8 @@ class Memory : Any
         stream : this.CreateStream();
         
         var Int k;
-        k : stream.Ident;
-        
+        k : cast Int(stream.Ident);
+
         var Extern extern;
         extern : this.Extern;
         
