@@ -51,7 +51,7 @@ class Stream : Any
     }
     
     field prusate Int SetIntern { get { return data; } set { data : value; } }
-    field prusate Int Ident { get { return data; } set { data : value; } }
+    field prusate Any Ident { get { return data; } set { data : value; } }
     
     field prusate Bool HasCount
     {
