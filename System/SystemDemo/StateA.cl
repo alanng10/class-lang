@@ -11,6 +11,11 @@ class StateA : State
 
     field precate DeA DeA { get { return data; } set { data : value; } }
 
+    maide prusate String StatusString(var Bool k)
+    {
+        return this.DeA.StatusString(k);
+    }
+
     maide prusate String StringInt(var Int int)
     {
         return this.DeA.StringInt(int);

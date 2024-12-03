@@ -1141,7 +1141,7 @@ class DeA : Dem
         return true;
     }
 
-    maide private String StatusString(var Bool b)
+    maide prusate String StatusString(var Bool b)
     {
         var String k;
         k : "Success";
