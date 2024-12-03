@@ -209,7 +209,7 @@ class Network : Any
         return true;
     }
 
-    maide precate StreamStream StreamCreateSet(var Int ident)
+    maide precate StreamStream StreamCreateSet(var Any ident)
     {
         var Stream k;
         k : new Stream;
