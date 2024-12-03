@@ -177,7 +177,6 @@ class Network : Any
 
         this.InternHostName : this.InternInfra.StringCreate(this.HostName);
         this.DataStream : this.StreamCreate();
-
         var Int streamK;
         streamK : cast Int(this.DataStream.Ident);
 
