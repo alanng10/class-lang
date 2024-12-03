@@ -17,7 +17,7 @@ class NetworkHostA : NetworkHost
         return true;
     }
 
-    maide precate Network CreatePeer(var Int peer)
+    maide precate Network CreatePeer(var Any peer)
     {
         var NetworkB a;
         a : new NetworkB;
