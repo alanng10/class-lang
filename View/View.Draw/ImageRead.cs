@@ -5,7 +5,6 @@ public class ImageRead : Any
     public override bool Init()
     {
         base.Init();
-        this.InternIntern = InternIntern.This;
         this.Intern = Extern.ImageRead_New();
         Extern.ImageRead_Init(this.Intern);
         return true;
@@ -20,8 +19,6 @@ public class ImageRead : Any
 
     public virtual Stream Stream { get; set; }
     public virtual Image Image { get; set; }
-
-    private InternIntern InternIntern { get; set; }
     private ulong Intern { get; set; }
 
     public virtual bool Execute()

@@ -4,7 +4,7 @@ class Stream : Any
     {
     }
 
-    field prusate Int Ident { get { } set { } }
+    field prusate Any Ident { get { } set { } }
     field prusate Bool HasCount { get { } set { } }
     field prusate Bool HasPos { get { } set { } }
     field prusate Bool CanRead { get { } set { } }
