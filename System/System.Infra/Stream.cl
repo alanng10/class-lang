@@ -25,7 +25,7 @@ class Stream : Any
         }
         inf (~b)
         {
-            this.Intern : this.SetIntern;
+            this.Intern : cast Int(this.SetIntern);
         }
         this.Ident : this.Intern;
         return true;
@@ -50,7 +50,7 @@ class Stream : Any
         return true;
     }
     
-    field prusate Int SetIntern { get { return data; } set { data : value; } }
+    field prusate Any SetIntern { get { return data; } set { data : value; } }
     field prusate Any Ident { get { return data; } set { data : value; } }
     
     field prusate Bool HasCount
