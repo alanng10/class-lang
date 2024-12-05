@@ -35,8 +35,8 @@ public class PointList : Any
         ulong intern;
         intern = Extern.Data_New();
         Extern.Data_Init(intern);
-        Extern.Data_CountSet(intern, dataCount);
         Extern.Data_ValueSet(intern, dataValue);
+        Extern.Data_CountSet(intern, dataCount);
         this.Intern = intern;
         return true;
     }
