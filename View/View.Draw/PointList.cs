@@ -121,11 +121,11 @@ public class PointList : Any
         ulong stat;
         stat = Extern.Share_Stat(share);
 
-        ulong ua;
-        ua = Extern.Stat_PointDataCount(stat);
+        ulong kk;
+        kk = Extern.Stat_PointDataCount(stat);
 
         ulong k;
-        k = ka * ua;
+        k = ka * kk;
         k = this.InternDataValue + k;
 
         return k;
