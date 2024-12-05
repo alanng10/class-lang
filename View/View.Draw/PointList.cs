@@ -32,12 +32,10 @@ public class PointList : Any
 
         this.InternDataValue = dataValue;
 
-        ulong intern;
-        intern = Extern.Data_New();
-        Extern.Data_Init(intern);
-        Extern.Data_ValueSet(intern, dataValue);
-        Extern.Data_CountSet(intern, dataCount);
-        this.Intern = intern;
+        this.Intern = Extern.Data_New();
+        Extern.Data_Init(this.Intern);
+        Extern.Data_ValueSet(this.Intern, dataValue);
+        Extern.Data_CountSet(this.Intern, dataCount);
         return true;
     }
 
