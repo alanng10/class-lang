@@ -287,6 +287,72 @@ class InternInfra : Any
         return true;
     }
 
+    maide prusate Bool SizeSet(var Int size, var Int wed, var Int het)
+    {
+        var Extern extern;
+        extern : this.Extern;
+        extern.Size_WedSet(size, wed);
+        extern.Size_HetSet(size, het);
+        return true;
+    }
+
+    maide prusate Int RectCreate()
+    {
+        var Int pos;
+        pos : this.PosCreate();
+
+        var Extern extern;
+        extern : this.Extern;
+
+        var Int size;
+        size : extern.Size_New();
+        extern.Size_Init(size);
+
+        var Int rect;
+        rect : extern.Rect_New();
+        extern.Rect_Init(rect);
+        extern.Rect_PosSet(rect, pos);
+        extern.Rect_SizeSet(rect, size);
+        return rect;
+    }
+
+    maide prusate Bool RectDelete(var Int rect)
+    {
+        var Extern extern;
+        extern : this.Extern;
+
+        var Int pos;
+        var Int size;
+        pos : extern.Rect_PosGet(rect);
+        size : extern.Rect_SizeGet(rect);
+        
+        extern.Rect_Final(rect);
+        extern.Rect_Delete(rect);
+
+        extern.Size_Final(size);
+        extern.Size_Delete(size);
+
+        this.PosDelete(pos);
+        return true;
+    }
+
+    maide prusate Bool RectSet(var Int rect, var Int col, var Int row, var Int wed, var Int het)
+    {
+        var Extern extern;
+        extern : this.Extern;
+
+        var Int pos;
+        pos : extern.Rect_PosGet(rect);
+
+        this.PosSet(pos, col, row);
+
+        var Int size;
+        size : extern.Rect_SizeGet(rect);
+
+        this.SizeSet(size, wed, het);
+        return true;
+    }
+
     maide prusate Int Bool(var Bool k)
     {
         var Int a;
