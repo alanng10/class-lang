@@ -47,7 +47,6 @@ public class PointList : Any
         Extern.Delete(this.InternDataValue);
 
         this.InternInfra.PosDelete(this.InternPos);
-
         return true;
     }
 

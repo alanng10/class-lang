@@ -28,5 +28,25 @@ class PointList : Any
         dataValue : extern.New(dataCount);
 
         this.InternDataValue : dataValue;
+
+        this.Intern : extern.Data_New();
+        extern.Data_Init(this.Intern);
+        extern.Data_ValueSet(this.Intern, dataValue);
+        extern.Data_CountSet(this.Intern, dataCount);
+        return true;
+    }
+
+    maide prusate Bool Final()
+    {
+        var Extern extern;
+        extern : this.Extern;
+
+        extern.Data_Final(this.Intern);
+        extern.Data_Delete(this.Intern);
+
+        extern.Delete(this.InternDataValue);
+
+        this.InternInfra.PosDelete(this.InternPos);
+        return true;
     }
 }
