@@ -49,4 +49,12 @@ class PointList : Any
         this.InternInfra.PosDelete(this.InternPos);
         return true;
     }
+
+    field prusate Int Count { get { return data; } set { data : value; } }
+    field private Extern Extern { get { return data; } set { data : value; } }
+    field private InternInfra InternInfra { get { return data; } set { data : value; } }
+    field precate InfraInfra InfraInfra { get { return data; } set { data : value; } }
+    field pronate Int Intern { get { return data; } set { data : value; } }
+    field private Int InternDataValue { get { return data; } set { data : value; } }
+    field private Int InternPos { get { return data; } set { data : value; } }
 }
