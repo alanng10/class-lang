@@ -10,7 +10,7 @@ And also includes phore.
 This tier is the second fastest. It is faster than memory allocation call and effect load.
 
 The third tier is memory allocation call. This includes new and share, and memory stream, time effect and console inn, out and err effect.
-And also includes thread start.
+And also includes thread start. And includes network local system.
 This tier is faster than effect load.
 
 The fourth tier is effect load. This includes storage and network.
