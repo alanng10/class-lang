@@ -21,5 +21,6 @@ class This : Any
         {
         }
     }
+
     field private Intern InternIntern { get { return data; } set { data : value; } }
 }
