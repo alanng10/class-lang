@@ -68,7 +68,7 @@ public class PointList : Any
         }
 
         ulong k;
-        k = this.Address(index);
+        k = this.Memory(index);
 
         ulong pos;
         pos = this.InternPos;
@@ -103,14 +103,14 @@ public class PointList : Any
         this.InternInfra.PosSet(pos, value.Col, value.Row);
 
         ulong k;
-        k = this.Address(index);
+        k = this.Memory(index);
 
         Extern.PointData_PointSet(k, pos);
 
         return true;
     }
 
-    private ulong Address(long index)
+    private ulong Memory(long index)
     {
         ulong ka;
         ka = (ulong)index;
