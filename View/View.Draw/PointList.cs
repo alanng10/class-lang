@@ -21,11 +21,11 @@ public class PointList : Any
         ulong stat;
         stat = Extern.Share_Stat(share);
 
-        ulong ua;
-        ua = Extern.Stat_PointDataCount(stat);
+        ulong ka;
+        ka = Extern.Stat_PointDataCount(stat);
 
         ulong dataCount;
-        dataCount = countU * ua;
+        dataCount = countU * ka;
 
         ulong dataValue;
         dataValue = Extern.New(dataCount);
