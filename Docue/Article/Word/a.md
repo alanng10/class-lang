@@ -300,6 +300,8 @@ Word "main" has meaning that is thread loop.
 
 Word "exit" has meaning that is out of main.
 
+Word "wait" has meaning that is until finish.
+
 Word "stream" has meaning that is serial.
 
 Word "read" has meaning that is got info from medium.
