@@ -249,6 +249,15 @@ class InternInfra : Any
         extern.Range_Delete(a);
         return true;
     }
+    
+    maide prusate Bool RangeSet(var Int range, var Int index, var Int count)
+    {
+        var Extern extern;
+        extern : this.Extern;
+        extern.Range_IndexSet(range, index);
+        extern.Range_CountSet(range, count);
+        return true;
+    }    
 
     maide prusate Int PosCreate()
     {
