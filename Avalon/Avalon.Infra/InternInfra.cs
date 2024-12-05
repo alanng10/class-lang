@@ -157,8 +157,7 @@ public class InternInfra : Any
     public virtual ulong RectCreate()
     {
         ulong pos;
-        pos = Extern.Pos_New();
-        Extern.Pos_Init(pos);
+        pos = this.PosCreate();
 
         ulong size;
         size = Extern.Size_New();
@@ -187,8 +186,7 @@ public class InternInfra : Any
         Extern.Size_Final(size);
         Extern.Size_Delete(size);
 
-        Extern.Pos_Final(pos);
-        Extern.Pos_Delete(pos);
+        this.PosDelete(pos);
         return true;
     }
 

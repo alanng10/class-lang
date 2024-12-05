@@ -230,6 +230,25 @@ class InternInfra : Any
         extern.State_Delete(o);
         return true;        
     }
+    
+    maide prusate Int RangeCreate()
+    {
+        var Extern extern;
+        extern : this.Extern;
+        var Int a;
+        a : extern.Range_New();
+        extern.Range_Init(a);
+        return a;
+    }    
+
+    maide prusate Bool RangeDelete(var Int a)
+    {
+        var Extern extern;
+        extern : this.Extern;
+        extern.Range_Final(a);
+        extern.Range_Delete(a);
+        return true;
+    }
 
     maide prusate Int PosCreate()
     {
