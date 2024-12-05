@@ -98,4 +98,25 @@ class PointList : Any
         this.Extern.PointData_PointSet(k, this.InternPos);
         return true;
     }
+
+    maide prusate Int Memory(var Int index)
+    {
+        var Extern extern;
+        extern : this.Extern;
+
+        var Int varShare;
+        varShare : extern.Infra_Share();
+
+        var Int stat;
+        stat : extern.Share_Stat(varShare);
+
+        var Int ka;
+        ka : extern.Stat_PointDataCount(stat);
+        
+        var Int k;
+        k : index * ka;
+        k : this.InternDataValue + k;
+
+        return k;
+    }
 }
