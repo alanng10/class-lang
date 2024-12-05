@@ -97,7 +97,6 @@ public class PointList : Any
         k = this.Memory(index);
 
         Extern.PointData_PointSet(k, this.InternPos);
-
         return true;
     }
 

@@ -82,4 +82,20 @@ class PointList : Any
         result.Row : row;
         return true;
     }
+
+    maide prusate Bool Set(var Int index, var Pos value)
+    {
+        inf (~this.InfraInfra.ValueIndex(this.Count, index))
+        {
+            return false;
+        }
+
+        this.InternInfra.PosSet(this.InternPos, value.Col, value.Row);
+
+        var Int k;
+        k : this.Memory(index);
+
+        this.Extern.PointData_PointSet(k, this.InternPos);
+        return true;
+    }
 }
