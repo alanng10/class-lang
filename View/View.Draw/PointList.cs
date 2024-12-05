@@ -70,15 +70,12 @@ public class PointList : Any
         ulong k;
         k = this.Memory(index);
 
-        ulong pos;
-        pos = this.InternPos;
-
-        Extern.PointData_PointGet(k, pos);
+        Extern.PointData_PointGet(k, this.InternPos);
 
         ulong colU;
         ulong rowU;
-        colU = Extern.Pos_ColGet(pos);
-        rowU = Extern.Pos_RowGet(pos);
+        colU = Extern.Pos_ColGet(this.InternPos);
+        rowU = Extern.Pos_RowGet(this.InternPos);
 
         long col;
         long row;
@@ -97,15 +94,12 @@ public class PointList : Any
             return false;
         }
 
-        ulong pos;
-        pos = this.InternPos;
-
-        this.InternInfra.PosSet(pos, value.Col, value.Row);
+        this.InternInfra.PosSet(this.InternPos, value.Col, value.Row);
 
         ulong k;
         k = this.Memory(index);
 
-        Extern.PointData_PointSet(k, pos);
+        Extern.PointData_PointSet(k, this.InternPos);
 
         return true;
     }
