@@ -57,4 +57,29 @@ class PointList : Any
     field pronate Int Intern { get { return data; } set { data : value; } }
     field private Int InternDataValue { get { return data; } set { data : value; } }
     field private Int InternPos { get { return data; } set { data : value; } }
+
+    maide prusate Bool Get(var Int index, var Pos result)
+    {
+        inf (~this.InfraInfra.ValueIndex(this.Count, index))
+        {
+            return false;
+        }
+
+        var Int k;
+        k : this.Memory(index);
+
+        var Extern extern;
+        extern : this.Extern;
+
+        extern.PointData_PointGet(k, this.InternPos);
+
+        var Int col;
+        var Int row;
+        col : extern.Pos_ColGet(this.InternPos);
+        row : extern.Pos_RowGet(this.InternPos);
+
+        result.Col : col;
+        result.Row : row;
+        return true;
+    }
 }
