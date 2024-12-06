@@ -24,3 +24,5 @@ Class Lang is applicable to make any abstract across instances.
 Class Lang is applicable to make any plat.
 
 Class Lang is applicable to make any arch.
+
+Class Lang is applicable to make any automatic execute unit.
