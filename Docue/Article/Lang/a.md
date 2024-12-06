@@ -18,3 +18,5 @@ Class Lang is applicable to do anything.
 Class Lang is applicable to do any effect.
 
 Class Lang is applicable to make any abstract.
+
+Class Lang is applicable to make any abstract across instances.
