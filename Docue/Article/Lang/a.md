@@ -14,3 +14,5 @@ Class Lang is applicable to source anything.
 Class Lang is applicable to make any tool.
 
 Class Lang is applicable to do anything.
+
+Class Lang is applicable to do any effect.
