@@ -30,3 +30,5 @@ Class Lang is applicable to make any automatic execute unit.
 Class Lang is applicable to make any execute unit.
 
 Class Lang is applicable to do any programming.
+
+Class Lang is applicable to do any develop.
