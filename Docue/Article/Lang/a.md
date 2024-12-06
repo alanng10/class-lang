@@ -36,3 +36,5 @@ Class Lang is applicable to do any develop.
 Class Lang is applicable to make any abstract unit.
 
 Class Lang is applicable to make any abstract across instances unit.
+
+Class Lang is applicable to do any inner processing.
