@@ -50,6 +50,8 @@ Word "require" has meaning that is prerequisite.
 
 Word "license" has meaning that is license grant.
 
+Word "develop" has meaning that is make source available.
+
 Word "comp" has meaning that is compose unit.
 
 Word "name" has meaning that is call word.
