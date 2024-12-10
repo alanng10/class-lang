@@ -19,8 +19,6 @@ Class Lang is applicable to do any effect.
 
 Class Lang is applicable to make any abstract.
 
-Class Lang is applicable to make any abstract across instances.
-
 Class Lang is applicable to make any plat.
 
 Class Lang is applicable to make any arch.
@@ -34,8 +32,6 @@ Class Lang is applicable to do any programming.
 Class Lang is applicable to do any develop.
 
 Class Lang is applicable to make any abstract unit.
-
-Class Lang is applicable to make any abstract across instances unit.
 
 Class Lang is applicable to do any package.
 
