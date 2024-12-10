@@ -534,6 +534,8 @@ Word "play" has meaning that is execute media effect.
 
 Word "volume" has meaning that is audio amplitude rate.
 
+Word "mute" has meaning that is audio enable.
+
 Word "shop" has meaning that is buy.
 
 Word "price" has meaning that is money price.
