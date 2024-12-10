@@ -1,6 +1,6 @@
 # Word
 
-Word "class" has meaning that is abstract across all instances.
+Word "class" has meaning that is abstract.
 
 Word "field" has meaning that is has get and set.
 
