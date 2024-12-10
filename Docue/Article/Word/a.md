@@ -532,6 +532,8 @@ Word "media" has meaning that is contain video and audio.
 
 Word "play" has meaning that is execute media effect.
 
+Word "volume" has meaning that is audio amplitude rate.
+
 Word "shop" has meaning that is buy.
 
 Word "price" has meaning that is money price.
