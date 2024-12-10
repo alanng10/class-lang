@@ -532,6 +532,10 @@ Word "media" has meaning that is contain video and audio.
 
 Word "play" has meaning that is execute media effect.
 
+Word "shop" has meaning that is buy.
+
+Word "price" has meaning that is money price.
+
 Word "compute" has meaning that is process info.
 
 Word "memory" has meaning that is data store.
