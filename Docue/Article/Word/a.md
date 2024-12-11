@@ -540,6 +540,10 @@ Word "shop" has meaning that is buy.
 
 Word "price" has meaning that is money price.
 
+Word "intern" has meaning that is internal.
+
+Word "extern" has meaning that is interface to external.
+
 Word "compute" has meaning that is process info.
 
 Word "memory" has meaning that is data store.
