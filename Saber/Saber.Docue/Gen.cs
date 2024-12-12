@@ -171,7 +171,7 @@ public class Gen : ClassBase
         {
             Node aa;
             aa = iter.Value as Node;
-            
+
             String ka;
             ka = this.AddClear().Add(path).Add(combine).Add(aa.Name).AddResult();
             
