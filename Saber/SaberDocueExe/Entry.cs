@@ -1,4 +1,4 @@
-namespace SaberExe;
+namespace SaberDocueExe;
 
 class Entry
 {
