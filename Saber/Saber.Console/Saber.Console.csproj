@@ -10,7 +10,6 @@
         <ProjectReference Include="../Saber.Infra/Saber.Infra.csproj" />
         <ProjectReference Include="../Saber.Port/Saber.Port.csproj" />
         <ProjectReference Include="../Saber.Binary/Saber.Binary.csproj" />
-        <ProjectReference Include="../Saber.Docue/Saber.Docue.csproj" />
         <ProjectReference Include="../Saber.Token/Saber.Token.csproj" />
         <ProjectReference Include="../Saber.Node/Saber.Node.csproj" />
         <ProjectReference Include="../Saber.Module/Saber.Module.csproj" />

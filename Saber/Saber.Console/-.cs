@@ -58,7 +58,6 @@ global using BinaryMaide = Saber.Binary.Maide;
 global using BinaryVar = Saber.Binary.Var;
 global using BinaryRead = Saber.Binary.Read;
 global using BinaryWrite = Saber.Binary.Write;
-global using DocueGen = Saber.Docue.Gen;
 global using PortPort = Saber.Port.Port;
 global using PortRead = Saber.Port.Read;
 global using PortImport = Saber.Port.Import;

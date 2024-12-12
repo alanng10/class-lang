@@ -31,9 +31,6 @@ public class Console : ClassBase
 
         this.Create = this.CreateCreate();
 
-        this.DocueGen = new DocueGen();
-        this.DocueGen.Init();
-
         this.PortRead = new PortRead();
         this.PortRead.Init();
 
@@ -58,7 +55,6 @@ public class Console : ClassBase
     public virtual String SourceFold { get; set; }
     public virtual Create Create { get; set; }
     public virtual Result Result { get; set; }
-    public virtual DocueGen DocueGen { get; set; }
     public virtual ClassModule PortModule { get; set; }
     public virtual ErrorString ErrorString { get; set; }
     public virtual TaskKindList TaskKind { get; set; }
@@ -115,12 +111,6 @@ public class Console : ClassBase
         bool b;
 
         b = this.LibraryGen.Load();
-        if (!b)
-        {
-            return false;
-        }
-
-        b = this.DocueGen.Load();
         if (!b)
         {
             return false;
