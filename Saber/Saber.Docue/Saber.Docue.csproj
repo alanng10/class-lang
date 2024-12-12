@@ -8,6 +8,7 @@
     <ItemGroup>
         <ProjectReference Include="../../Avalon/Avalon.Time/Avalon.Time.csproj" />
         <ProjectReference Include="../Saber.Infra/Saber.Infra.csproj" />
+        <ProjectReference Include="../Saber.Console/Saber.Console.csproj" />
     </ItemGroup>
 
     <ItemGroup>
