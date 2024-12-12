@@ -11,3 +11,4 @@ global using StorageComp = Avalon.Storage.Comp;
 global using StorageInfra = Avalon.Storage.Infra;
 global using ClassBase = Saber.Infra.Base;
 global using ClassInfra = Saber.Infra.Infra;
+global using ModuleLoad = Saber.Console.ModuleLoad;
