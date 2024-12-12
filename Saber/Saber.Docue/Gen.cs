@@ -23,6 +23,7 @@ public class Gen : ClassBase
     protected virtual Node Root { get; set; }
     protected virtual String PageTemplate { get; set; }
     protected virtual String SFlagD { get; set; }
+    protected virtual String SBackslash { get; set; }
 
     public virtual bool Load()
     {
