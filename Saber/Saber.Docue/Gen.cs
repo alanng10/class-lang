@@ -6,8 +6,9 @@ public class Gen : ClassBase
     {
         base.Init();
         this.StorageInfra = StorageInfra.This;
-
         this.StorageComp = StorageComp.This;
+        
+        this.SFlagD = this.S("-d");
         return true;
     }
 
@@ -16,10 +17,11 @@ public class Gen : ClassBase
     public virtual bool LinkFileName { get; set; }
     public virtual Table ModuleTable { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
+    protected virtual StorageComp StorageComp { get; set; }
     protected virtual String Ver { get; set; }
     protected virtual Node Root { get; set; }
     protected virtual String PageTemplate { get; set; }
-    private StorageComp StorageComp { get; set; }
+    protected virtual String SFlagD { get; set; }
 
     public virtual bool Load()
     {
@@ -37,63 +39,43 @@ public class Gen : ClassBase
 
     public virtual bool ArgSet(Array arg)
     {
-        this.Arg = arg;
-
-        String aa;
-        aa = null;
-        bool b;
-        b = (0 < arg.Count);
-        if (!b)
+        bool baa;
+        baa = (1 < arg.Count);
+        if (!baa)
         {
             return false;
         }
-        if (b)
+        String aaa;
+        aaa = (String)arg.GetAt(0);
+        String aab;
+        aab = (String)arg.GetAt(1);
+
+        String aac;
+        aac = null;
+        if (2 < arg.Count)
         {
-            aa = (String)arg.GetAt(0);
+            aac = (String)arg.GetAt(2);
         }
 
-        bool ba;
-        ba = this.TextSame(this.TA(aa), this.TB(this.SDocue));
-        if (ba)
+        String sourceFold;
+        sourceFold = aaa;
+
+        String destFold;
+        destFold = aab;
+
+        bool linkFileName;
+        linkFileName = true;
+        if (!(aac == null))
         {
-            bool baa;
-            baa = (2 < arg.Count);
-            if (!baa)
+            if (this.TextSame(this.TA(aac), this.TB(this.SFlagD)))
             {
-                return false;
+                linkFileName = false;
             }
-            String aaa;
-            aaa = (String)arg.GetAt(1);
-            String aab;
-            aab = (String)arg.GetAt(2);
-
-            String aac;
-            aac = null;
-            if (3 < arg.Count)
-            {
-                aac = (String)arg.GetAt(3);
-            }
-
-            String sourceFold;
-            sourceFold = aaa;
-
-            String destFold;
-            destFold = aab;
-
-            bool linkFileName;
-            linkFileName = true;
-            if (!(aac == null))
-            {
-                if (this.TextSame(this.TA(aac), this.TB(this.SFlagD)))
-                {
-                    linkFileName = false;
-                }
-            }
-
-            this.SourceFoldPath = sourceFold;
-            this.DestFoldPath = destFold;
-            this.LinkFileName = linkFileName;
         }
+
+        this.SourceFoldPath = sourceFold;
+        this.DestFoldPath = destFold;
+        this.LinkFileName = linkFileName;
         return true;
     }
 
