@@ -43,7 +43,7 @@ class Image : Any
         extern.Data_Delete(this.Intern);
         return true;
     }
-    
+
     field prusate Size Size { get { return data; } set { data : value; } }
 
     field prusate Any Out
