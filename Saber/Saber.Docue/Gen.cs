@@ -515,19 +515,23 @@ public class Gen : ClassBase
 
     protected virtual Node CreateNode(String foldPath, String name)
     {
+        if (!(this.TextIndex(this.TA(name), this.TB(this.S("\\"))) == -1))
+        {
+            return null;
+        }
+        if (!(this.TextIndex(this.TA(name), this.TB(this.S("\'"))) == -1))
+        {
+            return null;
+        }
+        if (!(this.TextIndex(this.TA(name), this.TB(this.S("\""))) == -1))
+        {
+            return null;
+        }
+
         Node a;
         a = new Node();
         a.Init();
         a.Name = name;
-        
-        this.AddClear();
-
-        this.AddNodeNameValue(name);
-        
-        String aa;
-        aa = this.AddResult();
-
-        a.NameString = aa;
 
         String nodePath;
         nodePath = this.AddClear().Add(foldPath).Add(this.TextInfra.PathCombine).Add(name).AddResult();
@@ -585,60 +589,6 @@ public class Gen : ClassBase
             i = i + 1;
         }
         return table;
-    }
-
-    protected virtual bool AddNodeNameValue(String name)
-    {
-        String escapeBackSlash;
-        escapeBackSlash = this.S("\\\\");
-        String escapeQuote;
-        escapeQuote = this.S("\\\"");
-        String escapeSingleQuote;
-        escapeSingleQuote = this.S("\\\'");
-
-        long count;
-        count = this.StringComp.Count(name);
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            long oc;
-            oc = this.StringComp.Char(name, i);
-
-            bool b;
-            b = false;
-            if (!b)
-            {
-                if (oc == '\\')
-                {
-                    this.Add(escapeBackSlash);
-                    b = true;
-                }
-            }
-            if (!b)
-            {
-                if (oc == '\"')
-                {
-                    this.Add(escapeQuote);
-                    b = true;
-                }
-            }
-            if (!b)
-            {
-                if (oc == '\'')
-                {
-                    this.Add(escapeSingleQuote);
-                    b = true;
-                }
-            }
-            if (!b)
-            {
-                this.AddChar(oc);
-            }
-
-            i = i + 1;
-        }
-        return true;
     }
 
     protected virtual String BoolValueString(bool o)
