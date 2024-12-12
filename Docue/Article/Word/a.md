@@ -368,6 +368,8 @@ Word "authen" has meaning that is shown valid.
 
 Word "author" has meaning that is given permission.
 
+Word "glob" has meaning that is shared comp.
+
 Word "view" has meaning that is presentation.
 
 Word "child" has meaning that is sub entity.
