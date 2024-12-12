@@ -265,31 +265,6 @@ public class Console : ClassBase
         b = (kind == kindList.Console | kind == kindList.Module);
         bool ba;
         ba = (kind == kindList.Token | kind == kindList.Node);
-        bool bb;
-        bb = (kind == kindList.Docue);
-
-        if (bb)
-        {
-            String sourceFoldPath;
-            String destFoldPath;
-            sourceFoldPath = this.Task.Source;
-            destFoldPath = this.Task.Dest;
-            bool linkFileName;
-            linkFileName = this.Task.ArgBool;
-
-            this.DocueGen.SourceFoldPath = sourceFoldPath;
-            this.DocueGen.DestFoldPath = destFoldPath;
-            this.DocueGen.LinkFileName = linkFileName;
-
-            bool bba;
-            bba = this.DocueGen.Execute();
-            if (!bba)
-            {
-                this.Status = 30000;
-                return false;
-            }
-            return true;
-        }
 
         bool hasFileExtend;
         hasFileExtend = false;
