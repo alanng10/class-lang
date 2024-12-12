@@ -16,6 +16,7 @@ public class Gen : ClassBase
     public virtual String DestFoldPath { get; set; }
     public virtual bool LinkFileName { get; set; }
     public virtual Table ModuleTable { get; set; }
+    public virtual long Status { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual StorageComp StorageComp { get; set; }
     protected virtual String Ver { get; set; }
