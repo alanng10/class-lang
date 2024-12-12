@@ -4,6 +4,6 @@ set DocueGitHubOutFold=.\Out\DocueGitHub
 mkdir %DocueGitHubOutFold% 1>NUL 2>NUL
 
 pushd Out\net8.0
-saber.exe docue "..\..\Docue" "..\..\%DocueGitHubOutFold%" -d
+dotnet Saber.Docue-ExeCon.exe "..\..\Docue" "..\..\%DocueGitHubOutFold%" -d
 echo Status: %errorlevel%
 popd
