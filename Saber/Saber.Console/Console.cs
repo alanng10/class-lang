@@ -192,60 +192,6 @@ public class Console : ClassBase
             aa = (String)arg.GetAt(0);
         }
 
-        bool ba;
-        ba = this.TextSame(this.TA(aa), this.TB(this.SDocue));
-        if (ba)
-        {
-            bool baa;
-            baa = (2 < arg.Count);
-            if (!baa)
-            {
-                return false;
-            }
-            String aaa;
-            aaa = (String)arg.GetAt(1);
-            String aab;
-            aab = (String)arg.GetAt(2);
-
-            String aac;
-            aac = null;
-            if (3 < arg.Count)
-            {
-                aac = (String)arg.GetAt(3);
-            }
-
-            String sourceFold;
-            sourceFold = aaa;
-
-            String destFold;
-            destFold = aab;
-
-            bool linkFileName;
-            linkFileName = true;
-            if (!(aac == null))
-            {
-                if (this.TextSame(this.TA(aac), this.TB(this.SFlagD)))
-                {
-                    linkFileName = false;
-                }
-            }
-
-            ConsoleConsole oo;
-            oo = ConsoleConsole.This;
-
-            Task task;
-            task = new Task();
-            task.Init();
-            task.Kind = this.TaskKind.Docue;
-            task.Source = sourceFold;
-            task.Dest = destFold;
-            task.ArgBool = linkFileName;
-            task.Out = oo.Out;
-            task.Err = oo.Err;
-
-            this.Task = task;
-        }
-
         bool bb;
         bb = this.TextSame(this.TA(aa), this.TB(this.SMake));
         if (bb)
