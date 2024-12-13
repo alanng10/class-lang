@@ -13,7 +13,7 @@ The third tier is memory allocation call. This includes new and share, and memor
 And also includes thread start. And includes network local system.
 This tier is faster than effect load.
 
-The fourth tier is effect load. This includes storage and network.
+The fourth tier is effect load. This includes storage and network. Also includes console program execute init.
 
 First tier and second tier have high execute certainty.
 
