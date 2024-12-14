@@ -366,8 +366,8 @@ public class Gen : ClassBase
         colon = this.S(":");
         String comma;
         comma = this.S(",");
-        String leftBrace;
-        leftBrace = this.S("{");
+        String braceLite;
+        braceLite = this.S("{");
         String rightBrace;
         rightBrace = this.S("}");
         String space;
@@ -379,7 +379,7 @@ public class Gen : ClassBase
         indent = level * 2;
 
         this.AddIndent(indent);
-        this.Add(leftBrace);
+        this.Add(braceLite);
         this.Add(newLine);
 
         this.AddIndent(indent + 1);
@@ -402,7 +402,7 @@ public class Gen : ClassBase
         this.Add(newLine);
 
         this.AddIndent(indent + 1);
-        this.Add(leftBrace);
+        this.Add(braceLite);
         this.Add(newLine);
 
         Iter iter;
