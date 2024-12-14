@@ -2,9 +2,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     InitHeader();
 
-    CreateNavi();
+    NaviArticleCreate();
 
-    SetNavi();
+    NaviArticleSet();
 });
 
 function InitHeader()
@@ -19,7 +19,7 @@ function InitHeader()
     a.href = link;
 }
 
-function SetNavi()
+function NaviArticleSet()
 {
     var node;
     node = NaviTree;
@@ -59,7 +59,7 @@ function SetNavi()
     e.classList.add("Current");
 }
 
-function CreateNavi()
+function NaviArticleCreate()
 {
     var navi;
     navi = document.querySelector(".Main .NaviArticle");
