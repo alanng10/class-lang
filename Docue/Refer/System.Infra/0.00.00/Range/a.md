@@ -1,5 +1,3 @@
-# Base
-[[System.Infra:0.00.00:Any(Any)]]
 # Define
 Present range. Range from start to end.
 Start is start index of the range.
@@ -9,10 +7,6 @@ Index is start. Count is end sub start.
 ## Field
 ## Name
 Index
-## Count
-Prusate
-## Class
-[[System.Infra:0.00.00:Int(Int)]]
 ## Got
 Index
 ## Define
@@ -20,10 +14,6 @@ Start index of the range.
 ## Field
 ## Name
 Count
-## Count
-Prusate
-## Class
-[[System.Infra:0.00.00:Int(Int)]]
 ## Got
 Count
 ## Define
