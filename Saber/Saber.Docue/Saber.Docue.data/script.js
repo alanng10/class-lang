@@ -24,18 +24,8 @@ function InitNavi()
 
     if (ba)
     {
-        var navi;
-        navi = document.querySelector(".Main .Navi");
-
-        var e;
-        e = NodeCreateSingle("Article", "article");
-
-        var nodeIcon;
-        nodeIcon = e.firstElementChild;
-
-        nodeIcon.setAttribute('data-before', '\uef42');
-
-        navi.appendChild(e);
+        InitNaviAddArticle();
+        InitNaviAddRefer();
     }
 
     if (!ba)
@@ -44,6 +34,38 @@ function InitNavi()
 
         NaviArticleSet();
     }
+}
+
+function InitNaviAddArticle()
+{
+    var navi;
+    navi = document.querySelector(".Main .Navi");
+
+    var e;
+    e = NodeCreateSingle("Article", "article");
+
+    var nodeIcon;
+    nodeIcon = e.firstElementChild;
+
+    nodeIcon.setAttribute('data-before', '\uef42');
+
+    navi.appendChild(e);
+}
+
+function InitNaviAddRefer()
+{
+    var navi;
+    navi = document.querySelector(".Main .Navi");
+
+    var e;
+    e = NodeCreateSingle("Refer", "refer");
+
+    var nodeIcon;
+    nodeIcon = e.firstElementChild;
+
+    nodeIcon.setAttribute('data-before', '\ue865');
+
+    navi.appendChild(e);
 }
 
 function NaviArticleSet()
