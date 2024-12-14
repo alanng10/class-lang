@@ -14,4 +14,4 @@ Index
 ## Got
 Index
 ## Define
-Start index of 
+Start index of the range.
