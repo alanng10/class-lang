@@ -24,3 +24,13 @@ Result
 Result
 ## Define
 Result of Execute maide.
+## Maide
+## Name
+Execute
+## Class
+[[System.Infra:0.00.00:Bool(Bool)]]
+## Param
+## Result
+True inf execute success. False otherwise.
+## Define
+Execute this state.
