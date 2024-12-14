@@ -22,21 +22,27 @@ public class Gen : ClassBase
     protected virtual String Ver { get; set; }
     protected virtual String ArticleFoldPath { get; set; }
     protected virtual Node ArticleRoot { get; set; }
+    protected virtual String HomeTemplate { get; set; }
     protected virtual String ArticleTemplate { get; set; }
     protected virtual String SFlagD { get; set; }
     protected virtual String SBackslash { get; set; }
 
     public virtual bool Load()
     {
-        String k;
-        k = this.StorageInfra.TextRead(this.S("Saber.Docue.data/article.html"));
+        this.HomeTemplate = this.StorageInfra.TextRead(this.S("Saber.Docue.data/home.html"));
 
-        if (k == null)
+        if (this.HomeTemplate == null)
         {
             return false;
         }
 
-        this.ArticleTemplate = k;
+        this.ArticleTemplate = this.StorageInfra.TextRead(this.S("Saber.Docue.data/article.html"));
+
+        if (this.ArticleTemplate == null)
+        {
+            return false;
+        }
+
         return true;
     }
 
