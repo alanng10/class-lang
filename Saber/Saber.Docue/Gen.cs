@@ -254,13 +254,13 @@ public class Gen : ClassBase
         kka = this.TextCreate(inner);
 
         kka = this.TextPlace(kka, limit, join);
-        
+
         String innerK;
         innerK = this.StringCreate(kka);
 
         String pageRootPath;
         pageRootPath = this.PageRootPath(level);
-        
+
         Text k;
         k = this.TextCreate(this.PageTemplate);
         k = this.Place(k, "#AssetVer#", this.Ver);
