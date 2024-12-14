@@ -30,6 +30,11 @@ function InitNavi()
         var e;
         e = NodeCreateSingle("Article", "article");
 
+        var nodeIcon;
+        nodeIcon = e.firstElementChild;
+
+        nodeIcon.setAttribute('data-before', '\uef42');
+
         navi.appendChild(e);
     }
 
