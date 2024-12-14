@@ -504,7 +504,7 @@ public class Gen : ClassBase
     protected virtual bool ExecuteNode()
     {
         String nodePath;
-        nodePath = this.SourceFoldPath;
+        nodePath = this.AddClear().Add(this.SourceFoldPath).Add(this.TextInfra.PathCombine).AddS("Article").AddResult();
 
         Node a;
         a = new Node();
