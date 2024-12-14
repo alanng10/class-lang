@@ -506,7 +506,7 @@ public class Gen : ClassBase
 
         Table child;
         child = this.CreateChild(nodePath);
-        
+
         if (child == null)
         {
             return false;
