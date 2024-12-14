@@ -9,6 +9,8 @@ In derive class Execute maide, get Arg to get the arg, set Result to set result 
 ## Field
 ## Name
 Arg
+## Count
+Prusate
 ## Class
 [[System.Infra:0.00.00:Any(Any)]]
 ## Got
@@ -18,6 +20,8 @@ Arg of Execute maide.
 ## Field
 ## Name
 Result
+## Count
+Prusate
 ## Class
 [[System.Infra:0.00.00:Any(Any)]]
 ## Got
@@ -27,6 +31,8 @@ Result of Execute maide.
 ## Maide
 ## Name
 Execute
+## Count
+Prusate
 ## Class
 [[System.Infra:0.00.00:Bool(Bool)]]
 ## Param
