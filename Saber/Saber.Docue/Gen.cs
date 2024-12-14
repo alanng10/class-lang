@@ -222,7 +222,7 @@ public class Gen : ClassBase
         innerK = this.StringCreate(kka);
 
         String pageRootPath;
-        pageRootPath = this.S(".");
+        pageRootPath = this.PageRootPath(0);
 
         Text k;
         k = this.TextCreate(this.ArticleTemplate);
