@@ -2,9 +2,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     InitHeader();
 
-    NaviArticleCreate();
+    if (!(typeof ArticlePath === 'undefined'))
+    {
+        NaviArticleCreate();
 
-    NaviArticleSet();
+        NaviArticleSet();
+    }
 });
 
 function InitHeader()
