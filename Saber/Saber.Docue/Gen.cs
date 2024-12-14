@@ -533,7 +533,15 @@ public class Gen : ClassBase
         String nodePath;
         nodePath = this.AddClear().Add(foldPath).Add(this.TextInfra.PathCombine).Add(name).AddResult();
 
-        a.Child = this.CreateChild(nodePath);
+        Table child;
+        child = this.CreateChild(nodePath);
+
+        if (child == null)
+        {
+            return null;
+        }
+
+        a.Child = child;
 
         return a;
     }
@@ -554,6 +562,11 @@ public class Gen : ClassBase
 
             Node aa;
             aa = this.CreateNode(nodePath, kk);
+
+            if (aa == null)
+            {
+                return null;
+            }
 
             child.Set(kk, aa);
         }
