@@ -29,7 +29,7 @@ public class Gen : ClassBase
     public virtual bool Load()
     {
         String k;
-        k = this.StorageInfra.TextRead(this.S("Saber.Docue.data/a.html"));
+        k = this.StorageInfra.TextRead(this.S("Saber.Docue.data/article.html"));
 
         if (k == null)
         {
