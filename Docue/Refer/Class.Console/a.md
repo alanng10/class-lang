@@ -1,0 +1,1 @@
+Class system console module.
