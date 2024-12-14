@@ -144,7 +144,7 @@ public class Gen : ClassBase
         root = this.Root;
 
         bool b;
-        b = this.ExecuteArticleNode(root, 0, this.S("."), this.S("."));
+        b = this.ExecuteArticleNode(root, 0, this.S("."));
         if (!b)
         {
             return false;
@@ -152,10 +152,10 @@ public class Gen : ClassBase
         return true;
     }
 
-    protected virtual bool ExecuteArticleNode(Node node, long level, String path, String pagePath)
+    protected virtual bool ExecuteArticleNode(Node node, long level, String path)
     {
         bool b;
-        b = this.GenArticle(level, path, pagePath);
+        b = this.GenArticle(level, path);
         if (!b)
         {
             return false;
@@ -175,11 +175,8 @@ public class Gen : ClassBase
 
             String ka;
             ka = this.AddClear().Add(path).Add(combine).Add(aa.Name).AddResult();
-            
-            String kk;
-            kk = this.AddClear().Add(pagePath).Add(combine).Add(aa.NameString).AddResult();
 
-            b = this.ExecuteArticleNode(aa, level + 1, ka, kk);
+            b = this.ExecuteArticleNode(aa, level + 1, ka);
             if (!b)
             {
                 return false;
@@ -188,7 +185,7 @@ public class Gen : ClassBase
         return true;
     }
 
-    protected virtual bool GenArticle(long level, String path, String pagePath)
+    protected virtual bool GenArticle(long level, String path)
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
@@ -268,7 +265,7 @@ public class Gen : ClassBase
         k = this.Place(k, "#ArticleTitle#", title);
         k = this.Place(k, "#ArticleInner#", innerK);
         k = this.Place(k, "#PageRootPath#", pageRootPath);
-        k = this.Place(k, "#PagePath#", pagePath);
+        k = this.Place(k, "#PagePath#", path);
 
         String a;
         a = this.StringCreate(k);
@@ -390,7 +387,7 @@ public class Gen : ClassBase
         this.Add(colon);
         this.Add(space);
         this.Add(quote);
-        this.Add(a.NameString);
+        this.Add(a.Name);
         this.Add(quote);
         this.Add(comma);
         this.Add(newLine);
@@ -416,7 +413,7 @@ public class Gen : ClassBase
 
             this.AddIndent(indent + 2);
             this.Add(quote);
-            this.Add(aa.NameString);
+            this.Add(aa.Name);
             this.Add(quote);
             this.Add(colon);
             this.Add(newLine);
@@ -506,7 +503,6 @@ public class Gen : ClassBase
         a = new Node();
         a.Init();
         a.Name = this.TextInfra.Zero;
-        a.NameString = this.TextInfra.Zero;
 
         a.Child = this.CreateChild(nodePath);
 
