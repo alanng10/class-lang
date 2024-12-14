@@ -65,7 +65,7 @@ function CreateNavi()
     navi = document.querySelector(".Main .Navi");
 
     var e;
-    e = CreateNode(NaviTree, "article");
+    e = CreateNode(NaviTree, ".");
 
     NodeSet(e, true);
 
@@ -87,7 +87,7 @@ function CreateNode(a, path)
     eb.className = "Name";
 
     var link;
-    link = PageRootPath + "/" + path;
+    link = PageRootPath + "/" + "article" + "/" + path;
 
     link = AddLinkFileName(link);
 
