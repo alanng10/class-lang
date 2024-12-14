@@ -500,7 +500,7 @@ public class Gen : ClassBase
     {
         this.ArticleFoldPath = this.AddClear().Add(this.SourceFoldPath).Add(this.TextInfra.PathCombine).AddS("Article").AddResult();
 
-        this.ArticleRoot = this.CreateNode(this.ArticleFoldPath, this.S("Article"));
+        this.ArticleRoot = this.CreateNode(this.ArticleFoldPath, this.TextInfra.Zero);
         return true;
     }
 
