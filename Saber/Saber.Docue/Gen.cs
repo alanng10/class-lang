@@ -205,7 +205,7 @@ public class Gen : ClassBase
         newLine = this.S("\n");
 
         String filePath;
-        filePath = this.AddClear().Add(this.SourceFoldPath).Add(combine).Add(path).Add(combine).AddS("a.md").AddResult();
+        filePath = this.AddClear().Add(this.ArticleFoldPath).Add(combine).Add(path).Add(combine).AddS("a.md").AddResult();
 
         String oo;
         oo = this.StorageInfra.TextRead(filePath);
@@ -215,14 +215,8 @@ public class Gen : ClassBase
             return false;
         }
 
-        Text o;
-        o = textInfra.TextCreateStringData(oo, null);
-
-        Text oa;
-        oa = textInfra.TextCreateStringData(newLine, null);
-
         long u;
-        u = this.TextIndex(o, oa);
+        u = this.TextIndex(this.TA(oo), this.TB(newLine));
         if (u < 0)
         {
             return false;
