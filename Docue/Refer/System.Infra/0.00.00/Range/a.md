@@ -15,3 +15,12 @@ Index
 Index
 ## Define
 Start index of the range.
+## Field
+## Name
+Count
+## Class
+[[System.Infra:0.00.00:Int(Int)]]
+## Got
+Count
+## Define
+Count of the range.
