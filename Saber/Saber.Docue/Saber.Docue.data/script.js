@@ -116,7 +116,7 @@ function CreateNode(a, path)
         aa = a.Child[index];
 
         var ka;
-        ka = path + aa.Name.toLowerCase() + "/";
+        ka = path + "/" + aa.Name.toLowerCase();
 
         var ee;
         ee = CreateNode(aa, ka);
