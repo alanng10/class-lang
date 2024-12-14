@@ -159,6 +159,104 @@ public class Gen : ClassBase
         return true;
     }
 
+    protected virtual bool ExecuteHome()
+    {
+        String combine;
+        combine = this.TextInfra.PathCombine;
+
+        String newLine;
+        newLine = this.S("\n");
+
+        String filePath;
+        filePath = this.AddClear().Add(this.SourceFoldPath).Add(combine).AddS("a.md").AddResult();
+
+        String oo;
+        oo = this.StorageInfra.TextRead(filePath);
+
+        if (oo == null)
+        {
+            return false;
+        }
+
+        long u;
+        u = this.TextIndex(this.TA(oo), this.TB(newLine));
+        if (u < 0)
+        {
+            return false;
+        }
+
+        long kk;
+        kk = u;
+        long ka;
+        ka = 2;
+        long count;
+        count = kk - ka;
+
+        String title;
+        title = this.StringCreateRange(oo, ka, count);
+
+        String inner;
+        inner = this.StringCreateIndex(oo, kk + 1);
+
+        String kb;
+        kb = this.AddClear().Add(newLine).Add(newLine).AddResult();
+
+        String kc;
+        kc = this.S("<br />");
+
+        String kd;
+        kd = this.AddClear().Add(kc).Add(kc).Add(newLine).AddResult();
+
+        Text limit;
+        limit = this.TextCreate(kb);
+
+        Text join;
+        join = this.TextCreate(kd);
+
+        Text kka;
+        kka = this.TextCreate(inner);
+
+        kka = this.TextPlace(kka, limit, join);
+
+        String innerK;
+        innerK = this.StringCreate(kka);
+
+        String pageRootPath;
+        pageRootPath = this.S(".");
+
+        Text k;
+        k = this.TextCreate(this.ArticleTemplate);
+        k = this.Place(k, "#PageRootPath#", pageRootPath);
+        k = this.Place(k, "#AssetVer#", this.Ver);
+        k = this.Place(k, "#HomeTitle#", title);
+        k = this.Place(k, "#HomeInner#", innerK);
+
+        String a;
+        a = this.StringCreate(k);
+
+        String foldPath;
+        foldPath = this.DestFoldPath;
+
+        bool b;
+
+        b = this.StorageComp.FoldCreate(foldPath);
+        if (!b)
+        {
+            return false;
+        }
+
+        String outFilePath;
+        outFilePath = this.AddClear().Add(foldPath).Add(combine).AddS("index.html").AddResult();
+
+        b = this.StorageInfra.TextWrite(outFilePath, a);
+        if (!b)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
     protected virtual bool ExecuteArticle()
     {
         Node root;
