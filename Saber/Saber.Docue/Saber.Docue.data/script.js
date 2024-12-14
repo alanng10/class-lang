@@ -13,8 +13,8 @@ function InitHeader()
     a = document.querySelector(".Main .Header > .Name > a");
 
     var link;
-    link = PageRootPath + "/";
-    link = AppendLinkFileName(link);
+    link = PageRootPath;
+    link = AddLinkFileName(link);
 
     a.href = link;
 }
@@ -89,7 +89,7 @@ function CreateNode(a, path)
     var link;
     link = PageRootPath + "/" + path;
 
-    link = AppendLinkFileName(link);
+    link = AddLinkFileName(link);
 
     var eba;
     eba = document.createElement("a");
@@ -152,7 +152,7 @@ function CreateNode(a, path)
     return e;
 }
 
-function AppendLinkFileName(link)
+function AddLinkFileName(link)
 {
     if (LinkFileName)
     {
