@@ -115,17 +115,24 @@ public class Gen : ClassBase
             return false;
         }
 
-        b = this.ExecuteArticle();
+        b = this.ExecuteHome();
         if (!b)
         {
             this.Status = 4000;
             return false;
         }
 
-        b = this.ExecuteAsset();
+        b = this.ExecuteArticle();
         if (!b)
         {
             this.Status = 5000;
+            return false;
+        }
+
+        b = this.ExecuteAsset();
+        if (!b)
+        {
+            this.Status = 6000;
             return false;
         }
 
