@@ -48,7 +48,7 @@ body
     color: var(--MainColor);
 }
 
-.NaviArticle
+.Navi
 {
     position: absolute;
     top: calc(var(--HeaderHeight) + var(--HeaderBorder));
@@ -189,20 +189,20 @@ body
     font-size: 16px;
 }
 
-.NaviArticle .Node
+.Navi .Node
 {
     width: auto;
     height: auto;
     position: relative;
 }
 
-.NaviArticle .Node > .Child
+.Navi .Node > .Child
 {
     margin-left: 18px;
     display: none;
 }
 
-.NaviArticle .Node > .Icon
+.Navi .Node > .Icon
 {
     position: absolute;
     top: 2px;
@@ -214,20 +214,20 @@ body
     font-size: 22px;
 }
 
-.NaviArticle .Node > .Icon:before
+.Navi .Node > .Icon:before
 {
     font-family: "Material Icons Outlined";
     content: attr(data-before);
 }
 
-.NaviArticle .Node.Leaf > .Icon
+.Navi .Node.Leaf > .Icon
 {
     left: 7px;
     font-size: 7px;
     cursor: default;
 }
 
-.NaviArticle .Node > .Name
+.Navi .Node > .Name
 {
     height: 24px;
     margin-left: 20px;
@@ -237,13 +237,13 @@ body
     font-weight: 500;
 }
 
-.NaviArticle .Node > .Name > a
+.Navi .Node > .Name > a
 {
     color: black;
     text-decoration: none;
 }
 
-.NaviArticle .Node.Current > .Name
+.Navi .Node.Current > .Name
 {
     font-weight: bold;
 }
