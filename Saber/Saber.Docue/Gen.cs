@@ -22,7 +22,7 @@ public class Gen : ClassBase
     protected virtual String Ver { get; set; }
     protected virtual String ArticleFoldPath { get; set; }
     protected virtual Node ArticleRoot { get; set; }
-    protected virtual String PageTemplate { get; set; }
+    protected virtual String ArticleTemplate { get; set; }
     protected virtual String SFlagD { get; set; }
     protected virtual String SBackslash { get; set; }
 
@@ -36,7 +36,7 @@ public class Gen : ClassBase
             return false;
         }
 
-        this.PageTemplate = k;
+        this.ArticleTemplate = k;
         return true;
     }
 
@@ -262,7 +262,7 @@ public class Gen : ClassBase
         pageRootPath = this.PageRootPath(level);
 
         Text k;
-        k = this.TextCreate(this.PageTemplate);
+        k = this.TextCreate(this.ArticleTemplate);
         k = this.Place(k, "#PageRootPath#", pageRootPath);
         k = this.Place(k, "#AssetVer#", this.Ver);
         k = this.Place(k, "#ArticleTitle#", title);
