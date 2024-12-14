@@ -3,7 +3,6 @@
 
 # Define
 Root class for any.
-# Detail
 
 # Part
 ## Field
@@ -16,6 +15,7 @@ Root class for any.
 Init
 ## Param
 
+## Result
+True inf execute success. False otherwise.
 ## Define
 Init for any.
-## Detail
