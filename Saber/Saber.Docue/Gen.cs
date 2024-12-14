@@ -20,7 +20,7 @@ public class Gen : ClassBase
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual StorageComp StorageComp { get; set; }
     protected virtual String Ver { get; set; }
-    protected virtual Node Root { get; set; }
+    protected virtual Node ArticleRoot { get; set; }
     protected virtual String PageTemplate { get; set; }
     protected virtual String SFlagD { get; set; }
     protected virtual String SBackslash { get; set; }
@@ -148,7 +148,7 @@ public class Gen : ClassBase
     protected virtual bool ExecuteArticle()
     {
         Node root;
-        root = this.Root;
+        root = this.ArticleRoot;
 
         bool b;
         b = this.ExecuteArticleNode(root, 0, this.S("."));
@@ -345,7 +345,7 @@ public class Gen : ClassBase
         this.AddS("var NaviTree;\n");
         this.AddS("NaviTree =\n");
 
-        this.ExecuteNaviNode(0, this.Root);
+        this.ExecuteNaviNode(0, this.ArticleRoot);
 
         this.Add(semicolon);
         this.Add(newLine);
@@ -521,7 +521,7 @@ public class Gen : ClassBase
 
         a.Child = child;
 
-        this.Root = a;
+        this.ArticleRoot = a;
         return true;
     }
 
