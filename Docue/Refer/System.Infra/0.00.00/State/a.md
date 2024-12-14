@@ -8,19 +8,19 @@ In derive class Execute maide, get Arg to get the arg, set Result to set result 
 # Part
 ## Field
 ## Name
-Index
+Arg
 ## Class
-[[System.Infra:0.00.00:Int(Int)]]
+[[System.Infra:0.00.00:Any(Any)]]
 ## Got
-Index
+Arg
 ## Define
-Start index of the range.
+Arg of Execute maide.
 ## Field
 ## Name
-Count
+Result
 ## Class
-[[System.Infra:0.00.00:Int(Int)]]
+[[System.Infra:0.00.00:Any(Any)]]
 ## Got
-Count
+Result
 ## Define
-Count of the range.
+Result of Execute maide.
