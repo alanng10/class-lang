@@ -65,7 +65,7 @@ function CreateNavi()
     navi = document.querySelector(".Main .Navi");
 
     var e;
-    e = CreateNode(NaviTree, "");
+    e = CreateNode(NaviTree, "article");
 
     NodeSet(e, true);
 
