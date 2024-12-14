@@ -83,6 +83,8 @@ public class Gen : ClassBase
 
     public virtual bool Execute()
     {
+        this.Status = 0;
+
         bool b;
 
         b = this.ExecuteVer();
