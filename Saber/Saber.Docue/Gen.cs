@@ -263,7 +263,7 @@ public class Gen : ClassBase
         root = this.ArticleRoot;
 
         bool b;
-        b = this.ExecuteArticleNode(root, 0, this.S("."));
+        b = this.ExecuteArticleNode(root, 1, this.S("."));
         if (!b)
         {
             return false;
