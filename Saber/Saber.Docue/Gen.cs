@@ -505,26 +505,8 @@ public class Gen : ClassBase
     protected virtual bool ExecuteNode()
     {
         this.ArticleFoldPath = this.AddClear().Add(this.SourceFoldPath).Add(this.TextInfra.PathCombine).AddS("Article").AddResult();
-        
-        String nodePath;
-        nodePath = this.ArticleFoldPath;
 
-        Node a;
-        a = new Node();
-        a.Init();
-        a.Name = this.TextInfra.Zero;
-
-        Table child;
-        child = this.CreateChild(nodePath);
-
-        if (child == null)
-        {
-            return false;
-        }
-
-        a.Child = child;
-
-        this.ArticleRoot = a;
+        this.ArticleRoot = this.CreateNode(this.ArticleFoldPath, this.TextInfra.Zero);
         return true;
     }
 
@@ -548,26 +530,8 @@ public class Gen : ClassBase
         a.Init();
         a.Name = name;
 
-        String nodePath;
-        nodePath = this.AddClear().Add(foldPath).Add(this.TextInfra.PathCombine).Add(name).AddResult();
-
         Table child;
-        child = this.CreateChild(nodePath);
-
-        if (child == null)
-        {
-            return null;
-        }
-
-        a.Child = child;
-
-        return a;
-    }
-
-    protected virtual Table CreateChild(String nodePath)
-    {
-        Table child;
-        child = this.ChildTable(nodePath);
+        child = this.ChildTable(foldPath);
 
         Iter iter;
         iter = child.IterCreate();
@@ -578,8 +542,11 @@ public class Gen : ClassBase
             String kk;
             kk = iter.Index as String;
 
+            String ka;
+            ka = this.AddClear().Add(foldPath).Add(this.TextInfra.PathCombine).Add(name).AddResult();
+
             Node aa;
-            aa = this.CreateNode(nodePath, kk);
+            aa = this.CreateNode(ka, kk);
 
             if (aa == null)
             {
@@ -589,7 +556,9 @@ public class Gen : ClassBase
             child.Set(kk, aa);
         }
 
-        return child;
+        a.Child = child;
+
+        return a;
     }
 
     protected virtual Table ChildTable(String foldPath)
