@@ -368,8 +368,8 @@ public class Gen : ClassBase
         comma = this.S(",");
         String braceLite;
         braceLite = this.S("{");
-        String rightBrace;
-        rightBrace = this.S("}");
+        String braceRite;
+        braceRite = this.S("}");
         String space;
         space = this.S(" ");
         String quote;
@@ -427,11 +427,11 @@ public class Gen : ClassBase
         }
 
         this.AddIndent(indent + 1);
-        this.Add(rightBrace);
+        this.Add(braceRite);
         this.Add(newLine);
 
         this.AddIndent(indent);
-        this.Add(rightBrace);
+        this.Add(braceRite);
         return true;
     }
 
