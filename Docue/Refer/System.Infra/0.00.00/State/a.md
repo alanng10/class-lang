@@ -1,5 +1,3 @@
-# Base
-[[System.Infra:0.00.00:Any(Any)]]
 # Define
 State of anything. Derive this class and override Execute maide 
 to present any state. This base class Execute maide do zero.
@@ -9,10 +7,6 @@ In derive class Execute maide, get Arg to get the arg, set Result to set result 
 ## Field
 ## Name
 Arg
-## Count
-Prusate
-## Class
-[[System.Infra:0.00.00:Any(Any)]]
 ## Got
 Arg
 ## Define
@@ -20,10 +14,6 @@ Arg of Execute maide.
 ## Field
 ## Name
 Result
-## Count
-Prusate
-## Class
-[[System.Infra:0.00.00:Any(Any)]]
 ## Got
 Result
 ## Define
@@ -31,10 +21,6 @@ Result of Execute maide.
 ## Maide
 ## Name
 Execute
-## Count
-Prusate
-## Class
-[[System.Infra:0.00.00:Bool(Bool)]]
 ## Param
 ## Result
 True inf execute success. False otherwise.
