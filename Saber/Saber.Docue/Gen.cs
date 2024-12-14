@@ -581,7 +581,7 @@ public class Gen : ClassBase
             String name;
             name = (String)array.GetAt(i);
 
-            listInfra.TableAdd(table, name, null);
+            listInfra.TableAdd(table, name, name);
 
             i = i + 1;
         }
