@@ -12,6 +12,7 @@ Prusate
 ## Class
 [[System.Infra:0.00.00:Bool(Bool)]]
 ## Param
+## Virtual
 ## Result
 True inf execute success. False otherwise.
 ## Define
