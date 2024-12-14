@@ -411,7 +411,7 @@ public class Gen : ClassBase
         while (iter.Next())
         {
             Node aa;
-            aa = (Node)iter.Value;
+            aa = iter.Value as Node;
 
             this.AddIndent(indent + 2);
             this.Add(quote);
