@@ -579,7 +579,7 @@ public class Gen : ClassBase
         while (i < count)
         {
             String name;
-            name = (String)array.GetAt(i);
+            name = array.GetAt(i) as String;
 
             listInfra.TableAdd(table, name, name);
 
