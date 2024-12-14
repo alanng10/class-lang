@@ -20,6 +20,7 @@ public class Gen : ClassBase
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual StorageComp StorageComp { get; set; }
     protected virtual String Ver { get; set; }
+    protected virtual String ArticleFoldPath { get; set; }
     protected virtual Node ArticleRoot { get; set; }
     protected virtual String PageTemplate { get; set; }
     protected virtual String SFlagD { get; set; }
@@ -503,8 +504,10 @@ public class Gen : ClassBase
 
     protected virtual bool ExecuteNode()
     {
+        this.ArticleFoldPath = this.AddClear().Add(this.SourceFoldPath).Add(this.TextInfra.PathCombine).AddS("Article").AddResult();
+        
         String nodePath;
-        nodePath = this.AddClear().Add(this.SourceFoldPath).Add(this.TextInfra.PathCombine).AddS("Article").AddResult();
+        nodePath = this.ArticleFoldPath;
 
         Node a;
         a = new Node();
@@ -573,7 +576,7 @@ public class Gen : ClassBase
         while (iter.Next())
         {
             String kk;
-            kk = (String)iter.Index;
+            kk = iter.Index as String;
 
             Node aa;
             aa = this.CreateNode(nodePath, kk);
