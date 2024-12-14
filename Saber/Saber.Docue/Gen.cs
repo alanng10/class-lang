@@ -280,7 +280,7 @@ public class Gen : ClassBase
         pathKk = this.StringCreate(kaa);
 
         String foldPath;
-        foldPath = this.AddClear().Add(this.DestFoldPath).Add(combine).Add(pathKk).AddResult();
+        foldPath = this.AddClear().Add(this.DestFoldPath).Add(combine).AddS("article").Add(combine).Add(pathKk).AddResult();
 
         bool b;
 
