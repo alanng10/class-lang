@@ -25,7 +25,7 @@ function SetNavi()
     node = NaviTree;
 
     var h;
-    h = PagePath.substring(2);
+    h = ArticlePath.substring(2);
 
     var index;
     index = 0;
