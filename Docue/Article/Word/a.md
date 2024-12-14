@@ -28,6 +28,8 @@ Word "source" has meaning that is make dependency.
 
 Word "docue" has meaning that is document.
 
+Word "article" has meaning that is document article.
+
 Word "define" has meaning that is definition.
 
 Word "detail" has meaning that is sub info.
