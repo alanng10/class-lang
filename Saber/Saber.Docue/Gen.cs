@@ -504,7 +504,15 @@ public class Gen : ClassBase
         a.Init();
         a.Name = this.TextInfra.Zero;
 
-        a.Child = this.CreateChild(nodePath);
+        Table child;
+        child = this.CreateChild(nodePath);
+        
+        if (child == null)
+        {
+            return false;
+        }
+
+        a.Child = child;
 
         this.Root = a;
         return true;
