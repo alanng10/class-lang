@@ -62,7 +62,7 @@ function SetNavi()
 function CreateNavi()
 {
     var navi;
-    navi = document.querySelector(".Main .Navi");
+    navi = document.querySelector(".Main .NaviArticle");
 
     var e;
     e = CreateNode(NaviTree, ".");
