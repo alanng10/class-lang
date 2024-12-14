@@ -9,6 +9,8 @@ Index is start. Count is end sub start.
 ## Field
 ## Name
 Index
+## Count
+Prusate
 ## Class
 [[System.Infra:0.00.00:Int(Int)]]
 ## Got
@@ -18,6 +20,8 @@ Start index of the range.
 ## Field
 ## Name
 Count
+## Count
+Prusate
 ## Class
 [[System.Infra:0.00.00:Int(Int)]]
 ## Got
