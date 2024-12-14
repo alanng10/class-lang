@@ -88,30 +88,35 @@ public class Gen : ClassBase
         b = this.ExecuteVer();
         if (!b)
         {
+            this.Status = 1000;
             return false;
         }
 
         b = this.ExecuteNode();
         if (!b)
         {
+            this.Status = 2000;
             return false;
         }
 
         b = this.ExecuteVar();
         if (!b)
         {
+            this.Status = 3000;
             return false;
         }
 
         b = this.ExecuteArticle();
         if (!b)
         {
+            this.Status = 4000;
             return false;
         }
 
         b = this.ExecuteAsset();
         if (!b)
         {
+            this.Status = 5000;
             return false;
         }
 
