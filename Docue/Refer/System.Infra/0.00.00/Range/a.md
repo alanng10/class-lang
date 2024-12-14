@@ -3,7 +3,7 @@
 # Define
 Represent range. Range from start to end.
 Start is start index of the range.
-End is 1 after that last index of the range.
+End is 1 after the last index of the range.
 Index is start. Count is end sub start.
 # Part
 ## Field
