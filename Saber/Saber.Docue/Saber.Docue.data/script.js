@@ -36,6 +36,22 @@ function InitNavi()
     }
 }
 
+function InitNaviAddNode(title, path, iconCode)
+{
+    var navi;
+    navi = document.querySelector(".Main .Navi");
+
+    var e;
+    e = NodeCreateSingle(title, path);
+
+    var nodeIcon;
+    nodeIcon = e.firstElementChild;
+
+    nodeIcon.setAttribute('data-before', iconCode);
+
+    navi.appendChild(e);
+}
+
 function NaviArticleSet()
 {
     var node;
