@@ -537,7 +537,7 @@ public class Gen : ClassBase
             kk = iter.Index as String;
 
             String ka;
-            ka = this.AddClear().Add(foldPath).Add(this.TextInfra.PathCombine).Add(name).AddResult();
+            ka = this.AddClear().Add(foldPath).Add(this.TextInfra.PathCombine).Add(kk).AddResult();
 
             Node aa;
             aa = this.CreateNode(ka, kk);
