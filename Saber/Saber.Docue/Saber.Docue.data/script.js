@@ -156,7 +156,7 @@ function AppendLinkFileName(link)
 {
     if (LinkFileName)
     {
-        link = link + "index.html";
+        link = link + "/index.html";
     }
     return link
 }
