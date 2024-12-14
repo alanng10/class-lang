@@ -225,7 +225,7 @@ public class Gen : ClassBase
         pageRootPath = this.PageRootPath(0);
 
         Text k;
-        k = this.TextCreate(this.ArticleTemplate);
+        k = this.TextCreate(this.HomeTemplate);
         k = this.Place(k, "#PageRootPath#", pageRootPath);
         k = this.Place(k, "#AssetVer#", this.Ver);
         k = this.Place(k, "#HomeTitle#", title);
