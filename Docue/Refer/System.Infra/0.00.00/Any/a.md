@@ -3,6 +3,7 @@
 
 # Define
 Root class for any.
+Class that need init is init with Init maide.
 
 # Part
 ## Field
