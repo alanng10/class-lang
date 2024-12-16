@@ -14,3 +14,5 @@ To replace with derived parts, set derived parts classes instances in tool modul
 Different module entries that use derived part classes instances can be generated with module that uses Class compiler modules.
 
 Using network local system to load any part is not enough element for modules that need high execute certainty.
+
+Tool parts are used like regular get, set and call.
