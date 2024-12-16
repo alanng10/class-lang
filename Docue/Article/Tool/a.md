@@ -18,3 +18,4 @@ Using network local system to load any part is not enough element for modules th
 Tool parts are used like regular get, set and call.
 
 To replace a part with combination of multiple parts, merge the multiple parts into a part, and use an instance of the part class.
+This is enough element to make any tool.
