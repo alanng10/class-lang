@@ -10,5 +10,5 @@ The entries are ports in modules.
 Tool has infra element enough to make any tool.
 
 Tool parts can be replaced with derived parts.
-To replaced with derived parts, set derived parts classes instances in tool module entry fields before entry ExecuteMain execute.
-Different module entries that use derived part classes instances can be gen with module that uses Class compiler module.
+To replace with derived parts, set derived parts classes instances in tool module entry fields before entry ExecuteMain executes.
+Different module entries that use derived part classes instances can be generated with module that uses Class compiler modules.
