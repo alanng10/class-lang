@@ -11,4 +11,4 @@ Tool has infra element enough to make any tool.
 
 Tool parts can be replaced with derived parts.
 To replaced with derived parts, set derived parts classes instances in tool module entry fields before entry ExecuteMain execute.
-Different module entries that use derived part classes instances can be gen with module.
+Different module entries that use derived part classes instances can be gen with Class compiler module.
