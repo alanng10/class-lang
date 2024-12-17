@@ -214,6 +214,8 @@ Word "max" has meaning that is maximum.
 
 Word "link" has meaning that is directed way.
 
+Word "space" has meaning that is whitespace.
+
 Word "stack" has meaning that is put on top of.
 
 Word "queue" has meaning that is put at after back.
