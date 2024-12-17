@@ -490,6 +490,8 @@ Word "pixel" has meaning that is color point.
 
 Word "vector" has meaning that is scalable vector.
 
+Word "visual" has meaning that is graphics.
+
 Word "tune" has meaning that is comp audio.
 
 Word "plane" has meaning that is plane time line.
