@@ -12,12 +12,7 @@ public class Draw : Any
         this.Math = MathMath.This;
 
         this.Size = this.CreateSize();
-        this.Area = new Rect();
-        this.Area.Init();
-        this.Area.Pos = new Pos();
-        this.Area.Pos.Init();
-        this.Area.Size = new Size();
-        this.Area.Size.Init();
+        this.Area = this.CreateArea();
         this.Pos = new Pos();
         this.Pos.Init();
         this.FillPos = new Pos();
@@ -98,6 +93,18 @@ public class Draw : Any
         Size a;
         a = new Size();
         a.Init();
+        return a;
+    }
+
+    protected virtual Rect CreateArea()
+    {
+        Rect a;
+        a = new Rect();
+        a.Init();
+        a.Pos = new Pos();
+        a.Pos.Init();
+        a.Size = new Size();
+        a.Size.Init();
         return a;
     }
 
