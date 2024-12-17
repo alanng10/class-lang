@@ -19,7 +19,7 @@ public class Draw : Any
         this.MathComp = this.CreateMathComp();
 
         this.PosA = this.CreatePosA();
-        this.WorldForm = this.CreateForm();
+        this.WorldForm = this.CreateWorldForm();
 
         this.TextCount = 1024;
 
@@ -79,7 +79,7 @@ public class Draw : Any
 
         Extern.Delete(this.InternTextData);
 
-        this.WorldForm.Final();
+        this.FinalWorldForm(this.WorldForm);
         return true;
     }
 
@@ -135,12 +135,18 @@ public class Draw : Any
         return a;
     }
 
-    protected virtual Form CreateForm()
+    protected virtual Form CreateWorldForm()
     {
         Form a;
         a = new Form();
         a.Init();
         return a;
+    }
+
+    protected virtual bool FinalWorldForm(Form a)
+    {
+        a.Final();
+        return true;
     }
 
     public virtual ulong Out { get; set; }
