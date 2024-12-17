@@ -291,8 +291,8 @@ class ObjectString : ClassBase
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
-        PrintChar printableChar;
-        printableChar = this.PrintChar;
+        PrintChar printChar;
+        printChar = this.PrintChar;
 
         long count;
         count = this.StringCount(o);
@@ -332,7 +332,7 @@ class ObjectString : ClassBase
             if (!b)
             {
                 bool ba;
-                ba = printableChar.Get(oc);
+                ba = printChar.Get(oc);
 
                 if (!ba)
                 {
