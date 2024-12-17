@@ -19,8 +19,7 @@ public class Draw : Any
         this.MathComp = this.CreateMathComp();
 
         this.PosA = this.CreatePosA();
-        this.WorldForm = new Form();
-        this.WorldForm.Init();
+        this.WorldForm = this.CreateForm();
 
         this.TextCount = 1024;
 
@@ -132,6 +131,14 @@ public class Draw : Any
     {
         Pos a;
         a = new Pos();
+        a.Init();
+        return a;
+    }
+
+    protected virtual Form CreateForm()
+    {
+        Form a;
+        a = new Form();
         a.Init();
         return a;
     }
