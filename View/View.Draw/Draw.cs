@@ -14,8 +14,7 @@ public class Draw : Any
         this.Size = this.CreateSize();
         this.Area = this.CreateArea();
         this.Pos = this.CreatePos();
-        this.FillPos = new Pos();
-        this.FillPos.Init();
+        this.FillPos = this.CreateFillPos();
 
         this.MathComp = new MathComp();
         this.MathComp.Init();
@@ -108,6 +107,14 @@ public class Draw : Any
     }
 
     protected virtual Pos CreatePos()
+    {
+        Pos a;
+        a = new Pos();
+        a.Init();
+        return a;
+    }
+
+    protected virtual Pos CreateFillPos()
     {
         Pos a;
         a = new Pos();
