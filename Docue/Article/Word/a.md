@@ -488,6 +488,8 @@ Word "point" has meaning that is smallest entity.
 
 Word "pixel" has meaning that is color point.
 
+Word "vector" has meaning that is scalable vector.
+
 Word "tune" has meaning that is comp audio.
 
 Word "plane" has meaning that is plane time line.
