@@ -16,8 +16,7 @@ public class Draw : Any
         this.Pos = this.CreatePos();
         this.FillPos = this.CreateFillPos();
 
-        this.MathComp = new MathComp();
-        this.MathComp.Init();
+        this.MathComp = this.CreateMathComp();
 
         this.PosA = new Pos();
         this.PosA.Init();
@@ -118,6 +117,14 @@ public class Draw : Any
     {
         Pos a;
         a = new Pos();
+        a.Init();
+        return a;
+    }
+
+    protected virtual MathComp CreateMathComp()
+    {
+        MathComp a;
+        a = new MathComp();
         a.Init();
         return a;
     }
