@@ -5,7 +5,7 @@ class ObjectString : ClassBase
     public override bool Init()
     {
         base.Init();
-        this.PrintableChar = PrintableChar.This;
+        this.PrintableChar = PrintChar.This;
 
         this.NodeType = typeof(NodeNode);
         this.CodeType = typeof(Code);
@@ -30,7 +30,7 @@ class ObjectString : ClassBase
         return true;
     }
 
-    protected virtual PrintableChar PrintableChar { get; set; }
+    protected virtual PrintChar PrintableChar { get; set; }
     private String SComma { get; set; }
     private String SSpace { get; set; }
     private String SQuote { get; set; }
@@ -291,7 +291,7 @@ class ObjectString : ClassBase
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
-        PrintableChar printableChar;
+        PrintChar printableChar;
         printableChar = this.PrintableChar;
 
         long count;
