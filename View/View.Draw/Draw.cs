@@ -18,8 +18,7 @@ public class Draw : Any
 
         this.MathComp = this.CreateMathComp();
 
-        this.PosA = new Pos();
-        this.PosA.Init();
+        this.PosA = this.CreatePosA();
         this.WorldForm = new Form();
         this.WorldForm.Init();
 
@@ -125,6 +124,14 @@ public class Draw : Any
     {
         MathComp a;
         a = new MathComp();
+        a.Init();
+        return a;
+    }
+
+    protected virtual Pos CreatePosA()
+    {
+        Pos a;
+        a = new Pos();
         a.Init();
         return a;
     }
