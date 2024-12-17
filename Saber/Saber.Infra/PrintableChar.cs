@@ -1,13 +1,13 @@
 namespace Saber.Infra;
 
-public class PrintableChar : Any
+public class PrintChar : Any
 {
-    public static PrintableChar This { get; } = ShareCreate();
+    public static PrintChar This { get; } = ShareCreate();
 
-    private static PrintableChar ShareCreate()
+    private static PrintChar ShareCreate()
     {
-        PrintableChar share;
-        share = new PrintableChar();
+        PrintChar share;
+        share = new PrintChar();
         Any a;
         a = share;
         a.Init();
