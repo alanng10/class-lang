@@ -11,8 +11,7 @@ public class Draw : Any
         this.DrawInfra = Infra.This;
         this.Math = MathMath.This;
 
-        this.Size = new Size();
-        this.Size.Init();
+        this.Size = this.CreateSize();
         this.Area = new Rect();
         this.Area.Init();
         this.Area.Pos = new Pos();
@@ -92,6 +91,14 @@ public class Draw : Any
 
         this.WorldForm.Final();
         return true;
+    }
+
+    protected virtual Size CreateSize()
+    {
+        Size a;
+        a = new Size();
+        a.Init();
+        return a;
     }
 
     public virtual ulong Out { get; set; }
