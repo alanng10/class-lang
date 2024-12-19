@@ -5,3 +5,5 @@ View modules layer on top of System, like any other modules written in Class lan
 
 View is interface used for execute.
 Model interface is interface used for execute.
+
+Console interface is interface used for execute that is not tagged with the existence of specific form.
