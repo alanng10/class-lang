@@ -79,7 +79,7 @@ Struct any is passed with ref.
 Struct field type and local var type is declared.
 The node is TypeName.
 TypeName class is base class.
-The class has 2 derived class.
+The class has 3 derived class.
 1 derived class is IntTypeName. IntTypeName has syntax that is "int" index word.
 1 derived class is StructTypeName. 
 StructTypeName has syntax that is ClassName followed by colon limit, followed by StructName.
