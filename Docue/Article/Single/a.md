@@ -81,14 +81,18 @@ Struct any is passed with ref.
 Struct field type and local var type is declared.
 The node is TypeName.
 TypeName class is base class.
-The class has 3 derived class.
+The class has 4 derived class.
 1 derived class is IntTypeName. IntTypeName represents int type name.
 The int type can be byte, short, mid or int.
 IntTypeName has syntax that is "byte" index word, "short" index word, "mid" index word, or "int" index word.
 IntTypeName class has 1 field, that has IntType class. The field has one of IntType anys in IntType list.
 1 derived class is StructTypeName. 
 StructTypeName represents struct type name.
-StructTypeName has syntax that is ClassName followed by colon limit, followed by StructName.
+StructTypeName has syntax that starts with ClassName, followed by colon limit, followed by StructName.
+1 derived class is ValueStructTypeName.
+ValueStructTypename represents value struct type name.
+Struct fields and local vars that are declared with ValueStructTypeName are allocated space for the struct any.
+ValueStructTypeName has syntax that starts with "value" index word, followed by ClassName, followed by colon limit, followed by StructName.
 1 derived class is ArrayTypeName.
 ArrayTypeName represents array of int or struct type name.
 ArrayTypeName has syntax that is TypeName followed by limit brace square open token, 
