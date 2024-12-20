@@ -106,4 +106,4 @@ Calculate memory index with 64 bits int type operate lang elements is enough ele
 do any calculate of memory index.
 
 InfExecute and WhileExecute cond operate is 64 bits int type as bool type.
-AndOperate, OrnOperate and NotOperate input and output 64 bits int type as bool type.
+AndOperate, OrnOperate and NotOperate input types and output types is 64 bits int type as bool type.
