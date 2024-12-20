@@ -39,5 +39,5 @@ If it is struct type, the ref value is struct any memory index.
 Maide state can have execute that has NullOperate.
 NullOperate has syntax that is "null" word.
 NullOperate results ref, same as other Operate.
-Null is assignable to Int type input of lang elements.
+Null is assignable to all type input of lang elements.
 Null has ref value that is zero.
