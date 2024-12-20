@@ -817,7 +817,7 @@ public class Create : InfraCreate
             }
             if (!b)
             {
-                this.CheckExport(varClass);
+                this.ValidExport(varClass);
 
                 list.Add(varClass);
             }
@@ -834,7 +834,7 @@ public class Create : InfraCreate
         return true;
     }
 
-    protected virtual bool CheckExport(ClassClass varClass)
+    protected virtual bool ValidExport(ClassClass varClass)
     {
         Source source;
         source = this.SourceGet(varClass.Index);
