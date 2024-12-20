@@ -80,7 +80,9 @@ Struct field type and local var type is declared.
 The node is TypeName.
 TypeName class is base class.
 The class has 3 derived class.
-1 derived class is IntTypeName. IntTypeName represents int type name. IntTypeName has syntax that is "int" index word.
+1 derived class is IntTypeName. IntTypeName represents int type name.
+The int type can be byte, short, mid or int.
+IntTypeName has syntax that is "byte" index word, "short" index word, "mid" index word, or "int" index word.
 1 derived class is StructTypeName. 
 StructTypeName represents struct type name.
 StructTypeName has syntax that is ClassName followed by colon limit, followed by StructName.
