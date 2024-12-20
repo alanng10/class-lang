@@ -92,8 +92,8 @@ StructTypeName has syntax that starts with ClassName, followed by colon limit, f
 1 derived class is ValueStructTypeName.
 ValueStructTypename represents value struct type name.
 Struct fields and local vars that are declared with ValueStructTypeName are allocated space for the struct any.
-ValueStructTypeName has syntax that starts with "value" index word, followed by ClassName, followed by colon limit, followed by StructName.
 The fields of the field names and vars of the var names hold ref values that are memory indexes of the struct anys.
+ValueStructTypeName has syntax that starts with "value" index word, followed by ClassName, followed by colon limit, followed by StructName.
 1 derived class is ArrayTypeName.
 ArrayTypeName represents array of int or struct type name.
 ArrayTypeName has syntax that is TypeName followed by limit brace square open token, 
