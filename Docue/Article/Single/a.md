@@ -115,3 +115,6 @@ do any calculate of memory index.
 
 InfExecute and WhileExecute cond operate is 64 bits int type as bool type.
 AndOperate, OrnOperate and NotOperate input types and output types is 64 bits int type as bool type.
+
+Glob vars are represented with GlobVar.
+GlobVar has syntax that starts with "glob" index word, followed by Var, followed by limit semicolon.
