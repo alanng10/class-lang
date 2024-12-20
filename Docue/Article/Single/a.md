@@ -78,7 +78,7 @@ Between the limit brace open and close tokens, RefCallOperate has Argue node.
 
 Struct any is passed with ref.
 
-Struct field type and local var type is declared.
+Struct vars types, glob vars types and local vars types are declared.
 The node is TypeName.
 TypeName class is base class.
 The class has 4 derived class.
@@ -91,21 +91,21 @@ StructTypeName represents struct type name.
 StructTypeName has syntax that starts with ClassName, followed by colon limit, followed by StructName.
 1 derived class is ValueStructTypeName.
 ValueStructTypename represents value struct type name.
-Struct fields and local vars that are declared with ValueStructTypeName are allocated space for the struct anys.
-The fields of the field names and vars of the var names hold ref values that are memory indexes of the allocated struct anys.
-The fields and vars cannot be set.
+Struct vars, glob vars and local vars that are declared with ValueStructTypeName are allocated space for the struct anys.
+The vars hold ref values that are memory indexes of the allocated struct anys.
+The vars cannot be set.
 ValueStructTypeName has syntax that starts with "value" index word, followed by ClassName, followed by colon limit, followed by StructName.
 1 derived class is ValueArrayTypeName.
 ValueArrayTypeName represents array of int or struct type name.
-Struct fields and local vars that are declared with ValueArrayTypeName are allocated space for the array anys.
-The fields of the field names and vars of the var names hold ref values that are memory indexes of the allocated array anys.
-The fields and vars cannot be set.
+Struct vars, glob vars and local vars that are declared with ValueArrayTypeName are allocated space for the array anys.
+The vars hold ref values that are memory indexes of the allocated array anys.
+The vars cannot be set.
 ValueArrayTypeName has syntax that starts with "value" index word, followed by TypeName, followed by limit brace square open token, 
 followed by Value, followed by limit brace square close token.
 The TypeName can be either IntTypeName or StructTypeName.
 The Value can be either IntValue, IntHexValue, IntSignValue or IntHexSignValue.
 
-Struct fields or local vars that are arrays, are 1 dimensional arrays.
+Struct vars, glob vars and local vars that are arrays are 1 dimensional arrays.
 
 Calculate memory index with 64 bits int type operate lang elements is enough element to
 do any calculate of memory index.
