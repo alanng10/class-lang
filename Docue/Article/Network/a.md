@@ -7,4 +7,4 @@ After the prefix, use 15 digits hexadecimal integer number string that is USB po
 The integer number has cap that is 60 bits.
 
 Network is not tagged with the existence of specific form.
-USB prefix does not tag Network with the existence of specific form.
+All host name strings do not tag Network with the existence of specific form.
