@@ -1,6 +1,7 @@
 # Single
 
 Single is system programming language.
+This programming language word "Single" is a node name.
 
 Single is a plat.
 The plat layers below System in info tech stack arch.
