@@ -30,6 +30,7 @@ Private count is count that is applicable to this class.
 Maide is shared maide. It has no this ref.
 Maide has param. The param is var list.
 Param var has Int type. Param var type is not declared.
+Maide result type is Int type.
 
 Maide state can have operate.
 Operate results ref.
@@ -42,6 +43,7 @@ The call can be passed with argue that has same count of ref as the maide param 
 The call can be passed with argue that is any type of ref.
 The maide state param var is the argue ref.
 Param var is get and set as Int type any.
+The call result type is maide result type, it is Int type.
 
 Maide state can have execute that has NullOperate.
 NullOperate has syntax that is "null" word.
