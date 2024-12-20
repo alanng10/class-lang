@@ -38,6 +38,8 @@ If it is Int type, the ref value is Int value.
 If it is struct type, the ref value is struct any memory index.
 
 Maide call argue is passed with ref.
+The call can be passed with argue that has same count of ref as the maide param var count.
+The call can be passed with argue that is any type of ref.
 
 Maide state can have execute that has NullOperate.
 NullOperate has syntax that is "null" word.
