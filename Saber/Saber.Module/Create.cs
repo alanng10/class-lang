@@ -869,7 +869,7 @@ public class Create : InfraCreate
         while (iter.Next())
         {
             Maide maide;
-            maide = (Maide)iter.Value;
+            maide = iter.Value as Maide;
             if (this.CountExport(maide.Count))
             {
                 bool b;
@@ -886,7 +886,7 @@ public class Create : InfraCreate
                     while (!b & iterA.Next())
                     {
                         Var varVar;
-                        varVar = (Var)iterA.Value;
+                        varVar = iterA.Value as Var;
                         if (!this.CheckIsExport(varVar.Class))
                         {
                             b = true;
@@ -896,7 +896,7 @@ public class Create : InfraCreate
                 if (b)
                 {
                     NodeMaide ac;
-                    ac = (NodeMaide)maide.Any;
+                    ac = maide.Any as NodeMaide;
                     this.Error(this.ErrorKind.MaideUnexportable, ac, source);
                 }
             }
