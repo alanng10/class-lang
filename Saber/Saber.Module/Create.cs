@@ -839,7 +839,7 @@ public class Create : InfraCreate
         Source source;
         source = this.SourceGet(varClass.Index);
 
-        if (!this.CheckIsExport(varClass.Base))
+        if (!this.ValidIsExport(varClass.Base))
         {
             NodeClass aa;
             aa = varClass.Any as NodeClass;
@@ -855,7 +855,7 @@ public class Create : InfraCreate
             field = iter.Value as Field;
             if (this.CountExport(field.Count))
             {
-                if (!this.CheckIsExport(field.Class))
+                if (!this.ValidIsExport(field.Class))
                 {
                     NodeField ab;
                     ab = field.Any as NodeField;
@@ -874,7 +874,7 @@ public class Create : InfraCreate
             {
                 bool b;
                 b = false;
-                if (!this.CheckIsExport(maide.Class))
+                if (!this.ValidIsExport(maide.Class))
                 {
                     b = true;
                 }
@@ -887,7 +887,7 @@ public class Create : InfraCreate
                     {
                         Var varVar;
                         varVar = iterA.Value as Var;
-                        if (!this.CheckIsExport(varVar.Class))
+                        if (!this.ValidIsExport(varVar.Class))
                         {
                             b = true;
                         }
@@ -913,7 +913,7 @@ public class Create : InfraCreate
         return false;
     }
 
-    protected virtual bool CheckIsExport(ClassClass varClass)
+    protected virtual bool ValidIsExport(ClassClass varClass)
     {
         ClassModule module;
         module = this.Module;
