@@ -95,9 +95,9 @@ Struct fields and local vars that are declared with ValueStructTypeName are allo
 The fields of the field names and vars of the var names hold ref values that are memory indexes of the allocated struct anys.
 The fields and vars cannot be set.
 ValueStructTypeName has syntax that starts with "value" index word, followed by ClassName, followed by colon limit, followed by StructName.
-1 derived class is ArrayTypeName.
-ArrayTypeName represents array of int or struct type name.
-ArrayTypeName has syntax that is TypeName followed by limit brace square open token, 
+1 derived class is ValueArrayTypeName.
+ValueArrayTypeName represents array of int or struct type name.
+ValueArrayTypeName has syntax that starts with "value" index word, followed by TypeName,  followed by limit brace square open token, 
 followed by IntValue, followed by limit brace square close token.
 The TypeName can be either IntTypeName or StructTypeName.
 
