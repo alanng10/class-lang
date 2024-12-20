@@ -50,6 +50,7 @@ Int is 64 bits. Ref is 64 bits.
 RefCallOperate is operate that call with ref value as maide memory index.
 The call argue is passed with ref, same as CallOperate.
 The call can be passed with argue that is any integer multiple of ref.
+The call can be passed with argue that is any type of ref.
 The call argue list count is not declared.
 The call argue list type is not declared.
 The call return type is not declared.
