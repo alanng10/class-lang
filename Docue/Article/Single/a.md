@@ -45,4 +45,4 @@ NullOperate results ref, same as other Operate.
 Null is assignable to all type input of lang elements.
 Null has ref value that is zero.
 
-Int is 64 bits.
+Int is 64 bits. Ref is 64 bits.
