@@ -842,7 +842,7 @@ public class Create : InfraCreate
         if (!this.CheckIsExport(varClass.Base))
         {
             NodeClass aa;
-            aa = (NodeClass)varClass.Any;
+            aa = varClass.Any as NodeClass;
             this.Error(this.ErrorKind.ClassUnexportable, aa, source);
         }
 
@@ -852,13 +852,13 @@ public class Create : InfraCreate
         while (iter.Next())
         {
             Field field;
-            field = (Field)iter.Value;
+            field = iter.Value as Field;
             if (this.CountExport(field.Count))
             {
                 if (!this.CheckIsExport(field.Class))
                 {
                     NodeField ab;
-                    ab = (NodeField)field.Any;
+                    ab = field.Any as NodeField;
                     this.Error(this.ErrorKind.FieldUnexportable, ab, source);
                 }
             }
