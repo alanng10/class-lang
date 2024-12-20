@@ -32,3 +32,6 @@ Maide has param. The param is var list.
 Param var has Int type. Param var type is not declared.
 
 Maide call argue is passed with ref.
+The ref can be Int type, struct type.
+If it is Int type, the ref value is Int value.
+If it is struct type, the ref value is struct any memory index.
