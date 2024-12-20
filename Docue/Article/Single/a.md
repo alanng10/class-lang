@@ -100,6 +100,8 @@ ValueStructTypeName has syntax that starts with "value" index word, followed by 
 ValueArrayTypeName represents array of int or struct type name.
 Struct vars, glob vars and local vars that are declared with ValueArrayTypeName are allocated space for the array anys.
 The vars hold ref values that are memory indexes of the allocated array anys.
+The vars has type that is the struct type for array of struct type anys.
+The vars has type that is the 64 bits int type for array of int type anys.
 The vars cannot be assigned to.
 ValueArrayTypeName has syntax that starts with "value" index word, followed by TypeName, followed by limit brace square open token, 
 followed by Value, followed by limit brace square close token.
