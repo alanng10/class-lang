@@ -10,4 +10,4 @@ System is base to do execute.
 System is plat to do execute.
 System is execute plat.
 
-System abstract is not tagged with the existence of specific form.
+System is not tagged with the existence of specific form.
