@@ -103,6 +103,7 @@ The fields and vars cannot be set.
 ValueArrayTypeName has syntax that starts with "value" index word, followed by TypeName, followed by limit brace square open token, 
 followed by Value, followed by limit brace square close token.
 The TypeName can be either IntTypeName or StructTypeName.
+The Value can be either IntValue, IntHexValue, IntSignValue or IntHexSignValue.
 
 Struct fields or local vars that are arrays, are 1 dimensional arrays.
 
