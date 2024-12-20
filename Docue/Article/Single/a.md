@@ -67,3 +67,4 @@ It is programming error, to passed argue with different count of ref with declar
 
 RefCallOperate has syntax that starts with "call" index word.
 The index word is followed by var name, that is the var that hold ref value that is the maide memory index.
+The var name is followed by limit brace lite and matching rite tokens.
