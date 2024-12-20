@@ -22,3 +22,7 @@ Var node is global var node.
 
 All Comp derived classes have Count.
 Count has derived classes that are PrusateCount, PronateCount and PrivateCount.
+
+Prusate count is count that is applicable to all.
+Pronate count is count that is applicable to current module.
+Private count is count that is applicable to this class.
