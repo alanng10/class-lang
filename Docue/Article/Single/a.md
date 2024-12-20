@@ -31,6 +31,7 @@ Maide is shared maide. It has no this ref.
 Maide has param. The param is var list.
 Param var has Int type. Param var type is not declared.
 Maide result type is Int type.
+Maide result type is not declared.
 
 Maide state can have operate.
 Operate results ref.
