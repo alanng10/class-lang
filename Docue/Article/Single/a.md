@@ -86,4 +86,4 @@ StructTypeName represents struct type name.
 StructTypeName has syntax that is ClassName followed by colon limit, followed by StructName.
 1 derived class is ArrayTypeName.
 ArrayTypeName represents array of int or struct type name.
-ArrayType name has syntax
+ArrayTypeName has syntax that is TypeName followed by exponent sign.
