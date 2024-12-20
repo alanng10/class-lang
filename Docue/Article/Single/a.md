@@ -95,5 +95,5 @@ The TypeName can be either IntTypeName or StructTypeName.
 
 Struct fields or local vars that are arrays, are 1 dimensional arrays.
 
-Calculate memory index with int type operate lang elements is enough element to
+Calculate memory index with 64 bits int type operate lang elements is enough element to
 do any calculate of memory index.
