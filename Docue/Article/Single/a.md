@@ -10,8 +10,10 @@ Single is used to make system programming modules.
 Single modules sources has port.
 The port source file has file name "Single.Port".
 
-Single module port can import Single modules.
-To import Single modules, import the module classes with class names.
+Single port can import Single modules.
+To import Single modules, import the module classes with class names in the import section.
+To export a class, write the class name in the export section.
+Single Lang port syntax is same as Class Lang port.
 
 A Single lang source has root node that is Class node.
 The Class node has no base.
