@@ -70,3 +70,6 @@ The index word is followed by var name, that is the var that hold ref value that
 The var name is followed by limit brace open and matching close tokens.
 The limit brace close token is the last token of the RefCallOperate node syntax.
 Between the limit brace open and close tokens, RefCallOperate has Argue node.
+
+Struct any is passed with ref.
+The ref is the any memory index.
