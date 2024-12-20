@@ -60,5 +60,5 @@ The call can be passed with argue that is any integer multiple of ref.
 The call can be passed with argue that is any type of ref.
 The call argue list count is not declared.
 The call argue list type is not declared.
-The call return type is not declared.
-The call return type is Int type.
+The call result type is not declared.
+The call result type is Int type.
