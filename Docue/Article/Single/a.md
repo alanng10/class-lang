@@ -105,6 +105,9 @@ followed by Value, followed by limit brace square close token.
 The TypeName can be either IntTypeName or StructTypeName.
 The Value can be either IntValue, IntHexValue, IntSignValue or IntHexSignValue.
 
+Struct vars types, glob vars types and local vars are declared with Var node.
+Var node syntax starts with "var" index word, followed by TypeName, followed by VarName.
+
 Struct vars, glob vars and local vars that are arrays, are 1 dimensional arrays.
 
 Calculate memory index with 64 bits int type operate lang elements is enough element to
