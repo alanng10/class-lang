@@ -804,7 +804,7 @@ public class Create : InfraCreate
         while (iter.Next())
         {
             String name;
-            name = (String)iter.Index;
+            name = iter.Index as String;
 
             ClassClass varClass;
             varClass = this.ModuleClassGet(module, name);
@@ -828,7 +828,7 @@ public class Create : InfraCreate
         while (iter.Next())
         {
             ClassClass d;
-            d = (ClassClass)iter.Value;
+            d = iter.Value as ClassClass;
             table.Set(d.Name, d);
         }
         return true;
