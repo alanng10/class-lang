@@ -41,6 +41,7 @@ Maide call argue is passed with ref.
 The call can be passed with argue that has same count of ref as the maide param var count.
 The call can be passed with argue that is any type of ref.
 The maide state param var is the argue ref.
+Param var is get and set as Int type any.
 
 Maide state can have execute that has NullOperate.
 NullOperate has syntax that is "null" word.
