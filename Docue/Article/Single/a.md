@@ -35,6 +35,7 @@ Maide result type is not declared.
 
 Maide state can have operate.
 Operate results ref.
+Input of lang elements also is assigned ref.
 The ref can be Int type, struct type.
 If it is Int type, the ref value is Int value.
 If it is struct type, the ref value is struct any memory index.
@@ -72,4 +73,3 @@ The limit brace close token is the last token of the RefCallOperate node syntax.
 Between the limit brace open and close tokens, RefCallOperate has Argue node.
 
 Struct any is passed with ref.
-The ref is the any memory index.
