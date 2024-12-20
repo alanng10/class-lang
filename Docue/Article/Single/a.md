@@ -100,7 +100,7 @@ ValueArrayTypeName represents array of int or struct type name.
 Struct fields and local vars that are declared with ValueArrayTypeName are allocated space for the array anys.
 The fields of the field names and vars of the var names hold ref values that are memory indexes of the allocated array anys.
 The fields and vars cannot be set.
-ValueArrayTypeName has syntax that starts with "value" index word, followed by TypeName,  followed by limit brace square open token, 
+ValueArrayTypeName has syntax that starts with "value" index word, followed by TypeName, followed by limit brace square open token, 
 followed by IntValue, followed by limit brace square close token.
 The TypeName can be either IntTypeName or StructTypeName.
 
