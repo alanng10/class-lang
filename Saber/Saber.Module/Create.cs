@@ -387,7 +387,7 @@ public class Create : InfraCreate
     {
         this.ClassVirtualSet();
 
-        this.SetClassRange();
+        this.ClassRangeSet();
         return true;
     }
 
@@ -535,7 +535,7 @@ public class Create : InfraCreate
         return a;
     }
 
-    protected virtual bool SetClassRange()
+    protected virtual bool ClassRangeSet()
     {
         Table table;
         table = this.Module.Class;
