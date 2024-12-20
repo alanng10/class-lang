@@ -89,7 +89,8 @@ StructTypeName represents struct type name.
 StructTypeName has syntax that is ClassName followed by colon limit, followed by StructName.
 1 derived class is ArrayTypeName.
 ArrayTypeName represents array of int or struct type name.
-ArrayTypeName has syntax that is TypeName followed by exponent sign.
+ArrayTypeName has syntax that is TypeName followed by limit brace square open token, 
+followed by IntValue, followed by limit brace square close token.
 The TypeName can be either IntTypeName or StructTypeName.
 
 Struct fields or local vars that are arrays, are 1 dimensional arrays.
