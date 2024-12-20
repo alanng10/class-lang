@@ -75,3 +75,9 @@ The limit brace close token is the last token of the RefCallOperate node syntax.
 Between the limit brace open and close tokens, RefCallOperate has Argue node.
 
 Struct any is passed with ref.
+
+Struct field type and local var type is declared.
+The node is TypeName.
+TypeName class is base class.
+The class has 2 derived class.
+1 derived class is IntTypeName. IntTypeName has syntax that is "int" index word.
