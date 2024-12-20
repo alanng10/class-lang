@@ -35,3 +35,9 @@ Maide call argue is passed with ref.
 The ref can be Int type, struct type.
 If it is Int type, the ref value is Int value.
 If it is struct type, the ref value is struct any memory index.
+
+Maide state can have execute that has NullOperate.
+NullOperate has syntax that is "null" word.
+NullOperate results ref, same as other Operate.
+Null is assignable to Int type input of lang elements.
+Null has ref value that is zero.
