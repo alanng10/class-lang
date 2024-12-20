@@ -550,14 +550,14 @@ public class Create : InfraCreate
             ClassClass a;
             a = (ClassClass)iter.Value;
 
-            this.SetClassRangeClass(a);
+            this.ClassRangeSetClass(a);
         }
 
         this.RangeTable = null;
         return true;
     }
 
-    protected virtual bool SetClassRangeClass(ClassClass varClass)
+    protected virtual bool ClassRangeSetClass(ClassClass varClass)
     {
         Table k;
         k = this.RangeTable;
@@ -586,7 +586,7 @@ public class Create : InfraCreate
             ClassClass baseClass;
             baseClass = varClass.Base;
 
-            this.SetClassRangeClass(baseClass);
+            this.ClassRangeSetClass(baseClass);
 
             varClass.FieldStart = baseClass.FieldStart + baseClass.Field.Count;
 
