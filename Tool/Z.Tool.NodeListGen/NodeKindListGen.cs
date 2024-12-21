@@ -12,7 +12,7 @@ public class NodeKindListGen : SourceGen
         this.ItemClassName = this.S("NodeKind");
         this.ArrayClassName = this.S("Array");
         this.Export = true;
-        this.ClassFileName = this.S("ToolData/Saber/SaberNodeKind.txt");
+        this.ClassFileName = this.S("ToolData/Saber/ClassNodeKind.txt");
         this.InitMethodFileName = this.S("ToolData/Saber/InitMaideNodeKind.txt");
         this.AddMethodFileName = this.S("ToolData/Saber/AddMaideNodeKind.txt");
         this.OutputFilePath = this.S("../../Saber/Saber.Node/NodeKindList.cs");
