@@ -649,29 +649,17 @@ public class Gen : ToolBase
         return true;
     }
 
-
-    
-
-
-
-    protected virtual int GetButtonLeft(int col)
+    protected virtual long GetButtonLeft(long col)
     {
         return this.BoardLeft + col * (this.ButtonWidth + this.ButtonSpace);
     }
 
-
-
-
-    protected virtual int GetButtonUp(int row)
+    protected virtual long GetButtonUp(long row)
     {
         return this.BoardUp + row * (this.ButtonWidth + this.ButtonSpace);
     }
 
-
-
-
-
-    protected virtual int ButtonWidth
+    protected virtual long ButtonWidth
     {
         get
         {
@@ -682,9 +670,7 @@ public class Gen : ToolBase
         }
     }
 
-
-
-    protected virtual int ButtonSpace
+    protected virtual long ButtonSpace
     {
         get
         {
@@ -694,9 +680,6 @@ public class Gen : ToolBase
         {
         }
     }
-
-
-
 
     protected virtual long BoardLeft
     {
