@@ -47,14 +47,14 @@ public class ErrorKindList : Any
         this.MaideUnexport = this.AddItem("MaideUnexport");
         this.EntryUndefine = this.AddItem("EntryUndefine");
         this.EntryUnachieve = this.AddItem("EntryUnachieve");
-        this.ModuleInvalid = this.AddItem("ModuleInvalid");
+        this.ModuleUnvalid = this.AddItem("ModuleUnvalid");
         this.ModuleUndefine = this.AddItem("ModuleUndefine");
         this.ImportNameUnavail = this.AddItem("ImportNameUnavail");
         this.ImportClassUndefine = this.AddItem("ImportClassUndefine");
-        this.ExportInvalid = this.AddItem("ExportInvalid");
+        this.ExportUnvalid = this.AddItem("ExportUnvalid");
         this.ExportUnachieve = this.AddItem("ExportUnachieve");
-        this.StorageDestInvalid = this.AddItem("StorageDestInvalid");
-        this.StorageSourceInvalid = this.AddItem("StorageSourceInvalid");
+        this.StorageDestUnvalid = this.AddItem("StorageDestUnvalid");
+        this.StorageSourceUnvalid = this.AddItem("StorageSourceUnvalid");
         this.StorageDestUnavail = this.AddItem("StorageDestUnavail");
         this.StorageSourceUnachieve = this.AddItem("StorageSourceUnachieve");
         return true;
@@ -85,14 +85,14 @@ public class ErrorKindList : Any
     public virtual ErrorKind MaideUnexport { get; set; }
     public virtual ErrorKind EntryUndefine { get; set; }
     public virtual ErrorKind EntryUnachieve { get; set; }
-    public virtual ErrorKind ModuleInvalid { get; set; }
+    public virtual ErrorKind ModuleUnvalid { get; set; }
     public virtual ErrorKind ModuleUndefine { get; set; }
     public virtual ErrorKind ImportNameUnavail { get; set; }
     public virtual ErrorKind ImportClassUndefine { get; set; }
-    public virtual ErrorKind ExportInvalid { get; set; }
+    public virtual ErrorKind ExportUnvalid { get; set; }
     public virtual ErrorKind ExportUnachieve { get; set; }
-    public virtual ErrorKind StorageDestInvalid { get; set; }
-    public virtual ErrorKind StorageSourceInvalid { get; set; }
+    public virtual ErrorKind StorageDestUnvalid { get; set; }
+    public virtual ErrorKind StorageSourceUnvalid { get; set; }
     public virtual ErrorKind StorageDestUnavail { get; set; }
     public virtual ErrorKind StorageSourceUnachieve { get; set; }
 

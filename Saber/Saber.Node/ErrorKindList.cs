@@ -22,55 +22,55 @@ public class ErrorKindList : Any
         this.Count = this.Array.Count;
         this.Index = 0;
 
-        this.Invalid = this.AddItem("Invalid");
-        this.NameInvalid = this.AddItem("NameInvalid");
-        this.BaseInvalid = this.AddItem("BaseInvalid");
-        this.PartInvalid = this.AddItem("PartInvalid");
-        this.ClassInvalid = this.AddItem("ClassInvalid");
-        this.CountInvalid = this.AddItem("CountInvalid");
-        this.GetInvalid = this.AddItem("GetInvalid");
-        this.SetInvalid = this.AddItem("SetInvalid");
-        this.ParamInvalid = this.AddItem("ParamInvalid");
-        this.CallInvalid = this.AddItem("CallInvalid");
-        this.FieldInvalid = this.AddItem("FieldInvalid");
-        this.MaideInvalid = this.AddItem("MaideInvalid");
-        this.VarInvalid = this.AddItem("VarInvalid");
-        this.OperandInvalid = this.AddItem("OperandInvalid");
-        this.MarkInvalid = this.AddItem("MarkInvalid");
-        this.ValueInvalid = this.AddItem("ValueInvalid");
-        this.ThisInvalid = this.AddItem("ThisInvalid");
-        this.AnyInvalid = this.AddItem("AnyInvalid");
-        this.ArgueInvalid = this.AddItem("ArgueInvalid");
-        this.ResultInvalid = this.AddItem("ResultInvalid");
-        this.CondInvalid = this.AddItem("CondInvalid");
-        this.BodyInvalid = this.AddItem("BodyInvalid");
-        this.ItemInvalid = this.AddItem("ItemInvalid");
+        this.Unvalid = this.AddItem("Unvalid");
+        this.NameUnvalid = this.AddItem("NameUnvalid");
+        this.BaseUnvalid = this.AddItem("BaseUnvalid");
+        this.PartUnvalid = this.AddItem("PartUnvalid");
+        this.ClassUnvalid = this.AddItem("ClassUnvalid");
+        this.CountUnvalid = this.AddItem("CountUnvalid");
+        this.GetUnvalid = this.AddItem("GetUnvalid");
+        this.SetUnvalid = this.AddItem("SetUnvalid");
+        this.ParamUnvalid = this.AddItem("ParamUnvalid");
+        this.CallUnvalid = this.AddItem("CallUnvalid");
+        this.FieldUnvalid = this.AddItem("FieldUnvalid");
+        this.MaideUnvalid = this.AddItem("MaideUnvalid");
+        this.VarUnvalid = this.AddItem("VarUnvalid");
+        this.OperandUnvalid = this.AddItem("OperandUnvalid");
+        this.MarkUnvalid = this.AddItem("MarkUnvalid");
+        this.ValueUnvalid = this.AddItem("ValueUnvalid");
+        this.ThisUnvalid = this.AddItem("ThisUnvalid");
+        this.AnyUnvalid = this.AddItem("AnyUnvalid");
+        this.ArgueUnvalid = this.AddItem("ArgueUnvalid");
+        this.ResultUnvalid = this.AddItem("ResultUnvalid");
+        this.CondUnvalid = this.AddItem("CondUnvalid");
+        this.BodyUnvalid = this.AddItem("BodyUnvalid");
+        this.ItemUnvalid = this.AddItem("ItemUnvalid");
         return true;
     }
 
-    public virtual ErrorKind Invalid { get; set; }
-    public virtual ErrorKind NameInvalid { get; set; }
-    public virtual ErrorKind BaseInvalid { get; set; }
-    public virtual ErrorKind PartInvalid { get; set; }
-    public virtual ErrorKind ClassInvalid { get; set; }
-    public virtual ErrorKind CountInvalid { get; set; }
-    public virtual ErrorKind GetInvalid { get; set; }
-    public virtual ErrorKind SetInvalid { get; set; }
-    public virtual ErrorKind ParamInvalid { get; set; }
-    public virtual ErrorKind CallInvalid { get; set; }
-    public virtual ErrorKind FieldInvalid { get; set; }
-    public virtual ErrorKind MaideInvalid { get; set; }
-    public virtual ErrorKind VarInvalid { get; set; }
-    public virtual ErrorKind OperandInvalid { get; set; }
-    public virtual ErrorKind MarkInvalid { get; set; }
-    public virtual ErrorKind ValueInvalid { get; set; }
-    public virtual ErrorKind ThisInvalid { get; set; }
-    public virtual ErrorKind AnyInvalid { get; set; }
-    public virtual ErrorKind ArgueInvalid { get; set; }
-    public virtual ErrorKind ResultInvalid { get; set; }
-    public virtual ErrorKind CondInvalid { get; set; }
-    public virtual ErrorKind BodyInvalid { get; set; }
-    public virtual ErrorKind ItemInvalid { get; set; }
+    public virtual ErrorKind Unvalid { get; set; }
+    public virtual ErrorKind NameUnvalid { get; set; }
+    public virtual ErrorKind BaseUnvalid { get; set; }
+    public virtual ErrorKind PartUnvalid { get; set; }
+    public virtual ErrorKind ClassUnvalid { get; set; }
+    public virtual ErrorKind CountUnvalid { get; set; }
+    public virtual ErrorKind GetUnvalid { get; set; }
+    public virtual ErrorKind SetUnvalid { get; set; }
+    public virtual ErrorKind ParamUnvalid { get; set; }
+    public virtual ErrorKind CallUnvalid { get; set; }
+    public virtual ErrorKind FieldUnvalid { get; set; }
+    public virtual ErrorKind MaideUnvalid { get; set; }
+    public virtual ErrorKind VarUnvalid { get; set; }
+    public virtual ErrorKind OperandUnvalid { get; set; }
+    public virtual ErrorKind MarkUnvalid { get; set; }
+    public virtual ErrorKind ValueUnvalid { get; set; }
+    public virtual ErrorKind ThisUnvalid { get; set; }
+    public virtual ErrorKind AnyUnvalid { get; set; }
+    public virtual ErrorKind ArgueUnvalid { get; set; }
+    public virtual ErrorKind ResultUnvalid { get; set; }
+    public virtual ErrorKind CondUnvalid { get; set; }
+    public virtual ErrorKind BodyUnvalid { get; set; }
+    public virtual ErrorKind ItemUnvalid { get; set; }
 
     protected virtual TextStringValue StringValue { get; set; }
 
