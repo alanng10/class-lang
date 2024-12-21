@@ -42,7 +42,7 @@ public class Gen : ToolBase
         return true;
     }
 
-    public virtual int Execute()
+    public virtual long Execute()
     {
         String ua;
         ua = this.ToolInfra.StorageTextRead(this.S("ToolData/Svg.txt"));
