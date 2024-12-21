@@ -285,78 +285,38 @@ public class Gen : ToolBase
         return true;
     }
 
-
-
-
-
-
-    protected virtual bool AddDigitButtonList(StringBuilder sb)
+    protected virtual bool AddDigitButtonList()
     {
-        int row;
-
-
+        long row;
         row = 0;
 
-
-
-        int startCol;
-
+        long startCol;
         startCol = 1;
 
-
-
-        int col;
-
-
-        int uu;
-
-
-        char shiftChar;
-
-
-        int ua;
-
-
-
-
-        int count;
-
-
+        long count;
         count = 10;
 
-
-        int i;
-
-
+        long i;
         i = 0;
-
 
         while (i < count)
         {
+            long col;
             col = startCol + i;
 
-
-
+            long uu;
             uu = '0' + i;
 
+            uint shiftChar;
+            shiftChar = this.TextInfra.DataCharGet(this.DigitButtonShiftChar, i);
 
-
-            shiftChar = this.DigitButtonShiftChar[i];
-
-
+            long ua;
             ua = shiftChar;
 
-
-
-            this.AddButton(sb, uu, ua, row, col);
-
-
-
+            this.AddButton(uu, ua, row, col);
 
             i = i + 1;
         }
-
-
 
         return true;
     }
