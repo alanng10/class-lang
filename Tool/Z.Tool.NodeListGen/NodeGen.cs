@@ -55,7 +55,7 @@ public class NodeGen : ToolBase
         ka = this.StringCreate(k);
 
         String outputFilePath;
-        outputFilePath = this.AddClear().AddS("../../Class/Class.Node/Z_Node_").Add(varClass.Name).AddS(".cs").AddResult();
+        outputFilePath = this.AddClear().AddS("../../Saber/Saber.Node/Z_Node_").Add(varClass.Name).AddS(".cs").AddResult();
 
         this.ToolInfra.StorageTextWrite(outputFilePath, ka);
         return true;
