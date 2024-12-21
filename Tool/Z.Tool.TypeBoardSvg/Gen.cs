@@ -773,90 +773,49 @@ public class Gen : ToolBase
         return true;
     }
 
-
-
-
-    protected virtual bool AddText(StringBuilder sb, int left, int up, string value, char valueChar, int fontSize)
+    protected virtual bool AddText(long left, long up, String value, long valueChar, long fontSize)
     {
-        this.AppendIndent(sb, 1);
+        this.AddIndent(1);
 
+        this.AddS("<text");
 
+        this.AddAttributeInt(this.S("x"), left);
 
-        sb.Append("<text");
+        this.AddAttributeInt(this.S("y"), up);
 
+        this.AddAttributeInt(this.S("font-size"), fontSize);
 
+        this.AddAttributeString(this.S("text-anchor"), this.S("start"));
 
+        this.AddAttributeString(this.S("fill"), this.S("black"));
 
-        this.AddAttributeInt(sb, "x", left);
+        this.AddAttributeString(this.S("font-family"), this.S("Source Code Pro"));
 
-
-        this.AddAttributeInt(sb, "y", up);
-
-
-        this.AddAttributeInt(sb, "font-size", fontSize);
-
-
-
-        this.AddAttributeString(sb, "text-anchor", "start");
-
-
-        this.AddAttributeString(sb, "fill", "black");
-
-
-        this.AddAttributeString(sb, "font-family", "Source Code Pro");
-
-
-
-
-        sb.Append(">");
-
-
+        this.AddS(">");
 
         bool b;
-
-
-        b = !(value == null);
-
-
-
-        if (!b)
-        {
-            string kk;
-
-
-            kk = this.EscapeChar(valueChar);
-
-
-
-            sb.Append(kk);
-        }
-
+        b = (value == null);
 
         if (b)
         {
-            sb.Append(value);
+            String kk;
+            kk = this.EscapeChar(valueChar);
+
+            this.Add(kk);
         }
 
-        
+        if (!b)
+        {
+            this.Add(value);
+        }
 
+        this.AddS("</text>");
 
-        sb.Append("</text>");
-
-
-
-
-        this.AppendNewLine(sb);
-
-
-
+        this.AddLine();
         return true;
     }
 
-
-
-
-
-    protected virtual string EscapeChar(char oc)
+    protected virtual String EscapeChar(long oc)
     {
         string k;
 
