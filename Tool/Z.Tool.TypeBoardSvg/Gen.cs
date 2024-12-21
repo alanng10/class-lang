@@ -75,54 +75,26 @@ public class Gen : ToolBase
         return 0;
     }
 
-
-
-
     protected virtual bool AddLetterButtonList(StringBuilder sb)
     {
         int row;
 
-
-
         int startCol;
-
-
-
 
         int count;
 
-
-
         int letterIndex;
-
-
         letterIndex = 0;
 
-
-
-        
         int aaa;
-
-
         aaa = 4;
 
-
-
-        
         row = 2;
-
-
         startCol = 2;
-
-
 
         count = aaa;
 
-
-
         this.AddLetterButtonRange(sb, row, startCol, count, letterIndex);
-
-
 
         letterIndex = letterIndex + count;
 
@@ -277,7 +249,7 @@ public class Gen : ToolBase
 
 
 
-    protected virtual bool AddLetterButtonRange(StringBuilder sb, int row, int startCol, int count, int letterIndex)
+    protected virtual bool AddLetterButtonRange(int row, int startCol, int count, int letterIndex)
     {
         int col;
 
@@ -519,7 +491,7 @@ public class Gen : ToolBase
 
 
 
-    protected virtual bool AddButton(StringBuilder sb, int defaultChar, int shiftChar, int row, int col)
+    protected virtual bool AddButton(int defaultChar, int shiftChar, int row, int col)
     {
         int left;
 
@@ -640,7 +612,7 @@ public class Gen : ToolBase
 
 
 
-    protected virtual bool AddButtonRect(StringBuilder sb, int left, int up)
+    protected virtual bool AddButtonRect(int left, int up)
     {
         int width;
 
@@ -670,7 +642,7 @@ public class Gen : ToolBase
 
 
 
-        this.AppendNewLine(sb);
+        this.AddLine();
 
 
 
@@ -782,13 +754,11 @@ public class Gen : ToolBase
 
 
 
-    protected virtual bool AddRect(StringBuilder sb, int left, int up, int width, int height, int horizontalRadius, int verticalRadius)
+    protected virtual bool AddRect(int left, int up, int width, int height, int horizontalRadius, int verticalRadius)
     {
-        this.AppendIndent(sb, 1);
-
-
-
-        sb.Append("<rect");
+        this.AddIndent(1);
+        
+        this.AddS("<rect");
 
 
 
@@ -820,17 +790,9 @@ public class Gen : ToolBase
 
         this.AddAttributeString(sb, "fill", "white");
 
-
-
-
         this.CloseTag(sb);
 
-
-
-        this.AppendNewLine(sb);
-
-
-
+        this.AddLine();
         
         return true;
     }
@@ -984,18 +946,9 @@ public class Gen : ToolBase
         return k;
     }
 
-
-
-
-
-
-
-    protected virtual bool AddAttributeInt(StringBuilder sb, string name, int value)
+    protected virtual bool AddAttributeInt(String name, long value)
     {
-        sb.Append(" ").Append(name).Append("=\"").Append(value).Append("\"");
-
-
-
+        this.AddS(" ").Add(name).AddS("=\"").Add(this.StringInt(value)).AddS("\"");
         return true;
     }
 
@@ -1032,45 +985,6 @@ public class Gen : ToolBase
     {
         sb.Append(" />");
 
-
-        return true;
-    }
-
-
-
-
-    protected virtual bool AppendNewLine(StringBuilder sb)
-    {
-        sb.Append("\n");
-
-
-        return true;
-    }
-
-
-
-    protected virtual bool AppendIndent(StringBuilder sb, int indent)
-    {
-        int count;
-
-        count = indent;
-
-
-
-        int i;
-
-        i = 0;
-
-
-        while (i < count)
-        {
-            sb.Append("    ");
-
-
-
-            i = i + 1;
-        }
-        
 
         return true;
     }
