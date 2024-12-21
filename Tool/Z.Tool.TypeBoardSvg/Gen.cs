@@ -487,64 +487,32 @@ public class Gen : ToolBase
         return true;
     }
 
-
-
-
-
-    protected virtual bool AddButton(int defaultChar, int shiftChar, int row, int col)
+    protected virtual bool AddButton(long defaultChar, long shiftChar, long row, long col)
     {
-        int left;
-
+        long left;
         left = this.GetButtonLeft(col);
 
-
-
-        int up;
-
+        long up;
         up = this.GetButtonUp(row);
 
+        this.AddButtonRect(left, up);
 
-
-
-
-        this.AddButtonRect(sb, left, up);
-
-
-
-
-
-        if (!(defaultChar == this.NullInt))
+        if (!(defaultChar == -1))
         {
             bool b;
-
-            b = (shiftChar == this.NullInt);
-
+            b = (shiftChar == -1);
 
             if (b)
             {
-                char oc;
-
-                oc = (char)defaultChar;
-
-
-
-
-                int l;
-
+                long l;
                 l = left + 10;
 
-
-                int u;
-
+                long u;
                 u = up + 24;
 
+                this.AddText(l, u, null, defaultChar, 22);
 
-
-                this.AddText(sb, l, u, null, oc, 22);
-
-
-
-                this.AppendNewLine(sb);
+                this.AddLine();
             }
 
 
