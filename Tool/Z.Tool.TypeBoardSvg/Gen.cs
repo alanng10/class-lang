@@ -95,7 +95,7 @@ public class Gen : ToolBase
 
         count = aaa;
 
-        this.AddLetterButtonRange(row, startCol, count, letterIndex);
+        this.AddAlphaButtonRange(row, startCol, count, letterIndex);
 
         letterIndex = letterIndex + count;
 
@@ -108,7 +108,7 @@ public class Gen : ToolBase
 
         count = aab;
 
-        this.AddLetterButtonRange(row, startCol, count, letterIndex);
+        this.AddAlphaButtonRange(row, startCol, count, letterIndex);
 
         letterIndex = letterIndex + count;
 
@@ -121,7 +121,7 @@ public class Gen : ToolBase
 
         count = aac;
 
-        this.AddLetterButtonRange(row, startCol, count, letterIndex);
+        this.AddAlphaButtonRange(row, startCol, count, letterIndex);
 
         letterIndex = letterIndex + count;
 
@@ -134,7 +134,7 @@ public class Gen : ToolBase
 
         count = aad;
 
-        this.AddLetterButtonRange(row, startCol, count, letterIndex);
+        this.AddAlphaButtonRange(row, startCol, count, letterIndex);
 
         letterIndex = letterIndex + count;
 
@@ -147,7 +147,7 @@ public class Gen : ToolBase
 
         count = aae;
 
-        this.AddLetterButtonRange(row, startCol, count, letterIndex);
+        this.AddAlphaButtonRange(row, startCol, count, letterIndex);
 
         letterIndex = letterIndex + count;
 
@@ -160,14 +160,14 @@ public class Gen : ToolBase
 
         startCol = aaa + 2;
 
-        this.AddLetterButtonRange(row, startCol, count, letterIndex);
+        this.AddAlphaButtonRange(row, startCol, count, letterIndex);
 
         letterIndex = letterIndex + count;
 
         return true;
     }
 
-    protected virtual bool AddLetterButtonRange(long row, long startCol, long count, long letterIndex)
+    protected virtual bool AddAlphaButtonRange(long row, long startCol, long count, long letterIndex)
     {
         long i;
         i = 0;
