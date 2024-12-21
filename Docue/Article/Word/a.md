@@ -222,6 +222,8 @@ Word "achieve" has meaning that is achievable.
 
 Word "avail" has meaning that is available.
 
+Word "assign" has meaning that is assignable.
+
 Word "stack" has meaning that is put on top of.
 
 Word "queue" has meaning that is put at after back.
