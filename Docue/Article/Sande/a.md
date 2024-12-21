@@ -39,8 +39,8 @@ Maide result type is not declared.
 Maide state can have operate.
 Operate results ref.
 Input of lang elements also is assigned ref.
-A ref can be Int type, struct type.
-If it is Int type, the ref value is Int value.
+A ref can be 64 bits int type or struct type.
+If it is 64 bits int type, the ref value is 64 bits int value.
 If it is struct type, the ref value is struct any memory index.
 
 Maide call argue is passed with ref.
