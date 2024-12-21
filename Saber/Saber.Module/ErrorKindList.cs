@@ -39,24 +39,24 @@ public class ErrorKindList : Any
         this.CondUnassignable = this.AddItem("CondUnassignable");
         this.ResultUndefined = this.AddItem("ResultUndefined");
         this.ResultUnassignable = this.AddItem("ResultUnassignable");
-        this.CastUnachievable = this.AddItem("CastUnachievable");
+        this.CastUnachieve = this.AddItem("CastUnachieve");
         this.VarUndefined = this.AddItem("VarUndefined");
         this.ExportUndefined = this.AddItem("ExportUndefined");
         this.ClassUnexportable = this.AddItem("ClassUnexportable");
         this.FieldUnexportable = this.AddItem("FieldUnexportable");
         this.MaideUnexportable = this.AddItem("MaideUnexportable");
         this.EntryUndefined = this.AddItem("EntryUndefined");
-        this.EntryUnachievable = this.AddItem("EntryUnachievable");
+        this.EntryUnachieve = this.AddItem("EntryUnachieve");
         this.ModuleInvalid = this.AddItem("ModuleInvalid");
         this.ModuleUndefined = this.AddItem("ModuleUndefined");
         this.ImportNameUnavailable = this.AddItem("ImportNameUnavailable");
         this.ImportClassUndefined = this.AddItem("ImportClassUndefined");
         this.ExportInvalid = this.AddItem("ExportInvalid");
-        this.ExportUnachievable = this.AddItem("ExportUnachievable");
+        this.ExportUnachieve = this.AddItem("ExportUnachieve");
         this.StorageDestInvalid = this.AddItem("StorageDestInvalid");
         this.StorageSourceInvalid = this.AddItem("StorageSourceInvalid");
         this.StorageDestUnavailable = this.AddItem("StorageDestUnavailable");
-        this.StorageSourceUnachievable = this.AddItem("StorageSourceUnachievable");
+        this.StorageSourceUnachieve = this.AddItem("StorageSourceUnachieve");
         return true;
     }
 
@@ -77,24 +77,24 @@ public class ErrorKindList : Any
     public virtual ErrorKind CondUnassignable { get; set; }
     public virtual ErrorKind ResultUndefined { get; set; }
     public virtual ErrorKind ResultUnassignable { get; set; }
-    public virtual ErrorKind CastUnachievable { get; set; }
+    public virtual ErrorKind CastUnachieve { get; set; }
     public virtual ErrorKind VarUndefined { get; set; }
     public virtual ErrorKind ExportUndefined { get; set; }
     public virtual ErrorKind ClassUnexportable { get; set; }
     public virtual ErrorKind FieldUnexportable { get; set; }
     public virtual ErrorKind MaideUnexportable { get; set; }
     public virtual ErrorKind EntryUndefined { get; set; }
-    public virtual ErrorKind EntryUnachievable { get; set; }
+    public virtual ErrorKind EntryUnachieve { get; set; }
     public virtual ErrorKind ModuleInvalid { get; set; }
     public virtual ErrorKind ModuleUndefined { get; set; }
     public virtual ErrorKind ImportNameUnavailable { get; set; }
     public virtual ErrorKind ImportClassUndefined { get; set; }
     public virtual ErrorKind ExportInvalid { get; set; }
-    public virtual ErrorKind ExportUnachievable { get; set; }
+    public virtual ErrorKind ExportUnachieve { get; set; }
     public virtual ErrorKind StorageDestInvalid { get; set; }
     public virtual ErrorKind StorageSourceInvalid { get; set; }
     public virtual ErrorKind StorageDestUnavailable { get; set; }
-    public virtual ErrorKind StorageSourceUnachievable { get; set; }
+    public virtual ErrorKind StorageSourceUnachieve { get; set; }
 
     protected virtual TextStringValue StringValue { get; set; }
 
