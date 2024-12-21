@@ -607,45 +607,23 @@ public class Gen : ToolBase
         return true;
     }
 
-
-
-
-
-
-    protected virtual bool AddButtonRect(int left, int up)
+    protected virtual bool AddButtonRect(long left, long up)
     {
-        int width;
-
+        long width;
         width = this.ButtonWidth;
 
-
-
-        int height;
-
+        long height;
         height = width;
 
-
-
-        int horizontalRadius;
-
+        long horizontalRadius;
         horizontalRadius = this.ButtonCornerRadius;
 
-
-        int verticalRadius;
-
+        long verticalRadius;
         verticalRadius = horizontalRadius;
 
-
-
-
-        this.AddRect(sb, left, up, width, height, horizontalRadius, verticalRadius);
-
-
+        this.AddRect(left, up, width, height, horizontalRadius, verticalRadius);
 
         this.AddLine();
-
-
-
         return true;
     }
 
