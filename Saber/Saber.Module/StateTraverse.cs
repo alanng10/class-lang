@@ -332,7 +332,7 @@ public class StateTraverse : Traverse
         {
             if (!this.ValidClass(resultClass, this.ThisResultClass))
             {
-                this.Error(this.ErrorKind.ResultUnassignable, returnExecute);
+                this.Error(this.ErrorKind.ResultUnassign, returnExecute);
             }
         }
         return true;
@@ -378,7 +378,7 @@ public class StateTraverse : Traverse
         {
             if (!this.ValidClass(valueClass, targetClass))
             {
-                this.Error(this.ErrorKind.ValueUnassignable, areExecute);
+                this.Error(this.ErrorKind.ValueUnassign, areExecute);
             }
         }
         return true;
@@ -512,7 +512,7 @@ public class StateTraverse : Traverse
         {
             if (!this.ArgueMatch(maide, argue))
             {
-                this.Error(this.ErrorKind.ArgueUnassignable, callOperate);
+                this.Error(this.ErrorKind.ArgueUnassign, callOperate);
             }
         }
 
@@ -1059,7 +1059,7 @@ public class StateTraverse : Traverse
         {
             if (!this.ValidClass(valueClass, operandClass))
             {
-                this.Error(this.ErrorKind.OperandUnassignable, operate);
+                this.Error(this.ErrorKind.OperandUnassign, operate);
             }
         }
 
@@ -1072,8 +1072,8 @@ public class StateTraverse : Traverse
         bool hasOperandUndefine;
         hasOperandUndefine = false;
 
-        bool hasOperandUnassignable;
-        hasOperandUnassignable = false;
+        bool hasOperandUnassign;
+        hasOperandUnassign = false;
 
         ClassClass leftClass;
         leftClass = null;
@@ -1090,7 +1090,7 @@ public class StateTraverse : Traverse
         {
             if (!this.ValidClass(leftClass, operandClass))
             {
-                hasOperandUnassignable = this.UniqueError(this.ErrorKind.OperandUnassignable, operate, hasOperandUnassignable);
+                hasOperandUnassign = this.UniqueError(this.ErrorKind.OperandUnassign, operate, hasOperandUnassign);
             }
         }
 
@@ -1109,7 +1109,7 @@ public class StateTraverse : Traverse
         {
             if (!this.ValidClass(rightClass, operandClass))
             {
-                hasOperandUnassignable = this.UniqueError(this.ErrorKind.OperandUnassignable, operate, hasOperandUnassignable);
+                hasOperandUnassign = this.UniqueError(this.ErrorKind.OperandUnassign, operate, hasOperandUnassign);
             }
         }
 
@@ -1135,7 +1135,7 @@ public class StateTraverse : Traverse
         {
             if (!this.ValidClass(condClass, this.System.Bool))
             {
-                this.Error(this.ErrorKind.CondUnassignable, execute);
+                this.Error(this.ErrorKind.CondUnassign, execute);
             }
         }
         return true;
