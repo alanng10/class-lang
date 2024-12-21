@@ -234,7 +234,7 @@ public class Gen : ToolBase
 
         this.AddButton('.', ']', 3, 10);
 
-        this.AddButton('#', '^', 0, 0);
+        this.AddButton('#', '!', 0, 0);
 
         this.AddButton('_', '?', 0, 11);
 
