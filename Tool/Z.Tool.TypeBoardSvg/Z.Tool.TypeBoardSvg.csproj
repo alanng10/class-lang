@@ -7,9 +7,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="../../../Class/Avalon/Avalon.Infra/Avalon.Infra.csproj" />
-        <ProjectReference Include="../../../Class/Avalon/Avalon.Text/Avalon.Text.csproj" />
-        <ProjectReference Include="../../../Class/Tool/Z.Infra.Infra/Z.Infra.Infra.csproj" />
+        <ProjectReference Include="../../Avalon/Avalon.Infra/Avalon.Infra.csproj" />
+        <ProjectReference Include="../../Avalon/Avalon.Text/Avalon.Text.csproj" />
+        <ProjectReference Include="../Z.Infra.Infra/Z.Infra.Infra.csproj" />
     </ItemGroup>
 
     <ItemGroup>
