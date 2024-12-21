@@ -52,13 +52,13 @@ public class Gen : ToolBase
 
         this.AddClear();
 
-        this.AddLetterButtonList(sba);
+        this.AddLetterButtonList();
 
-        this.AddDigitButtonList(sba);
+        this.AddDigitButtonList();
 
-        this.AddSignButtonList(sba);
+        this.AddSignButtonList();
 
-        this.AddControlButtonList(sba);
+        this.AddControlButtonList();
 
         String aa;
         aa = this.AddResult();
