@@ -27,24 +27,24 @@ public class ErrorKindList : Any
         this.BaseUndefine = this.AddItem("BaseUndefine");
         this.MarkUndefine = this.AddItem("MarkUndefine");
         this.ValueUndefine = this.AddItem("ValueUndefine");
-        this.ValueUnassignable = this.AddItem("ValueUnassignable");
+        this.ValueUnassign = this.AddItem("ValueUnassign");
         this.OperandUndefine = this.AddItem("OperandUndefine");
-        this.OperandUnassignable = this.AddItem("OperandUnassignable");
+        this.OperandUnassign = this.AddItem("OperandUnassign");
         this.ThisUndefine = this.AddItem("ThisUndefine");
         this.FieldUndefine = this.AddItem("FieldUndefine");
         this.MaideUndefine = this.AddItem("MaideUndefine");
-        this.ArgueUnassignable = this.AddItem("ArgueUnassignable");
+        this.ArgueUnassign = this.AddItem("ArgueUnassign");
         this.AnyUndefine = this.AddItem("AnyUndefine");
         this.CondUndefine = this.AddItem("CondUndefine");
-        this.CondUnassignable = this.AddItem("CondUnassignable");
+        this.CondUnassign = this.AddItem("CondUnassign");
         this.ResultUndefine = this.AddItem("ResultUndefine");
-        this.ResultUnassignable = this.AddItem("ResultUnassignable");
+        this.ResultUnassign = this.AddItem("ResultUnassign");
         this.CastUnachieve = this.AddItem("CastUnachieve");
         this.VarUndefine = this.AddItem("VarUndefine");
         this.ExportUndefine = this.AddItem("ExportUndefine");
-        this.ClassUnexportable = this.AddItem("ClassUnexportable");
-        this.FieldUnexportable = this.AddItem("FieldUnexportable");
-        this.MaideUnexportable = this.AddItem("MaideUnexportable");
+        this.ClassUnexport = this.AddItem("ClassUnexport");
+        this.FieldUnexport = this.AddItem("FieldUnexport");
+        this.MaideUnexport = this.AddItem("MaideUnexport");
         this.EntryUndefine = this.AddItem("EntryUndefine");
         this.EntryUnachieve = this.AddItem("EntryUnachieve");
         this.ModuleInvalid = this.AddItem("ModuleInvalid");
@@ -65,24 +65,24 @@ public class ErrorKindList : Any
     public virtual ErrorKind BaseUndefine { get; set; }
     public virtual ErrorKind MarkUndefine { get; set; }
     public virtual ErrorKind ValueUndefine { get; set; }
-    public virtual ErrorKind ValueUnassignable { get; set; }
+    public virtual ErrorKind ValueUnassign { get; set; }
     public virtual ErrorKind OperandUndefine { get; set; }
-    public virtual ErrorKind OperandUnassignable { get; set; }
+    public virtual ErrorKind OperandUnassign { get; set; }
     public virtual ErrorKind ThisUndefine { get; set; }
     public virtual ErrorKind FieldUndefine { get; set; }
     public virtual ErrorKind MaideUndefine { get; set; }
-    public virtual ErrorKind ArgueUnassignable { get; set; }
+    public virtual ErrorKind ArgueUnassign { get; set; }
     public virtual ErrorKind AnyUndefine { get; set; }
     public virtual ErrorKind CondUndefine { get; set; }
-    public virtual ErrorKind CondUnassignable { get; set; }
+    public virtual ErrorKind CondUnassign { get; set; }
     public virtual ErrorKind ResultUndefine { get; set; }
-    public virtual ErrorKind ResultUnassignable { get; set; }
+    public virtual ErrorKind ResultUnassign { get; set; }
     public virtual ErrorKind CastUnachieve { get; set; }
     public virtual ErrorKind VarUndefine { get; set; }
     public virtual ErrorKind ExportUndefine { get; set; }
-    public virtual ErrorKind ClassUnexportable { get; set; }
-    public virtual ErrorKind FieldUnexportable { get; set; }
-    public virtual ErrorKind MaideUnexportable { get; set; }
+    public virtual ErrorKind ClassUnexport { get; set; }
+    public virtual ErrorKind FieldUnexport { get; set; }
+    public virtual ErrorKind MaideUnexport { get; set; }
     public virtual ErrorKind EntryUndefine { get; set; }
     public virtual ErrorKind EntryUnachieve { get; set; }
     public virtual ErrorKind ModuleInvalid { get; set; }
