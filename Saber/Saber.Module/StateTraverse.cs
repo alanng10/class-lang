@@ -356,7 +356,7 @@ public class StateTraverse : Traverse
         markClass = null;
         if (!(mark == null))
         {
-            markClass = this.Info(mark).TargetClass;
+            markClass = this.Info(mark).MarkClass;
             if (markClass == null)
             {
                 this.Error(this.ErrorKind.MarkUndefine, areExecute);
@@ -397,7 +397,7 @@ public class StateTraverse : Traverse
         ClassClass varClass;
         varClass = this.ExecuteVarNameNode(varTarget, name);
 
-        this.Info(varTarget).TargetClass = varClass;
+        this.Info(varTarget).MarkClass = varClass;
         return true;
     }
 
@@ -426,7 +426,7 @@ public class StateTraverse : Traverse
         }
 
         this.Info(setTarget).SetField = field;
-        this.Info(setTarget).TargetClass = fieldClass;
+        this.Info(setTarget).MarkClass = fieldClass;
         return true;
     }
 
