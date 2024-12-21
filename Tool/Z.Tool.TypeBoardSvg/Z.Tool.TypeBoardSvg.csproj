@@ -9,6 +9,7 @@
     <ItemGroup>
         <ProjectReference Include="../../Avalon/Avalon.Infra/Avalon.Infra.csproj" />
         <ProjectReference Include="../../Avalon/Avalon.Text/Avalon.Text.csproj" />
+        <ProjectReference Include="../../Avalon/Avalon.Entry/Avalon.Entry.csproj" />
         <ProjectReference Include="../Z.Infra.Infra/Z.Infra.Infra.csproj" />
     </ItemGroup>
 
