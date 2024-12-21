@@ -228,6 +228,8 @@ Word "avail" has meaning that is available.
 
 Word "assign" has meaning that is assignable.
 
+Word "alias" has meaning that is name ref.
+
 Word "stack" has meaning that is put on top of.
 
 Word "queue" has meaning that is put at after back.
