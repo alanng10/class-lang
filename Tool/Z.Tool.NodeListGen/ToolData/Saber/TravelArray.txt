@@ -1,9 +1,12 @@
-        Iter iter;
-        iter = this.Iter;
-        #VarName#.Value.IterSet(iter);
-        while (iter.Next())
+        long count;
+        count = #VarName#.Value.Count;
+        long i;
+        i = 0;
+        while (i < count)
         {
             #ItemDeclareClassName# item;
-            item = (#ItemDeclareClassName#)iter.Value;
+            item = #VarName#.Value.GetAt(i) as #ItemDeclareClassName#;
             this.Execute#ItemClassName#(item);
+
+            i = i + 1;
         }

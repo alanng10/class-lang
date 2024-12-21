@@ -31,8 +31,7 @@ public class Travel : Any
         while (i < count)
         {
             Comp item;
-            item = (Comp)part.Value.GetAt(i);
-            
+            item = part.Value.GetAt(i) as Comp;
             this.ExecuteComp(item);
 
             i = i + 1;
@@ -105,10 +104,9 @@ public class Travel : Any
         while (i < count)
         {
             Var item;
-            item = (Var)param.Value.GetAt(i);
-            
+            item = param.Value.GetAt(i) as Var;
             this.ExecuteVar(item);
-            
+
             i = i + 1;
         }
         return true;
@@ -208,8 +206,7 @@ public class Travel : Any
         while (i < count)
         {
             Execute item;
-            item = (Execute)state.Value.GetAt(i);
-
+            item = state.Value.GetAt(i) as Execute;
             this.ExecuteExecute(item);
 
             i = i + 1;
@@ -341,8 +338,7 @@ public class Travel : Any
         while (i < count)
         {
             Operate item;
-            item = (Operate)argue.Value.GetAt(i);
-
+            item = argue.Value.GetAt(i) as Operate;
             this.ExecuteOperate(item);
 
             i = i + 1;
