@@ -359,7 +359,7 @@ public class StateTraverse : Traverse
             targetClass = this.Info(target).TargetClass;
             if (targetClass == null)
             {
-                this.Error(this.ErrorKind.TargetUndefine, areExecute);
+                this.Error(this.ErrorKind.MarkUndefine, areExecute);
             }
         }
 
@@ -641,7 +641,7 @@ public class StateTraverse : Traverse
                 {
                     if (!this.ValidClass(varClass, anyClass))
                     {
-                        this.Error(this.ErrorKind.CastUnachievable, castOperate);
+                        this.Error(this.ErrorKind.CastUnachieve, castOperate);
                     }
                 }
             }
