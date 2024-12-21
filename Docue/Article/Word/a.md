@@ -76,6 +76,10 @@ Word "present" has meaning that is represent.
 
 Word "make" has meaning that is do new entity.
 
+Word "import" has meaning that is port inn.
+
+Word "export" has meaning that is port out.
+
 Word "state" has meaning that is executable entity.
 
 Word "count" has meaning that is applied.
