@@ -1,10 +1,10 @@
 --------------------------------------------------
-Kind: OperandInvalid
+Kind: OperandUnvalid
 Range: (4, 4)
 Source: Code
 --------------------------------------------------
 --------------------------------------------------
-Kind: OperandInvalid
+Kind: OperandUnvalid
 Range: (5, 5)
 Source: Code
 --------------------------------------------------
