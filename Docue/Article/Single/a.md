@@ -1,22 +1,22 @@
-# Single
+# Sande
 
-Single is system programming language.
-This programming language word "Single" is a node name.
+Sande is system programming language.
+This programming language word "Sande" is a node name.
 
-Single is a plat.
+Sande is a plat.
 The plat layers below System in info tech stack arch.
 
-Single is used to make system programming modules.
+Sande is used to make system programming modules.
 
-Single modules sources has port.
-The port source file has file name "Single.Port".
+Sande modules sources has port.
+The port source file has file name "Sande.Port".
 
-Single port can import Single modules.
-To import Single modules, import the module classes with class names in the import section.
+Sande port can import Sande modules.
+To import Sande modules, import the module classes with class names in the import section.
 To export a class, write the class name in the export section.
-Single Lang port syntax is same as Class Lang port.
+Sande Lang port syntax is same as Class Lang port.
 
-A Single lang source has root node that is Class node.
+A Sande lang source has root node that is Class node.
 The Class node has no base.
 It has derived Comp classes nodes in Class node.
 
