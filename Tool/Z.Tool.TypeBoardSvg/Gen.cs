@@ -698,7 +698,7 @@ public class Gen : ToolBase
 
 
 
-    protected virtual int BoardLeft
+    protected virtual long BoardLeft
     {
         get
         {
@@ -709,10 +709,7 @@ public class Gen : ToolBase
         }
     }
 
-
-
-
-    protected virtual int BoardUp
+    protected virtual long BoardUp
     {
         get
         {
@@ -723,9 +720,7 @@ public class Gen : ToolBase
         }
     }
 
-
-
-    protected virtual int ButtonCornerRadius
+    protected virtual long ButtonCornerRadius
     {
         get
         {
@@ -735,9 +730,6 @@ public class Gen : ToolBase
         {
         }
     }
-
-
-
 
     protected virtual int NullInt
     {
@@ -750,47 +742,31 @@ public class Gen : ToolBase
         }
     }
 
-
-
-
-
-    protected virtual bool AddRect(int left, int up, int width, int height, int horizontalRadius, int verticalRadius)
+    protected virtual bool AddRect(long left, long up, long width, long height, long horizontalRadius, long verticalRadius)
     {
         this.AddIndent(1);
         
         this.AddS("<rect");
 
+        this.AddAttributeInt(this.S("x"), left);
 
+        this.AddAttributeInt(this.S("y"), up);
 
+        this.AddAttributeInt(this.S("width"), width);
 
-        this.AddAttributeInt(sb, "x", left);
+        this.AddAttributeInt(this.S("height"), height);
 
+        this.AddAttributeInt(this.S("rx"), horizontalRadius);
 
-        this.AddAttributeInt(sb, "y", up);
+        this.AddAttributeInt(this.S("ry"), verticalRadius);
 
+        this.AddAttributeString(this.S("stroke"), this.S("black"));
 
-        this.AddAttributeInt(sb, "width", width);
+        this.AddAttributeInt(this.S("stroke-width"), 1);
 
+        this.AddAttributeString(this.S("fill"), this.S("white"));
 
-        this.AddAttributeInt(sb, "height", height);
-
-
-        this.AddAttributeInt(sb, "rx", horizontalRadius);
-
-
-        this.AddAttributeInt(sb, "ry", verticalRadius);
-
-
-
-        this.AddAttributeString(sb, "stroke", "black");
-
-
-        this.AddAttributeInt(sb, "stroke-width", 1);
-
-
-        this.AddAttributeString(sb, "fill", "white");
-
-        this.CloseTag(sb);
+        this.CloseTag();
 
         this.AddLine();
         
