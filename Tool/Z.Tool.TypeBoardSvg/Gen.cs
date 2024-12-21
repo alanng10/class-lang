@@ -311,7 +311,7 @@ public class Gen : ToolBase
                 long l;
                 long u;
 
-                l = left + 9;
+                l = left + 10;
 
                 u = up + 40;
 
@@ -319,7 +319,7 @@ public class Gen : ToolBase
 
                 this.AddLine();
 
-                l = left + 9;
+                l = left + 10;
 
                 u = up + 18;
 
