@@ -423,6 +423,6 @@ public class TravelGen : ToolBase
 
     protected virtual String GetPath(String name)
     {
-        return this.AddClear().AddS("ToolData/Saber/Traverse").Add(name).AddS(".txt").AddResult();
+        return this.AddClear().AddS("ToolData/Saber/Travel").Add(name).AddS(".txt").AddResult();
     }
 }
