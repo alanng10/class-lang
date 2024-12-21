@@ -361,49 +361,23 @@ public class Gen : ToolBase
         return true;
     }
 
-
-
-
-
-
-
-
-    protected virtual bool AddSignButtonList(StringBuilder sb)
+    protected virtual bool AddSignButtonList()
     {
-        this.AddButton(sb, '(', '{', 2, 1);
+        this.AddButton('(', '{', 2, 1);
 
+        this.AddButton(')', '}', 2, 10);
 
+        this.AddButton(',', '[', 3, 1);
 
-        this.AddButton(sb, ')', '}', 2, 10);
+        this.AddButton('.', ']', 3, 10);
 
+        this.AddButton('#', '^', 0, 0);
 
+        this.AddButton('_', '?', 0, 11);
 
+        this.AddButton(':', '\\', 1, 0);
 
-        this.AddButton(sb, ',', '[', 3, 1);
-
-
-
-        this.AddButton(sb, '.', ']', 3, 10);
-
-
-
-
-        this.AddButton(sb, '#', '^', 0, 0);
-
-
-        this.AddButton(sb, '_', '?', 0, 11);
-
-
-
-        this.AddButton(sb, ':', '\\', 1, 0);
-
-
-        this.AddButton(sb, ';', '\"', 1, 11);
-
-
-
-
-
+        this.AddButton(';', '\"', 1, 11);
         return true;
     }
 
