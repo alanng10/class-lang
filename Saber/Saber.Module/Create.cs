@@ -843,7 +843,7 @@ public class Create : InfraCreate
         {
             NodeClass aa;
             aa = varClass.Any as NodeClass;
-            this.Error(this.ErrorKind.ClassUnexportable, aa, source);
+            this.Error(this.ErrorKind.ClassUnexport, aa, source);
         }
 
         Iter iter;
@@ -859,7 +859,7 @@ public class Create : InfraCreate
                 {
                     NodeField ab;
                     ab = field.Any as NodeField;
-                    this.Error(this.ErrorKind.FieldUnexportable, ab, source);
+                    this.Error(this.ErrorKind.FieldUnexport, ab, source);
                 }
             }
         }
@@ -897,7 +897,7 @@ public class Create : InfraCreate
                 {
                     NodeMaide ac;
                     ac = maide.Any as NodeMaide;
-                    this.Error(this.ErrorKind.MaideUnexportable, ac, source);
+                    this.Error(this.ErrorKind.MaideUnexport, ac, source);
                 }
             }
         }
@@ -989,7 +989,7 @@ public class Create : InfraCreate
         {
             NodeClass k;
             k = varClass.Any as NodeClass;
-            this.Error(this.ErrorKind.EntryUnachievable, k, this.SourceGet(varClass.Index));
+            this.Error(this.ErrorKind.EntryUnachieve, k, this.SourceGet(varClass.Index));
         }
         return true;
     }
