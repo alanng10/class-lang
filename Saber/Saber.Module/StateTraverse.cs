@@ -324,7 +324,7 @@ public class StateTraverse : Traverse
             resultClass = this.Info(result).OperateClass;
             if (resultClass == null)
             {
-                this.Error(this.ErrorKind.ResultUndefined, returnExecute);
+                this.Error(this.ErrorKind.ResultUndefine, returnExecute);
             }
         }
 
@@ -359,7 +359,7 @@ public class StateTraverse : Traverse
             targetClass = this.Info(target).TargetClass;
             if (targetClass == null)
             {
-                this.Error(this.ErrorKind.TargetUndefined, areExecute);
+                this.Error(this.ErrorKind.TargetUndefine, areExecute);
             }
         }
 
@@ -370,7 +370,7 @@ public class StateTraverse : Traverse
             valueClass = this.Info(value).OperateClass;
             if (valueClass == null)
             {
-                this.Error(this.ErrorKind.ValueUndefined, areExecute);
+                this.Error(this.ErrorKind.ValueUndefine, areExecute);
             }
         }
 
@@ -482,7 +482,7 @@ public class StateTraverse : Traverse
             thisClass = this.Info(varThis).OperateClass;
             if (thisClass == null)
             {
-                this.Error(this.ErrorKind.ThisUndefined, callOperate);
+                this.Error(this.ErrorKind.ThisUndefine, callOperate);
             }
         }
 
@@ -503,7 +503,7 @@ public class StateTraverse : Traverse
                 maide = this.Maide(thisClass, maideName);
                 if (maide == null)
                 {
-                    this.Error(this.ErrorKind.MaideUndefined, callOperate);
+                    this.Error(this.ErrorKind.MaideUndefine, callOperate);
                 }
             }
         }
@@ -611,7 +611,7 @@ public class StateTraverse : Traverse
             anyClass = this.Info(any).OperateClass;
             if (anyClass == null)
             {
-                this.Error(this.ErrorKind.AnyUndefined, castOperate);
+                this.Error(this.ErrorKind.AnyUndefine, castOperate);
             }
         }
 
@@ -719,7 +719,7 @@ public class StateTraverse : Traverse
             anyClass = this.Info(any).OperateClass;
             if (anyClass == null)
             {
-                this.Error(this.ErrorKind.AnyUndefined, braceOperate);
+                this.Error(this.ErrorKind.AnyUndefine, braceOperate);
             }
         }
 
@@ -1051,7 +1051,7 @@ public class StateTraverse : Traverse
             valueClass = this.Info(value).OperateClass;
             if (valueClass == null)
             {
-                this.Error(this.ErrorKind.OperandUndefined, operate);
+                this.Error(this.ErrorKind.OperandUndefine, operate);
             }
         }
 
@@ -1069,8 +1069,8 @@ public class StateTraverse : Traverse
 
     protected virtual bool ExecuteTwoOperandOperate(Operate operate, Operate lite, Operate rite, ClassClass resultClass, ClassClass operandClass)
     {
-        bool hasOperandUndefined;
-        hasOperandUndefined = false;
+        bool hasOperandUndefine;
+        hasOperandUndefine = false;
 
         bool hasOperandUnassignable;
         hasOperandUnassignable = false;
@@ -1082,7 +1082,7 @@ public class StateTraverse : Traverse
             leftClass = this.Info(lite).OperateClass;
             if (leftClass == null)
             {
-                hasOperandUndefined = this.UniqueError(this.ErrorKind.OperandUndefined, operate, hasOperandUndefined);
+                hasOperandUndefine = this.UniqueError(this.ErrorKind.OperandUndefine, operate, hasOperandUndefine);
             }
         }
 
@@ -1101,7 +1101,7 @@ public class StateTraverse : Traverse
             rightClass = this.Info(rite).OperateClass;
             if (rightClass == null)
             {
-                hasOperandUndefined = this.UniqueError(this.ErrorKind.OperandUndefined, operate, hasOperandUndefined);
+                hasOperandUndefine = this.UniqueError(this.ErrorKind.OperandUndefine, operate, hasOperandUndefine);
             }
         }
 
@@ -1127,7 +1127,7 @@ public class StateTraverse : Traverse
             condClass = this.Info(cond).OperateClass;
             if (condClass == null)
             {
-                this.Error(this.ErrorKind.CondUndefined, execute);
+                this.Error(this.ErrorKind.CondUndefine, execute);
             }
         }
 
@@ -1174,7 +1174,7 @@ public class StateTraverse : Traverse
         varVar = this.VarStackVar(varName);
         if (varVar == null)
         {
-            this.Error(this.ErrorKind.VarUndefined, node);
+            this.Error(this.ErrorKind.VarUndefine, node);
         }
 
         ClassClass a;
@@ -1198,7 +1198,7 @@ public class StateTraverse : Traverse
             thisClass = this.Info(varThis).OperateClass;
             if (thisClass == null)
             {
-                this.Error(this.ErrorKind.ThisUndefined, node);
+                this.Error(this.ErrorKind.ThisUndefine, node);
             }
         }
 
@@ -1218,7 +1218,7 @@ public class StateTraverse : Traverse
                 field = this.Field(thisClass, fieldName);
                 if (field == null)
                 {
-                    this.Error(this.ErrorKind.FieldUndefined, node);
+                    this.Error(this.ErrorKind.FieldUndefine, node);
                 }
             }
         }
