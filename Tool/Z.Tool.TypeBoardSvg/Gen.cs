@@ -75,85 +75,55 @@ public class Gen : ToolBase
         return 0;
     }
 
-    protected virtual bool AddLetterButtonList(StringBuilder sb)
+    protected virtual bool AddLetterButtonList()
     {
-        int row;
+        long row;
 
-        int startCol;
+        long startCol;
 
-        int count;
+        long count;
 
-        int letterIndex;
+        long letterIndex;
         letterIndex = 0;
 
-        int aaa;
+        long aaa;
         aaa = 4;
 
         row = 2;
+
         startCol = 2;
 
         count = aaa;
 
-        this.AddLetterButtonRange(sb, row, startCol, count, letterIndex);
+        this.AddLetterButtonRange(row, startCol, count, letterIndex);
 
         letterIndex = letterIndex + count;
 
-
-
-
-        int aab;
-
-
+        long aab;
         aab = 4;
-
-
 
         row = 3;
 
-
         startCol = 2;
-
-
 
         count = aab;
 
-
-
-        this.AddLetterButtonRange(sb, row, startCol, count, letterIndex);
-
-
+        this.AddLetterButtonRange(row, startCol, count, letterIndex);
 
         letterIndex = letterIndex + count;
 
-
-
-
-        int aac;
-
-
+        long aac;
         aac = 5;
-
-
 
         row = 1;
 
-
         startCol = 1;
-
-
 
         count = aac;
 
-
-
-        this.AddLetterButtonRange(sb, row, startCol, count, letterIndex);
-
-
+        this.AddLetterButtonRange(row, startCol, count, letterIndex);
 
         letterIndex = letterIndex + count;
-
-
-
 
         int aad;
 
