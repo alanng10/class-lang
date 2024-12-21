@@ -407,32 +407,15 @@ public class Gen : ToolBase
         return true;
     }
 
-
-
-
-
-
-    protected virtual bool AddControlButtonList(StringBuilder sb)
+    protected virtual bool AddControlButtonList()
     {
-        this.AddControlButton(sb, "Tab", 2, 0);
+        this.AddControlButton(this.S("Tab"), 2, 0);
 
+        this.AddControlButton(this.S("Shift"), 3, 0);
 
+        this.AddControlButton(this.S("Enter"), 2, 11);
 
-        this.AddControlButton(sb, "Shift", 3, 0);
-
-
-
-
-
-        this.AddControlButton(sb, "Enter", 2, 11);
-
-
-
-        this.AddControlButton(sb, "Space", 3, 11);
-
-
-
-
+        this.AddControlButton(this.S("Space"), 3, 11);
         return true;
     }
 
