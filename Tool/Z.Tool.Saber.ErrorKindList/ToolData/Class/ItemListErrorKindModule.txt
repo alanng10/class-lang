@@ -1,4 +1,4 @@
-NameUnavailable
+NameUnavail
 ClassUndefined
 BaseUndefined
 TargetUndefined
@@ -25,11 +25,11 @@ EntryUndefined
 EntryUnachieve
 ModuleInvalid
 ModuleUndefined
-ImportNameUnavailable
+ImportNameUnavail
 ImportClassUndefined
 ExportInvalid
 ExportUnachieve
 StorageDestInvalid
 StorageSourceInvalid
-StorageDestUnavailable
+StorageDestUnavail
 StorageSourceUnachieve
