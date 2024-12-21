@@ -977,15 +977,9 @@ public class Gen : ToolBase
         return true;
     }
 
-
-
-
-
-    protected virtual bool CloseTag(StringBuilder sb)
+    protected virtual bool CloseTag()
     {
-        sb.Append(" />");
-
-
+        this.AddS(" />");
         return true;
     }
 }
