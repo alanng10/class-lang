@@ -23,13 +23,13 @@ FieldUnexport
 MaideUnexport
 EntryUndefine
 EntryUnachieve
-ModuleInvalid
+ModuleUnvalid
 ModuleUndefine
 ImportNameUnavail
 ImportClassUndefine
-ExportInvalid
+ExportUnvalid
 ExportUnachieve
-StorageDestInvalid
-StorageSourceInvalid
+StorageDestUnvalid
+StorageSourceUnvalid
 StorageDestUnavail
 StorageSourceUnachieve
