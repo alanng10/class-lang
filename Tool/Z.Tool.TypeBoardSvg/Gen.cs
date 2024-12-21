@@ -463,7 +463,7 @@ public class Gen : ToolBase
 
         this.AddAttributeString(this.S("fill"), this.S("black"));
 
-        this.AddAttributeString(this.S("font-family"), this.S("Source Code Pro"));
+        this.AddAttributeString(this.S("font-family"), this.S("Cascadia Mono"));
 
         this.AddS(">");
 
