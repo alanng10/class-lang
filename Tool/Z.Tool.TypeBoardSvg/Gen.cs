@@ -815,68 +815,49 @@ public class Gen : ToolBase
         return true;
     }
 
-    protected virtual String EscapeChar(long oc)
+    protected virtual String EscapeChar(long n)
     {
-        string k;
-
+        String k;
         k = null;
 
-
         bool b;
-
         b = false;
 
-
-
-        if (!b & (oc == '<'))
+        if (!b & (n == '<'))
         {
-            k = "&lt;";
-
+            k = this.S("&lt;");
 
             b = true;
         }
 
-
-
-        if (!b & (oc == '>'))
+        if (!b & (n == '>'))
         {
-            k = "&gt;";
-
+            k = this.S("&gt;");
 
             b = true;
         }
 
-
-
-        if (!b & (oc == '&'))
+        if (!b & (n == '&'))
         {
-            k = "&amp;";
-
+            k = this.S("&amp;");
 
             b = true;
         }
 
-
-
-        if (!b & (oc == '\"'))
+        if (!b & (n == '\"'))
         {
-            k = "&quot;";
-
+            k = this.S("&quot;");
 
             b = true;
         }
-
-
-
-
-
 
         if (!b)
         {
-            k = oc.ToString();
+            uint ka;
+            ka = (uint)n;
+
+            k = this.StringComp.CreateChar(ka, 1);
         }
-
-
 
         return k;
     }
