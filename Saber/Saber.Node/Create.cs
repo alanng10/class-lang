@@ -634,7 +634,7 @@ public class Create : InfraCreate
 
         if (node == null)
         {
-            this.Error(this.ErrorKind.Invalid, rangeStart, rangeEnd);
+            this.Error(this.ErrorKind.Unvalid, rangeStart, rangeEnd);
         }
         Node a;
         a = node;
@@ -702,21 +702,21 @@ public class Create : InfraCreate
         name = this.ExecuteName(this.NodeKind.ClassName, this.Range(this.RangeA, nameStart, nameEnd));
         if (name == null)
         {
-            this.Error(this.ErrorKind.NameInvalid, nameStart, nameEnd);
+            this.Error(this.ErrorKind.NameUnvalid, nameStart, nameEnd);
         }
 
         Node varBase;
         varBase = this.ExecuteName(this.NodeKind.ClassName, this.Range(this.RangeA, baseStart, baseEnd));
         if (varBase == null)
         {
-            this.Error(this.ErrorKind.BaseInvalid, baseStart, baseEnd);
+            this.Error(this.ErrorKind.BaseUnvalid, baseStart, baseEnd);
         }
 
         Node part;
         part = this.ExecutePart(this.Range(this.RangeA, partStart, partEnd));
         if (part == null)
         {
-            this.Error(this.ErrorKind.PartInvalid, partStart, partEnd);
+            this.Error(this.ErrorKind.PartUnvalid, partStart, partEnd);
         }
 
         this.SetArg.Kind = this.NodeKind.Class;
@@ -805,21 +805,21 @@ public class Create : InfraCreate
         count = this.ExecuteCount(this.Range(this.RangeA, countStart, countEnd));
         if (count == null)
         {
-            this.Error(this.ErrorKind.CountInvalid, countStart, countEnd);
+            this.Error(this.ErrorKind.CountUnvalid, countStart, countEnd);
         }
 
         Node varClass;
         varClass = this.ExecuteName(this.NodeKind.ClassName, this.Range(this.RangeA, classStart, classEnd));
         if (varClass == null)
         {
-            this.Error(this.ErrorKind.ClassInvalid, classStart, classEnd);
+            this.Error(this.ErrorKind.ClassUnvalid, classStart, classEnd);
         }
 
         Node name;
         name = this.ExecuteName(this.NodeKind.FieldName, this.Range(this.RangeA, nameStart, nameEnd));
         if (name == null)
         {
-            this.Error(this.ErrorKind.NameInvalid, nameStart, nameEnd);
+            this.Error(this.ErrorKind.NameUnvalid, nameStart, nameEnd);
         }
 
         bool b;
@@ -949,12 +949,12 @@ public class Create : InfraCreate
         
         if (varGet == null)
         {
-            this.Error(this.ErrorKind.GetInvalid, oStart, oEnd);
+            this.Error(this.ErrorKind.GetUnvalid, oStart, oEnd);
         }
 
         if (varSet == null)
         {
-            this.Error(this.ErrorKind.SetInvalid, oStart, oEnd);
+            this.Error(this.ErrorKind.SetUnvalid, oStart, oEnd);
         }
 
         this.SetArg.Kind = this.NodeKind.Field;
@@ -1067,35 +1067,35 @@ public class Create : InfraCreate
         count = this.ExecuteCount(this.Range(this.RangeA, countStart, countEnd));
         if (count == null)
         {
-            this.Error(this.ErrorKind.CountInvalid, countStart, countEnd);
+            this.Error(this.ErrorKind.CountUnvalid, countStart, countEnd);
         }
 
         Node varClass;
         varClass = this.ExecuteName(this.NodeKind.ClassName, this.Range(this.RangeA, classStart, classEnd));
         if (varClass == null)
         {
-            this.Error(this.ErrorKind.ClassInvalid, classStart, classEnd);
+            this.Error(this.ErrorKind.ClassUnvalid, classStart, classEnd);
         }
 
         Node name;
         name = this.ExecuteName(this.NodeKind.MaideName, this.Range(this.RangeA, nameStart, nameEnd));
         if (name == null)
         {
-            this.Error(this.ErrorKind.NameInvalid, nameStart, nameEnd);
+            this.Error(this.ErrorKind.NameUnvalid, nameStart, nameEnd);
         }
 
         Node param;
         param = this.ExecuteParam(this.Range(this.RangeA, paramStart, paramEnd));
         if (param == null)
         {
-            this.Error(this.ErrorKind.ParamInvalid, paramStart, paramEnd);
+            this.Error(this.ErrorKind.ParamUnvalid, paramStart, paramEnd);
         }
 
         Node call;
         call = this.ExecuteState(this.Range(this.RangeA, callStart, callEnd));
         if (call == null)
         {
-            this.Error(this.ErrorKind.CallInvalid, callStart, callEnd);
+            this.Error(this.ErrorKind.CallUnvalid, callStart, callEnd);
         }
 
         this.SetArg.Kind = this.NodeKind.Maide;
@@ -1152,14 +1152,14 @@ public class Create : InfraCreate
         varClass = this.ExecuteName(this.NodeKind.ClassName, this.Range(this.RangeA, classStart, classEnd));
         if (varClass == null)
         {
-            this.Error(this.ErrorKind.ClassInvalid, classStart, classEnd);
+            this.Error(this.ErrorKind.ClassUnvalid, classStart, classEnd);
         }
 
         Node name;
         name = this.ExecuteName(this.NodeKind.VarName, this.Range(this.RangeA, nameStart, nameEnd));
         if (name == null)
         {
-            this.Error(this.ErrorKind.NameInvalid, nameStart, nameEnd);
+            this.Error(this.ErrorKind.NameUnvalid, nameStart, nameEnd);
         }
 
         this.SetArg.Kind = this.NodeKind.Var;
@@ -1756,7 +1756,7 @@ public class Create : InfraCreate
         result = this.ExecuteOperate(this.Range(this.RangeA, resultStart, resultEnd));
         if (result == null)
         {
-            this.Error(this.ErrorKind.ResultInvalid, resultStart, resultEnd);
+            this.Error(this.ErrorKind.ResultUnvalid, resultStart, resultEnd);
         }
 
         this.SetArg.Kind = this.NodeKind.ReturnExecute;
@@ -1810,7 +1810,7 @@ public class Create : InfraCreate
         varVar = this.ExecuteVar(this.Range(this.RangeA, varStart, varEnd));
         if (varVar == null)
         {
-            this.Error(this.ErrorKind.VarInvalid, varStart, varEnd);
+            this.Error(this.ErrorKind.VarUnvalid, varStart, varEnd);
         }
 
         this.SetArg.Kind = this.NodeKind.ReferExecute;
@@ -1863,14 +1863,14 @@ public class Create : InfraCreate
         mark = this.ExecuteMark(this.Range(this.RangeA, markStart, markEnd));
         if (mark == null)
         {
-            this.Error(this.ErrorKind.MarkInvalid, markStart, markEnd);
+            this.Error(this.ErrorKind.MarkUnvalid, markStart, markEnd);
         }
 
         Node value;
         value = this.ExecuteOperate(this.Range(this.RangeA, valueStart, valueEnd));
         if (value == null)
         {
-            this.Error(this.ErrorKind.ValueInvalid, valueStart, valueEnd);
+            this.Error(this.ErrorKind.ValueUnvalid, valueStart, valueEnd);
         }
 
         this.SetArg.Kind = this.NodeKind.AreExecute;
@@ -1912,7 +1912,7 @@ public class Create : InfraCreate
         any = this.ExecuteOperate(this.Range(this.RangeA, anyStart, anyEnd));
         if (any == null)
         {
-            this.Error(this.ErrorKind.AnyInvalid, anyStart, anyEnd);
+            this.Error(this.ErrorKind.AnyUnvalid, anyStart, anyEnd);
         }
 
         this.SetArg.Kind = this.NodeKind.OperateExecute;
@@ -2159,14 +2159,14 @@ public class Create : InfraCreate
         varClass = this.ExecuteName(this.NodeKind.ClassName, this.Range(this.RangeA, classStart, classEnd));
         if (varClass == null)
         {
-            this.Error(this.ErrorKind.ClassInvalid, classStart, classEnd);
+            this.Error(this.ErrorKind.ClassUnvalid, classStart, classEnd);
         }
 
         Node any;
         any = this.ExecuteOperate(this.Range(this.RangeA, anyStart, anyEnd));
         if (any == null)
         {
-            this.Error(this.ErrorKind.AnyInvalid, anyStart, anyEnd);
+            this.Error(this.ErrorKind.AnyUnvalid, anyStart, anyEnd);
         }
 
         this.SetArg.Kind = this.NodeKind.CastOperate;
@@ -2246,7 +2246,7 @@ public class Create : InfraCreate
         any = this.ExecuteOperate(this.Range(this.RangeA, anyStart, anyEnd));
         if (any == null)
         {
-            this.Error(this.ErrorKind.AnyInvalid, anyStart, anyEnd);
+            this.Error(this.ErrorKind.AnyUnvalid, anyStart, anyEnd);
         }
 
         this.SetArg.Kind = this.NodeKind.BraceOperate;
@@ -2426,14 +2426,14 @@ public class Create : InfraCreate
         left = this.ExecuteOperate(this.Range(this.RangeA, leftStart, leftEnd));
         if (left == null)
         {
-            this.Error(this.ErrorKind.OperandInvalid, leftStart, leftEnd);
+            this.Error(this.ErrorKind.OperandUnvalid, leftStart, leftEnd);
         }
 
         Node right;
         right = this.ExecuteOperate(this.Range(this.RangeA, rightStart, rightEnd));
         if (right == null)
         {
-            this.Error(this.ErrorKind.OperandInvalid, rightStart, rightEnd);
+            this.Error(this.ErrorKind.OperandUnvalid, rightStart, rightEnd);
         }
 
         this.SetArg.Kind = this.NodeKind.BitSignRiteOperate;
@@ -2518,14 +2518,14 @@ public class Create : InfraCreate
         cond = this.ExecuteOperate(this.Range(this.RangeA, condStart, condEnd));
         if (cond == null)
         {
-            this.Error(this.ErrorKind.CondInvalid, condStart, condEnd);
+            this.Error(this.ErrorKind.CondUnvalid, condStart, condEnd);
         }
 
         Node body;
         body = this.ExecuteState(this.Range(this.RangeA, bodyStart, bodyEnd));
         if (body == null)
         {
-            this.Error(this.ErrorKind.BodyInvalid, bodyStart, bodyEnd);
+            this.Error(this.ErrorKind.BodyUnvalid, bodyStart, bodyEnd);
         }
 
         this.SetArg.Kind = kind;
@@ -2591,7 +2591,7 @@ public class Create : InfraCreate
         varClass = this.ExecuteName(this.NodeKind.ClassName, this.Range(this.RangeA, classStart, classEnd));
         if (varClass == null)
         {
-            this.Error(this.ErrorKind.ClassInvalid, classStart, classEnd);
+            this.Error(this.ErrorKind.ClassUnvalid, classStart, classEnd);
         }
         
         this.SetArg.Kind = kind;
@@ -2630,14 +2630,14 @@ public class Create : InfraCreate
         varThis = this.ExecuteOperate(this.Range(this.RangeA, thisStart, thisEnd));
         if (varThis == null)
         {
-            this.Error(this.ErrorKind.ThisInvalid, thisStart, thisEnd);
+            this.Error(this.ErrorKind.ThisUnvalid, thisStart, thisEnd);
         }
 
         Node field;
         field = this.ExecuteName(this.NodeKind.FieldName, this.Range(this.RangeA, fieldStart, fieldEnd));
         if (field == null)
         {
-            this.Error(this.ErrorKind.FieldInvalid, fieldStart, fieldEnd);
+            this.Error(this.ErrorKind.FieldUnvalid, fieldStart, fieldEnd);
         }
 
         this.SetArg.Kind = kind;
@@ -2703,21 +2703,21 @@ public class Create : InfraCreate
         varThis = this.ExecuteOperate(this.Range(this.RangeA, thisStart, thisEnd));
         if (varThis == null)
         {
-            this.Error(this.ErrorKind.ThisInvalid, thisStart, thisEnd);
+            this.Error(this.ErrorKind.ThisUnvalid, thisStart, thisEnd);
         }
 
         Node maide;
         maide = this.ExecuteName(this.NodeKind.MaideName, this.Range(this.RangeA, maideStart, maideEnd));
         if (maide == null)
         {
-            this.Error(this.ErrorKind.MaideInvalid, maideStart, maideEnd);
+            this.Error(this.ErrorKind.MaideUnvalid, maideStart, maideEnd);
         }
 
         Node argue;
         argue = this.ExecuteArgue(this.Range(this.RangeA, argueStart, argueEnd));
         if (argue == null)
         {
-            this.Error(this.ErrorKind.ArgueInvalid, argueStart, argueEnd);
+            this.Error(this.ErrorKind.ArgueUnvalid, argueStart, argueEnd);
         }
 
         this.SetArg.Kind = kind;
@@ -2836,14 +2836,14 @@ public class Create : InfraCreate
         left = this.ExecuteOperate(this.Range(this.RangeA, leftStart, leftEnd));
         if (left == null)
         {
-            this.Error(this.ErrorKind.OperandInvalid, leftStart, leftEnd);
+            this.Error(this.ErrorKind.OperandUnvalid, leftStart, leftEnd);
         }
 
         Node right;
         right = this.ExecuteOperate(this.Range(this.RangeA, rightStart, rightEnd));
         if (right == null)
         {
-            this.Error(this.ErrorKind.OperandInvalid, rightStart, rightEnd);
+            this.Error(this.ErrorKind.OperandUnvalid, rightStart, rightEnd);
         }
 
         this.SetArg.Kind = kind;
@@ -2883,7 +2883,7 @@ public class Create : InfraCreate
         value = this.ExecuteOperate(this.Range(this.RangeA, valueStart, valueEnd));
         if (value == null)
         {
-            this.Error(this.ErrorKind.OperandInvalid, valueStart, valueEnd);
+            this.Error(this.ErrorKind.OperandUnvalid, valueStart, valueEnd);
         }
 
         this.SetArg.Kind = kind;
@@ -2967,14 +2967,14 @@ public class Create : InfraCreate
         left = this.ExecuteOperate(this.Range(this.RangeA, leftStart, leftEnd));
         if (left == null)
         {
-            this.Error(this.ErrorKind.OperandInvalid, leftStart, leftEnd);
+            this.Error(this.ErrorKind.OperandUnvalid, leftStart, leftEnd);
         }
 
         Node right;
         right = this.ExecuteOperate(this.Range(this.RangeA, rightStart, rightEnd));
         if (right == null)
         {
-            this.Error(this.ErrorKind.OperandInvalid, rightStart, rightEnd);
+            this.Error(this.ErrorKind.OperandUnvalid, rightStart, rightEnd);
         }
 
         this.SetArg.Kind = kind;
@@ -3048,7 +3048,7 @@ public class Create : InfraCreate
         value = this.ExecuteOperate(this.Range(this.RangeA, valueStart, valueEnd));
         if (value == null)
         {
-            this.Error(this.ErrorKind.OperandInvalid, valueStart, valueEnd);
+            this.Error(this.ErrorKind.OperandUnvalid, valueStart, valueEnd);
         }
 
         this.SetArg.Kind = kind;
@@ -3144,7 +3144,7 @@ public class Create : InfraCreate
                 long aEnd;
                 aStart = index;
                 aEnd = end;
-                this.Error(this.ErrorKind.ItemInvalid, aStart, aEnd);
+                this.Error(this.ErrorKind.ItemUnvalid, aStart, aEnd);
 
                 this.Operate.ExecuteListSetItem(listIndex, count, null);
                 count = count + 1;
@@ -3174,7 +3174,7 @@ public class Create : InfraCreate
                 ba = (item == null);
                 if (ba)
                 {
-                    this.Error(this.ErrorKind.ItemInvalid, itemStart, itemEnd);
+                    this.Error(this.ErrorKind.ItemUnvalid, itemStart, itemEnd);
                 }
 
                 this.Operate.ExecuteListSetItem(listIndex, count, item);
@@ -3267,7 +3267,7 @@ public class Create : InfraCreate
 
             if (ba)
             {
-                this.Error(this.ErrorKind.ItemInvalid, aStart, aEnd);
+                this.Error(this.ErrorKind.ItemUnvalid, aStart, aEnd);
             }
 
             this.Operate.ExecuteListSetItem(listIndex, count, item);
@@ -3278,7 +3278,7 @@ public class Create : InfraCreate
 
         if (hasNextItem)
         {
-            this.Error(this.ErrorKind.ItemInvalid, index, index);
+            this.Error(this.ErrorKind.ItemUnvalid, index, index);
 
             this.Operate.ExecuteListSetItem(listIndex, count, null);
 
