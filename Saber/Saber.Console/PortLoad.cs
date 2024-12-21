@@ -466,7 +466,7 @@ public class PortLoad : ClassBase
             String k;
             k = this.ModuleRefString(ka);
 
-            this.ErrorAdd(this.ErrorKind.ModuleUndefined, k);
+            this.ErrorAdd(this.ErrorKind.ModuleUndefine, k);
 
             this.Status = 60;
             return false;
@@ -511,7 +511,7 @@ public class PortLoad : ClassBase
                 String k;
                 k = this.ModuleRefString(moduleRef);
 
-                this.ErrorAdd(this.ErrorKind.ModuleUndefined, k);
+                this.ErrorAdd(this.ErrorKind.ModuleUndefine, k);
 
                 this.Status = 200 + o;
                 return false;
@@ -649,7 +649,7 @@ public class PortLoad : ClassBase
 
                 if (ba)
                 {
-                    this.ErrorAdd(this.ErrorKind.ImportClassUndefined, className);
+                    this.ErrorAdd(this.ErrorKind.ImportClassUndefine, className);
                     b = true;
                 }
 
