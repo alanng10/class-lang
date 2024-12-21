@@ -8,26 +8,39 @@ public class Gen : ToolBase
 
         this.OutputFilePath = this.S("TypeBoard.svg");
 
-        this.DigitButtonShiftChar = new uint[10]
-        {
-            '&',
-            '|',
-            '!',
-            '+',
-            '-',
-            '*',
-            '/',
-            '<',
-            '>',
-            '='
-        };
+        this.DigitButtonShiftChar = new Data();
+        this.DigitButtonShiftChar.Count = 10 * sizeof(uint);
+        this.DigitButtonShiftChar.Init();
+        
+        this.Index = 0;
+
+        this.AddDigitButtonShiftChar('&');
+        this.AddDigitButtonShiftChar('|');
+        this.AddDigitButtonShiftChar('~');
+        this.AddDigitButtonShiftChar('+');
+        this.AddDigitButtonShiftChar('-');
+        this.AddDigitButtonShiftChar('*');
+        this.AddDigitButtonShiftChar('/');
+        this.AddDigitButtonShiftChar('<');
+        this.AddDigitButtonShiftChar('>');
+        this.AddDigitButtonShiftChar('=');
 
         return true;
     }
 
     protected virtual String OutputFilePath { get; set; }
 
-    protected virtual Data DigitShiftCharArray { get; set; }
+    protected virtual Data DigitButtonShiftChar { get; set; }
+
+    protected virtual long Index { get; set; }
+
+    protected virtual bool AddDigitButtonShiftChar(long n)
+    {
+        this.TextInfra.DataCharSet(this.DigitButtonShiftChar, this.Index, n);
+
+        this.Index = this.Index + 1;
+        return true;
+    }
 
     public virtual int Execute()
     {
@@ -682,12 +695,6 @@ public class Gen : ToolBase
     {
         return this.BoardUp + row * (this.ButtonWidth + this.ButtonSpace);
     }
-
-
-
-
-
-    protected virtual char[] DigitButtonShiftChar { get; set; }
 
 
 
