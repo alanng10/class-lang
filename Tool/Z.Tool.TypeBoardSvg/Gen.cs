@@ -416,17 +416,6 @@ public class Gen : ToolBase
         }
     }
 
-    protected virtual int NullInt
-    {
-        get
-        {
-            return -1;
-        }
-        set
-        {
-        }
-    }
-
     protected virtual bool AddRect(long left, long up, long width, long height, long horizontalRadius, long verticalRadius)
     {
         this.AddIndent(1);
