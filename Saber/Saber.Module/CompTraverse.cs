@@ -64,7 +64,7 @@ public class CompTraverse : Traverse
         {
             if (this.Create.MemberNameDefined(this.ThisClass, fieldName))
             {
-                this.Error(this.ErrorKind.NameUnavailable, nodeField);
+                this.Error(this.ErrorKind.NameUnavail, nodeField);
                 return true;
             }
         }
@@ -77,7 +77,7 @@ public class CompTraverse : Traverse
             varClass = this.Class(className);
             if (varClass == null)
             {
-                this.Error(this.ErrorKind.ClassUndefined, nodeField);
+                this.Error(this.ErrorKind.ClassUndefine, nodeField);
                 return true;
             }
         }
@@ -142,7 +142,7 @@ public class CompTraverse : Traverse
         {
             if (this.Create.MemberNameDefined(this.ThisClass, maideName))
             {
-                this.Error(this.ErrorKind.NameUnavailable, nodeMaide);
+                this.Error(this.ErrorKind.NameUnavail, nodeMaide);
                 return true;
             }
         }
@@ -155,7 +155,7 @@ public class CompTraverse : Traverse
             varClass = this.Class(className);
             if (varClass == null)
             {
-                this.Error(this.ErrorKind.ClassUndefined, nodeMaide);
+                this.Error(this.ErrorKind.ClassUndefine, nodeMaide);
                 return true;
             }
         }
@@ -207,7 +207,7 @@ public class CompTraverse : Traverse
 
         if (this.ParamVar.Valid(varName))
         {
-            this.Error(this.ErrorKind.NameUnavailable, nodeVar);
+            this.Error(this.ErrorKind.NameUnavail, nodeVar);
             return true;
         }
 
@@ -215,7 +215,7 @@ public class CompTraverse : Traverse
         varClass = this.Class(className);
         if (varClass == null)
         {
-            this.Error(this.ErrorKind.ClassUndefined, nodeVar);
+            this.Error(this.ErrorKind.ClassUndefine, nodeVar);
             return true;
         }
 
