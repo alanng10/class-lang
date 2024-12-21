@@ -436,54 +436,25 @@ public class Gen : ToolBase
         return true;
     }
 
-
-
-
-
-
-    protected virtual bool AddControlButton(StringBuilder sb, string value, int row, int col)
+    protected virtual bool AddControlButton(String value, long row, long col)
     {
-        int left;
-
+        long left;
         left = this.GetButtonLeft(col);
 
-
-
-        int up;
-
+        long up;
         up = this.GetButtonUp(row);
 
+        this.AddButtonRect(left, up);
 
-
-
-
-        this.AddButtonRect(sb, left, up);
-
-
-
-
-        int l;
-
+        long l;
         l = left + 8;
 
-
-        int u;
-
+        long u;
         u = up + 21;
 
+        this.AddText(l, u, value, '\0', 11);
 
-
-
-        this.AddText(sb, l, u, value, '\0', 11);
-
-
-
-        this.AppendNewLine(sb);
-
-
-
-
-
+        this.AddLine();
         return true;
     }
 
