@@ -18,9 +18,9 @@ ResultUnassign
 CastUnachieve
 VarUndefine
 ExportUndefine
-ClassUnexportable
-FieldUnexportable
-MaideUnexportable
+ClassUnexport
+FieldUnexport
+MaideUnexport
 EntryUndefine
 EntryUnachieve
 ModuleInvalid
