@@ -952,28 +952,21 @@ public class Gen : ToolBase
         return true;
     }
 
-
-
-
-    protected virtual bool AddAttributeChar(StringBuilder sb, string name, char value)
+    protected virtual bool AddAttributeChar(String name, long value)
     {
-        sb.Append(" ").Append(name).Append("=\"").Append(value).Append("\"");
+        uint kk;
+        kk = (uint)value;
 
+        String ka;
+        ka = this.StringComp.CreateChar(kk, 1);
 
-
+        this.AddS(" ").Add(name).AddS("=\"").Add(ka).AddS("\"");
         return true;
     }
 
-
-
-
-
-    protected virtual bool AddAttributeString(StringBuilder sb, string name, string value)
+    protected virtual bool AddAttributeString(String name, String value)
     {
-        sb.Append(" ").Append(name).Append("=\"").Append(value).Append("\"");
-
-
-
+        this.AddS(" ").Add(name).AddS("=\"").Add(value).AddS("\"");
         return true;
     }
 
