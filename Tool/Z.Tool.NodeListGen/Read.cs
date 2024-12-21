@@ -79,7 +79,7 @@ class Read : ToolBase
         infra = this.ToolInfra;
 
         String ka;
-        ka = infra.StorageTextRead(this.S("ToolData/Class/NodeList.txt"));
+        ka = infra.StorageTextRead(this.S("ToolData/Saber/NodeList.txt"));
 
         Array lineArray;        
         lineArray = this.TextLimitLineString(this.TA(ka));

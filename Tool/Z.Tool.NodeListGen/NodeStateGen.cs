@@ -8,8 +8,8 @@ public class NodeStateGen : ToolBase
 
     public virtual int Execute()
     {
-        this.NodeStateSourceFileName = this.S("ToolData/Class/NodeStateSource.txt");
-        this.OutputFoldPath = this.S("../../Class/Class.Node");
+        this.NodeStateSourceFileName = this.S("ToolData/Saber/NodeStateSource.txt");
+        this.OutputFoldPath = this.S("../../Saber/Saber.Node");
 
         String kk;
         kk = this.ToolInfra.StorageTextRead(this.NodeStateSourceFileName);
