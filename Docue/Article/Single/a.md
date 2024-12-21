@@ -20,8 +20,8 @@ A Single lang source has root node that is Class node.
 The Class node has no base.
 It has derived Comp classes nodes in Class node.
 
-Comp node can be struct node, var node and maide node.
-Var node is global var node.
+Comp node can be struct node, glob var node and maide node.
+Glob var node is global var node.
 
 All Comp derived classes have Count.
 Count has derived classes that are PrusateCount, PronateCount and PrivateCount.
