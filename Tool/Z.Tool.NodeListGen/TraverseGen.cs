@@ -6,7 +6,7 @@ public class TraverseGen : ToolBase
     {
         base.Init();
 
-        this.PathOutput = this.S("../../Class/Class.Node/Traverse.cs");
+        this.PathOutput = this.S("../../Class/Class.Node/Travel.cs");
 
         this.PathSource = this.GetPath(this.S("Source"));
         this.PathNode = this.GetPath(this.S("Node"));
