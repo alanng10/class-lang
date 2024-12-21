@@ -218,6 +218,8 @@ Word "space" has meaning that is whitespace.
 
 Word "print" has meaning that is has char style.
 
+Word "achieve" has meaning that is achievable.
+
 Word "stack" has meaning that is put on top of.
 
 Word "queue" has meaning that is put at after back.
