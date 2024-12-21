@@ -871,7 +871,7 @@ public class PortLoad : ClassBase
             {
                 if (!this.StorageComp.Exist(sourcePathA))
                 {
-                    this.ErrorAdd(this.ErrorKind.StorageSourceUnachievable, sourcePath);
+                    this.ErrorAdd(this.ErrorKind.StorageSourceUnachieve, sourcePath);
 
                     ba = true;
                 }
@@ -921,7 +921,7 @@ public class PortLoad : ClassBase
 
         if (b)
         {
-            this.ErrorAdd(this.ErrorKind.EntryUnachievable, entry);
+            this.ErrorAdd(this.ErrorKind.EntryUnachieve, entry);
 
             this.Status = 110;
             return false;
