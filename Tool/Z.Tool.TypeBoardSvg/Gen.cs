@@ -52,7 +52,7 @@ public class Gen : ToolBase
 
         this.AddClear();
 
-        this.AddLetterButtonList();
+        this.AddAlphaButtonList();
 
         this.AddDigitButtonList();
 
@@ -75,7 +75,7 @@ public class Gen : ToolBase
         return 0;
     }
 
-    protected virtual bool AddLetterButtonList()
+    protected virtual bool AddAlphaButtonList()
     {
         long row;
 
