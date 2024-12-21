@@ -242,7 +242,7 @@ public class Create : InfraCreate
         ba = (varBase == null);
         if (ba)
         {
-            this.Error(this.ErrorKind.BaseUndefined, nodeClass, this.SourceGet(varClass.Index));
+            this.Error(this.ErrorKind.BaseUndefine, nodeClass, this.SourceGet(varClass.Index));
             b = true;
         }
 
@@ -250,7 +250,7 @@ public class Create : InfraCreate
         {
             if (!this.ValidBase(varBase))
             {
-                this.Error(this.ErrorKind.BaseUndefined, nodeClass, this.SourceGet(varClass.Index));
+                this.Error(this.ErrorKind.BaseUndefine, nodeClass, this.SourceGet(varClass.Index));
                 b = true;
             }
         }
@@ -317,7 +317,7 @@ public class Create : InfraCreate
                 NodeClass nodeClass;
                 nodeClass = (NodeClass)varClass.Any;
 
-                this.Error(this.ErrorKind.BaseUndefined, nodeClass, this.SourceGet(varClass.Index));
+                this.Error(this.ErrorKind.BaseUndefine, nodeClass, this.SourceGet(varClass.Index));
 
                 a = anyClass;
             }
@@ -475,7 +475,7 @@ public class Create : InfraCreate
 
             if (!ba)
             {
-                this.Error(this.ErrorKind.FieldUndefined, node, this.SourceGet(varClass.Index));
+                this.Error(this.ErrorKind.FieldUndefine, node, this.SourceGet(varClass.Index));
             }
 
             if (ba)
@@ -503,7 +503,7 @@ public class Create : InfraCreate
 
             if (!bb)
             {
-                this.Error(this.ErrorKind.MaideUndefined, node, this.SourceGet(varClass.Index));
+                this.Error(this.ErrorKind.MaideUndefine, node, this.SourceGet(varClass.Index));
             }
 
             if (bb)
@@ -813,7 +813,7 @@ public class Create : InfraCreate
             b = (varClass == null);
             if (b)
             {
-                this.ErrorModule(this.ErrorKind.ExportUndefined, name);
+                this.ErrorModule(this.ErrorKind.ExportUndefine, name);
             }
             if (!b)
             {
@@ -944,7 +944,7 @@ public class Create : InfraCreate
         varClass = this.ModuleClassGet(module, entry);
         if (varClass == null)
         {
-            this.ErrorModule(this.ErrorKind.EntryUndefined, null);
+            this.ErrorModule(this.ErrorKind.EntryUndefine, null);
             return true;
         }
 
