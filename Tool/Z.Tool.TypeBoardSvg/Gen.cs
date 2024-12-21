@@ -50,8 +50,7 @@ public class Gen : ToolBase
         Text text;
         text = this.TextCreate(ua);
 
-        StringBuilder sba;
-        sba = new StringBuilder();
+        this.AddClear();
 
         this.AddLetterButtonList(sba);
 
@@ -61,13 +60,13 @@ public class Gen : ToolBase
 
         this.AddControlButtonList(sba);
 
-        string aa;
-        aa = sba.ToString();
+        String aa;
+        aa = this.AddResult();
 
         Text k;
         k = text;
-        k = this.Replace(k, this.TA(this.S("#DrawList#")), this.TB(aa));
-        
+        k = this.Replace(k, "#DrawList#", aa);
+
         String output;
         output = this.StringCreate(k);
 
