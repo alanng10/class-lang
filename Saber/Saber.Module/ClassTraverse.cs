@@ -39,7 +39,7 @@ public class ClassTraverse : Traverse
         ka = this.Create.Class(className);
         if (!(ka == null))
         {
-            this.Error(this.ErrorKind.NameUnavailable, nodeClass);
+            this.Error(this.ErrorKind.NameUnavail, nodeClass);
             return true;
         }
 
