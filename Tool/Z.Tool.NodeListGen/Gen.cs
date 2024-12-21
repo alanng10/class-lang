@@ -53,8 +53,8 @@ public class Gen : Any
         traverseGen.ClassTable = classTable;
         traverseGen.Execute();
 
-        TraverseClassPathGen traverseClassPathGen;
-        traverseClassPathGen = new TraverseClassPathGen();
+        TravelClassPathGen traverseClassPathGen;
+        traverseClassPathGen = new TravelClassPathGen();
         traverseClassPathGen.Init();
         traverseClassPathGen.ClassTable = classTable;
         traverseClassPathGen.Execute();

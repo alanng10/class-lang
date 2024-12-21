@@ -1,11 +1,11 @@
 namespace Z.Tool.NodeListGen;
 
-public class TraverseClassPathGen : TravelGen
+public class TravelClassPathGen : TravelGen
 {
     public override bool Init()
     {
         base.Init();
-        
+
         this.PathOutput = this.S("../../Saber/Saber.Console/ClassPathTravel_Part.cs");
 
         this.PathSource = this.GetPath(this.S("ClassPathSource"));
