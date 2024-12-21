@@ -125,91 +125,44 @@ public class Gen : ToolBase
 
         letterIndex = letterIndex + count;
 
-        int aad;
-
-
+        long aad;
         aad = 5;
-
-
-
 
         row = 1;
 
-
         startCol = aac + 1;
-
-
 
         count = aad;
 
-
-
-        this.AddLetterButtonRange(sb, row, startCol, count, letterIndex);
-
-
+        this.AddLetterButtonRange(row, startCol, count, letterIndex);
 
         letterIndex = letterIndex + count;
 
-
-
-
-
-        int aae;
-
-
+        long aae;
         aae = 4;
-
-
-
 
         row = 3;
 
-
         startCol = aab + 2;
-
-
 
         count = aae;
 
-
-
-        this.AddLetterButtonRange(sb, row, startCol, count, letterIndex);
-
-
+        this.AddLetterButtonRange(row, startCol, count, letterIndex);
 
         letterIndex = letterIndex + count;
 
-
-
-
-
-        int aaf;
-
-
+        long aaf;
         aaf = 4;
-
-
 
         count = aaf;
 
-
-
         row = 2;
-
 
         startCol = aaa + 2;
 
+        this.AddLetterButtonRange(row, startCol, count, letterIndex);
 
-
-        this.AddLetterButtonRange(sb, row, startCol, count, letterIndex);
-
-
-        
         letterIndex = letterIndex + count;
-
-
-
-
 
         return true;
     }
