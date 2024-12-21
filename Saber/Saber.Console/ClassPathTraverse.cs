@@ -1,6 +1,6 @@
 namespace Saber.Console;
 
-public partial class ClassPathTraverse : Traverse
+public partial class ClassPathTravel : Traverse
 {
     public override bool Init()
     {
