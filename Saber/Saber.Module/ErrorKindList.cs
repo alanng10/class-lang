@@ -22,7 +22,7 @@ public class ErrorKindList : Any
         this.Count = this.Array.Count;
         this.Index = 0;
 
-        this.NameUnavailable = this.AddItem("NameUnavailable");
+        this.NameUnavail = this.AddItem("NameUnavail");
         this.ClassUndefined = this.AddItem("ClassUndefined");
         this.BaseUndefined = this.AddItem("BaseUndefined");
         this.TargetUndefined = this.AddItem("TargetUndefined");
@@ -49,18 +49,18 @@ public class ErrorKindList : Any
         this.EntryUnachieve = this.AddItem("EntryUnachieve");
         this.ModuleInvalid = this.AddItem("ModuleInvalid");
         this.ModuleUndefined = this.AddItem("ModuleUndefined");
-        this.ImportNameUnavailable = this.AddItem("ImportNameUnavailable");
+        this.ImportNameUnavail = this.AddItem("ImportNameUnavail");
         this.ImportClassUndefined = this.AddItem("ImportClassUndefined");
         this.ExportInvalid = this.AddItem("ExportInvalid");
         this.ExportUnachieve = this.AddItem("ExportUnachieve");
         this.StorageDestInvalid = this.AddItem("StorageDestInvalid");
         this.StorageSourceInvalid = this.AddItem("StorageSourceInvalid");
-        this.StorageDestUnavailable = this.AddItem("StorageDestUnavailable");
+        this.StorageDestUnavail = this.AddItem("StorageDestUnavail");
         this.StorageSourceUnachieve = this.AddItem("StorageSourceUnachieve");
         return true;
     }
 
-    public virtual ErrorKind NameUnavailable { get; set; }
+    public virtual ErrorKind NameUnavail { get; set; }
     public virtual ErrorKind ClassUndefined { get; set; }
     public virtual ErrorKind BaseUndefined { get; set; }
     public virtual ErrorKind TargetUndefined { get; set; }
@@ -87,13 +87,13 @@ public class ErrorKindList : Any
     public virtual ErrorKind EntryUnachieve { get; set; }
     public virtual ErrorKind ModuleInvalid { get; set; }
     public virtual ErrorKind ModuleUndefined { get; set; }
-    public virtual ErrorKind ImportNameUnavailable { get; set; }
+    public virtual ErrorKind ImportNameUnavail { get; set; }
     public virtual ErrorKind ImportClassUndefined { get; set; }
     public virtual ErrorKind ExportInvalid { get; set; }
     public virtual ErrorKind ExportUnachieve { get; set; }
     public virtual ErrorKind StorageDestInvalid { get; set; }
     public virtual ErrorKind StorageSourceInvalid { get; set; }
-    public virtual ErrorKind StorageDestUnavailable { get; set; }
+    public virtual ErrorKind StorageDestUnavail { get; set; }
     public virtual ErrorKind StorageSourceUnachieve { get; set; }
 
     protected virtual TextStringValue StringValue { get; set; }
