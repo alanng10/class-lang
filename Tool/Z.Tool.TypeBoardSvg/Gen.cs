@@ -244,43 +244,23 @@ public class Gen : ToolBase
         return true;
     }
 
-
-
-
-
-
-    protected virtual bool AddLetterButtonRange(int row, int startCol, int count, int letterIndex)
+    protected virtual bool AddLetterButtonRange(long row, long startCol, long count, long letterIndex)
     {
-        int col;
-
-
-        int uu;
-
-
-
-        int i;
-
-
+        long i;
         i = 0;
-
 
         while (i < count)
         {
+            long col;
             col = startCol + i;
 
-
+            long uu;
             uu = 'A' + letterIndex + i;
 
-
-
-            this.AddButton(sb, uu, this.NullInt, row, col);
-
-
+            this.AddButton(uu, -1, row, col);
 
             i = i + 1;
         }
-
-
 
         return true;
     }
