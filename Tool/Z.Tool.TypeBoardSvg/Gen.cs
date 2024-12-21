@@ -272,7 +272,7 @@ public class Gen : ToolBase
         long u;
         u = up + 21;
 
-        this.AddText(l, u, value, '\0', 11);
+        this.AddText(l, u, value, -1, 11);
 
         this.AddLine();
         return true;
