@@ -345,19 +345,19 @@ public class StateTraverse : Traverse
             return true;
         }
 
-        Mark target;
-        target = areExecute.Mark;
+        Mark mark;
+        mark = areExecute.Mark;
         Operate value;
         value = areExecute.Value;
 
         base.ExecuteAreExecute(areExecute);
 
-        ClassClass targetClass;
-        targetClass = null;
-        if (!(target == null))
+        ClassClass markClass;
+        markClass = null;
+        if (!(mark == null))
         {
-            targetClass = this.Info(target).TargetClass;
-            if (targetClass == null)
+            markClass = this.Info(mark).TargetClass;
+            if (markClass == null)
             {
                 this.Error(this.ErrorKind.MarkUndefine, areExecute);
             }
@@ -374,9 +374,9 @@ public class StateTraverse : Traverse
             }
         }
 
-        if (!(targetClass == null) & !(valueClass == null))
+        if (!(markClass == null) & !(valueClass == null))
         {
-            if (!this.ValidClass(valueClass, targetClass))
+            if (!this.ValidClass(valueClass, markClass))
             {
                 this.Error(this.ErrorKind.ValueUnassign, areExecute);
             }
