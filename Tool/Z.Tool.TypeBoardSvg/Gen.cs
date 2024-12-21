@@ -515,63 +515,28 @@ public class Gen : ToolBase
                 this.AddLine();
             }
 
-
-
             if (!b)
             {
-                char oc;
-
-
-                int l;
-                
-
-                int u;
-
-
-
-                oc = (char)defaultChar;
-
-
+                long l;
+                long u;
 
                 l = left + 9;
-
 
                 u = up + 40;
 
+                this.AddText(l, u, null, defaultChar, 16);
 
-
-                this.AddText(sb, l, u, null, oc, 16);
-
-
-
-                this.AppendNewLine(sb);
-
-
-
-
-
-                oc = (char)shiftChar;
-
-
+                this.AddLine();
 
                 l = left + 9;
 
-
                 u = up + 18;
 
+                this.AddText(l, u, null, shiftChar, 16);
 
-
-                this.AddText(sb, l, u, null, oc, 16);
-
-
-                this.AppendNewLine(sb);
+                this.AddLine();
             }
         }
-
-
-
-
-
         return true;
     }
 
