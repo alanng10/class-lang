@@ -47,8 +47,8 @@ public class Gen : Any
         nodeKindListGen.ClassTable = classTable;
         nodeKindListGen.Execute();
 
-        TraverseGen traverseGen;
-        traverseGen = new TraverseGen();
+        TravelGen traverseGen;
+        traverseGen = new TravelGen();
         traverseGen.Init();
         traverseGen.ClassTable = classTable;
         traverseGen.Execute();
