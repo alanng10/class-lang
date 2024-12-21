@@ -362,7 +362,7 @@ public class PortLoad : ClassBase
                 String k;
                 k = this.ModuleRefString(a);
 
-                this.ErrorAdd(this.ErrorKind.ModuleInvalid, k);
+                this.ErrorAdd(this.ErrorKind.ModuleUnvalid, k);
 
                 this.Status = 50;
                 return false;
@@ -682,7 +682,7 @@ public class PortLoad : ClassBase
 
                 if (bb)
                 {
-                    this.ErrorAdd(this.ErrorKind.ImportNameUnavailable, name);
+                    this.ErrorAdd(this.ErrorKind.ImportNameUnavail, name);
                     b = true;
                 }
 
@@ -764,7 +764,7 @@ public class PortLoad : ClassBase
 
             if (ba)
             {
-                this.ErrorAdd(this.ErrorKind.ExportInvalid, name);
+                this.ErrorAdd(this.ErrorKind.ExportUnvalid, name);
                 b = true;
             }
 
@@ -841,7 +841,7 @@ public class PortLoad : ClassBase
             {
                 if (!pathValid.IsValidSourcePath(this.TA(sourcePathA)))
                 {
-                    this.ErrorAdd(this.ErrorKind.StorageSourceInvalid, sourcePath);
+                    this.ErrorAdd(this.ErrorKind.StorageSourceUnvalid, sourcePath);
 
                     ba = true;
                 }
@@ -851,7 +851,7 @@ public class PortLoad : ClassBase
             {
                 if (!pathValid.IsValidDestPath(this.TA(destPath)))
                 {
-                    this.ErrorAdd(this.ErrorKind.StorageDestInvalid, destPath);
+                    this.ErrorAdd(this.ErrorKind.StorageDestUnvalid, destPath);
 
                     ba = true;
                 }
@@ -861,7 +861,7 @@ public class PortLoad : ClassBase
             {
                 if (table.Valid(destPath))
                 {
-                    this.ErrorAdd(this.ErrorKind.StorageDestUnavailable, destPath);
+                    this.ErrorAdd(this.ErrorKind.StorageDestUnavail, destPath);
 
                     ba = true;
                 }
