@@ -432,10 +432,9 @@ public class Create : InfraCreate
             long index;
             index = i;
             index = index * sizeof(ulong);
-            ulong u;
-            u = this.InfraInfra.DataIntGet(data, index);
+
             long oa;
-            oa = (long)u;
+            oa = this.InfraInfra.DataIntGet(data, index);
 
             Array a;
             a = listInfra.ArrayCreate(oa);
