@@ -16,7 +16,7 @@ public class Create : InfraCreate
         this.SetOperate = this.CreateSetCreateOperate();
         this.SetArg = this.CreateCreateSetArg();
 
-        this.NameCheck = this.CreateNameCheck();
+        this.NameValid = this.CreateNameCheck();
         this.StringValueWrite = this.CreateStringValueWrite();
 
         this.RangeA = this.CreateRange();
@@ -85,7 +85,7 @@ public class Create : InfraCreate
     protected virtual KindCreateOperate KindOperate { get; set; }
     protected virtual SetCreateOperate SetOperate { get; set; }
 
-    protected virtual NameValid NameCheck { get; set; }
+    protected virtual NameValid NameValid { get; set; }
     public virtual StringValueWrite StringValueWrite { get; set; }
 
     protected virtual NameValid CreateNameCheck()
@@ -3940,7 +3940,7 @@ public class Create : InfraCreate
 
     protected virtual bool IsName(TokenToken token)
     {
-        return this.NameCheck.IsName(this.TAToken(token));
+        return this.NameValid.IsName(this.TAToken(token));
     }
 
     public virtual bool NodeInfo(Node node, long start, long end)
