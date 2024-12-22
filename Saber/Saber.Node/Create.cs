@@ -3756,7 +3756,7 @@ public class Create : InfraCreate
             return false;
         }
 
-        uint oa;
+        long oa;
         oa = this.TextInfra.DataCharGet(data, start + 2);
         if (!this.IsIntSignChar(oa))
         {
@@ -3808,7 +3808,7 @@ public class Create : InfraCreate
             return false;
         }
 
-        uint oa;
+        long oa;
         oa = this.TextInfra.DataCharGet(data, start + 3);
         if (!this.IsIntSignChar(oa))
         {
@@ -3847,7 +3847,7 @@ public class Create : InfraCreate
             long index;
             index = start + i;
 
-            uint oc;
+            long oc;
             oc = textInfra.DataCharGet(data, index);
 
             if (!(textInfra.Digit(oc)))
@@ -3877,7 +3877,7 @@ public class Create : InfraCreate
             long index;
             index = start + i;
 
-            uint oc;
+            long oc;
             oc = textInfra.DataCharGet(data, index);
 
             if (!(textInfra.Digit(oc) | textInfra.HexAlpha(oc, false)))
@@ -3889,7 +3889,7 @@ public class Create : InfraCreate
         return true;
     }
 
-    protected virtual bool IsIntSignChar(uint oc)
+    protected virtual bool IsIntSignChar(long oc)
     {
         return (oc == 'p') | (oc == 'n');
     }
@@ -3904,7 +3904,7 @@ public class Create : InfraCreate
         long start;
         start = line.Range.Index + o.Range.Index;
 
-        uint oa;
+        long oa;
         oa = this.TextInfra.DataCharGet(data, start + index);
         bool a;
         a = (oa == 'n');
