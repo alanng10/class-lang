@@ -100,7 +100,7 @@ public class Infra : Any
         return this.DataMidSet(data, index, value);
     }
 
-    public virtual ulong DataByteListGet(Data data, long index, long count)
+    public virtual long DataByteListGet(Data data, long index, long count)
     {
         ulong oo;
         oo = 0;
@@ -127,9 +127,12 @@ public class Infra : Any
         d = (this.IntCapValue - 1);
         ulong da;
         da = (ulong)d;
-        ulong a;
-        a = oo;
-        a = a & da;
+        ulong ka;
+        ka = oo;
+        ka = ka & da;
+
+        long a;
+        a = (long)ka;
         return a;
     }
 
