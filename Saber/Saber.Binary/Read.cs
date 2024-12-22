@@ -990,10 +990,10 @@ public class Read : Any
         arg = this.Arg;
         long index;
         index = arg.Index;
-        ulong u;
-        u = infraInfra.DataIntGet(this.Data, index);
+
         long a;
-        a = (long)u;
+        a = infraInfra.DataIntGet(this.Data, index);
+
         index = index + count;
         arg.Index = index;
         return a;
