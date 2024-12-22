@@ -3940,7 +3940,7 @@ public class Create : InfraCreate
 
     protected virtual bool IsName(TokenToken token)
     {
-        return this.NameValid.IsName(this.TAToken(token));
+        return this.NameValid.Name(this.TAToken(token));
     }
 
     public virtual bool NodeInfo(Node node, long start, long end)

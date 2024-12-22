@@ -255,7 +255,7 @@ public class Read : ToolBase
 
         this.TextStringGet(textA, stringDataA, value);
 
-        return nameCheck.IsName(textA);
+        return nameCheck.Name(textA);
     }
 
     protected virtual bool TextStringGet(Text text, StringData data, String o)

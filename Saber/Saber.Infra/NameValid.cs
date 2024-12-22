@@ -38,7 +38,7 @@ public class NameValid : Any
     protected virtual Text Text { get; set; }
     protected virtual Text DotText { get; set; }
 
-    public virtual bool IsName(Text text)
+    public virtual bool Name(Text text)
     {
         if (this.IsIndex(text))
         {

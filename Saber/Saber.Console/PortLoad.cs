@@ -631,7 +631,7 @@ public class PortLoad : ClassBase
 
                 if (!ba)
                 {
-                    if (!nameCheck.IsName(this.TA(className)))
+                    if (!nameCheck.Name(this.TA(className)))
                     {
                         ba = true;
                     }
@@ -666,7 +666,7 @@ public class PortLoad : ClassBase
 
                 if (!bb)
                 {
-                    if (!nameCheck.IsName(this.TA(name)))
+                    if (!nameCheck.Name(this.TA(name)))
                     {
                         bb = true;
                     }
@@ -740,7 +740,7 @@ public class PortLoad : ClassBase
 
             if (!ba)
             {
-                if (!nameCheck.IsName(this.TA(name)))
+                if (!nameCheck.Name(this.TA(name)))
                 {
                     ba = true;
                 }
@@ -909,7 +909,7 @@ public class PortLoad : ClassBase
         bool b;
         b = false;
 
-        if (!this.NameValid.IsName(this.TA(entry)))
+        if (!this.NameValid.Name(this.TA(entry)))
         {
             b = true;
         }

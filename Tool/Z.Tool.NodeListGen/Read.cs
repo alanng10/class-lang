@@ -532,7 +532,7 @@ class Read : ToolBase
         Text a;
         a = this.TextCreate(value);
 
-        return nameCheck.IsName(a);
+        return nameCheck.Name(a);
     }
 
     protected virtual bool TextStringGet(String o)
