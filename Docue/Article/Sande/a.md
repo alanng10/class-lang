@@ -132,15 +132,16 @@ The result type of StructIndexOperate is the type of the Any operate.
 The struct any ref at the unsigned index of array of struct anys of the struct type is resulted.
 The array starts with memory index that is ref value of Any operate.
 
-IntIndexOperate is operate that results int value at index of array of int anys.
+IntIndexOperate is operate that results int any ref at index of array of int anys.
 The operate has syntax that starts with Type of class IntTypeName, followed by Any operate, followed by limit brace square open token, 
 followed by Index operate, followed by limit brace square close token.
 Any operate has type that is 64 bits int type.
 Index operate has type that is 64 bits int type.
-The result type of IntIndexOperate is int type of Type size.
-The int value at the unsigned index of array of the Type size int anys is resulted.
+The result type of IntIndexOperate is 64 bits int type.
+The int any ref at the unsigned index of array of the Type size int anys is resulted.
 The array starts with memory index that is ref value of Any operate.
-If Type is an int type smaller than 64 bits, the int value is smaller than 64 bits.
+If Type is an int type smaller than 64 bits, the int any ref resulted has the int value at lower bits.
+The upper bits are zero.
 
 IntIndexMark is mark that input int any ref at index of array of int anys.
 The mark has syntax that is same as IntIndexOperate.
@@ -149,7 +150,7 @@ Index operate has type that is 64 bits int type.
 The mark type of IntIndexMark is 64 bits int type.
 The int any at the unsigned index of array of the Type size int anys is assigned.
 The array starts with memory index that is ref value of Any operate.
-If Type is an int type smaller that 64 bits, the AreExecute Value operate any ref lower bits is assigned.
+If Type is an int type smaller than 64 bits, the AreExecute Value operate any ref lower bits is assigned.
 
 GlobVarOperate is operate that results glob var hold ref value.
 The operate has syntax that starts with "glob" index word, followed by ClassName, 
