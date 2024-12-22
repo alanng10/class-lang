@@ -158,3 +158,7 @@ followed by colon limit, followed by VarName.
 
 GlobVarMark is mark that input glob var.
 The mark has syntax that is same as GlobVarOperate.
+
+Class node has syntax that starts with "class" index word, followed by Name of class ClassName,
+followed by limit brace open token, followed by Part of class Part, 
+followed by limit brace close token.
