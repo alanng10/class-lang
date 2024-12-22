@@ -11,7 +11,7 @@ public class Console : ClassBase
         this.TaskKind = TaskKindList.This;
 
         this.ErrorWrite = true;
-        this.NameCheck = this.CreateNameCheck();
+        this.NameValid = this.CreateNameCheck();
 
         this.BinaryRead = this.CreateBinaryRead();
         this.BinaryWrite = this.CreateBinaryWrite();
@@ -70,7 +70,7 @@ public class Console : ClassBase
     protected virtual BinaryGen BinaryGen { get; set; }
     protected virtual LibraryGen LibraryGen { get; set; }
     protected virtual StorageGen StorageGen { get; set; }
-    protected virtual NameValid NameCheck { get; set; }
+    protected virtual NameValid NameValid { get; set; }
     protected virtual Out Out { get; set; }
     protected virtual Out Err { get; set; }
     protected virtual String ClassPath { get; set; }
@@ -427,7 +427,7 @@ public class Console : ClassBase
         portLoad.ModuleLoad = this.ModuleLoad;
         portLoad.ModuleTable = this.ModuleTable;
         portLoad.ImportClass = this.ImportClass;
-        portLoad.NameCheck = this.NameCheck;
+        portLoad.NameCheck = this.NameValid;
         portLoad.SystemModule = this.MakeSystemModule;
         portLoad.ClassPath = this.ClassPath;
         portLoad.SourceFold = this.SourceFold;
