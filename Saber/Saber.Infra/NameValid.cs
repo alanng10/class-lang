@@ -40,7 +40,7 @@ public class NameValid : Any
 
     public virtual bool Name(Text text)
     {
-        if (this.IsIndex(text))
+        if (this.Index(text))
         {
             return false;
         }
@@ -194,7 +194,7 @@ public class NameValid : Any
         return a;
     }
 
-    public virtual bool IsIndex(Text text)
+    public virtual bool Index(Text text)
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
