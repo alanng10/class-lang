@@ -139,7 +139,7 @@ public class StringComp : Any
             ka = (index + i) * kka;
             kb = i * kka;
 
-            uint n;
+            long n;
             n = internInfra.DataCharGet(data, ka);
 
             internInfra.DataCharSet(value, kb, n);
@@ -180,7 +180,7 @@ public class StringComp : Any
         long ka;
         ka = index * sizeof(uint);
 
-        uint a;
+        long a;
         a = this.InternInfra.DataCharGet(k, ka);
         return a;
     }
