@@ -95,7 +95,7 @@ public class StringValueWrite : Any
         uint quote;
         quote = (uint)stringComp.Char(classInfra.Quote, 0);
 
-        uint oc;
+        long oc;
         oc = textInfra.DataCharGet(data, rangeStart);
         if (!(oc == quote))
         {
@@ -126,7 +126,7 @@ public class StringValueWrite : Any
             long index;
             index = start + i;
 
-            uint c;
+            long c;
             c = textInfra.DataCharGet(data, index);
 
             bool b;
@@ -142,7 +142,7 @@ public class StringValueWrite : Any
                 long indexA;
                 indexA = start + j;
 
-                uint u;
+                long u;
                 u = textInfra.DataCharGet(data, indexA);
 
                 bool bba;
@@ -175,7 +175,7 @@ public class StringValueWrite : Any
                     {
                         long oa;
                         oa = indexAa + iA;
-                        uint ua;
+                        long ua;
                         ua = textInfra.DataCharGet(data, oa);
 
                         if (!(textInfra.Digit(ua) | textInfra.HexAlpha(ua, false)))
@@ -243,7 +243,7 @@ public class StringValueWrite : Any
             long index;
             index = start + i;
 
-            uint c;
+            long c;
             c = textInfra.DataCharGet(data, index);
 
             bool b;
@@ -259,10 +259,10 @@ public class StringValueWrite : Any
                 {
                     long indexA;
                     indexA = start + j;
-                    uint u;
+                    long u;
                     u = textInfra.DataCharGet(data, indexA);
 
-                    uint escapeValue;
+                    long escapeValue;
                     escapeValue = 0;
                     if (u == quote)
                     {
@@ -288,7 +288,7 @@ public class StringValueWrite : Any
                         {
                             long oa;
                             oa = indexAa + iA;
-                            uint ua;
+                            long ua;
                             ua = textInfra.DataCharGet(data, oa);
 
                             long od;
@@ -308,10 +308,7 @@ public class StringValueWrite : Any
                             iA = iA + 1;
                         }
 
-                        uint uu;
-                        uu = (uint)ka;
-
-                        escapeValue = uu;
+                        escapeValue = ka;
 
                         i = i + countA;
                     }
@@ -332,7 +329,7 @@ public class StringValueWrite : Any
         return true;
     }
 
-    protected virtual bool ExecuteValueChar(uint oc)
+    protected virtual bool ExecuteValueChar(long oc)
     {
         this.WriteOperate.ExecuteChar(oc);
         return true;
