@@ -45,10 +45,10 @@ public class NameValid : Any
             return false;
         }
 
-        return this.IsNamePart(text);
+        return this.NamePart(text);
     }
 
-    public virtual bool IsNamePart(Text text)
+    public virtual bool NamePart(Text text)
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
@@ -148,7 +148,7 @@ public class NameValid : Any
             count = u;
             range.Count = count;
 
-            if (!this.IsNamePart(text))
+            if (!this.NamePart(text))
             {
                 b = true;
             }
@@ -180,7 +180,7 @@ public class NameValid : Any
             count = ac - index;
             range.Count = count;
 
-            if (!this.IsNamePart(text))
+            if (!this.NamePart(text))
             {
                 ba = true;
             }
