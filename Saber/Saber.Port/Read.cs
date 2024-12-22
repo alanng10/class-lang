@@ -174,17 +174,13 @@ public class Read : ClassBase
             long countA;
             long na;
             na = nn * ka;
-            ulong u;
-            u = infraInfra.DataIntGet(textData, na);
-            row = (long)u;
-            
+            row = infraInfra.DataIntGet(textData, na);
+
             na = (nn + 1) * ka;
-            u = infraInfra.DataIntGet(textData, na);
-            index = (long)u;
-            
+            index = infraInfra.DataIntGet(textData, na);
+
             na = (nn + 2) * ka;
-            u = infraInfra.DataIntGet(textData, na);
-            countA = (long)u;
+            countA = infraInfra.DataIntGet(textData, na);
 
             Text line;
             line = this.LineText(row);
