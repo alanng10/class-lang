@@ -137,6 +137,13 @@ followed by Index operate, followed by limit brace square close token.
 Any operate has type that is 64 bits int type.
 Index operate has type that is 64 bits int type.
 The result type of IntIndexOperate is 64 bits int type.
-The int any ref at the unsigned index of array that starts with Any operate is resulted.
+The int any ref at the unsigned index of array of the Type size int anys is resulted.
+The array starts with memory index that is ref value of Any operate. 
 If Type is an int type smaller that 64 bits, the int any ref resulted has the int value at lower bits.
 The upper bits are zero.
+
+IntIndexMark is mark that input int any ref at index of array of int anys.
+The mark has syntax that is same as IntIndexOperate.
+Any operate has type that is 64 bits int type.
+Index operate has type that is 64 bits int type.
+The mark type of IntIndexMark is 64 bits int type.
