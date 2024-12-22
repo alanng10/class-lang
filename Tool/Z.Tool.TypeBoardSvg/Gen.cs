@@ -210,11 +210,8 @@ public class Gen : ToolBase
             long uu;
             uu = '0' + i;
 
-            uint shiftChar;
-            shiftChar = this.TextInfra.DataCharGet(this.DigitButtonShiftChar, i);
-
             long ua;
-            ua = shiftChar;
+            ua = this.TextInfra.DataCharGet(this.DigitButtonShiftChar, i);
 
             this.AddButton(uu, ua, row, col);
 
