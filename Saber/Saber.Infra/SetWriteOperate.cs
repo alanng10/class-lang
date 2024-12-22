@@ -12,7 +12,7 @@ public class SetWriteOperate : WriteOperate
     public virtual StringValueWrite Write { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
 
-    public override bool ExecuteChar(uint n)
+    public override bool ExecuteChar(long n)
     {
         long index;
         index = this.Write.Index;
