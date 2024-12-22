@@ -281,7 +281,7 @@ public class PortLoad : ClassBase
                 return false;
             }
 
-            if (this.IsBuiltinModuleRef(module))
+            if (this.BuiltModuleRef(module))
             {
                 this.Status = 3;
                 return false;
@@ -329,7 +329,7 @@ public class PortLoad : ClassBase
         }
 
         bool isBuiltin;
-        isBuiltin = this.IsBuiltinModuleRef(moduleRef);
+        isBuiltin = this.BuiltModuleRef(moduleRef);
 
         bool b;
         b = (version == -1);
@@ -954,7 +954,7 @@ public class PortLoad : ClassBase
         return true;
     }
 
-    protected virtual bool IsBuiltinModuleRef(ModuleRef moduleRef)
+    protected virtual bool BuiltModuleRef(ModuleRef moduleRef)
     {
         String name;
         name = moduleRef.Name;
