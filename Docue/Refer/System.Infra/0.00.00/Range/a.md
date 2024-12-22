@@ -7,14 +7,14 @@ Index is start. Count is end sub start.
 ## Field
 ## Name
 Index
-## Got
+## Store
 Index
 ## Define
 Start index of the range.
 ## Field
 ## Name
 Count
-## Got
+## Store
 Count
 ## Define
 Count of the range.

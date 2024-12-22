@@ -7,14 +7,14 @@ In derive class Execute maide, get Arg to get the arg, set Result to set result 
 ## Field
 ## Name
 Arg
-## Got
+## Store
 Arg
 ## Define
 Arg of Execute maide.
 ## Field
 ## Name
 Result
-## Got
+## Store
 Result
 ## Define
 Result of Execute maide.
