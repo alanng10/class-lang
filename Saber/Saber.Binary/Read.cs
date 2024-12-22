@@ -198,10 +198,10 @@ public class Read : Any
             long index;
             index = i;
             index = index * sizeof(ulong);
-            ulong u;
-            u = infraInfra.DataIntGet(countData, index);
+
             long oa;
-            oa = (long)u;
+            oa = infraInfra.DataIntGet(countData, index);
+
             Array o;
             o = listInfra.ArrayCreate(oa);
             array.SetAt(i, o);
