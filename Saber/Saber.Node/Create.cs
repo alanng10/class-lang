@@ -505,10 +505,8 @@ public class Create : InfraCreate
             index = i;
             index = index * sizeof(ulong);
 
-            ulong u;
-            u = infraInfra.DataIntGet(data, index);
             long oa;
-            oa = (long)u;
+            oa = infraInfra.DataIntGet(data, index);
 
             range.Index = total;
             range.Count = oa;
