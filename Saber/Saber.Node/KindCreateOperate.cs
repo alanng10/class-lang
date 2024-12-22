@@ -118,7 +118,7 @@ public class KindCreateOperate : CreateOperate
         long destIndex;
         destIndex = indexA;
 
-        this.CopyText(dest, destIndex, source, sourceIndex, count);
+        this.TextInfra.Copy(dest, destIndex, source, sourceIndex, count);
 
         index = index + 1;
         indexA = indexA + count;
@@ -164,24 +164,5 @@ public class KindCreateOperate : CreateOperate
         arg.StringValueTextIndex = indexA;
         arg.StringValueIndex = index;
         return this.String;
-    }
-
-    protected virtual bool CopyText(Data dest, long destIndex, Data source, long sourceIndex, long count)
-    {
-        TextInfra textInfra;
-        textInfra = this.TextInfra;
-
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            uint oc;
-            oc = textInfra.DataCharGet(source, sourceIndex + i);
-
-            textInfra.DataCharSet(dest, destIndex + i, oc);
-            
-            i = i + 1;
-        }
-        return true;
     }
 }
