@@ -11,7 +11,7 @@ public class Console : ClassBase
         this.TaskKind = TaskKindList.This;
 
         this.ErrorWrite = true;
-        this.NameValid = this.CreateNameCheck();
+        this.NameValid = this.CreateNameValid();
 
         this.BinaryRead = this.CreateBinaryRead();
         this.BinaryWrite = this.CreateBinaryWrite();
@@ -86,7 +86,7 @@ public class Console : ClassBase
     protected virtual String SDotCl { get; set; }
     protected virtual String SRef { get; set; }
 
-    protected virtual NameValid CreateNameCheck()
+    protected virtual NameValid CreateNameValid()
     {
         NameValid a;
         a = new NameValid();
