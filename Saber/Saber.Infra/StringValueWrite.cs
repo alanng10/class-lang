@@ -92,8 +92,8 @@ public class StringValueWrite : Any
         long rangeEnd;
         rangeEnd = range.Index + range.Count;
 
-        uint quote;
-        quote = (uint)stringComp.Char(classInfra.Quote, 0);
+        long quote;
+        quote = stringComp.Char(classInfra.Quote, 0);
 
         long oc;
         oc = textInfra.DataCharGet(data, rangeStart);
@@ -107,10 +107,10 @@ public class StringValueWrite : Any
             return false;
         }
 
-        uint backSlash;
-        backSlash = (uint)stringComp.Char(classInfra.BackSlash, 0);
-        uint newLine;
-        newLine = (uint)stringComp.Char(classInfra.NewLine, 0);
+        long backSlash;
+        backSlash = stringComp.Char(classInfra.BackSlash, 0);
+        long newLine;
+        newLine = stringComp.Char(classInfra.NewLine, 0);
 
         long countA;
         countA = 8;
