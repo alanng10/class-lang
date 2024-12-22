@@ -196,7 +196,7 @@ public class Format : Any
 
             if (!(i == baseCount))
             {
-                uint n;
+                long n;
                 n = textInfra.DataCharGet(baseData, baseStart + i);
 
                 textInfra.DataCharSet(resultData, resultStart + resultIndex, n);
@@ -467,11 +467,8 @@ public class Format : Any
         i = 0;
         while (i < count)
         {
-            uint oc;
-            oc = textInfra.DataCharGet(sourceData, sourceIndex + i);
-
             long n;
-            n = oc;
+            n = textInfra.DataCharGet(sourceData, sourceIndex + i);
 
             if (!baa)
             {
