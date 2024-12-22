@@ -162,10 +162,10 @@ public class Create : InfraCreate
                 bool isValid;
                 isValid = false;
 
-                uint c;
+                long c;
                 c = textInfra.DataCharGet(data, start + col);
 
-                c = (uint)charForm.Execute(c);
+                c = charForm.Execute(c);
 
                 if (c == '#')
                 {
@@ -204,10 +204,10 @@ public class Create : InfraCreate
                     b = false;
                     while (!b & cc < colCount)
                     {
-                        uint oc;
+                        long oc;
                         oc = textInfra.DataCharGet(data, start + cc);
 
-                        oc = (uint)charForm.Execute(oc);
+                        oc = charForm.Execute(oc);
 
                         bool ba;
                         ba = (oc == '\"');
