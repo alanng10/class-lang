@@ -53,8 +53,8 @@ public class NameCheck : Any
         TextInfra textInfra;
         textInfra = this.TextInfra;
 
-        TextForm charForm;
-        charForm = this.TextForm;
+        TextForm textForm;
+        textForm = this.TextForm;
 
         if (text.Range.Count < 1)
         {
@@ -71,7 +71,7 @@ public class NameCheck : Any
         long n;
         n = textInfra.DataCharGet(data, index);
 
-        n = charForm.Execute(n);
+        n = textForm.Execute(n);
 
         if (!(textInfra.Alpha(n, true) | textInfra.Alpha(n, false)))
         {
@@ -95,7 +95,7 @@ public class NameCheck : Any
 
             n = textInfra.DataCharGet(data, index);
 
-            n = charForm.Execute(n);
+            n = textForm.Execute(n);
 
             bool ba;
             ba = textInfra.Alpha(n, true) | textInfra.Alpha(n, false) | textInfra.Digit(n) | n == '_';
