@@ -75,7 +75,7 @@ public class Infra : Any
         return this.DataByteListGet(data, index, sizeof(ushort));
     }
 
-    public virtual uint DataCharGet(Data data, long index)
+    public virtual long DataCharGet(Data data, long index)
     {
         return this.DataMidGet(data, index);
     }
