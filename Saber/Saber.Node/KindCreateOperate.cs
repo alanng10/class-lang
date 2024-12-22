@@ -23,10 +23,10 @@ public class KindCreateOperate : CreateOperate
     {
         Create create;
         create = this.Create;
-        
+
         CreateArg arg;
         arg = create.Arg;
-        
+
         NodeKind kind;
         kind = create.SetArg.Kind;
 
