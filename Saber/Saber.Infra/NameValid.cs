@@ -8,7 +8,7 @@ public class NameValid : Any
         this.TextInfra = TextInfra.This;
         this.StringComp = StringComp.This;
         this.StringValue = StringValue.This;
-        this.Index = IndexList.This;
+        this.IndexList = IndexList.This;
 
         this.StringData = new StringData();
         this.StringData.Init();
@@ -33,7 +33,7 @@ public class NameValid : Any
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
     protected virtual StringValue StringValue { get; set; }
-    protected virtual IndexList Index { get; set; }
+    protected virtual IndexList IndexList { get; set; }
     protected virtual StringData StringData { get; set; }
     protected virtual Text Text { get; set; }
     protected virtual Text DotText { get; set; }
@@ -199,7 +199,7 @@ public class NameValid : Any
         TextInfra textInfra;
         textInfra = this.TextInfra;
         IndexList index;
-        index = this.Index;
+        index = this.IndexList;
 
         TextLess less;
         less = this.TextLess;
