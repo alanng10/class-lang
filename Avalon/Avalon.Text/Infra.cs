@@ -80,7 +80,7 @@ public class Infra : Any
         return this.FormInfra.Range(first, last, o);
     }
 
-    public virtual uint DataCharGet(Data data, long index)
+    public virtual long DataCharGet(Data data, long index)
     {
         long n;
         n = index;
