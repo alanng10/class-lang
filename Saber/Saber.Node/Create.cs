@@ -3926,7 +3926,7 @@ public class Create : InfraCreate
     protected virtual Text TAToken(TokenToken token)
     {
         Text line;
-        line = (Text)this.SourceText.GetAt(token.Row);
+        line = this.SourceText.GetAt(token.Row) as Text;
         InfraRange range;
         range = token.Range;
 
