@@ -198,8 +198,8 @@ public class NameValid : Any
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
-        IndexList index;
-        index = this.IndexList;
+        IndexList indexList;
+        indexList = this.IndexList;
 
         TextLess less;
         less = this.TextLess;
@@ -207,13 +207,13 @@ public class NameValid : Any
         Text oo;
         oo = this.Text;
         long count;
-        count = index.Count;
+        count = indexList.Count;
         long i;
         i = 0;
         while (i < count)
         {
             Index a;
-            a = index.Get(i);
+            a = indexList.Get(i);
             String o;
             o = a.Text;
 
