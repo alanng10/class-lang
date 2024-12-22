@@ -559,20 +559,20 @@ public class Create : InfraCreate
             long index;
             index = i;
             index = index * sizeof(ulong);
-            
+
             long oa;
             oa = infraInfra.DataIntGet(data, index);
-            
+
             range.Index = total;
             range.Count = oa;
-            
+
             String a;
             a = textInfra.StringCreate(text);
-            
+
             array.SetAt(i, a);
-            
+
             total = total + oa;
-            
+
             i = i + 1;
         }
         return true;
