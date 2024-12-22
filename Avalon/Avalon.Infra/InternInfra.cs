@@ -279,7 +279,7 @@ public class InternInfra : Any
         return a;
     }
 
-    public virtual bool DataByteListSet(object data, long index, long count, ulong value)
+    public virtual bool DataByteListSet(object data, long index, long count, long value)
     {
         Intern internIntern;
         internIntern = this.InternIntern;
@@ -288,8 +288,10 @@ public class InternInfra : Any
         d = this.IntCapValue - 1;
         ulong da;
         da = (ulong)d;
+        ulong db;
+        db = (ulong)value;
         ulong oo;
-        oo = value;
+        oo = db;
         oo = oo & da;
 
         long i;
