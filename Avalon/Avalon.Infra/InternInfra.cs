@@ -312,9 +312,9 @@ public class InternInfra : Any
         return true;
     }
     
-    public virtual uint DataMidGet(object data, long index)
+    public virtual long DataMidGet(object data, long index)
     {
-        return (uint)this.DataByteListGet(data, index, sizeof(uint));
+        return this.DataByteListGet(data, index, sizeof(uint));
     }
 
     public virtual bool DataMidSet(object data, long index, uint value)
@@ -322,7 +322,7 @@ public class InternInfra : Any
         return this.DataByteListSet(data, index, sizeof(uint), value);
     }
 
-    public virtual uint DataCharGet(object data, long index)
+    public virtual long DataCharGet(object data, long index)
     {
         return this.DataMidGet(data, index);
     }
