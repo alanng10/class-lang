@@ -1,6 +1,6 @@
 namespace Saber.Infra;
 
-public class NameCheck : Any
+public class NameValid : Any
 {
     public override bool Init()
     {
