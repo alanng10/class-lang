@@ -70,9 +70,9 @@ public class Infra : Any
         return (uint)this.DataByteListGet(data, index, sizeof(uint));
     }
 
-    public virtual ushort DataShortGet(Data data, long index)
+    public virtual long DataShortGet(Data data, long index)
     {
-        return (ushort)this.DataByteListGet(data, index, sizeof(ushort));
+        return this.DataByteListGet(data, index, sizeof(ushort));
     }
 
     public virtual uint DataCharGet(Data data, long index)
