@@ -70,7 +70,7 @@ public class Console : ClassBase
     protected virtual BinaryGen BinaryGen { get; set; }
     protected virtual LibraryGen LibraryGen { get; set; }
     protected virtual StorageGen StorageGen { get; set; }
-    protected virtual NameCheck NameCheck { get; set; }
+    protected virtual NameValid NameCheck { get; set; }
     protected virtual Out Out { get; set; }
     protected virtual Out Err { get; set; }
     protected virtual String ClassPath { get; set; }
@@ -86,10 +86,10 @@ public class Console : ClassBase
     protected virtual String SDotCl { get; set; }
     protected virtual String SRef { get; set; }
 
-    protected virtual NameCheck CreateNameCheck()
+    protected virtual NameValid CreateNameCheck()
     {
-        NameCheck a;
-        a = new NameCheck();
+        NameValid a;
+        a = new NameValid();
         a.Init();
         a.TextLess = this.TLess;
         a.CharLess = this.CharLess;
