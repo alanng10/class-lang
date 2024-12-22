@@ -160,10 +160,10 @@ public class Read : Any
             long index;
             index = i;
             index = index * sizeof(ulong);
-            ulong u;
-            u = infraInfra.DataIntGet(countData, index);
+
             long oa;
-            oa = (long)u;
+            oa = infraInfra.DataIntGet(countData, index);
+
             text.Range.Index = total;
             text.Range.Count = oa;
             String oo;
