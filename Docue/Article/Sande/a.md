@@ -122,3 +122,11 @@ AndOperate, OrnOperate and NotOperate input types and output types is 64 bits in
 
 Glob vars are represented with GlobVar.
 GlobVar has syntax that starts with "glob" index word, followed by Var, followed by limit semicolon.
+
+StructIndexOperate is operate that results struct any ref at index of array of struct anys.
+The operate has syntax that starts with Any operate, followed by limit brace square open token, 
+followed by Index operate, followed by limit brace square close token.
+Any operate has type that is struct type.
+Index operate has type that is 64 bits int type.
+The result type of StructIndexOperate is the tyoe of the Any operate.
+The struct any ref at the unsigned index of array that starts with Any operate is resulted.
