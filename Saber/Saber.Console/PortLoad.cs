@@ -267,7 +267,7 @@ public class PortLoad : ClassBase
         long version;
         version = module.Ver;
 
-        if (!(this.NameValid.IsModuleName(this.TA(name))))
+        if (!(this.NameValid.ModuleName(this.TA(name))))
         {
             this.Status = 1;
             return false;
@@ -323,7 +323,7 @@ public class PortLoad : ClassBase
         long version;
         version = moduleRef.Ver;
 
-        if (!(this.NameValid.IsModuleName(this.TA(name))))
+        if (!(this.NameValid.ModuleName(this.TA(name))))
         {
             return false;
         }

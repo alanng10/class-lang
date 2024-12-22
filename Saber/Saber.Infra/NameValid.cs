@@ -112,7 +112,7 @@ public class NameValid : Any
         return a;
     }
 
-    public virtual bool IsModuleName(Text text)
+    public virtual bool ModuleName(Text text)
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
