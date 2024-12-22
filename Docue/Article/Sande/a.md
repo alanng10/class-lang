@@ -85,7 +85,7 @@ The class has 4 derived class.
 1 derived class is IntTypeName. IntTypeName represents int type name.
 The int type can be byte, short, mid or int.
 IntTypeName has syntax that is "byte" index word, "short" index word, "mid" index word, or "int" index word.
-IntTypeName class has 1 field, that has IntType class. The field has one of IntType anys in IntType list.
+IntTypeName class has 1 field with name Type, that has IntType class. The field has one of IntType anys in IntType list.
 1 derived class is StructTypeName. 
 StructTypeName represents struct type name.
 StructTypeName has syntax that starts with ClassName, followed by StructName.
