@@ -85,13 +85,13 @@ public class Create : InfraCreate
     protected virtual KindCreateOperate KindOperate { get; set; }
     protected virtual SetCreateOperate SetOperate { get; set; }
 
-    protected virtual NameCheck NameCheck { get; set; }
+    protected virtual NameValid NameCheck { get; set; }
     public virtual StringValueWrite StringValueWrite { get; set; }
 
-    protected virtual NameCheck CreateNameCheck()
+    protected virtual NameValid CreateNameCheck()
     {
-        NameCheck a;
-        a = new NameCheck();
+        NameValid a;
+        a = new NameValid();
         a.Init();
         a.TextLess = this.TLess;
         a.CharLess = this.CharLess;
