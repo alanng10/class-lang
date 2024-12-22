@@ -154,7 +154,7 @@ If Type is an int type smaller that 64 bits, the AreExecute Value operate any re
 
 GlobVarOperate is operate that results glob var hold ref value.
 The operate has syntax that starts with "glob" index word, followed by ClassName, 
-followed by colon limit, followed by VarName.
+followed by VarName.
 
 GlobVarMark is mark that input glob var.
 The mark has syntax that is same as GlobVarOperate.
