@@ -60,7 +60,7 @@ public class Infra : Any
         return true;
     }
 
-    public virtual ulong DataIntGet(Data data, long index)
+    public virtual long DataIntGet(Data data, long index)
     {
         return this.DataByteListGet(data, index, sizeof(ulong));
     }
