@@ -226,10 +226,9 @@ public class Read : ClassBase
             long nn;
             nn = i;
             nn = nn * ka;
-            ulong u;
-            u = infraInfra.DataIntGet(data, nn);
+
             long k;
-            k = (long)u;
+            k = infraInfra.DataIntGet(data, nn);
 
             Array a;
             a = listInfra.ArrayCreate(k);
