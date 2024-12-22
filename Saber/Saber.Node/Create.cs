@@ -1453,7 +1453,7 @@ public class Create : InfraCreate
         }
 
         bool signNegative;
-        signNegative = this.IsTokenSignNegative(aa, 2);
+        signNegative = this.IsTokenSignNegate(aa, 2);
 
         Text line;
         line = (Text)this.SourceText.GetAt(aa.Row);
@@ -1527,7 +1527,7 @@ public class Create : InfraCreate
         }
 
         bool signNegative;
-        signNegative = this.IsTokenSignNegative(aa, 3);
+        signNegative = this.IsTokenSignNegate(aa, 3);
 
         Text line;
         line = (Text)this.SourceText.GetAt(aa.Row);
@@ -3894,10 +3894,10 @@ public class Create : InfraCreate
         return (oc == 'p') | (oc == 'n');
     }
 
-    protected virtual bool IsTokenSignNegative(TokenToken o, long index)
+    protected virtual bool IsTokenSignNegate(TokenToken o, long index)
     {
         Text line;
-        line = (Text)this.SourceText.GetAt(o.Row);
+        line = this.SourceText.GetAt(o.Row) as Text;
 
         Data data;
         data = line.Data;
