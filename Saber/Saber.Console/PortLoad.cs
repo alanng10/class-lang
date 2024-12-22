@@ -30,7 +30,7 @@ public class PortLoad : ClassBase
     public virtual BinaryRead BinaryRead { get; set; }
     public virtual Table ModuleTable { get; set; }
     public virtual Table ImportClass { get; set; }
-    public virtual NameCheck NameCheck { get; set; }
+    public virtual NameValid NameCheck { get; set; }
     public virtual String ClassPath { get; set; }
     public virtual String SourceFold { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
@@ -576,7 +576,7 @@ public class PortLoad : ClassBase
         Table moduleTable;
         moduleTable = this.ModuleTable;
 
-        NameCheck nameCheck;
+        NameValid nameCheck;
         nameCheck = this.NameCheck;
 
         Array importModuleRef;
@@ -714,7 +714,7 @@ public class PortLoad : ClassBase
         Table exportTable;
         exportTable = this.Module.Export;
 
-        NameCheck nameCheck;
+        NameValid nameCheck;
         nameCheck = this.NameCheck;
 
         Array array;
