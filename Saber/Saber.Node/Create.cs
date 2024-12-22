@@ -16,7 +16,7 @@ public class Create : InfraCreate
         this.SetOperate = this.CreateSetCreateOperate();
         this.SetArg = this.CreateCreateSetArg();
 
-        this.NameValid = this.CreateNameCheck();
+        this.NameValid = this.CreateNameValid();
         this.StringValueWrite = this.CreateStringValueWrite();
 
         this.RangeA = this.CreateRange();
@@ -88,7 +88,7 @@ public class Create : InfraCreate
     protected virtual NameValid NameValid { get; set; }
     public virtual StringValueWrite StringValueWrite { get; set; }
 
-    protected virtual NameValid CreateNameCheck()
+    protected virtual NameValid CreateNameValid()
     {
         NameValid a;
         a = new NameValid();
