@@ -427,7 +427,7 @@ public class Console : ClassBase
         portLoad.ModuleLoad = this.ModuleLoad;
         portLoad.ModuleTable = this.ModuleTable;
         portLoad.ImportClass = this.ImportClass;
-        portLoad.NameCheck = this.NameValid;
+        portLoad.NameValid = this.NameValid;
         portLoad.SystemModule = this.MakeSystemModule;
         portLoad.ClassPath = this.ClassPath;
         portLoad.SourceFold = this.SourceFold;
@@ -449,7 +449,7 @@ public class Console : ClassBase
         portLoad.SourceFold = null;
         portLoad.ClassPath = null;
         portLoad.SystemModule = false;
-        portLoad.NameCheck = null;
+        portLoad.NameValid = null;
         portLoad.ImportClass = null;
         portLoad.ModuleTable = null;
         portLoad.ModuleLoad = null;

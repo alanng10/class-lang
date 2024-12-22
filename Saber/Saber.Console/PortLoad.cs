@@ -30,7 +30,7 @@ public class PortLoad : ClassBase
     public virtual BinaryRead BinaryRead { get; set; }
     public virtual Table ModuleTable { get; set; }
     public virtual Table ImportClass { get; set; }
-    public virtual NameValid NameCheck { get; set; }
+    public virtual NameValid NameValid { get; set; }
     public virtual String ClassPath { get; set; }
     public virtual String SourceFold { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
@@ -267,7 +267,7 @@ public class PortLoad : ClassBase
         long version;
         version = module.Ver;
 
-        if (!(this.NameCheck.IsModuleName(this.TA(name))))
+        if (!(this.NameValid.IsModuleName(this.TA(name))))
         {
             this.Status = 1;
             return false;
@@ -323,7 +323,7 @@ public class PortLoad : ClassBase
         long version;
         version = moduleRef.Ver;
 
-        if (!(this.NameCheck.IsModuleName(this.TA(name))))
+        if (!(this.NameValid.IsModuleName(this.TA(name))))
         {
             return false;
         }
@@ -577,7 +577,7 @@ public class PortLoad : ClassBase
         moduleTable = this.ModuleTable;
 
         NameValid nameCheck;
-        nameCheck = this.NameCheck;
+        nameCheck = this.NameValid;
 
         Array importModuleRef;
         importModuleRef = this.ImportModuleRefArray;
@@ -715,7 +715,7 @@ public class PortLoad : ClassBase
         exportTable = this.Module.Export;
 
         NameValid nameCheck;
-        nameCheck = this.NameCheck;
+        nameCheck = this.NameValid;
 
         Array array;
         array = this.Port.Export;
@@ -909,7 +909,7 @@ public class PortLoad : ClassBase
         bool b;
         b = false;
 
-        if (!this.NameCheck.IsName(this.TA(entry)))
+        if (!this.NameValid.IsName(this.TA(entry)))
         {
             b = true;
         }
