@@ -68,12 +68,12 @@ public class NameCheck : Any
 
         long index;
         index = start;
-        uint oc;
-        oc = textInfra.DataCharGet(data, index);
+        long n;
+        n = textInfra.DataCharGet(data, index);
 
-        oc = (uint)charForm.Execute(oc);
+        n = charForm.Execute(n);
 
-        if (!(textInfra.Alpha(oc, true) | textInfra.Alpha(oc, false)))
+        if (!(textInfra.Alpha(n, true) | textInfra.Alpha(n, false)))
         {
             return false;
         }
@@ -93,12 +93,12 @@ public class NameCheck : Any
         {
             index = start + i;
 
-            oc = textInfra.DataCharGet(data, index);
+            n = textInfra.DataCharGet(data, index);
 
-            oc = (char)charForm.Execute(oc);
+            n = charForm.Execute(n);
 
             bool ba;
-            ba = textInfra.Alpha(oc, true) | textInfra.Alpha(oc, false) | textInfra.Digit(oc) | oc == '_';
+            ba = textInfra.Alpha(n, true) | textInfra.Alpha(n, false) | textInfra.Digit(n) | n == '_';
 
             if (!ba)
             {
