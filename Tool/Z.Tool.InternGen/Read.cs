@@ -11,7 +11,7 @@ public class Read : ToolBase
         this.NameCheck.Init();
         this.NameCheck.TextLess = this.ToolInfra.TextLess;
         this.NameCheck.CharLess = this.ToolInfra.CharLess;
-        this.NameCheck.CharForm = this.ToolInfra.TextForm;
+        this.NameCheck.TextForm = this.ToolInfra.TextForm;
 
         this.TextA = this.CreateText();
         this.StringDataA = new StringData();

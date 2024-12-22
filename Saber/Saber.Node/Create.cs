@@ -95,7 +95,7 @@ public class Create : InfraCreate
         a.Init();
         a.TextLess = this.TLess;
         a.CharLess = this.CharLess;
-        a.CharForm = this.TForm;
+        a.TextForm = this.TForm;
         return a;
     }
 

@@ -29,7 +29,7 @@ public class NameCheck : Any
 
     public virtual TextLess TextLess { get; set; }
     public virtual LessInt CharLess { get; set; }
-    public virtual TextForm CharForm { get; set; }
+    public virtual TextForm TextForm { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
     protected virtual StringValue StringValue { get; set; }
@@ -54,7 +54,7 @@ public class NameCheck : Any
         textInfra = this.TextInfra;
 
         TextForm charForm;
-        charForm = this.CharForm;
+        charForm = this.TextForm;
 
         if (text.Range.Count < 1)
         {
