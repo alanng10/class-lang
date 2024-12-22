@@ -240,7 +240,7 @@ public class InternInfra : Any
         return true;
     }
 
-    public virtual ulong DataByteListGet(object data, long index, long count)
+    public virtual long DataByteListGet(object data, long index, long count)
     {
         Intern internIntern;
         internIntern = this.InternIntern;
@@ -270,9 +270,12 @@ public class InternInfra : Any
         d = (this.IntCapValue - 1);
         ulong da;
         da = (ulong)d;
-        ulong a;
-        a = oo;
-        a = a & da;
+        ulong ka;
+        ka = oo;
+        ka = ka & da;
+
+        long a;
+        a = (long)ka;
         return a;
     }
 
