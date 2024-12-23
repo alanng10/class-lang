@@ -161,7 +161,8 @@ Index operate has type that is 64 bits int type.
 The mark type of IntIndexMark is 64 bits int type.
 The int any at the unsigned index of array of the Type size int anys is assigned.
 The array starts with memory index that is ref value of Any operate.
-If Type is an int type smaller than 64 bits, the AreExecute Value operate any ref value lower bits are assigned to the store.
+AreExecute Value operate ref value is assigned at index of the array.
+If Type is an int type smaller than 64 bits, the lower bits of the ref value are assigned to the store.
 The upper bits of the ref value are not used.
 
 GlobVarOperate is operate that results glob var hold ref value.
