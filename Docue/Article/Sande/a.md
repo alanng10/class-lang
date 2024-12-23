@@ -129,7 +129,7 @@ ValueStructTypeName has syntax that starts with "value" index word, followed by 
 Type can be either StringTypeName or StructTypeName.
 Struct vars, glob vars and local vars that are declared with ValueStructTypeName are allocated space for the struct anys.
 The vars hold ref values that are memory indexes of the allocated struct anys.
-The operates of the vars have type that is the struct type that is Type.
+StructVarOperate, GlobVarOperate and VarOperate of the vars have type that is the struct type that is Type.
 The vars cannot be assigned to.
 1 derived class is ValueArrayTypeName.
 ValueArrayTypeName represents array of int or struct type name.
@@ -139,7 +139,7 @@ Type can be either IntTypeName, StringTypeName or StructTypeName.
 Value can be either IntValue, IntHexValue, IntSignValue or IntHexSignValue.
 Struct vars, glob vars and local vars that are declared with ValueArrayTypeName are allocated space for the array anys.
 The vars hold ref values that are memory indexes of the allocated array anys.
-The operates of the vars have type.
+StructVarOperate, GlobVarOperate and VarOperate of the vars have type.
 The type is the struct type for array of struct type anys, it is Type.
 The type is the 64 bits int type for array of int type anys.
 The vars cannot be assigned to.
