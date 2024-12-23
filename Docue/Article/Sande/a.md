@@ -185,3 +185,5 @@ from AreExecute Value operate.
 The lower bits of the ref value is assigned to the store of the var.
 The upper bits of the ref value are not used.
 The type of the marks is 64 bits int type.
+
+A struct type ref can be builtin string struct type or struct type that has StructName.
