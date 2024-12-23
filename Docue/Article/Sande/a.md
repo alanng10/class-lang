@@ -42,6 +42,7 @@ Input of lang elements also is assigned ref.
 A ref can be 64 bits int type or struct type.
 If it is 64 bits int type, the ref value is 64 bits int value.
 If it is struct type, the ref value is struct any memory index.
+A struct type can be builtin string struct type or struct type that has StructName.
 
 Maide call argue is passed with ref.
 The call can be passed with argue that has same count of ref as the maide param var count.
@@ -185,5 +186,3 @@ from AreExecute Value operate.
 The lower bits of the ref value is assigned to the store of the var.
 The upper bits of the ref value are not used.
 The type of the marks is 64 bits int type.
-
-A struct type ref can be builtin string struct type or struct type that has StructName.
