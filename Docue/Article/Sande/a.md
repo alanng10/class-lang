@@ -93,6 +93,7 @@ The mark has syntax that is same as GlobVarOperate.
 StructVarOperate is operate that results ref that var in struct any holds.
 The operate has syntax that starts with Any of class Operate, followed by limit dot, 
 followed by Var of class VarName.
+Any operate type is struct type.
 
 StructVarMark is mark that input struct any var.
 The mark has syntax that is same as StructVarOperate.
