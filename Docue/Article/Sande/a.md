@@ -85,7 +85,7 @@ Struct any is passed with ref.
 Struct vars types, glob vars types and local vars types are declared.
 The node is TypeName.
 TypeName class is base class.
-The class has 4 derived class.
+The class has 5 derived class.
 1 derived class is IntTypeName. IntTypeName represents int type name.
 The int type can be byte, short, mid or int.
 IntTypeName has syntax that is "byte" index word, "short" index word, "mid" index word, or "int" index word.
@@ -112,6 +112,9 @@ ValueArrayTypeName has syntax that starts with "value" index word, followed by T
 followed by Value, followed by limit brace square close token.
 The TypeName can be either IntTypeName or StructTypeName.
 The Value can be either IntValue, IntHexValue, IntSignValue or IntHexSignValue.
+1 derived class is StringTypeName.
+StringTypeName represents builtin string struct type name.
+StringTypeName has syntax that is "string" index word.
 
 Struct vars types, glob vars types and local vars are declared with Var node.
 Var node syntax starts with "var" index word, followed by TypeName, followed by VarName.
