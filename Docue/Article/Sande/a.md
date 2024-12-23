@@ -167,6 +167,9 @@ StructVarOperate is operate that results ref that var in struct any holds.
 The operate has syntax that starts with Any of class Operate, followed by limit dot, 
 followed by Var of class VarName.
 
+StructVarMark is mark that input struct any var.
+The mark has syntax that is same as StructVarOperate.
+
 Struct var, glob var and local var operate of var that is int type that is smaller than 64 bits
 results int any ref that has the int value at lower bits in the ref value.
 The type of the operates are 64 bits int type.
