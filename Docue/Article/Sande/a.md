@@ -83,6 +83,30 @@ Between the limit brace open and close tokens, RefCallOperate has Argue node.
 
 Struct any is passed with ref.
 
+GlobVarOperate is operate that results glob var hold ref value.
+The operate has syntax that starts with "glob" index word, followed by ClassName, 
+followed by VarName.
+
+GlobVarMark is mark that input glob var.
+The mark has syntax that is same as GlobVarOperate.
+
+StructVarOperate is operate that results ref that var in struct any holds.
+The operate has syntax that starts with Any of class Operate, followed by limit dot, 
+followed by Var of class VarName.
+
+StructVarMark is mark that input struct any var.
+The mark has syntax that is same as StructVarOperate.
+
+Struct var, glob var and local var operate of var that is int type that is smaller than 64 bits
+results int any ref that has the int value at lower bits in the ref value.
+The upper bits are zero.
+The type of the operates is 64 bits int type.
+Struct var, glob var and local var mark of the var, inputs int any ref 
+from AreExecute Value operate.
+The lower bits of the ref value is assigned to the store of the var.
+The upper bits of the ref value are not used.
+The type of the marks is 64 bits int type.
+
 Struct vars types, glob vars types and local vars types are declared.
 The node is TypeName.
 TypeName class is base class.
@@ -164,27 +188,3 @@ The array starts with memory index that is ref value of Any operate.
 AreExecute Value operate ref value is assigned at index of the array.
 If Type is an int type smaller than 64 bits, the lower bits of the ref value are assigned to the store.
 The upper bits of the ref value are not used.
-
-GlobVarOperate is operate that results glob var hold ref value.
-The operate has syntax that starts with "glob" index word, followed by ClassName, 
-followed by VarName.
-
-GlobVarMark is mark that input glob var.
-The mark has syntax that is same as GlobVarOperate.
-
-StructVarOperate is operate that results ref that var in struct any holds.
-The operate has syntax that starts with Any of class Operate, followed by limit dot, 
-followed by Var of class VarName.
-
-StructVarMark is mark that input struct any var.
-The mark has syntax that is same as StructVarOperate.
-
-Struct var, glob var and local var operate of var that is int type that is smaller than 64 bits
-results int any ref that has the int value at lower bits in the ref value.
-The upper bits are zero.
-The type of the operates is 64 bits int type.
-Struct var, glob var and local var mark of the var, inputs int any ref 
-from AreExecute Value operate.
-The lower bits of the ref value is assigned to the store of the var.
-The upper bits of the ref value are not used.
-The type of the marks is 64 bits int type.
