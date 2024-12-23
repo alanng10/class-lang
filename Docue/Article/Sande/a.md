@@ -163,7 +163,7 @@ followed by VarName.
 GlobVarMark is mark that input glob var.
 The mark has syntax that is same as GlobVarOperate.
 
-StructVarOperate is operate that results ref that struct any var holds.
+StructVarOperate is operate that results ref that var in struct any holds.
 The operate has syntax that starts with Any of class Operate, followed by limit dot, 
 followed by Var of class VarName.
 
