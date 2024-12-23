@@ -162,3 +162,6 @@ The mark has syntax that is same as GlobVarOperate.
 Class node has syntax that starts with "class" index word, followed by Name of class ClassName,
 followed by limit brace open token, followed by Part of class Part, 
 followed by limit brace close token.
+
+Struct var, glob var and local var operate of var that is int type that is smaller than 64 bits
+results int any ref that has the int value at lower bits.
