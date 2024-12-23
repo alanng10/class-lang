@@ -175,4 +175,4 @@ results int any ref that has the int value at lower bits in the ref value.
 The type of the operates is 64 bits int type.
 Struct var, glob var and local var mark of the var, inputs int value that is 
 from AreExecute Value operate ref value lower bits.
-The type of the marks is the var declared int type.
+The type of the marks is 64 bits int type.
