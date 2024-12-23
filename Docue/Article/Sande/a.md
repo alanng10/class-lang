@@ -90,6 +90,10 @@ The class has 5 derived class.
 The int type can be byte, short, mid or int.
 IntTypeName has syntax that is "byte" index word, "short" index word, "mid" index word, or "int" index word.
 IntTypeName class has 1 field with name Type, that has IntType class. The field has one of IntType anys in IntType list.
+1 derived class is StringTypeName.
+StringTypeName represents builtin string struct type name.
+StringTypeName has syntax that is "string" index word.
+Struct vars, glob vars and local vars that are declared with StringTypeName hold ref that is builtin string any.
 1 derived class is StructTypeName. 
 StructTypeName represents struct type name.
 StructTypeName has syntax that starts with ClassName, followed by StructName.
@@ -112,9 +116,6 @@ ValueArrayTypeName has syntax that starts with "value" index word, followed by T
 followed by Value, followed by limit brace square close token.
 The TypeName can be either IntTypeName or StructTypeName.
 The Value can be either IntValue, IntHexValue, IntSignValue or IntHexSignValue.
-1 derived class is StringTypeName.
-StringTypeName represents builtin string struct type name.
-StringTypeName has syntax that is "string" index word.
 
 Struct vars types, glob vars types and local vars are declared with Var node.
 Var node syntax starts with "var" index word, followed by TypeName, followed by VarName.
