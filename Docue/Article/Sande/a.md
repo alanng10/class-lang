@@ -107,16 +107,16 @@ The vars has type to be assigned to input of lang elements that is the struct ty
 The vars cannot be assigned to.
 1 derived class is ValueArrayTypeName.
 ValueArrayTypeName represents array of int or struct type name.
-Struct vars, glob vars and local vars that are declared with ValueArrayTypeName are allocated space for the array anys.
-The vars hold ref values that are memory indexes of the allocated array anys.
-The vars has type to be assigned to input of lang elements.
-The type is the struct type for array of struct type anys.
-The type is the 64 bits int type for array of int type anys.
-The vars cannot be assigned to.
 ValueArrayTypeName has syntax that starts with "value" index word, followed by Type of class TypeName, followed by limit brace square open token, 
 followed by Value, followed by limit brace square close token.
 Type can be either IntTypeName, StringTypeName or StructTypeName.
 Value can be either IntValue, IntHexValue, IntSignValue or IntHexSignValue.
+Struct vars, glob vars and local vars that are declared with ValueArrayTypeName are allocated space for the array anys.
+The vars hold ref values that are memory indexes of the allocated array anys.
+The vars has type to be assigned to input of lang elements.
+The type is the struct type for array of struct type anys, it is Type.
+The type is the 64 bits int type for array of int type anys.
+The vars cannot be assigned to.
 
 Struct vars types, glob vars types and local vars are declared with Var node.
 Var node syntax starts with "var" index word, followed by TypeName, followed by VarName.
