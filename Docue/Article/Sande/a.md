@@ -97,6 +97,7 @@ Struct vars, glob vars and local vars that are declared with StringTypeName hold
 1 derived class is StructTypeName. 
 StructTypeName represents struct type name.
 StructTypeName has syntax that starts with ClassName, followed by StructName.
+Struct vars, glob vars and local vars that are declared with StructTypeName hold ref that memory index of struct any. 
 1 derived class is ValueStructTypeName.
 ValueStructTypename represents value struct type name.
 ValueStructTypeName has syntax that starts with "value" index word, followed by Type of class TypeName.
