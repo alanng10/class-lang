@@ -114,7 +114,7 @@ The type is the 64 bits int type for array of int type anys.
 The vars cannot be assigned to.
 ValueArrayTypeName has syntax that starts with "value" index word, followed by TypeName, followed by limit brace square open token, 
 followed by Value, followed by limit brace square close token.
-The TypeName can be either IntTypeName or StructTypeName.
+The TypeName can be either IntTypeName, StringTypeName or StructTypeName.
 The Value can be either IntValue, IntHexValue, IntSignValue or IntHexSignValue.
 
 Struct vars types, glob vars types and local vars are declared with Var node.
