@@ -192,7 +192,7 @@ If Type is an int type smaller than 64 bits, the lower bits of the ref value are
 The upper bits of the ref value are not used.
 
 CopyExecute is execute that copies struct any from source to dest.
-CopyExecute has syntax that starts with "copy" index word, followed limit brace round open token,
+CopyExecute has syntax that starts with "copy" index word, followed by limit brace round open token,
 followed by Dest of class Operate, followed by limit comma, 
 followed by Source of class Operate, followed by limit brace round close token, 
 followed by limit semicolon.
