@@ -103,7 +103,8 @@ Struct vars, glob vars and local vars that are declared with ValueStructTypeName
 The vars hold ref values that are memory indexes of the allocated struct anys.
 The vars has type to be assigned to input of lang elements that is the struct type.
 The vars cannot be assigned to.
-ValueStructTypeName has syntax that starts with "value" index word, followed by ClassName, followed by StructName.
+ValueStructTypeName has syntax that starts with "value" index word, followed by Type of class TypeName.
+Type can be either StringTypeName or StructTypeName.
 1 derived class is ValueArrayTypeName.
 ValueArrayTypeName represents array of int or struct type name.
 Struct vars, glob vars and local vars that are declared with ValueArrayTypeName are allocated space for the array anys.
@@ -112,10 +113,10 @@ The vars has type to be assigned to input of lang elements.
 The type is the struct type for array of struct type anys.
 The type is the 64 bits int type for array of int type anys.
 The vars cannot be assigned to.
-ValueArrayTypeName has syntax that starts with "value" index word, followed by TypeName, followed by limit brace square open token, 
+ValueArrayTypeName has syntax that starts with "value" index word, followed by Type of class TypeName, followed by limit brace square open token, 
 followed by Value, followed by limit brace square close token.
-The TypeName can be either IntTypeName, StringTypeName or StructTypeName.
-The Value can be either IntValue, IntHexValue, IntSignValue or IntHexSignValue.
+Type can be either IntTypeName, StringTypeName or StructTypeName.
+Value can be either IntValue, IntHexValue, IntSignValue or IntHexSignValue.
 
 Struct vars types, glob vars types and local vars are declared with Var node.
 Var node syntax starts with "var" index word, followed by TypeName, followed by VarName.
