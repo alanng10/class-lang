@@ -177,4 +177,5 @@ The type of the operates is 64 bits int type.
 Struct var, glob var and local var mark of the var, inputs int any ref 
 from AreExecute Value operate.
 The lower bits of the ref value is assigned to the store of the var.
+The upper bits of the ref value are not used.
 The type of the marks is 64 bits int type.
