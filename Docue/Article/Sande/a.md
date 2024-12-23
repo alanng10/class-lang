@@ -99,12 +99,12 @@ StructTypeName represents struct type name.
 StructTypeName has syntax that starts with ClassName, followed by StructName.
 1 derived class is ValueStructTypeName.
 ValueStructTypename represents value struct type name.
-Struct vars, glob vars and local vars that are declared with ValueStructTypeName are allocated space for the struct anys.
-The vars hold ref values that are memory indexes of the allocated struct anys.
-The vars has type to be assigned to input of lang elements that is the struct type.
-The vars cannot be assigned to.
 ValueStructTypeName has syntax that starts with "value" index word, followed by Type of class TypeName.
 Type can be either StringTypeName or StructTypeName.
+Struct vars, glob vars and local vars that are declared with ValueStructTypeName are allocated space for the struct anys.
+The vars hold ref values that are memory indexes of the allocated struct anys.
+The vars has type to be assigned to input of lang elements that is the struct type that is Type.
+The vars cannot be assigned to.
 1 derived class is ValueArrayTypeName.
 ValueArrayTypeName represents array of int or struct type name.
 Struct vars, glob vars and local vars that are declared with ValueArrayTypeName are allocated space for the array anys.
