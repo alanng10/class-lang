@@ -196,6 +196,6 @@ CopyExecute has syntax that starts with "copy" index word, followed by limit bra
 followed by Dest of class Operate, followed by limit comma, 
 followed by Source of class Operate, followed by limit brace round close token, 
 followed by limit semicolon.
-Dest has type that is struct type.
-Source can be 64 bits int type or struct type.
+Dest has type that is any struct type.
+Source can be 64 bits int type or any struct type.
 This execute copies struct any of the Dest struct type from Source memory index to Dest memory index.
