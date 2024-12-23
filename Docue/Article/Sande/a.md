@@ -165,5 +165,5 @@ followed by limit brace close token.
 
 Struct var, glob var and local var operate of var that is int type that is smaller than 64 bits
 results int any ref that has the int value at lower bits in the ref value.
-Struct var, glob var and local var mark of the var, inputs int any ref that has int value at lower bits in the ref value 
-from AreExecute Value operate.
+Struct var, glob var and local var mark of the var, inputs int value that is 
+from AreExecute Value operate ref value lower bits.
