@@ -172,6 +172,7 @@ The mark has syntax that is same as StructVarOperate.
 
 Struct var, glob var and local var operate of var that is int type that is smaller than 64 bits
 results int any ref that has the int value at lower bits in the ref value.
+The upper bits are zero.
 The type of the operates is 64 bits int type.
 Struct var, glob var and local var mark of the var, inputs int any ref 
 from AreExecute Value operate.
