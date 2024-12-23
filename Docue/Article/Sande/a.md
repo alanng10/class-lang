@@ -94,7 +94,7 @@ IntTypeName class has 1 field with name Type, that has IntType class. The field 
 StringTypeName represents builtin string struct type name.
 StringTypeName has syntax that is "string" index word.
 Struct vars, glob vars and local vars that are declared with StringTypeName hold ref that is memory index of builtin string struct any.
-1 derived class is StructTypeName. 
+1 derived class is StructTypeName.
 StructTypeName represents struct type name.
 StructTypeName has syntax that starts with ClassName, followed by StructName.
 Struct vars, glob vars and local vars that are declared with StructTypeName hold ref that is memory index of struct any. 
