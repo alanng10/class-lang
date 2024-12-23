@@ -97,6 +97,7 @@ Any operate type is struct type.
 
 StructVarMark is mark that input struct any var.
 The mark has syntax that is same as StructVarOperate.
+Any operate type is struct type.
 
 Struct var, glob var and local var operate of var that is int type that is smaller than 64 bits
 results int any ref that has the int value at lower bits in the ref value.
