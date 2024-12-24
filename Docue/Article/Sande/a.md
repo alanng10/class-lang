@@ -66,10 +66,15 @@ Class node has syntax that starts with "class" index word, followed by Name of c
 followed by limit brace open token, followed by Part of class Part, 
 followed by limit brace close token.
 
-Struct node has syntax that starts with "struct" index word, followed by Name of class StructName.
+Struct node has syntax that starts with "struct" index word, followed by Count of class Count, 
+followed by Name of class StructName.
 followed by limit brace open token, followed by Part of class StructPart,
 followed by limit brace close token.
 StructPart is list of Var. The list is delimited by limit semicolon.
+
+Glob vars are represented with GlobVar.
+GlobVar has syntax that starts with "glob" index word, followed by Count of class Count, 
+followed by Var, followed by limit semicolon.
 
 GlobVarOperate is operate that results glob var hold ref value.
 The operate has syntax that starts with "glob" index word, followed by Class of class ClassName, 
@@ -150,9 +155,6 @@ do any calculate of memory index.
 
 InfExecute and WhileExecute cond operate is 64 bits int type as bool type.
 AndOperate, OrnOperate and NotOperate input types and output types is 64 bits int type as bool type.
-
-Glob vars are represented with GlobVar.
-GlobVar has syntax that starts with "glob" index word, followed by Var, followed by limit semicolon.
 
 StructIndexOperate is operate that results struct any ref at index of array of struct anys.
 The operate has syntax that starts with Any operate, followed by limit brace square open token, 
