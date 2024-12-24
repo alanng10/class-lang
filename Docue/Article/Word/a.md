@@ -506,7 +506,7 @@ Word "vector" has meaning that is scalable vector.
 
 Word "visual" has meaning that is graphics.
 
-Word "animate" has meaning hat is animation.
+Word "animate" has meaning that is animation.
 
 Word "tune" has meaning that is comp audio.
 
