@@ -30,6 +30,8 @@ Prusate count is count that is applicable to all.
 Pronate count is count that is applicable to current module.
 Private count is count that is applicable to this class.
 
+Struct var space allocation is byte granularity.
+
 Maide is shared maide. It has no this ref.
 Maide has param. The param is var list.
 Param var has 64 bits int type. Param var type is not declared.
