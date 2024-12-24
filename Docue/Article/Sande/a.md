@@ -199,3 +199,8 @@ followed by limit semicolon.
 Dest has type that is any struct type.
 Source can be 64 bits int type or any struct type.
 This execute copies struct any of the Dest struct type from Source memory index to Dest memory index.
+
+Sande Lang does not need lang element to interface to external.
+Sande compiler modules have infra to generate refer binary.
+The refer binary can refer to custom made machine code binary.
+This is enough element to interface to external.
