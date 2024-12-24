@@ -134,7 +134,7 @@ The type is the struct type for array of struct type anys, it is Type.
 The type is the 64 bits int type for array of int type anys.
 The vars cannot be assigned to.
 
-Struct vars types, glob vars types and local vars are declared with Var node.
+Struct vars, glob vars and local vars are declared with Var node.
 Var node syntax starts with "var" index word, followed by TypeName, followed by VarName.
 
 Struct vars, glob vars and local vars that are arrays, are 1 dimensional arrays.
