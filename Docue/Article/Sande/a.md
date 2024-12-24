@@ -45,6 +45,7 @@ A ref can be 64 bits int type or struct type.
 If it is 64 bits int type, the ref value is 64 bits int value.
 If it is struct type, the ref value is struct any memory index.
 A struct type can be builtin string struct type or struct type that has StructName.
+Struct any is passed with ref.
 
 Maide call argue is passed with ref.
 The call can be passed with argue that has same count of ref as the maide param var count.
@@ -65,6 +66,11 @@ Class node has syntax that starts with "class" index word, followed by Name of c
 followed by limit brace open token, followed by Part of class Part, 
 followed by limit brace close token.
 
+Struct node has syntax that starts with "struct" index word, followed by Name of class StructName.
+followed by limit brace open token, followed by Part of class StructPart,
+followed by limit brace close token.
+StructPart is list of Var.
+
 RefCallOperate is operate that call with ref value as maide memory index.
 The call argue is passed with ref, same as CallOperate.
 The call interface is not declared.
@@ -82,8 +88,6 @@ The var is 64 bits int type.
 The var name is followed by limit brace open and matching close tokens.
 The limit brace close token is the last token of the RefCallOperate node syntax.
 Between the limit brace open and close tokens, RefCallOperate has Argue node.
-
-Struct any is passed with ref.
 
 GlobVarOperate is operate that results glob var hold ref value.
 The operate has syntax that starts with "glob" index word, followed by ClassName, 
