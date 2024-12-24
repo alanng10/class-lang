@@ -77,7 +77,10 @@ GlobVar has syntax that starts with "glob" index word, followed by Count of clas
 followed by Var, followed by limit semicolon.
 
 Maide node has syntax that starts with "maide" index word, followed by Count of class Count, 
-followed by Name of class MaideName.
+followed by Name of class MaideName, followed by limit brace round open token,
+followed by Param of class Param, followed by limit brace round close token, 
+followed by limit brace open token, followed by Call of class State, 
+followed by limit brace close token.
 
 GlobVarOperate is operate that results glob var hold ref value.
 The operate has syntax that starts with "glob" index word, followed by Class of class ClassName, 
