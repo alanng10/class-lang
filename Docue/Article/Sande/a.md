@@ -69,7 +69,7 @@ followed by limit brace close token.
 Struct node has syntax that starts with "struct" index word, followed by Name of class StructName.
 followed by limit brace open token, followed by Part of class StructPart,
 followed by limit brace close token.
-StructPart is list of Var. The list is delimited by limit semicolon. 
+StructPart is list of Var. The list is delimited by limit semicolon.
 
 GlobVarOperate is operate that results glob var hold ref value.
 The operate has syntax that starts with "glob" index word, followed by ClassName, 
