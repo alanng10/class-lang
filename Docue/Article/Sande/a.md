@@ -69,7 +69,7 @@ followed by limit brace close token.
 Struct node has syntax that starts with "struct" index word, followed by Name of class StructName.
 followed by limit brace open token, followed by Part of class StructPart,
 followed by limit brace close token.
-StructPart is list of Var.
+StructPart is list of Var. The list is delimited by limit semicolon.
 
 RefCallOperate is operate that call with ref value as maide memory index.
 The call argue is passed with ref, same as CallOperate.
