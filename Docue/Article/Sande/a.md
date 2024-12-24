@@ -71,24 +71,6 @@ followed by limit brace open token, followed by Part of class StructPart,
 followed by limit brace close token.
 StructPart is list of Var. The list is delimited by limit semicolon.
 
-RefCallOperate is operate that call with ref value as maide memory index.
-The call argue is passed with ref, same as CallOperate.
-The call interface is not declared.
-The call can be passed with argue that is any integer multiple of ref.
-The call can be passed with argue that is any type of ref.
-The call argue list count is not declared.
-The call argue list type is not declared.
-The call result type is not declared.
-The call result type is 64 bits int type.
-It is programming error, to passed argue with different count of ref with declared param count of the maide, in the call.
-
-RefCallOperate has syntax that starts with "call" index word.
-The index word is followed by var name, that is the var that hold ref value that is the maide memory index.
-The var is 64 bits int type.
-The var name is followed by limit brace open and matching close tokens.
-The limit brace close token is the last token of the RefCallOperate node syntax.
-Between the limit brace open and close tokens, RefCallOperate has Argue node.
-
 GlobVarOperate is operate that results glob var hold ref value.
 The operate has syntax that starts with "glob" index word, followed by ClassName, 
 followed by VarName.
@@ -205,6 +187,24 @@ followed by limit semicolon.
 Dest has type that is any struct type.
 Source can be 64 bits int type or any struct type.
 This execute copies struct any of the Dest struct type from Source memory index to Dest memory index.
+
+RefCallOperate is operate that call with ref value as maide memory index.
+The call argue is passed with ref, same as CallOperate.
+The call interface is not declared.
+The call can be passed with argue that is any integer multiple of ref.
+The call can be passed with argue that is any type of ref.
+The call argue list count is not declared.
+The call argue list type is not declared.
+The call result type is not declared.
+The call result type is 64 bits int type.
+It is programming error, to passed argue with different count of ref with declared param count of the maide, in the call.
+
+RefCallOperate has syntax that starts with "call" index word.
+The index word is followed by var name, that is the var that hold ref value that is the maide memory index.
+The var is 64 bits int type.
+The var name is followed by limit brace open and matching close tokens.
+The limit brace close token is the last token of the RefCallOperate node syntax.
+Between the limit brace open and close tokens, RefCallOperate has Argue node.
 
 Sande Lang does not need lang element to interface to external.
 Sande compiler modules have infra to generate refer binary.
