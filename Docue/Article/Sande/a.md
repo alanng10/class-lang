@@ -72,8 +72,8 @@ followed by limit brace close token.
 StructPart is list of Var. The list is delimited by limit semicolon.
 
 GlobVarOperate is operate that results glob var hold ref value.
-The operate has syntax that starts with "glob" index word, followed by ClassName, 
-followed by VarName.
+The operate has syntax that starts with "glob" index word, followed by Class of class ClassName, 
+followed by Var of class VarName.
 
 GlobVarMark is mark that input glob var.
 The mark has syntax that is same as GlobVarOperate.
@@ -86,6 +86,12 @@ Any operate type is struct type.
 StructVarMark is mark that input struct any var.
 The mark has syntax that is same as StructVarOperate.
 Any operate type is struct type.
+
+VarOperate is operate that results local var hold ref value.
+The operate has syntax that is Var of class VarName.
+
+VarMark is mark that input local var.
+The mark has syntax that is same as VarOperate.
 
 Struct var, glob var and local var operate of var that is int type that is smaller than 64 bits
 results int any ref that has the int value at lower bits in the ref value.
