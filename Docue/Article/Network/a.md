@@ -2,8 +2,10 @@
 
 Network can connect to local system connected USB devices.
 
-To connect to USB devices, use "usb:" prefix in host name string.
-After the prefix, use 15 digits hexadecimal integer number string that is USB port index.
+Use System module System.Network Network class to connect to USB devices.
+Use "usb:" prefix in the Network any host name string.
+After the prefix, use 15 digits hexadecimal integer number string.
+The integer number is USB port index.
 The integer number has cap that is 60 bits.
 This is enough element to network with USB devices.
 
