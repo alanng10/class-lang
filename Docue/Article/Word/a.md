@@ -576,6 +576,8 @@ Word "intern" has meaning that is internal.
 
 Word "extern" has meaning that is interface to external.
 
+Word "inline" has meaning that is inlined inner processing.
+
 Word "compute" has meaning that is process info.
 
 Word "memory" has meaning that is data store.
