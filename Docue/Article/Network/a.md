@@ -9,5 +9,5 @@ The integer number is USB port index.
 The integer number has cap that is 60 bits.
 This is enough element to network with USB devices.
 
-Network is not tagged with the existence of specific form.
+Network is not tagged with the existence of specific form. 
 All host name strings do not tag Network with the existence of specific form.
