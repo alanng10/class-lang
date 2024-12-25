@@ -32,8 +32,8 @@ After the execute is executed, using any comp of the any is programming error.
 Single CastOperate is same as Class Lang.
 
 Single does not need struct.
-Single has System modules that have effect element classes.
-The effect element classes do no have struct in their abstracts.
+Single has System modules that have classes.
+The classes do no have struct in their abstracts.
 This is enough element to do any inner processing.
 
 Single does not need delegate.
