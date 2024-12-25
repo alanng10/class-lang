@@ -36,3 +36,8 @@ The effect element classes do no have struct in their abstracts.
 Single does not need delegate.
 Single has get, set and call that are virtual.
 Get, set, and call are triggered on any.
+
+Single Lang does not need lang element to interface to external.
+Single compiler modules have infra to generate refer binary.
+The refer binary can refer to custom made machine code binary.
+This is enough element to interface to external.
