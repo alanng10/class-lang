@@ -38,8 +38,8 @@ Input of lang elements also is assigned ref.
 Marks can be assigned any ref.
 A ref has no type.
 Int is 64 bits. Ref is 64 bits.
-Int value is stored in ref value 64 bits.
 Int any is passed with ref.
+Int value is stored in ref value 64 bits.
 Struct any is passed with ref.
 Type is used to declare variable storage.
 And for struct var get and set.
