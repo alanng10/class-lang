@@ -126,7 +126,7 @@ The int type can be byte, short, mid or int.
 IntTypeName has syntax that is "byte" index word, "short" index word, "mid" index word, or "int" index word.
 IntTypeName class has 1 field with name Type, that has IntType class. The field has one of IntType anys in IntType list.
 1 derived class is ValueStructTypeName.
-ValueStructTypename represents value struct type name.
+ValueStructTypeName represents value struct type name.
 ValueStructTypeName has syntax that starts with "value" index word, followed by Class of class ClassName, 
 followed by Struct of class StructName.
 Struct vars, glob vars and local vars that are declared with ValueStructTypeName are allocated space for the struct anys.
