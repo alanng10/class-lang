@@ -155,7 +155,7 @@ Var node syntax starts with "var" index word, followed by TypeName, followed by 
 
 Struct vars, glob vars and local vars that are arrays, are 1 dimensional arrays.
 
-Calculate memory index with 64 bits int type operate lang elements is enough element to
+Calculate memory index with int operation operate lang elements is enough element to
 do any calculate of memory index.
 
 InfExecute and WhileExecute cond operate is 64 bits int type as bool type.
