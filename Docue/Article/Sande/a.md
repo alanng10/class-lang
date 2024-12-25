@@ -195,7 +195,6 @@ The call can be passed with argue that is any type of ref.
 The call argue list count is not declared.
 The call argue list type is not declared.
 The call result type is not declared.
-The call result type is 64 bits int type.
 It is programming error, to passed argue with different count of ref with declared param count of the maide, in the call.
 
 RefCallOperate has syntax that starts with "call" index word.
