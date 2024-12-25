@@ -60,7 +60,6 @@ The call results a ref.
 Maide state can have execute that has NullOperate.
 NullOperate has syntax that is "null" word.
 NullOperate results ref, same as other Operate.
-Null is assignable to all type input of lang elements.
 Null has ref value that is zero.
 
 Class node has syntax that starts with "class" index word, followed by Name of class ClassName,
