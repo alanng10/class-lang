@@ -39,8 +39,10 @@ Marks can be assigned any ref.
 A ref has no type.
 Int is 64 bits. Ref is 64 bits.
 Int value is stored in ref value 64 bits.
-A struct type can be builtin string struct type or struct type that has StructName.
 Struct any is passed with ref.
+Type is used for variable storage.
+And for struct var get and set.
+A struct type can be builtin string struct type or struct type that has StructName.
 
 Sande Lang does not need cast operate.
 
