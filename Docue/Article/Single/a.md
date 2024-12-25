@@ -31,7 +31,8 @@ After the execute is executed, using any comp of the any is programming error.
 
 Single CastOperate is same as Class Lang.
 
-Single System.Infra module Any class has Final maide.
+Single System.Infra module Any class has 1 maide.
+The maide name is "Final".
 The maide count is prusate.
 The maide result class is Bool.
 The maide has no param var.
