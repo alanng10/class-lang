@@ -96,8 +96,9 @@ The mark has syntax that is same as GlobVarOperate.
 
 StructVarOperate is operate that results ref that var in struct any holds.
 The operate has syntax that starts with "struct" index word, followed by Class of class ClassName, 
-followed by Struct of class StructName, followed by Var of class VarName,
-followed by Any of class Operate.
+followed by Struct of class StructName, followed by Var of class VarName, 
+followed by limit brace round open token, 
+followed by Any of class Operate, followed by limit brace round close token.
 
 StructVarMark is mark that input struct any var.
 The mark has syntax that is same as StructVarOperate.
