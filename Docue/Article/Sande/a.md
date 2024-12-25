@@ -46,8 +46,8 @@ Sande Lang does not need cast operate.
 
 Maide is shared maide. It has no this ref.
 Maide has param. The param is var list.
-Param var has 64 bits int type. Param var type is not declared.
-Maide result type is 64 bits int type.
+Param var holds a ref. Param var type is not declared.
+Maide result is a ref.
 Maide result type is not declared.
 
 Maide call argue is passed with ref.
