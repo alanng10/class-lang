@@ -43,7 +43,7 @@ Int value is stored in ref value 64 bits.
 Struct any is passed with ref.
 Type is used to declare variable storage.
 And for struct var get and set.
-A struct type can be builtin string struct type or struct type that has StructName.
+A struct type has StructName.
 
 Sande Lang does not need cast operate.
 
