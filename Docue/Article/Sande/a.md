@@ -133,16 +133,13 @@ Struct vars, glob vars and local vars that are declared with ValueStructTypeName
 The vars hold ref values that are memory indexes of the allocated struct anys.
 The vars cannot be assigned to.
 1 derived class is ValueArrayTypeName.
-ValueArrayTypeName represents array of int or struct type name.
-ValueArrayTypeName has syntax that starts with "value" index word, followed by Type of class TypeName, followed by limit brace square open token, 
+ArrayStructTypeName represents array of int or struct type name.
+ArrayStructTypeName has syntax that starts with "value" index word, followed by Class of class ClassName, 
+followed by Struct of class StructName, followed by limit brace square open token, 
 followed by Value, followed by limit brace square close token.
-Type can be either IntTypeName, StringTypeName or StructTypeName.
 Value can be either IntValue, IntHexValue, IntSignValue or IntHexSignValue.
-Struct vars, glob vars and local vars that are declared with ValueArrayTypeName are allocated space for the array anys.
-The vars hold ref values that are memory indexes of the allocated array anys.
-StructVarOperate, GlobVarOperate and VarOperate of the vars have type.
-The type is the struct type for array of struct type anys, it is Type.
-The type is the 64 bits int type for array of int type anys.
+Struct vars, glob vars and local vars that are declared with ArrayStructTypeName are allocated space for the arrays of struct anys.
+The vars hold ref values that are memory indexes of the allocated arrays.
 The vars cannot be assigned to.
 
 Struct vars, glob vars and local vars are declared with Var node.
