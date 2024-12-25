@@ -37,6 +37,7 @@ This is enough element to do any inner processing.
 Single does not need delegate.
 Single has get, set and call that are virtual.
 Get, set, and call are triggered on any.
+This is enough element to do any ref call.
 
 Single Lang does not need lang element to interface to external.
 Single compiler modules have infra to generate refer binary.
