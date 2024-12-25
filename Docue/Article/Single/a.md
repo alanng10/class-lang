@@ -31,6 +31,14 @@ After the execute is executed, using any comp of the any is programming error.
 
 Single CastOperate is same as Class Lang.
 
+Single System.Infra module Any class has Final maide.
+The maide count is prusate.
+The maide result class is Bool.
+The maide has no param var.
+The maide finalizes the any.
+The maide results Bool true.
+After this maide is called, the any can not be used any comp.
+
 Single does not need shared comp.
 Single has ShareOperate that results shared instance.
 This is enough element to do any share.
