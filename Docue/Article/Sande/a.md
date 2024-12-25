@@ -91,6 +91,8 @@ CallOperate is operate that call a maide.
 The operate has syntax that starts with "call" index word, followed by Class of class ClassName, 
 followed by Maide of class MaideName, followed by limit brace round open token, 
 followed by Argue of class Argue, followed by limit brace round close token.
+Maide with maide name Maide in class Class is called.
+Argue is passed into the maide being called.
 
 GlobVarOperate is operate that results glob var hold ref value.
 The operate has syntax that starts with "glob" index word, followed by Class of class ClassName, 
