@@ -8,5 +8,5 @@ Count of bits less than 60 is not enough bits for human minds to represent int i
 Lack of bits is not enough easy for human minds to represent int info.
 The not enough easiness for human minds is specific form.
 Count of bits more than 60 has redundant bits for human minds to represent int info.
-Redundant bits is not enough easy for human minds to represent int info.
+Redundancy of bits is not enough easy for human minds to represent int info.
 The not enough easiness for human minds is specific form.
