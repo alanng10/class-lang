@@ -179,13 +179,13 @@ If Type is an int type smaller than 64 bits, the lower bits of the ref value are
 The upper bits of the ref value are not used.
 
 CopyExecute is execute that copies struct any from source to dest.
-CopyExecute has syntax that starts with "copy" index word, followed by limit brace round open token,
+CopyExecute has syntax that starts with "copy" index word, 
+followed by Class of class ClassName, followed by Struct of class StructName,
+followed by limit brace round open token,
 followed by Dest of class Operate, followed by limit comma, 
 followed by Source of class Operate, followed by limit brace round close token, 
 followed by limit semicolon.
-Dest has type that is any struct type.
-Source can be 64 bits int type or any struct type.
-This execute copies struct any of the Dest struct type from Source memory index to Dest memory index.
+This execute copies struct any of the Class Struct struct type from Source memory index to Dest memory index.
 
 RefCallOperate is operate that call with ref value as maide memory index.
 The call argue is passed with ref, same as CallOperate.
