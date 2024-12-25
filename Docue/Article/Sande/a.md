@@ -158,8 +158,9 @@ Struct vars, glob vars and local vars that are arrays, are 1 dimensional arrays.
 Calculate memory index with int operation operate lang elements is enough element to
 do any calculate of memory index.
 
-InfExecute and WhileExecute cond operate is 64 bits int type as bool type.
-AndOperate, OrnOperate and NotOperate input types and output types is 64 bits int type as bool type.
+InfExecute and WhileExecute cond operates input any ref value as bool.
+AndOperate, OrnOperate and NotOperate input any ref value as bool.
+The operates output zero or one ref value as bool.
 
 StructIndexOperate is operate that results struct any ref at index of array of struct anys.
 The operate has syntax that starts with "struct" index word, followed by Any operate, 
