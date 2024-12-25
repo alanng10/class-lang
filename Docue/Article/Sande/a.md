@@ -170,21 +170,18 @@ InfExecute and WhileExecute cond operates input any ref value as bool.
 AndOperate, OrnOperate and NotOperate input any ref value as bool.
 The operates output zero or one ref value as bool.
 
-IntIndexOperate is operate that results int any ref at index of array of byte int anys.
-The operate has syntax that starts with Any of class Operate, followed by limit brace square open token, 
-followed by Index of class Operate, followed by limit brace square close token.
-The int any at the unsigned index of array of the byte size int anys is resulted.
-The index is Index.
-The array starts with memory index that is ref value of Any operate.
-The int any ref resulted has the int value at lower 8 bits.
+ByteOperate is operate that results byte ref at memory index.
+The operate has syntax that starts with "byte" index word, followed by Any of class Operate.
+Any is the memory index.
+The byte int at the memory index is resulted.
+The int any ref resulted has the byte value at lower 8 bits.
 The upper bits are zero.
 
-IntIndexMark is mark that input int any ref at index of array of byte int anys.
-The mark has syntax that is same as IntIndexOperate.
-The int any at the unsigned index of array of the byte size int anys is assigned.
-The index is Index.
-The array starts with memory index that is ref value of Any operate.
-AreExecute Value operate ref value is assigned to store at index of the array.
+ByteMark is mark that input byte ref at memory index.
+The mark has syntax that is same as ByteOperate.
+Any is the memory index.
+The byte int at the memory index is assigned.
+AreExecute Value operate ref value is assigned to byte store at memory index.
 The lower 8 bits of the ref value are assigned to the store.
 The upper bits of the ref value are not used.
 
