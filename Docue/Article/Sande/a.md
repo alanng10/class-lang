@@ -120,7 +120,7 @@ The upper bits of the ref value are not used.
 Struct vars types, glob vars types and local vars types are declared.
 The node is TypeName.
 TypeName class is base class.
-The class has 5 derived class.
+The class has 4 derived class.
 1 derived class is IntTypeName. IntTypeName represents int type name.
 The int type can be byte, short, mid or int.
 IntTypeName has syntax that is "byte" index word, "short" index word, "mid" index word, or "int" index word.
