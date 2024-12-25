@@ -52,10 +52,10 @@ Maide result type is not declared.
 
 Maide call argue is passed with ref.
 The call can be passed with argue that has same count of ref as the maide param var count.
-The call can be passed with argue that is any type of ref.
+The call can be passed with argue that is any ref.
 The maide state param var is the argue ref.
-Param var is get and set as 64 bits int type any.
-The call result type is maide result type, it is 64 bits int type.
+Param var is get and set as any other local var.
+The call results a ref.
 
 Maide state can have execute that has NullOperate.
 NullOperate has syntax that is "null" word.
