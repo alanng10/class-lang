@@ -32,8 +32,19 @@ Private count is count that is applicable to this class.
 
 Struct var space allocation is byte granularity.
 
+Maide state can have operate.
+Operate results ref.
+Input of lang elements also is assigned ref.
+A ref has no type.
+Int is 64 bits. Ref is 64 bits.
+Int value is stored in ref value 64 bits.
+A struct type can be builtin string struct type or struct type that has StructName.
+Struct any is passed with ref.
+
 Sande Lang does not need cast operate.
-Input of lang element can be passed in any ref.
+Input of lang elements can be passed in any ref.
+Input of lang elements has no type.
+Lang element operates output has no type.
 Marks can be assigned any ref.
 
 Maide is shared maide. It has no this ref.
@@ -41,15 +52,6 @@ Maide has param. The param is var list.
 Param var has 64 bits int type. Param var type is not declared.
 Maide result type is 64 bits int type.
 Maide result type is not declared.
-
-Maide state can have operate.
-Operate results ref.
-Input of lang elements also is assigned ref.
-A ref can be 64 bits int type or struct type.
-If it is 64 bits int type, the ref value is 64 bits int value.
-If it is struct type, the ref value is struct any memory index.
-A struct type can be builtin string struct type or struct type that has StructName.
-Struct any is passed with ref.
 
 Maide call argue is passed with ref.
 The call can be passed with argue that has same count of ref as the maide param var count.
@@ -63,8 +65,6 @@ NullOperate has syntax that is "null" word.
 NullOperate results ref, same as other Operate.
 Null is assignable to all type input of lang elements.
 Null has ref value that is zero.
-
-Int is 64 bits. Ref is 64 bits.
 
 Class node has syntax that starts with "class" index word, followed by Name of class ClassName,
 followed by limit brace open token, followed by Part of class Part, 
