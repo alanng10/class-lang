@@ -192,7 +192,7 @@ followed by limit brace round open token,
 followed by Dest of class Operate, followed by limit comma, 
 followed by Source of class Operate, followed by limit brace round close token, 
 followed by limit semicolon.
-This execute copies struct any of the Class Struct struct type from Source memory index to Dest memory index.
+This execute copies struct any of the struct type Struct in class Class from Source memory index to Dest memory index.
 
 RefCallOperate is operate that call with local var ref value as maide memory index.
 The call argue is passed with ref, same as CallOperate.
