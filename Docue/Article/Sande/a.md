@@ -165,7 +165,7 @@ The operates output zero or one ref value as bool.
 IntIndexOperate is operate that results int any ref at index of array of int anys.
 The operate has syntax that starts with Type of class IntTypeName, followed by Any operate, followed by limit brace square open token, 
 followed by Index operate, followed by limit brace square close token.
-The int any ref at the unsigned index that is Index, of array of the Type size int anys is resulted.
+The int any at the unsigned index that is Index, of array of the Type size int anys is resulted.
 The array starts with memory index that is ref value of Any operate.
 If Type is an int type smaller than 64 bits, the int any ref resulted has the int value at lower bits.
 The upper bits are zero.
