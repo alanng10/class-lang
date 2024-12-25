@@ -162,16 +162,6 @@ InfExecute and WhileExecute cond operates input any ref value as bool.
 AndOperate, OrnOperate and NotOperate input any ref value as bool.
 The operates output zero or one ref value as bool.
 
-StructIndexOperate is operate that results struct any ref at index of array of struct anys.
-The operate has syntax that starts with "struct" index word, followed by Any operate, 
-followed by limit brace square open token, 
-followed by Index operate, followed by limit brace square close token.
-Any operate has type that is struct type.
-Index operate has type that is 64 bits int type.
-The result type of StructIndexOperate is the type of the Any operate.
-The struct any ref at the unsigned index of array of struct anys of the struct type is resulted.
-The array starts with memory index that is ref value of Any operate.
-
 IntIndexOperate is operate that results int any ref at index of array of int anys.
 The operate has syntax that starts with Type of class IntTypeName, followed by Any operate, followed by limit brace square open token, 
 followed by Index operate, followed by limit brace square close token.
