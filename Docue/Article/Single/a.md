@@ -42,7 +42,7 @@ After this maide is called, the any comps can not be used.
 
 Single does not need shared comp.
 Single has ShareOperate that results shared instance.
-This is enough element to do any share. 
+This is enough element to do any share.
 
 Single does not need struct.
 Single has System modules that have classes.
