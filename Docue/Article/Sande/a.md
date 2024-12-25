@@ -201,7 +201,7 @@ RefCallOperate is operate that call with local var ref value as maide memory ind
 The call argue is passed with ref, same as CallOperate.
 The call interface is not declared.
 The call can be passed with argue that is any integer multiple of ref.
-The call can be passed with argue that is any type of ref.
+The call can be passed with argue that is any ref.
 The call argue list count is not declared.
 The call argue list type is not declared.
 The call result type is not declared.
