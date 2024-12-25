@@ -125,21 +125,12 @@ The class has 5 derived class.
 The int type can be byte, short, mid or int.
 IntTypeName has syntax that is "byte" index word, "short" index word, "mid" index word, or "int" index word.
 IntTypeName class has 1 field with name Type, that has IntType class. The field has one of IntType anys in IntType list.
-1 derived class is StringTypeName.
-StringTypeName represents builtin string struct type name.
-StringTypeName has syntax that is "string" index word.
-Struct vars, glob vars and local vars that are declared with StringTypeName hold ref that is memory index of builtin string struct any.
-1 derived class is StructTypeName.
-StructTypeName represents struct type name.
-StructTypeName has syntax that starts with ClassName, followed by StructName.
-Struct vars, glob vars and local vars that are declared with StructTypeName hold ref that is memory index of struct any. 
 1 derived class is ValueStructTypeName.
 ValueStructTypename represents value struct type name.
-ValueStructTypeName has syntax that starts with "value" index word, followed by Type of class TypeName.
-Type can be either StringTypeName or StructTypeName.
+ValueStructTypeName has syntax that starts with "value" index word, followed by Class of class ClassName, 
+followed by Struct of class StructName.
 Struct vars, glob vars and local vars that are declared with ValueStructTypeName are allocated space for the struct anys.
 The vars hold ref values that are memory indexes of the allocated struct anys.
-StructVarOperate, GlobVarOperate and VarOperate of the vars have type that is the struct type that is Type.
 The vars cannot be assigned to.
 1 derived class is ValueArrayTypeName.
 ValueArrayTypeName represents array of int or struct type name.
