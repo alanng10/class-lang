@@ -35,6 +35,7 @@ Struct var space allocation is byte granularity.
 Maide state can have operate.
 Operate results ref.
 Input of lang elements also is assigned ref.
+Marks can be assigned any ref.
 A ref has no type.
 Int is 64 bits. Ref is 64 bits.
 Int value is stored in ref value 64 bits.
@@ -42,10 +43,6 @@ A struct type can be builtin string struct type or struct type that has StructNa
 Struct any is passed with ref.
 
 Sande Lang does not need cast operate.
-Input of lang elements can be passed in any ref.
-Input of lang elements has no type.
-Lang element operates output has no type.
-Marks can be assigned any ref.
 
 Maide is shared maide. It has no this ref.
 Maide has param. The param is var list.
