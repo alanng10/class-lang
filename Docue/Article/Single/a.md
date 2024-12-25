@@ -37,7 +37,7 @@ The maide result class is Bool.
 The maide has no param var.
 The maide finalizes the any.
 The maide results Bool true.
-After this maide is called, the any can not be used any comp.
+After this maide is called, the any comps can not be used.
 
 Single does not need shared comp.
 Single has ShareOperate that results shared instance.
