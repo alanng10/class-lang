@@ -222,6 +222,10 @@ The var name is followed by limit brace open and matching close tokens.
 The limit brace close token is the last token of the RefCallOperate node syntax.
 Between the limit brace open and close tokens, RefCallOperate has Argue node.
 
+Sande Lang does not need cast operate.
+Input of lang element that requires struct type can be passed in any struct type.
+Marks can be assigned 64 bits int type or any struct type.
+
 Sande Lang does not need lang element to interface to external.
 Sande compiler modules have infra to generate refer binary.
 The refer binary can refer to custom made machine code binary.
