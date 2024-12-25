@@ -170,20 +170,22 @@ InfExecute and WhileExecute cond operates input any ref value as bool.
 AndOperate, OrnOperate and NotOperate input any ref value as bool.
 The operates output zero or one ref value as bool.
 
-IntIndexOperate is operate that results int any ref at index of array of int anys.
-The operate has syntax that starts with Type of class IntTypeName, followed by Any of class Operate, followed by limit brace square open token, 
+IntIndexOperate is operate that results int any ref at index of array of byte int anys.
+The operate has syntax that starts with Any of class Operate, followed by limit brace square open token, 
 followed by Index of class Operate, followed by limit brace square close token.
-The int any at the unsigned index that is Index, of array of the Type size int anys is resulted.
+The int any at the unsigned index of array of the byte size int anys is resulted.
+The index is Index.
 The array starts with memory index that is ref value of Any operate.
-If Type is an int type smaller than 64 bits, the int any ref resulted has the int value at lower bits.
+The int any ref resulted has the int value at lower 8 bits.
 The upper bits are zero.
 
-IntIndexMark is mark that input int any ref at index of array of int anys.
+IntIndexMark is mark that input int any ref at index of array of byte int anys.
 The mark has syntax that is same as IntIndexOperate.
-The int any at the unsigned index that is Index, of array of the Type size int anys is assigned.
+The int any at the unsigned index of array of the byte size int anys is assigned.
+The index is Index.
 The array starts with memory index that is ref value of Any operate.
 AreExecute Value operate ref value is assigned to store at index of the array.
-If Type is an int type smaller than 64 bits, the lower bits of the ref value are assigned to the store.
+The lower 8 bits of the ref value are assigned to the store.
 The upper bits of the ref value are not used.
 
 CopyExecute is execute that copies struct any from source to dest.
