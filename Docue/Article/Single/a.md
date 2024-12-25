@@ -17,8 +17,8 @@ Builtin Bool value is stored in ref holder ref value.
 Ref is 64 bits, same as Class Lang.
 
 Single memory management is manual memory management.
-Single NewOperate and ShareOperate memory allocation
-does not have auto delete.
+Single NewOperate and ShareOperate have memory allocation.
+The memory allocation does not have auto delete.
 
 Single has DeleteExecute.
 DeleteExecute is execute that delete any.
