@@ -199,7 +199,6 @@ It is programming error, to passed argue with different count of ref with declar
 
 RefCallOperate has syntax that starts with "call" index word.
 The index word is followed by var name, that is the var that hold ref value that is the maide memory index.
-The var is 64 bits int type.
 The var name is followed by limit brace round open and matching close tokens.
 The limit brace round close token is the last token of the RefCallOperate node syntax.
 Between the limit brace round open and close tokens, RefCallOperate has Argue node.
