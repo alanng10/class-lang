@@ -29,6 +29,8 @@ The execute deletes the any refered by the ref value of Any operate.
 If the any is Bool or Int, the execute has no effect.
 After the execute is executed, using any comp of the any is programming error.
 
+Single CastOperate is same as Class Lang.
+
 Single does not need struct.
 Single has System modules that have effect element classes.
 The effect element classes do no have struct in their abstracts.
