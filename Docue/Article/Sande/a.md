@@ -32,6 +32,10 @@ Private count is count that is applicable to this class.
 
 Struct var space allocation is byte granularity.
 
+Sande Lang does not need cast operate.
+Input of lang element can be passed in any ref.
+Marks can be assigned any ref.
+
 Maide is shared maide. It has no this ref.
 Maide has param. The param is var list.
 Param var has 64 bits int type. Param var type is not declared.
@@ -220,10 +224,6 @@ The var is 64 bits int type.
 The var name is followed by limit brace open and matching close tokens.
 The limit brace close token is the last token of the RefCallOperate node syntax.
 Between the limit brace open and close tokens, RefCallOperate has Argue node.
-
-Sande Lang does not need cast operate.
-Input of lang element that requires struct type can be passed in any struct type.
-Marks can be assigned 64 bits int type or any struct type.
 
 Sande Lang does not need lang element to interface to external.
 Sande compiler modules have infra to generate refer binary.
