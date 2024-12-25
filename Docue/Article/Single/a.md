@@ -34,5 +34,5 @@ Single has System modules that have effect element classes.
 The effect element classes do no have struct in their abstracts.
 
 Single does not need delegate.
-Single has get, set and call that is virtual.
+Single has get, set and call that are virtual.
 Get, set, and call are triggered on any.
