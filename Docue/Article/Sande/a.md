@@ -197,11 +197,10 @@ The call argue list type is not declared.
 The call result type is not declared.
 It is programming error, to passed argue with different count of ref with declared param count of the maide, in the call.
 
-RefCallOperate has syntax that starts with "call" index word.
-The index word is followed by var name, that is the var that hold ref value that is the maide memory index.
-The var name is followed by limit brace round open and matching close tokens.
-The limit brace round close token is the last token of the RefCallOperate node syntax.
-Between the limit brace round open and close tokens, RefCallOperate has Argue node.
+RefCallOperate has syntax that starts with "call" index word,
+followed by Var of class VarName, followed by limit brace round open token,
+followed by Argue of class Argue, followed by limit brace round close token.
+Var is the var that hold ref value that is the maide memory index.
 
 Sande Lang does not need lang element to interface to external.
 Sande compiler modules have infra to generate refer binary.
