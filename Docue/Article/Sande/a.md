@@ -172,7 +172,7 @@ The upper bits are zero.
 
 IntIndexMark is mark that input int any ref at index of array of int anys.
 The mark has syntax that is same as IntIndexOperate.
-The int any at the unsigned index of array of the Type size int anys is assigned.
+The int any at the unsigned index that is Index, of array of the Type size int anys is assigned.
 The array starts with memory index that is ref value of Any operate.
 AreExecute Value operate ref value is assigned at index of the array.
 If Type is an int type smaller than 64 bits, the lower bits of the ref value are assigned to the store.
