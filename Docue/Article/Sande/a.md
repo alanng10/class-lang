@@ -132,7 +132,7 @@ followed by Struct of class StructName.
 Struct vars, glob vars and local vars that are declared with ValueStructTypeName are allocated space for the struct anys.
 The vars hold ref values that are memory indexes of the allocated struct anys.
 The vars cannot be assigned to.
-1 derived class is ValueArrayTypeName.
+1 derived class is ArrayStructTypeName.
 ArrayStructTypeName represents array of int or struct type name.
 ArrayStructTypeName has syntax that starts with "value" index word, followed by Class of class ClassName, 
 followed by Struct of class StructName, followed by limit brace square open token, 
