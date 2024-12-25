@@ -11,6 +11,11 @@ Single lang elements has same syntax as Class Lang lang elements.
 
 Single output and input of lang elements has class, same as Class Lang.
 
+Single builtin Int is 60 bits, same as Class Lang.
+Builtin Int value is stored in ref holder ref value.
+Builtin Bool value is stored in ref holder ref value.
+Ref is 64 bits, same as Class Lang.
+
 Single memory management is manual memory management.
 Single NewOperate and ShareOperate memory allocation
 does not have auto delete.
