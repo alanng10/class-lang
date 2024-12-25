@@ -38,6 +38,8 @@ Word "comment" has meaning that is comment info.
 
 Word "tool" has meaning that is be used.
 
+Word "certain" has meaning that is will happen.
+
 Word "auto" has meaning that is entity to do effect.
 
 Word "node" has meaning that is entity.
