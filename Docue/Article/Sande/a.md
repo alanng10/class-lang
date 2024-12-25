@@ -174,7 +174,7 @@ ByteOperate is operate that results byte ref at memory index.
 The operate has syntax that starts with "byte" index word, followed by Any of class Operate.
 Any is the memory index.
 The byte int at the memory index is resulted.
-The int any ref resulted has the byte value at lower 8 bits.
+The ref value resulted has the byte value at lower 8 bits.
 The upper bits are zero.
 
 ByteMark is mark that input byte ref at memory index.
