@@ -224,6 +224,7 @@ followed by Class of class ClassName,
 followed by Struct of class StructName, followed by Var of class VarName, 
 followed by limit brace round open token, 
 followed by Any of class Operate, followed by limit brace round close token.
+Memory index of struct var Var in struct any with struct type Struct in class Class at Any memory index is resulted. 
 
 Sande Lang does not need lang element to interface to external.
 Sande compiler modules have infra to generate refer binary.
