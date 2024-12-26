@@ -231,6 +231,10 @@ The operate has syntax that starts with "ref" index word, followed by "glob" ind
 followed by Class of class ClassName, followed by Var of class VarName.
 Memory index of glob var Var in class Class is resulted.
 
+RefVarOperate is operate that results memory index of local var.
+The operate has syntax that starts with "ref" index word, followed by Var of class VarName.
+Memory index of local var Var is resulted.
+
 Sande Lang does not need lang element to interface to external.
 Sande compiler modules have infra to generate refer binary.
 The refer binary can refer to custom made machine code binary.
