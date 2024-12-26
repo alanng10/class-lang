@@ -241,7 +241,6 @@ BitLiteOperate, BitRiteOperate and BitSignRiteOperate have syntaxs that is same 
 The operates input 64 bits int values in refs.
 Operates that output int values output 64 bits int values in refs.
 
-
 Sande Lang does not need lang element to interface to external.
 Sande compiler modules have infra to generate refer binary.
 The refer binary can refer to custom made machine code binary.
