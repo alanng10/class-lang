@@ -210,6 +210,13 @@ followed by Argue of class Argue, followed by limit brace round close token.
 Var is the var that hold ref value that is the maide memory index.
 Argue is argue that is passed into the maide being called.
 
+RefMaideOperate is operate that results memory index of maide.
+The operate has syntax that starts with "ref" index word, 
+followed by "maide" index word, followed by Class of class ClassName,
+followed by Maide of class MaideName.
+Class is the class the maide in.
+Maide is the maide name.
+
 Sande Lang does not need lang element to interface to external.
 Sande compiler modules have infra to generate refer binary.
 The refer binary can refer to custom made machine code binary.
