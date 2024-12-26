@@ -224,7 +224,12 @@ followed by Class of class ClassName,
 followed by Struct of class StructName, followed by Var of class VarName, 
 followed by limit brace round open token, 
 followed by Any of class Operate, followed by limit brace round close token.
-Memory index of struct var Var in struct any with struct type Struct in class Class at Any memory index is resulted. 
+Memory index of struct var Var in struct any with struct type Struct in class Class at Any memory index is resulted.
+
+RefGlobVarOperate is operate that results memory index of glob var.
+The operate has syntax that starts with "ref" index word, followed by "glob" index word, 
+followed by Class of class ClassName, followed by Var of class VarName.
+Memory index of glob var Var in class Class is resulted.
 
 Sande Lang does not need lang element to interface to external.
 Sande compiler modules have infra to generate refer binary.
