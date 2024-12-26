@@ -235,6 +235,11 @@ RefVarOperate is operate that results memory index of local var.
 The operate has syntax that starts with "ref" index word, followed by Var of class VarName.
 Memory index of local var Var is resulted.
 
+LessOperate, AddOperate, SubOperate, MulOperate, DivOperate, SignLessOperate, 
+SignMulOperate, SignDivOperate, BitAndOperate, BitOrnOperate, BitNotOperate, 
+BitLiteOperate, BitRiteOperate and BitSignRiteOperate input 64 bits int values in refs.
+Operates that output int values output 64 bits int values in refs.
+
 Sande Lang does not need lang element to interface to external.
 Sande compiler modules have infra to generate refer binary.
 The refer binary can refer to custom made machine code binary.
