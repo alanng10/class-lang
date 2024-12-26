@@ -217,6 +217,13 @@ followed by Maide of class MaideName.
 Class is the class the maide in.
 Maide is the maide name.
 
+RefStructVarOperate is operate that results memory index of struct var.
+The operate has syntax that starts with "ref" index word, followed by "struct" index word, 
+followed by Class of class ClassName, 
+followed by Struct of class StructName, followed by Var of class VarName, 
+followed by limit brace round open token, 
+followed by Any of class Operate, followed by limit brace round close token.
+
 Sande Lang does not need lang element to interface to external.
 Sande compiler modules have infra to generate refer binary.
 The refer binary can refer to custom made machine code binary.
