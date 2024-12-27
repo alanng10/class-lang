@@ -7,6 +7,7 @@ Class is open source.
 Permission is granted to every person to use any copy of this software in any way.
 
 Class is an object oriented programming language.
+Class is class based programming language.
 It uses classes to define any entity.
 Any entity can be defined by a class.
 Abstract of an entity is the define of the entity.
