@@ -240,7 +240,7 @@ SignMulOperate, SignDivOperate, BitAndOperate, BitOrnOperate, BitNotOperate,
 BitLiteOperate, BitRiteOperate and BitSignRiteOperate have syntaxs that is same as Class Lang.
 The operates input 64 bits int values in refs.
 Operates that output int values output 64 bits int values in refs.
-The operates do 64 bit int operations instead of 60 bits in Class Lang.
+The operates do 64 bits int operations instead of 60 bits in Class Lang.
 
 Sande Lang does not need lang element to interface to external.
 Sande compiler modules have infra to generate refer binary.
