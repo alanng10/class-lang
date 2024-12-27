@@ -95,7 +95,7 @@ class Infra : Any
 
             i : i + 1;
         }
-        
+
         var Int a;
         a : oo;
         return a;
