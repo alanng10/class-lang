@@ -7,3 +7,5 @@ The word "a" is used instead of the word "an".
 
 The English uses the word "he" instead of the word "she".
 The English uses the word "him" instead of the word "her".
+
+The English uses the word "i" instead of the word "I".
