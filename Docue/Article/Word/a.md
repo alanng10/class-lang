@@ -40,6 +40,8 @@ Word "tool" has meaning that is be used.
 
 Word "certain" has meaning that is will happen.
 
+Word "general" has meaning that is applicable to all.
+
 Word "auto" has meaning that is entity to do effect.
 
 Word "node" has meaning that is entity.
