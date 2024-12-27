@@ -154,6 +154,8 @@ Word "nite" has meaning that is up.
 
 Word "site" has meaning that is down.
 
+Word "root" has meaning that is origin entity.
+
 Word "most" has meaning that is highest.
 
 Word "center" has meaning that is center entity.
