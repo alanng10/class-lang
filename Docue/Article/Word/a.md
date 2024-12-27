@@ -564,6 +564,10 @@ Word "media" has meaning that is contain video and audio.
 
 Word "play" has meaning that is execute media effect.
 
+Word "pause" has meaning that is execute stop case.
+
+Word "resume" has meaning that is execute continue case.
+
 Word "volume" has meaning that is audio amplitude rate.
 
 Word "mute" has meaning that is audio enable.
