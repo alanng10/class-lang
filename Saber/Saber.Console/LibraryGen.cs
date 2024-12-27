@@ -175,6 +175,15 @@ public class LibraryGen : ClassBase
 
         this.ExecuteClassComp();
 
+        bool baa;
+        baa = this.StorageComp.FoldCreate(this.GenModuleFoldPath);
+
+        if (!baa)
+        {
+            this.Status = 10;
+            return false;
+        }
+
         bool ba;
         ba = this.ExecuteGenClassSource();
         if (!ba)
@@ -207,6 +216,14 @@ public class LibraryGen : ClassBase
         be = this.ExecuteGenMake();
         if (!be)
         {
+            return false;
+        }
+
+        baa = this.StorageComp.FoldDelete(this.GenModuleFoldPath);
+
+        if (!baa)
+        {
+            this.Status = 70;
             return false;
         }
 
@@ -347,17 +364,6 @@ public class LibraryGen : ClassBase
         this.ClassGen.ExternClass = externClass;
         this.ClassGen.System = this.SystemClass;
         this.ClassGen.ImportClass = this.ImportClass;
-
-        this.StorageComp.FoldDelete(this.GenModuleFoldPath);
-
-        bool baa;
-        baa = this.StorageComp.FoldCreate(this.GenModuleFoldPath);
-
-        if (!baa)
-        {
-            this.Status = 10;
-            return false;
-        }
 
         Iter iter;
         iter = this.Module.Class.IterCreate();
