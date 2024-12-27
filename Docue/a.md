@@ -8,6 +8,8 @@ Permission is granted to every person to use any copy of this software in any wa
 
 Class is complete.
 
+Class is highest level programming language.
+
 Class is an object oriented programming language.
 Class is class base programming language.
 It uses classes to define any entity.
@@ -15,7 +17,6 @@ Any entity can be defined by a class.
 Abstract of an entity is the define of the entity.
 A class can be any abstract.
 
-Class is highest level programming language.
 Class does not need manual memory management when the user develops in the language.
 Class uses auto memory management, that releases memory that are not used automatically.
 
