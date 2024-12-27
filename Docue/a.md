@@ -8,7 +8,7 @@ Permission is granted to every person to use any copy of this software in any wa
 
 Class is complete.
 
-Class is highest level programming language.
+Class is most general and highest level programming language.
 
 Class is an object oriented programming language.
 Class is class base programming language.
