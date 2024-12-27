@@ -152,6 +152,8 @@ Word "nite" has meaning that is up.
 
 Word "site" has meaning that is down.
 
+Word "most" has meaning that is highest.
+
 Word "out" has meaning that is output destination.
 
 Word "inn" has meaning that is input source.
