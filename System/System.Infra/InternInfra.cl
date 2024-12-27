@@ -37,7 +37,7 @@ class InternInfra : Any
 
             i : i + 1;
         }
-        
+
         var Int a;
         a : oo;
         return a;
@@ -93,7 +93,7 @@ class InternInfra : Any
         var Int dataValue;
         dataValue : this.InternIntern.Memory(data);
         dataValue : dataValue + dataIndex;
-        
+
         var Int k;
         k : this.Extern.TextCode_ExecuteCount(0, innKind, outKind, dataValue, dataCount);
         return k;
@@ -108,7 +108,7 @@ class InternInfra : Any
         var Int resultValue;
         resultValue : this.InternIntern.Memory(result);
         resultValue : resultValue + resultIndex;
-        
+
         this.Extern.TextCode_ExecuteResult(0, resultValue, innKind, outKind, dataValue, dataCount);
         return true;
     }
