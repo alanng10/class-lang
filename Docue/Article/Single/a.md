@@ -42,6 +42,8 @@ After this maide is called, the any comps can not be used.
 
 Calling Final maide on Bool or Int does nothing, only returns Bool true. 
 
+Single System modules Bool and Int classes has no comp defined on them.
+
 Single does not need shared comp.
 Single has ShareOperate that results shared instance.
 This is enough element to do any share.
