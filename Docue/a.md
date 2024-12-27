@@ -6,6 +6,8 @@ Class consists of infra modules, compiler modules, execution runner, documentati
 Class is open source.
 Permission is granted to every person to use any copy of this software in any way.
 
+Class is complete.
+
 Class is an object oriented programming language.
 Class is class base programming language.
 It uses classes to define any entity.
