@@ -156,6 +156,8 @@ Word "site" has meaning that is down.
 
 Word "most" has meaning that is highest.
 
+Word "center" has meaning that is center entity.
+
 Word "out" has meaning that is output destination.
 
 Word "inn" has meaning that is input source.
