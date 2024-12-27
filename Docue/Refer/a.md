@@ -2,4 +2,5 @@
 
 Class builtin modules API reference.
 
-Refer defines use characters in System Type board.
+Refer details use any characters.
+Other parts in Refer use characters in System Type board.
