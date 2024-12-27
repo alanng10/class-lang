@@ -58,6 +58,11 @@ Single has get, set and call that are virtual.
 Get, set, and call are triggered on any.
 This is enough element to do any ref call.
 
+Single does not need operator overloading.
+Single has comp name, same as Class Lang.
+This is enough element to do any trigger.
+This is enough element to do any comp.
+
 Single Lang does not need lang element to interface to external.
 Single compiler modules have infra to generate refer binary.
 The refer binary can refer to custom made machine code binary.
