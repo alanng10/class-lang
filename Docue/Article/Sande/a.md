@@ -235,6 +235,11 @@ RefVarOperate is operate that results memory index of local var.
 The operate has syntax that starts with "ref" index word, followed by Var of class VarName.
 Memory index of local var Var is resulted.
 
+SizeOperate is operate that results struct type byte size count.
+The operate has syntax that starts with "size" index word, followed by Class of class ClassName, 
+followed by Struct of class StructName.
+The byte size count of struct type Struct in class Class is resulted.
+
 LessOperate, AddOperate, SubOperate, MulOperate, DivOperate, SignLessOperate, 
 SignMulOperate, SignDivOperate, BitAndOperate, BitOrnOperate, BitNotOperate, 
 BitLiteOperate, BitRiteOperate and BitSignRiteOperate have syntaxs that is same as Class Lang.
