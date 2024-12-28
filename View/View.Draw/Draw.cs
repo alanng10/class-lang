@@ -23,10 +23,10 @@ public class Draw : Any
 
         this.TextCount = 1024;
 
-        ulong oa;
-        oa = (ulong)this.TextCount;
-        oa = oa * sizeof(uint);
-        this.InternTextData = Extern.New(oa);
+        ulong ka;
+        ka = (ulong)this.TextCount;
+        ka = ka * sizeof(uint);
+        this.InternTextData = Extern.New(ka);
 
         this.InternText = Extern.String_New();
         Extern.String_Init(this.InternText);
