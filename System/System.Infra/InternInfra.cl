@@ -287,6 +287,25 @@ class InternInfra : Any
         return true;
     }
 
+    maide prusate Int SizeCreate()
+    {
+        var Extern extern;
+        extern : this.Extern;
+        var Int a;
+        a : extern.Size_New();
+        extern.Size_Init(a);
+        return a;
+    }
+
+    maide prusate Bool SizeDelete(var Int a)
+    {
+        var Extern extern;
+        extern : this.Extern;
+        extern.Size_Final(a);
+        extern.Size_Delete(a);
+        return true;
+    }
+
     maide prusate Bool SizeSet(var Int size, var Int wed, var Int het)
     {
         var Extern extern;
