@@ -160,6 +160,8 @@ Word "most" has meaning that is highest.
 
 Word "center" has meaning that is center entity.
 
+Word "model" has meaning that is model any.
+
 Word "out" has meaning that is output destination.
 
 Word "inn" has meaning that is input source.
