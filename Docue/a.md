@@ -6,7 +6,7 @@ Class consists of infra modules, compiler modules, execution runner, documentati
 Class is open source.
 Permission is granted to every person to use any copy of this software in any way.
 
-Class is complete.
+Class is all did.
 
 Class is most general and most level program lang.
 
