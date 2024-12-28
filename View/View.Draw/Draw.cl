@@ -3,6 +3,7 @@ class Draw : Any
     maide prusate Bool Init()
     {
         base.Init();
+        this.Extern : share Extern;
         this.InternInfra : share InternInfra;
         this.MathInfra : share MathInfra;
         this.DrawInfra : share Infra;
@@ -20,9 +21,23 @@ class Draw : Any
 
         this.TextCount : 1024;
 
+        var Extern extern;
+        extern : share Extern;
+
         var Int ka;
         ka : this.TextCount;
         ka : ka * 4;
         this.InternTextData : extern.New(ka);
+
+        this.InternText : extern.String_New();
+        extern.String_Init(this.InternText);
+        extern.String_ValueSet(this.InternText, this.InternTextData);
+        extern.String_CountSet(this.InternText, 0);
+
+        this.InternRangeA : this.InternInfra.RangeCreate();
+        this.InternRectA : this.InternInfra.RectCreate();
+        this.InternRectB : this.InternInfra.RectCreate();
+        this.InternPosA : this.InternInfra.PosCreate();
+        this.InternPosB : this.InternInfra.PosCreate();
     }
 }
