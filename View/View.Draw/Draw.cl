@@ -53,4 +53,33 @@ class Draw : Any
         extern.Draw_FillPosSet(this.Intern, this.InternFillPos);
         return true;
     }
+
+    maide prusate Bool Final()
+    {
+        var Extern extern;
+        extern : this.Extern;
+
+        extern.Draw_Final(this.Intern);
+        extern.Draw_Delete(this.Intern);
+
+        this.InternInfra.PosDelete(this.InternFillPos);
+
+        this.InternInfra.RectDelete(this.InternArea);
+
+        this.InternInfra.SizeDelete(this.InternSize);
+
+        this.InternInfra.PosDelete(this.InternPosB);
+        this.InternInfra.PosDelete(this.InternPosA);
+        this.InternInfra.RectDelete(this.InternRectB);
+        this.InternInfra.RectDelete(this.InternRectA);
+        this.InternInfra.RangeDelete(this.InternRangeA);
+
+        extern.String_Final(this.InternText);
+        extern.String_Delete(this.InternText);
+
+        extern.Delete(this.InternTextData);
+
+        this.FinalWorldForm(this.WorldForm);
+        return true;
+    }
 }
