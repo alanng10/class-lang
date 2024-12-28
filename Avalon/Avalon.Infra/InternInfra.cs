@@ -154,6 +154,21 @@ public class InternInfra : Any
         return true;
     }
 
+    public virtual ulong SizeCreate()
+    {
+        ulong a;
+        a = Extern.Size_New();
+        Extern.Size_Init(a);
+        return a;
+    }
+
+    public virtual bool SizeDelete(ulong a)
+    {
+        Extern.Size_Final(a);
+        Extern.Size_Delete(a);
+        return true;
+    }
+
     public virtual ulong RectCreate()
     {
         ulong pos;
