@@ -22,7 +22,7 @@ class Draw : Any
         this.TextCount : 1024;
 
         var Extern extern;
-        extern : share Extern;
+        extern : this.Extern;
 
         var Int ka;
         ka : this.TextCount;
@@ -43,5 +43,7 @@ class Draw : Any
         this.InternSize : this.InternInfra.SizeCreate();
 
         this.InternArea : this.InternInfra.RectCreate();
+
+        this.InternFillPos : this.InternInfra.PosCreate();
     }
 }
