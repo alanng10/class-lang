@@ -43,8 +43,7 @@ public class Draw : Any
 
         this.InternArea = this.InternInfra.RectCreate();
 
-        this.InternFillPos = Extern.Pos_New();
-        Extern.Pos_Init(this.InternFillPos);
+        this.InternFillPos = this.InternInfra.PosCreate();
 
         this.Intern = Extern.Draw_New();
         Extern.Draw_Init(this.Intern);
@@ -59,8 +58,7 @@ public class Draw : Any
         Extern.Draw_Final(this.Intern);
         Extern.Draw_Delete(this.Intern);
 
-        Extern.Pos_Final(this.InternFillPos);
-        Extern.Pos_Delete(this.InternFillPos);
+        this.InternInfra.PosDelete(this.InternFillPos);
 
         this.InternInfra.RectDelete(this.InternArea);
 
