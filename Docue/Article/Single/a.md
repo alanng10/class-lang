@@ -29,6 +29,8 @@ The execute deletes the any refered by the ref value of Any operate.
 After the execute is executed, the any is deleted and does not exist.
 If the any is Bool or Int, the execute has no effect and the any continues to exist.
 
+Using any comp on any ref that refers to any that does not exist is a programming error.
+
 Single CastOperate is same as Class Lang.
 
 Single System.Infra module Any class has 1 maide.
