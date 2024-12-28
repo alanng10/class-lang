@@ -45,5 +45,12 @@ class Draw : Any
         this.InternArea : this.InternInfra.RectCreate();
 
         this.InternFillPos : this.InternInfra.PosCreate();
+
+        this.Intern : extern.Draw_New();
+        extern.Draw_Init(this.Intern);
+        extern.Draw_SizeSet(this.Intern, this.InternSize);
+        extern.Draw_AreaSet(this.Intern, this.InternArea);
+        extern.Draw_FillPosSet(this.Intern, this.InternFillPos);
+        return true;
     }
 }
