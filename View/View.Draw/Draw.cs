@@ -534,14 +534,8 @@ public class Draw : Any
 
     protected virtual long MathInt(long n)
     {
-        MathInfra mathInfra;
-        mathInfra = this.MathInfra;
-
-        MathComp mathComp;
-        mathComp = this.MathComp;
-
         long a;
-        a = mathInfra.Int(mathComp, n);
+        a = this.MathInfra.Int(this.MathComp, n);
         return a;
     }
 
