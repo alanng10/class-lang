@@ -39,5 +39,7 @@ class Draw : Any
         this.InternRectB : this.InternInfra.RectCreate();
         this.InternPosA : this.InternInfra.PosCreate();
         this.InternPosB : this.InternInfra.PosCreate();
+
+        this.InternSize : this.InternInfra.SizeCreate();
     }
 }
