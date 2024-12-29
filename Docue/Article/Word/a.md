@@ -46,6 +46,8 @@ Word "level" has meaning that is tiered stop.
 
 Word "edit" has meaning that is text edit.
 
+Word "fact" has meaning that is refactor.
+
 Word "auto" has meaning that is entity to do effect.
 
 Word "node" has meaning that is entity.
