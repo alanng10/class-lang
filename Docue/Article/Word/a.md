@@ -44,6 +44,8 @@ Word "general" has meaning that is applicable to all.
 
 Word "level" has meaning that is tiered stop.
 
+Word "mark" has meaning that is goaled.
+
 Word "edit" has meaning that is text edit.
 
 Word "fact" has meaning that is refactor.
