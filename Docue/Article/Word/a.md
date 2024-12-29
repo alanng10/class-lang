@@ -526,6 +526,8 @@ Word "visual" has meaning that is graphics.
 
 Word "animate" has meaning that is animation.
 
+Word "turn" has meaning that is toggle.
+
 Word "tune" has meaning that is comp audio.
 
 Word "plane" has meaning that is plane time line.
