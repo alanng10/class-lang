@@ -168,6 +168,8 @@ Word "pass" has meaning that is result valid.
 
 Word "fail" has meaning that is result not valid.
 
+Word "test" has meaning that is whether valid.
+
 Word "root" has meaning that is origin entity.
 
 Word "most" has meaning that is highest.
