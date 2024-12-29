@@ -178,6 +178,8 @@ Word "center" has meaning that is center entity.
 
 Word "model" has meaning that is model any.
 
+Word "recurse" has meaning that is recursive.
+
 Word "out" has meaning that is output destination.
 
 Word "inn" has meaning that is input source.
