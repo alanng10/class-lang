@@ -44,6 +44,8 @@ Word "general" has meaning that is applicable to all.
 
 Word "level" has meaning that is tiered stop.
 
+Word "edit" has meaning that is text edit.
+
 Word "auto" has meaning that is entity to do effect.
 
 Word "node" has meaning that is entity.
