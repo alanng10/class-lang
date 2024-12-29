@@ -46,6 +46,10 @@ Word "level" has meaning that is tiered stop.
 
 Word "mark" has meaning that is goaled.
 
+Word "inform" has meaning that is made of data.
+
+Word "exform" has meaning that is made of tangible.
+
 Word "edit" has meaning that is text edit.
 
 Word "fact" has meaning that is refactor.
