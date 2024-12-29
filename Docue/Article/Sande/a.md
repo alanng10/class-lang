@@ -242,10 +242,13 @@ The byte size count of struct type Struct in class Class is resulted.
 
 LessOperate, AddOperate, SubOperate, MulOperate, DivOperate, SignLessOperate, 
 SignMulOperate, SignDivOperate, BitAndOperate, BitOrnOperate, BitNotOperate, 
-BitLiteOperate, BitRiteOperate and BitSignRiteOperate have syntaxs that is same as Class Lang.
+BitLiteOperate, BitRiteOperate and BitSignRiteOperate have syntaxs that are same as Class Lang.
 The operates input 64 bits int values in refs.
 Operates that output int values output 64 bits int values in refs.
 The operates do 64 bits int operations instead of 60 bits in Class Lang.
+
+IntValue, IntHexValue, IntSignValue, IntHexSignValue have prefixs that are same as Class Lang.
+The values syntaxs valid ints are unsigned 64 bits or signed 64 bits.
 
 Sande Lang does not need lang element to interface to external.
 Sande compiler modules have infra to generate refer binary.
