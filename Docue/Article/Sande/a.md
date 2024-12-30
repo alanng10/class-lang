@@ -257,7 +257,7 @@ This is enough element to do any shared list for effect.
 
 Sande does not need glob var init at glob var declare.
 Sande has maide state to do any init.
-This is enough element to do any glob init.
+This is enough element to do any glob init for effect.
 
 Sande Lang does not need lang element to interface to external.
 Sande compiler modules have infra to generate refer binary.
