@@ -255,6 +255,8 @@ Sande has struct type and glob var.
 Shared list is made with glob var of type struct type.
 This is enough element to do any shared list for effect.
 
+Sande does not need glob var initialize at declare.
+
 Sande Lang does not need lang element to interface to external.
 Sande compiler modules have infra to generate refer binary.
 The refer binary can refer to custom made machine code binary.
