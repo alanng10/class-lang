@@ -166,7 +166,12 @@ class Draw : Any
             data : value;
 
             var Int k;
-            
+            k : 0;
+            inf (~(data = null))
+            {
+                k : data.Intern;
+            }
+            this.Extern.Draw_FillSet(this.Intern, k);
         }
     }
 }
