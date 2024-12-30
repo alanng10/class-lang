@@ -54,6 +54,8 @@ Word "edit" has meaning that is text edit.
 
 Word "fact" has meaning that is refactor.
 
+Word "symbol" has meaning that is entity represent entity.
+
 Word "auto" has meaning that is entity to do effect.
 
 Word "node" has meaning that is entity.
