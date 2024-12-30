@@ -56,7 +56,7 @@ Single has System modules that have classes.
 The classes do no have struct in their abstracts.
 This is enough element to do any inner processing.
 
-Single doest not need enum.
+Single does not need enum.
 Single has class and share operate.
 This is enough element to do any shared list for system programming.
 
