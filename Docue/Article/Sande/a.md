@@ -250,6 +250,11 @@ The operates do 64 bits int operations instead of 60 bits in Class Lang.
 IntValue, IntHexValue, IntSignValue, IntHexSignValue have prefixs that are same as Class Lang.
 The values syntaxs valid ints are unsigned 64 bits or signed 64 bits.
 
+Sande does not need enum.
+Sande has struct type and glob var.
+Shared list is made with glob var of type struct type.
+This is enough element to do any shared list for effect.
+
 Sande Lang does not need lang element to interface to external.
 Sande compiler modules have infra to generate refer binary.
 The refer binary can refer to custom made machine code binary.
