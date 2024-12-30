@@ -147,5 +147,5 @@ class Draw : Any
     {
         a.Final();
         return true;
-    }    
+    }
 }
