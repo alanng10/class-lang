@@ -82,4 +82,26 @@ class Draw : Any
         this.FinalWorldForm(this.WorldForm);
         return true;
     }
+
+    maide precate Size CreateSize()
+    {
+        var Size a;
+        a : new Size;
+        a.Init();
+        return a;
+    }
+
+    maide precate Rect CreateArea()
+    {
+        var Rect a;
+        a : new Rect;
+        a.Init();
+        a.Pos : new Pos;
+        a.Pos.Init();
+        a.Size : new Size;
+        a.Size.Init();
+        return a;
+    }
+
+    
 }
