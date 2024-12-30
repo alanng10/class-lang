@@ -126,4 +126,26 @@ class Draw : Any
         a.Init();
         return a;
     }
+
+    maide precate Pos CreatePosA()
+    {
+        var Pos a;
+        a : new Pos;
+        a.Init();
+        return a;
+    }
+
+    maide precate Form CreateWorldForm()
+    {
+        var Form a;
+        a : new Form;
+        a.Init();
+        return a;
+    }
+
+    maide precate Bool FinalWorldForm(var Form a)
+    {
+        a.Final();
+        return true;
+    }    
 }
