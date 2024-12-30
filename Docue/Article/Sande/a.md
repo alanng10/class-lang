@@ -252,7 +252,7 @@ The values syntaxs valid ints are unsigned 64 bits or signed 64 bits.
 
 Sande does not need enum.
 Sande has struct type and glob var.
-Shared list is made with glob var of type struct type.
+Shared list is made with glob var of type struct type and init with maide.
 This is enough element to do any shared list for effect.
 
 Sande does not need glob var initialize at declare.
