@@ -255,7 +255,9 @@ Sande has struct type and glob var.
 Shared list is made with glob var of type struct type and init with maide.
 This is enough element to do any shared list for effect.
 
-Sande does not need glob var initialize at declare.
+Sande does not need glob var init at declare.
+Sande has maide state to do any init.
+This is enough element to do any glob init.
 
 Sande Lang does not need lang element to interface to external.
 Sande compiler modules have infra to generate refer binary.
