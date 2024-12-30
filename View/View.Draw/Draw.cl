@@ -148,4 +148,10 @@ class Draw : Any
         a.Final();
         return true;
     }
+
+    field prusate Any Out { get { return data; } set { data : value; } }
+    field prusate Size Size { get { return data; } set { data : value; } }
+    field prusate Rect Area { get { return data; } set { data : value; } }
+    field prusate Pos Pos { get { return data; } set { data : value; } }
+    field prusate Pos FillPos { get { return data; } set { data : value; } }
 }
