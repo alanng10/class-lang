@@ -3,6 +3,7 @@
 Single is system programming language.
 Single is object oriented.
 Single is class based.
+Single is class system program lang.
 
 Single source item root node is Class node.
 
