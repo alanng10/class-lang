@@ -154,4 +154,19 @@ class Draw : Any
     field prusate Rect Area { get { return data; } set { data : value; } }
     field prusate Pos Pos { get { return data; } set { data : value; } }
     field prusate Pos FillPos { get { return data; } set { data : value; } }
+
+    field prusate Brush Fill
+    {
+        get
+        {
+            return data;
+        }
+        set
+        {
+            data : value;
+
+            var Int k;
+            
+        }
+    }
 }

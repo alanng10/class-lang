@@ -161,13 +161,13 @@ public class Draw : Any
         {
             this.FillData = value;
 
-            ulong uu;
-            uu = 0;
+            ulong k;
+            k = 0;
             if (!(this.FillData == null))
             {
-                uu = this.FillData.Intern;
+                k = this.FillData.Intern;
             }
-            Extern.Draw_FillSet(this.Intern, uu);
+            Extern.Draw_FillSet(this.Intern, k);
         }
     }
 
