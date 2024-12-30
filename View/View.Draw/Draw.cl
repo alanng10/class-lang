@@ -103,5 +103,27 @@ class Draw : Any
         return a;
     }
 
-    
+    maide precate Pos CreatePos()
+    {
+        var Pos a;
+        a : new Pos;
+        a.Init();
+        return a;
+    }
+
+    maide precate Pos CreateFillPos()
+    {
+        var Pos a;
+        a : new Pos;
+        a.Init();
+        return a;
+    }
+
+    maide precate MathComp CreateMathComp()
+    {
+        var MathComp a;
+        a : new MathComp;
+        a.Init();
+        return a;
+    }
 }
