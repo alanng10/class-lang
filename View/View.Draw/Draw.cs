@@ -205,13 +205,13 @@ public class Draw : Any
         {
             this.FontData = value;
 
-            ulong u;
-            u = 0;
+            ulong k;
+            k = 0;
             if (!(this.FontData == null))
             {
-                u = this.FontData.Intern;
+                k = this.FontData.Intern;
             }
-            Extern.Draw_FontSet(this.Intern, u);
+            Extern.Draw_FontSet(this.Intern, k);
         }
     }
 
