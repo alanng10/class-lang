@@ -393,4 +393,14 @@ class Draw : Any
         this.Extern.Draw_ExecuteRound(this.Intern, this.InternRectA);
         return true;
     }
+    
+    maide prusate Bool ExecuteRoundLine(var Rect rect, var Range range)
+    {
+        this.InternRectSetFromRect(this.InternRectA, rect);
+
+        this.InternRangeSetFromRange(this.InternRangeA, range);
+
+        this.Extern.Draw_ExecuteRoundLine(this.Intern, this.InternRectA, this.InternRangeA);
+        return true;
+    }
 }
