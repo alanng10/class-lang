@@ -227,13 +227,13 @@ public class Draw : Any
         {
             this.CompData = value;
 
-            ulong uu;
-            uu = 0;
+            ulong k;
+            k = 0;
             if (!(this.CompData == null))
             {
-                uu = this.CompData.Intern;
+                k = this.CompData.Intern;
             }
-            Extern.Draw_CompSet(this.Intern, uu);
+            Extern.Draw_CompSet(this.Intern, k);
         }
     }
 
