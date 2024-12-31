@@ -369,4 +369,12 @@ class Draw : Any
         this.Extern.Draw_Clear(this.Intern, k);
         return true;
     }
+
+    maide prusate Bool ExecuteRect(var Rect rect)
+    {
+        this.InternRectSetFromRect(this.InternRectA, rect);
+
+        this.Extern.Draw_ExecuteRect(this.Intern, this.InternRectA);
+        return true;
+    }
 }
