@@ -241,4 +241,20 @@ class Draw : Any
     field precate MathInfra MathInfra { get { return data; } set { data : value; } }
     field precate Infra DrawInfra { get { return data; } set { data : value; } }
     field precate Math Math { get { return data; } set { data : value; } }
+    field precate MathComp MathComp { get { return data; } set { data : value; } }
+    field precate Form WorldForm { get { return data; } set { data : value; } }
+    field precate Form FormA { get { return data; } set { data : value; } }
+    field precate Pos PosA { get { return data; } set { data : value; } }
+    field precate Int TextCount { get { return data; } set { data : value; } }
+    field private Int Intern { get { return data; } set { data : value; } }
+    field private Int InternFillPos { get { return data; } set { data : value; } }
+    field private Int InternArea { get { return data; } set { data : value; } }
+    field private Int InternSize { get { return data; } set { data : value; } }
+    field private Int InternPosB { get { return data; } set { data : value; } }
+    field private Int InternPosA { get { return data; } set { data : value; } }
+    field private Int InternRectB { get { return data; } set { data : value; } }
+    field private Int InternRectA { get { return data; } set { data : value; } }
+    field private Int InternRangeA { get { return data; } set { data : value; } }
+    field private Int InternText { get { return data; } set { data : value; } }
+    field private Int InternTextData { get { return data; } set { data : value; } }
 }
