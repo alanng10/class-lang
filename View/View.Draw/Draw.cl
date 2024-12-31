@@ -310,4 +310,12 @@ class Draw : Any
         extern.Size_WedSet(this.InternSize, this.Size.Het);
         return true;        
     }
+
+    maide prusate Bool AreaSet()
+    {
+        this.InternRectSetFromRect(this.InternArea, this.Area);
+
+        this.Extern.Draw_AreaThisSet(this.Intern);
+        return true;
+    }
 }
