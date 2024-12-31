@@ -378,15 +378,15 @@ public class Draw : Any
         return true;
     }
 
-    public virtual bool ExecuteRectRound(Rect rect, long horizRadius, long vertRadius)
+    public virtual bool ExecuteRectRound(Rect rect, long colRadius, long rowRadius)
     {
         this.InternRectSetFromRect(this.InternRectA, rect);
 
-        ulong hr;
-        ulong vr;
-        hr = (ulong)horizRadius;
-        vr = (ulong)vertRadius;
-        Extern.Draw_ExecuteRectRound(this.Intern, this.InternRectA, hr, vr);
+        ulong c;
+        ulong r;
+        c = (ulong)colRadius;
+        r = (ulong)rowRadius;
+        Extern.Draw_ExecuteRectRound(this.Intern, this.InternRectA, c, r);
         return true;
     }
 
