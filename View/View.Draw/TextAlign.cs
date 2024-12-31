@@ -2,6 +2,6 @@ namespace View.Draw;
 
 public class TextAlign : Any
 {
-    public virtual long Horiz { get; set; }
-    public virtual long Vert { get; set; }
+    public virtual long Col { get; set; }
+    public virtual long Row { get; set; }
 }
