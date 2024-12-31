@@ -432,4 +432,10 @@ class Draw : Any
         this.Extern.Draw_ExecuteLine(this.Intern, this.InternPosA, this.InternPosB);
         return true;
     }
+
+    maide prusate Bool ExecuteShape(var PointList pointList)
+    {
+        this.Extern.Draw_ExecuteShape(this.Intern, pointList.Count, pointList.Intern);
+        return true;
+    }
 }
