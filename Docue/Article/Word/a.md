@@ -512,6 +512,8 @@ Word "overline" has meaning that is overline style.
 
 Word "strikeout" has meaning that is strikeout style.
 
+Word "flat" has meaning that is flat style.
+
 Word "miter" has meaning that is miter style.
 
 Word "bevel" has meaning that is bevel style.
