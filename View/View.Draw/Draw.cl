@@ -343,5 +343,21 @@ class Draw : Any
     maide precate Bool DrawFormSet()
     {
         this.WorldForm.Reset();
+
+        this.WorldFormPosSet(this.PosA);
+
+        inf (~(this.Form = null))
+        {
+            this.WorldForm.Mul(this.Form);
+        }
+
+        this.Extern.Draw_FormSet(this.Intern, this.WorldForm.Intern);
+        return true;
+    }
+
+    maide precate Bool WorldFormPosSet(var Pos pos)
+    {
+        this.WorldForm.Pos(pos.Col, pos.Row);
+        return true;
     }
 }
