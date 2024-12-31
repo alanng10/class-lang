@@ -49,7 +49,7 @@ class CaseList : Any
     field precate Int ArrayCount { get { return 7; } set { } }
 
     field prusate Int Count { get { return data; } set { data : value; } }
-    
+
     field precate Int Index { get { return data; } set { data : value; } }
 
     maide prusate Case Get(var Int index)
