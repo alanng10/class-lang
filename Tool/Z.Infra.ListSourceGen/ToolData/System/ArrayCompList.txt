@@ -11,7 +11,7 @@
     field precate Int ArrayCount { get { return #ArrayCount#; } set { } }
 
     field prusate Int Count { get { return data; } set { data : value; } }
-    
+
     field precate Int Index { get { return data; } set { data : value; } }
 
     maide prusate #ItemClassName# Get(var Int index)
