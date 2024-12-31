@@ -423,4 +423,13 @@ class Draw : Any
         this.Extern.Draw_ExecuteRoundShape(this.Intern, this.InternRectA, this.InternRangeA);
         return true;
     }
+
+    maide prusate Bool ExecuteLine(var Pos startPos, var Pos endPos)
+    {
+        this.InternPosSetFromPos(this.InternPosA, startPos);
+        this.InternPosSetFromPos(this.InternPosB, endPos);
+
+        this.Extern.Draw_ExecuteLine(this.Intern, this.InternPosA, this.InternPosB);
+        return true;
+    }
 }
