@@ -337,7 +337,6 @@ public class Draw : Any
 
     public virtual bool FormSet()
     {
-        this.FormA = this.Form;
         this.DrawFormSet();
         return true;
     }
@@ -348,9 +347,9 @@ public class Draw : Any
 
         this.WorldFormPosOffsetSet(this.PosA);
 
-        if (!(this.FormA == null))
+        if (!(this.Form == null))
         {
-            this.WorldForm.Multiply(this.FormA);
+            this.WorldForm.Multiply(this.Form);
         }
 
         Extern.Draw_FormSet(this.Intern, this.WorldForm.Intern);

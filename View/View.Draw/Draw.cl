@@ -337,7 +337,6 @@ class Draw : Any
 
     maide prusate Bool FormSet()
     {
-        this.FormA : this.Form;
         this.DrawFormSet();
         return true;
     }
