@@ -248,7 +248,6 @@ public class Draw : Any
     protected virtual MathMath Math { get; set; }
     protected virtual MathComp MathComp { get; set; }
     protected virtual Form WorldForm { get; set; }
-    protected virtual Form FormA { get; set; }
     protected virtual Pos PosA { get; set; }
     protected virtual long TextCount { get; set; }
     private ulong Intern { get; set; }

@@ -243,7 +243,6 @@ class Draw : Any
     field precate Math Math { get { return data; } set { data : value; } }
     field precate MathComp MathComp { get { return data; } set { data : value; } }
     field precate Form WorldForm { get { return data; } set { data : value; } }
-    field precate Form FormA { get { return data; } set { data : value; } }
     field precate Pos PosA { get { return data; } set { data : value; } }
     field precate Int TextCount { get { return data; } set { data : value; } }
     field private Int Intern { get { return data; } set { data : value; } }
