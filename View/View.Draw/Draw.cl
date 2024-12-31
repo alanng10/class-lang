@@ -377,4 +377,12 @@ class Draw : Any
         this.Extern.Draw_ExecuteRect(this.Intern, this.InternRectA);
         return true;
     }
+
+    maide prusate Bool ExecuteRectRound(var Rect rect, var Int colRadius, var Int rowRadius)
+    {
+        this.InternRectSetFromRect(this.InternRectA, rect);
+
+        this.Extern.Draw_ExecuteRectRound(this.Intern, this.InternRectA, colRadius, rowRadius);
+        return true;
+    }
 }
