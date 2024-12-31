@@ -318,4 +318,12 @@ class Draw : Any
         this.Extern.Draw_AreaThisSet(this.Intern);
         return true;
     }
+
+    maide prusate Bool FillPosSet()
+    {
+        this.InternInfra.PosSet(this.InternFillPos, this.FillPos.Col, this.FillPos.Row);
+
+        this.Extern.Draw_FillPosThisSet(this.Intern);
+        return true;
+    }
 }

@@ -329,11 +329,8 @@ public class Draw : Any
 
     public virtual bool PosSet()
     {
-        Pos k;
-        k = this.Pos;
-
-        this.PosA.Col = this.MathInt(k.Col);
-        this.PosA.Row = this.MathInt(k.Row);
+        this.PosA.Col = this.MathInt(this.Pos.Col);
+        this.PosA.Row = this.MathInt(this.Pos.Row);
         this.DrawFormSet();
         return true;
     }
