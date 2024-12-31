@@ -300,4 +300,14 @@ class Draw : Any
         this.Extern.Draw_End(this.Intern);
         return true;
     }
+
+    maide prusate Bool SizeSet()
+    {
+        var Extern extern;
+        extern : this.Extern;
+
+        extern.Size_WedSet(this.InternSize, this.Size.Wed);
+        extern.Size_WedSet(this.InternSize, this.Size.Het);
+        return true;        
+    }
 }
