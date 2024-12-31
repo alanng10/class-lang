@@ -174,4 +174,24 @@ class Draw : Any
             this.Extern.Draw_FillSet(this.Intern, k);
         }
     }
+
+    field prusate Slash Line
+    {
+        get
+        {
+            return data;
+        }
+        set
+        {
+            data : value;
+
+            var Int k;
+            k : 0;
+            inf (~(data = null))
+            {
+                k : data.Intern;
+            }
+            this.Extern.Draw_LineSet(this.Intern, k);
+        }
+    }
 }

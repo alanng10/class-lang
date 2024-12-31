@@ -183,13 +183,13 @@ public class Draw : Any
         {
             this.LineData = value;
 
-            ulong uu;
-            uu = 0;
+            ulong k;
+            k = 0;
             if (!(this.LineData == null))
             {
-                uu = this.LineData.Intern;
+                k = this.LineData.Intern;
             }
-            Extern.Draw_LineSet(this.Intern, uu);
+            Extern.Draw_LineSet(this.Intern, k);
         }
     }
 
