@@ -257,4 +257,34 @@ class Draw : Any
     field private Int InternRangeA { get { return data; } set { data : value; } }
     field private Int InternText { get { return data; } set { data : value; } }
     field private Int InternTextData { get { return data; } set { data : value; } }
+
+    maide prusate Bool Start()
+    {
+        var Extern extern;
+        extern : this.Extern;
+
+        var Int k;
+        k : cast Int(this.Out);
+
+        extern.Draw_OutSet(this.Intern, k);
+        extern.Draw_Start(this.Intern);
+
+        var Rect area;
+        area : this.Area;
+        area.Pos.Col : 0;
+        area.Pos.Row : 0;
+        area.Size.Wed : this.Size.Wed;
+        area.Size.Het : this.Size.Het;
+        this.AreaSet();
+
+        var Pos pos;
+        pos : this.Pos;
+        pos.Col : 0;
+        pos.Row : 0;
+        this.PosSet();
+
+        this.Fill : null;
+        this.Line : null;
+        this.Comp: null;
+    }
 }

@@ -285,6 +285,7 @@ public class Draw : Any
         this.Fill = null;
         this.Line = null;
         this.Comp = null;
+        this.Font = null;
         this.FillPos.Col = 0;
         this.FillPos.Row = 0;
         this.FillPosSet();
