@@ -10,12 +10,12 @@ class Font : Any
 
         var Int italicK;
         italicK : this.InternInfra.Bool(this.Italic);
-        var Int underlineK;
-        underlineK : this.InternInfra.Bool(this.Underline);
-        var Int overlineK;
-        overlineK : this.InternInfra.Bool(this.Overline);
-        var Int strikeoutK;
-        strikeoutK : this.InternInfra.Bool(this.Strikeout);
+        var Int stalineK;
+        stalineK : this.InternInfra.Bool(this.Staline);
+        var Int midlineK;
+        midlineK : this.InternInfra.Bool(this.Midline);
+        var Int endlineK;
+        endlineK : this.InternInfra.Bool(this.Overline);
 
         var Extern extern;
         extern : this.Extern;
@@ -25,9 +25,9 @@ class Font : Any
         extern.Font_SizeSet(this.Intern, this.Size);
         extern.Font_WeightSet(this.Intern, this.Weight);
         extern.Font_ItalicSet(this.Intern, italicK);
-        extern.Font_UnderlineSet(this.Intern, underlineK);
-        extern.Font_OverlineSet(this.Intern, overlineK);
-        extern.Font_StrikeoutSet(this.Intern, strikeoutK);
+        extern.Font_UnderlineSet(this.Intern, stalineK);
+        extern.Font_StrikeoutSet(this.Intern, midlineK);
+        extern.Font_OverlineSet(this.Intern, endlineK);
         extern.Font_Init(this.Intern);
         return true;
     }
@@ -48,9 +48,9 @@ class Font : Any
     field prusate Int Size { get { return data; } set { data : value; } }
     field prusate Int Weight { get { return data; } set { data : value; } }
     field prusate Bool Italic { get { return data; } set { data : value; } }
-    field prusate Bool Underline { get { return data; } set { data : value; } }
+    field prusate Bool Staline { get { return data; } set { data : value; } }
+    field prusate Bool Midline { get { return data; } set { data : value; } }
     field prusate Bool Overline { get { return data; } set { data : value; } }
-    field prusate Bool Strikeout { get { return data; } set { data : value; } }
     field private Extern Extern { get { return data; } set { data : value; } }
     field private InternInfra InternInfra { get { return data; } set { data : value; } }
     field pronate Int Intern { get { return data; } set { data : value; } }
