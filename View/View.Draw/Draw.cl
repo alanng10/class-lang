@@ -326,4 +326,19 @@ class Draw : Any
         this.Extern.Draw_FillPosThisSet(this.Intern);
         return true;
     }
+
+    maide prusate Bool PosSet()
+    {
+        this.PosA.Col : this.MathInt(this.Pos.Col);
+        this.PosA.Row : this.MathInt(this.Pos.Row);
+        this.DrawFormSet();
+        return true;
+    }
+
+    maide prusate Bool FormSet()
+    {
+        this.FormA : this.Form;
+        this.DrawFormSet();
+        return true;
+    }
 }

@@ -353,8 +353,6 @@ public class Draw : Any
             this.WorldForm.Multiply(this.FormA);
         }
 
-        this.FormA = null;
-
         Extern.Draw_FormSet(this.Intern, this.WorldForm.Intern);
         return true;
     }
