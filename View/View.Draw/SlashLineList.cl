@@ -54,7 +54,7 @@ class SlashLineList : Any
     field precate Int ArrayCount { get { return 5; } set { } }
 
     field prusate Int Count { get { return data; } set { data : value; } }
-    
+
     field precate Int Index { get { return data; } set { data : value; } }
 
     maide prusate SlashLine Get(var Int index)

@@ -50,7 +50,7 @@ class ImageFormatList : Any
     field precate Int ArrayCount { get { return 3; } set { } }
 
     field prusate Int Count { get { return data; } set { data : value; } }
-    
+
     field precate Int Index { get { return data; } set { data : value; } }
 
     maide prusate ImageFormat Get(var Int index)
