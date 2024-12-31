@@ -531,8 +531,8 @@ Int Draw_ExecuteText(Int o, Int text, Int colAlign, Int rowAlign, Int wordWrap, 
 
     Int flag;
     flag = 0;
-    flag = flag | Draw_TextAlignCol_Array[colAlign];
-    flag = flag | Draw_TextAlignRow_Array[rowAlign];
+    flag = flag | Draw_TextAlignCol_Array[colAlign - 1];
+    flag = flag | Draw_TextAlignRow_Array[rowAlign - 1];
 
     if (wordWrap)
     {
