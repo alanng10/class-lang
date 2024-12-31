@@ -58,6 +58,8 @@ Word "symbol" has meaning that is entity represent entity.
 
 Word "reposit" has meaning that is repository.
 
+Word "commit" has meaning that is mod record.
+
 Word "auto" has meaning that is entity to do effect.
 
 Word "node" has meaning that is entity.
