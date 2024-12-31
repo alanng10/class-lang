@@ -536,6 +536,8 @@ Word "form" has meaning that is transform.
 
 Word "angle" has meaning that is direct.
 
+Word "align" has meaning that is direct align.
+
 Word "quad" has meaning that is four point shape.
 
 Word "point" has meaning that is smallest entity.
