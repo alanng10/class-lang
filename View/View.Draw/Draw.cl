@@ -214,4 +214,31 @@ class Draw : Any
             this.Extern.Draw_FontSet(this.Intern, k);
         }
     }
+
+    field prusate Comp Comp
+    {
+        get
+        {
+            return data;
+        }
+        set
+        {
+            data : value;
+
+            var Int k;
+            k : 0;
+            inf (~(data = null))
+            {
+                k : data.Intern;
+            }
+            this.Extern.Draw_CompSet(this.Intern, k);
+        }
+    }
+
+    field prusate Form Form { get { return data; } set { data : value; } }
+    field private Extern Extern { get { return data; } set { data : value; } }
+    field private InternInfra InternInfra { get { return data; } set { data : value; } }
+    field precate MathInfra MathInfra { get { return data; } set { data : value; } }
+    field precate Infra DrawInfra { get { return data; } set { data : value; } }
+    field precate Math Math { get { return data; } set { data : value; } }
 }
