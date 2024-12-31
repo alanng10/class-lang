@@ -363,5 +363,10 @@ class Draw : Any
 
     maide prusate Bool Clear(var Color color)
     {
+        var Int k;
+        k : this.DrawInfra.InternColor(color);
+
+        this.Extern.Draw_Clear(this.Intern, k);
+        return true;
     }
 }
