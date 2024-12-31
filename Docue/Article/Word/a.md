@@ -506,7 +506,7 @@ Word "weight" has meaning that is bold rate.
 
 Word "italic" has meaning that is italic style.
 
-Word "startline" has meaning that is underline style.
+Word "staline" has meaning that is underline style.
 
 Word "endline" has meaning that is overline style.
 
