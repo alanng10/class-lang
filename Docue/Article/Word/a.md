@@ -512,6 +512,10 @@ Word "overline" has meaning that is overline style.
 
 Word "strikeout" has meaning that is strikeout style.
 
+Word "miter" has meaning that is miter style.
+
+Word "bevel" has meaning that is bevel style.
+
 Word "area" has meaning that is region.
 
 Word "pos" has meaning that is position in signed int.
