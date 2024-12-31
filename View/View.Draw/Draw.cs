@@ -321,14 +321,7 @@ public class Draw : Any
 
     public virtual bool FillPosSet()
     {
-        Pos k;
-        k = this.FillPos;
-
-        long col;
-        long row;
-        col = k.Col;
-        row = k.Row;
-        this.InternInfra.PosSet(this.InternFillPos, col, row);
+        this.InternInfra.PosSet(this.InternFillPos, this.FillPos.Col, this.FillPos.Row);
 
         Extern.Draw_FillPosThisSet(this.Intern);
         return true;
