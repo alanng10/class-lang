@@ -466,9 +466,7 @@ public class Draw : Any
 
     public virtual bool ExecuteText(TextText text, TextAlign align, bool wordWarp, Rect destRect)
     {
-        long count;
-        count = text.Range.Count;
-        if (this.TextCount < count)
+        if (this.TextCount < text.Range.Count)
         {
             return false;
         }

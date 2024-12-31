@@ -453,4 +453,8 @@ class Draw : Any
         this.Extern.Draw_ExecuteImage(this.Intern, image.Intern, this.InternRectA, this.InternRectB);
         return true;
     }
+
+    maide prusate Bool ExecuteText(var Text text, var TextAlign align, var Bool wordWarp, var Rect destRect)
+    {
+    }
 }
