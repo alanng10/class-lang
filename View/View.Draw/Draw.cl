@@ -360,4 +360,8 @@ class Draw : Any
         this.WorldForm.Pos(pos.Col, pos.Row);
         return true;
     }
+
+    maide prusate Bool Clear(var Color color)
+    {
+    }
 }

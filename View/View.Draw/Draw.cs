@@ -363,10 +363,10 @@ public class Draw : Any
 
     public virtual bool Clear(Color color)
     {
-        ulong colorU;
-        colorU = this.DrawInfra.InternColor(color);
+        ulong k;
+        k = this.DrawInfra.InternColor(color);
 
-        Extern.Draw_Clear(this.Intern, colorU);
+        Extern.Draw_Clear(this.Intern, k);
         return true;
     }
 
