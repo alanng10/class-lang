@@ -194,4 +194,24 @@ class Draw : Any
             this.Extern.Draw_LineSet(this.Intern, k);
         }
     }
+
+    field prusate Font Font
+    {
+        get
+        {
+            return data;
+        }
+        set
+        {
+            data : value;
+
+            var Int k;
+            k : 0;
+            inf (~(data = null))
+            {
+                k : data.Intern;
+            }
+            this.Extern.Draw_FontSet(this.Intern, k);
+        }
+    }
 }
