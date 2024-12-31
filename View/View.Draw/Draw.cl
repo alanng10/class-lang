@@ -285,6 +285,19 @@ class Draw : Any
 
         this.Fill : null;
         this.Line : null;
-        this.Comp: null;
+        this.Comp : null;
+        this.Font : null;
+        this.FillPos.Col : 0;
+        this.FillPos.Row : 0;
+        this.FillPosSet();
+        this.Form : null;
+        this.FormSet();
+        return true;
+    }
+
+    maide prusate Bool End()
+    {
+        this.Extern.Draw_End(this.Intern);
+        return true;
     }
 }
