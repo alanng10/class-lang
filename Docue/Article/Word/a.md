@@ -56,6 +56,8 @@ Word "fact" has meaning that is refactor.
 
 Word "symbol" has meaning that is entity represent entity.
 
+Word "repo" has meaning that is repository.
+
 Word "auto" has meaning that is entity to do effect.
 
 Word "node" has meaning that is entity.
