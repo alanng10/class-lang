@@ -413,4 +413,14 @@ class Draw : Any
         this.Extern.Draw_ExecuteRoundPart(this.Intern, this.InternRectA, this.InternRangeA);
         return true;
     }
+
+    maide prusate Bool ExecuteRoundShape(var Rect rect, var Range range)
+    {
+        this.InternRectSetFromRect(this.InternRectA, rect);
+
+        this.InternRangeSetFromRange(this.InternRangeA, range);
+
+        this.Extern.Draw_ExecuteRoundShape(this.Intern, this.InternRectA, this.InternRangeA);
+        return true;
+    }
 }
