@@ -455,12 +455,12 @@ public class Draw : Any
         return true;
     }
 
-    public virtual bool ExecuteVideo(Image image, Rect destRect, Rect sourceRect)
+    public virtual bool ExecuteImage(Image image, Rect destRect, Rect sourceRect)
     {
         this.InternRectSetFromRect(this.InternRectA, destRect);
         this.InternRectSetFromRect(this.InternRectB, sourceRect);
 
-        Extern.Draw_ExecuteImage(this.Intern, image.Ident, this.InternRectA, this.InternRectB);
+        Extern.Draw_ExecuteImage(this.Intern, image.Intern, this.InternRectA, this.InternRectB);
         return true;
     }
 
