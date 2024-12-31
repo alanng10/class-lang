@@ -250,6 +250,8 @@ The operates do 64 bits int operations instead of 60 bits in Class Lang.
 IntValue, IntHexValue, IntSignValue, IntHexSignValue have prefixs that are same as Class Lang.
 The values syntaxs valid ints are unsigned 64 bits or signed 64 bits.
 
+StringValue uses 32 bits int as char unit.
+
 Sande does not need enum.
 Sande has struct type and glob var.
 Shared list is made with glob var of type struct type and init with maide.
