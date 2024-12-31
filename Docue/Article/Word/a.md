@@ -506,11 +506,11 @@ Word "weight" has meaning that is bold rate.
 
 Word "italic" has meaning that is italic style.
 
-Word "underline" has meaning that is underline style.
+Word "startline" has meaning that is underline style.
 
-Word "overline" has meaning that is overline style.
+Word "endline" has meaning that is overline style.
 
-Word "strikeout" has meaning that is strikeout style.
+Word "midline" has meaning that is strikeout style.
 
 Word "flat" has meaning that is flat style.
 
