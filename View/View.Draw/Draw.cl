@@ -444,4 +444,13 @@ class Draw : Any
         this.Extern.Draw_ExecuteShapeLine(this.Intern, pointList.Count, pointList.Intern);
         return true;
     }
+
+    maide prusate Bool ExecuteImage(var Image image, var Rect destRect, var Rect sourceRect)
+    {
+        this.InternRectSetFromRect(this.InternRectA, destRect);
+        this.InternRectSetFromRect(this.InternRectB, sourceRect);
+
+        this.Extern.Draw_ExecuteImage(this.Intern, image.Intern, this.InternRectA, this.InternRectB);
+        return true;
+    }
 }
