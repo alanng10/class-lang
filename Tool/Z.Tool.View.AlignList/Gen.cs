@@ -12,8 +12,8 @@ public class Gen : SourceGen
         this.ItemClassName = this.S("Align");
         this.ArrayClassName = this.S("Array");
         this.Export = true;
-        this.ItemListFileName = this.S("ToolData/Class/ItemListAlign.txt");
-        this.AddMethodFileName = this.S("ToolData/Class/AddMaideAlign.txt");
+        this.ItemListFileName = this.S("ToolData/View/ItemListAlign.txt");
+        this.AddMethodFileName = this.S("ToolData/View/AddMaideAlign.txt");
         this.OutputFilePath = this.S("../../View/View.Draw/AlignList.cl");
         return true;
     }
