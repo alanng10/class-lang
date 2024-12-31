@@ -339,4 +339,9 @@ class Draw : Any
         this.DrawFormSet();
         return true;
     }
+
+    maide precate Bool DrawFormSet()
+    {
+        this.WorldForm.Reset();
+    }
 }

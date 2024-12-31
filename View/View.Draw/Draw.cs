@@ -344,25 +344,20 @@ public class Draw : Any
     {
         this.WorldForm.Reset();
 
-        this.WorldFormPosOffsetSet(this.PosA);
+        this.WorldFormPosSet(this.PosA);
 
         if (!(this.Form == null))
         {
-            this.WorldForm.Multiply(this.Form);
+            this.WorldForm.Mul(this.Form);
         }
 
         Extern.Draw_FormSet(this.Intern, this.WorldForm.Intern);
         return true;
     }
 
-    protected virtual bool WorldFormPosOffsetSet(Pos pos)
+    protected virtual bool WorldFormPosSet(Pos pos)
     {
-        long col;
-        long row;
-        col = pos.Col;
-        row = pos.Row;
-
-        this.WorldForm.Pos(col, row);
+        this.WorldForm.Pos(pos.Col, pos.Row);
         return true;
     }
 
