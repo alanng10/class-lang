@@ -248,17 +248,17 @@ class Extern : Any
     maide prusate Int Draw_FillPosThisSet(var Int o) { }
     maide prusate Int Draw_AreaThisSet(var Int o) { }
     maide prusate Int Draw_Clear(var Int o, var Int color) { }
-    maide prusate Int Draw_ExecuteLine(var Int o, var Int startPos, var Int endPos) { }
     maide prusate Int Draw_ExecuteRect(var Int o, var Int rect) { }
-    maide prusate Int Draw_ExecuteRectRound(var Int o, var Int rect, var Int horizRadius, var Int vertRadius) { }
+    maide prusate Int Draw_ExecuteRectRound(var Int o, var Int rect, var Int colRadius, var Int rowRadius) { }
     maide prusate Int Draw_ExecuteRound(var Int o, var Int rect) { }
-    maide prusate Int Draw_ExecuteRoundLine(var Int o, var Int rect, var Int angleRange) { }
-    maide prusate Int Draw_ExecuteRoundPart(var Int o, var Int rect, var Int angleRange) { }
-    maide prusate Int Draw_ExecuteRoundShape(var Int o, var Int rect, var Int angleRange) { }
+    maide prusate Int Draw_ExecuteRoundLine(var Int o, var Int rect, var Int range) { }
+    maide prusate Int Draw_ExecuteRoundPart(var Int o, var Int rect, var Int range) { }
+    maide prusate Int Draw_ExecuteRoundShape(var Int o, var Int rect, var Int range) { }
+    maide prusate Int Draw_ExecuteLine(var Int o, var Int startPos, var Int endPos) { }
     maide prusate Int Draw_ExecuteShape(var Int o, var Int pointListCount, var Int pointListData) { }
     maide prusate Int Draw_ExecuteShapeLine(var Int o, var Int pointListCount, var Int pointListData) { }
     maide prusate Int Draw_ExecuteImage(var Int o, var Int image, var Int destRect, var Int sourceRect) { }
-    maide prusate Int Draw_ExecuteText(var Int o, var Int text, var Int horizAlign, var Int vertAlign, var Int wordWrap, var Int destRect, var Int boundRect) { }
+    maide prusate Int Draw_ExecuteText(var Int o, var Int text, var Int colAlign, var Int rowAlign, var Int wordWrap, var Int destRect, var Int boundRect) { }
 
     maide prusate Int Brush_New() { }
     maide prusate Int Brush_Delete(var Int o) { }

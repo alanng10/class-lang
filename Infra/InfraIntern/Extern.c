@@ -2970,21 +2970,6 @@ Int Intern_Extern_Draw_Clear(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_Draw_ExecuteLine(Eval* eval, Int frame)
-{
-    Int paramCount;
-    paramCount = 3;
-
-    Param(0);
-    Param(1);
-    Param(2);
-
-    Int a;
-    a = Draw_ExecuteLine(a0, a1, a2);
-
-    Return;
-}
-
 Int Intern_Extern_Draw_ExecuteRect(Eval* eval, Int frame)
 {
     Int paramCount;
@@ -3070,6 +3055,21 @@ Int Intern_Extern_Draw_ExecuteRoundShape(Eval* eval, Int frame)
 
     Int a;
     a = Draw_ExecuteRoundShape(a0, a1, a2);
+
+    Return;
+}
+
+Int Intern_Extern_Draw_ExecuteLine(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 3;
+
+    Param(0);
+    Param(1);
+    Param(2);
+
+    Int a;
+    a = Draw_ExecuteLine(a0, a1, a2);
 
     Return;
 }

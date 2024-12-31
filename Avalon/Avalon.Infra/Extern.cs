@@ -257,17 +257,17 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Draw_FillPosThisSet(ulong o);
     [DllImport(InfraLib)] public extern static ulong Draw_AreaThisSet(ulong o);
     [DllImport(InfraLib)] public extern static ulong Draw_Clear(ulong o, ulong color);
-    [DllImport(InfraLib)] public extern static ulong Draw_ExecuteLine(ulong o, ulong startPos, ulong endPos);
     [DllImport(InfraLib)] public extern static ulong Draw_ExecuteRect(ulong o, ulong rect);
-    [DllImport(InfraLib)] public extern static ulong Draw_ExecuteRectRound(ulong o, ulong rect, ulong horizRadius, ulong vertRadius);
+    [DllImport(InfraLib)] public extern static ulong Draw_ExecuteRectRound(ulong o, ulong rect, ulong colRadius, ulong rowRadius);
     [DllImport(InfraLib)] public extern static ulong Draw_ExecuteRound(ulong o, ulong rect);
-    [DllImport(InfraLib)] public extern static ulong Draw_ExecuteRoundLine(ulong o, ulong rect, ulong angleRange);
-    [DllImport(InfraLib)] public extern static ulong Draw_ExecuteRoundPart(ulong o, ulong rect, ulong angleRange);
-    [DllImport(InfraLib)] public extern static ulong Draw_ExecuteRoundShape(ulong o, ulong rect, ulong angleRange);
+    [DllImport(InfraLib)] public extern static ulong Draw_ExecuteRoundLine(ulong o, ulong rect, ulong range);
+    [DllImport(InfraLib)] public extern static ulong Draw_ExecuteRoundPart(ulong o, ulong rect, ulong range);
+    [DllImport(InfraLib)] public extern static ulong Draw_ExecuteRoundShape(ulong o, ulong rect, ulong range);
+    [DllImport(InfraLib)] public extern static ulong Draw_ExecuteLine(ulong o, ulong startPos, ulong endPos);
     [DllImport(InfraLib)] public extern static ulong Draw_ExecuteShape(ulong o, ulong pointListCount, ulong pointListData);
     [DllImport(InfraLib)] public extern static ulong Draw_ExecuteShapeLine(ulong o, ulong pointListCount, ulong pointListData);
     [DllImport(InfraLib)] public extern static ulong Draw_ExecuteImage(ulong o, ulong image, ulong destRect, ulong sourceRect);
-    [DllImport(InfraLib)] public extern static ulong Draw_ExecuteText(ulong o, ulong text, ulong horizAlign, ulong vertAlign, ulong wordWrap, ulong destRect, ulong boundRect);
+    [DllImport(InfraLib)] public extern static ulong Draw_ExecuteText(ulong o, ulong text, ulong colAlign, ulong rowAlign, ulong wordWrap, ulong destRect, ulong boundRect);
 
     [DllImport(InfraLib)] public extern static ulong Brush_New();
     [DllImport(InfraLib)] public extern static ulong Brush_Delete(ulong o);

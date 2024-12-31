@@ -292,17 +292,17 @@ Infra_Api Int Draw_End(Int o);
 Infra_Api Int Draw_FillPosThisSet(Int o);
 Infra_Api Int Draw_AreaThisSet(Int o);
 Infra_Api Int Draw_Clear(Int o, Int color);
-Infra_Api Int Draw_ExecuteLine(Int o, Int startPos, Int endPos);
 Infra_Api Int Draw_ExecuteRect(Int o, Int rect);
-Infra_Api Int Draw_ExecuteRectRound(Int o, Int rect, Int horizRadius, Int vertRadius);
+Infra_Api Int Draw_ExecuteRectRound(Int o, Int rect, Int colRadius, Int rowRadius);
 Infra_Api Int Draw_ExecuteRound(Int o, Int rect);
-Infra_Api Int Draw_ExecuteRoundLine(Int o, Int rect, Int angleRange);
-Infra_Api Int Draw_ExecuteRoundPart(Int o, Int rect, Int angleRange);
-Infra_Api Int Draw_ExecuteRoundShape(Int o, Int rect, Int angleRange);
+Infra_Api Int Draw_ExecuteRoundLine(Int o, Int rect, Int range);
+Infra_Api Int Draw_ExecuteRoundPart(Int o, Int rect, Int range);
+Infra_Api Int Draw_ExecuteRoundShape(Int o, Int rect, Int range);
+Infra_Api Int Draw_ExecuteLine(Int o, Int startPos, Int endPos);
 Infra_Api Int Draw_ExecuteShape(Int o, Int pointListCount, Int pointListData);
 Infra_Api Int Draw_ExecuteShapeLine(Int o, Int pointListCount, Int pointListData);
 Infra_Api Int Draw_ExecuteImage(Int o, Int image, Int destRect, Int sourceRect);
-Infra_Api Int Draw_ExecuteText(Int o, Int text, Int horizAlign, Int vertAlign, Int wordWrap, Int destRect, Int boundRect);
+Infra_Api Int Draw_ExecuteText(Int o, Int text, Int colAlign, Int rowAlign, Int wordWrap, Int destRect, Int boundRect);
 
 InfraApiNew(Brush)
 Infra_Api Int Brush_KindGet(Int o);
