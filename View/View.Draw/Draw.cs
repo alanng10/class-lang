@@ -464,7 +464,7 @@ public class Draw : Any
         return true;
     }
 
-    public virtual bool ExecuteText(TextText text, TextAlign align, bool wordWarp, Rect destRect)
+    public virtual bool ExecuteText(TextText text, Align colAlign, Align rowAlign, bool wordWarp, Rect destRect)
     {
         if (this.TextCount < text.Range.Count)
         {
@@ -477,8 +477,8 @@ public class Draw : Any
 
         ulong kaa;
         ulong kab;
-        kaa = (ulong)align.Horiz;
-        kab = (ulong)align.Vert;
+        kaa = (ulong)colAlign.Index;
+        kab = (ulong)rowAlign.Index;
 
         ulong wordWrapU;
         wordWrapU = 0;
