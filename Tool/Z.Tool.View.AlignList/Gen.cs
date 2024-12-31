@@ -5,16 +5,16 @@ public class Gen : SourceGen
     public override bool Init()
     {
         base.Init();
-        this.Module = this.S("Saber.Infra");
-        this.ClassName = this.S("CountList");
+        this.Module = this.S("View.Draw");
+        this.ClassName = this.S("AlignList");
         this.BaseClassName = this.S("Any");
         this.AnyClassName = this.S("Any");
-        this.ItemClassName = this.S("Count");
+        this.ItemClassName = this.S("Align");
         this.ArrayClassName = this.S("Array");
         this.Export = true;
-        this.ItemListFileName = this.S("ToolData/Class/ItemListCount.txt");
-        this.AddMethodFileName = this.S("ToolData/Class/AddMaideCount.txt");
-        this.OutputFilePath = this.S("../../Saber/Saber.Infra/CountList.cs");
+        this.ItemListFileName = this.S("ToolData/Class/ItemListAlign.txt");
+        this.AddMethodFileName = this.S("ToolData/Class/AddMaideAlign.txt");
+        this.OutputFilePath = this.S("../../View/View.Draw/AlignList.cl");
         return true;
     }
 }
