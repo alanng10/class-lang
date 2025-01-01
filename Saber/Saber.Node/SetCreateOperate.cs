@@ -119,7 +119,7 @@ public class SetCreateOperate : CreateOperate
         indexA = arg.NameValueTextIndex;
 
         String a;
-        a = (String)arg.NameValueArray.GetAt(index);
+        a = arg.NameValueArray.GetAt(index) as String;
 
         index = index + 1;
         indexA = indexA + this.StringComp.Count(a);
@@ -140,7 +140,7 @@ public class SetCreateOperate : CreateOperate
         indexA = arg.StringValueTextIndex;
 
         String a;
-        a = (String)arg.StringValueArray.GetAt(index);
+        a = arg.StringValueArray.GetAt(index) as String;
 
         index = index + 1;
         indexA = indexA + this.StringComp.Count(a);
