@@ -324,7 +324,7 @@ public class Test : ClassBase
         j = unit;
 
         long number;
-        number = this.UnitIndex + 1;
+        number = this.UnitIndex;
 
         String p;
         p = this.StringIntFormat(number, 10, false, 3, -1, '0');
