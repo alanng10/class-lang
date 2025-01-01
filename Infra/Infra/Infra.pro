@@ -117,7 +117,7 @@ SOURCES += \
     Stat_NetworkPortKind.cpp \
     Stat_NetworkStatus.cpp \
     Stat_BrushKind.cpp \
-    Stat_SlashCap.cpp \
+    Stat_SlashCape.cpp \
     Stat_SlashJoin.cpp \
     Stat_SlashLine.cpp \
     Stat_PolateKind.cpp \
