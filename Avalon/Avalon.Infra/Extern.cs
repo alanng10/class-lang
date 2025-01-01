@@ -328,8 +328,8 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Font_StalineSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Font_MidlineGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong Font_MidlineSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Font_EndLineGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Font_EndLineSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Font_EndlineGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Font_EndlineSet(ulong o, ulong value);
 
     [DllImport(InfraLib)] public extern static ulong Form_New();
     [DllImport(InfraLib)] public extern static ulong Form_Delete(ulong o);

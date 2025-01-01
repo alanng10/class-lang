@@ -319,8 +319,8 @@ class Extern : Any
     maide prusate Int Font_StalineSet(var Int o, var Int value) { }
     maide prusate Int Font_MidlineGet(var Int o) { }
     maide prusate Int Font_MidlineSet(var Int o, var Int value) { }
-    maide prusate Int Font_EndLineGet(var Int o) { }
-    maide prusate Int Font_EndLineSet(var Int o, var Int value) { }
+    maide prusate Int Font_EndlineGet(var Int o) { }
+    maide prusate Int Font_EndlineSet(var Int o, var Int value) { }
 
     maide prusate Int Form_New() { }
     maide prusate Int Form_Delete(var Int o) { }

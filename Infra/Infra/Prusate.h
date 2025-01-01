@@ -351,8 +351,8 @@ Infra_Api Int Font_StalineGet(Int o);
 Infra_Api Int Font_StalineSet(Int o, Int value);
 Infra_Api Int Font_MidlineGet(Int o);
 Infra_Api Int Font_MidlineSet(Int o, Int value);
-Infra_Api Int Font_EndLineGet(Int o);
-Infra_Api Int Font_EndLineSet(Int o, Int value);
+Infra_Api Int Font_EndlineGet(Int o);
+Infra_Api Int Font_EndlineSet(Int o, Int value);
 
 InfraApiNew(Form)
 Infra_Api Int Form_Reset(Int o);

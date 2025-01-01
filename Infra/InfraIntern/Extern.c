@@ -3852,7 +3852,7 @@ Int Intern_Extern_Font_MidlineSet(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_Font_EndLineGet(Eval* eval, Int frame)
+Int Intern_Extern_Font_EndlineGet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -3860,12 +3860,12 @@ Int Intern_Extern_Font_EndLineGet(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Font_EndLineGet(a0);
+    a = Font_EndlineGet(a0);
 
     Return;
 }
 
-Int Intern_Extern_Font_EndLineSet(Eval* eval, Int frame)
+Int Intern_Extern_Font_EndlineSet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -3874,7 +3874,7 @@ Int Intern_Extern_Font_EndLineSet(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = Font_EndLineSet(a0, a1);
+    a = Font_EndlineSet(a0, a1);
 
     Return;
 }

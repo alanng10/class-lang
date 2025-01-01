@@ -321,8 +321,8 @@ Intern_Api Int Intern_Extern_Font_StalineGet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Font_StalineSet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Font_MidlineGet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Font_MidlineSet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Font_EndLineGet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Font_EndLineSet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Font_EndlineGet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Font_EndlineSet(Eval* e, Int f);
 
 Intern_Api Int Intern_Extern_Form_New(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Form_Delete(Eval* e, Int f);
