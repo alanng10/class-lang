@@ -2825,22 +2825,22 @@ public class Create : InfraCreate
         {
             return null;
         }
-        Token leftBracket;
-        leftBracket = this.Token(this.TokenC, this.Limit.BraceLite.Text, this.IndexRange(this.RangeA, op.Range.End));
-        if (leftBracket == null)
+        Token braceLite;
+        braceLite = this.Token(this.TokenC, this.Limit.BraceLite.Text, this.IndexRange(this.RangeA, op.Range.End));
+        if (braceLite == null)
         {
             return null;
         }
 
         Token rightBracket;
-        rightBracket = this.TokenMatchBraceLite(this.TokenD, this.Range(this.RangeA, leftBracket.Range.End, end));
+        rightBracket = this.TokenMatchBraceLite(this.TokenD, this.Range(this.RangeA, braceLite.Range.End, end));
         if (rightBracket == null)
         {
             return null;
         }
 
         Token comma;
-        comma = this.TokenForward(this.TokenA, this.Limit.PauseSign.Text, this.Range(this.RangeA, leftBracket.Range.End, rightBracket.Range.Start));
+        comma = this.TokenForward(this.TokenA, this.Limit.PauseSign.Text, this.Range(this.RangeA, braceLite.Range.End, rightBracket.Range.Start));
         if (comma == null)
         {
             return null;
@@ -2853,7 +2853,7 @@ public class Create : InfraCreate
 
         long leftStart;
         long leftEnd;
-        leftStart = leftBracket.Range.End;
+        leftStart = braceLite.Range.End;
         leftEnd = comma.Range.Start;
         long rightStart;
         long rightEnd;
