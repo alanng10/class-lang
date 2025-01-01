@@ -4221,16 +4221,13 @@ public class Create : InfraCreate
 
     protected virtual long ForwardSkipBracket(long index, long end)
     {
-        LimitList limit;
-        limit = this.Limit;
-
         long ret;
         ret = -1;
 
         TokenToken token;
         token = this.TokenToken(index);
 
-        if (this.TextSame(this.TAToken(token), this.TB(limit.BraceRoundLite.Text)))
+        if (this.TextSame(this.TAToken(token), this.TB(this.Limit.BraceLite.Text)))
         {
             Token rightBracket;
             rightBracket = this.TokenMatchBraceRoundLite(this.TokenA, this.Range(this.RangeA, index + 1, end));
@@ -4240,7 +4237,7 @@ public class Create : InfraCreate
             }
         }
 
-        if (this.TextSame(this.TAToken(token), this.TB(limit.BraceLite.Text)))
+        if (this.TextSame(this.TAToken(token), this.TB(this.Limit.BraceCurveLite.Text)))
         {
             Token rightBrace;
             rightBrace = this.TokenMatchBraceLite(this.TokenA, this.Range(this.RangeA, index + 1, end));
@@ -4254,9 +4251,6 @@ public class Create : InfraCreate
 
     protected virtual long BackwardSkipBracket(long index, long start)
     {
-        LimitList limit;
-        limit = this.Limit;
-
         long ret;
         ret = -1;
         long t;
@@ -4265,7 +4259,7 @@ public class Create : InfraCreate
         TokenToken token;
         token = this.TokenToken(t);
 
-        if (this.TextSame(this.TAToken(token), this.TB(limit.BraceRoundRite.Text)))
+        if (this.TextSame(this.TAToken(token), this.TB(this.Limit.BraceRite.Text)))
         {
             Token leftBracket;
             leftBracket = this.TokenMatchBraceRoundRite(this.TokenA, this.Range(this.RangeA, start, t));
@@ -4275,7 +4269,7 @@ public class Create : InfraCreate
             }
         }
 
-        if (this.TextSame(this.TAToken(token), this.TB(limit.BraceRite.Text)))
+        if (this.TextSame(this.TAToken(token), this.TB(this.Limit.BraceCurveRite.Text)))
         {
             Token leftBrace;
             leftBrace = this.TokenMatchBraceRite(this.TokenA, this.Range(this.RangeA, start, t));
