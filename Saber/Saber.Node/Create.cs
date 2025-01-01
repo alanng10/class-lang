@@ -4221,8 +4221,6 @@ public class Create : InfraCreate
 
     protected virtual long ForwardSkipBracket(long index, long end)
     {
-        TextInfra textInfra;
-        textInfra = this.TextInfra;
         LimitList limit;
         limit = this.Limit;
 
@@ -4256,8 +4254,6 @@ public class Create : InfraCreate
 
     protected virtual long BackwardSkipBracket(long index, long start)
     {
-        TextInfra textInfra;
-        textInfra = this.TextInfra;
         LimitList limit;
         limit = this.Limit;
 
