@@ -100,16 +100,16 @@ Int Frame_ShownSet(Int o, Int value)
 CppField(Frame, DrawState)
 CppField(Frame, TypeState)
 
-Int Frame_VideoOut(Int o)
+Int Frame_Out(Int o)
 {
     Frame* m;
     m = CP(o);
 
-    QPaintDevice* u;
-    u = m->Intern;
+    QPaintDevice* k;
+    k = m->Intern;
 
     Int a;
-    a = CastInt(u);
+    a = CastInt(k);
     return a;
 }
 
