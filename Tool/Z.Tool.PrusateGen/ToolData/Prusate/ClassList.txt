@@ -156,7 +156,7 @@ Font
     Tenden
     Staline
     Midline
-    EndLine
+    Endline
 
 Form
     Reset()
