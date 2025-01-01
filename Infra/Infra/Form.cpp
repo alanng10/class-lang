@@ -57,19 +57,19 @@ Int Form_Angle(Int o, Int angle)
     return true;
 }
 
-Int Form_Scale(Int o, Int horizScale, Int vertScale)
+Int Form_Scale(Int o, Int colScale, Int rowScale)
 {
     Form* m;
     m = CP(o);
-    ValidValue(horizScale);
-    InternValue(horizScale);
-    ValidDouble(horizScaleU);
+    ValidValue(colScale);
+    InternValue(colScale);
+    ValidDouble(colScaleU);
 
-    ValidValue(vertScale);
-    InternValue(vertScale);
-    ValidDouble(vertScaleU);
+    ValidValue(rowScale);
+    InternValue(rowScale);
+    ValidDouble(rowScaleU);
 
-    m->Intern->scale(horizScaleU, vertScaleU);
+    m->Intern->scale(colScaleU, rowScaleU);
     return true;
 }
 
