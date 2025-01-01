@@ -1,9 +1,9 @@
 #include "PointData.hpp"
 
-Int PointData_PointGet(Int address, Int result)
+Int PointData_PointGet(Int memory, Int result)
 {
     QPointF* u;
-    u = (QPointF*)(address);
+    u = (QPointF*)(memory);
 
     QPointF point;
     point = *u;
@@ -21,7 +21,7 @@ Int PointData_PointGet(Int address, Int result)
     return true;
 }
 
-Int PointData_PointSet(Int address, Int pos)
+Int PointData_PointSet(Int memory, Int pos)
 {
     Int aPos;
     aPos = pos;
@@ -33,7 +33,7 @@ Int PointData_PointSet(Int address, Int pos)
     InternPos(a);
 
     QPointF* u;
-    u = (QPointF*)(address);
+    u = (QPointF*)(memory);
     *u = aPosU;
     return true;
 }
