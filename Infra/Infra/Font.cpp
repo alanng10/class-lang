@@ -17,25 +17,25 @@ Int Font_Init(Int o)
     sizeU = m->Size;
 
     int weightU;
-    weightU = m->Weight;
+    weightU = m->Strong;
 
     bool italicU;
-    italicU = m->Italic;
+    italicU = m->Tenden;
 
     bool underlineU;
-    underlineU = m->Underline;
-
-    bool overlineU;
-    overlineU = m->Overline;
+    underlineU = m->Staline;
 
     bool strikeoutU;
-    strikeoutU = m->Strikeout;
+    strikeoutU = m->Midline;
+
+    bool overlineU;
+    overlineU = m->Endline;
 
     m->Intern = new QFont(nameString, sizeU, weightU, italicU);
     m->Intern->setStyleHint(QFont::AnyStyle, QFont::PreferAntialias);
     m->Intern->setUnderline(underlineU);
-    m->Intern->setOverline(overlineU);
     m->Intern->setStrikeOut(strikeoutU);
+    m->Intern->setOverline(overlineU);
     return true;
 }
 
