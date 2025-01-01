@@ -234,7 +234,7 @@ public class ModuleGen : ClassBase
         gen.Text(gen.ListWord);
         gen.Text(gen.LimitBraceRightLite);
         gen.TextInt(this.Module.Class.Count);
-        gen.Text(gen.LimitBraceSquareRite);
+        gen.Text(gen.LimitBraceRightRite);
 
         gen.Text(gen.LimitSemicolon);
         gen.Text(gen.NewLine);
