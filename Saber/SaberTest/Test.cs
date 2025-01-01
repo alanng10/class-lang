@@ -323,11 +323,11 @@ public class Test : ClassBase
         String j;
         j = unit;
 
-        long number;
-        number = this.UnitIndex;
+        long n;
+        n = this.UnitIndex;
 
         String p;
-        p = this.StringIntFormat(number, 10, false, 3, -1, '0');
+        p = this.StringIntFormat(n, 10, false, 3, -1, '0');
 
         String t;
         t = this.ResultSpace;
