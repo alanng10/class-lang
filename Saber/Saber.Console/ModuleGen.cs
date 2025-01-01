@@ -232,7 +232,7 @@ public class ModuleGen : ClassBase
 
         gen.Text(gen.ClassWord);
         gen.Text(gen.ListWord);
-        gen.Text(gen.LimitBraceSquareLite);
+        gen.Text(gen.LimitBraceRightLite);
         gen.TextInt(this.Module.Class.Count);
         gen.Text(gen.LimitBraceSquareRite);
 
