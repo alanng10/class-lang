@@ -2856,9 +2856,9 @@ public class Create : InfraCreate
         liteStart = braceLite.Range.End;
         liteEnd = comma.Range.Start;
         long riteStart;
-        long rightEnd;
+        long riteEnd;
         riteStart = comma.Range.End;
-        rightEnd = braceRite.Range.Start;
+        riteEnd = braceRite.Range.Start;
 
         Node left;
         left = this.ExecuteOperate(this.Range(this.RangeA, liteStart, liteEnd));
@@ -2868,10 +2868,10 @@ public class Create : InfraCreate
         }
 
         Node right;
-        right = this.ExecuteOperate(this.Range(this.RangeA, riteStart, rightEnd));
+        right = this.ExecuteOperate(this.Range(this.RangeA, riteStart, riteEnd));
         if (right == null)
         {
-            this.Error(this.ErrorKind.OperandUnvalid, riteStart, rightEnd);
+            this.Error(this.ErrorKind.OperandUnvalid, riteStart, riteEnd);
         }
 
         this.SetArg.Kind = kind;
