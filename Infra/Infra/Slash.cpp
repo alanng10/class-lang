@@ -13,8 +13,8 @@ Int Slash_Init(Int o)
     line = m->Line;
     Int size;
     size = m->Size;
-    Int cap;
-    cap = m->Cap;
+    Int cape;
+    cape = m->Cape;
     Int join;
     join = m->Join;
 
@@ -29,7 +29,7 @@ Int Slash_Init(Int o)
     InternValue(size);
 
     Qt::PenCapStyle capStyleU;
-    capStyleU = (Qt::PenCapStyle)(cap - 1);
+    capStyleU = (Qt::PenCapStyle)(cape - 1);
 
     Qt::PenJoinStyle joinStyleU;
     joinStyleU = (Qt::PenJoinStyle)(join - 1);
@@ -52,7 +52,7 @@ Int Slash_Final(Int o)
 CppField(Slash, Brush)
 CppField(Slash, Line)
 CppField(Slash, Size)
-CppField(Slash, Cap)
+CppField(Slash, Cape)
 CppField(Slash, Join)
 
 Int Slash_Intern(Int o)

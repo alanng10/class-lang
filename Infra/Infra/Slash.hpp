@@ -10,7 +10,7 @@ struct Slash
     Int Brush;
     Int Line;
     Int Size;
-    Int Cap;
+    Int Cape;
     Int Join;
     QPen* Intern;
 };
