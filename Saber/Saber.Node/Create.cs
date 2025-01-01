@@ -4272,7 +4272,7 @@ public class Create : InfraCreate
         if (this.TextSame(this.TAToken(token), this.TB(this.Limit.BraceCurveRite.Text)))
         {
             Token leftBrace;
-            leftBrace = this.TokenMatchBraceRite(this.TokenA, this.Range(this.RangeA, start, t));
+            leftBrace = this.TokenMatchBraceCurveRite(this.TokenA, this.Range(this.RangeA, start, t));
             if (!(leftBrace == null))
             {
                 ret = leftBrace.Range.Start;
@@ -4286,7 +4286,7 @@ public class Create : InfraCreate
         return this.TokenMatchLiteToken(result, this.Limit.BraceCurveLite.Text, this.Limit.BraceCurveRite.Text, range);
     }
 
-    protected virtual Token TokenMatchBraceRite(Token result, Range range)
+    protected virtual Token TokenMatchBraceCurveRite(Token result, Range range)
     {
         return this.TokenMatchRiteToken(result, this.Limit.BraceCurveLite.Text, this.Limit.BraceCurveRite.Text, range);
     }
