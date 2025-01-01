@@ -2340,105 +2340,7 @@ public class Create : InfraCreate
 
     public virtual Node ExecuteBitSignRiteOperate(Range range)
     {
-        long start;
-        long end;
-        start = range.Start;
-        end = range.End;
-
-        if (start == end)
-        {
-            return null;
-        }
-        Token wordToken;
-        wordToken = this.Token(this.TokenA, this.Index.Bit.Text, this.IndexRange(this.RangeA, start));
-        if (wordToken == null)
-        {
-            return null;
-        }
-
-        if (wordToken.Range.End == end)
-        {
-            return null;
-        }
-        Token op;
-        op = this.Token(this.TokenB, this.Limit.MoreSign.Text, this.IndexRange(this.RangeA, wordToken.Range.End));
-        if (op == null)
-        {
-            return null;
-        }
-
-        if (op.Range.End == end)
-        {
-            return null;
-        }
-        Token opA;
-        opA = this.Token(this.TokenC, this.Limit.MoreSign.Text, this.IndexRange(this.RangeA, op.Range.End));
-        if (opA == null)
-        {
-            return null;
-        }
-
-        if (opA.Range.End == end)
-        {
-            return null;
-        }
-        Token leftBracket;
-        leftBracket = this.Token(this.TokenA, this.Limit.BraceLite.Text, this.IndexRange(this.RangeA, opA.Range.End));
-        if (leftBracket == null)
-        {
-            return null;
-        }
-
-        Token rightBracket;
-        rightBracket = this.TokenMatchBraceLite(this.TokenB, this.Range(this.RangeA, leftBracket.Range.End, end));
-        if (rightBracket == null)
-        {
-            return null;
-        }
-
-        Token comma;
-        comma = this.TokenForward(this.TokenC, this.Limit.PauseSign.Text, this.Range(this.RangeA, leftBracket.Range.End, rightBracket.Range.Start));
-        if (comma == null)
-        {
-            return null;
-        }
-
-        if (!(rightBracket.Range.End == end))
-        {
-            return null;
-        }
-
-        long leftStart;
-        long leftEnd;
-        leftStart = leftBracket.Range.End;
-        leftEnd = comma.Range.Start;
-        long rightStart;
-        long rightEnd;
-        rightStart = comma.Range.End;
-        rightEnd = rightBracket.Range.Start;
-
-        Node left;
-        left = this.ExecuteOperate(this.Range(this.RangeA, leftStart, leftEnd));
-        if (left == null)
-        {
-            this.Error(this.ErrorKind.OperandUnvalid, leftStart, leftEnd);
-        }
-
-        Node right;
-        right = this.ExecuteOperate(this.Range(this.RangeA, rightStart, rightEnd));
-        if (right == null)
-        {
-            this.Error(this.ErrorKind.OperandUnvalid, rightStart, rightEnd);
-        }
-
-        this.SetArg.Kind = this.NodeKind.BitSignRiteOperate;
-        this.SetArg.Start = start;
-        this.SetArg.End = end;
-        this.SetArg.Field00 = left;
-        this.SetArg.Field01 = right;
-        Node ret;
-        ret = this.ExecuteCreateOperate();
-        return ret;
+        return this.ExecuteWordTwoLimitTwoOperand(this.NodeKind.BitSignRiteOperate, this.Index.Bit, this.Limit.MoreSign, this.Limit.MoreSign, range);
     }
 
     protected virtual Node ExecuteWordBracketBody(NodeKind kind, Index word, Range range)
@@ -3050,6 +2952,109 @@ public class Create : InfraCreate
         this.SetArg.Start = start;
         this.SetArg.End = end;
         this.SetArg.Field00 = value;
+        Node ret;
+        ret = this.ExecuteCreateOperate();
+        return ret;
+    }
+
+    protected virtual Node ExecuteWordTwoLimitTwoOperand(NodeKind kind, Index word, Limit limitA, Limit limitB, Range range)
+    {
+        long start;
+        long end;
+        start = range.Start;
+        end = range.End;
+
+        if (start == end)
+        {
+            return null;
+        }
+        Token wordToken;
+        wordToken = this.Token(this.TokenA, word.Text, this.IndexRange(this.RangeA, start));
+        if (wordToken == null)
+        {
+            return null;
+        }
+
+        if (wordToken.Range.End == end)
+        {
+            return null;
+        }
+        Token op;
+        op = this.Token(this.TokenB, limitA.Text, this.IndexRange(this.RangeA, wordToken.Range.End));
+        if (op == null)
+        {
+            return null;
+        }
+
+        if (op.Range.End == end)
+        {
+            return null;
+        }
+        Token opA;
+        opA = this.Token(this.TokenC, limitB.Text, this.IndexRange(this.RangeA, op.Range.End));
+        if (opA == null)
+        {
+            return null;
+        }
+
+        if (opA.Range.End == end)
+        {
+            return null;
+        }
+        Token leftBracket;
+        leftBracket = this.Token(this.TokenA, this.Limit.BraceLite.Text, this.IndexRange(this.RangeA, opA.Range.End));
+        if (leftBracket == null)
+        {
+            return null;
+        }
+
+        Token rightBracket;
+        rightBracket = this.TokenMatchBraceLite(this.TokenB, this.Range(this.RangeA, leftBracket.Range.End, end));
+        if (rightBracket == null)
+        {
+            return null;
+        }
+
+        Token comma;
+        comma = this.TokenForward(this.TokenC, this.Limit.PauseSign.Text, this.Range(this.RangeA, leftBracket.Range.End, rightBracket.Range.Start));
+        if (comma == null)
+        {
+            return null;
+        }
+
+        if (!(rightBracket.Range.End == end))
+        {
+            return null;
+        }
+
+        long leftStart;
+        long leftEnd;
+        leftStart = leftBracket.Range.End;
+        leftEnd = comma.Range.Start;
+        long rightStart;
+        long rightEnd;
+        rightStart = comma.Range.End;
+        rightEnd = rightBracket.Range.Start;
+
+        Node left;
+        left = this.ExecuteOperate(this.Range(this.RangeA, leftStart, leftEnd));
+        if (left == null)
+        {
+            this.Error(this.ErrorKind.OperandUnvalid, leftStart, leftEnd);
+        }
+
+        Node right;
+        right = this.ExecuteOperate(this.Range(this.RangeA, rightStart, rightEnd));
+        if (right == null)
+        {
+            this.Error(this.ErrorKind.OperandUnvalid, rightStart, rightEnd);
+        }
+
+        this.SetArg.Kind = kind;
+        this.SetArg.Start = start;
+        this.SetArg.End = end;
+        this.SetArg.Field00 = left;
+        this.SetArg.Field01 = right;
         Node ret;
         ret = this.ExecuteCreateOperate();
         return ret;
