@@ -10,11 +10,11 @@ struct Font
 {
     Int Name;
     Int Size;
-    Int Weight;
-    Int Italic;
-    Int Underline;
-    Int Overline;
-    Int Strikeout;
+    Int Strong;
+    Int Tenden;
+    Int Staline;
+    Int Midline;
+    Int Endline;
     QFont* Intern;
 };
 
