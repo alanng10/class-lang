@@ -37,7 +37,7 @@ Int Image_Init(Int o)
 
     m->Intern = new QImage(dataValueU, width, height, bytePerLine, format);
 
-    Image_VideoOutSet(o);
+    Image_OutSet(o);
     return true;
 }
 
@@ -231,14 +231,14 @@ Int Image_DataCopy(Int o, Int dest, Int source, Int width, Int height, Int rowBy
 CppField(Image, Size)
 CppField(Image, Data)
 
-Int Image_VideoOut(Int o)
+Int Image_Out(Int o)
 {
     Image* m;
     m = CP(o);
-    return m->VideoOut;
+    return m->Out;
 }
 
-Int Image_VideoOutSet(Int o)
+Int Image_OutSet(Int o)
 {
     Image* m;
     m = CP(o);
@@ -253,7 +253,7 @@ Int Image_VideoOutSet(Int o)
 
     ua = ua | alphaFlag;
 
-    m->VideoOut = ua;
+    m->Out = ua;
     return true;
 }
 
