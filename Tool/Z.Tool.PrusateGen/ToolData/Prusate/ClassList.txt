@@ -152,7 +152,7 @@ Image
 Font
     Name
     Size
-    Weight
+    Bold
     Italic
     Staline
     Midline
