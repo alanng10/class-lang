@@ -508,9 +508,9 @@ Word "slope" has meaning that is italic style.
 
 Word "staline" has meaning that is underline style.
 
-Word "endline" has meaning that is overline style.
-
 Word "midline" has meaning that is strikeout style.
+
+Word "endline" has meaning that is overline style.
 
 Word "flat" has meaning that is flat style.
 
