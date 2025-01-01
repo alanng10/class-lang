@@ -154,9 +154,9 @@ Font
     Size
     Weight
     Italic
-    Underline
-    Overline
-    Strikeout
+    Staline
+    Midline
+    EndLine
 
 Form
     Reset()
