@@ -25,7 +25,7 @@ public class Test : ClassBase
         this.SAll = this.S("All");
         this.SSpace = this.S(" ");
 
-        this.LanguageName = this.CreateLanguageName();
+        this.LangName = this.CreateLanguageName();
 
         this.Console = this.CreateConsole();
 
@@ -39,7 +39,7 @@ public class Test : ClassBase
     protected virtual ConsoleConsole SystemConsole { get; set; }
     protected virtual StorageComp StorageComp { get; set; }
     protected virtual TaskKindList TaskKindList { get; set; }
-    protected virtual String LanguageName { get; set; }
+    protected virtual String LangName { get; set; }
 
     private String DataFold { get; set; }
     private List UnitList { get; set; }
@@ -368,7 +368,7 @@ public class Test : ClassBase
     private bool WriteHead(String setName)
     {
         String s;
-        s = this.StringCreate(this.TextAlphaNite(this.TA(this.LanguageName)));
+        s = this.StringCreate(this.TextAlphaNite(this.TA(this.LangName)));
 
         String k;
         k = this.StringCreate(this.TextAlphaNite(this.TA(setName)));
