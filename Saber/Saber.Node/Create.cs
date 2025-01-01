@@ -2832,21 +2832,21 @@ public class Create : InfraCreate
             return null;
         }
 
-        Token rightBracket;
-        rightBracket = this.TokenMatchBraceLite(this.TokenD, this.Range(this.RangeA, braceLite.Range.End, end));
-        if (rightBracket == null)
+        Token braceRite;
+        braceRite = this.TokenMatchBraceLite(this.TokenD, this.Range(this.RangeA, braceLite.Range.End, end));
+        if (braceRite == null)
         {
             return null;
         }
 
         Token comma;
-        comma = this.TokenForward(this.TokenA, this.Limit.PauseSign.Text, this.Range(this.RangeA, braceLite.Range.End, rightBracket.Range.Start));
+        comma = this.TokenForward(this.TokenA, this.Limit.PauseSign.Text, this.Range(this.RangeA, braceLite.Range.End, braceRite.Range.Start));
         if (comma == null)
         {
             return null;
         }
 
-        if (!(rightBracket.Range.End == end))
+        if (!(braceRite.Range.End == end))
         {
             return null;
         }
@@ -2858,7 +2858,7 @@ public class Create : InfraCreate
         long rightStart;
         long rightEnd;
         rightStart = comma.Range.End;
-        rightEnd = rightBracket.Range.Start;
+        rightEnd = braceRite.Range.Start;
 
         Node left;
         left = this.ExecuteOperate(this.Range(this.RangeA, leftStart, leftEnd));
