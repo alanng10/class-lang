@@ -120,7 +120,7 @@ public class ModuleGen : ClassBase
 
         gen.IndentCount = gen.IndentCount - 1;
 
-        gen.Text(gen.LimitBraceRite);
+        gen.Text(gen.LimitBraceCurveRite);
         gen.Text(gen.NewLine);
         return true;
     }
@@ -177,7 +177,7 @@ public class ModuleGen : ClassBase
 
         gen.IndentCount = gen.IndentCount - 1;
 
-        gen.Text(gen.LimitBraceRite);
+        gen.Text(gen.LimitBraceCurveRite);
         gen.Text(gen.NewLine);
         return true;
     }
@@ -214,7 +214,7 @@ public class ModuleGen : ClassBase
 
         gen.IndentCount = gen.IndentCount - 1;
 
-        gen.Text(gen.LimitBraceRite);
+        gen.Text(gen.LimitBraceCurveRite);
         gen.Text(gen.NewLine);
         return true;
     }
@@ -303,7 +303,7 @@ public class ModuleGen : ClassBase
         gen.IndentCount = gen.IndentCount - 1;
 
         gen.TextIndent();
-        gen.Text(gen.LimitBraceRite);
+        gen.Text(gen.LimitBraceCurveRite);
         gen.Text(gen.NewLine);
 
         gen.TextIndent();
@@ -361,7 +361,7 @@ public class ModuleGen : ClassBase
 
         gen.IndentCount = gen.IndentCount - 1;
 
-        gen.Text(gen.LimitBraceRite);
+        gen.Text(gen.LimitBraceCurveRite);
         gen.Text(gen.NewLine);
         return true;
     }
