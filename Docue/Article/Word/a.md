@@ -504,7 +504,7 @@ Word "font" has meaning that is char style.
 
 Word "strong" has meaning that is bold rate.
 
-Word "slope" has meaning that is italic style.
+Word "tenden" has meaning that is italic style.
 
 Word "staline" has meaning that is underline style.
 
