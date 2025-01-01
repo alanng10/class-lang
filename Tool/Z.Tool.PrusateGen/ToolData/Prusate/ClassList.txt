@@ -136,7 +136,7 @@ Slash
     Brush
     Line
     Size
-    Cap
+    Cape
     Join
 
 PointData -
