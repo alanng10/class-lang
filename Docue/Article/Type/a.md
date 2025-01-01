@@ -11,4 +11,6 @@ This is enough element to input anything.
 
 Type board is easiest to input anything, as it has no more than enough element.
 
-Type board button index table is most general and most level type index.
+Type board button index table is Type index.
+Type index is most general and most level type index.
+Type index is did.
