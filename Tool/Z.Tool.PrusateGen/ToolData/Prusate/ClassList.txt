@@ -140,8 +140,8 @@ Slash
     Join
 
 PointData -
-    PointGet(address, result) -
-    PointSet(address, pos) -
+    PointGet(memory, result) -
+    PointSet(memory, pos) -
 
 Image
     Size
