@@ -73,13 +73,13 @@ public class SetCreateOperate : CreateOperate
 
     public override Array ExecuteListGet(long index)
     {
-        return (Array)this.Create.Arg.ListArray.GetAt(index);
+        return this.Create.Arg.ListArray.GetAt(index) as Array;
     }
 
     public override bool ExecuteListSetItem(long index, long itemIndex, object item)
     {
         Array array;
-        array = (Array)this.Create.Arg.ListArray.GetAt(index);
+        array = this.Create.Arg.ListArray.GetAt(index) as Array;
 
         array.SetAt(itemIndex, item);
         return true;
@@ -96,7 +96,7 @@ public class SetCreateOperate : CreateOperate
         index = arg.ErrorIndex;
 
         Error error;
-        error = (Error)arg.ErrorArray.GetAt(index);
+        error = arg.ErrorArray.GetAt(index) as Error;
         error.Kind = kind;
         error.Range.Start = start;
         error.Range.End = end;
