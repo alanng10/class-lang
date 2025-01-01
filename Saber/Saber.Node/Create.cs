@@ -4014,7 +4014,7 @@ public class Create : InfraCreate
         String leftBrace;
         String rightBrace;
         leftBrace = this.Limit.BraceCurveLite.Text;
-        rightBrace = this.Limit.BraceRite.Text;
+        rightBrace = this.Limit.BraceCurveRite.Text;
         long i;
         i = start;
         long index;
@@ -4070,7 +4070,7 @@ public class Create : InfraCreate
         String leftBrace;
         String rightBrace;
         leftBrace = this.Limit.BraceCurveLite.Text;
-        rightBrace = this.Limit.BraceRite.Text;
+        rightBrace = this.Limit.BraceCurveRite.Text;
         long i;
         i = end;
         long index;
@@ -4293,12 +4293,12 @@ public class Create : InfraCreate
 
     protected virtual Token TokenMatchBraceLite(Token result, Range range)
     {
-        return this.TokenMatchLiteToken(result, this.Limit.BraceCurveLite.Text, this.Limit.BraceRite.Text, range);
+        return this.TokenMatchLiteToken(result, this.Limit.BraceCurveLite.Text, this.Limit.BraceCurveRite.Text, range);
     }
 
     protected virtual Token TokenMatchBraceRite(Token result, Range range)
     {
-        return this.TokenMatchRiteToken(result, this.Limit.BraceCurveLite.Text, this.Limit.BraceRite.Text, range);
+        return this.TokenMatchRiteToken(result, this.Limit.BraceCurveLite.Text, this.Limit.BraceCurveRite.Text, range);
     }
 
     protected virtual Token TokenMatchBraceRoundLite(Token result, Range range)
