@@ -474,6 +474,8 @@ Word "slash" has meaning that is draw line applied.
 
 Word "round" has meaning that is sphere.
 
+Word "curve" has meaning that is curve plane.
+
 Word "shape" has meaning that is draw any.
 
 Word "line" has meaning that is region line.
