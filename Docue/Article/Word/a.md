@@ -502,7 +502,7 @@ Word "ident" has meaning that is identity.
 
 Word "font" has meaning that is char style.
 
-Word "weight" has meaning that is bold rate.
+Word "bold" has meaning that is bold rate.
 
 Word "italic" has meaning that is italic style.
 
