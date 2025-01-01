@@ -54,6 +54,8 @@ Word "edit" has meaning that is text edit.
 
 Word "fact" has meaning that is refactor.
 
+Word "title" has meaning that is head char list.
+
 Word "symbol" has meaning that is entity represent entity.
 
 Word "reposit" has meaning that is repository.
