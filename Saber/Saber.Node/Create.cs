@@ -2979,19 +2979,8 @@ public class Create : InfraCreate
         {
             return null;
         }
-        Token op;
-        op = this.Token(this.TokenB, limitA.Text, this.IndexRange(this.RangeA, wordToken.Range.End));
-        if (op == null)
-        {
-            return null;
-        }
-
-        if (op.Range.End == end)
-        {
-            return null;
-        }
         Token opA;
-        opA = this.Token(this.TokenC, limitB.Text, this.IndexRange(this.RangeA, op.Range.End));
+        opA = this.Token(this.TokenB, limitA.Text, this.IndexRange(this.RangeA, wordToken.Range.End));
         if (opA == null)
         {
             return null;
@@ -3001,8 +2990,19 @@ public class Create : InfraCreate
         {
             return null;
         }
+        Token opB;
+        opB = this.Token(this.TokenC, limitB.Text, this.IndexRange(this.RangeA, opA.Range.End));
+        if (opB == null)
+        {
+            return null;
+        }
+
+        if (opB.Range.End == end)
+        {
+            return null;
+        }
         Token leftBracket;
-        leftBracket = this.Token(this.TokenA, this.Limit.BraceLite.Text, this.IndexRange(this.RangeA, opA.Range.End));
+        leftBracket = this.Token(this.TokenA, this.Limit.BraceLite.Text, this.IndexRange(this.RangeA, opB.Range.End));
         if (leftBracket == null)
         {
             return null;
