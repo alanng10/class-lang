@@ -374,7 +374,7 @@ Word "can" has meaning that is option available.
 
 Word "phore" has meaning that is thread sync.
 
-Word "square" has meaning that is cube.
+Word "right" has meaning that is cube.
 
 Word "enter" has meaning that is inn finish.
 
