@@ -123,7 +123,7 @@ public class ClassGen : ClassBase
         this.LimitBraceRoundLite = this.S("(");
         this.LimitBraceRoundRite = this.S(")");
         this.LimitBraceRightLite = this.S("[");
-        this.LimitBraceSquareRite = this.S("]");
+        this.LimitBraceRightRite = this.S("]");
         this.LimitColon = this.S(":");
         this.LimitSemicolon = this.S(";");
         this.LimitComma = this.S(",");
@@ -267,7 +267,7 @@ public class ClassGen : ClassBase
     public virtual String LimitBraceRoundLite { get; set; }
     public virtual String LimitBraceRoundRite { get; set; }
     public virtual String LimitBraceRightLite { get; set; }
-    public virtual String LimitBraceSquareRite { get; set; }
+    public virtual String LimitBraceRightRite { get; set; }
     public virtual String LimitColon { get; set; }
     public virtual String LimitSemicolon { get; set; }
     public virtual String LimitComma { get; set; }
@@ -413,7 +413,7 @@ public class ClassGen : ClassBase
         this.CompListName(this.Class, stateKind);
         this.Text(this.LimitBraceRightLite);
         this.TextInt(count);
-        this.Text(this.LimitBraceSquareRite);
+        this.Text(this.LimitBraceRightRite);
         
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
@@ -434,7 +434,7 @@ public class ClassGen : ClassBase
         this.BaseName(this.Class);
         this.Text(this.LimitBraceRightLite);
         this.TextInt(count);
-        this.Text(this.LimitBraceSquareRite);
+        this.Text(this.LimitBraceRightRite);
 
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
@@ -565,7 +565,7 @@ public class ClassGen : ClassBase
         this.Text(this.DataWord);
         this.Text(this.LimitBraceRightLite);
         this.TextInt(0);
-        this.Text(this.LimitBraceSquareRite);
+        this.Text(this.LimitBraceRightRite);
         this.Text(this.Space);
         this.Text(this.LimitAre);
         this.Text(this.Space);
@@ -582,7 +582,7 @@ public class ClassGen : ClassBase
         this.Text(this.DataWord);
         this.Text(this.LimitBraceRightLite);
         this.TextInt(1);
-        this.Text(this.LimitBraceSquareRite);
+        this.Text(this.LimitBraceRightRite);
         this.Text(this.Space);
         this.Text(this.LimitAre);
         this.Text(this.Space);
@@ -596,7 +596,7 @@ public class ClassGen : ClassBase
         this.Text(this.DataWord);
         this.Text(this.LimitBraceRightLite);
         this.TextInt(2);
-        this.Text(this.LimitBraceSquareRite);
+        this.Text(this.LimitBraceRightRite);
         this.Text(this.Space);
         this.Text(this.LimitAre);
         this.Text(this.Space);
@@ -660,7 +660,7 @@ public class ClassGen : ClassBase
         this.Text(this.ItemWord);
         this.Text(this.LimitBraceRightLite);
         this.TextInt(0);
-        this.Text(this.LimitBraceSquareRite);
+        this.Text(this.LimitBraceRightRite);
 
         this.Text(this.Space);
         this.Text(this.LimitAre);
@@ -688,7 +688,7 @@ public class ClassGen : ClassBase
         this.Text(this.ItemWord);
         this.Text(this.LimitBraceRightLite);
         this.TextInt(index);
-        this.Text(this.LimitBraceSquareRite);
+        this.Text(this.LimitBraceRightRite);
 
         this.Text(this.Space);
         this.Text(this.LimitAre);
@@ -749,7 +749,7 @@ public class ClassGen : ClassBase
         this.Text(this.ItemWord);
         this.Text(this.LimitBraceRightLite);
         this.TextInt(stateKind);
-        this.Text(this.LimitBraceSquareRite);
+        this.Text(this.LimitBraceRightRite);
 
         this.Text(this.LimitBraceRoundRite);
 
@@ -775,7 +775,7 @@ public class ClassGen : ClassBase
         this.Text(this.ItemWord);
         this.Text(this.LimitBraceRightLite);
         this.TextInt(stateKind);
-        this.Text(this.LimitBraceSquareRite);
+        this.Text(this.LimitBraceRightRite);
 
         this.Text(this.LimitBraceRoundRite);
 
@@ -840,7 +840,7 @@ public class ClassGen : ClassBase
         this.Text(this.VarNWord);
         this.Text(this.LimitBraceRightLite);
         this.TextInt(index);
-        this.Text(this.LimitBraceSquareRite);
+        this.Text(this.LimitBraceRightRite);
 
         this.Text(this.Space);
         this.Text(this.LimitAre);
@@ -863,7 +863,7 @@ public class ClassGen : ClassBase
         this.Text(this.VarNWord);
         this.Text(this.LimitBraceRightLite);
         this.TextInt(index);
-        this.Text(this.LimitBraceSquareRite);
+        this.Text(this.LimitBraceRightRite);
 
         this.Text(this.Space);
         this.Text(this.LimitAre);
@@ -872,7 +872,7 @@ public class ClassGen : ClassBase
         this.Text(this.VarMWord);
         this.Text(this.LimitBraceRightLite);
         this.TextInt(index);
-        this.Text(this.LimitBraceSquareRite);
+        this.Text(this.LimitBraceRightRite);
 
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
@@ -915,7 +915,7 @@ public class ClassGen : ClassBase
 
             this.TextInt(countA);
 
-            this.Text(this.LimitBraceSquareRite);
+            this.Text(this.LimitBraceRightRite);
 
             this.Text(this.Space);
 
@@ -1016,7 +1016,7 @@ public class ClassGen : ClassBase
 
             this.TextInt(2);
 
-            this.Text(this.LimitBraceSquareRite);
+            this.Text(this.LimitBraceRightRite);
 
             this.Text(this.Space);
 
@@ -1097,7 +1097,7 @@ public class ClassGen : ClassBase
 
         this.Text(this.LimitBraceRightLite);
         this.TextInt(count);
-        this.Text(this.LimitBraceSquareRite);
+        this.Text(this.LimitBraceRightRite);
 
         this.Text(this.Space);
         this.Text(this.LimitAre);
@@ -1190,7 +1190,7 @@ public class ClassGen : ClassBase
         this.Text(this.ClassWord);
         this.Text(this.LimitBraceRightLite);
         this.TextInt(varClass.Index);
-        this.Text(this.LimitBraceSquareRite);
+        this.Text(this.LimitBraceRightRite);
         return true;
     }
 
@@ -2817,7 +2817,7 @@ public class ClassGen : ClassBase
         
         this.TextInt(index);
         
-        this.Text(this.LimitBraceSquareRite);
+        this.Text(this.LimitBraceRightRite);
         return true;
     }
 
@@ -2867,7 +2867,7 @@ public class ClassGen : ClassBase
 
         this.TextPos(pos);
 
-        this.Text(this.LimitBraceSquareRite);
+        this.Text(this.LimitBraceRightRite);
         return true;
     }
 
@@ -3132,7 +3132,7 @@ public class ClassGen : ClassBase
 
         this.TextIntHex(index);
 
-        this.Text(this.LimitBraceSquareRite);
+        this.Text(this.LimitBraceRightRite);
         return true;
     }
 
