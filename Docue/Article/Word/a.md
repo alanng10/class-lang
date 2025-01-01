@@ -504,7 +504,7 @@ Word "font" has meaning that is char style.
 
 Word "bold" has meaning that is bold rate.
 
-Word "italic" has meaning that is italic style.
+Word "slope" has meaning that is italic style.
 
 Word "staline" has meaning that is underline style.
 
