@@ -520,8 +520,6 @@ Word "endline" has meaning that is overline style.
 
 Word "cape" has meaning that is slash end.
 
-Word "flat" has meaning that is flat style.
-
 Word "miter" has meaning that is miter style.
 
 Word "bevel" has meaning that is bevel style.
