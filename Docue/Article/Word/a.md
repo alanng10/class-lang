@@ -598,6 +598,8 @@ Word "alloc" has meaning that is allocate.
 
 Word "free" has meaning that is deallocate.
 
+Word "flag" has meaning that is case bit.
+
 Word "tick" has meaning that is smallest duration.
 
 Word "yea" has meaning that is date year.
