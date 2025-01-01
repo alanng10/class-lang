@@ -25,7 +25,7 @@ public class Test : ClassBase
         this.SAll = this.S("All");
         this.SSpace = this.S(" ");
 
-        this.LangName = this.CreateLanguageName();
+        this.LangName = this.CreateLangName();
 
         this.Console = this.CreateConsole();
 
@@ -287,7 +287,7 @@ public class Test : ClassBase
         return true;
     }
 
-    protected virtual String CreateLanguageName()
+    protected virtual String CreateLangName()
     {
         return this.SClass;
     }
