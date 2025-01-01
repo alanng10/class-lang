@@ -2659,7 +2659,7 @@ public class Create : InfraCreate
         long lastIndex;
         lastIndex = end - 1;
         Token rightBracket;
-        rightBracket = this.Token(this.TokenA, this.Limit.BraceRoundRite.Text, this.IndexRange(this.RangeA, lastIndex));
+        rightBracket = this.Token(this.TokenA, this.Limit.BraceRite.Text, this.IndexRange(this.RangeA, lastIndex));
         if (rightBracket == null)
         {
             return null;
@@ -4010,7 +4010,7 @@ public class Create : InfraCreate
         String leftBracket;
         String rightBracket;
         leftBracket = this.Limit.BraceLite.Text;
-        rightBracket = this.Limit.BraceRoundRite.Text;
+        rightBracket = this.Limit.BraceRite.Text;
         String leftBrace;
         String rightBrace;
         leftBrace = this.Limit.BraceCurveLite.Text;
@@ -4066,7 +4066,7 @@ public class Create : InfraCreate
         String leftBracket;
         String rightBracket;
         leftBracket = this.Limit.BraceLite.Text;
-        rightBracket = this.Limit.BraceRoundRite.Text;
+        rightBracket = this.Limit.BraceRite.Text;
         String leftBrace;
         String rightBrace;
         leftBrace = this.Limit.BraceCurveLite.Text;
@@ -4303,12 +4303,12 @@ public class Create : InfraCreate
 
     protected virtual Token TokenMatchBraceRoundLite(Token result, Range range)
     {
-        return this.TokenMatchLiteToken(result, this.Limit.BraceLite.Text, this.Limit.BraceRoundRite.Text, range);
+        return this.TokenMatchLiteToken(result, this.Limit.BraceLite.Text, this.Limit.BraceRite.Text, range);
     }
 
     protected virtual Token TokenMatchBraceRoundRite(Token result, Range range)
     {
-        return this.TokenMatchRiteToken(result, this.Limit.BraceLite.Text, this.Limit.BraceRoundRite.Text, range);
+        return this.TokenMatchRiteToken(result, this.Limit.BraceLite.Text, this.Limit.BraceRite.Text, range);
     }
 
     protected virtual Token TokenMatchLiteToken(Token result, String liteToken, String riteToken, Range range)
