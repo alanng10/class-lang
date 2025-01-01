@@ -669,7 +669,7 @@ public class Create : InfraCreate
         }
 
         Token rightBrace;
-        rightBrace = this.TokenMatchBraceLite(this.TokenD, this.Range(this.RangeA, leftBrace.Range.End, end));
+        rightBrace = this.TokenMatchBraceCurveLite(this.TokenD, this.Range(this.RangeA, leftBrace.Range.End, end));
         if (rightBrace == null)
         {
             return null;
@@ -752,7 +752,7 @@ public class Create : InfraCreate
         }
 
         Token rightBrace;
-        rightBrace = this.TokenMatchBraceLite(this.TokenC, this.Range(this.RangeA, leftBrace.Range.End, end));
+        rightBrace = this.TokenMatchBraceCurveLite(this.TokenC, this.Range(this.RangeA, leftBrace.Range.End, end));
         if (rightBrace == null)
         {
             return null;
@@ -859,7 +859,7 @@ public class Create : InfraCreate
         getRightBrace = null;
         if (!b)
         {
-            getRightBrace = this.TokenMatchBraceLite(this.TokenF, this.Range(this.RangeA, getLeftBrace.Range.End, oEnd));
+            getRightBrace = this.TokenMatchBraceCurveLite(this.TokenF, this.Range(this.RangeA, getLeftBrace.Range.End, oEnd));
             if (getRightBrace == null)
             {
                 b = true;
@@ -906,7 +906,7 @@ public class Create : InfraCreate
         setRightBrace = null;
         if (!b)
         {
-            setRightBrace = this.TokenMatchBraceLite(this.TokenI, this.Range(this.RangeA, setLeftBrace.Range.End, oEnd));
+            setRightBrace = this.TokenMatchBraceCurveLite(this.TokenI, this.Range(this.RangeA, setLeftBrace.Range.End, oEnd));
             if (setRightBrace == null)
             {
                 b = true;
@@ -1010,7 +1010,7 @@ public class Create : InfraCreate
         }
 
         Token rightBrace;
-        rightBrace = this.TokenMatchBraceLite(this.TokenE, this.Range(this.RangeA, leftBrace.Range.End, end));
+        rightBrace = this.TokenMatchBraceCurveLite(this.TokenE, this.Range(this.RangeA, leftBrace.Range.End, end));
         if (rightBrace == null)
         {
             return null;
@@ -2489,7 +2489,7 @@ public class Create : InfraCreate
         }
 
         Token rightBrace;
-        rightBrace = this.TokenMatchBraceLite(this.TokenA, this.Range(this.RangeA, leftBrace.Range.End, end));
+        rightBrace = this.TokenMatchBraceCurveLite(this.TokenA, this.Range(this.RangeA, leftBrace.Range.End, end));
         if (rightBrace == null)
         {
             return null;
@@ -3429,7 +3429,7 @@ public class Create : InfraCreate
         }
 
         Token rightBrace;
-        rightBrace = this.TokenMatchBraceLite(this.TokenA, this.Range(this.RangeA, leftBrace.Range.End, end));
+        rightBrace = this.TokenMatchBraceCurveLite(this.TokenA, this.Range(this.RangeA, leftBrace.Range.End, end));
         if (rightBrace == null)
         {
             return null;
@@ -3591,7 +3591,7 @@ public class Create : InfraCreate
         }
 
         Token rightBrace;
-        rightBrace = this.TokenMatchBraceLite(this.TokenC, this.Range(this.RangeA, leftBrace.Range.End, end));
+        rightBrace = this.TokenMatchBraceCurveLite(this.TokenC, this.Range(this.RangeA, leftBrace.Range.End, end));
         if (rightBrace == null)
         {
             return null;
@@ -3646,7 +3646,7 @@ public class Create : InfraCreate
         }
 
         Token rightBrace;
-        rightBrace = this.TokenMatchBraceLite(this.TokenE, this.Range(this.RangeA, leftBrace.Range.End, end));
+        rightBrace = this.TokenMatchBraceCurveLite(this.TokenE, this.Range(this.RangeA, leftBrace.Range.End, end));
         if (rightBrace == null)
         {
             return null;
@@ -4240,7 +4240,7 @@ public class Create : InfraCreate
         if (this.TextSame(this.TAToken(token), this.TB(this.Limit.BraceCurveLite.Text)))
         {
             Token rightBrace;
-            rightBrace = this.TokenMatchBraceLite(this.TokenA, this.Range(this.RangeA, index + 1, end));
+            rightBrace = this.TokenMatchBraceCurveLite(this.TokenA, this.Range(this.RangeA, index + 1, end));
             if (!(rightBrace == null))
             {
                 ret = rightBrace.Range.End;
@@ -4281,7 +4281,7 @@ public class Create : InfraCreate
         return ret;
     }
 
-    protected virtual Token TokenMatchBraceLite(Token result, Range range)
+    protected virtual Token TokenMatchBraceCurveLite(Token result, Range range)
     {
         return this.TokenMatchLiteToken(result, this.Limit.BraceCurveLite.Text, this.Limit.BraceCurveRite.Text, range);
     }
