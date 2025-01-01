@@ -172,6 +172,8 @@ Word "nite" has meaning that is up.
 
 Word "site" has meaning that is down.
 
+Word "more" has meaning that is reverse less.
+
 Word "pass" has meaning that is result valid.
 
 Word "fail" has meaning that is result not valid.
