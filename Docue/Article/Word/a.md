@@ -502,7 +502,7 @@ Word "ident" has meaning that is identity.
 
 Word "font" has meaning that is char style.
 
-Word "bold" has meaning that is bold rate.
+Word "strong" has meaning that is bold rate.
 
 Word "slope" has meaning that is italic style.
 
