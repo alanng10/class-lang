@@ -91,7 +91,7 @@ Frame
     Shown
     Size
     TitleThisSet()
-    VideoOut()
+    Out()
     TypeState
     DrawState
     Update(rect)
@@ -146,7 +146,7 @@ PointData -
 Image
     Size
     Data
-    VideoOut()
+    Out()
     DataCreate()
 
 Font
