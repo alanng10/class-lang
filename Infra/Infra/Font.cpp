@@ -50,11 +50,11 @@ Int Font_Final(Int o)
 
 CppField(Font, Name)
 CppField(Font, Size)
-CppField(Font, Weight)
-CppField(Font, Italic)
-CppField(Font, Underline)
-CppField(Font, Overline)
-CppField(Font, Strikeout)
+CppField(Font, Strong)
+CppField(Font, Tenden)
+CppField(Font, Staline)
+CppField(Font, Midline)
+CppField(Font, Endline)
 
 Int Font_Intern(Int o)
 {
