@@ -118,7 +118,7 @@ public class ClassGen : ClassBase
         this.IndexGoto = this.S("goto");
         this.LimitDot = this.S(".");
         this.LimitDotPointer = this.S("->");
-        this.LimitBraceLite = this.S("{");
+        this.LimitBraceCurveLite = this.S("{");
         this.LimitBraceRite = this.S("}");
         this.LimitBraceRoundLite = this.S("(");
         this.LimitBraceRoundRite = this.S(")");
@@ -262,7 +262,7 @@ public class ClassGen : ClassBase
     public virtual String IndexGoto { get; set; }
     public virtual String LimitDot { get; set; }
     public virtual String LimitDotPointer { get; set; }
-    public virtual String LimitBraceLite { get; set; }
+    public virtual String LimitBraceCurveLite { get; set; }
     public virtual String LimitBraceRite { get; set; }
     public virtual String LimitBraceRoundLite { get; set; }
     public virtual String LimitBraceRoundRite { get; set; }
@@ -502,7 +502,7 @@ public class ClassGen : ClassBase
         this.Text(this.LimitBraceRoundRite);
         this.Text(this.NewLine);
 
-        this.Text(this.LimitBraceLite);
+        this.Text(this.LimitBraceCurveLite);
         this.Text(this.NewLine);
 
         this.IndentCount = this.IndentCount + 1;
@@ -923,7 +923,7 @@ public class ClassGen : ClassBase
 
             this.Text(this.NewLine);
 
-            this.Text(this.LimitBraceLite);
+            this.Text(this.LimitBraceCurveLite);
 
             this.IndentCount = this.IndentCount + 1;
 
@@ -1024,7 +1024,7 @@ public class ClassGen : ClassBase
 
             this.Text(this.NewLine);
 
-            this.Text(this.LimitBraceLite);
+            this.Text(this.LimitBraceCurveLite);
 
             this.Text(this.NewLine);
 
@@ -1103,7 +1103,7 @@ public class ClassGen : ClassBase
         this.Text(this.LimitAre);
         this.Text(this.NewLine);
 
-        this.Text(this.LimitBraceLite);
+        this.Text(this.LimitBraceCurveLite);
         this.Text(this.NewLine);
 
         this.IndentCount = this.IndentCount + 1;
@@ -1646,7 +1646,7 @@ public class ClassGen : ClassBase
 
         this.Text(this.NewLine);
 
-        this.Text(this.LimitBraceLite);
+        this.Text(this.LimitBraceCurveLite);
         this.Text(this.NewLine);
 
         this.IndentCount = this.IndentCount + 1;
@@ -2453,7 +2453,7 @@ public class ClassGen : ClassBase
     {
         this.TextIndent();
 
-        this.Text(this.LimitBraceLite);
+        this.Text(this.LimitBraceCurveLite);
 
         this.Text(this.NewLine);
         return true;
