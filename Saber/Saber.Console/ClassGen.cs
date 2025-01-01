@@ -118,12 +118,12 @@ public class ClassGen : ClassBase
         this.IndexGoto = this.S("goto");
         this.LimitDot = this.S(".");
         this.LimitDotPointer = this.S("->");
-        this.LimitBraceCurveLite = this.S("{");
-        this.LimitBraceCurveRite = this.S("}");
         this.LimitBraceRoundLite = this.S("(");
         this.LimitBraceRoundRite = this.S(")");
         this.LimitBraceRightLite = this.S("[");
         this.LimitBraceRightRite = this.S("]");
+        this.LimitBraceCurveLite = this.S("{");
+        this.LimitBraceCurveRite = this.S("}");
         this.LimitColon = this.S(":");
         this.LimitSemicolon = this.S(";");
         this.LimitComma = this.S(",");
@@ -262,12 +262,12 @@ public class ClassGen : ClassBase
     public virtual String IndexGoto { get; set; }
     public virtual String LimitDot { get; set; }
     public virtual String LimitDotPointer { get; set; }
-    public virtual String LimitBraceCurveLite { get; set; }
-    public virtual String LimitBraceCurveRite { get; set; }
     public virtual String LimitBraceRoundLite { get; set; }
     public virtual String LimitBraceRoundRite { get; set; }
     public virtual String LimitBraceRightLite { get; set; }
     public virtual String LimitBraceRightRite { get; set; }
+    public virtual String LimitBraceCurveLite { get; set; }
+    public virtual String LimitBraceCurveRite { get; set; }
     public virtual String LimitColon { get; set; }
     public virtual String LimitSemicolon { get; set; }
     public virtual String LimitComma { get; set; }
