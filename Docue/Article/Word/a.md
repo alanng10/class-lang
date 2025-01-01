@@ -518,6 +518,8 @@ Word "midline" has meaning that is strikeout style.
 
 Word "endline" has meaning that is overline style.
 
+Word "cap" has meaning that is slash end.
+
 Word "flat" has meaning that is flat style.
 
 Word "miter" has meaning that is miter style.
