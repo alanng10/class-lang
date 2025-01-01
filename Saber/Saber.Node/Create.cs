@@ -2851,27 +2851,27 @@ public class Create : InfraCreate
             return null;
         }
 
-        long leftStart;
-        long leftEnd;
-        leftStart = braceLite.Range.End;
-        leftEnd = comma.Range.Start;
-        long rightStart;
+        long liteStart;
+        long liteEnd;
+        liteStart = braceLite.Range.End;
+        liteEnd = comma.Range.Start;
+        long riteStart;
         long rightEnd;
-        rightStart = comma.Range.End;
+        riteStart = comma.Range.End;
         rightEnd = braceRite.Range.Start;
 
         Node left;
-        left = this.ExecuteOperate(this.Range(this.RangeA, leftStart, leftEnd));
+        left = this.ExecuteOperate(this.Range(this.RangeA, liteStart, liteEnd));
         if (left == null)
         {
-            this.Error(this.ErrorKind.OperandUnvalid, leftStart, leftEnd);
+            this.Error(this.ErrorKind.OperandUnvalid, liteStart, liteEnd);
         }
 
         Node right;
-        right = this.ExecuteOperate(this.Range(this.RangeA, rightStart, rightEnd));
+        right = this.ExecuteOperate(this.Range(this.RangeA, riteStart, rightEnd));
         if (right == null)
         {
-            this.Error(this.ErrorKind.OperandUnvalid, rightStart, rightEnd);
+            this.Error(this.ErrorKind.OperandUnvalid, riteStart, rightEnd);
         }
 
         this.SetArg.Kind = kind;
