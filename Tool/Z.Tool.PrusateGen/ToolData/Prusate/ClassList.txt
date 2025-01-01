@@ -152,8 +152,8 @@ Image
 Font
     Name
     Size
-    Bold
-    Italic
+    Strong
+    Tenden
     Staline
     Midline
     EndLine
