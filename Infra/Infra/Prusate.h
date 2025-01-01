@@ -260,7 +260,7 @@ Infra_Api Int Frame_DrawStateGet(Int o);
 Infra_Api Int Frame_DrawStateSet(Int o, Int value);
 
 Infra_Api Int Frame_TitleThisSet(Int o);
-Infra_Api Int Frame_VideoOut(Int o);
+Infra_Api Int Frame_Out(Int o);
 Infra_Api Int Frame_Update(Int o, Int rect);
 Infra_Api Int Frame_Close(Int o);
 
@@ -321,13 +321,13 @@ Infra_Api Int Slash_LineGet(Int o);
 Infra_Api Int Slash_LineSet(Int o, Int value);
 Infra_Api Int Slash_SizeGet(Int o);
 Infra_Api Int Slash_SizeSet(Int o, Int value);
-Infra_Api Int Slash_CapGet(Int o);
-Infra_Api Int Slash_CapSet(Int o, Int value);
+Infra_Api Int Slash_CapeGet(Int o);
+Infra_Api Int Slash_CapeSet(Int o, Int value);
 Infra_Api Int Slash_JoinGet(Int o);
 Infra_Api Int Slash_JoinSet(Int o, Int value);
 
-Infra_Api Int PointData_PointGet(Int address, Int result);
-Infra_Api Int PointData_PointSet(Int address, Int pos);
+Infra_Api Int PointData_PointGet(Int memory, Int result);
+Infra_Api Int PointData_PointSet(Int memory, Int pos);
 
 InfraApiNew(Image)
 Infra_Api Int Image_SizeGet(Int o);
@@ -335,7 +335,7 @@ Infra_Api Int Image_SizeSet(Int o, Int value);
 Infra_Api Int Image_DataGet(Int o);
 Infra_Api Int Image_DataSet(Int o, Int value);
 
-Infra_Api Int Image_VideoOut(Int o);
+Infra_Api Int Image_Out(Int o);
 Infra_Api Int Image_DataCreate(Int o);
 
 InfraApiNew(Font)
@@ -343,22 +343,22 @@ Infra_Api Int Font_NameGet(Int o);
 Infra_Api Int Font_NameSet(Int o, Int value);
 Infra_Api Int Font_SizeGet(Int o);
 Infra_Api Int Font_SizeSet(Int o, Int value);
-Infra_Api Int Font_WeightGet(Int o);
-Infra_Api Int Font_WeightSet(Int o, Int value);
-Infra_Api Int Font_ItalicGet(Int o);
-Infra_Api Int Font_ItalicSet(Int o, Int value);
-Infra_Api Int Font_UnderlineGet(Int o);
-Infra_Api Int Font_UnderlineSet(Int o, Int value);
-Infra_Api Int Font_OverlineGet(Int o);
-Infra_Api Int Font_OverlineSet(Int o, Int value);
-Infra_Api Int Font_StrikeoutGet(Int o);
-Infra_Api Int Font_StrikeoutSet(Int o, Int value);
+Infra_Api Int Font_StrongGet(Int o);
+Infra_Api Int Font_StrongSet(Int o, Int value);
+Infra_Api Int Font_TendenGet(Int o);
+Infra_Api Int Font_TendenSet(Int o, Int value);
+Infra_Api Int Font_StalineGet(Int o);
+Infra_Api Int Font_StalineSet(Int o, Int value);
+Infra_Api Int Font_MidlineGet(Int o);
+Infra_Api Int Font_MidlineSet(Int o, Int value);
+Infra_Api Int Font_EndLineGet(Int o);
+Infra_Api Int Font_EndLineSet(Int o, Int value);
 
 InfraApiNew(Form)
 Infra_Api Int Form_Reset(Int o);
 Infra_Api Int Form_Pos(Int o, Int col, Int row);
 Infra_Api Int Form_Angle(Int o, Int angle);
-Infra_Api Int Form_Scale(Int o, Int horizScale, Int vertScale);
+Infra_Api Int Form_Scale(Int o, Int colScale, Int rowScale);
 Infra_Api Int Form_ValueGet(Int o, Int col, Int row);
 Infra_Api Int Form_ValueSet(Int o, Int col, Int row, Int value);
 Infra_Api Int Form_Mul(Int o, Int other);

@@ -2571,7 +2571,7 @@ Int Intern_Extern_Frame_TitleThisSet(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_Frame_VideoOut(Eval* eval, Int frame)
+Int Intern_Extern_Frame_Out(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -2579,7 +2579,7 @@ Int Intern_Extern_Frame_VideoOut(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Frame_VideoOut(a0);
+    a = Frame_Out(a0);
 
     Return;
 }
@@ -3428,7 +3428,7 @@ Int Intern_Extern_Slash_SizeSet(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_Slash_CapGet(Eval* eval, Int frame)
+Int Intern_Extern_Slash_CapeGet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -3436,12 +3436,12 @@ Int Intern_Extern_Slash_CapGet(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Slash_CapGet(a0);
+    a = Slash_CapeGet(a0);
 
     Return;
 }
 
-Int Intern_Extern_Slash_CapSet(Eval* eval, Int frame)
+Int Intern_Extern_Slash_CapeSet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -3450,7 +3450,7 @@ Int Intern_Extern_Slash_CapSet(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = Slash_CapSet(a0, a1);
+    a = Slash_CapeSet(a0, a1);
 
     Return;
 }
@@ -3614,7 +3614,7 @@ Int Intern_Extern_Image_DataSet(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_Image_VideoOut(Eval* eval, Int frame)
+Int Intern_Extern_Image_Out(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -3622,7 +3622,7 @@ Int Intern_Extern_Image_VideoOut(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Image_VideoOut(a0);
+    a = Image_Out(a0);
 
     Return;
 }
@@ -3744,7 +3744,7 @@ Int Intern_Extern_Font_SizeSet(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_Font_WeightGet(Eval* eval, Int frame)
+Int Intern_Extern_Font_StrongGet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -3752,12 +3752,12 @@ Int Intern_Extern_Font_WeightGet(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Font_WeightGet(a0);
+    a = Font_StrongGet(a0);
 
     Return;
 }
 
-Int Intern_Extern_Font_WeightSet(Eval* eval, Int frame)
+Int Intern_Extern_Font_StrongSet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -3766,12 +3766,12 @@ Int Intern_Extern_Font_WeightSet(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = Font_WeightSet(a0, a1);
+    a = Font_StrongSet(a0, a1);
 
     Return;
 }
 
-Int Intern_Extern_Font_ItalicGet(Eval* eval, Int frame)
+Int Intern_Extern_Font_TendenGet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -3779,12 +3779,12 @@ Int Intern_Extern_Font_ItalicGet(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Font_ItalicGet(a0);
+    a = Font_TendenGet(a0);
 
     Return;
 }
 
-Int Intern_Extern_Font_ItalicSet(Eval* eval, Int frame)
+Int Intern_Extern_Font_TendenSet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -3793,12 +3793,12 @@ Int Intern_Extern_Font_ItalicSet(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = Font_ItalicSet(a0, a1);
+    a = Font_TendenSet(a0, a1);
 
     Return;
 }
 
-Int Intern_Extern_Font_UnderlineGet(Eval* eval, Int frame)
+Int Intern_Extern_Font_StalineGet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -3806,12 +3806,12 @@ Int Intern_Extern_Font_UnderlineGet(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Font_UnderlineGet(a0);
+    a = Font_StalineGet(a0);
 
     Return;
 }
 
-Int Intern_Extern_Font_UnderlineSet(Eval* eval, Int frame)
+Int Intern_Extern_Font_StalineSet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -3820,12 +3820,12 @@ Int Intern_Extern_Font_UnderlineSet(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = Font_UnderlineSet(a0, a1);
+    a = Font_StalineSet(a0, a1);
 
     Return;
 }
 
-Int Intern_Extern_Font_OverlineGet(Eval* eval, Int frame)
+Int Intern_Extern_Font_MidlineGet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -3833,12 +3833,12 @@ Int Intern_Extern_Font_OverlineGet(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Font_OverlineGet(a0);
+    a = Font_MidlineGet(a0);
 
     Return;
 }
 
-Int Intern_Extern_Font_OverlineSet(Eval* eval, Int frame)
+Int Intern_Extern_Font_MidlineSet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -3847,12 +3847,12 @@ Int Intern_Extern_Font_OverlineSet(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = Font_OverlineSet(a0, a1);
+    a = Font_MidlineSet(a0, a1);
 
     Return;
 }
 
-Int Intern_Extern_Font_StrikeoutGet(Eval* eval, Int frame)
+Int Intern_Extern_Font_EndLineGet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -3860,12 +3860,12 @@ Int Intern_Extern_Font_StrikeoutGet(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Font_StrikeoutGet(a0);
+    a = Font_EndLineGet(a0);
 
     Return;
 }
 
-Int Intern_Extern_Font_StrikeoutSet(Eval* eval, Int frame)
+Int Intern_Extern_Font_EndLineSet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -3874,7 +3874,7 @@ Int Intern_Extern_Font_StrikeoutSet(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = Font_StrikeoutSet(a0, a1);
+    a = Font_EndLineSet(a0, a1);
 
     Return;
 }

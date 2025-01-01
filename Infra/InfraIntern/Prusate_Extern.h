@@ -218,7 +218,7 @@ Intern_Api Int Intern_Extern_Frame_DrawStateGet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Frame_DrawStateSet(Eval* e, Int f);
 
 Intern_Api Int Intern_Extern_Frame_TitleThisSet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Frame_VideoOut(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Frame_Out(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Frame_Update(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Frame_Close(Eval* e, Int f);
 
@@ -285,8 +285,8 @@ Intern_Api Int Intern_Extern_Slash_LineGet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Slash_LineSet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Slash_SizeGet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Slash_SizeSet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Slash_CapGet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Slash_CapSet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Slash_CapeGet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Slash_CapeSet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Slash_JoinGet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Slash_JoinSet(Eval* e, Int f);
 
@@ -302,7 +302,7 @@ Intern_Api Int Intern_Extern_Image_SizeSet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Image_DataGet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Image_DataSet(Eval* e, Int f);
 
-Intern_Api Int Intern_Extern_Image_VideoOut(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Image_Out(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Image_DataCreate(Eval* e, Int f);
 
 Intern_Api Int Intern_Extern_Font_New(Eval* e, Int f);
@@ -313,16 +313,16 @@ Intern_Api Int Intern_Extern_Font_NameGet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Font_NameSet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Font_SizeGet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Font_SizeSet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Font_WeightGet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Font_WeightSet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Font_ItalicGet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Font_ItalicSet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Font_UnderlineGet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Font_UnderlineSet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Font_OverlineGet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Font_OverlineSet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Font_StrikeoutGet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Font_StrikeoutSet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Font_StrongGet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Font_StrongSet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Font_TendenGet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Font_TendenSet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Font_StalineGet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Font_StalineSet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Font_MidlineGet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Font_MidlineSet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Font_EndLineGet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Font_EndLineSet(Eval* e, Int f);
 
 Intern_Api Int Intern_Extern_Form_New(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Form_Delete(Eval* e, Int f);

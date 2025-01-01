@@ -216,7 +216,7 @@ class Extern : Any
     maide prusate Int Frame_DrawStateSet(var Int o, var Int value) { }
 
     maide prusate Int Frame_TitleThisSet(var Int o) { }
-    maide prusate Int Frame_VideoOut(var Int o) { }
+    maide prusate Int Frame_Out(var Int o) { }
     maide prusate Int Frame_Update(var Int o, var Int rect) { }
     maide prusate Int Frame_Close(var Int o) { }
 
@@ -283,13 +283,13 @@ class Extern : Any
     maide prusate Int Slash_LineSet(var Int o, var Int value) { }
     maide prusate Int Slash_SizeGet(var Int o) { }
     maide prusate Int Slash_SizeSet(var Int o, var Int value) { }
-    maide prusate Int Slash_CapGet(var Int o) { }
-    maide prusate Int Slash_CapSet(var Int o, var Int value) { }
+    maide prusate Int Slash_CapeGet(var Int o) { }
+    maide prusate Int Slash_CapeSet(var Int o, var Int value) { }
     maide prusate Int Slash_JoinGet(var Int o) { }
     maide prusate Int Slash_JoinSet(var Int o, var Int value) { }
 
-    maide prusate Int PointData_PointGet(var Int address, var Int result) { }
-    maide prusate Int PointData_PointSet(var Int address, var Int pos) { }
+    maide prusate Int PointData_PointGet(var Int memory, var Int result) { }
+    maide prusate Int PointData_PointSet(var Int memory, var Int pos) { }
 
     maide prusate Int Image_New() { }
     maide prusate Int Image_Delete(var Int o) { }
@@ -300,7 +300,7 @@ class Extern : Any
     maide prusate Int Image_DataGet(var Int o) { }
     maide prusate Int Image_DataSet(var Int o, var Int value) { }
 
-    maide prusate Int Image_VideoOut(var Int o) { }
+    maide prusate Int Image_Out(var Int o) { }
     maide prusate Int Image_DataCreate(var Int o) { }
 
     maide prusate Int Font_New() { }
@@ -311,16 +311,16 @@ class Extern : Any
     maide prusate Int Font_NameSet(var Int o, var Int value) { }
     maide prusate Int Font_SizeGet(var Int o) { }
     maide prusate Int Font_SizeSet(var Int o, var Int value) { }
-    maide prusate Int Font_WeightGet(var Int o) { }
-    maide prusate Int Font_WeightSet(var Int o, var Int value) { }
-    maide prusate Int Font_ItalicGet(var Int o) { }
-    maide prusate Int Font_ItalicSet(var Int o, var Int value) { }
-    maide prusate Int Font_UnderlineGet(var Int o) { }
-    maide prusate Int Font_UnderlineSet(var Int o, var Int value) { }
-    maide prusate Int Font_OverlineGet(var Int o) { }
-    maide prusate Int Font_OverlineSet(var Int o, var Int value) { }
-    maide prusate Int Font_StrikeoutGet(var Int o) { }
-    maide prusate Int Font_StrikeoutSet(var Int o, var Int value) { }
+    maide prusate Int Font_StrongGet(var Int o) { }
+    maide prusate Int Font_StrongSet(var Int o, var Int value) { }
+    maide prusate Int Font_TendenGet(var Int o) { }
+    maide prusate Int Font_TendenSet(var Int o, var Int value) { }
+    maide prusate Int Font_StalineGet(var Int o) { }
+    maide prusate Int Font_StalineSet(var Int o, var Int value) { }
+    maide prusate Int Font_MidlineGet(var Int o) { }
+    maide prusate Int Font_MidlineSet(var Int o, var Int value) { }
+    maide prusate Int Font_EndLineGet(var Int o) { }
+    maide prusate Int Font_EndLineSet(var Int o, var Int value) { }
 
     maide prusate Int Form_New() { }
     maide prusate Int Form_Delete(var Int o) { }
@@ -329,7 +329,7 @@ class Extern : Any
     maide prusate Int Form_Reset(var Int o) { }
     maide prusate Int Form_Pos(var Int o, var Int col, var Int row) { }
     maide prusate Int Form_Angle(var Int o, var Int angle) { }
-    maide prusate Int Form_Scale(var Int o, var Int horizScale, var Int vertScale) { }
+    maide prusate Int Form_Scale(var Int o, var Int colScale, var Int rowScale) { }
     maide prusate Int Form_ValueGet(var Int o, var Int col, var Int row) { }
     maide prusate Int Form_ValueSet(var Int o, var Int col, var Int row, var Int value) { }
     maide prusate Int Form_Mul(var Int o, var Int other) { }
