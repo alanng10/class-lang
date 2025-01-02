@@ -192,9 +192,9 @@ Word "recurse" has meaning that is recursive.
 
 Word "out" has meaning that is output destination.
 
-Word "inn" has meaning that is input source.
-
 Word "err" has meaning that is error destination.
+
+Word "inn" has meaning that is input source.
 
 Word "bool" has meaning that is binary.
 
