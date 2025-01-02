@@ -43,18 +43,6 @@ Syntax: mvc dest, source
 Set dest var fourth 2 bytes with the value of 16 bits source value.
 Syntax: mvd dest, source
 
-## Mom
-Set dest var with the mid value of source var.
-Syntax: mom dest, source
-
-## Mos
-Set dest var with the short value of source var.
-Syntax: mos dest, source
-
-## Mob
-Set dest var with the byte value of source var.
-Syntax: mob dest, source
-
 ## Mit
 Set 64 bits int at memory index of sourceA var with the value of sourceB var.
 Syntax: mit sourceA, sourceB
