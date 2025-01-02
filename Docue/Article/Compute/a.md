@@ -101,3 +101,8 @@ Syntax: div dest, sourceA, sourceB
 ## SMu
 Set dest var with the value of two complement signed mul of sourceA var and sourceB var.
 Syntax: smu dest, sourceA, sourceB
+
+## SDi
+Set dest var with the value of two complement signed div of sourceA var and sourceB var if sourceB var is not zero.
+Otherwise, set dest var with the value of 0.
+Syntax: sdi dest, sourceA, sourceB
