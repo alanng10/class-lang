@@ -65,6 +65,8 @@ NullOperate has syntax that is "null" word.
 NullOperate results ref, same as other Operate.
 Null has ref value that is zero.
 
+Maide that ends without return execute, results null.
+
 Class node has syntax that starts with "class" index word, followed by Name of class ClassName,
 followed by limit brace open token, followed by Part of class Part, 
 followed by limit brace close token.
