@@ -188,6 +188,8 @@ Word "center" has meaning that is center entity.
 
 Word "model" has meaning that is model any.
 
+Word "struct" has meaning that is structure.
+
 Word "recurse" has meaning that is recursive.
 
 Word "send" has meaning that is send info.
