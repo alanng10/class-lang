@@ -190,6 +190,10 @@ Word "model" has meaning that is model any.
 
 Word "recurse" has meaning that is recursive.
 
+Word "send" has meaning that is send info.
+
+Word "receive" has meaning that is receive info.
+
 Word "out" has meaning that is output destination.
 
 Word "err" has meaning that is error destination.
