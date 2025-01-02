@@ -8,6 +8,7 @@ Byte is 8 bits int.
 
 Compute operate code is 4 bytes.
 The first byte is operate kind index.
+The next 3 bytes are argue and dest.
 
 Compute operates that input var and output var, use var index to specify the var.
 The var index value is 0 to 31.
