@@ -60,9 +60,6 @@ The maide state param var is the argue ref.
 Param var is get and set as any other local var.
 The call results a ref.
 
-Maide state can have execute that has NullOperate.
-NullOperate has syntax that is "null" word.
-NullOperate results ref, same as other Operate.
 Null has ref value that is zero.
 
 Maide that ends without return execute, results null.
