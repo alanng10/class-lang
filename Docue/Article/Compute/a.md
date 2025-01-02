@@ -11,6 +11,9 @@ The first byte is operate kind index.
 The next 3 bytes are argue and dest.
 Argue and dest code data are in operate code in sequence of the operate syntax.
 
+Var that is set in operate is dest var.
+Var that is get only in operate is source var.
+
 Compute operates that input var and output var, use var index to specify the var.
 The var index value is 0 to 31.
 The var index takes up 1 byte in compute operate code data.
@@ -61,3 +64,5 @@ Syntax: toi source
 ## Cmo
 Set dest var with the value of sourceB var if sourceA var is not zero.
 Syntax: cmo dest, sourceA, sourceB
+
+## 
