@@ -23,7 +23,7 @@ The var index takes up 1 byte in compute operate code data.
 Compute has operate kinds that get and set 64 bits int and byte from and to memory.
 This is enough element to do any atomic sync.
 Atomic sync has 1 defining bit in memory that is set to do sync effect.
-Operate kind that sets 1 byte to memory can be used to set the bit. 
+Operate kind that sets 1 byte to memory can be used to set the bit.
 
 Compute has operate kind list.
 The operate kind list is below:
