@@ -352,6 +352,8 @@ Word "alpha" has meaning that is alphabet character.
 
 Word "digit" has meaning that is number character. 
 
+Word "form" has meaning that is transform.
+
 Word "format" has meaning that is interpreted in. 
 
 Word "parse" has meaning that is text interpret.
@@ -553,8 +555,6 @@ Word "het" has meaning that is length vertical.
 Word "dep" has meaning that is length frontal.
 
 Word "rect" has meaning that is rectangle.
-
-Word "form" has meaning that is transform.
 
 Word "angle" has meaning that is direct.
 
