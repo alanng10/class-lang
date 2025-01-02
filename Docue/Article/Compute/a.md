@@ -57,3 +57,7 @@ Syntax: mbf dest, source
 ## Toi
 Go to operate at memory index of source var.
 Syntax: toi source
+
+## Cmo
+Set dest var with the value of sourceB var if sourceA var is not zero.
+Syntax: cmo dest, sourceA, sourceB
