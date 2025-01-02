@@ -118,7 +118,7 @@ Syntax: and dest, sourceA, sourceB
 
 ## Orn
 Set dest var with the value of bitwise orn of sourceA var and sourceB var.
-Syntax: and dest, sourceA, sourceB
+Syntax: orn dest, sourceA, sourceB
 
 ## Not
 Set dest var with the value of bitwise not of source var.
