@@ -53,3 +53,7 @@ Syntax: mbt sourceA, sourceB
 ## Mbf
 Set dest var with the value of byte int at the memory index of source var.
 Syntax: mbf dest, source
+
+## Toi
+Go to operate at memory index of source var.
+Syntax: toi source
