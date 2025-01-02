@@ -776,9 +776,9 @@ class Extern : Any
     maide prusate Int Stat_SlashLineDot(var Int o) { }
     maide prusate Int Stat_SlashLineDashDot(var Int o) { }
     maide prusate Int Stat_SlashLineDashDotDot(var Int o) { }
-    maide prusate Int Stat_SlashCapFlat(var Int o) { }
-    maide prusate Int Stat_SlashCapSquare(var Int o) { }
-    maide prusate Int Stat_SlashCapRound(var Int o) { }
+    maide prusate Int Stat_SlashCapePlane(var Int o) { }
+    maide prusate Int Stat_SlashCapeRight(var Int o) { }
+    maide prusate Int Stat_SlashCapeRound(var Int o) { }
     maide prusate Int Stat_SlashJoinMiter(var Int o) { }
     maide prusate Int Stat_SlashJoinBevel(var Int o) { }
     maide prusate Int Stat_SlashJoinRound(var Int o) { }

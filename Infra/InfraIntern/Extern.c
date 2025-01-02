@@ -9309,7 +9309,7 @@ Int Intern_Extern_Stat_SlashLineDashDotDot(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_Stat_SlashCapFlat(Eval* eval, Int frame)
+Int Intern_Extern_Stat_SlashCapePlane(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -9317,12 +9317,12 @@ Int Intern_Extern_Stat_SlashCapFlat(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Stat_SlashCapFlat(a0);
+    a = Stat_SlashCapePlane(a0);
 
     Return;
 }
 
-Int Intern_Extern_Stat_SlashCapSquare(Eval* eval, Int frame)
+Int Intern_Extern_Stat_SlashCapeRight(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -9330,12 +9330,12 @@ Int Intern_Extern_Stat_SlashCapSquare(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Stat_SlashCapSquare(a0);
+    a = Stat_SlashCapeRight(a0);
 
     Return;
 }
 
-Int Intern_Extern_Stat_SlashCapRound(Eval* eval, Int frame)
+Int Intern_Extern_Stat_SlashCapeRound(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -9343,7 +9343,7 @@ Int Intern_Extern_Stat_SlashCapRound(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Stat_SlashCapRound(a0);
+    a = Stat_SlashCapeRound(a0);
 
     Return;
 }

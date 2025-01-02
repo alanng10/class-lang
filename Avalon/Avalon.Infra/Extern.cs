@@ -798,9 +798,9 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Stat_SlashLineDot(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_SlashLineDashDot(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_SlashLineDashDotDot(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Stat_SlashCapFlat(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Stat_SlashCapSquare(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Stat_SlashCapRound(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Stat_SlashCapePlane(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Stat_SlashCapeRight(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Stat_SlashCapeRound(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_SlashJoinMiter(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_SlashJoinBevel(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_SlashJoinRound(ulong o);
