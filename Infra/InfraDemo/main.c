@@ -553,8 +553,8 @@ int main(int argc, char* argv[])
     Int penRectLine;
     penRectLine = Stat_SlashLineDashDot(Stat);
 
-    Int penRectCap;
-    penRectCap = Stat_SlashCapRound(Stat);
+    Int penRectCape;
+    penRectCape = Stat_SlashCapeRound(Stat);
 
     Int penRectJoin;
     penRectJoin = Stat_SlashJoinBevel(Stat);
@@ -576,7 +576,7 @@ int main(int argc, char* argv[])
 
     Slash_SizeSet(PenRect, 10);
 
-    Slash_CapSet(PenRect, penRectCap);
+    Slash_CapeSet(PenRect, penRectCape);
 
     Slash_JoinSet(PenRect, penRectJoin);
 
@@ -589,8 +589,8 @@ int main(int argc, char* argv[])
     Int penTextLine;
     penTextLine = Stat_SlashLineSolid(Stat);
 
-    Int penTextCap;
-    penTextCap = Stat_SlashCapSquare(Stat);
+    Int penTextCape;
+    penTextCape = Stat_SlashCapeSquare(Stat);
 
     Int penTextJoin;
     penTextJoin = Stat_SlashJoinMiter(Stat);
@@ -613,7 +613,7 @@ int main(int argc, char* argv[])
 
     Slash_SizeSet(PenText, 4);
 
-    Slash_CapSet(PenText, penTextCap);
+    Slash_CapeSet(PenText, penTextCape);
 
     Slash_JoinSet(PenText, penTextJoin);
 
