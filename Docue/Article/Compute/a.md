@@ -25,6 +25,10 @@ This is enough element to do any atomic sync.
 Atomic sync has 1 defining bit in memory that is set to do sync effect.
 Operate kind that sets 1 byte to memory can be used to set the bit.
 
+Compute does not need operate kind to push and pop stack.
+
+Compute does not need operate kind to call and return from maide.
+
 Compute has operate kind list.
 The operate kind list is below:
 
