@@ -111,3 +111,27 @@ Syntax: smu dest, sourceA, sourceB
 Set dest var with the value of two complement signed div of sourceA var and sourceB var if sourceB var is not zero.
 Otherwise, set dest var with the value of 0.
 Syntax: sdi dest, sourceA, sourceB
+
+## And
+Set dest var with the value of bitwise and of sourceA var and sourceB var.
+Syntax: and dest, sourceA, sourceB
+
+## Orn
+Set dest var with the value of bitwise orn of sourceA var and sourceB var.
+Syntax: and dest, sourceA, sourceB
+
+## Not
+Set dest var with the value of bitwise not of source var.
+Syntax: not dest, source
+
+## Lit
+Set dest var with the value of bitwise shift lite of sourceA var value with the count of sourceB var value.
+Syntax: lit dest, sourceA, sourceB
+
+## Rit
+Set dest var with the value of bitwise unsigned shift rite of sourceA var value with the count of sourceB var value.
+Syntax: rit dest, sourceA, sourceB
+
+## SRi
+Set dest var with the value of bitwise two complement signed shift rite of sourceA var value with the count of sourceB var value.
+Syntax: sri dest, sourceA, sourceB
