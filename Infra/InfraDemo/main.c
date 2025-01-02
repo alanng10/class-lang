@@ -703,11 +703,11 @@ int main(int argc, char* argv[])
     Font = Font_New();
     Font_NameSet(Font, fontName);
     Font_SizeSet(Font, 16);
-    Font_WeightSet(Font, 600);
-    Font_ItalicSet(Font, true);
-    Font_UnderlineSet(Font, true);
-    Font_OverlineSet(Font, true);
-    Font_StrikeoutSet(Font, true);
+    Font_StrongSet(Font, 600);
+    Font_TendenSet(Font, true);
+    Font_StalineSet(Font, true);
+    Font_MidlineSet(Font, true);
+    Font_EndlineSet(Font, true);
     Font_Init(Font);
 
     TextAlignHoriz = Stat_TextAlignEnd(Stat);
