@@ -81,6 +81,11 @@ Set dest var with the value of 1 if sourceA var value is less than the value of 
 Otherwise, set dest var with the value of 0.
 Syntax: ble dest, sourceA, sourceB
 
+## SBl
+Set dest var with the value of 1 if sourceA var value is two complement signed less than the value of sourceB var value.
+Otherwise, set dest var with the value of 0.
+Syntax: sbl dest, sourceA, sourceB
+
 ## Add
 Set dest var with the value of two complement add of sourceA var and sourceB var.
 Syntax: add dest, sourceA, sourceB
