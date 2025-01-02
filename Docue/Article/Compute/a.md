@@ -37,7 +37,7 @@ Set dest var fourth 2 bytes with the value of 16 bits source value.
 Syntax: mvd dest, source
 
 ## Mit
-Set 64 bits int at memory index of souceA var with the value of sourceB var.
+Set 64 bits int at memory index of sourceA var with the value of sourceB var.
 Syntax: mit sourceA, sourceB
 
 ## Mif
