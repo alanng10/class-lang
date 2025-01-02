@@ -20,8 +20,8 @@ Compute operates that input var and output var, use var index to specify the var
 The var index value is 0 to 31.
 The var index takes up 1 byte in compute operate code data.
 
-Compute has operate set.
-The operate set is listed below:
+Compute has operate kind list.
+The operate kind list is below:
 
 ## Mov
 Set dest var with the value of source var.
