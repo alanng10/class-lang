@@ -342,6 +342,8 @@ Word "expo" has meaning that is represent exponent.
 
 Word "rand" has meaning that is which ever int.
 
+Word "seed" has meaning that is seed info.
+
 Word "text" has meaning that is string lines.
 
 Word "char" has meaning that is character code.
