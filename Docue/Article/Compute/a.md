@@ -2,6 +2,9 @@
 Compute has 32 vars.
 Var is 64 bits int.
 
+Compute operate code is 4 bytes.
+The first byte is operate kind index.
+
 Compute operates that input var and output var, use var index to specify the var.
 The var index value is 0 to 31.
 The var index takes up 1 byte in compute operate code data.
