@@ -508,6 +508,8 @@ Word "stop" has meaning that is source and dest.
 
 Word "spread" has meaning that is rate spread.
 
+Word "focus" has meaning that is radial focus.
+
 Word "radius" has meaning that is round radius.
 
 Word "ident" has meaning that is identity.
