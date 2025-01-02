@@ -2,6 +2,10 @@
 Compute has 32 vars.
 Var is 64 bits int.
 
+Memory index is 64 bits int.
+
+Byte is 8 bits int.
+
 Compute operate code is 4 bytes.
 The first byte is operate kind index.
 
@@ -31,3 +35,11 @@ mvc dest, source
 ## Mvd
 Set dest var fourth 2 bytes with the value of 16 bits source value.
 mvd dest, source
+
+## Mit
+Set 64 bits int at memory index of souceA var with the value of sourceB var.
+mit sourceA, sourceB
+
+## Mif
+Set dest var with the value of 64 bits int at the memory index of source var.
+mif dest, source
