@@ -52,7 +52,7 @@ Word "exform" has meaning that is made of tangible.
 
 Word "edit" has meaning that is text edit.
 
-Word "fact" has meaning that is refactor.
+Word "factor" has meaning that is refactor.
 
 Word "title" has meaning that is head char list.
 
