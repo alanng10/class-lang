@@ -20,7 +20,7 @@ public class ReadList : ToolBase
         this.ExecuteList("NetworkStatus");
         this.ExecuteList("BrushKind");
         this.ExecuteList("SlashLine");
-        this.ExecuteList("SlashCap");
+        this.ExecuteList("SlashCape");
         this.ExecuteList("SlashJoin");
         this.ExecuteList("PolateKind");
         this.ExecuteList("PolateSpread");
