@@ -88,3 +88,7 @@ Syntax: add dest, sourceA, sourceB
 ## Sub
 Set dest var with the value of two complement sub of sourceA var and sourceB var.
 Syntax: sub dest, sourceA, sourceB
+
+## Mul
+Set dest var with the value of unsigned mul of sourceA var and sourceB var.
+Syntax: mul dest, sourceA, sourceB
