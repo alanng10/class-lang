@@ -1194,92 +1194,42 @@ int main(int argc, char* argv[])
 
 
     Int typeMaide;
-
     typeMaide = CastInt(kua);
 
-
-
-
     Int frameTypeState;
-
     frameTypeState = State_New();
 
-
     State_Init(frameTypeState);
-
-
     State_MaideSet(frameTypeState, typeMaide);
 
-
-
-
-
     Int frame;
-
-
     frame = Frame_New();
-
-
-
 
     Frame_Init(frame);
 
-
-
-
     Frame_DrawStateSet(frame, frameDrawState);
-
-
 
     Frame_TypeStateSet(frame, frameTypeState);
 
-
-
-
-
     Int frameSize;
-
     frameSize = Frame_SizeGet(frame);
 
-
-
     Int videoOut;
-
-    videoOut = Frame_VideoOut(frame);
-
-
+    videoOut = Frame_Out(frame);
 
     Draw_SizeSet(Draw, frameSize);
 
-
-
     Draw_OutSet(Draw, videoOut);
-
-
 
     Draw_AreaSet(Draw, area);
 
-
-
     Draw_FillPosSet(Draw, fillPos);
-
-
-
 
     Rect_SizeSet(UpdateRect, frameSize);
 
-
-
-
-
     Frame_TitleSet(frame, frameTitle);
 
-
-
     Frame_TitleThisSet(frame);
-
-
-
 
     Frame_ShownSet(frame, true);
 
