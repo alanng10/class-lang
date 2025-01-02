@@ -73,12 +73,12 @@ Syntax: cmo dest, sourceA, sourceB
 
 ## Bsa
 Set dest var with the value of 1 if sourceA var and sourceB var values are same.
-Otherwise, set dest var with the value of 0 if not same.
+Otherwise, set dest var with the value of 0.
 Syntax: bsa dest, sourceA, sourceB
 
 ## Ble
 Set dest var with the value of 1 if sourceA var value is less than the value of sourceB var value.
-Otherwise, set dest var with the value of 0 if not less.
+Otherwise, set dest var with the value of 0.
 Syntax: ble dest, sourceA, sourceB
 
 ## Add
@@ -92,3 +92,7 @@ Syntax: sub dest, sourceA, sourceB
 ## Mul
 Set dest var with the value of unsigned mul of sourceA var and sourceB var.
 Syntax: mul dest, sourceA, sourceB
+
+## Div
+Set dest var with the value of unsigned div of sourceA var and sourceB var if sourceB var is not zero.
+Otherwise, set dest var with the value of 0.
