@@ -192,7 +192,7 @@ Word "recurse" has meaning that is recursive.
 
 Word "send" has meaning that is send info.
 
-Word "ceve" has meaning that is receive info.
+Word "cive" has meaning that is receive info.
 
 Word "out" has meaning that is output destination.
 
