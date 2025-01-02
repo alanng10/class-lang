@@ -29,6 +29,8 @@ Compute does not need operate kind to push and pop stack.
 
 Compute does not need operate kind to call and return from maide.
 
+This is enough element to do any compute.
+
 Compute has operate kind list.
 The operate kind list is below:
 
