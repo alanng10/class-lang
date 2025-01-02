@@ -65,4 +65,12 @@ Syntax: toi source
 Set dest var with the value of sourceB var if sourceA var is not zero.
 Syntax: cmo dest, sourceA, sourceB
 
-## 
+## Bsa
+Set dest var with the value of 1 if sourceA var and sourceB var values are same.
+Otherwise, set dest var with the value of 0 if not same.
+Syntax: bsa dest, sourceA, sourceB
+
+## Ble
+Set dest var with the value of 1 if sourceA var value is less than the value of sourceB var value.
+Otherwise, set dest var with the value of 0 if not less.
+Syntax: ble dest, sourceA, sourceB
