@@ -590,7 +590,7 @@ int main(int argc, char* argv[])
     penTextLine = Stat_SlashLineSolid(Stat);
 
     Int penTextCape;
-    penTextCape = Stat_SlashCapeSquare(Stat);
+    penTextCape = Stat_SlashCapePlane(Stat);
 
     Int penTextJoin;
     penTextJoin = Stat_SlashJoinMiter(Stat);
