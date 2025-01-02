@@ -10,6 +10,8 @@ Compute operate code is 4 bytes.
 The first byte is operate kind index.
 The next 3 bytes are argue and dest.
 Argue and dest code data are in operate code in sequence of the operate syntax.
+If argue and dest code data does not take up 3 bytes in operate code, 
+bytes with value of zero are padded next in operate code to be 4 bytes in total.
 
 Var that is set in operate is dest var.
 Var that is get only in operate is source var.
