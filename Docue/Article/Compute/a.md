@@ -96,3 +96,4 @@ Syntax: mul dest, sourceA, sourceB
 ## Div
 Set dest var with the value of unsigned div of sourceA var and sourceB var if sourceB var is not zero.
 Otherwise, set dest var with the value of 0.
+Syntax: div dest, sourceA, sourceB
