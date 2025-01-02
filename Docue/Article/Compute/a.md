@@ -18,28 +18,28 @@ The operate set is listed below:
 
 ## Mov
 Set dest var with the value of source var.
-mov dest, source
+Syntax: mov dest, source
 
 ## Mva
 Set dest var first 2 bytes with the value of 16 bits source value.
-mva dest, source
+Syntax: mva dest, source
 
 ## Mvb
 Set dest var second 2 bytes with the value of 16 bits source value.
-mvb dest, source
+Syntax: mvb dest, source
 
 ## Mvc
 Set dest var third 2 bytes with the value of 16 bits source value.
-mvc dest, source
+Syntax: mvc dest, source
 
 ## Mvd
 Set dest var fourth 2 bytes with the value of 16 bits source value.
-mvd dest, source
+Syntax: mvd dest, source
 
 ## Mit
 Set 64 bits int at memory index of souceA var with the value of sourceB var.
-mit sourceA, sourceB
+Syntax: mit sourceA, sourceB
 
 ## Mif
 Set dest var with the value of 64 bits int at the memory index of source var.
-mif dest, source
+Syntax: mif dest, source
