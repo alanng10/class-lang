@@ -43,3 +43,11 @@ Syntax: mit sourceA, sourceB
 ## Mif
 Set dest var with the value of 64 bits int at the memory index of source var.
 Syntax: mif dest, source
+
+## Mbt
+Set byte int at memory index of sourceA var with the value of sourceB var.
+Syntax: mbt sourceA, sourceB
+
+## Mbf
+Set dest var with the value of byte int at the memory index of source var.
+Syntax: mbf dest, source
