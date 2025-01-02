@@ -1,5 +1,5 @@
 # Compute
-Compute has 32 vars.
+Compute has 16 vars.
 Var is 64 bits int.
 
 Memory index is 64 bits int.
@@ -17,7 +17,7 @@ Var that is set in operate is dest var.
 Var that is get only in operate is source var.
 
 Compute operates that input var and output var, use var index to specify the var.
-The var index value is 0 to 31.
+The var index value is 0 to 15.
 The var index takes up 1 byte in compute operate code data.
 
 Compute has operate kinds that get and set 64 bits int and byte from and to memory.
