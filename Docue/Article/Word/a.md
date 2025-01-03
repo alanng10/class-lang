@@ -600,6 +600,8 @@ Word "termal" has meaning that is terminal.
 
 Word "command" has meaning that is char list command.
 
+Word "script" has meaning that is executable source.
+
 Word "reque" has meaning that is request.
 
 Word "respon" has meaning that is response.
