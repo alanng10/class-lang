@@ -17,8 +17,7 @@ Builtin Int value is stored in ref holder ref value.
 Builtin Bool value is stored in ref holder ref value.
 Ref is 64 bits, same as Class Lang.
 
-Single has class checking, name checking and count checking, 
-same as Class Lang.
+Single has class checking, name checking and count checking that is same as Class Lang.
 
 Single memory management is manual memory management.
 Single NewOperate and ShareOperate have memory allocation.
