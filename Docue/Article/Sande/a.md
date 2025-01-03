@@ -187,6 +187,9 @@ AreExecute Value operate ref value is assigned to byte store at memory index.
 The lower 8 bits of the ref value are assigned to the store.
 The upper bits of the ref value are not used.
 
+Sande does not need short and mid operate and mark.
+This is enough element to do any int get and set.
+
 CopyExecute is execute that copies struct any from source to dest.
 CopyExecute has syntax that starts with "copy" index word, 
 followed by Class of class ClassName, followed by Struct of class StructName,
