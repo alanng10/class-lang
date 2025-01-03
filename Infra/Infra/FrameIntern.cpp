@@ -27,15 +27,15 @@ void FrameIntern::paintEvent(QPaintEvent *ev)
 
 void FrameIntern::keyPressEvent(QKeyEvent* ev)
 {
-    this->TypeState(true, ev);
+    this->TypeEventHandle(true, ev);
 }
 
 void FrameIntern::keyReleaseEvent(QKeyEvent* ev)
 {
-    this->TypeState(false, ev);
+    this->TypeEventHandle(false, ev);
 }
 
-Bool FrameIntern::TypeState(Bool press, QKeyEvent* ev)
+Int FrameIntern::TypeEventHandle(Int press, QKeyEvent* ev)
 {
     if (ev->isAutoRepeat())
     {
@@ -44,24 +44,11 @@ Bool FrameIntern::TypeState(Bool press, QKeyEvent* ev)
 
     Int frame;
     frame = this->Frame;
-    Int state;
-    state = Frame_TypeStateGet(frame);
-    Int aa;
-    aa = State_MaideGet(state);
-    Int arg;
-    arg = State_ArgGet(state);
-
-    Frame_Type_Maide maide;
-    maide = (Frame_Type_Maide)aa;
-
     Int index;
     index = ev->key();
     Int field;
     field = press;
 
-    if (!(maide == null))
-    {
-        maide(frame, index, field, arg);
-    }
+    Frame_TypeEvent(frame, index, field);
     return true;
 }

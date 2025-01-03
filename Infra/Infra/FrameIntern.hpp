@@ -12,7 +12,7 @@ class FrameIntern : public QWidget
 
 public:
     Int Frame;
-    Bool Init();
+    Int Init();
 
 protected:
     void paintEvent(QPaintEvent* ev) override;
@@ -20,5 +20,5 @@ protected:
     void keyReleaseEvent(QKeyEvent* ev) override;
 
 private:
-    Bool TypeState(Bool press, QKeyEvent* ev);
+    Int TypeEventHandle(Int press, QKeyEvent* ev);
 };
