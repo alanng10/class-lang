@@ -46,6 +46,9 @@ Int PolateRadial_Intern(Int o);
 
 Int PolateStop_Intern(Int o);
 
+Int Frame_TypeEvent(Int o, Int index, Int field);
+Int Frame_DrawEvent(Int o);
+
 Int VideoOut_Intern(Int o);
 Int VideoOut_FrameChange(Int o);
 
