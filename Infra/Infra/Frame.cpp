@@ -150,3 +150,34 @@ Int Frame_Close(Int o)
     m->Intern->close();
     return true;
 }
+
+Int Frame_TypeEvent(Int o, Int index, Int field)
+{
+    Frame* m;
+    m = CP(o);
+
+    Int state;
+    state = m->TypeState;
+
+    if (state == null)
+    {
+        return true;
+    }
+
+    Int aa;
+    aa = State_MaideGet(state);
+    Int arg;
+    arg = State_ArgGet(state);
+
+    if (aa == null)
+    {
+        return true;
+    }
+
+    Frame_Type_Maide maide;
+    maide = (Frame_Type_Maide)aa;
+
+    maide(o, index, field, arg);
+
+    return true;
+}
