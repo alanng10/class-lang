@@ -21,4 +21,5 @@ protected:
 
 private:
     Int TypeEventHandle(Int press, QKeyEvent* ev);
+    Int DrawEventHandle();
 };

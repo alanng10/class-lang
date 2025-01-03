@@ -181,3 +181,34 @@ Int Frame_TypeEvent(Int o, Int index, Int field)
 
     return true;
 }
+
+Int Frame_DrawEvent(Int o)
+{
+    Frame* m;
+    m = CP(o);
+
+    Int state;
+    state = m->DrawState;
+
+    if (state == null)
+    {
+        return true;
+    }
+
+    Int aa;
+    aa = State_MaideGet(state);
+    Int arg;
+    arg = State_ArgGet(state);
+
+    if (aa == null)
+    {
+        return true;
+    }
+
+    Frame_Draw_Maide maide;
+    maide = (Frame_Draw_Maide)aa;
+
+    maide(o, arg);
+
+    return true;
+}
