@@ -101,6 +101,10 @@ Int Intern_State_NetworkHost_NewPeer(Int networkHost, Int arg)
     return Intern_State_Call(networkHost, arg, 1);
 }
 
+Int Intern_State_Frame_TypeEvent(Int frame, Int index, Int field, Int arg)
+{
+}
+
 Int Intern_State_Call(Int o, Int arg, Int stateIndex)
 {
     Int thread;
