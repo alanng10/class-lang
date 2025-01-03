@@ -560,6 +560,10 @@ Word "angle" has meaning that is direct.
 
 Word "align" has meaning that is direct align.
 
+Word "black" has meaning that is black color.
+
+Word "white" has meaning that is white color.
+
 Word "quad" has meaning that is four point shape.
 
 Word "point" has meaning that is smallest entity.
