@@ -173,7 +173,8 @@ AndOperate, OrnOperate and NotOperate input any ref value as bool.
 The operates output zero or one ref value as bool.
 
 IntOperate is operate that results 64 bits int ref at memory index.
-The operate has syntax that starts with "int" index word, followed by Any of class Operate.
+The operate has syntax that starts with "int" index word, followed by limit brace round open token, 
+followed by Any of class Operate, followed by limit brace round close token.
 Any is the memory index.
 The 64 bits int at the memory index is resulted.
 
@@ -183,7 +184,8 @@ Any is the memory index.
 The 64 bits int at the memory index is assigned.
 
 ByteOperate is operate that results byte ref at memory index.
-The operate has syntax that starts with "byte" index word, followed by Any of class Operate.
+The operate has syntax that starts with "byte" index word, followed by limit brace round open token, 
+followed by Any of class Operate, followed by limit brace round close token.
 Any is the memory index.
 The byte int at the memory index is resulted.
 The ref value resulted has the byte value at lower 8 bits.
