@@ -62,6 +62,8 @@ Word "reposit" has meaning that is repository.
 
 Word "commit" has meaning that is mod record.
 
+Word "update" has meaning that is info update.
+
 Word "instant" has meaning that is instance.
 
 Word "auto" has meaning that is entity to do effect.
