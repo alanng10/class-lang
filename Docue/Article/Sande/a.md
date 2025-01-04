@@ -265,6 +265,8 @@ IntValue, IntHexValue, IntSignValue, IntHexSignValue have prefixs that are same 
 The values syntaxs valid ints are unsigned 64 bits or signed 64 bits.
 
 StringValue uses 32 bits int as char unit.
+ValueOperate that has StringValue, results memory index of the string struct
+any of the string value.
 
 Sande does not need enum.
 Sande has struct type and glob var.
