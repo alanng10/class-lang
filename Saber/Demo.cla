@@ -1,6 +1,6 @@
 class F : N
 {
-    prudate Bool A(var Bool aa, var String ao)
+    maide prusate Bool A(var Bool aa, var String ao)
     {
         this.D : new D;
 
@@ -118,7 +118,7 @@ class F : N
     #
     # sldkfjslkdf jsl kfkj
 
-    private Color Color
+    field private Color Color
     {
         get
         {
@@ -126,7 +126,7 @@ class F : N
         }
         set
         {
-            inf (!(value = null))
+            inf (~(value = null))
             {
                 data : value;
             }
@@ -136,7 +136,7 @@ class F : N
 
 
 
-    prudate D D
+    field prusate D D
     {
         get
         {
