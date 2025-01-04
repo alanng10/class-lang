@@ -19,3 +19,6 @@ Module stage creates Anys represent declarations, does class checking, name chec
 Class compiler gens the module binary after the 3 stages.
 
 The stages output results as Anys.
+
+Class compiler does not optimize output.
+This is enough element to do any process module making.
