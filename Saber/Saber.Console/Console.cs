@@ -68,7 +68,7 @@ public class Console : ClassBase
     protected virtual PortRead PortRead { get; set; }
     protected virtual PortLoad PortLoad { get; set; }
     protected virtual BinaryGen BinaryGen { get; set; }
-    protected virtual LibraryGen LibraryGen { get; set; }
+    protected virtual LibraryCGen LibraryGen { get; set; }
     protected virtual StorageGen StorageGen { get; set; }
     protected virtual NameValid NameValid { get; set; }
     protected virtual Out Out { get; set; }
@@ -157,10 +157,10 @@ public class Console : ClassBase
         return a;
     }
 
-    protected virtual LibraryGen CreateLibraryGen()
+    protected virtual LibraryCGen CreateLibraryGen()
     {
-        LibraryGen a;
-        a = new LibraryGen();
+        LibraryCGen a;
+        a = new LibraryCGen();
         a.Init();
         return a;
     }
