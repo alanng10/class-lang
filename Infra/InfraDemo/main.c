@@ -88,14 +88,14 @@ Int Console;
 
 
 
-Bool TypeHandle(Int frame, Int index, Int field, Int arg)
+Bool TypeHandle(Int frame, Int arg, Int index, Int value)
 {
     Bool b;
 
     b = false;
 
 
-    if (field == 0)
+    if (value == 0)
     {
         if (index == 'A')
         {
