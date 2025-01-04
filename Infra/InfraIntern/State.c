@@ -103,6 +103,28 @@ Int Intern_State_NetworkHost_NewPeer(Int networkHost, Int arg)
 
 Int Intern_State_Frame_TypeEvent(Int frame, Int index, Int field, Int arg)
 {
+    StateCall;
+
+    RefKindSet(index, RefKindInt);
+    RefKindSet(field, RefKindInt);
+
+    eval->S[eval->N] = ka;
+
+    eval->N = eval->N + 1;
+
+    eval->S[eval->N] = index;
+
+    eval->N = eval->N + 1;
+
+    eval->S[eval->N] = field;
+
+    eval->N = eval->N + 1;
+
+    Intern_Call(eval, 3, 3, 1);
+
+    eval->N = eval->N - 1;
+
+    return true;
 }
 
 Int Intern_State_Frame_DrawEvent(Int frame, Int arg)
@@ -112,30 +134,7 @@ Int Intern_State_Frame_DrawEvent(Int frame, Int arg)
 
 Int Intern_State_Call(Int o, Int arg, Int stateIndex)
 {
-    Int thread;
-    thread = Thread_This();
-
-    Int index;
-    index = Thread_IdentGet(thread);
-
-    Int* array;
-    array = CastPointer(ThreadArray);
-
-    Int kk;
-    kk = array[index];
-
-    ThreadData* threadData;
-    threadData = CastPointer(kk);
-
-    Int pa;
-    pa = threadData->Eval;
-
-    Eval* eval;
-    eval = CastPointer(pa);
-
-    Int ka;
-    ka = arg;
-    RefKindSet(ka, RefKindAny);
+    StateCall;
 
     eval->S[eval->N] = ka;
 
