@@ -17,6 +17,8 @@ Builtin Int value is stored in ref holder ref value.
 Builtin Bool value is stored in ref holder ref value.
 Ref is 64 bits, same as Class Lang.
 
+Single builtin String value uses 32 bits int as char unit.
+
 Single has class checking, name checking and count checking that is same as Class Lang.
 
 Single memory management is manual memory management.
