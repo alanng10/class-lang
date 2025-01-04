@@ -2,6 +2,8 @@ include(../../module.pri)
 
 TARGET = #Name#
 
+CONFIG += debug
+
 HEADERS += \
     Module.h
 
