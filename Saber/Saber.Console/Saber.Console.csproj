@@ -48,8 +48,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <None Include="../../Infra/gen_module.pri">
-            <Link>$(AssemblyName).data/gen_module.pri</Link>
+        <None Include="../../Infra/module.pri">
+            <Link>$(AssemblyName).data/module.pri</Link>
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
     </ItemGroup>
