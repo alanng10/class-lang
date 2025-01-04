@@ -172,6 +172,16 @@ InfExecute and WhileExecute cond operates input any ref value as bool.
 AndOperate, OrnOperate and NotOperate input any ref value as bool.
 The operates output zero or one ref value as bool.
 
+IntOperate is operate that results 64 bits int ref at memory index.
+The operate has syntax that starts with "int" index word, followed by Any of class Operate.
+Any is the memory index.
+The 64 bits int at the memory index is resulted.
+
+IntMark is mark that input 64 bits int ref at memory index.
+The mark has syntax that is same as IntOperate.
+Any is the memory index.
+The 64 bits int at the memory index is assigned.
+
 ByteOperate is operate that results byte ref at memory index.
 The operate has syntax that starts with "byte" index word, followed by Any of class Operate.
 Any is the memory index.
