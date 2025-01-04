@@ -1,4 +1,4 @@
-include(../../module.pri)
+include(../../gen_module.pri)
 
 TARGET = #Name#
 
