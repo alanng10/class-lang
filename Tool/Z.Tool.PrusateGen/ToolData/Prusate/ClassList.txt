@@ -96,7 +96,7 @@ Frame
     DrawState
     Update(rect)
     Close()
-    Type(frame, arg, index, field) --
+    Type(frame, arg, index, value) --
     Draw(frame, arg) --
 
 Draw
