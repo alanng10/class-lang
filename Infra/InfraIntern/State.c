@@ -101,22 +101,22 @@ Int Intern_State_NetworkHost_NewPeer(Int networkHost, Int arg)
     return Intern_State_Call(networkHost, arg, 1);
 }
 
-Int Intern_State_Frame_TypeEvent(Int frame, Int arg, Int index, Int value)
+Int Intern_State_Frame_TypeEvent(Int frame, Int arg, Int indexA, Int valueA)
 {
     StateCall;
 
-    RefKindSet(index, RefKindInt);
-    RefKindSet(value, RefKindInt);
+    RefKindSet(indexA, RefKindInt);
+    RefKindSet(valueA, RefKindInt);
 
     eval->S[eval->N] = ka;
 
     eval->N = eval->N + 1;
 
-    eval->S[eval->N] = index;
+    eval->S[eval->N] = indexA;
 
     eval->N = eval->N + 1;
 
-    eval->S[eval->N] = value;
+    eval->S[eval->N] = valueA;
 
     eval->N = eval->N + 1;
 
