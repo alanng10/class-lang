@@ -151,7 +151,7 @@ Int Frame_Close(Int o)
     return true;
 }
 
-Int Frame_TypeEvent(Int o, Int index, Int field)
+Int Frame_TypeEvent(Int o, Int index, Int value)
 {
     Frame* m;
     m = CP(o);
@@ -177,7 +177,7 @@ Int Frame_TypeEvent(Int o, Int index, Int field)
     Frame_Type_Maide maide;
     maide = (Frame_Type_Maide)aa;
 
-    maide(o, index, field, arg);
+    maide(o, arg, index, value);
 
     return true;
 }

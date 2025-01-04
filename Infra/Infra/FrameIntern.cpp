@@ -31,10 +31,10 @@ Int FrameIntern::TypeEventHandle(Int press, QKeyEvent* ev)
     frame = this->Frame;
     Int index;
     index = ev->key();
-    Int field;
-    field = press;
+    Int value;
+    value = press;
 
-    Frame_TypeEvent(frame, index, field);
+    Frame_TypeEvent(frame, index, value);
     return true;
 }
 
