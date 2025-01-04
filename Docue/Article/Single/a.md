@@ -35,7 +35,8 @@ If the any is Bool or Int, the execute has no effect.
 Using any comp on any ref that refers to any that does not exist is a programming error.
 
 Single CastOperate is same as Class Lang.
-If the input of the operate refers to any that does not exist, 
+If the operate casts to class that is not value class and 
+the input of the operate refers to any that does not exist, 
 the operate is a programming error.
 
 Single System.Infra module Any class has 1 maide.
