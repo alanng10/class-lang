@@ -84,3 +84,6 @@ Single Lang does not need lang element to interface to external.
 Single compiler modules have infra to generate refer binary.
 The refer binary can refer to custom made machine code binary.
 This is enough element to interface to external.
+
+Single compiler does not optimize output.
+This is enough element to do any process class system module making.
