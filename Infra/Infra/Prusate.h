@@ -264,7 +264,7 @@ Infra_Api Int Frame_Out(Int o);
 Infra_Api Int Frame_Update(Int o, Int rect);
 Infra_Api Int Frame_Close(Int o);
 
-typedef Int (*Frame_Type_Maide)(Int frame, Int index, Int field, Int arg);
+typedef Int (*Frame_Type_Maide)(Int frame, Int arg, Int index, Int value);
 typedef Int (*Frame_Draw_Maide)(Int frame, Int arg);
 
 InfraApiNew(Draw)

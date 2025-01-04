@@ -226,7 +226,7 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Frame_Update(ulong o, ulong rect);
     [DllImport(InfraLib)] public extern static ulong Frame_Close(ulong o);
 
-    public delegate ulong Frame_Type_Maide(ulong frame, ulong index, ulong field, ulong arg);
+    public delegate ulong Frame_Type_Maide(ulong frame, ulong arg, ulong index, ulong value);
     public delegate ulong Frame_Draw_Maide(ulong frame, ulong arg);
 
     [DllImport(InfraLib)] public extern static ulong Draw_New();
