@@ -1,5 +1,6 @@
 # Class
 
+Class is program lang.
 Class is a all mark program lang.
 Class is used to create modules.
 Class consists of infra modules, compiler modules, execution runner, documentation, source code.
