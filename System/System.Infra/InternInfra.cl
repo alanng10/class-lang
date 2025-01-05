@@ -414,4 +414,23 @@ class InternInfra : Any
         extern.Data_ValueSet(data, 0);
         return true;
     }
+
+    maide prusate Int TypeIndexFromInternIndex(var Int n)
+    {
+        var Int k;
+        k : n;
+
+        var Int na;
+        na : 0h01000000;
+
+        var Int nb;
+        nb : 0h80;
+
+        inf (~(k < na))
+        {
+            k : k - na;
+            k : k + nb;
+        }
+        return k;
+    }
 }
