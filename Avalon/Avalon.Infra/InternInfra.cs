@@ -349,22 +349,22 @@ public class InternInfra : Any
         return this.DataMidSet(data, index, value);
     }
 
-    public virtual long TypeIndexFromInternIndex(long u)
+    public virtual long TypeIndexFromInternIndex(long n)
     {
-        long a;
-        a = u;
+        long k;
+        k = n;
 
-        long ua;
-        ua = 0x80;
+        long na;
+        na = 0x01000000;
 
-        long uu;
-        uu = 0x01000000;
+        long nb;
+        nb = 0x80;
 
-        if (!(a < uu))
+        if (!(k < na))
         {
-            a = a - uu;
-            a = a + ua;
+            k = k - na;
+            k = k + nb;
         }
-        return a;
+        return k;
     }
 }
