@@ -348,4 +348,23 @@ public class InternInfra : Any
     {
         return this.DataMidSet(data, index, value);
     }
+
+    public virtual long TypeIndexFromInternIndex(long u)
+    {
+        long a;
+        a = u;
+
+        long ua;
+        ua = 0x80;
+
+        long uu;
+        uu = 0x01000000;
+
+        if (!(a < uu))
+        {
+            a = a - uu;
+            a = a + ua;
+        }
+        return a;
+    }
 }
