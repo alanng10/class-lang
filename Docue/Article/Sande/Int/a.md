@@ -6,3 +6,6 @@ Int null is value 0.
 
 Count of bits that is 4 more bits after 60 bits is not redundant, 
 as the int value is not null able.
+
+Int value is not null able, therefore the 4 more bits has use for human minds 
+to represent int info.
