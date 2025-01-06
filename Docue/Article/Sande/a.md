@@ -42,6 +42,7 @@ Int value is stored in ref value 64 bits.
 Struct any is passed with ref.
 Ref has type.
 Type can be int type or struct type.
+Int type is 64 bits int.
 A struct type has StructName.
 Storage type is used to declare variable storage.
 
