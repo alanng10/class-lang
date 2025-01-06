@@ -273,14 +273,14 @@ Maide is the maide name.
 
 RefStructVarOperate is operate that results memory index of struct var.
 The operate has syntax that starts with "ref" index word, followed by "struct" index word, 
-followed by This of class Operate, followed limit dot token,
+followed by This of class Operate, followed by limit dot token,
 followed by Var of class VarName, 
 Field This Type is StructType.
 Memory index of struct var Var in struct any This is resulted.
 
 RefGlobVarOperate is operate that results memory index of glob var.
 The operate has syntax that starts with "ref" index word, followed by "glob" index word, 
-followed by Class of class ClassName, followed by Var of class VarName.
+followed by Class of class ClassName, followed by limit dot token, followed by Var of class VarName.
 Memory index of glob var Var in class Class is resulted.
 
 RefVarOperate is operate that results memory index of local var.
