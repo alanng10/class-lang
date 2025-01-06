@@ -293,6 +293,7 @@ followed by Argue of class Argue, followed by limit brace round close token.
 Var is the var that hold ref value that is the maide memory index.
 Var Type is any Type.
 Argue is argue that is passed into the maide being called.
+Maide at memory Index Var is called with argue Argue passed in.
 
 RefMaideOperate is operate that results memory index of maide.
 The operate has syntax that starts with "ref" index word, 
