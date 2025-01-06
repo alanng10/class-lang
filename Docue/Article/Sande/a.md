@@ -160,6 +160,7 @@ followed by Var of class VarName.
 The node declares var with name Var with StorageType.
 Field Type is the StorageType.
 
+TypeName represents StorageType.
 TypeName class is base class.
 The class has 4 derived class.
 1 derived class is IntTypeName.
@@ -202,6 +203,9 @@ The var Type is 64 bits IntType.
 The var cannot be assigned to.
 
 Var that has StorageType that is array, is 1 dimensional array.
+
+IntValue represents int value.
+IntValue class is base class.
 
 Calculate memory index with int operation operate lang elements is enough element to
 do any calculate of memory index.
