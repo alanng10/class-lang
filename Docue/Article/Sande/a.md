@@ -223,26 +223,29 @@ followed by Any of class Operate, followed by limit brace round close token.
 Any is the memory index.
 The IntType is int type of Kind.
 The operate results IntType value that get from memory index Any.
-The operate type is the IntType.
+The operate Type is the IntType.
 
 IntMark is mark that inputs IntType value set to memory index.
 The mark has syntax that is same as IntOperate.
 Any is the memory index.
 The IntType is int type of Kind.
 The mark inputs IntType value that set to memory index Any.
-The mark type is the IntType.
+The mark Type is the IntType.
 
 AreExecute is execute that assign ref to mark.
 AreExecute has syntax that is same as in Class Lang.
 
 CopyExecute is execute that copies struct any from source to dest.
-CopyExecute has syntax that starts with "copy" index word, 
-followed by Class of class ClassName, followed by Struct of class StructName,
+The execute has syntax that starts with "copy" index word, 
 followed by limit brace round open token,
 followed by Dest of class Operate, followed by limit comma, 
 followed by Source of class Operate, followed by limit brace round close token, 
 followed by limit semicolon.
-This execute copies struct any of the struct type Struct in class Class from Source memory index to Dest memory index.
+Dest is memory index of the copy destination.
+Source is memory index of the copy source.
+Dest Type is StructType.
+Source Type is any type.
+This execute copies struct any of the StructType from Source to Dest.
 
 RefCallOperate is operate that call with local var ref value as maide memory index.
 The call argue is passed with ref, same as CallOperate.
