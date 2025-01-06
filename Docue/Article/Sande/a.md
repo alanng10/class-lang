@@ -153,7 +153,7 @@ IntTypeName class has 1 field with name Kind, that has IntKind class. The field 
 StructTypeName represents StructType name.
 StructTypeName has syntax that is Class of class ClassName, 
 followed by limit dot token, followed by Struct of class StructName.
-The StructType is struct Struct in class Class
+The StructType is struct Struct in class Class.
 1 derived class is ValueStructTypeName.
 ValueStructTypeName represents value StructType name.
 ValueStructTypeName has syntax that starts with "value" index word, followed by Class of class ClassName, 
