@@ -196,11 +196,12 @@ InfExecute and WhileExecute cond operates input any ref value as bool.
 AndOperate, OrnOperate and NotOperate input any ref value as bool.
 The operates output zero or one ref value as bool.
 
-IntOperate is operate that results IntType value get at memory index.
+IntOperate is operate that results IntType value get from memory index.
 The operate has syntax that starts with Kind of class IntKind, followed by limit brace round open token, 
 followed by Any of class Operate, followed by limit brace round close token.
 Any is the memory index.
 The IntType is int type of Kind.
+The operate results IntType value that get from memory index Any.
 
 IntMark is mark that input 64 bits int ref at memory index.
 The mark has syntax that is same as IntOperate.
