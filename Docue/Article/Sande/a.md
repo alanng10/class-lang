@@ -208,9 +208,10 @@ Any is the memory index.
 The IntType is int type of Kind.
 The operate results IntType value that get from memory index Any.
 
-IntMark is mark that input 64 bits int ref at memory index.
+IntMark is mark that input IntType value set to memory index.
 The mark has syntax that is same as IntOperate.
 Any is the memory index.
+The IntType is int type of Kind.
 The 64 bits int at the memory index is assigned.
 
 Sande does not need short and mid int operate and mark.
