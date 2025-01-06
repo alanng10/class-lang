@@ -176,7 +176,7 @@ The class has 5 derived class.
 IntTypeName represents IntType name.
 IntTypeName has syntax that is Kind of class IntKind.
 The IntType is int type of Kind.
-Struct var that is IntType is allocated space for the size of IntKind of the IntType.
+Struct var that is declared with IntTypeName is allocated space for the size of IntKind of the IntType.
 1 derived class is StructTypeName.
 StructTypeName represents StructType name.
 StructTypeName has syntax that is Class of class ClassName, 
