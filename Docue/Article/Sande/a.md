@@ -258,6 +258,7 @@ The mark Type is the IntType.
 
 Mark that is IntType is assigned to store all 64 bits or 8 bits in 1 thread atomic operate
 if the IntType is 64 bits or 8 bits.
+This is enough element to do any system programming for effect thread sync.
 
 AreExecute is execute that assign ref to mark.
 AreExecute has syntax that is same as in Class Lang.
