@@ -54,6 +54,7 @@ ref of int type conversion of int type int.
 Maide is shared maide. It has no this ref.
 Maide has param. The param is var list.
 Param var holds a ref. Param var has type.
+Param var type is Type.
 Maide result is a ref.
 Maide result has type.
 
