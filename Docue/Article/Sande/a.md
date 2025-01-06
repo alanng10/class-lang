@@ -110,7 +110,7 @@ Name is name of the maide.
 Param is the param of the maide.
 Call is the state of the maide.
 
-Param node is list of Var. The list is delimited by limit comma.
+Param node is list of Var. The list is delimited by limit comma token.
 
 CallOperate is operate that call a maide.
 The operate has syntax that starts with Class of class ClassName, 
@@ -119,6 +119,8 @@ followed by Argue of class Argue, followed by limit brace round close token.
 Maide with maide name Maide in class Class is called.
 Argue is passed into the maide being called.
 The operate results ref value that the maide returns.
+
+Argue node is list of Operate. The list is delimited by limit comma token.
 
 NullOperate is operate that results null ref.
 The operate has syntax that is "null" index word.
