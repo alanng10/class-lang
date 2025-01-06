@@ -271,7 +271,8 @@ Dest is memory index of the copy destination.
 Source is memory index of the copy source.
 Dest Type is StructType.
 Source Type is any type.
-This execute copies struct any of the StructType from Source to Dest.
+Dest Type is the StructType being copied.
+This execute copies struct any of the Dest Type from Source to Dest.
 
 RefCallOperate is operate that call with local var ref value as maide memory index.
 The call argue is passed with ref, same as CallOperate.
