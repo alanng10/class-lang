@@ -145,7 +145,10 @@ IntKind node represents int kind of different sizes.
 The node has syntax that is "byte" index word, "short" index word, "mid" index word, or "int" index word.
 The node is one item in IntKind list.
 
-Var node syntax starts with "var" index word, followed by TypeName, followed by VarName.
+Var node syntax starts with "var" index word, followed by Type of class TypeName, 
+followed by Var of class VarName.
+The node declares var with name Var with StorageType.
+Field Type is the StorageType.
 
 TypeName class is base class.
 The class has 4 derived class.
