@@ -200,7 +200,7 @@ IntOperate is operate that results IntType value get at memory index.
 The operate has syntax that starts with Kind of class IntKind, followed by limit brace round open token, 
 followed by Any of class Operate, followed by limit brace round close token.
 Any is the memory index.
-The Int
+The IntType is int type of Kind.
 
 IntMark is mark that input 64 bits int ref at memory index.
 The mark has syntax that is same as IntOperate.
