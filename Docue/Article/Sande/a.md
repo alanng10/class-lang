@@ -42,6 +42,7 @@ Type can be IntType.
 IntType is 64, 32, 16, or 8 bits int.
 Type can be StructType.
 StructType has StructName.
+StructTypes with different StructNames are different Types. 
 Int any is passed with ref.
 Ref that has IntType has the int value stored in ref value.
 Struct any is passed with ref.
