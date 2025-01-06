@@ -94,7 +94,7 @@ Param node is list of Var. The list is delimited by limit comma.
 
 CallOperate is operate that call a maide.
 The operate has syntax that starts with Class of class ClassName, 
-followed by limit dot, followed by Maide of class MaideName, followed by limit brace round open token, 
+followed by limit dot token, followed by Maide of class MaideName, followed by limit brace round open token, 
 followed by Argue of class Argue, followed by limit brace round close token.
 Maide with maide name Maide in class Class is called.
 Argue is passed into the maide being called.
@@ -115,14 +115,15 @@ The mark has syntax that is same as GlobVarOperate.
 The mark Type is the glob var Type.
 
 StructVarOperate is operate that results ref that var in struct any holds.
-The operate has syntax that starts with "struct" index word, followed by Class of class ClassName, 
-followed by Struct of class StructName, followed by Var of class VarName, 
-followed by limit brace round open token, 
-followed by Any of class Operate, followed by limit brace round close token.
-Any is memory index of the struct any.
+The operate has syntax that starts with This of class Operate, 
+followed by limit dot token, followed by Var of class VarName.
+Field This is memory index of the struct any.
+Field This type is StructType.
+The operate Type is the struct var Type.
 
 StructVarMark is mark that input struct any var.
 The mark has syntax that is same as StructVarOperate.
+The mark Type is the struct var Type.
 
 VarOperate is operate that results local var hold ref value.
 The operate has syntax that is Var of class VarName.
