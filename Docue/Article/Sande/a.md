@@ -103,10 +103,16 @@ GlobVar has syntax that starts with "glob" index word, followed by Count of clas
 followed by Var, followed by limit semicolon.
 
 Maide node has syntax that starts with "maide" index word, followed by Count of class Count, 
-followed by Name of class MaideName, followed by limit brace round open token,
+followed by Type of class TypeName, followed by Name of class MaideName, 
+followed by limit brace round open token,
 followed by Param of class Param, followed by limit brace round close token, 
 followed by limit brace curve open token, followed by Call of class State, 
 followed by limit brace curve close token.
+Count is the count of the maide.
+Field Type is result Type of the maide.
+Name is name of the maide.
+Param is the param of the maide.
+Call is the state of the maide.
 
 Param node is list of Var. The list is delimited by limit comma.
 
