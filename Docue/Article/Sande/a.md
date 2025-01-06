@@ -140,15 +140,18 @@ VarMark is mark that input local var.
 The mark has syntax that is same as VarOperate.
 The mark Type is the local var Type.
 
+IntKind node represents int kind of different sizes.
+The node has syntax that is "byte" index word, "short" index word, "mid" index word, or "int" index word.
+The node is one item in IntKind list.
+
 Var node syntax starts with "var" index word, followed by TypeName, followed by VarName.
 
 TypeName class is base class.
 The class has 4 derived class.
 1 derived class is IntTypeName.
 IntTypeName represents IntType name.
-The int type can be byte, short, mid or int.
-IntTypeName has syntax that is "byte" index word, "short" index word, "mid" index word, or "int" index word.
-IntTypeName class has 1 field with name Kind, that has IntKind class. The field has one of IntKind anys in IntKind list.
+IntTypeName has syntax that is Kind of class IntKind.
+The IntType is int type of Kind.
 1 derived class is StructTypeName.
 StructTypeName represents StructType name.
 StructTypeName has syntax that is Class of class ClassName, 
