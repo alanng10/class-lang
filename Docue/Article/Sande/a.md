@@ -153,13 +153,14 @@ IntTypeName class has 1 field with name Kind, that has IntKind class. The field 
 StructTypeName represents StructType name.
 StructTypeName has syntax that is Class of class ClassName, 
 followed by limit dot token, followed by Struct of class StructName.
-
-StructTypeName represents value struct type name.
-StructTypeName has syntax that starts with "value" index word, followed by Class of class ClassName, 
-followed by Struct of class StructName.
-Struct vars, glob vars and local vars that are declared with StructTypeName are allocated space for the struct anys.
-The vars hold ref values that are memory indexes of the allocated struct anys.
-The vars cannot be assigned to.
+1 derived class is ValueStructTypeName.
+ValueStructTypeName represents value StructType name.
+ValueStructTypeName has syntax that starts with "value" index word, followed by Class of class ClassName, 
+followed by limit dot token, followed by Struct of class StructName.
+Var that is declared with ValueStructTypeName is allocated space for the struct any of the StructType.
+The var holds ref value that is memory index of the allocated struct any.
+The var Type is the StructType.
+The var cannot be assigned to.
 1 derived class is ArrayStructTypeName.
 ArrayStructTypeName represents array of struct type name.
 ArrayStructTypeName has syntax that starts with "value" index word, followed by Class of class ClassName, 
