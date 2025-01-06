@@ -76,8 +76,8 @@ They are Struct, Glob and Maide.
 
 Struct node has syntax that starts with "struct" index word, followed by Count of class Count, 
 followed by Name of class StructName,
-followed by limit brace open token, followed by Part of class StructPart,
-followed by limit brace close token.
+followed by limit brace curve open token, followed by Part of class StructPart,
+followed by limit brace curve close token.
 StructPart is list of Var. The list is delimited by limit semicolon.
 
 Glob vars are represented with GlobVar.
