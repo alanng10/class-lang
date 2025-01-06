@@ -217,6 +217,9 @@ ref of IntType conversion of IntType int.
 The operate has syntax that starts with "cast" index word, followed by Type of class TypeName,
 followed by limit brace round open token, followed by Any of class Operate, 
 followed by limit brace round close token.
+Field Type is the type of result ref.
+Any is int any or struct any that is being casted.
+Type is IntTypeName or StructTypeName.
 
 IntValue represents int value.
 IntValue class is base class.
