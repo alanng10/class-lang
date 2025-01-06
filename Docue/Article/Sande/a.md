@@ -35,7 +35,7 @@ Struct var space allocation is byte granularity.
 Maide state can have operate.
 Operate results ref.
 Input of lang elements also is assigned ref.
-Marks can be assigned any ref.
+Marks are assigned ref.
 Ref is 64 bits.
 Ref has type.
 Type can be IntType.
