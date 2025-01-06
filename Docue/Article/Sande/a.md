@@ -207,12 +207,14 @@ followed by Any of class Operate, followed by limit brace round close token.
 Any is the memory index.
 The IntType is int type of Kind.
 The operate results IntType value that get from memory index Any.
+The operate type is the IntType.
 
-IntMark is mark that input IntType value set to memory index.
+IntMark is mark that inputs IntType value set to memory index.
 The mark has syntax that is same as IntOperate.
 Any is the memory index.
 The IntType is int type of Kind.
-The 64 bits int at the memory index is assigned.
+The mark inputs IntType value that set to memory index Any.
+The mark type is the IntType.
 
 Sande does not need short and mid int operate and mark.
 This is enough element to do any int get and set.
