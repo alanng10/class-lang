@@ -346,6 +346,9 @@ ValueOperate that has StringValue, results memory index of the string struct
 any of the string value.
 The ValueOperate Type is string StructType.
 
+StringValue is not write able.
+This is enough element to do any string operation for effect.
+
 Sande does not need enum.
 Sande has StructType and glob var.
 Shared list is made with glob var of StructType and init with maide.
