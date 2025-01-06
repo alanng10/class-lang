@@ -100,7 +100,7 @@ followed by limit brace close token.
 Param node is list of VarName. The list is delimited by limit comma.
 
 CallOperate is operate that call a maide.
-The operate has syntax that starts with "call" index word, followed by Class of class ClassName, 
+The operate has syntax that starts with Class of class ClassName, 
 followed by Maide of class MaideName, followed by limit brace round open token, 
 followed by Argue of class Argue, followed by limit brace round close token.
 Maide with maide name Maide in class Class is called.
@@ -235,7 +235,7 @@ The call argue list type is not declared.
 The call result type is not declared.
 It is programming error, to passed argue with different count of ref with declared param count of the maide, in the call.
 
-RefCallOperate has syntax that starts with "refcall" index word,
+RefCallOperate has syntax that starts with "call" index word,
 followed by Var of class VarName, followed by limit brace round open token,
 followed by Argue of class Argue, followed by limit brace round close token.
 Var is the var that hold ref value that is the maide memory index.
