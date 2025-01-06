@@ -315,8 +315,8 @@ ValueOperate that has StringValue, results memory index of the string struct
 any of the string value.
 
 Sande does not need enum.
-Sande has struct type and glob var.
-Shared list is made with glob var of type struct type and init with maide.
+Sande has StructType and glob var.
+Shared list is made with glob var of StructType and init with maide.
 This is enough element to do any shared list for effect.
 
 Sande does not need glob var init at glob var declare.
