@@ -329,6 +329,7 @@ The operates do 64 bits int operations instead of 60 bits in Class Lang.
 StringValue uses 32 bits int as char unit.
 ValueOperate that has StringValue, results memory index of the string struct
 any of the string value.
+The ValueOperate Type is string StructType.
 
 Sande does not need enum.
 Sande has StructType and glob var.
