@@ -41,10 +41,11 @@ Int any is passed with ref.
 Int value is stored in ref value 64 bits.
 Struct any is passed with ref.
 Ref has type.
-Type can be int type or struct type.
-Int type is 64, 32, 16, or 8 bits int.
-A struct type has StructName.
-Storage type is used to declare variable storage.
+Type can be IntType.
+IntType is 64, 32, 16, or 8 bits int.
+Type can be StructType.
+StructType has StructName.
+StorageType is used to declare variable storage.
 
 Sande Lang has cast operate.
 CastOperate is operate that results ref of reinterpret cast of struct type any or 
