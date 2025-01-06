@@ -172,6 +172,7 @@ Value can be either IntValue, IntHexValue, IntSignValue or IntHexSignValue.
 The StructType is struct Struct in class Class.
 Var that is declared with ArrayStructTypeName is allocated space for the array of struct anys of the StructType.
 The var holds ref value that is memory index of the allocated array.
+The var Type is the StructType.
 The var cannot be assigned to.
 1 derived class is ArrayIntTypeName.
 ArrayIntTypeName represents value array of IntType name.
@@ -180,8 +181,9 @@ followed by limit brace right open token, followed by Value, followed by limit b
 Value can be either IntValue, IntHexValue, IntSignValue or IntHexSignValue.
 The IntType is the Type that Int represents.
 Var that is declared with ArrayIntTypeName is allocated space for the array of int anys with the IntType.
-The vars hold ref values that are memory indexes of the allocated arrays.
-The vars cannot be assigned to.
+The var holds ref value that is memory index of the allocated array.
+The var Type is 64 bits IntType.
+The var cannot be assigned to.
 
 Struct vars, glob vars and local vars that are arrays, are 1 dimensional arrays.
 
