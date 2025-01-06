@@ -351,6 +351,8 @@ This is enough element to do any int sign extend.
 
 This is enough element to do any int sign operation.
 
+This is enough element to do any int operation.
+
 StringValue uses 32 bits int as char unit.
 ValueOperate that has StringValue, results memory index of the string struct
 any of the string value.
