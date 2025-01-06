@@ -121,10 +121,10 @@ BoolValue : Value
 IntValue : Value
     Int Value
 
-IntHexValue : Value
+IntSignValue : Value
     Int Value
 
-IntSignValue : Value
+IntHexValue : Value
     Int Value
 
 IntHexSignValue : Value
