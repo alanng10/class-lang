@@ -181,7 +181,7 @@ ArrayIntTypeName represents value array of IntType name.
 ArrayIntTypeName has syntax that starts with "value" index word, followed by Kind of class IntKind, 
 followed by limit brace right open token, followed by Count of class IntValue, 
 followed by limit brace right close token.
-The IntType is the int type of Kind.
+The IntType is int type of Kind.
 Var that is declared with ArrayIntTypeName is allocated space for the array of count Count of int anys of the IntType.
 The var holds ref value that is memory index of the allocated array.
 The var Type is 64 bits IntType.
@@ -196,32 +196,16 @@ InfExecute and WhileExecute cond operates input any ref value as bool.
 AndOperate, OrnOperate and NotOperate input any ref value as bool.
 The operates output zero or one ref value as bool.
 
-IntOperate is operate that results int value get at memory index.
-The operate has syntax that starts with "int" index word, followed by limit brace round open token, 
+IntOperate is operate that results IntType value get at memory index.
+The operate has syntax that starts with Kind of class IntKind, followed by limit brace round open token, 
 followed by Any of class Operate, followed by limit brace round close token.
 Any is the memory index.
-The 64 bits int at the memory index is resulted.
+The Int
 
 IntMark is mark that input 64 bits int ref at memory index.
 The mark has syntax that is same as IntOperate.
 Any is the memory index.
 The 64 bits int at the memory index is assigned.
-
-ByteOperate is operate that results byte ref at memory index.
-The operate has syntax that starts with "byte" index word, followed by limit brace round open token, 
-followed by Any of class Operate, followed by limit brace round close token.
-Any is the memory index.
-The byte int at the memory index is resulted.
-The ref value resulted has the byte value at lower 8 bits.
-The upper bits are zero.
-
-ByteMark is mark that input byte ref at memory index.
-The mark has syntax that is same as ByteOperate.
-Any is the memory index.
-The byte int at the memory index is assigned.
-AreExecute Value operate ref value is assigned to byte store at memory index.
-The lower 8 bits of the ref value are assigned to the store.
-The upper bits of the ref value are not used.
 
 Sande does not need short and mid int operate and mark.
 This is enough element to do any int get and set.
