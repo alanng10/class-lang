@@ -65,11 +65,6 @@ The maide state param var is the argue ref.
 Param var is get and set as any other local var.
 The call results a ref.
 
-Sande has NullOperate that results null ref.
-NullOperate has syntax that is "null" index word.
-Null has ref value that is zero.
-Null can be assigned to ref holder of StructType.
-
 Maide that ends without return execute, results ref value zero.
 
 Class node has syntax that starts with "class" index word, followed by Name of class ClassName,
@@ -101,6 +96,11 @@ followed by Argue of class Argue, followed by limit brace round close token.
 Maide with maide name Maide in class Class is called.
 Argue is passed into the maide being called.
 The operate results ref value that the maide returns.
+
+NullOperate is operate that results null ref.
+The operate has syntax that is "null" index word.
+Null ref has ref value that is zero.
+Null ref can be assigned to ref holder of StructType.
 
 GlobVarOperate is operate that results glob var hold ref value.
 The operate has syntax that starts with "glob" index word, followed by Class of class ClassName, 
