@@ -278,6 +278,9 @@ This is enough element to do any system programming for effect thread sync.
 AreExecute is execute that assign ref to mark.
 AreExecute has syntax that is same as in Class Lang.
 
+ReturnExecute is execute that refers result and returns to current maide caller.
+ReturnExecute has syntax that is same as in Class Lang.
+
 CopyExecute is execute that copies struct any from source to dest.
 The execute has syntax that starts with "copy" index word, 
 followed by limit brace round open token,
