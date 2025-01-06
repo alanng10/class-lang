@@ -108,9 +108,11 @@ Null ref can be assigned to ref holder of StructType.
 GlobVarOperate is operate that results glob var hold ref value.
 The operate has syntax that starts with "glob" index word, followed by Class of class ClassName, 
 followed by Var of class VarName.
+The operate Type is the glob var Type.
 
 GlobVarMark is mark that input glob var.
 The mark has syntax that is same as GlobVarOperate.
+The mark Type is the glob var Type.
 
 StructVarOperate is operate that results ref that var in struct any holds.
 The operate has syntax that starts with "struct" index word, followed by Class of class ClassName, 
