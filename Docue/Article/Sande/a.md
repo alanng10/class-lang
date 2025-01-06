@@ -70,7 +70,7 @@ NullOperate has syntax that is "null" index word.
 Null has ref value that is zero.
 Null can be assigned to ref holder of StructType.
 
-Maide that ends without return execute, results null.
+Maide that ends without return execute, results ref value zero.
 
 Class node has syntax that starts with "class" index word, followed by Name of class ClassName,
 followed by limit brace open token, followed by Part of class Part, 
