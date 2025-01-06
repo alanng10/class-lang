@@ -210,6 +210,7 @@ The class has 4 derived class.
 The derived classes are IntDecValue, IntDecSignValue, IntHexValue and IntHexSignValue.
 IntDecValue corresponds to IntValue in Class Lang.
 IntDecSignValue corresponds to IntSignValue in Class Lang.
+IntHexValue and IntHexSignValue corresponds to nodes with same names in Class Lang.
 They have prefixs that are same as corresponding nodes in Class Lang.
 The values syntaxs valid ints are unsigned 64 bits or signed 64 bits.
 
