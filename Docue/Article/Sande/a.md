@@ -45,6 +45,7 @@ StructType has StructName.
 Int any is passed with ref.
 Ref that has IntType has the int value stored in ref value.
 Struct any is passed with ref.
+Ref that has StructType has the memory index of the struct any stored in ref value.
 
 StorageType is used to declare variable storage.
 
