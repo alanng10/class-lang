@@ -222,7 +222,7 @@ Maide Param Var StorageType is IntTypeName or StructTypeName.
 
 Maide field Type is IntTypeName or StructTypeName.
 
-CastOperate is operate that results ref of reinterpret cast of StructType any or 
+CastOperate is operate that results ref of reinterpret cast to any Type or 
 ref of IntType conversion of IntType int.
 The operate has syntax that starts with "cast" index word, followed by Type of class TypeName,
 followed by limit brace round open token, followed by Any of class Operate, 
@@ -230,10 +230,8 @@ followed by limit brace round close token.
 Field Type is the type of result ref.
 Any is int any or struct any that is being casted.
 Type is IntTypeName or StructTypeName.
-Type is IntTypeName if Any is IntType.
-Type is 64 bits IntTypeName or StructTypeName if Any is StructType.
 Casting IntType Any to IntTypeName is IntType conversion.
-Casting StructType Any to 64 bits IntTypeName or StructTypeName is reinterpret cast.
+Any cast that is not IntType conversion is reinterpret cast.
 
 IntValue represents int value.
 IntValue class is base class.
