@@ -241,6 +241,13 @@ IntHexValue and IntHexSignValue corresponds to nodes with same names in Class La
 They have prefixs that are same as corresponding nodes in Class Lang.
 The values syntaxs valid ints are unsigned 64 bits or signed 64 bits.
 
+Node IntValue is base class.
+The node also has base class that is node Value.
+Sande compiler module arch does not need 1 base class node to base all derive nodes.
+Sande compiler classes derives from Class compiler classes.
+Sande compiler module arch derives from Class compiler module arch.
+Sande compiler is most general and most level, without doing 1 base class node to base all derive nodes in arch.
+
 Calculate memory index with int operation operate lang elements is enough element to
 do any calculate of memory index.
 
