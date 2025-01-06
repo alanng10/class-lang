@@ -206,13 +206,6 @@ Var that has StorageType that is array, is 1 dimensional array.
 Calculate memory index with int operation operate lang elements is enough element to
 do any calculate of memory index.
 
-InfExecute and WhileExecute cond operates input any IntType ref value as bool.
-The IntType is any IntKind.
-AndOperate, OrnOperate and NotOperate input any IntType ref value as bool.
-The IntType is any IntKind.
-The operates output zero or one ref value as bool.
-The operates has type that is 64 bits IntType.
-
 IntOperate is operate that results IntType value get from memory index.
 The operate has syntax that starts with Kind of class IntKind, followed by limit brace round open token, 
 followed by Any of class Operate, followed by limit brace round close token.
