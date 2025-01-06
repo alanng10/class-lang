@@ -127,9 +127,11 @@ The mark Type is the struct var Type.
 
 VarOperate is operate that results local var hold ref value.
 The operate has syntax that is Var of class VarName.
+The operate Type is the local var Type.
 
 VarMark is mark that input local var.
 The mark has syntax that is same as VarOperate.
+The mark Type is the local var Type.
 
 Struct var, glob var and local var operate of var that is int type that is smaller than 64 bits
 results int any ref that has the int value at lower bits in the ref value.
