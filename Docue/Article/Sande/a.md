@@ -65,7 +65,8 @@ The maide state param var is the argue ref.
 Param var is get and set as any other local var.
 The call results a ref.
 
-Sande has null operate.
+Sande has NullOperate that results null ref.
+NullOperate has syntax that is "null" index word.
 Null has ref value that is zero.
 Null can be assigned to ref holder of StructType.
 
