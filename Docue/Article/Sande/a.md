@@ -136,7 +136,7 @@ StructVarOperate is operate that results ref that var in struct any holds.
 The operate has syntax that starts with This of class Operate, 
 followed by limit dot token, followed by Var of class VarName.
 Field This is memory index of the struct any.
-Field This type is StructType.
+Field This Type is StructType.
 The operate Type is the struct var Type.
 
 StructVarMark is mark that input struct any var.
@@ -273,11 +273,10 @@ Maide is the maide name.
 
 RefStructVarOperate is operate that results memory index of struct var.
 The operate has syntax that starts with "ref" index word, followed by "struct" index word, 
-followed by Class of class ClassName, 
-followed by Struct of class StructName, followed by Var of class VarName, 
-followed by limit brace round open token, 
-followed by Any of class Operate, followed by limit brace round close token.
-Memory index of struct var Var in struct any with struct type Struct in class Class at Any memory index is resulted.
+followed by This of class Operate, followed limit dot token,
+followed by Var of class VarName, 
+Field This Type is StructType.
+Memory index of struct var Var in struct any This is resulted.
 
 RefGlobVarOperate is operate that results memory index of glob var.
 The operate has syntax that starts with "ref" index word, followed by "glob" index word, 
