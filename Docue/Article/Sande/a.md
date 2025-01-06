@@ -169,9 +169,10 @@ ArrayStructTypeName has syntax that starts with "value" index word, followed by 
 followed by limit dot token, followed by Struct of class StructName, followed by limit brace right open token, 
 followed by Value of class Value, followed by limit brace right close token.
 Value can be either IntValue, IntHexValue, IntSignValue or IntHexSignValue.
-Struct vars, glob vars and local vars that are declared with ArrayStructTypeName are allocated space for the arrays of struct anys.
-The vars hold ref values that are memory indexes of the allocated arrays.
-The vars cannot be assigned to.
+The StructType is struct Struct in class Class.
+Var that is declared with ArrayStructTypeName is allocated space for the array of struct anys of the StructType.
+The var holds ref value that is memory index of the allocated array.
+The var cannot be assigned to.
 1 derived class is ArrayIntTypeName.
 ArrayIntTypeName represents array of int type name.
 ArrayIntTypeName has syntax that starts with "value" index word, followed by Int of class IntTypeName, 
