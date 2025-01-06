@@ -267,7 +267,7 @@ Argue is argue that is passed into the maide being called.
 RefMaideOperate is operate that results memory index of maide.
 The operate has syntax that starts with "ref" index word, 
 followed by "maide" index word, followed by Class of class ClassName,
-followed by Maide of class MaideName.
+followed by limit dot token, followed by Maide of class MaideName.
 Class is the class the maide in.
 Maide is the maide name.
 
