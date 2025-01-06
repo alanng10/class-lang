@@ -283,7 +283,7 @@ The call interface is not declared.
 The call can be passed with argue that is any integer multiple of ref.
 The call can be passed with argue that is any ref.
 The call argue list count is not declared.
-The call argue list type is not declared.
+The call argue list Type is not declared.
 The call result Type is 64 bits IntType.
 It is programming error, to passed argue with different count of ref with declared param count of the maide, in the call.
 
