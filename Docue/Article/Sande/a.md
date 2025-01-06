@@ -261,6 +261,7 @@ RefCallOperate has syntax that starts with "call" index word,
 followed by Var of class VarName, followed by limit brace round open token,
 followed by Argue of class Argue, followed by limit brace round close token.
 Var is the var that hold ref value that is the maide memory index.
+Var Type is any Type.
 Argue is argue that is passed into the maide being called.
 
 RefMaideOperate is operate that results memory index of maide.
