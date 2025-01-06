@@ -90,7 +90,7 @@ followed by Param of class Param, followed by limit brace round close token,
 followed by limit brace open token, followed by Call of class State, 
 followed by limit brace close token.
 
-Param node is list of VarName. The list is delimited by limit comma.
+Param node is list of Var. The list is delimited by limit comma.
 
 CallOperate is operate that call a maide.
 The operate has syntax that starts with Class of class ClassName, 
