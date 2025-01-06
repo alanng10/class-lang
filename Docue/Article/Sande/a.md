@@ -36,15 +36,16 @@ Maide state can have operate.
 Operate results ref.
 Input of lang elements also is assigned ref.
 Marks can be assigned any ref.
-Int is 64 bits. Ref is 64 bits.
-Int any is passed with ref.
-Int value is stored in ref value 64 bits.
-Struct any is passed with ref.
+Ref is 64 bits.
 Ref has type.
 Type can be IntType.
 IntType is 64, 32, 16, or 8 bits int.
 Type can be StructType.
 StructType has StructName.
+Int any is passed with ref.
+Ref that has IntType has the int value stored in ref value.
+Struct any is passed with ref.
+
 StorageType is used to declare variable storage.
 
 Operate that is IntType that is smaller than 64 bits
