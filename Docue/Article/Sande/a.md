@@ -198,7 +198,9 @@ Calculate memory index with int operation operate lang elements is enough elemen
 do any calculate of memory index.
 
 InfExecute and WhileExecute cond operates input any IntType ref value as bool.
+The IntType is any IntKind.
 AndOperate, OrnOperate and NotOperate input any IntType ref value as bool.
+The IntType is any IntKind.
 The operates output zero or one ref value as bool.
 The operates has type that is 64 bits IntType.
 
