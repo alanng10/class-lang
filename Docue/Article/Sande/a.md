@@ -378,8 +378,7 @@ StringValue is not write able.
 This is enough element to do any string operation for effect.
 
 Sande does not need delegate type.
-System programming for effect does not need declared interface to 
-do ref call.
+System programming for effect does not need declared interface to do ref call.
 This is enough element to do any ref call for effect.
 
 Sande does not need enum.
