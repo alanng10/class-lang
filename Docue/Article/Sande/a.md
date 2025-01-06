@@ -270,6 +270,8 @@ followed by "maide" index word, followed by Class of class ClassName,
 followed by limit dot token, followed by Maide of class MaideName.
 Class is the class the maide in.
 Maide is the maide name.
+Memory index of maide Maide in class Class is resulted.
+The operate Type is 64 bits IntType.
 
 RefStructVarOperate is operate that results memory index of struct var.
 The operate has syntax that starts with "ref" index word, followed by "struct" index word, 
