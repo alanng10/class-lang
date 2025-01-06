@@ -377,6 +377,11 @@ The ValueOperate Type is string StructType.
 StringValue is not write able.
 This is enough element to do any string operation for effect.
 
+Sande does not need delegate type.
+System programming for effect does not need declared interface to 
+do ref call.
+This is enough element to do any ref call for effect.
+
 Sande does not need enum.
 Sande has StructType and glob var.
 Shared list is made with glob var of StructType and init with maide.
