@@ -279,20 +279,24 @@ followed by This of class Operate, followed by limit dot token,
 followed by Var of class VarName, 
 Field This Type is StructType.
 Memory index of struct var Var in struct any This is resulted.
+The operate Type is 64 bits IntType.
 
 RefGlobVarOperate is operate that results memory index of glob var.
 The operate has syntax that starts with "ref" index word, followed by "glob" index word, 
 followed by Class of class ClassName, followed by limit dot token, followed by Var of class VarName.
 Memory index of glob var Var in class Class is resulted.
+The operate Type is 64 bits IntType.
 
 RefVarOperate is operate that results memory index of local var.
 The operate has syntax that starts with "ref" index word, followed by Var of class VarName.
 Memory index of local var Var is resulted.
+The operate Type is 64 bits IntType.
 
 SizeOperate is operate that results struct type byte size count.
 The operate has syntax that starts with "size" index word, followed by Class of class ClassName, 
 followed by limit dot token, followed by Struct of class StructName.
 The byte size count of struct type Struct in class Class is resulted.
+The operate Type is 64 bits IntType.
 
 LessOperate, AddOperate, SubOperate, MulOperate, DivOperate, SignLessOperate, 
 SignMulOperate, SignDivOperate, BitAndOperate, BitOrnOperate, BitNotOperate, 
