@@ -92,6 +92,7 @@ Struct node has syntax that starts with "struct" index word, followed by Count o
 followed by Name of class StructName,
 followed by limit brace curve open token, followed by Part of class StructPart,
 followed by limit brace curve close token.
+
 StructPart is list of Var. The list is delimited by limit semicolon token.
 
 Glob vars are represented with GlobVar.
