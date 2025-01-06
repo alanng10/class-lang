@@ -144,11 +144,16 @@ Var node syntax starts with "var" index word, followed by TypeName, followed by 
 
 TypeName class is base class.
 The class has 4 derived class.
-1 derived class is IntTypeName. IntTypeName represents int type name.
+1 derived class is IntTypeName.
+IntTypeName represents IntType name.
 The int type can be byte, short, mid or int.
 IntTypeName has syntax that is "byte" index word, "short" index word, "mid" index word, or "int" index word.
-IntTypeName class has 1 field with name Type, that has IntType class. The field has one of IntType anys in IntType list.
+IntTypeName class has 1 field with name Kind, that has IntKind class. The field has one of IntKind anys in IntKind list.
 1 derived class is StructTypeName.
+StructTypeName represents StructType name.
+StructTypeName has syntax that is Class of class ClassName, 
+followed by Struct of class StructName.
+
 StructTypeName represents value struct type name.
 StructTypeName has syntax that starts with "value" index word, followed by Class of class ClassName, 
 followed by Struct of class StructName.
