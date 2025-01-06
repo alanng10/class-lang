@@ -166,7 +166,7 @@ Field Type is the StorageType.
 
 TypeName represents StorageType.
 TypeName class is base class.
-The class has 4 derived class.
+The class has 5 derived class.
 1 derived class is IntTypeName.
 IntTypeName represents IntType name.
 IntTypeName has syntax that is Kind of class IntKind.
