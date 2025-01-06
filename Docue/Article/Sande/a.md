@@ -206,6 +206,8 @@ Var that has StorageType that is array, is 1 dimensional array.
 
 IntValue represents int value.
 IntValue class is base class.
+The class has 4 derived class.
+The derived classes are IntDecValue, IntDecSignValue, IntHexValue and IntHexSignValue.
 
 Calculate memory index with int operation operate lang elements is enough element to
 do any calculate of memory index.
