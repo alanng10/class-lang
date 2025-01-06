@@ -71,6 +71,9 @@ Class node has syntax that starts with "class" index word, followed by Name of c
 followed by limit brace open token, followed by Part of class Part, 
 followed by limit brace close token.
 
+Comp node has 3 derived nodes.
+They are Struct, Glob and Maide.
+
 Struct node has syntax that starts with "struct" index word, followed by Count of class Count, 
 followed by Name of class StructName,
 followed by limit brace open token, followed by Part of class StructPart,
