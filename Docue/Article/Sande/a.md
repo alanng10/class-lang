@@ -264,7 +264,7 @@ AreExecute has syntax that is same as in Class Lang.
 CopyExecute is execute that copies struct any from source to dest.
 The execute has syntax that starts with "copy" index word, 
 followed by limit brace round open token,
-followed by Dest of class Operate, followed by limit comma, 
+followed by Dest of class Operate, followed by limit comma token, 
 followed by Source of class Operate, followed by limit brace round close token, 
 followed by limit semicolon token.
 Dest is memory index of the copy destination.
