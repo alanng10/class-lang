@@ -301,7 +301,11 @@ The operate Type is 64 bits IntType.
 LessOperate, AddOperate, SubOperate, MulOperate, DivOperate, SignLessOperate, 
 SignMulOperate, SignDivOperate, BitAndOperate, BitOrnOperate, BitNotOperate, 
 BitLiteOperate, BitRiteOperate and BitSignRiteOperate have syntaxs that are same as Class Lang.
-The operates input 64 bits int values in refs.
+The operates input Type is IntType.
+The input IntType is int type of Kind.
+The operates output Type is IntType.
+The output IntType is the int type of Kind that same as input Kind.
+
 Operates that output int values output 64 bits int values in refs.
 The operates do 64 bits int operations instead of 60 bits in Class Lang.
 
