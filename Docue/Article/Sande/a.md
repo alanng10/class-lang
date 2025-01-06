@@ -65,10 +65,6 @@ Input value that is not zero is input bool true.
 Bool output of lang element has type that is 64 bits IntType.
 Bool output only outputs zero or one.
 
-Sande Lang has cast operate.
-CastOperate is operate that results ref of reinterpret cast of struct type any or 
-ref of int type conversion of int type int.
-
 Maide is shared maide. It has no this ref.
 Maide has param. The param is var list.
 Param var holds a ref.
@@ -215,6 +211,12 @@ The var cannot be assigned to.
 Var that has StorageType that is array, is 1 dimensional array.
 
 Maide Param Var StorageType is IntTypeName or StructTypeName.
+
+CastOperate is operate that results ref of reinterpret cast of struct type any or 
+ref of int type conversion of int type int.
+The operate has syntax that starts with "cast" index word, followed by Type of class TypeName,
+followed by limit brace round open token, followed by Any of class Operate, 
+followed by limit brace round close token.
 
 IntValue represents int value.
 IntValue class is base class.
