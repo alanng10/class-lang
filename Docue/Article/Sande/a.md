@@ -323,7 +323,7 @@ The operate Type is 64 bits IntType.
 RefStructVarOperate is operate that results memory index of struct var.
 The operate has syntax that starts with "ref" index word, followed by "struct" index word, 
 followed by limit brace round open token, followed by This of class Operate, 
-followed by limit brace round close token, followed by Var of class VarName.
+followed by limit brace round close token, followed by limit dot token, followed by Var of class VarName.
 Field This Type is StructType.
 Memory index of struct var Var in struct any This is resulted.
 The operate Type is 64 bits IntType.
