@@ -208,6 +208,10 @@ IntValue represents int value.
 IntValue class is base class.
 The class has 4 derived class.
 The derived classes are IntDecValue, IntDecSignValue, IntHexValue and IntHexSignValue.
+IntDecValue corresponds to IntValue in Class Lang.
+IntDecSignValue corresponds to IntSignValue in Class Lang.
+They have prefixs that are same as corresponding nodes in Class Lang.
+The values syntaxs valid ints are unsigned 64 bits or signed 64 bits.
 
 Calculate memory index with int operation operate lang elements is enough element to
 do any calculate of memory index.
@@ -290,9 +294,6 @@ BitLiteOperate, BitRiteOperate and BitSignRiteOperate have syntaxs that are same
 The operates input 64 bits int values in refs.
 Operates that output int values output 64 bits int values in refs.
 The operates do 64 bits int operations instead of 60 bits in Class Lang.
-
-IntValue, IntHexValue, IntSignValue, IntHexSignValue have prefixs that are same as Class Lang.
-The values syntaxs valid ints are unsigned 64 bits or signed 64 bits.
 
 StringValue uses 32 bits int as char unit.
 ValueOperate that has StringValue, results memory index of the string struct
