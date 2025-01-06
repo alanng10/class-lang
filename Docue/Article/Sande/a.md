@@ -56,6 +56,15 @@ Mark that is IntType that is smaller than 64 bits, inputs int any ref.
 The lower bits of the input ref value is assigned to the store of the mark.
 The upper bits of the input ref value are not used.
 
+Bool is represented with IntType.
+Bool false is represented with int value zero.
+Bool true is represented with int value one.
+Bool input of lang element has type that is IntType.
+The IntType is any IntKind.
+Input value that is not zero is input bool true.
+Bool output of lang element has type that is 64 bits IntType.
+Bool output only outputs zero or one.
+
 Sande Lang has cast operate.
 CastOperate is operate that results ref of reinterpret cast of struct type any or 
 ref of int type conversion of int type int.
