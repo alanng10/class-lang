@@ -65,9 +65,9 @@ The maide state param var is the argue ref.
 Param var is get and set as any other local var.
 The call results a ref.
 
-Sande has no null operate.
+Sande has null operate.
 Null has ref value that is zero.
-Null ref value can be resulted with int value zero.
+Null can be assigned to ref holder of StructType.
 
 Maide that ends without return execute, results null.
 
