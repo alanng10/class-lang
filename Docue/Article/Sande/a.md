@@ -71,10 +71,10 @@ ref of int type conversion of int type int.
 
 Maide is shared maide. It has no this ref.
 Maide has param. The param is var list.
-Param var holds a ref. Param var has type.
-Param var type is Type.
+Param var holds a ref.
+Param var has Type.
 Maide result is a ref.
-Maide result has type.
+Maide result has Type.
 
 Maide call argue is passed with ref.
 The call can be passed with argue that has same count of ref as the maide param var count.
