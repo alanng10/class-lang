@@ -255,6 +255,7 @@ IntMemoryOperate is operate that results IntType value get from memory index.
 The operate has syntax that starts with Kind of class IntKind, followed by limit brace round open token, 
 followed by Any of class Operate, followed by limit brace round close token.
 Any is the memory index.
+Any has Type that is any Type.
 The IntType is int type of Kind.
 The operate results IntType value that get from memory index Any.
 The operate Type is the IntType.
