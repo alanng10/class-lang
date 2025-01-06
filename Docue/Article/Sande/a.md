@@ -208,6 +208,8 @@ The var cannot be assigned to.
 
 Var that has StorageType that is array, is 1 dimensional array.
 
+Maide Param Var StorageType is IntTypeName or StructTypeName.
+
 IntValue represents int value.
 IntValue class is base class.
 The class has 4 derived class.
