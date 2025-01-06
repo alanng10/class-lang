@@ -344,6 +344,11 @@ Output that is bool value is 64 bit IntType, that is same as bool operation oper
 Operates that output int values output 64 bits int values in refs.
 The operates do 64 bits int operations instead of 60 bits in Class Lang.
 
+IntType any sign extend to more bit count is done with 
+BitLiteOperate to shift lite to highest bit, followed by BitSignRiteOperate to 
+sign shift rite back to original bit.
+This is enough element to do any int sign extend.
+
 StringValue uses 32 bits int as char unit.
 ValueOperate that has StringValue, results memory index of the string struct
 any of the string value.
