@@ -47,6 +47,9 @@ Ref that has IntType has the int value stored in ref value.
 Struct any is passed with ref.
 Ref that has StructType has the memory index of the struct any stored in ref value.
 
+Ref that is assigned input of lang elements is required 
+to has Type that that input requires.
+
 StorageType is used to declare variable storage.
 
 Operate that is IntType that is smaller than 64 bits
