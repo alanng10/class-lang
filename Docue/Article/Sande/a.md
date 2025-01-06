@@ -140,8 +140,8 @@ VarMark is mark that input local var.
 The mark has syntax that is same as VarOperate.
 The mark Type is the local var Type.
 
-Struct vars types, glob vars types and local vars types are declared.
-The node is TypeName.
+Var node syntax starts with "var" index word, followed by TypeName, followed by VarName.
+
 TypeName class is base class.
 The class has 4 derived class.
 1 derived class is IntTypeName. IntTypeName represents int type name.
@@ -172,9 +172,6 @@ Value can be either IntValue, IntHexValue, IntSignValue or IntHexSignValue.
 Struct vars, glob vars and local vars that are declared with ArrayIntTypeName are allocated space for the arrays of int anys with the type Int.
 The vars hold ref values that are memory indexes of the allocated arrays.
 The vars cannot be assigned to.
-
-Struct vars, glob vars and local vars are declared with Var node.
-Var node syntax starts with "var" index word, followed by TypeName, followed by VarName.
 
 Struct vars, glob vars and local vars that are arrays, are 1 dimensional arrays.
 
