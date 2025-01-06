@@ -153,7 +153,7 @@ The mark Type is the local var Type.
 
 IntKind node represents int kind of different sizes.
 The node has syntax that is "byte" index word, "short" index word, "mid" index word, or "int" index word.
-The node is one item in IntKind list.
+The node is one item in IntKind shared list.
 
 Var node syntax starts with "var" index word, followed by Type of class TypeName, 
 followed by Var of class VarName.
