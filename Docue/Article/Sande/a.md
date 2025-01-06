@@ -42,11 +42,13 @@ Int value is stored in ref value 64 bits.
 Struct any is passed with ref.
 Ref has type.
 Type can be int type or struct type.
-Int type is 64 bits int.
+Int type is 64, 32, 16, or 8 bits int.
 A struct type has StructName.
 Storage type is used to declare variable storage.
 
-Sande Lang does not need cast operate.
+Sande Lang has cast operate.
+CastOperate is operate that results ref of reinterpret cast of struct type any or 
+ref of int type conversion of int type int.
 
 Maide is shared maide. It has no this ref.
 Maide has param. The param is var list.
