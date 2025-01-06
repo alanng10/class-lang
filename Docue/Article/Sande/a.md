@@ -236,7 +236,7 @@ They have prefixs that are same as corresponding nodes in Class Lang.
 The values syntaxs valid ints are unsigned 64 bits or signed 64 bits.
 
 Calculate memory index with int operation operate lang elements is enough element to
-do any calculate of memory index
+do any calculate of memory index.
 
 IntOperate is operate that results IntType value get from memory index.
 The operate has syntax that starts with Kind of class IntKind, followed by limit brace round open token, 
