@@ -100,7 +100,7 @@ StructPart is list of Var. The list is delimited by limit semicolon.
 
 Glob vars are represented with GlobVar.
 GlobVar has syntax that starts with "glob" index word, followed by Count of class Count, 
-followed by Var, followed by limit semicolon.
+followed by Var of class Var, followed by limit semicolon.
 
 Maide node has syntax that starts with "maide" index word, followed by Count of class Count, 
 followed by Type of class TypeName, followed by Name of class MaideName, 
