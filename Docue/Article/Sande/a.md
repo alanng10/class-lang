@@ -220,6 +220,8 @@ followed by limit brace round close token.
 Field Type is the type of result ref.
 Any is int any or struct any that is being casted.
 Type is IntTypeName or StructTypeName.
+Type is IntTypeName if Any is IntType.
+Type is 64 bits IntTypeName or StructTypeName if Any is StructType.
 
 IntValue represents int value.
 IntValue class is base class.
