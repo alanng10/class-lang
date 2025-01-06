@@ -185,7 +185,7 @@ The var holds ref value that is memory index of the allocated array.
 The var Type is 64 bits IntType.
 The var cannot be assigned to.
 
-Struct vars, glob vars and local vars that are arrays, are 1 dimensional arrays.
+Var that has StorageType that is array, is 1 dimensional array.
 
 Calculate memory index with int operation operate lang elements is enough element to
 do any calculate of memory index.
