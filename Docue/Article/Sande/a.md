@@ -50,6 +50,8 @@ Sande Lang does not need cast operate.
 System programming for effect does not need ref that has type.
 System programming for effect does reinterpret cast if ref has type.
 If it has reinterpret cast, type checking can be override.
+If type checking can be override, the user needs to take care of all
+the ref interpret in source.
 If type checking can be override, type checking is not needed.
 System programming for effect does not need type checking because 
 it will have reinterpret cast if ref has type.
