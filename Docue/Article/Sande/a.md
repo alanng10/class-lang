@@ -311,6 +311,8 @@ Var Type is any Type.
 Argue is argue that is passed into the maide being called.
 Maide at memory Index Var is called with argue Argue passed in.
 
+This is enough element to do any ref call for effect.
+
 RefMaideOperate is operate that results memory index of maide.
 The operate has syntax that starts with "ref" index word, 
 followed by "maide" index word, followed by Class of class ClassName,
