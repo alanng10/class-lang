@@ -61,8 +61,8 @@ public class NodeKindList : Any
         this.Value = this.AddItem("Value", new Value(), new ValueNewState(), new ValueNodeState(), new ValueCreateSetState());
         this.BoolValue = this.AddItem("BoolValue", new BoolValue(), new BoolValueNewState(), new BoolValueNodeState(), new BoolValueCreateSetState());
         this.IntValue = this.AddItem("IntValue", new IntValue(), new IntValueNewState(), new IntValueNodeState(), new IntValueCreateSetState());
-        this.IntHexValue = this.AddItem("IntHexValue", new IntHexValue(), new IntHexValueNewState(), new IntHexValueNodeState(), new IntHexValueCreateSetState());
         this.IntSignValue = this.AddItem("IntSignValue", new IntSignValue(), new IntSignValueNewState(), new IntSignValueNodeState(), new IntSignValueCreateSetState());
+        this.IntHexValue = this.AddItem("IntHexValue", new IntHexValue(), new IntHexValueNewState(), new IntHexValueNodeState(), new IntHexValueCreateSetState());
         this.IntHexSignValue = this.AddItem("IntHexSignValue", new IntHexSignValue(), new IntHexSignValueNewState(), new IntHexSignValueNodeState(), new IntHexSignValueCreateSetState());
         this.StringValue = this.AddItem("StringValue", new StringValue(), new StringValueNewState(), new StringValueNodeState(), new StringValueCreateSetState());
         this.ClassName = this.AddItem("ClassName", new ClassName(), new ClassNameNewState(), new ClassNameNodeState(), new ClassNameCreateSetState());
@@ -129,8 +129,8 @@ public class NodeKindList : Any
     public virtual NodeKind Value { get; set; }
     public virtual NodeKind BoolValue { get; set; }
     public virtual NodeKind IntValue { get; set; }
-    public virtual NodeKind IntHexValue { get; set; }
     public virtual NodeKind IntSignValue { get; set; }
+    public virtual NodeKind IntHexValue { get; set; }
     public virtual NodeKind IntHexSignValue { get; set; }
     public virtual NodeKind StringValue { get; set; }
     public virtual NodeKind ClassName { get; set; }

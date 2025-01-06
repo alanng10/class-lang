@@ -796,13 +796,13 @@ partial class ClassPathTravel
         return true;
     }
 
-    public override bool ExecuteIntHexValue(IntHexValue intHexValue)
+    public override bool ExecuteIntSignValue(IntSignValue intSignValue)
     {
-        if (intHexValue == null)
+        if (intSignValue == null)
         {
             return true;
         }
-        this.ExecuteNode(intHexValue);
+        this.ExecuteNode(intSignValue);
 
         if (this.HasResult())
         {
@@ -811,13 +811,13 @@ partial class ClassPathTravel
         return true;
     }
 
-    public override bool ExecuteIntSignValue(IntSignValue intSignValue)
+    public override bool ExecuteIntHexValue(IntHexValue intHexValue)
     {
-        if (intSignValue == null)
+        if (intHexValue == null)
         {
             return true;
         }
-        this.ExecuteNode(intSignValue);
+        this.ExecuteNode(intHexValue);
 
         if (this.HasResult())
         {

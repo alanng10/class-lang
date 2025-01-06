@@ -660,13 +660,13 @@ public class Travel : Any
         {
             this.ExecuteIntValue((IntValue)value);
         }
-        if (value is IntHexValue)
-        {
-            this.ExecuteIntHexValue((IntHexValue)value);
-        }
         if (value is IntSignValue)
         {
             this.ExecuteIntSignValue((IntSignValue)value);
+        }
+        if (value is IntHexValue)
+        {
+            this.ExecuteIntHexValue((IntHexValue)value);
         }
         if (value is IntHexSignValue)
         {
@@ -699,16 +699,6 @@ public class Travel : Any
         return true;
     }
 
-    public virtual bool ExecuteIntHexValue(IntHexValue intHexValue)
-    {
-        if (intHexValue == null)
-        {
-            return true;
-        }
-        this.ExecuteNode(intHexValue);
-        return true;
-    }
-
     public virtual bool ExecuteIntSignValue(IntSignValue intSignValue)
     {
         if (intSignValue == null)
@@ -716,6 +706,16 @@ public class Travel : Any
             return true;
         }
         this.ExecuteNode(intSignValue);
+        return true;
+    }
+
+    public virtual bool ExecuteIntHexValue(IntHexValue intHexValue)
+    {
+        if (intHexValue == null)
+        {
+            return true;
+        }
+        this.ExecuteNode(intHexValue);
         return true;
     }
 
