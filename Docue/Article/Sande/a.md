@@ -162,10 +162,10 @@ The var holds ref value that is memory index of the allocated struct any.
 The var Type is the StructType.
 The var cannot be assigned to.
 1 derived class is ArrayStructTypeName.
-ArrayStructTypeName represents array of struct type name.
+ArrayStructTypeName represents value array of StructType name.
 ArrayStructTypeName has syntax that starts with "value" index word, followed by Class of class ClassName, 
-followed by Struct of class StructName, followed by limit brace square open token, 
-followed by Value, followed by limit brace square close token.
+followed by limit dot token, followed by Struct of class StructName, followed by limit brace right open token, 
+followed by Value of class Value, followed by limit brace right close token.
 Value can be either IntValue, IntHexValue, IntSignValue or IntHexSignValue.
 Struct vars, glob vars and local vars that are declared with ArrayStructTypeName are allocated space for the arrays of struct anys.
 The vars hold ref values that are memory indexes of the allocated arrays.
