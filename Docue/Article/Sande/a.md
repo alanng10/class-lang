@@ -280,6 +280,7 @@ AreExecute has syntax that is same as in Class Lang.
 
 ReturnExecute is execute that refers result and returns to current maide caller.
 ReturnExecute has syntax that is same as in Class Lang.
+The execute field Result has Type that is the Type of the current maide.
 
 CopyExecute is execute that copies struct any from source to dest.
 The execute has syntax that starts with "copy" index word, 
