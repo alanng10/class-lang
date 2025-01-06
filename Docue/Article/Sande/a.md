@@ -221,9 +221,6 @@ The IntType is int type of Kind.
 The mark inputs IntType value that set to memory index Any.
 The mark type is the IntType.
 
-Sande does not need short and mid int operate and mark.
-This is enough element to do any int get and set.
-
 AreExecute is execute that assign ref to mark.
 AreExecute has syntax that is same as in Class Lang.
 
