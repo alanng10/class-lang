@@ -266,7 +266,7 @@ The execute has syntax that starts with "copy" index word,
 followed by limit brace round open token,
 followed by Dest of class Operate, followed by limit comma, 
 followed by Source of class Operate, followed by limit brace round close token, 
-followed by limit semicolon.
+followed by limit semicolon token.
 Dest is memory index of the copy destination.
 Source is memory index of the copy source.
 Dest Type is StructType.
