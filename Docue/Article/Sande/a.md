@@ -174,9 +174,9 @@ Var that is declared with ArrayStructTypeName is allocated space for the array o
 The var holds ref value that is memory index of the allocated array.
 The var cannot be assigned to.
 1 derived class is ArrayIntTypeName.
-ArrayIntTypeName represents array of int type name.
+ArrayIntTypeName represents value array of int IntType name.
 ArrayIntTypeName has syntax that starts with "value" index word, followed by Int of class IntTypeName, 
-followed by limit brace square open token, followed by Value, followed by limit brace square close token.
+followed by limit brace right open token, followed by Value, followed by limit brace right close token.
 Value can be either IntValue, IntHexValue, IntSignValue or IntHexSignValue.
 Struct vars, glob vars and local vars that are declared with ArrayIntTypeName are allocated space for the arrays of int anys with the type Int.
 The vars hold ref values that are memory indexes of the allocated arrays.
