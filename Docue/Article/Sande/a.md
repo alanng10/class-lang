@@ -349,6 +349,8 @@ BitLiteOperate to shift lite to highest bit, followed by BitSignRiteOperate to
 sign shift rite back to original bit.
 This is enough element to do any int sign extend.
 
+This is enough element to do any int sign operation.
+
 StringValue uses 32 bits int as char unit.
 ValueOperate that has StringValue, results memory index of the string struct
 any of the string value.
