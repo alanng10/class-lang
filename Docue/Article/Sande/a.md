@@ -47,6 +47,13 @@ Type can be StructType.
 StructType has StructName.
 StorageType is used to declare variable storage.
 
+Operate that is IntType that is smaller than 64 bits
+results int any ref that has the int value at lower bits in the ref value.
+The upper bits are zero.
+Mark that is IntType that is smaller than 64 bits, inputs int any ref.
+The lower bits of the input ref value is assigned to the store of the mark.
+The upper bits of the input ref value are not used.
+
 Sande Lang has cast operate.
 CastOperate is operate that results ref of reinterpret cast of struct type any or 
 ref of int type conversion of int type int.
@@ -132,14 +139,6 @@ The operate Type is the local var Type.
 VarMark is mark that input local var.
 The mark has syntax that is same as VarOperate.
 The mark Type is the local var Type.
-
-Struct var, glob var and local var operate of var that is int type that is smaller than 64 bits
-results int any ref that has the int value at lower bits in the ref value.
-The upper bits are zero.
-Struct var, glob var and local var mark of the var, inputs int any ref 
-from AreExecute Value operate.
-The lower bits of the ref value is assigned to the store of the var.
-The upper bits of the ref value are not used.
 
 Struct vars types, glob vars types and local vars types are declared.
 The node is TypeName.
