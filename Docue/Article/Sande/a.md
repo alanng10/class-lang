@@ -172,7 +172,7 @@ ArrayStructTypeName has syntax that starts with "value" index word, followed by 
 followed by limit dot token, followed by Struct of class StructName, followed by limit brace right open token, 
 followed by Count of class IntValue, followed by limit brace right close token.
 The StructType is struct Struct in class Class.
-Var that is declared with ArrayStructTypeName is allocated space for the array of struct anys of the StructType.
+Var that is declared with ArrayStructTypeName is allocated space for the array of count Count of struct anys of the StructType.
 The var holds ref value that is memory index of the allocated array.
 The var Type is the StructType.
 The var cannot be assigned to.
@@ -182,7 +182,7 @@ ArrayIntTypeName has syntax that starts with "value" index word, followed by Kin
 followed by limit brace right open token, followed by Count of class IntValue, 
 followed by limit brace right close token.
 The IntType is the int type of Kind.
-Var that is declared with ArrayIntTypeName is allocated space for the array of int anys with the IntType.
+Var that is declared with ArrayIntTypeName is allocated space for the array of count Count of int anys with the IntType.
 The var holds ref value that is memory index of the allocated array.
 The var Type is 64 bits IntType.
 The var cannot be assigned to.
