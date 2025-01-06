@@ -216,6 +216,8 @@ Var that has StorageType that is array, is 1 dimensional array.
 
 Maide Param Var StorageType is IntTypeName or StructTypeName.
 
+Maide Type is IntTypeName or StructTypeName.
+
 CastOperate is operate that results ref of reinterpret cast of StructType any or 
 ref of IntType conversion of IntType int.
 The operate has syntax that starts with "cast" index word, followed by Type of class TypeName,
