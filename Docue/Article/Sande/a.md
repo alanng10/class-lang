@@ -153,10 +153,10 @@ The mark Type is the local var Type.
 
 IntKind node represents int kind of different sizes.
 The node has syntax that is 1 of 4 index words.
-Byte int kind uses "byte" index word.
-Short int kind uses "short" index word.
-Mid int kind uses "mid" index word.
-Int int kind uses "int" index word.
+8 bits int kind uses "byte" index word.
+16 bits int kind uses "short" index word.
+32 bits int kind uses "mid" index word.
+64 bits int kind uses "int" index word.
 The node is one item in IntKind shared list.
 
 Var node syntax starts with "var" index word, followed by Type of class TypeName, 
