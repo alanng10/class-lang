@@ -59,7 +59,7 @@ Maide result has type.
 
 Maide call argue is passed with ref.
 The call can be passed with argue that has same count of ref as the maide param var count.
-The call can be passed with argue that is any ref.
+The call can be passed with argue that are refs with types that are same as the types of the param vars.
 The maide state param var is the argue ref.
 Param var is get and set as any other local var.
 The call results a ref.
