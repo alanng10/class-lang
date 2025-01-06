@@ -170,8 +170,7 @@ The var cannot be assigned to.
 ArrayStructTypeName represents value array of StructType name.
 ArrayStructTypeName has syntax that starts with "value" index word, followed by Class of class ClassName, 
 followed by limit dot token, followed by Struct of class StructName, followed by limit brace right open token, 
-followed by Value of class Value, followed by limit brace right close token.
-Value can be either IntValue, IntHexValue, IntSignValue or IntHexSignValue.
+followed by Count of class IntValue, followed by limit brace right close token.
 The StructType is struct Struct in class Class.
 Var that is declared with ArrayStructTypeName is allocated space for the array of struct anys of the StructType.
 The var holds ref value that is memory index of the allocated array.
@@ -180,8 +179,8 @@ The var cannot be assigned to.
 1 derived class is ArrayIntTypeName.
 ArrayIntTypeName represents value array of IntType name.
 ArrayIntTypeName has syntax that starts with "value" index word, followed by Kind of class IntKind, 
-followed by limit brace right open token, followed by Value, followed by limit brace right close token.
-Value can be either IntValue, IntHexValue, IntSignValue or IntHexSignValue.
+followed by limit brace right open token, followed by Count of class IntValue, 
+followed by limit brace right close token.
 The IntType is the int type of Kind.
 Var that is declared with ArrayIntTypeName is allocated space for the array of int anys with the IntType.
 The var holds ref value that is memory index of the allocated array.
