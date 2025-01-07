@@ -289,7 +289,7 @@ followed by limit semicolon token.
 Dest is memory index of the copy destination.
 Source is memory index of the copy source.
 Dest Type is StructType.
-Source Type is any type.
+Source Type is any Type.
 Dest Type is the StructType being copied.
 This execute copies struct any of the Dest Type from Source to Dest.
 
