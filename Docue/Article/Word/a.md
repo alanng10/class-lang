@@ -202,6 +202,8 @@ Word "send" has meaning that is send info.
 
 Word "cive" has meaning that is receive info.
 
+Word "specify" has meaning that is specific.
+
 Word "out" has meaning that is output destination.
 
 Word "err" has meaning that is error destination.
