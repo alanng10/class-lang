@@ -50,6 +50,8 @@ Word "inform" has meaning that is made of data.
 
 Word "exform" has meaning that is made of tangible.
 
+Word "calc" has meaning that is calculate integer.
+
 Word "edit" has meaning that is text edit.
 
 Word "factor" has meaning that is refactor.
