@@ -12,4 +12,4 @@ The English uses the word "i" instead of the word "I".
 
 The English uses the word "is" instead of the word "are".
 
-The English uses root word for verb.
+The English uses root words for verbs.
