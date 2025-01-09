@@ -13,3 +13,7 @@ The English uses the word "i" instead of the word "I".
 The English uses the word "is" instead of the word "are".
 
 The English uses root words for verbs.
+
+The English uses "did" for past verb phrase.
+
+The English uses "will" for future verb phrase.
