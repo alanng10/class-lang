@@ -10,7 +10,7 @@ The English uses the word "him" instead of the word "her".
 
 The English uses the word "i" instead of the word "I".
 
-The English uses the word "is" instead of the word "are".
+The English uses the word "is" instead of the word "are" and the word "am".
 
 The English uses root words for verbs.
 
