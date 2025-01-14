@@ -182,6 +182,8 @@ Word "site" has meaning that is down.
 
 Word "more" has meaning that is reverse less.
 
+Word "match" has meaning that is matched entity.
+
 Word "body" has meaning that is after head.
 
 Word "pass" has meaning that is result valid.
