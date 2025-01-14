@@ -36,8 +36,8 @@ public class LimitList : Any
         this.NotSign = this.AddItem("~");
         this.LessSign = this.AddItem("<");
         this.MoreSign = this.AddItem(">");
-        this.BraceLite = this.AddItem("(");
-        this.BraceRite = this.AddItem(")");
+        this.BraceRoundLite = this.AddItem("(");
+        this.BraceRoundRite = this.AddItem(")");
         this.BraceCurveLite = this.AddItem("{");
         this.BraceCurveRite = this.AddItem("}");
         return true;
@@ -57,8 +57,8 @@ public class LimitList : Any
     public virtual Limit NotSign { get; set; }
     public virtual Limit LessSign { get; set; }
     public virtual Limit MoreSign { get; set; }
-    public virtual Limit BraceLite { get; set; }
-    public virtual Limit BraceRite { get; set; }
+    public virtual Limit BraceRoundLite { get; set; }
+    public virtual Limit BraceRoundRite { get; set; }
     public virtual Limit BraceCurveLite { get; set; }
     public virtual Limit BraceCurveRite { get; set; }
 
