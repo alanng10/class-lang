@@ -32,8 +32,7 @@ public class Gen : Any
         nodeStateGen.Execute();
 
         CreateSetStateGen createSetStateGen;
-        createSetStateGen = new CreateSetStateGen();
-        createSetStateGen.Init();
+        createSetStateGen = this.CreateCreateSetStateGen();
         createSetStateGen.ClassTable = classTable;
         createSetStateGen.Execute();
 
@@ -85,6 +84,14 @@ public class Gen : Any
     {
         NodeStateGen a;
         a = new NodeStateGen();
+        a.Init();
+        return a;
+    }
+
+    protected virtual CreateSetStateGen CreateCreateSetStateGen()
+    {
+        CreateSetStateGen a;
+        a = new CreateSetStateGen();
         a.Init();
         return a;
     }
