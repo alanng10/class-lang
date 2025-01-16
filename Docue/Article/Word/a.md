@@ -204,6 +204,8 @@ Word "struct" has meaning that is structure.
 
 Word "delgate" has meaning that is call interface.
 
+Word "macro" has meaning that is macro define.
+
 Word "assem" has meaning that is assembly.
 
 Word "except" has meaning that is exception.
