@@ -35,7 +35,7 @@ public class Read : ToolBase
         return a;
     }
 
-    public virtual int Execute()
+    public virtual long Execute()
     {
         bool b;
 
