@@ -7,6 +7,7 @@ public class CreateSetStateGen : ToolBase
         base.Init();
         this.BoolClass = this.TextCreate(this.S("Bool"));
         this.IntClass = this.TextCreate(this.S("Int"));
+        this.OutputFoldPath = this.S("../../Saber/Saber.Node");
         return true;
     }
 
@@ -19,7 +20,6 @@ public class CreateSetStateGen : ToolBase
     public virtual long Execute()
     {
         this.SourceFileName = this.S("ToolData/Saber/CreateSetStateSource.txt");
-        this.OutputFoldPath = this.S("../../Saber/Saber.Node");
 
         String kk;
         kk = this.ToolInfra.StorageTextRead(this.SourceFileName);
@@ -51,7 +51,7 @@ public class CreateSetStateGen : ToolBase
             a = this.StringCreate(k);
 
             String path;
-            path = this.GetOutputFilePath(kind);
+            path = this.OutputFilePath(kind);
 
             this.ToolInfra.StorageTextWrite(path, a);
         }
@@ -161,13 +161,13 @@ public class CreateSetStateGen : ToolBase
         return true;
     }
 
-    protected virtual String GetOutputFilePath(String kind)
+    protected virtual String OutputFilePath(String kind)
     {
         String fileName;
         fileName = this.AddClear().AddS("Z_CreateSetState_").Add(kind).AddS(".cs").AddResult();
 
         String filePath;
-        filePath = this.AddClear().Add(this.OutputFoldPath).AddS("/").Add(fileName).AddResult();
+        filePath = this.AddClear().Add(this.OutputFoldPath).Add(this.TextInfra.PathCombine).Add(fileName).AddResult();
         return filePath;
     }
 }
