@@ -47,8 +47,7 @@ public class Gen : Any
         travelGen.Execute();
 
         TravelClassPathGen travelClassPathGen;
-        travelClassPathGen = new TravelClassPathGen();
-        travelClassPathGen.Init();
+        travelClassPathGen = this.CreateTravelClassPathGen();
         travelClassPathGen.ClassTable = classTable;
         travelClassPathGen.Execute();
         return 0;
