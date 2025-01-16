@@ -17,8 +17,7 @@ public class Gen : Any
         classTable = read.ClassTable;
 
         NodeGen nodeGen;
-        nodeGen = new NodeGen();
-        nodeGen.Init();
+        nodeGen = this.CreateNodeGen();
         nodeGen.ClassTable = classTable;
         nodeGen.Execute();
 
@@ -64,6 +63,14 @@ public class Gen : Any
     {
         Read a;
         a = new Read();
+        a.Init();
+        return a;
+    }
+    
+    protected virtual NodeGen CreateNodeGen()
+    {
+        NodeGen a;
+        a = new NodeGen();
         a.Init();
         return a;
     }
