@@ -55,10 +55,15 @@ public class NodeGen : ToolBase
         ka = this.StringCreate(k);
 
         String outputFilePath;
-        outputFilePath = this.AddClear().AddS("../../Saber/Saber.Node/Z_Node_").Add(varClass.Name).AddS(".cs").AddResult();
+        outputFilePath = this.OutputFilePath(varClass);
 
         this.ToolInfra.StorageTextWrite(outputFilePath, ka);
         return true;
+    }
+
+    protected virtual String OutputFilePath(Class varClass)
+    {
+        return this.AddClear().AddS("../../Saber/Saber.Node/Z_Node_").Add(varClass.Name).AddS(".cs").AddResult();
     }
 
     protected virtual String GetFieldListString(Table fieldList)
