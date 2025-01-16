@@ -200,7 +200,12 @@ Int Thread_Pause(Int o)
 
     if (m->Case == executeCase)
     {
-        Thread_OS_Pause(m->Handle);
+        Bool b;
+        b = Thread_OS_Pause(m->Handle);
+        if (!b)
+        {
+            Exit(40);
+        }
 
         Int pauseCase;
         pauseCase = Stat_ThreadCasePause(stat);
@@ -227,7 +232,12 @@ Int Thread_Resume(Int o)
 
     if (m->Case == pauseCase)
     {
-        Thread_OS_Resume(m->Handle);
+        Bool b;
+        b = Thread_OS_Resume(m->Handle);
+        if (!b)
+        {
+            Exit(41);
+        }
 
         Int executeCase;
         executeCase = Stat_ThreadCaseExecute(stat);
