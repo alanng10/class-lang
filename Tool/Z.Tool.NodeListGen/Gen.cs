@@ -42,8 +42,7 @@ public class Gen : Any
         nodeKindListGen.Execute();
 
         TravelGen travelGen;
-        travelGen = new TravelGen();
-        travelGen.Init();
+        travelGen = this.CreateTravelGen();
         travelGen.ClassTable = classTable;
         travelGen.Execute();
 
@@ -99,6 +98,14 @@ public class Gen : Any
     {
         NodeKindListGen a;
         a = new NodeKindListGen();
+        a.Init();
+        return a;
+    }
+
+    protected virtual TravelGen CreateTravelGen()
+    {
+        TravelGen a;
+        a = new TravelGen();
         a.Init();
         return a;
     }
