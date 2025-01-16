@@ -6,7 +6,7 @@ public class Gen : Any
     {
         Read read;
         read = this.CreateRead();
-        int oo;
+        long oo;
         oo = read.Execute();
         if (!(oo == 0))
         {
