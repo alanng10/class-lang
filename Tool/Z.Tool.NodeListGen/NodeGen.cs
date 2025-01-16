@@ -9,11 +9,13 @@ public class NodeGen : ToolBase
         this.IntClass = this.TextCreate(this.S("Int"));
         this.BoolClassWord = this.S("bool");
         this.IntClassWord = this.S("long");
+        this.OutputFoldPath = this.S("../../Saber/Saber.Node");
         return true;
     }
 
     public virtual Table ClassTable { get; set; }
     protected virtual String NodeSourceText { get; set; }
+    protected virtual String OutputFoldPath { get; set; }
     protected virtual Text BoolClass { get; set; }
     protected virtual Text IntClass { get; set; }
     protected virtual String BoolClassWord { get; set; }
@@ -63,7 +65,12 @@ public class NodeGen : ToolBase
 
     protected virtual String OutputFilePath(Class varClass)
     {
-        return this.AddClear().AddS("../../Saber/Saber.Node/Z_Node_").Add(varClass.Name).AddS(".cs").AddResult();
+        String fileName;
+        fileName = this.AddClear().AddS("Z_Node_").Add(varClass.Name).AddS(".cs").AddResult();
+
+        String a;
+        a = this.AddClear().Add(this.OutputFoldPath).Add(this.TextInfra.PathCombine).Add(fileName).AddResult();
+        return a;
     }
 
     protected virtual String GetFieldListString(Table fieldList)

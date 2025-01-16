@@ -50,7 +50,7 @@ public class NewStateGen : ToolBase
         fileName = this.AddClear().AddS("Z_NewState_").Add(kind).AddS(".cs").AddResult();
         
         String filePath;
-        filePath = this.AddClear().Add(this.OutputFoldPath).AddS("/").Add(fileName).AddResult();
+        filePath = this.AddClear().Add(this.OutputFoldPath).Add(this.TextInfra.PathCombine).Add(fileName).AddResult();
         return filePath;
     }
 }
