@@ -27,8 +27,7 @@ public class Gen : Any
         newStateGen.Execute();
 
         NodeStateGen nodeStateGen;
-        nodeStateGen = new NodeStateGen();
-        nodeStateGen.Init();
+        nodeStateGen = this.CreateNodeStateGen();
         nodeStateGen.ClassTable = classTable;
         nodeStateGen.Execute();
 
