@@ -2,11 +2,10 @@ namespace Z.Tool.NodeListGen;
 
 public class Gen : Any
 {
-    public virtual int Execute()
+    public virtual long Execute()
     {
         Read read;
-        read = new Read();
-        read.Init();
+        read = this.CreateRead();
         int oo;
         oo = read.Execute();
         if (!(oo == 0))
@@ -59,5 +58,13 @@ public class Gen : Any
         travelClassPathGen.ClassTable = classTable;
         travelClassPathGen.Execute();
         return 0;
+    }
+
+    protected virtual Read CreateRead()
+    {
+        Read a;
+        a = new Read();
+        a.Init();
+        return a;
     }
 }
