@@ -20,6 +20,8 @@ class Read : ToolBase
         this.TextA = this.CreateText();
         this.StringDataA = new StringData();
         this.StringDataA.Init();
+
+        this.NodeListFilePath = this.S("ToolData/Saber/NodeList.txt");
         return true;
     }
 
@@ -67,6 +69,7 @@ class Read : ToolBase
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual NameCheck NameCheck { get; set; }
     protected virtual Class Class { get; set; }
+    protected virtual String NodeListFilePath { get; set; }
     protected virtual Text BoolClass { get; set; }
     protected virtual Text IntClass { get; set; }
     protected virtual Text StringClass { get; set; }
@@ -79,7 +82,7 @@ class Read : ToolBase
         infra = this.ToolInfra;
 
         String ka;
-        ka = infra.StorageTextRead(this.S("ToolData/Saber/NodeList.txt"));
+        ka = infra.StorageTextRead(this.NodeListFilePath);
 
         Array lineArray;        
         lineArray = this.TextLimitLineString(this.TA(ka));
