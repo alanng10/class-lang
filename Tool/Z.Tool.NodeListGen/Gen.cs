@@ -37,8 +37,7 @@ public class Gen : Any
         createSetStateGen.Execute();
 
         NodeKindListGen nodeKindListGen;
-        nodeKindListGen = new NodeKindListGen();
-        nodeKindListGen.Init();
+        nodeKindListGen = this.CreateNodeKindListGen();
         nodeKindListGen.ClassTable = classTable;
         nodeKindListGen.Execute();
 
@@ -92,6 +91,14 @@ public class Gen : Any
     {
         CreateSetStateGen a;
         a = new CreateSetStateGen();
+        a.Init();
+        return a;
+    }
+
+    protected virtual NodeKindListGen CreateNodeKindListGen()
+    {
+        NodeKindListGen a;
+        a = new NodeKindListGen();
         a.Init();
         return a;
     }
