@@ -37,14 +37,14 @@ public class NewStateGen : ToolBase
             a = this.StringCreate(k);
 
             String path;
-            path = this.GetOutputFilePath(kind);
+            path = this.OutputFilePath(kind);
 
             this.ToolInfra.StorageTextWrite(path, a);
         }
         return 0;
     }
 
-    private String GetOutputFilePath(String kind)
+    protected virtual String OutputFilePath(String kind)
     {
         String fileName;
         fileName = this.AddClear().AddS("Z_NewState_").Add(kind).AddS(".cs").AddResult();
