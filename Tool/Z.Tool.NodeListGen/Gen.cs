@@ -109,4 +109,12 @@ public class Gen : Any
         a.Init();
         return a;
     }
+
+    protected virtual TravelClassPathGen CreateTravelClassPathGen()
+    {
+        TravelClassPathGen a;
+        a = new TravelClassPathGen();
+        a.Init();
+        return a;
+    }
 }
