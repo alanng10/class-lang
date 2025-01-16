@@ -2,14 +2,20 @@ namespace Z.Tool.NodeListGen;
 
 public class NewStateGen : ToolBase
 {
+    public override bool Init()
+    {
+        base.Init();
+        this.OutputFoldPath = this.S("../../Saber/Saber.Node");
+        return true;
+    }
+
     public virtual Table ClassTable { get; set; }
-    private String OutputFoldPath { get; set; }
+    protected virtual String OutputFoldPath { get; set; }
     private String NewStateSourceFileName { get; set; }
 
     public virtual int Execute()
     {
         this.NewStateSourceFileName = this.S("ToolData/Saber/NewStateSource.txt");
-        this.OutputFoldPath = this.S("../../Saber/Saber.Node");
 
         String kk;
         kk = this.ToolInfra.StorageTextRead(this.NewStateSourceFileName);
