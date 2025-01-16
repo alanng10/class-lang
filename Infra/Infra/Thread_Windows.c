@@ -44,7 +44,7 @@ Int Thread_OS_Pause(Int handle)
     DWORD uu;
     uu = SuspendThread(ua);
 
-    if (uu == -1)
+    if (uu == ((DWORD)-1))
     {
         return false;
     }
@@ -60,7 +60,7 @@ Int Thread_OS_Resume(Int handle)
     DWORD uu;
     uu = ResumeThread(ua);
 
-    if (uu == -1)
+    if (uu == ((DWORD)-1))
     {
         return false;
     }
