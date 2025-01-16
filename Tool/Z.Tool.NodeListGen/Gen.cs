@@ -81,4 +81,12 @@ public class Gen : Any
         a.Init();
         return a;
     }
+
+    protected virtual NodeStateGen CreateNodeStateGen()
+    {
+        NodeStateGen a;
+        a = new NodeStateGen();
+        a.Init();
+        return a;
+    }
 }
