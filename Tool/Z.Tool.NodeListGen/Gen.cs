@@ -74,4 +74,12 @@ public class Gen : Any
         a.Init();
         return a;
     }
+
+    protected virtual NewStateGen CreateNewStateGen()
+    {
+        NewStateGen a;
+        a = new NewStateGen();
+        a.Init();
+        return a;
+    }
 }
