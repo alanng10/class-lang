@@ -47,17 +47,17 @@ public class Gen : Any
         nodeKindListGen.ClassTable = classTable;
         nodeKindListGen.Execute();
 
-        TravelGen traverseGen;
-        traverseGen = new TravelGen();
-        traverseGen.Init();
-        traverseGen.ClassTable = classTable;
-        traverseGen.Execute();
+        TravelGen travelGen;
+        travelGen = new TravelGen();
+        travelGen.Init();
+        travelGen.ClassTable = classTable;
+        travelGen.Execute();
 
-        TravelClassPathGen traverseClassPathGen;
-        traverseClassPathGen = new TravelClassPathGen();
-        traverseClassPathGen.Init();
-        traverseClassPathGen.ClassTable = classTable;
-        traverseClassPathGen.Execute();
+        TravelClassPathGen travelClassPathGen;
+        travelClassPathGen = new TravelClassPathGen();
+        travelClassPathGen.Init();
+        travelClassPathGen.ClassTable = classTable;
+        travelClassPathGen.Execute();
         return 0;
     }
 }
