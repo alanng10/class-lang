@@ -206,6 +206,8 @@ Word "delgate" has meaning that is call interface.
 
 Word "assem" has meaning that is assembly.
 
+Word "except" has meaning that is exception.
+
 Word "recurse" has meaning that is recursive.
 
 Word "send" has meaning that is send info.
