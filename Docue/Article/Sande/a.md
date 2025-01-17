@@ -166,7 +166,8 @@ The node has syntax that is 1 of 4 index words.
 16 bits int kind uses "short" index word.
 32 bits int kind uses "mid" index word.
 64 bits int kind uses "int" index word.
-The node is one item in IntKind shared list.
+The node has 1 field Value of class Int.
+Field Value is index of the int kind.
 
 Var node syntax starts with "var" index word, followed by Type of class TypeName, 
 followed by Var of class VarName.
