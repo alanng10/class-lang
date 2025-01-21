@@ -2,9 +2,9 @@
 
 echo Deploy Infra
 
-set AvalonLibOutFold=.\Out\net8.0\Lib
+set AvalonOutFold=.\Out\net8.0
 set InfraDeployFold=.\Out\InfraDeploy
 
-mkdir %AvalonLibOutFold% 1>NUL 2>NUL
+mkdir %AvalonOutFold% 1>NUL 2>NUL
 
-xcopy /S /E /Y "%InfraDeployFold%" "%AvalonLibOutFold%" 1>NUL 2>NUL
+xcopy /S /E /Y "%InfraDeployFold%" "%AvalonOutFold%" 1>NUL 2>NUL
