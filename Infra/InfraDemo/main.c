@@ -186,6 +186,10 @@ Bool TypeHandle(Int frame, Int arg, Int index, Int value)
         }
         if (index == 'R')
         {
+            Play_Pause(PlayA);
+        }
+        if (index == 'T')
+        {
             Play_Stop(PlayA);
         }
 
