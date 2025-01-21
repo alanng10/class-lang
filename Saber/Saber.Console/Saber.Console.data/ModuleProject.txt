@@ -14,5 +14,3 @@ LIBS += -lInfra \
     -lInfraIntern#Import#
 
 INCLUDEPATH += $$PWD/../..
-
-QMAKE_CFLAGS_RELEASE += -O0
