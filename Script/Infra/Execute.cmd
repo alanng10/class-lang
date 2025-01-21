@@ -1,7 +1,5 @@
 @echo off
 
-call Script\Infra\Var
-
 set InfraDemoProjectOutFold=.\Out\InfraDemo-Windows-Release
 set InfraDeployFold=.\Out\InfraDeploy
 set WorkingFold=%cd%
