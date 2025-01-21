@@ -1363,6 +1363,11 @@ int main(int argc, char* argv[])
     Pos_Final(areaPos);
     Pos_Delete(areaPos);
 
+    Storage_Close(playStorage);
+
+    Storage_Final(playStorage);
+    Storage_Delete(playStorage);
+
     Stream_Final(playStream);
     Stream_Delete(playStream);
 
