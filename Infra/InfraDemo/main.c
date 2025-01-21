@@ -1125,6 +1125,21 @@ int main(int argc, char* argv[])
 
     Storage_Open(playStorage);
 
+    VideoOut_Frame_Maide maideAaa;
+
+    maideAaa = &VideoOutFrameHandle;
+
+    Int videoOutFrameMaide;
+
+    videoOutFrameMaide = CastInt(maideAaa);
+
+    Int videoOutFrameState;
+    videoOutFrameState = State_New();
+
+    State_Init(videoOutFrameState);
+
+    State_MaideSet(videoOutFrameState, videoOutFrameMaide);
+
     VideoFrame = VideoFrame_New();
 
     VideoFrame_Init(VideoFrame);
