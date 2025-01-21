@@ -1354,27 +1354,17 @@ int main(int argc, char* argv[])
     Pos_Final(fillPos);
     Pos_Delete(fillPos);
 
-
-
-
     Rect_Final(area);
-
-
     Rect_Delete(area);
 
-
-
     Size_Final(areaSize);
-
-
     Size_Delete(areaSize);
 
-
-
     Pos_Final(areaPos);
-
-
     Pos_Delete(areaPos);
+
+    Stream_Final(playStream);
+    Stream_Delete(playStream);
 
     Play_Final(Play);
     Play_Delete(Play);
