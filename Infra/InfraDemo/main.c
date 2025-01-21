@@ -180,6 +180,15 @@ Bool TypeHandle(Int frame, Int arg, Int index, Int value)
             b = true;
         }
 
+        if (index == 'E')
+        {
+            Play_Execute(PlayA);
+        }
+        if (index == 'R')
+        {
+            Play_Stop(PlayA);
+        }
+
         if (index == 'Y')
         {
             Play_Execute(Play);
