@@ -1363,6 +1363,9 @@ int main(int argc, char* argv[])
     Pos_Final(areaPos);
     Pos_Delete(areaPos);
 
+    VideoOut_Final(playVideoOut);
+    VideoOut_Delete(playVideoOut);
+
     VideoFrame_Final(VideoFrame);
     VideoFrame_Delete(VideoFrame);
 
