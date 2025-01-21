@@ -303,9 +303,11 @@ Int DrawHandle(Int frame, Int arg)
 
     Draw_AreaThisSet(Draw);
 
+    SetRect(RectA, 50, 50, 1600, 900);
 
+    SetRect(RectB, 0, 0, 1920, 1080);
 
-
+    Draw_ExecuteImage(Draw, PlayImage, RectA, RectB);
 
     Draw_FillSet(Draw, Brush);
 
