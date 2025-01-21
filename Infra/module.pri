@@ -4,8 +4,11 @@ TEMPLATE = lib
 
 CONFIG += c11 c++17
 
-QMAKE_CFLAGS += -fno-strict-aliasing -O0
-QMAKE_CXXFLAGS += -fno-strict-aliasing -O0
+QMAKE_CFLAGS += -fno-strict-aliasing
+QMAKE_CXXFLAGS += -fno-strict-aliasing
+
+QMAKE_CFLAGS_RELEASE += -O0
+QMAKE_CXXFLAGS_RELEASE += -O0
 
 QMAKE_CFLAGS_WARN_ON -= -Wextra -W
 QMAKE_CXXFLAGS_WARN_ON -= -Wextra -W
