@@ -11,7 +11,6 @@ pushd %InfraDeployFold%
 popd
 
 call Script\Infra\DeployClangFile libc++.dll
-call Script\Infra\DeployClangFile libffi-8.dll
 call Script\Infra\DeployClangFile libomp.dll
 call Script\Infra\DeployClangFile libunwind.dll
 call Script\Infra\DeployClangFile libwinpthread-1.dll
