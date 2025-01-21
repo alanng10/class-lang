@@ -1166,6 +1166,8 @@ int main(int argc, char* argv[])
 
     Play_SourceThisSet(PlayA);
 
+    Play_VideoOutSet(PlayA, playVideoOut);
+
     Play_AudioOutSet(PlayA, playAudioOut);
 
     Int areaPos;
