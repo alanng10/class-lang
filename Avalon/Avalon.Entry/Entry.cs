@@ -32,8 +32,6 @@ public class Entry : Any
 
     protected virtual bool MainBefore()
     {
-        this.InternIntern.LibEnviron();
-
         ulong ua;
         ua = 1;
         Extern.Main_IsCSharpSet(ua);

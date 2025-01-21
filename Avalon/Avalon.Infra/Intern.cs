@@ -336,10 +336,4 @@ public class Intern : Any
         a = uu.Target;
         return a;
     }
-
-    public virtual bool LibEnviron()
-    {
-        SystemEnvironment.SetEnvironmentVariable("QT_PLUGIN_PATH", "Lib");
-        return true;
-    }
 }
