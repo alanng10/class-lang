@@ -448,6 +448,8 @@ Int VideoOutFrameHandle(Int videoOut, Int frame, Int arg)
 {
     VideoFrame_Image(VideoFrame, PlayImage);
 
+    Frame_Update(Frame, UpdateRect);
+
     return 0;
 }
 
