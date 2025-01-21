@@ -191,13 +191,13 @@ Bool TypeHandle(Int frame, Int arg, Int index, Int value)
 
         if (index == 'B')
         {
-            Frame_Close(frame);
+            Frame_Close(Frame);
         }
     }
 
     if (b)
     {
-        Frame_Update(frame, UpdateRect);
+        Frame_Update(Frame, UpdateRect);
     }
 
     return true;
