@@ -1,6 +1,7 @@
 #include "Demo.h"
 
 
+Int Frame;
 
 Int Text;
 
@@ -445,6 +446,8 @@ Int DrawHandle(Int frame, Int arg)
 
 Int VideoOutFrameHandle(Int videoOut, Int frame, Int arg)
 {
+    VideoFrame_Image(VideoFrame, PlayImage);
+
     return 0;
 }
 
@@ -1284,20 +1287,19 @@ int main(int argc, char* argv[])
     State_Init(frameTypeState);
     State_MaideSet(frameTypeState, typeMaide);
 
-    Int frame;
-    frame = Frame_New();
+    Frame = Frame_New();
 
-    Frame_Init(frame);
+    Frame_Init(Frame);
 
-    Frame_DrawStateSet(frame, frameDrawState);
+    Frame_DrawStateSet(Frame, frameDrawState);
 
-    Frame_TypeStateSet(frame, frameTypeState);
+    Frame_TypeStateSet(Frame, frameTypeState);
 
     Int frameSize;
-    frameSize = Frame_SizeGet(frame);
+    frameSize = Frame_SizeGet(Frame);
 
     Int videoOut;
-    videoOut = Frame_Out(frame);
+    videoOut = Frame_Out(Frame);
 
     Draw_SizeSet(Draw, frameSize);
 
@@ -1309,11 +1311,11 @@ int main(int argc, char* argv[])
 
     Rect_SizeSet(UpdateRect, frameSize);
 
-    Frame_TitleSet(frame, frameTitle);
+    Frame_TitleSet(Frame, frameTitle);
 
-    Frame_TitleThisSet(frame);
+    Frame_TitleThisSet(Frame);
 
-    Frame_ShownSet(frame, true);
+    Frame_ShownSet(Frame, true);
 
     Int thread;
     thread = Thread_This();
@@ -1321,8 +1323,8 @@ int main(int argc, char* argv[])
     Int o;
     o = Thread_ExecuteMain(thread);
 
-    Frame_Final(frame);
-    Frame_Delete(frame);
+    Frame_Final(Frame);
+    Frame_Delete(Frame);
 
     State_Final(frameTypeState);
     State_Delete(frameTypeState);
