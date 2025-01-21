@@ -82,6 +82,8 @@ SInt TextUp;
 
 Int Play;
 
+Int PlayA;
+
 Int Console;
 
 
@@ -1057,15 +1059,11 @@ int main(int argc, char* argv[])
 
 
     Int soundFilePath;
-
     soundFilePath = String_ConstantCreate(CastInt("../../DemoSound.wav"));
 
     Int audioStream;
-
     audioStream = Stream_New();
-
     Stream_Init(audioStream);
-
 
     Int audioStorageMode;
     audioStorageMode = Stat_StorageModeRead(Stat);
@@ -1100,22 +1098,35 @@ int main(int argc, char* argv[])
 
     Play_AudioOutSet(Play, audioOut);
 
+    Int playFilePath;
+    playFilePath = String_ConstantCreate(CastInt("../../DemoMedia.mp4"));
 
+    Int playStream;
+    playStream = Stream_New();
+    Stream_Init(playStream);
+
+    Int playStorageMode;
+    playStorageMode = Stat_StorageModeRead(Stat);
+
+    Int playStorage;
+    playStorage = Storage_New();
+
+    Storage_Init(playStorage);
+
+    Storage_PathSet(playStorage, playFilePath);
+
+    Storage_ModeSet(playStorage, playStorageMode);
+
+    Storage_StreamSet(playStorage, playStream);
+
+    Storage_Open(playStorage);
 
     Int areaPos;
-
     areaPos = Pos_New();
-
-
     Pos_Init(areaPos);
 
-
-
     Int areaSize;
-
     areaSize = Size_New();
-
-
     Size_Init(areaSize);
 
 
