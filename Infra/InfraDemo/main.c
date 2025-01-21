@@ -84,6 +84,8 @@ Int Play;
 
 Int PlayA;
 
+Int PlayImage;
+
 Int VideoFrame;
 
 Int Console;
@@ -1169,6 +1171,26 @@ int main(int argc, char* argv[])
     Play_VideoOutSet(PlayA, playVideoOut);
 
     Play_AudioOutSet(PlayA, playAudioOut);
+
+    Int playImageData;
+
+    playImageData = Data_New();
+
+    Data_Init(playImageData);
+
+    Int playImageSize;
+
+    playImageSize = Size_New();
+
+    Size_Init(playImageSize);
+
+    PlayImage = Image_New();
+
+    Image_DataSet(PlayImage, playImageData);
+
+    Image_SizeSet(PlayImage, playImageSize);
+
+    Image_Init(PlayImage);
 
     Int areaPos;
     areaPos = Pos_New();
