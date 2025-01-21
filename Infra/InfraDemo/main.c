@@ -303,7 +303,7 @@ Int DrawHandle(Int frame, Int arg)
 
     Draw_AreaThisSet(Draw);
 
-    SetRect(RectA, 50, 50, 1600, 900);
+    SetRect(RectA, 100, 50, 1600, 900);
 
     SetRect(RectB, 0, 0, 1920, 1080);
 
