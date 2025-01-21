@@ -1081,12 +1081,10 @@ int main(int argc, char* argv[])
 
     Storage_Open(audioStorage);
 
-
     Int audioOut;
     audioOut = AudioOut_New();
 
     AudioOut_Init(audioOut);
-
 
     Play = Play_New();
 
@@ -1120,6 +1118,21 @@ int main(int argc, char* argv[])
     Storage_StreamSet(playStorage, playStream);
 
     Storage_Open(playStorage);
+
+    Int playAudioOut;
+    playAudioOut = AudioOut_New();
+
+    AudioOut_Init(playAudioOut);
+
+    PlayA = Play_New();
+
+    Play_Init(PlayA);
+
+    Play_SourceSet(PlayA, playStream);
+
+    Play_SourceThisSet(PlayA);
+
+    Play_AudioOutSet(PlayA, playAudioOut);
 
     Int areaPos;
     areaPos = Pos_New();
