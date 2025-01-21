@@ -84,6 +84,8 @@ Int Play;
 
 Int PlayA;
 
+Int VideoFrame;
+
 Int Console;
 
 
@@ -255,7 +257,7 @@ Int ConsoleWriteConstant(const char* o)
     return true;
 }
 
-Bool DrawHandle(Int frame, Int arg)
+Int DrawHandle(Int frame, Int arg)
 {
     Draw_Start(Draw);
 
@@ -439,6 +441,10 @@ Bool DrawHandle(Int frame, Int arg)
     return true;
 }
 
+Int VideoOutFrameHandle(Int videoOut, Int frame, Int arg)
+{
+    return 0;
+}
 
 int main(int argc, char* argv[])
 {
@@ -1118,6 +1124,15 @@ int main(int argc, char* argv[])
     Storage_StreamSet(playStorage, playStream);
 
     Storage_Open(playStorage);
+
+    VideoFrame = VideoFrame_New();
+
+    VideoFrame_Init(VideoFrame);
+
+    Int playVideoOut;
+    playVideoOut = VideoOut_New();
+
+    VideoOut_Init(playVideoOut);
 
     Int playAudioOut;
     playAudioOut = AudioOut_New();
