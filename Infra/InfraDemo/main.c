@@ -1149,6 +1149,10 @@ int main(int argc, char* argv[])
 
     VideoOut_Init(playVideoOut);
 
+    VideoOut_FrameStateSet(playVideoOut, videoOutFrameState);
+
+    VideoOut_FrameSet(playVideoOut, VideoFrame);
+
     Int playAudioOut;
     playAudioOut = AudioOut_New();
 
