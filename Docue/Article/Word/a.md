@@ -72,6 +72,8 @@ Word "update" has meaning that is info update.
 
 Word "deploy" has meaning that is deploy entity.
 
+Word "service" has meaning that is served.
+
 Word "instant" has meaning that is instance.
 
 Word "auto" has meaning that is entity to do effect.
