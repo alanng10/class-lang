@@ -1,6 +1,6 @@
 namespace Saber.Console;
 
-public class LibraryCGen : ClassBase
+public class LibraryGen : ClassBase
 {
     public override bool Init()
     {
