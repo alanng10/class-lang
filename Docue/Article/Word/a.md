@@ -66,6 +66,8 @@ Word "reposit" has meaning that is repository.
 
 Word "commit" has meaning that is mod record.
 
+Word "history" has meaning that is mod history.
+
 Word "update" has meaning that is info update.
 
 Word "instant" has meaning that is instance.
