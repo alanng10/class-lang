@@ -230,6 +230,8 @@ Word "specify" has meaning that is specific.
 
 Word "perspec" has meaning that is perspective.
 
+Word "unique" has meaning that is only one in type.
+
 Word "out" has meaning that is output destination.
 
 Word "err" has meaning that is error destination.
