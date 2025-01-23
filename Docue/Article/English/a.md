@@ -7,6 +7,8 @@ The word "a" is used instead of the word "an".
 
 The English uses the word "he" instead of the word "she", the word "her" and the word "him".
 
+The English uses the word "they" instead of the word "them".
+
 The English uses the word "i" instead of the word "I".
 
 The English uses the word "is" instead of the word "are" and the word "am".
@@ -17,6 +19,6 @@ The English uses "did" for past verb phrase.
 
 The English uses "will" for future verb phrase.
 
-The English uses the verb phrase "did is" instead of "was" and "where".
+The English uses the verb phrase "did is" instead of "was" and "were".
 
 The English does not capitalize first letter of the first word in sentence.
