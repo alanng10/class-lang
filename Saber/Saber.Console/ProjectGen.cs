@@ -68,7 +68,7 @@ public class ProjectGen : ClassBase
         while (i < count)
         {
             String a;
-            a = (String)this.ModuleRefString.GetAt(i);
+            a = this.ModuleRefString.GetAt(i) as String;
 
             this.ModuleImport(a);
 
