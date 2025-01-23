@@ -696,6 +696,8 @@ Word "extern" has meaning that is interface to external.
 
 Word "inline" has meaning that is inlined inner processing.
 
+Word "process" has meaning that is process entity.
+
 Word "compute" has meaning that is process info.
 
 Word "memory" has meaning that is data store.
