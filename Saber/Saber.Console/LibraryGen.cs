@@ -34,7 +34,9 @@ public class LibraryGen : ClassBase
         this.SC = this.S("c");
         this.SH = this.S("h");
         this.SPro = this.S("pro");
+        this.STxt = this.S("txt");
         this.SModule = this.S("Module");
+        this.SImport = this.S("Import");
         return true;
     }
 
@@ -69,7 +71,9 @@ public class LibraryGen : ClassBase
     protected virtual String SC { get; set; }
     protected virtual String SH { get; set; }
     protected virtual String SPro { get; set; }
+    protected virtual String STxt { get; set; }
     protected virtual String SModule { get; set; }
+    protected virtual String SImport { get; set; }
 
     protected virtual ClassInitGen CreateClassInitGen()
     {
@@ -555,7 +559,21 @@ public class LibraryGen : ClassBase
         this.ImportArgGen.ModuleRefString = null;
         this.ImportArgGen.Gen = null;
 
-        this.ImportArg = import;
+        String fileName;
+        fileName = this.AddClear().Add(this.SImport).Add(this.ClassInfra.Dot).Add(this.STxt).AddResult();
+
+        String filePath;
+        filePath = this.AddClear().Add(this.GenModuleFoldPath).Add(this.TextInfra.PathCombine).Add(fileName).AddResult();
+
+        bool b;
+        b = this.StorageInfra.TextWrite(filePath, import);
+
+        if (!b)
+        {
+            this.Status = 50;
+            return false;
+        }
+
         return true;
     }
 
