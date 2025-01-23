@@ -68,6 +68,8 @@ Word "commit" has meaning that is mod record.
 
 Word "history" has meaning that is mod history.
 
+Word "problem" has meaning that is issue entity.
+
 Word "update" has meaning that is info update.
 
 Word "deploy" has meaning that is deploy entity.
