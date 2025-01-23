@@ -22,6 +22,8 @@ public class LibraryGen : ClassBase
 
         this.ModuleHeaderGen = this.CreateModuleHeaderGen();
 
+        this.ImportArgGen = this.CreateImportArgGen();
+
         this.ProjectGen = this.CreateProjectGen();
 
         this.ModuleRef = this.ClassInfra.ModuleRefCreate(null, 0);
@@ -52,12 +54,14 @@ public class LibraryGen : ClassBase
     protected virtual StringValueTraverse StringValueTraverse { get; set; }
     protected virtual ModuleGen ModuleGen { get; set; }
     protected virtual ModuleHeaderGen ModuleHeaderGen { get; set; }
+    protected virtual ImportArgGen ImportArgGen { get; set; }
     protected virtual ProjectGen ProjectGen { get; set; }
     protected virtual Array ClassInitArray { get; set; }
     protected virtual Array ClassBaseArray { get; set; }
     protected virtual Array ClassCompArray { get; set; }
     protected virtual String ModuleProjectText { get; set; }
     protected virtual String GenModuleFoldPath { get; set; }
+    protected virtual String ImportArg { get; set; }
     protected virtual ModuleRef ModuleRef { get; set; }
     protected virtual String SSystemDotInfra { get; set; }
     protected virtual String SIntern { get; set; }
@@ -123,6 +127,14 @@ public class LibraryGen : ClassBase
         return a;
     }
 
+    protected virtual ImportArgGen CreateImportArgGen()
+    {
+        ImportArgGen a;
+        a = new ImportArgGen();
+        a.Init();
+        return a;
+    }
+
     protected virtual ProjectGen CreateProjectGen()
     {
         ProjectGen a;
@@ -152,6 +164,7 @@ public class LibraryGen : ClassBase
         this.ClassBaseArray = null;
         this.ClassCompArray = null;
         this.GenModuleFoldPath = null;
+        this.ImportArg = null;
         this.ModuleRef.Name = null;
 
         return b;
@@ -515,6 +528,27 @@ public class LibraryGen : ClassBase
             return false;
         }
 
+        return true;
+    }
+
+    protected virtual bool ExecuteGenImportArg()
+    {
+        Array moduleRefStringArray;
+        moduleRefStringArray = this.ModuleRefStringArray();
+
+        this.ImportArgGen.Gen = this.ClassGen;
+        this.ImportArgGen.ModuleRefString = moduleRefStringArray;
+
+        this.ImportArgGen.Execute();
+
+        String import;
+        import = this.ImportArgGen.Result;
+
+        this.ImportArgGen.Result = null;
+        this.ImportArgGen.ModuleRefString = null;
+        this.ImportArgGen.Gen = null;
+
+        this.ImportArg = import;
         return true;
     }
 
