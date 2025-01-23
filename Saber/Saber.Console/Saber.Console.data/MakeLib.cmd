@@ -2,8 +2,6 @@
 
 set ModuleRef=%~1
 
-set /p ClassPath=<ClassPath.txt
-
 set SourceFold=.\Gen\%ModuleRef%
 
 set /p Import=<%SourceFold%\Import.txt

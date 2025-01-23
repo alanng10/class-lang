@@ -4,6 +4,8 @@ call Var
 
 set Module=%~1
 
+set /p ClassPath=<ClassPath.txt
+
 call DeleteBinary %Module%
 rem call DeleteOutFold %Module%
 call MakeLib %Module%
