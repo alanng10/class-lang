@@ -581,7 +581,7 @@ public class LibraryGen : ClassBase
             iter.Next();
 
             ModuleRef k;
-            k = (ModuleRef)iter.Index;
+            k = iter.Index as ModuleRef;
 
             String verString;
             verString = this.ClassInfra.VerString(k.Ver);
