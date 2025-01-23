@@ -3,11 +3,10 @@
 call Var
 
 set Module=%~1
-set Import=%~2
 
 call DeleteBinary %Module%
 rem call DeleteOutFold %Module%
-call MakeLib %Module% "%Import%"
+call MakeLib %Module%
 call MoveLib %Module%
 rem call MakeModuleProject %Module%
 rem call MakeModule %Module%
