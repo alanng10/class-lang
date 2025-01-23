@@ -644,7 +644,7 @@ public class LibraryGen : ClassBase
         list = new List();
         list.Init();
         list.Add(this.S("/c"));
-        list.Add(this.AddClear().AddS("Make.cmd ").Add(this.ModuleRefString).AddS(" \"").Add(this.ImportArg).AddS("\"").AddResult());
+        list.Add(this.AddClear().AddS("Make.cmd ").Add(this.ModuleRefString).AddResult());
 
         Program program;
         program = new Program();
