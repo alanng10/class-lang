@@ -96,6 +96,8 @@ Word "license" has meaning that is license grant.
 
 Word "develop" has meaning that is make source available.
 
+Word "element" has meaning that is element.
+
 Word "comp" has meaning that is compose unit.
 
 Word "name" has meaning that is call word.
