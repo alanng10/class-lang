@@ -586,6 +586,10 @@ Word "midline" has meaning that is strikeout style.
 
 Word "endline" has meaning that is overline style.
 
+Word "aria" has meaning that is sans serif.
+
+Word "mono" has meaning that is monospace.
+
 Word "cape" has meaning that is slash end.
 
 Word "miter" has meaning that is miter style.
