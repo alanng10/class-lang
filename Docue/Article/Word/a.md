@@ -218,6 +218,8 @@ Word "macro" has meaning that is macro define.
 
 Word "assem" has meaning that is assembly.
 
+Word "native" has meaning that is native.
+
 Word "except" has meaning that is exception.
 
 Word "recurse" has meaning that is recursive.
