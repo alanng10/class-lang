@@ -226,6 +226,8 @@ Word "send" has meaning that is send info.
 
 Word "cive" has meaning that is receive info.
 
+Word "break" has meaning that is breaked.
+
 Word "specify" has meaning that is specific.
 
 Word "perspec" has meaning that is perspective.
