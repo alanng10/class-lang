@@ -494,6 +494,10 @@ Word "frame" has meaning that is root view.
 
 Word "grid" has meaning that is table area.
 
+Word "back" has meaning that is background.
+
+Word "fore" has meaning that is foreground.
+
 Word "shown" has meaning that is visible.
 
 Word "built" has meaning that is built in.
