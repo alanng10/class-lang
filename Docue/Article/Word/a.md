@@ -706,7 +706,7 @@ Word "money" has meaning that is trade symbol.
 
 Word "balance" has meaning that is money balance.
 
-Word "pay" has meaning that is pay entity.
+Word "payment" has meaning that is pay entity.
 
 Word "intern" has meaning that is internal.
 
