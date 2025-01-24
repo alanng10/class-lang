@@ -62,6 +62,8 @@ Word "title" has meaning that is head char list.
 
 Word "symbol" has meaning that is entity represent entity.
 
+Word "style" has meaning that is style.
+
 Word "reposit" has meaning that is repository.
 
 Word "commit" has meaning that is mod record.
