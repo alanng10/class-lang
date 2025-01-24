@@ -708,6 +708,8 @@ Word "balance" has meaning that is money balance.
 
 Word "payment" has meaning that is pay entity.
 
+Word "finance" has meaning that is money manage.
+
 Word "intern" has meaning that is internal.
 
 Word "extern" has meaning that is interface to external.
