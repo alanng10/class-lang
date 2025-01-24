@@ -700,6 +700,8 @@ Word "mute" has meaning that is audio enable.
 
 Word "shop" has meaning that is buy.
 
+Word "sell" has meaning that is sell.
+
 Word "price" has meaning that is money price.
 
 Word "money" has meaning that is trade symbol.
