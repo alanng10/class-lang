@@ -162,6 +162,8 @@ Word "hex" has meaning that is hexadecimal.
 
 Word "dec" has meaning that is decimal.
 
+Word "bin" has meaning that is base two numeral system.
+
 Words "prusate", "precate", "pronate" and "private" have meanings that are applicable
 to all, child, local, and self.
 
