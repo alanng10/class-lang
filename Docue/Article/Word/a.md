@@ -496,6 +496,8 @@ Word "frame" has meaning that is root view.
 
 Word "grid" has meaning that is table area.
 
+Word "layout" has meaning that is structure layout.
+
 Word "back" has meaning that is background.
 
 Word "fore" has meaning that is foreground.
