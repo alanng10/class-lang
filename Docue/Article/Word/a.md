@@ -48,6 +48,8 @@ Word "mark" has meaning that is goaled.
 
 Word "human" has meaning that is live entity.
 
+Word "client" has meaning that is user.
+
 Word "inform" has meaning that is made of data.
 
 Word "exform" has meaning that is made of tangible.
