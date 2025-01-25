@@ -54,6 +54,8 @@ Word "exform" has meaning that is made of tangible.
 
 Word "purpose" has meaning that is intended goal.
 
+Word "intent" has meaning that is intended.
+
 Word "calc" has meaning that is calculate integer.
 
 Word "edit" has meaning that is text edit.
