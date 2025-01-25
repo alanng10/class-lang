@@ -58,6 +58,8 @@ Word "purpose" has meaning that is intended goal.
 
 Word "intent" has meaning that is intended.
 
+Word "modular" has meaning that is modular.
+
 Word "calc" has meaning that is calculate integer.
 
 Word "edit" has meaning that is text edit.
