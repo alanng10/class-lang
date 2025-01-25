@@ -52,7 +52,7 @@ Word "inform" has meaning that is made of data.
 
 Word "exform" has meaning that is made of tangible.
 
-Word "goal" has meaning that is wanted output.
+Word "goal" has meaning that is wanted output entity.
 
 Word "purpose" has meaning that is intended goal.
 
