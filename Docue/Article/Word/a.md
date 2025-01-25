@@ -86,6 +86,8 @@ Word "update" has meaning that is info update.
 
 Word "deploy" has meaning that is deploy entity.
 
+Word "local" has meaning that is local count.
+
 Word "service" has meaning that is served.
 
 Word "include" has meaning that is included.
