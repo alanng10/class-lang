@@ -68,9 +68,9 @@ Word "title" has meaning that is head char list.
 
 Word "symbol" has meaning that is entity represent entity.
 
-Word "funct" has meaning that is function.
+Word "funct" has meaning that is intended output.
 
-Word "style" has meaning that is style.
+Word "style" has meaning that is not intended output.
 
 Word "reposit" has meaning that is repository.
 
