@@ -60,6 +60,8 @@ Word "intent" has meaning that is intended.
 
 Word "modular" has meaning that is modular.
 
+Word "design" has meaning that is designed.
+
 Word "calc" has meaning that is calculate integer.
 
 Word "edit" has meaning that is text edit.
