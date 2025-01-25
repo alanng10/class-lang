@@ -52,6 +52,8 @@ Word "inform" has meaning that is made of data.
 
 Word "exform" has meaning that is made of tangible.
 
+Word "purpose" has meaning that is intended goal.
+
 Word "calc" has meaning that is calculate integer.
 
 Word "edit" has meaning that is text edit.
