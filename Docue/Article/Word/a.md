@@ -74,6 +74,8 @@ Word "funct" has meaning that is intended output.
 
 Word "style" has meaning that is not intended output.
 
+Word "perform" has meaning that is performance level.
+
 Word "reposit" has meaning that is repository.
 
 Word "commit" has meaning that is mod record.
