@@ -19,6 +19,8 @@ The English uses "did" for past verb phrase.
 
 The English uses "will" for future verb phrase.
 
+The English uses "on" for present verb phrase.
+
 The English uses the verb phrase "did is" instead of "was" and "were".
 
 The English does not capitalize first letter of the first word in sentence.
