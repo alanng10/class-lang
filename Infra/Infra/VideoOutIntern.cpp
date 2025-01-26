@@ -11,14 +11,14 @@ void VideoOutIntern::FrameEventHandle(const QVideoFrame& frame)
     Int videoOut;
     videoOut = this->VideoOut;
 
-    Int aa;
-    aa = VideoOut_FrameGet(videoOut);
+    Int k;
+    k = VideoOut_FrameGet(videoOut);
 
-    Int oo;
-    oo = VideoFrame_Intern(aa);
+    Int ka;
+    ka = VideoFrame_Intern(k);
 
     QVideoFrame* u;
-    u = (QVideoFrame*)oo;
+    u = (QVideoFrame*)ka;
     *u = frame;
 
     VideoOut_FrameEvent(videoOut);
