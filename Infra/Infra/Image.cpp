@@ -153,7 +153,7 @@ Int Image_SetReadIntern(Int o, Int value)
     source = CastInt(bits);
 
     Image_DataCopy(o, dataValue, source, wed, het, rowByteCount);
-    
+
     Int size;
     size = m->Size;
     Size_WedSet(size, wed);
@@ -161,8 +161,8 @@ Int Image_SetReadIntern(Int o, Int value)
 
     Int data;
     data = m->Data;
-    Data_CountSet(data, dataCount);
     Data_ValueSet(data, dataValue);
+    Data_CountSet(data, dataCount);
 
     uchar* dataValueU;
     dataValueU = (uchar*)dataValue;
