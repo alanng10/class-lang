@@ -19,7 +19,7 @@ The English uses "did" for past verb phrase.
 
 The English uses "will" for future verb phrase.
 
-The English uses "on" for present continuing verb phrase.
+The English uses "on" for continuing verb phrase.
 
 The English uses the verb phrase "did is" instead of "was" and "were".
 
