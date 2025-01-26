@@ -25,3 +25,4 @@ Int StateNetworkDataEvent|
 Int StateNetworkHostNewPeer|
 Int StateFrameTypeEvent|
 Int StateFrameDrawEvent|
+Int StateVideoOutFrameEvent|
