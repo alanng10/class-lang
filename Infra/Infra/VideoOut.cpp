@@ -27,7 +27,7 @@ Int VideoOut_Final(Int o)
 CppField(VideoOut, Frame)
 CppField(VideoOut, FrameEventState)
 
-Int VideoOut_FrameChange(Int o)
+Int VideoOut_FrameEvent(Int o)
 {
     VideoOut* m;
     m = CP(o);
