@@ -2,24 +2,14 @@
 
 Bool VideoOutIntern::Init()
 {
-    connect(this, &QVideoSink::videoFrameChanged, this, &VideoOutIntern::FrameChangeHandle);
+    connect(this, &QVideoSink::videoFrameChanged, this, &VideoOutIntern::FrameEventHandle);
     return true;
 }
 
-void VideoOutIntern::FrameChangeHandle(const QVideoFrame& frame)
+void VideoOutIntern::FrameEventHandle(const QVideoFrame& frame)
 {
     Int videoOut;
     videoOut = this->VideoOut;
 
-    Int aa;
-    aa = VideoOut_FrameGet(videoOut);
-
-    Int oo;
-    oo = VideoFrame_Intern(aa);
-
-    QVideoFrame* u;
-    u = (QVideoFrame*)oo;
-    *u = frame;
-
-    VideoOut_FrameChange(videoOut);
+    VideoOut_FrameEvent(videoOut);
 }
