@@ -25,7 +25,7 @@ Int VideoOut_Final(Int o)
 }
 
 CppField(VideoOut, Frame)
-CppField(VideoOut, FrameState)
+CppField(VideoOut, FrameEventState)
 
 Int VideoOut_FrameChange(Int o)
 {
@@ -33,7 +33,7 @@ Int VideoOut_FrameChange(Int o)
     m = CP(o);
 
     Int state;
-    state = m->FrameState;
+    state = m->FrameEventState;
 
     if (state == null)
     {
@@ -50,13 +50,10 @@ Int VideoOut_FrameChange(Int o)
         return true;
     }
 
-    Int oa;
-    oa = m->Frame;
+    VideoOut_FrameEvent_Maide maide;
+    maide = (VideoOut_FrameEvent_Maide)aa;
 
-    VideoOut_Frame_Maide maide;
-    maide = (VideoOut_Frame_Maide)aa;
-
-    maide(o, oa, arg);
+    maide(o, arg);
 
     return true;
 }
