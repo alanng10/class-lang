@@ -414,8 +414,8 @@ class Extern : Any
     maide prusate Int VideoOut_Final(var Int o) { }
     maide prusate Int VideoOut_FrameGet(var Int o) { }
     maide prusate Int VideoOut_FrameSet(var Int o, var Int value) { }
-    maide prusate Int VideoOut_FrameStateGet(var Int o) { }
-    maide prusate Int VideoOut_FrameStateSet(var Int o, var Int value) { }
+    maide prusate Int VideoOut_FrameEventStateGet(var Int o) { }
+    maide prusate Int VideoOut_FrameEventStateSet(var Int o, var Int value) { }
 
     maide prusate Int VideoFrame_New() { }
     maide prusate Int VideoFrame_Delete(var Int o) { }

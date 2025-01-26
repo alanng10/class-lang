@@ -4964,7 +4964,7 @@ Int Intern_Extern_VideoOut_FrameSet(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_VideoOut_FrameStateGet(Eval* eval, Int frame)
+Int Intern_Extern_VideoOut_FrameEventStateGet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -4972,12 +4972,12 @@ Int Intern_Extern_VideoOut_FrameStateGet(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = VideoOut_FrameStateGet(a0);
+    a = VideoOut_FrameEventStateGet(a0);
 
     Return;
 }
 
-Int Intern_Extern_VideoOut_FrameStateSet(Eval* eval, Int frame)
+Int Intern_Extern_VideoOut_FrameEventStateSet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -4986,7 +4986,7 @@ Int Intern_Extern_VideoOut_FrameStateSet(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = VideoOut_FrameStateSet(a0, a1);
+    a = VideoOut_FrameEventStateSet(a0, a1);
 
     Return;
 }

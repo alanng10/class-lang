@@ -423,10 +423,10 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong VideoOut_Final(ulong o);
     [DllImport(InfraLib)] public extern static ulong VideoOut_FrameGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong VideoOut_FrameSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong VideoOut_FrameStateGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong VideoOut_FrameStateSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong VideoOut_FrameEventStateGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong VideoOut_FrameEventStateSet(ulong o, ulong value);
 
-    public delegate ulong VideoOut_Frame_Maide(ulong videoOut, ulong frame, ulong arg);
+    public delegate ulong VideoOut_FrameEvent_Maide(ulong videoOut, ulong arg);
     public delegate ulong VideoOut_Size_Maide(ulong videoOut, ulong size, ulong arg);
 
     [DllImport(InfraLib)] public extern static ulong VideoFrame_New();

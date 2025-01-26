@@ -416,8 +416,8 @@ Intern_Api Int Intern_Extern_VideoOut_Init(Eval* e, Int f);
 Intern_Api Int Intern_Extern_VideoOut_Final(Eval* e, Int f);
 Intern_Api Int Intern_Extern_VideoOut_FrameGet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_VideoOut_FrameSet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_VideoOut_FrameStateGet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_VideoOut_FrameStateSet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_VideoOut_FrameEventStateGet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_VideoOut_FrameEventStateSet(Eval* e, Int f);
 
 Intern_Api Int Intern_Extern_VideoFrame_New(Eval* e, Int f);
 Intern_Api Int Intern_Extern_VideoFrame_Delete(Eval* e, Int f);

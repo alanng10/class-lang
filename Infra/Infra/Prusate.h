@@ -422,10 +422,10 @@ Infra_Api Int ImageWrite_Execute(Int o);
 InfraApiNew(VideoOut)
 Infra_Api Int VideoOut_FrameGet(Int o);
 Infra_Api Int VideoOut_FrameSet(Int o, Int value);
-Infra_Api Int VideoOut_FrameStateGet(Int o);
-Infra_Api Int VideoOut_FrameStateSet(Int o, Int value);
+Infra_Api Int VideoOut_FrameEventStateGet(Int o);
+Infra_Api Int VideoOut_FrameEventStateSet(Int o, Int value);
 
-typedef Int (*VideoOut_Frame_Maide)(Int videoOut, Int frame, Int arg);
+typedef Int (*VideoOut_FrameEvent_Maide)(Int videoOut, Int arg);
 typedef Int (*VideoOut_Size_Maide)(Int videoOut, Int size, Int arg);
 
 InfraApiNew(VideoFrame)
