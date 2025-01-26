@@ -7,7 +7,7 @@
 struct VideoOut
 {
     Int Frame;
-    Int FrameState;
+    Int FrameEventState;
     VideoOutIntern* Intern;
 };
 
