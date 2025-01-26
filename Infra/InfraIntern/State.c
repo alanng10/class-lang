@@ -140,6 +140,11 @@ Int Intern_State_Frame_DrawEvent(Int frame, Int arg)
     return Intern_State_Call(frame, arg, 2);
 }
 
+Int Intern_State_VideoOut_FrameEvent(Int videoOut, Int arg)
+{
+    return Intern_State_Call(videoOut, arg, 1);
+}
+
 Int Intern_State_CallEval()
 {
     Int thread;
