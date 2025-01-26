@@ -29,3 +29,4 @@ Intern_Api Int Intern_Intern_StateNetworkDataEvent(Eval* eval, Int frame);
 Intern_Api Int Intern_Intern_StateNetworkHostNewPeer(Eval* eval, Int frame);
 Intern_Api Int Intern_Intern_StateFrameTypeEvent(Eval* eval, Int frame);
 Intern_Api Int Intern_Intern_StateFrameDrawEvent(Eval* eval, Int frame);
+Intern_Api Int Intern_Intern_StateVideoOutFrameEvent(Eval* eval, Int frame);
