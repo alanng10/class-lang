@@ -459,7 +459,7 @@ Int DrawHandle(Int frame, Int arg)
     return true;
 }
 
-Int VideoOutFrameHandle(Int videoOut, Int frame, Int arg)
+Int VideoOutFrameHandle(Int videoOut, Int arg)
 {
     VideoFrame_Image(VideoFrame, PlayImage);
 
@@ -1147,7 +1147,7 @@ int main(int argc, char* argv[])
 
     Storage_Open(playStorage);
 
-    VideoOut_Frame_Maide maideAaa;
+    VideoOut_FrameEvent_Maide maideAaa;
 
     maideAaa = &VideoOutFrameHandle;
 
