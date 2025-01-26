@@ -16,6 +16,5 @@ public:
 
 private slots:
 
-    void FrameChangeHandle(const QVideoFrame &frame);
+    void FrameEventHandle(const QVideoFrame &frame);
 };
-
