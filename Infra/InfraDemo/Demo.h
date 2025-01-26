@@ -12,7 +12,7 @@ Int TypeHandle(Int frame, Int index, Int field, Int arg);
 
 Int DrawHandle(Int frame, Int arg);
 
-Int VideoOutFrameHandle(Int videoOut, Int frame, Int arg);
+Int VideoOutFrameHandle(Int videoOut, Int arg);
 
 Int ConsoleWriteConstant(const char* o);
 
