@@ -414,6 +414,11 @@ Int Intern_Intern_StateFrameDrawEvent(Eval* eval, Int frame)
     return Intern_Intern_State(eval, frame, InternState(Frame_DrawEvent));
 }
 
+Int Intern_Intern_StateVideoOutFrameEvent(Eval* eval, Int frame)
+{
+    return Intern_Intern_State(eval, frame, InternState(VideoOut_FrameEvent));
+}
+
 Int Intern_Intern_State(Eval* eval, Int frame, Int state)
 {
     Int ka;
