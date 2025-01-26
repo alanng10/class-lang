@@ -50,7 +50,7 @@ Int Frame_TypeEvent(Int o, Int index, Int field);
 Int Frame_DrawEvent(Int o);
 
 Int VideoOut_Intern(Int o);
-Int VideoOut_FrameChange(Int o);
+Int VideoOut_FrameEvent(Int o);
 
 Int VideoFrame_Intern(Int o);
 
