@@ -206,8 +206,8 @@ ImageWrite
 
 VideoOut
     Frame
-    FrameState
-    Frame(videoOut, arg) --
+    FrameEventState
+    FrameEvent(videoOut, arg) --
     Size(videoOut, size, arg) --
 
 VideoFrame
