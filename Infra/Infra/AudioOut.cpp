@@ -8,7 +8,7 @@ Int AudioOut_Init(Int o)
     m = CP(o);
     m->Intern = new QAudioOutput;
 
-    AudioOut_MuteSet(o, false);
+    AudioOut_MuteSet(o, true);
     return true;
 }
 
