@@ -6,7 +6,7 @@
 
 struct AudioOut
 {
-    Int Muted;
+    Int Mute;
     Int Volume;
     QAudioOutput* Intern;
 };

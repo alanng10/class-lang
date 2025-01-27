@@ -19,17 +19,17 @@ Int AudioOut_Final(Int o)
     return true;
 }
 
-CppFieldGet(AudioOut, Muted)
+CppFieldGet(AudioOut, Mute)
 
-Int AudioOut_MutedSet(Int o, Int value)
+Int AudioOut_MuteSet(Int o, Int value)
 {
     AudioOut* m;
     m = CP(o);
 
-    m->Muted = value;
+    m->Mute = value;
 
     bool bu;
-    bu = (!(m->Muted == 0));
+    bu = (!(m->Mute == 0));
     m->Intern->setMuted(bu);
     return true;
 }
