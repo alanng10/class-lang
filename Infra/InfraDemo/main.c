@@ -201,6 +201,18 @@ Bool TypeHandle(Int frame, Int arg, Int index, Int value)
         {
             Play_Stop(Play);
         }
+        if (index == 'G')
+        {
+            Int k;
+            k = Play_AudioOutGet(Play);
+
+            Bool ka;
+            ka = AudioOut_MuteGet(k);
+
+            ka = !ka;
+
+            AudioOut_MuteSet(k, ka);
+        }
 
         if (index == 'B')
         {
