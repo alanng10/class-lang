@@ -430,8 +430,8 @@ class Extern : Any
     maide prusate Int AudioOut_Delete(var Int o) { }
     maide prusate Int AudioOut_Init(var Int o) { }
     maide prusate Int AudioOut_Final(var Int o) { }
-    maide prusate Int AudioOut_MutedGet(var Int o) { }
-    maide prusate Int AudioOut_MutedSet(var Int o, var Int value) { }
+    maide prusate Int AudioOut_MuteGet(var Int o) { }
+    maide prusate Int AudioOut_MuteSet(var Int o, var Int value) { }
     maide prusate Int AudioOut_VolumeGet(var Int o) { }
     maide prusate Int AudioOut_VolumeSet(var Int o, var Int value) { }
 

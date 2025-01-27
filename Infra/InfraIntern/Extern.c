@@ -5132,7 +5132,7 @@ Int Intern_Extern_AudioOut_Final(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_AudioOut_MutedGet(Eval* eval, Int frame)
+Int Intern_Extern_AudioOut_MuteGet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -5140,12 +5140,12 @@ Int Intern_Extern_AudioOut_MutedGet(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = AudioOut_MutedGet(a0);
+    a = AudioOut_MuteGet(a0);
 
     Return;
 }
 
-Int Intern_Extern_AudioOut_MutedSet(Eval* eval, Int frame)
+Int Intern_Extern_AudioOut_MuteSet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -5154,7 +5154,7 @@ Int Intern_Extern_AudioOut_MutedSet(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = AudioOut_MutedSet(a0, a1);
+    a = AudioOut_MuteSet(a0, a1);
 
     Return;
 }

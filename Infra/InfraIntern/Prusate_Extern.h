@@ -432,8 +432,8 @@ Intern_Api Int Intern_Extern_AudioOut_New(Eval* e, Int f);
 Intern_Api Int Intern_Extern_AudioOut_Delete(Eval* e, Int f);
 Intern_Api Int Intern_Extern_AudioOut_Init(Eval* e, Int f);
 Intern_Api Int Intern_Extern_AudioOut_Final(Eval* e, Int f);
-Intern_Api Int Intern_Extern_AudioOut_MutedGet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_AudioOut_MutedSet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_AudioOut_MuteGet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_AudioOut_MuteSet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_AudioOut_VolumeGet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_AudioOut_VolumeSet(Eval* e, Int f);
 

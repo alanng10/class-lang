@@ -435,8 +435,8 @@ Infra_Api Int VideoFrame_SizeSet(Int o, Int value);
 Infra_Api Int VideoFrame_Image(Int o, Int image);
 
 InfraApiNew(AudioOut)
-Infra_Api Int AudioOut_MutedGet(Int o);
-Infra_Api Int AudioOut_MutedSet(Int o, Int value);
+Infra_Api Int AudioOut_MuteGet(Int o);
+Infra_Api Int AudioOut_MuteSet(Int o, Int value);
 Infra_Api Int AudioOut_VolumeGet(Int o);
 Infra_Api Int AudioOut_VolumeSet(Int o, Int value);
 
