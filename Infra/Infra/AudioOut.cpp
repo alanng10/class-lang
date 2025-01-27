@@ -29,7 +29,7 @@ Int AudioOut_MuteSet(Int o, Int value)
     m->Mute = value;
 
     bool bu;
-    bu = (!(m->Mute == 0));
+    bu = (m->Mute == 0);
     m->Intern->setMuted(bu);
     return true;
 }
