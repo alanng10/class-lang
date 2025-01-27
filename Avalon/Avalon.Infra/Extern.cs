@@ -442,8 +442,8 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong AudioOut_Delete(ulong o);
     [DllImport(InfraLib)] public extern static ulong AudioOut_Init(ulong o);
     [DllImport(InfraLib)] public extern static ulong AudioOut_Final(ulong o);
-    [DllImport(InfraLib)] public extern static ulong AudioOut_MutedGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong AudioOut_MutedSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong AudioOut_MuteGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong AudioOut_MuteSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong AudioOut_VolumeGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong AudioOut_VolumeSet(ulong o, ulong value);
 
