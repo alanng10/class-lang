@@ -106,6 +106,8 @@ Word "include" has meaning that is included.
 
 Word "instant" has meaning that is instance.
 
+Word "save" has meaning that is saved.
+
 Word "auto" has meaning that is entity to do effect.
 
 Word "node" has meaning that is entity.
