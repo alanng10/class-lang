@@ -21,3 +21,4 @@ To replace a part with combination of multiple parts, merge the multiple parts i
 This is enough element to make any tool.
 
 Tool has most general arch to make any tool.
+Tool has enough infra elements to make any tool, and has no more than enough element.
