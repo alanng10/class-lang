@@ -68,6 +68,8 @@ Word "inter" has meaning that is interface.
 
 Word "implem" has meaning that is implemented.
 
+Word "object" has meaning that is directed any.
+
 Word "calc" has meaning that is calculate integer.
 
 Word "edit" has meaning that is text edit.
