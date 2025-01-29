@@ -112,6 +112,8 @@ Word "instant" has meaning that is instance.
 
 Word "save" has meaning that is saved.
 
+Word "archive" has meaning that is stored object.
+
 Word "auto" has meaning that is entity to do effect.
 
 Word "node" has meaning that is entity.
