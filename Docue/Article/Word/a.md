@@ -66,7 +66,7 @@ Word "design" has meaning that is designed.
 
 Word "inter" has meaning that is interface.
 
-Word "imple" has meaning that is implemented.
+Word "implem" has meaning that is implemented.
 
 Word "calc" has meaning that is calculate integer.
 
