@@ -752,6 +752,8 @@ Word "shop" has meaning that is buy.
 
 Word "sell" has meaning that is sell.
 
+Word "vendor" has meaning that is sell executable entity.
+
 Word "price" has meaning that is money price.
 
 Word "money" has meaning that is trade symbol.
