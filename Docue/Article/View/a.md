@@ -7,3 +7,6 @@ View is interface used for execute.
 Model interface is interface used for execute.
 
 Console interface is interface used for execute that is not tagged with the existence of specific form.
+
+View frame is most general.
+View frame does not tag view with the existence of specific form.
