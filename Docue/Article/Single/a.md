@@ -72,6 +72,10 @@ Single has get, set and call that are virtual.
 Get, set, and call are triggered on any.
 This is enough element to do any ref call.
 
+Single any allocate is most general.
+Single allocate any with NewOperate and ShareOperate.
+The allocate is not tagged with existence of specific class of any.
+
 Single does not need operator overloading.
 Single has comp name, same as Class Lang.
 This is enough element to do any trigger.
