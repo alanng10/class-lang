@@ -10,6 +10,9 @@ Single source item root node is Class node.
 Single has all Class Lang lang element nodes.
 Single lang elements has same syntax as Class Lang lang elements.
 
+Single module source has port.
+The port is same as in Class Lang module source port.
+
 Single output and input of lang elements has class, same as Class Lang.
 
 Single builtin Int is 60 bits, same as Class Lang.
