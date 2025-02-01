@@ -122,7 +122,7 @@ Word "remote" has meaning that is remote count.
 
 Word "service" has meaning that is served.
 
-Word "central" has meaning that is centralized
+Word "central" has meaning that is centralized.
 
 Word "tribute" has meaning that is distributed.
 
