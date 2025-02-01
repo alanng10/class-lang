@@ -70,6 +70,8 @@ Word "implem" has meaning that is implemented.
 
 Word "solve" has meaning that is solved.
 
+Word "fault" has meaning that is issue cause.
+
 Word "object" has meaning that is directed any.
 
 Word "calc" has meaning that is calculate integer.
