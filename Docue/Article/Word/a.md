@@ -112,6 +112,8 @@ Word "update" has meaning that is info update.
 
 Word "install" has meaning that is place at site.
 
+Word "upgrade" has meaning that is make higher grade.
+
 Word "deploy" has meaning that is deploy entity.
 
 Word "local" has meaning that is local count.
