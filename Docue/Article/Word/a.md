@@ -122,6 +122,8 @@ Word "remote" has meaning that is remote count.
 
 Word "service" has meaning that is served.
 
+Word "central" has meaning that is centralized.
+
 Word "contain" has meaning that is contained.
 
 Word "include" has meaning that is included.
