@@ -64,6 +64,8 @@ Word "modular" has meaning that is modular.
 
 Word "design" has meaning that is designed.
 
+Word "default" has meaning that is no fault.
+
 Word "inter" has meaning that is interface.
 
 Word "implem" has meaning that is implemented.
