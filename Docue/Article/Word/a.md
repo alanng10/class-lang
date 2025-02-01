@@ -124,6 +124,8 @@ Word "service" has meaning that is served.
 
 Word "central" has meaning that is centralized.
 
+Word "tribute" has meaning that is distributed.
+
 Word "contain" has meaning that is contained.
 
 Word "include" has meaning that is included.
