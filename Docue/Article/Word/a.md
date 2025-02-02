@@ -272,6 +272,8 @@ Word "root" has meaning that is origin entity.
 
 Word "most" has meaning that is highest.
 
+Word "trim" has meaning that is wanted char.
+
 Word "center" has meaning that is center entity.
 
 Word "model" has meaning that is model any.
