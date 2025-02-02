@@ -288,7 +288,7 @@ Word "assem" has meaning that is assembly.
 
 Word "native" has meaning that is native.
 
-Word "machone" has meaning that is inform tool.
+Word "machane" has meaning that is inform tool.
 
 Word "machine" has meaning that is exform tool.
 
