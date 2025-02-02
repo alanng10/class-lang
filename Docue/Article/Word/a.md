@@ -70,6 +70,8 @@ Word "design" has meaning that is designed.
 
 Word "default" has meaning that is no fault.
 
+Word "load" has meaning that is effect load.
+
 Word "inter" has meaning that is interface.
 
 Word "implem" has meaning that is implemented.
