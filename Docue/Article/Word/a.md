@@ -298,6 +298,8 @@ Word "perspec" has meaning that is perspective.
 
 Word "regex" has meaning that is regular expression.
 
+Word "pattern" has meaning that is pattern entity.
+
 Word "unique" has meaning that is only one in type.
 
 Word "out" has meaning that is output destination.
