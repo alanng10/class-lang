@@ -398,6 +398,8 @@ Word "stack" has meaning that is put on top of.
 
 Word "queue" has meaning that is put at after back.
 
+Word "tree" has meaning that is tree structured.
+
 Word "enable" has meaning that is enabled.
 
 Word "task" has meaning that is to be done.
