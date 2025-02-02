@@ -676,6 +676,8 @@ Word "rect" has meaning that is rectangle.
 
 Word "angle" has meaning that is direct.
 
+Word "scale" has meaning that is scale linear.
+
 Word "align" has meaning that is direct align.
 
 Word "black" has meaning that is black color.
