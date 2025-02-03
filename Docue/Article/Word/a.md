@@ -734,6 +734,8 @@ Word "plain" has meaning that is entirely plain.
 
 Word "termina" has meaning that is terminal.
 
+Word "shell" has meaning that is terminal lang.
+
 Word "command" has meaning that is char list command.
 
 Word "script" has meaning that is executable source.
