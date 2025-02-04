@@ -714,6 +714,8 @@ Word "visual" has meaning that is graphics.
 
 Word "animate" has meaning that is animation.
 
+Word "button" has meaning that is view button.
+
 Word "icon" has meaning that is symbol view.
 
 Word "turn" has meaning that is toggle.
