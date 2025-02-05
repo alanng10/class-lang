@@ -95,7 +95,7 @@ Set dest var with the value of 1 if sourceA var value is less than the value of 
 Otherwise, set dest var with the value of 0.
 Syntax: ble dest, sourceA, sourceB
 
-## SBl
+## Sbl
 Set dest var with the value of 1 if sourceA var value is two complement signed less than the value of sourceB var value.
 Otherwise, set dest var with the value of 0.
 Syntax: sbl dest, sourceA, sourceB
@@ -117,11 +117,11 @@ Set dest var with the value of unsigned div of sourceA var and sourceB var if so
 Otherwise, set dest var with the value of 0.
 Syntax: div dest, sourceA, sourceB
 
-## SMu
+## Smu
 Set dest var with the value of two complement signed mul of sourceA var and sourceB var.
 Syntax: smu dest, sourceA, sourceB
 
-## SDi
+## Sdi
 Set dest var with the value of two complement signed div of sourceA var and sourceB var if sourceB var is not zero.
 Otherwise, set dest var with the value of 0.
 Syntax: sdi dest, sourceA, sourceB
@@ -146,6 +146,6 @@ Syntax: lit dest, sourceA, sourceB
 Set dest var with the value of bitwise unsigned shift rite of sourceA var value with the count of sourceB var value.
 Syntax: rit dest, sourceA, sourceB
 
-## SRi
+## Sri
 Set dest var with the value of bitwise two complement signed shift rite of sourceA var value with the count of sourceB var value.
 Syntax: sri dest, sourceA, sourceB
