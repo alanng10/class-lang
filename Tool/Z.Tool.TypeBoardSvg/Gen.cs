@@ -243,7 +243,7 @@ public class Gen : ToolBase
 
     protected virtual bool AddControlButtonList()
     {
-        this.AddControlButton(this.S("Tab"), 2, 0);
+        this.AddControlButton(this.S("Table"), 2, 0);
 
         this.AddControlButton(this.S("Shift"), 3, 0);
 
