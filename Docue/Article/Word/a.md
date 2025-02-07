@@ -514,8 +514,6 @@ Word "right" has meaning that is cube.
 
 Word "enter" has meaning that is inn finish.
 
-Word "tab" has meaning that is inn structure.
-
 Word "shift" has meaning that is alter.
 
 Word "block" has meaning that is group block.
