@@ -226,18 +226,26 @@ public class StateTraverse : Traverse
             className = nodeClass.Value;
         }
 
-        if (this.StateVar.Valid(varName))
+        if (!(varName == null))
         {
-            this.Error(this.ErrorKind.NameUnavail, nodeVar);
-            return true;
+            if (this.StateVar.Valid(varName))
+            {
+                this.Error(this.ErrorKind.NameUnavail, nodeVar);
+                return true;
+            }
         }
 
         ClassClass varClass;
-        varClass = this.Class(className);
-        if (varClass == null)
+        varClass = null;
+
+        if (!(className == null))
         {
-            this.Error(this.ErrorKind.ClassUndefine, nodeVar);
-            return true;
+            varClass = this.Class(className);
+            if (varClass == null)
+            {
+                this.Error(this.ErrorKind.ClassUndefine, nodeVar);
+                return true;
+            }
         }
 
         Var a;
