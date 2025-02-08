@@ -207,7 +207,11 @@ public class CompTraverse : Traverse
         }
 
         String className;
-        className = nodeClass.Value;
+        className = null;
+        if (!(nodeClass == null))
+        {
+            className = nodeClass.Value;
+        }
 
         if (this.ParamVar.Valid(varName))
         {
