@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QFontDatabase>
+#include <QByteArray>
 
 #include "Pronate.hpp"
 
