@@ -12,6 +12,7 @@ HEADERS += \
     Draw.hpp \
     Entry.h \
     Font.hpp \
+    FontStore.hpp \
     Form.hpp \
     Format.h \
     FormatArg.h \
@@ -72,6 +73,7 @@ SOURCES += \
     Draw.cpp \
     Entry.c \
     Font.cpp \
+    FontStore.cpp \
     Form.cpp \
     Format.c \
     FormatArg.c \
