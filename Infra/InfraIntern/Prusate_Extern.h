@@ -410,6 +410,15 @@ Intern_Api Int Intern_Extern_ImageWrite_FormatSet(Eval* e, Int f);
 
 Intern_Api Int Intern_Extern_ImageWrite_Execute(Eval* e, Int f);
 
+Intern_Api Int Intern_Extern_FontStore_New(Eval* e, Int f);
+Intern_Api Int Intern_Extern_FontStore_Delete(Eval* e, Int f);
+Intern_Api Int Intern_Extern_FontStore_Init(Eval* e, Int f);
+Intern_Api Int Intern_Extern_FontStore_Final(Eval* e, Int f);
+Intern_Api Int Intern_Extern_FontStore_Add(Eval* e, Int f);
+Intern_Api Int Intern_Extern_FontStore_Rem(Eval* e, Int f);
+Intern_Api Int Intern_Extern_FontStore_NameList(Eval* e, Int f);
+Intern_Api Int Intern_Extern_FontStore_NameListIdent(Eval* e, Int f);
+
 Intern_Api Int Intern_Extern_VideoOut_New(Eval* e, Int f);
 Intern_Api Int Intern_Extern_VideoOut_Delete(Eval* e, Int f);
 Intern_Api Int Intern_Extern_VideoOut_Init(Eval* e, Int f);
