@@ -408,6 +408,15 @@ class Extern : Any
 
     maide prusate Int ImageWrite_Execute(var Int o) { }
 
+    maide prusate Int FontStore_New() { }
+    maide prusate Int FontStore_Delete(var Int o) { }
+    maide prusate Int FontStore_Init(var Int o) { }
+    maide prusate Int FontStore_Final(var Int o) { }
+    maide prusate Int FontStore_Add(var Int o, var Int data) { }
+    maide prusate Int FontStore_Rem(var Int o, var Int ident) { }
+    maide prusate Int FontStore_NameList(var Int o) { }
+    maide prusate Int FontStore_NameListIdent(var Int o, var Int ident) { }
+
     maide prusate Int VideoOut_New() { }
     maide prusate Int VideoOut_Delete(var Int o) { }
     maide prusate Int VideoOut_Init(var Int o) { }
