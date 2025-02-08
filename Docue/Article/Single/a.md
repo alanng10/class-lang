@@ -1,7 +1,7 @@
 # Single
 
-Single is program lang for effect.
-Single is programming language for effect.
+Single is program lang for program.
+Single is programming language for program.
 Single is object oriented.
 Single is class based.
 
