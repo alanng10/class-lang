@@ -213,9 +213,18 @@ public class StateTraverse : Traverse
         nodeClass = nodeVar.Class;
 
         String varName;
-        varName = name.Value;
+        varName = null;
+        if (!(name == null))
+        {
+            varName = name.Value;
+        }
+
         String className;
-        className = nodeClass.Value;
+        className = null;
+        if (!(nodeClass == null))
+        {
+            className = nodeClass.Value;
+        }
 
         if (this.StateVar.Valid(varName))
         {
