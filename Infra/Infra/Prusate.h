@@ -419,6 +419,12 @@ Infra_Api Int ImageWrite_FormatSet(Int o, Int value);
 
 Infra_Api Int ImageWrite_Execute(Int o);
 
+InfraApiNew(FontStore)
+Infra_Api Int FontStore_Add(Int o, Int data);
+Infra_Api Int FontStore_Rem(Int o, Int ident);
+Infra_Api Int FontStore_NameList(Int o);
+Infra_Api Int FontStore_NameListIdent(Int o, Int ident);
+
 InfraApiNew(VideoOut)
 Infra_Api Int VideoOut_FrameGet(Int o);
 Infra_Api Int VideoOut_FrameSet(Int o, Int value);
