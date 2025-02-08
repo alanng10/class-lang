@@ -200,7 +200,11 @@ public class CompTraverse : Traverse
         nodeClass = nodeVar.Class;
 
         String varName;
-        varName = name.Value;
+        varName = null;
+        if (!(name == null))
+        {
+            varName = name.Value;
+        }
 
         String className;
         className = nodeClass.Value;
