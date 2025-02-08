@@ -4887,6 +4887,111 @@ Int Intern_Extern_ImageWrite_Execute(Eval* eval, Int frame)
     Return;
 }
 
+Int Intern_Extern_FontStore_New(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 0;
+
+    Int a;
+    a = FontStore_New();
+
+    Return;
+}
+
+Int Intern_Extern_FontStore_Delete(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 1;
+
+    Param(0);
+
+    Int a;
+    a = FontStore_Delete(a0);
+
+    Return;
+}
+
+Int Intern_Extern_FontStore_Init(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 1;
+
+    Param(0);
+
+    Int a;
+    a = FontStore_Init(a0);
+
+    Return;
+}
+
+Int Intern_Extern_FontStore_Final(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 1;
+
+    Param(0);
+
+    Int a;
+    a = FontStore_Final(a0);
+
+    Return;
+}
+
+Int Intern_Extern_FontStore_Add(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 2;
+
+    Param(0);
+    Param(1);
+
+    Int a;
+    a = FontStore_Add(a0, a1);
+
+    Return;
+}
+
+Int Intern_Extern_FontStore_Rem(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 2;
+
+    Param(0);
+    Param(1);
+
+    Int a;
+    a = FontStore_Rem(a0, a1);
+
+    Return;
+}
+
+Int Intern_Extern_FontStore_NameList(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 1;
+
+    Param(0);
+
+    Int a;
+    a = FontStore_NameList(a0);
+
+    Return;
+}
+
+Int Intern_Extern_FontStore_NameListIdent(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 2;
+
+    Param(0);
+    Param(1);
+
+    Int a;
+    a = FontStore_NameListIdent(a0, a1);
+
+    Return;
+}
+
 Int Intern_Extern_VideoOut_New(Eval* eval, Int frame)
 {
     Int paramCount;
