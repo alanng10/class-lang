@@ -417,6 +417,15 @@ public static class Extern
 
     [DllImport(InfraLib)] public extern static ulong ImageWrite_Execute(ulong o);
 
+    [DllImport(InfraLib)] public extern static ulong FontStore_New();
+    [DllImport(InfraLib)] public extern static ulong FontStore_Delete(ulong o);
+    [DllImport(InfraLib)] public extern static ulong FontStore_Init(ulong o);
+    [DllImport(InfraLib)] public extern static ulong FontStore_Final(ulong o);
+    [DllImport(InfraLib)] public extern static ulong FontStore_Add(ulong o, ulong data);
+    [DllImport(InfraLib)] public extern static ulong FontStore_Rem(ulong o, ulong ident);
+    [DllImport(InfraLib)] public extern static ulong FontStore_NameList(ulong o);
+    [DllImport(InfraLib)] public extern static ulong FontStore_NameListIdent(ulong o, ulong ident);
+
     [DllImport(InfraLib)] public extern static ulong VideoOut_New();
     [DllImport(InfraLib)] public extern static ulong VideoOut_Delete(ulong o);
     [DllImport(InfraLib)] public extern static ulong VideoOut_Init(ulong o);
