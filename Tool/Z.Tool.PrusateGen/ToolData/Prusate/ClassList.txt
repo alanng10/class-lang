@@ -205,10 +205,10 @@ ImageWrite
     Execute()
 
 FontStore
-    Add(data);
-    Rem(ident);
-    NameList();
-    NameListIdent(ident);
+    Add(data)
+    Rem(ident)
+    NameList()
+    NameListIdent(ident)
 
 VideoOut
     Frame
