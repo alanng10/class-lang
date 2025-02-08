@@ -4,11 +4,12 @@ Sande is system program lang.
 This programming language word "Sande" is a node name.
 
 Sande is used to make system program.
+Sande is not used to make module that is executed on system program.
 
 Sande is a plat.
 The plat layers below System in info tech stack arch.
 
-Sande is used to make system programming modules for effect.
+Sande is used to make system programming modules.
 
 Sande modules sources has port.
 The port source file has file name "Sande.Port".
