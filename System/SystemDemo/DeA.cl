@@ -1187,6 +1187,11 @@ class DeA : Dem
         return this.StringIntFormat(int, 10, false, 0, null, 0);
     }
 
+    maide prusate String StringIntHex(var Int int)
+    {
+        return this.StringIntFormat(int, 16, false, 15, 15, this.Char("0"));
+    }
+
     maide prusate String StringBoolFormat(var Bool bool, var Bool alignLeft, var Int fieldWidth, var Int maxWidth, var Int fillChar)
     {
         var FormatArg arg;
