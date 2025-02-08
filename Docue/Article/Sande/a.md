@@ -1,6 +1,6 @@
 # Sande
 
-Sande is system program lang for effect.
+Sande is system program lang.
 This programming language word "Sande" is a node name.
 
 Sande is a plat.
