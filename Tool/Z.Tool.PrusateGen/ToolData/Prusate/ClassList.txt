@@ -207,6 +207,8 @@ ImageWrite
 FontStore
     Add(data);
     Rem(ident);
+    NameList();
+    NameListIdent(ident);
 
 VideoOut
     Frame
