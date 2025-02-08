@@ -2,6 +2,9 @@
 
 Single is program lang for effect.
 Single is programming language for effect.
+
+Single is used to make module for effect.
+
 Single is object oriented.
 Single is class based.
 
