@@ -50,3 +50,13 @@ Int FontStore_Rem(Int o, Int ident)
     a = ba;
     return a;
 }
+
+Int FontStore_NameList(Int o)
+{
+    return false;
+}
+
+Int FontStore_NameListIdent(Int o, Int ident)
+{
+    return false;
+}
