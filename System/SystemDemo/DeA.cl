@@ -36,7 +36,7 @@ class DeA : Dem
     field precate StorageInfra StorageInfra { get { return data; } set { data : value; } }
     field precate StringComp StringComp { get { return data; } set { data : value; } }
     field precate StorageComp StorageComp { get { return data; } set { data : value; } }
-    field precate Console Console { get { return data; } set { data : value; } }
+    field prusate Console Console { get { return data; } set { data : value; } }
     field precate MathComp MathComp { get { return data; } set { data : value; } }
     field precate Format Format { get { return data; } set { data : value; } }
     field precate FormatArg FormatArg { get { return data; } set { data : value; } }
