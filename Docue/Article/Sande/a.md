@@ -3,6 +3,8 @@
 Sande is system program lang.
 This programming language word "Sande" is a node name.
 
+Sande is used to make system program.
+
 Sande is a plat.
 The plat layers below System in info tech stack arch.
 
