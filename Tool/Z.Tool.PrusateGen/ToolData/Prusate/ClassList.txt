@@ -204,6 +204,10 @@ ImageWrite
     Format
     Execute()
 
+FontStore
+    Add(data);
+    Rem(ident);
+
 VideoOut
     Frame
     FrameEventState
