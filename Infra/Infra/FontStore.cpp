@@ -37,3 +37,16 @@ Int FontStore_Add(Int o, Int data)
     a = ke;
     return a;
 }
+
+Int FontStore_Rem(Int o, Int ident)
+{
+    int ka;
+    ka = ident;
+
+    bool ba;
+    ba = QFontDatabase::removeApplicationFont(ka);
+
+    Bool a;
+    a = ba;
+    return a;
+}
