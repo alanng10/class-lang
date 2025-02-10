@@ -938,7 +938,6 @@ public class PortLoad : ClassBase
 
         String a;
         a = this.ClassInfra.ModuleRefString(k.Name, verString);
-
         return a;
     }
 
