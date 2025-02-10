@@ -1369,9 +1369,9 @@ public class StateTraverse : Traverse
         return d;
     }
 
-    protected virtual bool ValidCount(ClassClass triggerClass, ClassClass varClass, Count count)
+    protected virtual bool ValidCount(ClassClass triggClass, ClassClass varClass, Count count)
     {
-        return this.ClassInfra.ValidCount(this.ThisClass, triggerClass, varClass, count, this.System.Any, this.NullClass);
+        return this.ClassInfra.ValidCount(this.ThisClass, triggClass, varClass, count, this.System.Any, this.NullClass);
     }
 
     protected virtual bool ArgueMatch(Maide varMaide, Argue argue)
