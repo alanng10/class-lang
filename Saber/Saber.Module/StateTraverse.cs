@@ -1402,10 +1402,10 @@ public class StateTraverse : Traverse
             argueIter.Next();
 
             Var varVar;
-            varVar = (Var)paramIter.Value;
+            varVar = paramIter.Value as Var;
 
             Operate operate;
-            operate = (Operate)argueIter.Value;
+            operate = argueIter.Value as Operate;
             if (operate == null)
             {
                 return false;
