@@ -19,6 +19,7 @@ public class PortLoad : ClassBase
         this.ClassModulePre = this.AddClear().Add(this.ClassModuleSingle).Add(this.ClassInfra.Dot).AddResult();
 
         this.SDotRef = this.S(".ref");
+        this.SModule = this.S("Module");
         return true;
     }
     public virtual PortPort Port { get; set; }
@@ -48,6 +49,7 @@ public class PortLoad : ClassBase
     protected virtual String ClassModuleSingle { get; set; }
     protected virtual String ClassModulePre { get; set; }
     protected virtual String SDotRef { get; set; }
+    protected virtual String SModule { get; set; }
 
     public virtual bool Execute()
     {
@@ -419,7 +421,9 @@ public class PortLoad : ClassBase
         moduleRefString = this.ModuleRefString(moduleRef);
 
         String filePath;
-        filePath = this.AddClear().Add(this.ClassPath).Add(this.TextInfra.PathCombine).Add(moduleRefString).Add(this.SDotRef).AddResult();
+        filePath = this.AddClear().Add(this.ClassPath).Add(this.TextInfra.PathCombine)
+            .Add(this.SModule).Add(this.TextInfra.PathCombine)
+            .Add(moduleRefString).Add(this.SDotRef).AddResult();
 
         Data data;
         data = this.StorageInfra.DataRead(filePath);
