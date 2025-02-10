@@ -198,7 +198,7 @@ public class PortLoad : ClassBase
         while (i < count)
         {
             PortImport o;
-            o = (PortImport)import.GetAt(i);
+            o = import.GetAt(i) as PortImport;
 
             ModuleRef aa;
             aa = o.Module;
