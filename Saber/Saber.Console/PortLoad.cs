@@ -299,7 +299,7 @@ public class PortLoad : ClassBase
         while (i < count)
         {
             PortImport a;
-            a = (PortImport)array.GetAt(i);
+            a = array.GetAt(i) as PortImport;
 
             if (!this.CheckImportModuleRef(a.Module))
             {
