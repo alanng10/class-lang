@@ -242,7 +242,7 @@ public class PortLoad : ClassBase
         while (i < count)
         {
             ModuleRef a;
-            a = (ModuleRef)array.GetAt(i);
+            a = array.GetAt(i) as ModuleRef;
 
             if (table.Valid(a))
             {
