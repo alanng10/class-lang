@@ -21,7 +21,7 @@ public class StorageGen : ClassBase
     public virtual bool Execute()
     {
         String dataFoldPath;
-        dataFoldPath = this.AddClear().Add(this.ClassPath)
+        dataFoldPath = this.AddClear().Add(this.ClassInfra.ClassModulePath(this.ClassPath))
             .Add(this.TextInfra.PathCombine)
             .Add(this.ModuleRefString).Add(this.ClassInfra.Dot).Add(this.SData).AddResult();
 
