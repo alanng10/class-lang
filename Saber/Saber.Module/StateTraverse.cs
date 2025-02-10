@@ -1270,7 +1270,7 @@ public class StateTraverse : Traverse
             if (!b)
             {
                 Field a;
-                a = (Field)thisClass.Field.Get(name);
+                a = thisClass.Field.Get(name) as Field;
                 if (!(a == null))
                 {
                     d = a;
@@ -1331,7 +1331,7 @@ public class StateTraverse : Traverse
             if (!b)
             {
                 Maide a;
-                a = (Maide)thisClass.Maide.Get(name);
+                a = thisClass.Maide.Get(name) as Maide;
                 if (!(a == null))
                 {
                     d = a;
