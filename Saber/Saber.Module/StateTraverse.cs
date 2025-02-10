@@ -1446,7 +1446,7 @@ public class StateTraverse : Traverse
         while (iter.Next())
         {
             Var a;
-            a = (Var)iter.Value;
+            a = iter.Value as Var;
 
             listInfra.TableAdd(varTable, a.Name, a);
         }
@@ -1462,10 +1462,10 @@ public class StateTraverse : Traverse
         while (iter.Next())
         {
             Table varTable;
-            varTable = (Table)iter.Value;
+            varTable = iter.Value as Table;
 
             Var varVar;
-            varVar = (Var)varTable.Get(name);
+            varVar = varTable.Get(name) as Var;
             if (!(varVar == null))
             {
                 return varVar;
