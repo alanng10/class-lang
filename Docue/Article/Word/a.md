@@ -46,6 +46,8 @@ Word "level" has meaning that is tiered stop.
 
 Word "mark" has meaning that is goaled.
 
+Word "park" has meaning that is ultimate.
+
 Word "human" has meaning that is live entity.
 
 Word "client" has meaning that is user.
