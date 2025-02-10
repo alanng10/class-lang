@@ -356,7 +356,7 @@ public class PortLoad : ClassBase
             a = (ModuleRef)array.GetAt(i);
 
             bool b;
-            b = this.BinaryLoadRecursive(a);
+            b = this.BinaryLoadRecurse(a);
             if (!b)
             {
                 String k;
@@ -373,7 +373,7 @@ public class PortLoad : ClassBase
         return true;
     }
 
-    protected virtual bool BinaryLoadRecursive(ModuleRef moduleRef)
+    protected virtual bool BinaryLoadRecurse(ModuleRef moduleRef)
     {
         if (this.BinaryTable.Valid(moduleRef))
         {
@@ -399,7 +399,7 @@ public class PortLoad : ClassBase
             import = (BinaryImport)array.GetAt(i);
 
             bool b;
-            b = this.BinaryLoadRecursive(import.Module);
+            b = this.BinaryLoadRecurse(import.Module);
             if (!b)
             {
                 return false;
