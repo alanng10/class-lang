@@ -352,7 +352,7 @@ public class PortLoad : ClassBase
         while (i < count)
         {
             ModuleRef a;
-            a = (ModuleRef)array.GetAt(i);
+            a = array.GetAt(i) as ModuleRef;
 
             bool b;
             b = this.BinaryLoadRecurse(a);
