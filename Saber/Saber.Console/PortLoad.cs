@@ -396,7 +396,7 @@ public class PortLoad : ClassBase
         while (i < count)
         {
             BinaryImport import;
-            import = (BinaryImport)array.GetAt(i);
+            import = array.GetAt(i) as BinaryImport;
 
             bool b;
             b = this.BinaryLoadRecurse(import.Module);
