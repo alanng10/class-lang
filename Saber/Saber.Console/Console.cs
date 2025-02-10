@@ -583,8 +583,7 @@ public class Console : ClassBase
         this.BinaryWrite.Binary = null;
 
         String filePath;
-        filePath = this.AddClear().Add(this.ClassPath)
-            .Add(this.TextInfra.PathCombine).Add(this.SModule)
+        filePath = this.AddClear().Add(this.ClassInfra.ClassModulePath(this.ClassPath))
             .Add(this.TextInfra.PathCombine)
             .Add(moduleRefString).Add(this.ClassInfra.Dot).Add(this.SRef).AddResult();
 
