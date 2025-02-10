@@ -33,6 +33,7 @@ public class Infra : Any
         this.Space = this.S(" ");
         this.IntSignValueNegateMax = this.InfraInfra.IntCapValue / 2;
         this.IntSignValuePositeMax = this.IntSignValueNegateMax - 1;
+        this.SModule = this.S("Module");
         return true;
     }
 
@@ -44,7 +45,6 @@ public class Infra : Any
     public virtual String Space { get; set; }
     public virtual long IntSignValuePositeMax { get; set; }
     public virtual long IntSignValueNegateMax { get; set; }
-
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
@@ -52,6 +52,7 @@ public class Infra : Any
     protected virtual TextCode TextCode { get; set; }
     protected virtual TextCodeKindList TextCodeKindList { get; set; }
     protected virtual CountList CountList { get; set; }
+    protected virtual String SModule { get; set; }
 
     public virtual bool IndexRange(Range range, long index)
     {
@@ -396,15 +397,35 @@ public class Infra : Any
         return k;
     }
 
+    public virtual String ClassModulePath(String classPath)
+    {
+        StringAdd k;
+        k = new StringAdd();
+        k.Init();
+
+        return this.AddClear(k).Add(k, classPath).Add(k, this.TextInfra.PathCombine)
+            .Add(k, this.SModule).AddResult(k);
+    }
+
     private String S(string o)
     {
         return this.TextInfra.S(o);
     }
 
-    private Infra Add(StringAdd h, String o)
+    private Infra Add(StringAdd k, String a)
     {
-        this.TextInfra.AddString(h, o);
-
+        this.TextInfra.AddString(k, a);
         return this;
+    }
+
+    private Infra AddClear(StringAdd k)
+    {
+        k.Clear();
+        return this;
+    }
+
+    private String AddResult(StringAdd k)
+    {
+        return k.Result();
     }
 }
