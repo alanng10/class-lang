@@ -226,9 +226,6 @@ public class PortLoad : ClassBase
 
     protected virtual bool CheckImportUnique()
     {
-        ListInfra listInfra;
-        listInfra = this.ListInfra;
-
         Table table;
         table = this.ClassInfra.TableCreateModuleRefLess();
 
@@ -250,7 +247,7 @@ public class PortLoad : ClassBase
                 return false;
             }
 
-            listInfra.TableAdd(table, a, a);
+            this.ListInfra.TableAdd(table, a, a);
 
             i = i + 1;
         }
