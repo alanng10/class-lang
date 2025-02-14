@@ -58,20 +58,27 @@ Int Execute()
     countString = moduleString;
     countString.append("_Count");
 
-    QString libPath;
-    libPath = QString("Module/");
-    libPath.append(moduleRef);
+    Int libPath;
+    libPath = String_ConstantCreate(CastInt("Module"));
+
+    Bool bc;
+    bc = StorageComp_ThisFoldSet(0, libPath);
+
+    if (!bc)
+    {
+        return 273;
+    }
 
     QLibrary library;
-    library.setFileName(libPath);
+    library.setFileName(moduleRef);
     
     bool bu;
     bu = library.load();
 
-    Bool bc;
-    bc = bu;
+    Bool bd;
+    bd = bu;
 
-    if (!bc)
+    if (!bd)
     {
         return 280;
     }
