@@ -58,9 +58,12 @@ Int Execute()
     countString = moduleString;
     countString.append("_Count");
 
+    QString libPath;
+    libPath = QString("Module/");
+    libPath.append(moduleRef);
+
     QLibrary library;
-    
-    library.setFileName(moduleRef);
+    library.setFileName(libPath);
     
     bool bu;
     bu = library.load();
