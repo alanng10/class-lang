@@ -1121,9 +1121,9 @@ class DeA : Dem
         var Program program;
         program : new Program;
         program.Init();
-        program.Name : "class.exe";
+        program.Name : "../class.exe";
         program.Argue : list;
-        program.WorkFold : null;
+        program.WorkFold : "..";
         program.Environ : null;
 
         program.Execute();
