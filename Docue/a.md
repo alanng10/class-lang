@@ -11,6 +11,8 @@ Class is did.
 
 Class is most general and most level program lang.
 
+Class is park program lang.
+
 Class is an object oriented programming language.
 Class is class base programming language.
 It uses classes to define any entity.
