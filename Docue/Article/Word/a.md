@@ -634,6 +634,8 @@ Word "green" has meaning that is color hor.
 
 Word "blue" has meaning that is color row.
 
+Word "chrome" has meaning that is color hue.
+
 Word "polate" has meaning that is interpolate.
 
 Word "linear" has meaning that is linear rate.
