@@ -452,6 +452,10 @@ Word "mod" has meaning that is change.
 
 Word "item" has meaning that is list one of multiple.
 
+Word "next" has meaning that is next entity.
+
+Word "prev" has meaning that is previous entity.
+
 Word "copy" has meaning that is clone.
 
 Word "iter" has meaning that is enumerate.
