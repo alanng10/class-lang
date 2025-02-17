@@ -96,6 +96,8 @@ Word "edit" has meaning that is text edit.
 
 Word "factor" has meaning that is refactor.
 
+Word "preview" has meaning that is view before entity.
+
 Word "title" has meaning that is head char list.
 
 Word "symbol" has meaning that is entity represent entity.
