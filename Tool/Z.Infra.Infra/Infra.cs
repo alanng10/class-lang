@@ -474,7 +474,7 @@ public class Infra : Any
         return b;
     }
 
-    public virtual String GetBoolString(bool a)
+    public virtual String StringBool(bool a)
     {
         String u;
         u = null;
