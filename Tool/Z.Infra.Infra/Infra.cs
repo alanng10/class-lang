@@ -425,7 +425,7 @@ public class Infra : Any
         return this.TextInfra.Limit(text, delimit, this.TextLess);
     }
 
-    public virtual Text TextReplace(Text text, Text limit, Text join)
+    public virtual Text TextPlace(Text text, Text limit, Text join)
     {
         return this.TextInfra.Place(text, limit, join, this.TextLess);
     }

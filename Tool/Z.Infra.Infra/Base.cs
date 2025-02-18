@@ -49,9 +49,9 @@ public class Base : Any
         return this.ToolInfra.CreateText(data, index, count);
     }
 
-    public virtual Text Replace(Text text, string delimit, String join)
+    public virtual Text Place(Text text, string delimit, String join)
     {
-        return this.TextReplace(text, this.TextCreate(this.S(delimit)), this.TextCreate(join));
+        return this.TextPlace(text, this.TextCreate(this.S(delimit)), this.TextCreate(join));
     }
 
     public virtual String StringInt(long n)
@@ -159,9 +159,9 @@ public class Base : Any
         return this.ToolInfra.TextLimit(text, limit);
     }
 
-    public virtual Text TextReplace(Text text, Text limit, Text join)
+    public virtual Text TextPlace(Text text, Text limit, Text join)
     {
-        return this.ToolInfra.TextReplace(text, limit, join);
+        return this.ToolInfra.TextPlace(text, limit, join);
     }
 
     public virtual Base Add(String a)
