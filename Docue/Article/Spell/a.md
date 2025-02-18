@@ -10,6 +10,6 @@ The word third letter "a" refers to any any class.
 
 The word fourth letter "s" refers to any struct refer.
 
-The word fifth letter "s" refers to any struct effect.
+The word fifth letter "s" refers to any struct engin.
 
-The word spell is Class list any class struct refer struct effect.
+The word spell is Class list any class struct refer struct engin.
