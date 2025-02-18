@@ -38,10 +38,10 @@ public class Gen : ToolBase
 
         Text k;        
         k = this.TextCreate(a);
-        k = this.Replace(k, "#Namespace#", this.Module);
-        k = this.Replace(k, "#ClassName#", this.ClassName);
-        k = this.Replace(k, "#AnyClassName#", this.AnyClassName);
-        k = this.Replace(k, "#BaseClassName#", this.BaseClassName);
+        k = this.Place(k, "#Namespace#", this.Module);
+        k = this.Place(k, "#ClassName#", this.ClassName);
+        k = this.Place(k, "#AnyClassName#", this.AnyClassName);
+        k = this.Place(k, "#BaseClassName#", this.BaseClassName);
 
         String aa;
         aa = null;
@@ -56,23 +56,23 @@ public class Gen : ToolBase
             aa = this.S("public ");
         }
 
-        k = this.Replace(k, "#Export#", aa);
+        k = this.Place(k, "#Export#", aa);
 
         String initMethodText;
         initMethodText = this.GetInitMethod();
-        k = this.Replace(k, "#InitMaide#", initMethodText);
+        k = this.Place(k, "#InitMaide#", initMethodText);
 
         String fieldListText;
         fieldListText = this.GetFieldList();
-        k = this.Replace(k, "#FieldList#", fieldListText);
+        k = this.Place(k, "#FieldList#", fieldListText);
 
         String addMethodText;
         addMethodText = this.GetAddMethod();
-        k = this.Replace(k, "#AddMaide#", addMethodText);
+        k = this.Place(k, "#AddMaide#", addMethodText);
 
         String arrayCompListText;
         arrayCompListText = this.GetArrayCompList();
-        k = this.Replace(k, "#ArrayCompList#", arrayCompListText);
+        k = this.Place(k, "#ArrayCompList#", arrayCompListText);
 
         String ka;
         ka = this.StringCreate(k);
@@ -126,7 +126,7 @@ public class Gen : ToolBase
 
         Text k;
         k = this.TextCreate(e);
-        k = this.Replace(k, "#InitFieldList#", kaa);
+        k = this.Place(k, "#InitFieldList#", kaa);
 
         String a;
         a = this.StringCreate(k);
@@ -213,10 +213,10 @@ public class Gen : ToolBase
 
         Text k;
         k = this.TextCreate(e);
-        k = this.Replace(k, "#ItemClassName#", this.ItemClassName);
-        k = this.Replace(k, "#ArrayClassName#", this.ArrayClassName);
-        k = this.Replace(k, "#ClassName#", this.ClassName);
-        k = this.Replace(k, "#BaseClassName#", this.BaseClassName);
+        k = this.Place(k, "#ItemClassName#", this.ItemClassName);
+        k = this.Place(k, "#ArrayClassName#", this.ArrayClassName);
+        k = this.Place(k, "#ClassName#", this.ClassName);
+        k = this.Place(k, "#BaseClassName#", this.BaseClassName);
 
         String a;
         a = this.StringCreate(k);
@@ -230,10 +230,10 @@ public class Gen : ToolBase
         
         Text k;
         k = this.TextCreate(e);
-        k = this.Replace(k, "#ItemClassName#", this.ItemClassName);
-        k = this.Replace(k, "#ArrayClassName#", this.ArrayClassName);
-        k = this.Replace(k, "#ClassName#", this.ClassName);
-        k = this.Replace(k, "#BaseClassName#", this.BaseClassName);
+        k = this.Place(k, "#ItemClassName#", this.ItemClassName);
+        k = this.Place(k, "#ArrayClassName#", this.ArrayClassName);
+        k = this.Place(k, "#ClassName#", this.ClassName);
+        k = this.Place(k, "#BaseClassName#", this.BaseClassName);
 
         long count;
         count = this.ItemTable.Count;
@@ -241,7 +241,7 @@ public class Gen : ToolBase
         String aaa;
         aaa = this.S(count.ToString());
 
-        k = this.Replace(k, "#ArrayCount#", aaa);
+        k = this.Place(k, "#ArrayCount#", aaa);
 
         String a;
         a = this.StringCreate(k);
