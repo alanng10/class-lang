@@ -8,8 +8,8 @@ The word second letter "l" refers to any list.
 
 The word third letter "a" refers to any any class.
 
-The word fourth letter "s" refers to any struct refed.
+The word fourth letter "s" refers to any strut refed.
 
-The word fifth letter "s" refers to any struct engin.
+The word fifth letter "s" refers to any strut engin.
 
-The word spell is Class list any class struct refed struct engin.
+The word spell is Class list any class strut refed strut engin.
