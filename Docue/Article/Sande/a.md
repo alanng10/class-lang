@@ -275,7 +275,7 @@ The mark Type is the IntType.
 
 Mark that is IntType is assigned to store all 64 bits or 8 bits in 1 thread atomic operate
 if the IntType is 64 bits or 8 bits.
-This is enough element to do any system programming for effect thread sync.
+This is enough element to do any system programming thread sync.
 
 AreExecute is execute that assign ref to mark.
 AreExecute has syntax that is same as in Class Lang.
@@ -315,7 +315,7 @@ Var Type is any Type.
 Argue is argue that is passed into the maide being called.
 Maide at memory index Var is called with argue Argue passed in.
 
-This is enough element to do any ref call for effect.
+This is enough element to do any system programming ref call.
 
 RefMaideOperate is operate that results memory index of maide.
 The operate has syntax that starts with "ref" index word, 
@@ -379,16 +379,16 @@ any of the string value.
 The ValueOperate Type is string StructType.
 
 StringValue is not write able.
-This is enough element to do any string operation for effect.
+This is enough element to do any system programming string operation.
 
 Sande does not need enum.
 Sande has StructType and glob var.
 Shared list is made with glob var of StructType and init with maide.
-This is enough element to do any shared list for effect.
+This is enough element to do any system programming shared list.
 
 Sande does not need glob var init at glob var declare.
 Sande has maide state to do any init.
-This is enough element to do any glob init for effect.
+This is enough element to do any system programming glob init.
 
 Sande Lang does not need lang element to interface to external.
 Sande compiler modules have infra to generate refer binary.
@@ -396,4 +396,4 @@ The refer binary can refer to custom made machine code binary.
 This is enough element to interface to external.
 
 Sande compiler does not optimize output.
-This is enough element to do any process module making for effect.
+This is enough element to do any system programming process module making.
