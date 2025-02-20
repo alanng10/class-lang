@@ -387,14 +387,14 @@ class InternInfra : Any
     {
         var Int k;
         k : this.InternIntern.Memory(dataValue);
-        
+
         var Extern extern;
         extern : this.Extern;
-        
+
         extern.Data_ValueSet(data, k);
-        
+
         extern.Stream_Read(stream, data, range);
-        
+
         extern.Data_ValueSet(data, 0);
         return true;
     }
@@ -403,14 +403,14 @@ class InternInfra : Any
     {
         var Int k;
         k : this.InternIntern.Memory(dataValue);
-        
+
         var Extern extern;
         extern : this.Extern;
-        
+
         extern.Data_ValueSet(data, k);
-        
+
         extern.Stream_Write(stream, data, range);
-        
+
         extern.Data_ValueSet(data, 0);
         return true;
     }
