@@ -692,6 +692,8 @@ Word "col" has meaning that is horizontal index.
 
 Word "hor" has meaning that is frontal index.
 
+Word "dimend" has meaning that is dimension entity.
+
 Word "size" has meaning that is length in dimensions.
 
 Word "wed" has meaning that is length horizontal.
