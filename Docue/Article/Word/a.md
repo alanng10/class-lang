@@ -52,6 +52,8 @@ Word "human" has meaning that is live entity.
 
 Word "client" has meaning that is user.
 
+Word "group" has meaning that is group entity.
+
 Word "opacity" has meaning that is alpha rate.
 
 Word "inform" has meaning that is made of data.
