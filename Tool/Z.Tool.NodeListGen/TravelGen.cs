@@ -52,7 +52,7 @@ public class TravelGen : ToolBase
 
         Text k;
         k = this.TextCreate(this.TextSource);
-        k = this.Replace(k, "#NodeList#", nodeList);
+        k = this.Place(k, "#NodeList#", nodeList);
     
         String a;
         a = this.StringCreate(k);
@@ -104,11 +104,11 @@ public class TravelGen : ToolBase
 
         Text k;
         k = this.TextCreate(this.TextNode);
-        k = this.Replace(k, "#Virtual#", this.TextVirtual);
-        k = this.Replace(k, "#ClassName#", className);
-        k = this.Replace(k, "#DeclareClassName#", declareClassName);
-        k = this.Replace(k, "#VarName#", varName);
-        k = this.Replace(k, "#State#", state);
+        k = this.Place(k, "#Virtual#", this.TextVirtual);
+        k = this.Place(k, "#ClassName#", className);
+        k = this.Place(k, "#DeclareClassName#", declareClassName);
+        k = this.Place(k, "#VarName#", varName);
+        k = this.Place(k, "#State#", state);
 
         String a;
         a = this.StringCreate(k);
@@ -176,9 +176,9 @@ public class TravelGen : ToolBase
 
             Text k;
             k = this.TextCreate(this.TextDerive);
-            k = this.Replace(k, "#VarName#", varName);
-            k = this.Replace(k, "#DeriveClassName#", className);
-            k = this.Replace(k, "#DeriveDeclareClassName#", declareClassName);
+            k = this.Place(k, "#VarName#", varName);
+            k = this.Place(k, "#DeriveClassName#", className);
+            k = this.Place(k, "#DeriveDeclareClassName#", declareClassName);
 
             String ka;
             ka = this.StringCreate(k);
@@ -227,9 +227,9 @@ public class TravelGen : ToolBase
 
         Text k;
         k = this.TextCreate(this.TextArray);
-        k = this.Replace(k, "#VarName#", varName);
-        k = this.Replace(k, "#ItemClassName#", itemClassName);
-        k = this.Replace(k, "#ItemDeclareClassName#", itemDeclareClassName);
+        k = this.Place(k, "#VarName#", varName);
+        k = this.Place(k, "#ItemClassName#", itemClassName);
+        k = this.Place(k, "#ItemDeclareClassName#", itemDeclareClassName);
 
         String ke;
         ke = this.StringCreate(k);
@@ -306,7 +306,7 @@ public class TravelGen : ToolBase
     {
         Text k;
         k = this.TextCreate(this.TextExecuteNode);
-        k = this.Replace(k, "#VarName#", varName);
+        k = this.Place(k, "#VarName#", varName);
 
         String a;
         a = this.StringCreate(k);
@@ -323,9 +323,9 @@ public class TravelGen : ToolBase
 
         Text k;
         k = this.TextCreate(this.TextField);
-        k = this.Replace(k, "#FieldClassName#", fieldClassName);
-        k = this.Replace(k, "#VarName#", varName);
-        k = this.Replace(k, "#FieldName#", fieldName);
+        k = this.Place(k, "#FieldClassName#", fieldClassName);
+        k = this.Place(k, "#VarName#", varName);
+        k = this.Place(k, "#FieldName#", fieldName);
 
         String a;
         a = this.StringCreate(k);
