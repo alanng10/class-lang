@@ -126,10 +126,10 @@ class InternStateGen : ExternGen
 
         Text k;
         k = this.TextCreate(this.TextInternState);
-        k = this.Replace(k, "#Name#", name);
-        k = this.Replace(k, "#ParamCount#", paramCountString);
-        k = this.Replace(k, "#Param#", paramString);
-        k = this.Replace(k, "#Argue#", argueString);
+        k = this.Place(k, "#Name#", name);
+        k = this.Place(k, "#ParamCount#", paramCountString);
+        k = this.Place(k, "#Param#", paramString);
+        k = this.Place(k, "#Argue#", argueString);
 
         String a;
         a = this.StringCreate(k);
