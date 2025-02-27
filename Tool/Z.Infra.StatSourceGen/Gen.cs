@@ -53,8 +53,8 @@ public class Gen : ToolBase
         String shareVarList;
         shareVarList = this.GetShareVarList();
 
-        k = this.Replace(k, "#ShareVarList#", shareVarList);
-        k = this.Replace(k, "#MethodList#", methodList);
+        k = this.Place(k, "#ShareVarList#", shareVarList);
+        k = this.Place(k, "#MethodList#", methodList);
 
         String a;
         a = this.StringCreate(k);
@@ -107,14 +107,14 @@ public class Gen : ToolBase
 
         Text ka;
         ka = this.TextCreate(maideText);
-        ka = this.Replace(ka, "#ClassName#", this.ClassName);
-        ka = this.Replace(ka, "#NamePrefix#", this.NamePrefix);
-        ka = this.Replace(ka, "#NamePostfix#", this.NamePostfix);
-        ka = this.Replace(ka, "#ScopeName#", this.ScopeName);
-        ka = this.Replace(ka, "#ScopeSeparator#", this.ScopeSeparator);
-        ka = this.Replace(ka, "#ValuePrefix#", this.ValuePrefix);
-        ka = this.Replace(ka, "#ValuePostfix#", this.ValuePostfix);
-        ka = this.Replace(ka, "#ValueOffset#", this.ValueOffset);
+        ka = this.Place(ka, "#ClassName#", this.ClassName);
+        ka = this.Place(ka, "#NamePrefix#", this.NamePrefix);
+        ka = this.Place(ka, "#NamePostfix#", this.NamePostfix);
+        ka = this.Place(ka, "#ScopeName#", this.ScopeName);
+        ka = this.Place(ka, "#ScopeSeparator#", this.ScopeSeparator);
+        ka = this.Place(ka, "#ValuePrefix#", this.ValuePrefix);
+        ka = this.Place(ka, "#ValuePostfix#", this.ValuePostfix);
+        ka = this.Place(ka, "#ValueOffset#", this.ValueOffset);
 
         String oo;
         oo = this.StringCreate(ka);
