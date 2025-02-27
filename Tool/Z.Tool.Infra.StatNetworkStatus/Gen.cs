@@ -24,7 +24,7 @@ class Gen : StatGen
 
             Text k;
             k = this.TextCreate(ka);
-            k = this.Replace(k, "#ItemName#", itemName);
+            k = this.Place(k, "#ItemName#", itemName);
 
             String a;
             a = this.StringCreate(k);
