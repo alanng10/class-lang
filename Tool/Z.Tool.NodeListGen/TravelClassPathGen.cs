@@ -43,9 +43,9 @@ public class TravelClassPathGen : TravelGen
 
         Text k;
         k = this.TextCreate(this.TextSource);
-        k = this.Replace(k, "#InitStringMaide#", initStringMaide);
-        k = this.Replace(k, "#StringFieldList#", stringFieldList);
-        k = this.Replace(k, "#NodeList#", nodeList);
+        k = this.Place(k, "#InitStringMaide#", initStringMaide);
+        k = this.Place(k, "#StringFieldList#", stringFieldList);
+        k = this.Place(k, "#NodeList#", nodeList);
 
         String a;
         a = this.StringCreate(k);
@@ -105,7 +105,7 @@ public class TravelClassPathGen : TravelGen
 
         Text k;
         k = this.TextCreate(this.TextInitStringMaide);
-        k = this.Replace(k, "#StringFieldSetList#", ka);
+        k = this.Place(k, "#StringFieldSetList#", ka);
 
         String a;
         a = this.StringCreate(k);
@@ -186,9 +186,9 @@ public class TravelClassPathGen : TravelGen
 
         Text k;
         k = this.TextCreate(this.TextArray);
-        k = this.Replace(k, "#VarName#", varName);
-        k = this.Replace(k, "#ItemClassName#", itemClassName);
-        k = this.Replace(k, "#ItemDeclareClassName#", itemDeclareClassName);
+        k = this.Place(k, "#VarName#", varName);
+        k = this.Place(k, "#ItemClassName#", itemClassName);
+        k = this.Place(k, "#ItemDeclareClassName#", itemDeclareClassName);
 
         String a;
         a = this.StringCreate(k);
