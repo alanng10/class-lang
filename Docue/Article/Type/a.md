@@ -15,7 +15,7 @@ Type board button index table is type index.
 Type index is park type index.
 Type index is did.
 
-Type is park type. 
+Type is park type.
 
 Type has park worth.
 
