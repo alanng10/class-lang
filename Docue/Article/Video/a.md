@@ -1,8 +1,8 @@
 # Video
 
-Video is System Effect Video. 
+Video is System Effect Video.
 
-Video is park video. 
+Video is park video.
 
 Video has park worth.
 
