@@ -54,8 +54,8 @@ class PrusateGen : ToolBase
 
         Text k;
         k = this.TextCreate(ka);
-        k = this.Replace(k, "#ClassList#", classListString);
-        k = this.Replace(k, "#MaideList#", maideListString);
+        k = this.Place(k, "#ClassList#", classListString);
+        k = this.Place(k, "#MaideList#", maideListString);
 
         String a;
         a = this.StringCreate(k);
