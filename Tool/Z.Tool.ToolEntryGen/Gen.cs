@@ -61,7 +61,7 @@ class Gen : ToolBase
 
         Text k;
         k = this.TextCreate(this.SourceTemplate);
-        k = this.Replace(k, "#Name#", ka);
+        k = this.Place(k, "#Name#", ka);
 
         String a;
         a = this.StringCreate(k);
