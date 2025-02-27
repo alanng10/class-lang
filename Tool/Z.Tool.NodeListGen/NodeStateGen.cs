@@ -37,7 +37,7 @@ public class NodeStateGen : ToolBase
 
             Text k;
             k = this.TextCreate(kk);
-            k = this.Replace(k, "#NodeKind#", kind);
+            k = this.Place(k, "#NodeKind#", kind);
 
             String a;
             a = this.StringCreate(k);
