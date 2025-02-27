@@ -49,9 +49,9 @@ public class NodeGen : ToolBase
 
         Text k;
         k = this.TextCreate(this.NodeSourceText);
-        k = this.Replace(k, "#ClassName#", varClass.Name);
-        k = this.Replace(k, "#BaseClassName#", varClass.Base);
-        k = this.Replace(k, "#FieldList#", fieldListString);
+        k = this.Place(k, "#ClassName#", varClass.Name);
+        k = this.Place(k, "#BaseClassName#", varClass.Base);
+        k = this.Place(k, "#FieldList#", fieldListString);
 
         String ka;
         ka = this.StringCreate(k);
