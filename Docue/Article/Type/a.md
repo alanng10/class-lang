@@ -14,3 +14,35 @@ Type board is easiest to input anything, as it has no more than enough element.
 Type board button index table is type index.
 Type index is most general and most level type index.
 Type index is did.
+
+Type is park type.
+
+Type has park worth.
+
+Type has park value.
+
+Type has park benefit.
+
+Type has park marry.
+
+Type has park land.
+
+Type has park arch.
+
+Type has park arch worth.
+
+Type has park kind.
+
+Type has park kind worth.
+
+Type has park kind value.
+
+Type has park kind benefit.
+
+Type has park kind marry.
+
+Type has park kind land.
+
+Type has park kind arch.
+
+Type has park kind arch worth.
