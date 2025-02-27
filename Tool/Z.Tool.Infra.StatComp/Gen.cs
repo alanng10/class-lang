@@ -16,7 +16,7 @@ class Gen : StatGen
     protected override ListEntry GetItemEntry(String line)
     {
         Text ka;
-        ka = this.Replace(this.TA(line), "Dest", this.S("Destination"));
+        ka = this.Place(this.TA(line), "Dest", this.S("Destination"));
 
         String k;
         k = this.StringCreate(ka);
