@@ -114,7 +114,7 @@ Word "perform" has meaning that is performance level.
 
 Word "publish" has meaning that is published.
 
-Word "sitory" has meaning that is repository.
+Word "storey" has meaning that is repository.
 
 Word "commit" has meaning that is mod record.
 
