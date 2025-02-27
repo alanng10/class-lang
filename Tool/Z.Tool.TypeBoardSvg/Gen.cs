@@ -65,7 +65,7 @@ public class Gen : ToolBase
 
         Text k;
         k = text;
-        k = this.Replace(k, "#DrawList#", aa);
+        k = this.Place(k, "#DrawList#", aa);
 
         String output;
         output = this.StringCreate(k);
