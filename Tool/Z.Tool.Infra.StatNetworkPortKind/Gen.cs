@@ -31,8 +31,8 @@ class Gen : StatGen
 
             Text k;
             k = this.TextCreate(this.TextShareVarA);
-            k = this.Replace(k, "#ItemName#", itemName);
-            k = this.Replace(k, "#ItemIndex#", itemIndex);
+            k = this.Place(k, "#ItemName#", itemName);
+            k = this.Place(k, "#ItemIndex#", itemIndex);
 
             String a;
             a = this.StringCreate(k);
