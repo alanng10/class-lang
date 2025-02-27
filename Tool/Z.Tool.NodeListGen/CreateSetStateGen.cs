@@ -44,8 +44,8 @@ public class CreateSetStateGen : ToolBase
 
             Text k;
             k = this.TextCreate(kk);
-            k = this.Replace(k, "#NodeKind#", kind);
-            k = this.Replace(k, "#FieldSetList#", fieldSetListString);
+            k = this.Place(k, "#NodeKind#", kind);
+            k = this.Place(k, "#FieldSetList#", fieldSetListString);
 
             String a;
             a = this.StringCreate(k);
