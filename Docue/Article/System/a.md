@@ -12,34 +12,34 @@ System is execute plat.
 
 System is not tagged with the existence of specific form.
 
-System is park system. 
+System is park system.
 
-System has park worth. 
+System has park worth.
 
-System has park value. 
+System has park value.
 
-System has park benefit. 
+System has park benefit.
 
-System has park marry. 
+System has park marry.
 
-System has park land. 
+System has park land.
 
-System has park arch. 
+System has park arch.
 
-System has park arch worth. 
+System has park arch worth.
 
-System has park kind. 
+System has park kind.
 
-System has park kind worth. 
+System has park kind worth.
 
-System has park kind value. 
+System has park kind value.
 
-System has park kind benefit. 
+System has park kind benefit.
 
-System has park kind marry. 
+System has park kind marry.
 
-System has park kind land. 
+System has park kind land.
 
-System has park kind arch. 
+System has park kind arch.
 
-System has park kind arch worth. 
+System has park kind arch worth.
