@@ -149,14 +149,14 @@ public class Gen : ToolBase
 
         Text k;
         k = this.TextCreate(shareVarText);
-        k = this.Replace(k, "#ClassName#", this.ClassName);
-        k = this.Replace(k, "#NamePrefix#", this.NamePrefix);
-        k = this.Replace(k, "#NamePostfix#", this.NamePostfix);
-        k = this.Replace(k, "#ScopeName#", this.ScopeName);
-        k = this.Replace(k, "#ScopeSeparator#", this.ScopeSeparator);
-        k = this.Replace(k, "#ValuePrefix#", this.ValuePrefix);
-        k = this.Replace(k, "#ValuePostfix#", this.ValuePostfix);
-        k = this.Replace(k, "#ValueOffset#", this.ValueOffset);
+        k = this.Place(k, "#ClassName#", this.ClassName);
+        k = this.Place(k, "#NamePrefix#", this.NamePrefix);
+        k = this.Place(k, "#NamePostfix#", this.NamePostfix);
+        k = this.Place(k, "#ScopeName#", this.ScopeName);
+        k = this.Place(k, "#ScopeSeparator#", this.ScopeSeparator);
+        k = this.Place(k, "#ValuePrefix#", this.ValuePrefix);
+        k = this.Place(k, "#ValuePostfix#", this.ValuePostfix);
+        k = this.Place(k, "#ValueOffset#", this.ValueOffset);
 
         String oo;
         oo = this.StringCreate(k);
@@ -196,9 +196,9 @@ public class Gen : ToolBase
 
         Text k;
         k = this.TextCreate(shareVar);
-        k = this.Replace(k, "#ItemName#", aa);
-        k = this.Replace(k, "#ItemValue#", ka);
-        k = this.Replace(k, "#ItemIndex#", kb);
+        k = this.Place(k, "#ItemName#", aa);
+        k = this.Place(k, "#ItemValue#", ka);
+        k = this.Place(k, "#ItemIndex#", kb);
 
         String a;
         a = this.StringCreate(k);
@@ -218,9 +218,9 @@ public class Gen : ToolBase
 
         Text k;
         k = this.TextCreate(method);
-        k = this.Replace(k, "#ItemName#", aa);
-        k = this.Replace(k, "#ItemValue#", ka);
-        k = this.Replace(k, "#ItemIndex#", kb);
+        k = this.Place(k, "#ItemName#", aa);
+        k = this.Place(k, "#ItemValue#", ka);
+        k = this.Place(k, "#ItemIndex#", kb);
 
         String a;
         a = this.StringCreate(k);
