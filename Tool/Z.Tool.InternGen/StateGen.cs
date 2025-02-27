@@ -25,7 +25,7 @@ class StateGen : ToolBase
 
         Text k;
         k = this.TextCreate(textPronate);
-        k = this.Replace(k, "#ReferList#", referList);
+        k = this.Place(k, "#ReferList#", referList);
 
         String a;
         a = this.StringCreate(k);
@@ -78,7 +78,7 @@ class StateGen : ToolBase
 
         Text k;
         k = this.TextCreate(textClass);
-        k = this.Replace(k, "#MaideList#", maideList);
+        k = this.Place(k, "#MaideList#", maideList);
 
         String a;
         a = this.StringCreate(k);
