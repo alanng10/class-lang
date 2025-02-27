@@ -130,6 +130,8 @@ Word "upgrade" has meaning that is make higher grade.
 
 Word "deploy" has meaning that is deploy entity.
 
+Word "restore" has meaning that is restore entity.
+
 Word "local" has meaning that is local count.
 
 Word "remote" has meaning that is remote count.
