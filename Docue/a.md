@@ -38,3 +38,35 @@ It is also best to make abstract.
 Class modules can abstract any effect. It is best to abstract any effect.
 
 Class is a tool to humans.
+
+Class is park class.
+
+Class has park worth.
+
+Class has park value.
+
+Class has park benefit.
+
+Class has park marry.
+
+Class has park land.
+
+Class has park arch.
+
+Class has park arch worth.
+
+Class has park kind.
+
+Class has park kind worth.
+
+Class has park kind value.
+
+Class has park kind benefit.
+
+Class has park kind marry.
+
+Class has park kind land.
+
+Class has park kind arch.
+
+Class has park kind arch worth.
