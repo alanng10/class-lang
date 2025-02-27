@@ -51,9 +51,9 @@ Class has park marry.
 
 Class has park land.
 
-Class has park arch.
+Class has park arch. 
 
-Class has park arch worth.
+Class has park arch worth. 
 
 Class has park kind.
 
@@ -67,6 +67,6 @@ Class has park kind marry.
 
 Class has park kind land.
 
-Class has park kind arch.
+Class has park kind arch. 
 
-Class has park kind arch worth.
+Class has park kind arch worth. 
