@@ -2,7 +2,7 @@
 
 Audio is System Effect Audio.
 
-Audio is park audio. 
+Audio is park audio.
 
 Audio has park worth.
 
