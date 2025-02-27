@@ -28,7 +28,7 @@ class PartGen : ToolBase
 
         Text k;
         k = this.TextCreate(this.TextPart);
-        k = this.Replace(k, "#Part#", ka);
+        k = this.Place(k, "#Part#", ka);
 
         String a;
         a = this.StringCreate(k);
@@ -129,9 +129,9 @@ class PartGen : ToolBase
 
         Text k;
         k = this.TextCreate(ka);
-        k = this.Replace(k, "#Name#", name);
-        k = this.Replace(k, "#Func#", func);
-        k = this.Replace(k, "#Delimit#", delimit);
+        k = this.Place(k, "#Name#", name);
+        k = this.Place(k, "#Func#", func);
+        k = this.Place(k, "#Delimit#", delimit);
 
         String a;
         a = this.StringCreate(k);
