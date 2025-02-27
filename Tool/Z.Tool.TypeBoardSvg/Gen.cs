@@ -437,7 +437,7 @@ public class Gen : ToolBase
 
         this.AddAttributeString(this.S("fill"), this.S("white"));
 
-        this.CloseTag();
+        this.AddCloseTag();
 
         this.AddLine();
         
@@ -557,7 +557,7 @@ public class Gen : ToolBase
         return true;
     }
 
-    protected virtual bool CloseTag()
+    protected virtual bool AddCloseTag()
     {
         this.AddS(" />");
         return true;
