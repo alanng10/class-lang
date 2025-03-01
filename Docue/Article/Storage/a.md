@@ -1,0 +1,35 @@
+# Storage
+
+Storage is System Effect Storage.
+
+Storage is park storage.
+
+Storage has park worth.
+
+Storage has park value.
+
+Storage has park benefit.
+
+Storage has park marry.
+
+Storage has park land.
+
+Storage has park arch.
+
+Storage has park arch worth.
+
+Storage has park kind.
+
+Storage has park kind worth.
+
+Storage has park kind value.
+
+Storage has park kind benefit.
+
+Storage has park kind marry.
+
+Storage has park kind land.
+
+Storage has park kind arch.
+
+Storage has park kind arch worth.
