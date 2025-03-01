@@ -11,3 +11,37 @@ This is enough element to network with USB devices.
 
 Network is not tagged with the existence of specific form.
 All host name strings do not tag Network with the existence of specific form.
+
+Network is System Effect Network.
+
+Network is park network.
+
+Network has park worth.
+
+Network has park value.
+
+Network has park benefit.
+
+Network has park marry.
+
+Network has park land.
+
+Network has park arch.
+
+Network has park arch worth.
+
+Network has park kind.
+
+Network has park kind worth.
+
+Network has park kind value.
+
+Network has park kind benefit.
+
+Network has park kind marry.
+
+Network has park kind land.
+
+Network has park kind arch.
+
+Network has park kind arch worth.
