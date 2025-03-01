@@ -10,3 +10,35 @@ The not enough easiness for human minds is specific form.
 Count of bits more than 60 has redundant bits for human minds to represent int info.
 Redundancy of bits is not enough easy for human minds to represent int info.
 The not enough easiness for human minds is specific form.
+
+Int is park int.
+
+Int has park worth.
+
+Int has park value.
+
+Int has park benefit.
+
+Int has park marry.
+
+Int has park land.
+
+Int has park arch.
+
+Int has park arch worth.
+
+Int has park kind.
+
+Int has park kind worth.
+
+Int has park kind value.
+
+Int has park kind benefit.
+
+Int has park kind marry.
+
+Int has park kind land.
+
+Int has park kind arch.
+
+Int has park kind arch worth.
