@@ -3,6 +3,8 @@
 Sande is system program lang.
 This programming language word "Sande" is a node name.
 
+Sande is park system program lang.
+
 Sande is used to make system program.
 Sande is not used to make module that is executed on system program.
 
