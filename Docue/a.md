@@ -55,6 +55,14 @@ Class has park arch.
 
 Class has park arch worth.
 
+Class has park arch value.
+
+Class has park arch benefit.
+
+Class has park arch marry.
+
+Class has park arch land.
+
 Class has park kind.
 
 Class has park kind worth.
@@ -70,3 +78,11 @@ Class has park kind land.
 Class has park kind arch.
 
 Class has park kind arch worth.
+
+Class has park kind arch value.
+
+Class has park kind arch benefit.
+
+Class has park kind arch marry.
+
+Class has park kind arch land.
