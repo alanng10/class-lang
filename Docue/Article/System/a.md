@@ -28,6 +28,14 @@ System has park arch.
 
 System has park arch worth.
 
+System has park arch value.
+
+System has park arch benefit.
+
+System has park arch marry.
+
+System has park arch land.
+
 System has park kind.
 
 System has park kind worth.
@@ -43,3 +51,11 @@ System has park kind land.
 System has park kind arch.
 
 System has park kind arch worth.
+
+System has park kind arch value.
+
+System has park kind arch benefit.
+
+System has park kind arch marry.
+
+System has park kind arch land.
