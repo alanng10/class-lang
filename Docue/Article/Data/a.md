@@ -16,6 +16,14 @@ Data has park arch.
 
 Data has park arch worth.
 
+Data has park arch value.
+
+Data has park arch benefit.
+
+Data has park arch marry.
+
+Data has park arch land.
+
 Data has park kind.
 
 Data has park kind worth.
@@ -31,3 +39,11 @@ Data has park kind land.
 Data has park kind arch.
 
 Data has park kind arch worth.
+
+Data has park kind arch value.
+
+Data has park kind arch benefit.
+
+Data has park kind arch marry.
+
+Data has park kind arch land.
