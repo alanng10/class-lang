@@ -27,6 +27,14 @@ Int has park arch.
 
 Int has park arch worth.
 
+Int has park arch value.
+
+Int has park arch benefit.
+
+Int has park arch marry.
+
+Int has park arch land.
+
 Int has park kind.
 
 Int has park kind worth.
@@ -42,3 +50,11 @@ Int has park kind land.
 Int has park kind arch.
 
 Int has park kind arch worth.
+
+Int has park kind arch value.
+
+Int has park kind arch benefit.
+
+Int has park kind arch marry.
+
+Int has park kind arch land.
