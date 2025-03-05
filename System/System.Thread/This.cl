@@ -6,7 +6,7 @@ class This : Any
         this.InternIntern : share Intern;
         return true;
     }
-    
+
     field prusate Thread Thread
     {
         get
