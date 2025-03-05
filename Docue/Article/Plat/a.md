@@ -11,13 +11,15 @@ This layer is System.
 
 Modules written in Class lang layer above System in plat arch.
 
+Text modules layer on top of System in the arch.
+
 Storey modules layer on top of System in the arch.
 
 View modules layer on top of System in the arch.
 
 Binary modules layer on top of System in the arch.
 
-Class compiler modules layer on top of Binary modules in the arch.
+Class compiler modules layer on top of Text modules and Binary modules in the arch.
 
 Page modules layer on top of Storey modules and Class compiler modules in the arch.
 
