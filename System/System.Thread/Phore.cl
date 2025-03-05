@@ -19,7 +19,7 @@ class Phore : Any
         extern.Phore_Init(this.Intern);
         return true;
     }
-    
+
     maide prusate Bool Final()
     {
         var Extern extern;
@@ -28,8 +28,9 @@ class Phore : Any
         extern.Phore_Delete(this.Intern);
         return true;
     }
-    
+
     field prusate Int InitCount { get { return data; } set { data : value; } }
+
     field prusate Int Count
     {
         get
@@ -42,6 +43,7 @@ class Phore : Any
         {
         }
     }
+
     field private Extern Extern { get { return data; } set { data : value; } }
     field private Int Intern { get { return data; } set { data : value; } }
 
