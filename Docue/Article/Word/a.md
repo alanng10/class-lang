@@ -434,6 +434,10 @@ Word "first" has meaning that is start index.
 
 Word "last" has meaning that is end index.
 
+Word "before" has meaning that is before entity.
+
+Word "after" has meaning that is after entity.
+
 Word "index" has meaning that is list item identifier.
 
 Word "zero" has meaning that is empty effect.
