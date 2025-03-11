@@ -818,12 +818,12 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Stat_PolateSpreadPad(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_PolateSpreadReflect(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_PolateSpreadRepeat(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Stat_CompSourceOver(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Stat_CompDestOver(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_CompSource(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_CompDest(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Stat_CompSourceIn(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Stat_CompDestIn(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Stat_CompSourceOver(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Stat_CompDestOver(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Stat_CompSourceInn(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Stat_CompDestInn(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_CompSourceOut(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_CompDestOut(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_ImageFormatBmp(ulong o);
