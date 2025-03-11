@@ -1,8 +1,8 @@
 Source Source
-Dest Dest
+Dest Destination
 SourceOver SourceOver
-DestOver DestOver
+DestOver DestinationOver
 SourceInn SourceIn
-DestInn DestIn
+DestInn DestinationIn
 SourceOut SourceOut
-DestOut DestOut
+DestOut DestinationOut
