@@ -1036,7 +1036,7 @@ int main(int argc, char* argv[])
     Polate_StopSet(polate, polateStop);
 
 
-    Polate_SpreadSet(polate, Stat_PolateSpreadReflect(Stat));
+    Polate_SpreadSet(polate, Stat_PolateSpreadFlect(Stat));
 
 
     Polate_Init(polate);
