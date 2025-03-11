@@ -1,18 +1,18 @@
 #include "Stat.hpp"
 
-Int Stat_Var_PolateSpreadPad = QGradient::PadSpread + 1;
-Int Stat_Var_PolateSpreadReflect = QGradient::ReflectSpread + 1;
-Int Stat_Var_PolateSpreadRepeat = QGradient::RepeatSpread + 1;
+Int Stat_Var_PolateSpreadClose = QGradient::PadSpread + 1;
+Int Stat_Var_PolateSpreadFlect = QGradient::ReflectSpread + 1;
+Int Stat_Var_PolateSpreadPeatt = QGradient::RepeatSpread + 1;
 
-Int Stat_PolateSpreadPad(Int o)
+Int Stat_PolateSpreadClose(Int o)
 {
-    return Stat_Var_PolateSpreadPad;
+    return Stat_Var_PolateSpreadClose;
 }
-Int Stat_PolateSpreadReflect(Int o)
+Int Stat_PolateSpreadFlect(Int o)
 {
-    return Stat_Var_PolateSpreadReflect;
+    return Stat_Var_PolateSpreadFlect;
 }
-Int Stat_PolateSpreadRepeat(Int o)
+Int Stat_PolateSpreadPeatt(Int o)
 {
-    return Stat_Var_PolateSpreadRepeat;
+    return Stat_Var_PolateSpreadPeatt;
 }
