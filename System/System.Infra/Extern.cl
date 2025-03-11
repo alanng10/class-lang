@@ -796,12 +796,12 @@ class Extern : Any
     maide prusate Int Stat_PolateSpreadPad(var Int o) { }
     maide prusate Int Stat_PolateSpreadReflect(var Int o) { }
     maide prusate Int Stat_PolateSpreadRepeat(var Int o) { }
-    maide prusate Int Stat_CompSourceOver(var Int o) { }
-    maide prusate Int Stat_CompDestOver(var Int o) { }
     maide prusate Int Stat_CompSource(var Int o) { }
     maide prusate Int Stat_CompDest(var Int o) { }
-    maide prusate Int Stat_CompSourceIn(var Int o) { }
-    maide prusate Int Stat_CompDestIn(var Int o) { }
+    maide prusate Int Stat_CompSourceOver(var Int o) { }
+    maide prusate Int Stat_CompDestOver(var Int o) { }
+    maide prusate Int Stat_CompSourceInn(var Int o) { }
+    maide prusate Int Stat_CompDestInn(var Int o) { }
     maide prusate Int Stat_CompSourceOut(var Int o) { }
     maide prusate Int Stat_CompDestOut(var Int o) { }
     maide prusate Int Stat_ImageFormatBmp(var Int o) { }
