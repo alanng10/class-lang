@@ -1,8 +1,8 @@
-SourceOver
-DestOver
-Source
-Dest
-SourceIn
-DestIn
-SourceOut
-DestOut
+Source Source
+Dest Dest
+SourceOver SourceOver
+DestOver DestOver
+SourceInn SourceIn
+DestInn DestIn
+SourceOut SourceOut
+DestOut DestOut
