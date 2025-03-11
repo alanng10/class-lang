@@ -9557,32 +9557,6 @@ Int Intern_Extern_Stat_PolateSpreadRepeat(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_Stat_CompSourceOver(Eval* eval, Int frame)
-{
-    Int paramCount;
-    paramCount = 1;
-
-    Param(0);
-
-    Int a;
-    a = Stat_CompSourceOver(a0);
-
-    Return;
-}
-
-Int Intern_Extern_Stat_CompDestOver(Eval* eval, Int frame)
-{
-    Int paramCount;
-    paramCount = 1;
-
-    Param(0);
-
-    Int a;
-    a = Stat_CompDestOver(a0);
-
-    Return;
-}
-
 Int Intern_Extern_Stat_CompSource(Eval* eval, Int frame)
 {
     Int paramCount;
@@ -9609,7 +9583,7 @@ Int Intern_Extern_Stat_CompDest(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_Stat_CompSourceIn(Eval* eval, Int frame)
+Int Intern_Extern_Stat_CompSourceOver(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -9617,12 +9591,12 @@ Int Intern_Extern_Stat_CompSourceIn(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Stat_CompSourceIn(a0);
+    a = Stat_CompSourceOver(a0);
 
     Return;
 }
 
-Int Intern_Extern_Stat_CompDestIn(Eval* eval, Int frame)
+Int Intern_Extern_Stat_CompDestOver(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -9630,7 +9604,33 @@ Int Intern_Extern_Stat_CompDestIn(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Stat_CompDestIn(a0);
+    a = Stat_CompDestOver(a0);
+
+    Return;
+}
+
+Int Intern_Extern_Stat_CompSourceInn(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 1;
+
+    Param(0);
+
+    Int a;
+    a = Stat_CompSourceInn(a0);
+
+    Return;
+}
+
+Int Intern_Extern_Stat_CompDestInn(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 1;
+
+    Param(0);
+
+    Int a;
+    a = Stat_CompDestInn(a0);
 
     Return;
 }
