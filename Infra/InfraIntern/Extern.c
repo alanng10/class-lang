@@ -9518,7 +9518,7 @@ Int Intern_Extern_Stat_PolateKindRadial(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_Stat_PolateSpreadPad(Eval* eval, Int frame)
+Int Intern_Extern_Stat_PolateSpreadClose(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -9526,12 +9526,12 @@ Int Intern_Extern_Stat_PolateSpreadPad(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Stat_PolateSpreadPad(a0);
+    a = Stat_PolateSpreadClose(a0);
 
     Return;
 }
 
-Int Intern_Extern_Stat_PolateSpreadReflect(Eval* eval, Int frame)
+Int Intern_Extern_Stat_PolateSpreadFlect(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -9539,12 +9539,12 @@ Int Intern_Extern_Stat_PolateSpreadReflect(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Stat_PolateSpreadReflect(a0);
+    a = Stat_PolateSpreadFlect(a0);
 
     Return;
 }
 
-Int Intern_Extern_Stat_PolateSpreadRepeat(Eval* eval, Int frame)
+Int Intern_Extern_Stat_PolateSpreadPeatt(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -9552,7 +9552,7 @@ Int Intern_Extern_Stat_PolateSpreadRepeat(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Stat_PolateSpreadRepeat(a0);
+    a = Stat_PolateSpreadPeatt(a0);
 
     Return;
 }

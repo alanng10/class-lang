@@ -793,9 +793,9 @@ class Extern : Any
     maide prusate Int Stat_SlashJoinRound(var Int o) { }
     maide prusate Int Stat_PolateKindLinear(var Int o) { }
     maide prusate Int Stat_PolateKindRadial(var Int o) { }
-    maide prusate Int Stat_PolateSpreadPad(var Int o) { }
-    maide prusate Int Stat_PolateSpreadReflect(var Int o) { }
-    maide prusate Int Stat_PolateSpreadRepeat(var Int o) { }
+    maide prusate Int Stat_PolateSpreadClose(var Int o) { }
+    maide prusate Int Stat_PolateSpreadFlect(var Int o) { }
+    maide prusate Int Stat_PolateSpreadPeatt(var Int o) { }
     maide prusate Int Stat_CompSource(var Int o) { }
     maide prusate Int Stat_CompDest(var Int o) { }
     maide prusate Int Stat_CompSourceOver(var Int o) { }

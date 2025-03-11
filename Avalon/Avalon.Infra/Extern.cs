@@ -815,9 +815,9 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Stat_SlashJoinRound(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_PolateKindLinear(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_PolateKindRadial(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Stat_PolateSpreadPad(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Stat_PolateSpreadReflect(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Stat_PolateSpreadRepeat(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Stat_PolateSpreadClose(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Stat_PolateSpreadFlect(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Stat_PolateSpreadPeatt(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_CompSource(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_CompDest(ulong o);
     [DllImport(InfraLib)] public extern static ulong Stat_CompSourceOver(ulong o);
