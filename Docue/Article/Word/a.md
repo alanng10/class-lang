@@ -606,6 +606,8 @@ Word "fore" has meaning that is foreground.
 
 Word "bord" has meaning that is border.
 
+Word "padd" has meaning that is padding.
+
 Word "shown" has meaning that is visible.
 
 Word "built" has meaning that is built in.
