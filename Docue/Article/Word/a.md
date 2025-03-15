@@ -690,6 +690,8 @@ Word "aria" has meaning that is sans serif.
 
 Word "mono" has meaning that is monospace.
 
+Word "glyph" has meaning that is char symbol.
+
 Word "cape" has meaning that is slash end.
 
 Word "miter" has meaning that is miter style.
