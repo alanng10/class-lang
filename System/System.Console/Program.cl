@@ -28,6 +28,7 @@ class Program : Any
     field prusate List Argue { get { return data; } set { data : value; } }
     field prusate String WorkFold { get { return data; } set { data : value; } }
     field prusate Table Environ { get { return data; } set { data : value; } }
+
     field prusate Int Ident
     {
         get
@@ -53,6 +54,7 @@ class Program : Any
         {
         }
     }
+
     field private Extern Extern { get { return data; } set { data : value; } }
     field private InternInfra InternInfra { get { return data; } set { data : value; } }
     field private Int Intern { get { return data; } set { data : value; } }
