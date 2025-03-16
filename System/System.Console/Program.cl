@@ -63,7 +63,7 @@ class Program : Any
         return true;
     }
 
-    maide prusate Bool Terminate()
+    maide prusate Bool Exit()
     {
         this.Extern.Program_Terminate(this.Intern);
         return true;
