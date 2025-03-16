@@ -118,6 +118,8 @@ Word "storey" has meaning that is repository.
 
 Word "commit" has meaning that is mod record.
 
+Word "revert" has meaning that is unmod.
+
 Word "history" has meaning that is mod history.
 
 Word "problem" has meaning that is issue entity.
