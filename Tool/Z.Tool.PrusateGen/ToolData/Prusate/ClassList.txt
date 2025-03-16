@@ -374,7 +374,7 @@ Program
     Status
     Execute()
     Wait()
-    Terminate()
+    Exit()
 
 Infra -
     Share() -
