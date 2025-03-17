@@ -306,7 +306,7 @@ public class Create : InfraCreate
 
             if (!ba)
             {
-                b = this.ValidClassDependency(varClass);
+                b = this.ValidClassDepend(varClass);
             }
 
             ClassClass a;
@@ -330,7 +330,7 @@ public class Create : InfraCreate
         return true;
     }
 
-    protected virtual bool ValidClassDependency(ClassClass varClass)
+    protected virtual bool ValidClassDepend(ClassClass varClass)
     {
         ListInfra listInfra;
         listInfra = this.ListInfra;
