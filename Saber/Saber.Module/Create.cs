@@ -1050,13 +1050,13 @@ public class Create : InfraCreate
     public virtual ClassClass Class(String name)
     {
         ClassClass a;
-        a = (ClassClass)this.ImportClass.Get(name);
+        a = this.ImportClass.Get(name) as ClassClass;
         if (!(a == null))
         {
             return a;
         }
         
-        a = (ClassClass)this.Module.Class.Get(name);
+        a = this.Module.Class.Get(name) as ClassClass;
         return a;
     }
 
