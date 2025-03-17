@@ -291,7 +291,7 @@ public class Create : InfraCreate
         while (iter.Next())
         {
             ClassClass varClass;
-            varClass = (ClassClass)iter.Index;
+            varClass = iter.Index as ClassClass;
 
             bool b;
             b = false;
