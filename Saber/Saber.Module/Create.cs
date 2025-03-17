@@ -315,7 +315,7 @@ public class Create : InfraCreate
             if (!b)
             {
                 NodeClass nodeClass;
-                nodeClass = (NodeClass)varClass.Any;
+                nodeClass = varClass.Any as NodeClass;
 
                 this.Error(this.ErrorKind.BaseUndefine, nodeClass, this.SourceGet(varClass.Index));
 
@@ -323,7 +323,7 @@ public class Create : InfraCreate
             }
             if (b)
             {
-                a = (ClassClass)iter.Value;
+                a = iter.Value as ClassClass;
             }
             varClass.Base = a;
         }
