@@ -368,7 +368,7 @@ public class Create : InfraCreate
             ka = null;
             if (!(a == anyClass))
             {
-                ka = (ClassClass)baseTable.Get(a);
+                ka = baseTable.Get(a) as ClassClass;
             }
             a = ka;
         }
