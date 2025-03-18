@@ -110,3 +110,27 @@ Class has park element arch benefit.
 Class has park element arch marry.
 
 Class has park element arch land.
+
+Class has park element kind.
+
+Class has park element kind worth.
+
+Class has park element kind value.
+
+Class has park element kind benefit.
+
+Class has park element kind marry.
+
+Class has park element kind land.
+
+Class has park element kind arch.
+
+Class has park element kind arch worth.
+
+Class has park element kind arch value.
+
+Class has park element kind arch benefit.
+
+Class has park element kind arch marry.
+
+Class has park element kind arch land.
