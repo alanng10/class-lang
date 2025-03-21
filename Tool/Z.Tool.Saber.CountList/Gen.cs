@@ -12,8 +12,8 @@ public class Gen : SourceGen
         this.ItemClassName = this.S("Count");
         this.ArrayClassName = this.S("Array");
         this.Export = true;
-        this.ItemListFileName = this.S("ToolData/Class/ItemListCount.txt");
-        this.AddMethodFileName = this.S("ToolData/Class/AddMaideCount.txt");
+        this.ItemListFileName = this.S("ToolData/Saber/ItemListCount.txt");
+        this.AddMethodFileName = this.S("ToolData/Saber/AddMaideCount.txt");
         this.OutputFilePath = this.S("../../Saber/Saber.Infra/CountList.cs");
         return true;
     }
