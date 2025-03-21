@@ -12,10 +12,10 @@ public class Gen : SourceGen
         this.ItemClassName = this.S("Index");
         this.ArrayClassName = this.S("Array");
         this.Export = true;
-        this.ClassFileName = this.S("ToolData/Class/ClassIndex.txt");
-        this.InitMethodFileName = this.S("ToolData/Class/InitMaideIndex.txt");
-        this.ItemListFileName = this.S("ToolData/Class/ItemListIndex.txt");
-        this.AddMethodFileName = this.S("ToolData/Class/AddMaideIndex.txt");
+        this.ClassFileName = this.S("ToolData/Saber/ClassIndex.txt");
+        this.InitMethodFileName = this.S("ToolData/Saber/InitMaideIndex.txt");
+        this.ItemListFileName = this.S("ToolData/Saber/ItemListIndex.txt");
+        this.AddMethodFileName = this.S("ToolData/Saber/AddMaideIndex.txt");
         this.OutputFilePath = this.S("../../Saber/Saber.Infra/IndexList.cs");
         return true;
     }
