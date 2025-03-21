@@ -12,10 +12,10 @@ public class Gen : SourceGen
         this.ItemClassName = this.S("Limit");
         this.ArrayClassName = this.S("Array");
         this.Export = true;
-        this.ClassFileName = this.S("ToolData/Class/ClassLimit.txt");
-        this.InitMethodFileName = this.S("ToolData/Class/InitMaideLimit.txt");
-        this.ItemListFileName = this.S("ToolData/Class/ItemListLimit.txt");
-        this.AddMethodFileName = this.S("ToolData/Class/AddMaideLimit.txt");
+        this.ClassFileName = this.S("ToolData/Saber/ClassLimit.txt");
+        this.InitMethodFileName = this.S("ToolData/Saber/InitMaideLimit.txt");
+        this.ItemListFileName = this.S("ToolData/Saber/ItemListLimit.txt");
+        this.AddMethodFileName = this.S("ToolData/Saber/AddMaideLimit.txt");
         this.OutputFilePath = this.S("../../Saber/Saber.Infra/LimitList.cs");
         return true;
     }
