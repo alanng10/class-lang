@@ -54,6 +54,8 @@ Word "client" has meaning that is user.
 
 Word "group" has meaning that is group entity.
 
+Word "ready" has meaning that is already.
+
 Word "opacity" has meaning that is alpha rate.
 
 Word "inform" has meaning that is made of data.
