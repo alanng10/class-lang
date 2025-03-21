@@ -416,6 +416,12 @@ Word "alias" has meaning that is name ref.
 
 Word "stack" has meaning that is put on top of.
 
+Word "push" has meaning that is put at end.
+
+Word "pop" has meaning that is remove at end.
+
+Word "top" has meaning that is stack end.
+
 Word "queue" has meaning that is put at after back.
 
 Word "tree" has meaning that is tree structured.
