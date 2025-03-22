@@ -7,6 +7,7 @@
 
     <ItemGroup>
         <ProjectReference Include="../Saber.Infra/Saber.Infra.csproj" />
+        <ProjectReference Include="../Saber.Node/Saber.Node.csproj" />
     </ItemGroup>
 
 </Project>
