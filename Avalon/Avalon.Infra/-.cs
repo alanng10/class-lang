@@ -5,4 +5,3 @@ global using SystemThreadStaticAttribute = System.ThreadStaticAttribute;
 global using SystemEnvironment = System.Environment;
 global using SystemGCHandle = System.Runtime.InteropServices.GCHandle;
 global using Marshal = System.Runtime.InteropServices.Marshal;
-global using DllImportAttribute = System.Runtime.InteropServices.DllImportAttribute;
