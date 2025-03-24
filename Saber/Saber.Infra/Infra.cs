@@ -333,7 +333,7 @@ public class Infra : Any
             if (!b)
             {
                 Field field;
-                field = (Field)c.Field.Get(name);
+                field = c.Field.Get(name) as Field;
 
                 if (!(field == null))
                 {
@@ -359,7 +359,7 @@ public class Infra : Any
             if (!b)
             {
                 Maide maide;
-                maide = (Maide)c.Maide.Get(name);
+                maide = c.Maide.Get(name) as Maide;
 
                 if (!(maide == null))
                 {
