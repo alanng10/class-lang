@@ -358,6 +358,8 @@ Word "refer" has meaning that is declaration.
 
 Word "operate" has meaning that is work.
 
+Word "operand" has meaning that is operate param.
+
 Word "are" has meaning that is already be.
 
 Word "console" has meaning that is programmed task.
