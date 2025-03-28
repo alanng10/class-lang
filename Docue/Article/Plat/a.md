@@ -25,6 +25,6 @@ View modules layer on top of Type modules in the arch.
 
 Class compiler modules layer on top of List modules, Text modules and Binary modules in the arch.
 
-Page modules layer on top of Storey modules and Class compiler modules in the arch.
+Page modules layer on top of Storey modules in the arch.
 
 Tool modules layer on top of View modules and Class compiler modules in the arch.
