@@ -15,6 +15,8 @@ Type board button index table is type index.
 Type index is park type index.
 Type index is did.
 
+Type is Class module list for type input.
+
 Type is System Effect Type.
 
 Type is park type.
