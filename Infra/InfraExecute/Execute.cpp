@@ -21,7 +21,7 @@ Int Execute()
     QString moduleRef;
     Int pModuleRef;
     pModuleRef = CastInt(&moduleRef);
-    
+
     Bool ba;
     ba = ExecuteArg(pModuleRef, arg);
 
@@ -230,7 +230,7 @@ Int ExecuteModuleString(Int result, Int moduleRef)
     pka = CastInt(&ka);
 
     QString moduleNameString;
-    
+
     Int pkka;
     pkka = CastInt(&moduleNameString);
 
@@ -259,7 +259,7 @@ Int ExecuteModuleString(Int result, Int moduleRef)
     }
 
     QString moduleVerString;
-    
+
     Int pkkb;
     pkkb = CastInt(&moduleVerString);
 
@@ -487,7 +487,7 @@ Int ExecuteValidModuleNameChar(Int n)
 
     Bool be;
     be = (n == '.');
-    
+
     Bool b;
     b = ba | bb | bc | bd | be;
 
