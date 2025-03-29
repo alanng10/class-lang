@@ -71,7 +71,7 @@ Int Execute()
 
     QLibrary library;
     library.setFileName(moduleRef);
-    
+
     bool bu;
     bu = library.load();
 
