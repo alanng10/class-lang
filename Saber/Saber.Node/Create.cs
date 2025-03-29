@@ -246,7 +246,7 @@ public class Create : InfraCreate
         rootArray.Init();
         this.Result.Root = rootArray;
 
-        this.NodeState = (NodeState)this.NodeStateTable.Get(this.Task);
+        this.NodeState = this.NodeStateTable.Get(this.Task) as NodeState;
         if (this.NodeState == null)
         {
             Array ooo;
@@ -305,6 +305,7 @@ public class Create : InfraCreate
 
         this.Result.Error = arg.ErrorArray;
 
+        this.Operate = null;
         this.Arg = null;
         return true;
     }
