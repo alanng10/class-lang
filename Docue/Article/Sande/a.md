@@ -129,6 +129,7 @@ followed by Argue of class Argue, followed by limit brace round close token.
 Maide with maide name Maide in class Class is called.
 Argue is passed into the maide being called.
 The operate results ref value that the maide returns.
+The operate Type is the result Type of the maide.
 
 Argue node is list of Operate. The list is delimited by limit comma token.
 
