@@ -7,13 +7,10 @@ public class Read : ClassBase
         base.Init();
 
         this.CountOperate = new CountReadOperate();
-        this.CountOperate.Read = this;
         this.CountOperate.Init();
         this.StringOperate = new StringReadOperate();
-        this.StringOperate.Read = this;
         this.StringOperate.Init();
         this.SetOperate = new SetReadOperate();
-        this.SetOperate.Read = this;
         this.SetOperate.Init();
 
         this.Range = new Range();
@@ -83,7 +80,7 @@ public class Read : ClassBase
 
         this.Operate = this.CountOperate;
 
-        this.ResetStageIndex();
+        this.ResetStage();
         this.ExecuteStage();
 
         long aa;
@@ -96,7 +93,7 @@ public class Read : ClassBase
 
         this.Operate = this.StringOperate;
 
-        this.ResetStageIndex();
+        this.ResetStage();
         this.ExecuteStage();
 
         arg.StringArray = listInfra.ArrayCreate(arg.StringIndex);
@@ -118,15 +115,16 @@ public class Read : ClassBase
 
         this.Operate = this.SetOperate;
 
-        this.ResetStageIndex();
+        this.ResetStage();
         this.ExecuteStage();
 
         this.Arg = null;
+        this.Operate = null;
         this.LineList = null;
         return true;
     }
 
-    protected virtual bool ResetStageIndex()
+    protected virtual bool ResetStage()
     {
         ReadArg arg;
         arg = this.Arg;
@@ -138,6 +136,8 @@ public class Read : ClassBase
         arg.ImportClassIndex = 0;
         arg.ExportIndex = 0;
         arg.StorageIndex = 0;
+
+        this.Operate.Arg = arg;
         return true;
     }
 
@@ -807,8 +807,8 @@ public class Read : ClassBase
 
         Storage a;
         a = this.Operate.ExecuteStorage();
-        a.Path = path;
-        a.SourcePath = sourcePath;
+        a.Dest = path;
+        a.Source = sourcePath;
         return a;
     }
 
