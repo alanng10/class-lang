@@ -813,8 +813,8 @@ public class PortLoad : ClassBase
 
             String sourcePathKa;
             String destPathKa;
-            sourcePathKa = a.SourcePath;
-            destPathKa = a.Path;
+            sourcePathKa = a.Source;
+            destPathKa = a.Dest;
 
             Text sourcePathK;
             String sourcePath;
