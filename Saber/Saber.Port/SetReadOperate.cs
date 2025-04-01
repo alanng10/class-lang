@@ -2,8 +2,6 @@ namespace Saber.Port;
 
 public class SetReadOperate : ReadOperate
 {
-    public virtual Read Read { get; set; }
-
     public override String ExecuteString(long row, Range range)
     {
         ReadArg arg;
