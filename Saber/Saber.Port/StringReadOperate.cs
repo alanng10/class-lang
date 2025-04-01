@@ -9,20 +9,71 @@ public class StringReadOperate : ReadOperate
         this.ListInfra = ListInfra.This;
         this.TextInfra = TextInfra.This;
         this.ClassInfra = ClassInfra.This;
-        this.String = this.TextInfra.Zero;
-        this.Array = this.ListInfra.ArrayCreate(0);
-        this.Port = new Port();
-        this.Port.Init();
-        this.ModuleRef = this.ClassInfra.ModuleRefCreate(null, 0);
-        this.Import = new Import();
-        this.Import.Init();
-        this.ImportClass = new ImportClass();
-        this.ImportClass.Init();
-        this.Export = new Export();
-        this.Export.Init();
-        this.Storage = new Storage();
-        this.Storage.Init();
+
+        this.String = this.CreateString();
+        this.Array = this.CreateArray();
+        this.Port = this.CreatePort();
+        this.ModuleRef = this.CreateModuleRef();
+        this.Import = this.CreateImport();
+        this.ImportClass = this.CreateImportClass();
+        this.Export = this.CreateExport();
+        this.Storage = this.CreateStorage();
         return true;
+    }
+
+    protected virtual String CreateString()
+    {
+        return this.TextInfra.Zero;
+    }
+
+    protected virtual Array CreateArray()
+    {
+        return this.ListInfra.ArrayCreate(0);
+    }
+
+    protected virtual Port CreatePort()
+    {
+        Port a;
+        a = new Port();
+        a.Init();
+        return a;
+    }
+
+    protected virtual ModuleRef CreateModuleRef()
+    {
+        return this.ClassInfra.ModuleRefCreate(null, 0);
+    }
+
+    protected virtual Import CreateImport()
+    {
+        Import a;
+        a = new Import();
+        a.Init();
+        return a;
+    }
+
+    protected virtual ImportClass CreateImportClass()
+    {
+        ImportClass a;
+        a = new ImportClass();
+        a.Init();
+        return a;
+    }
+
+    protected virtual Export CreateExport()
+    {
+        Export a;
+        a = new Export();
+        a.Init();
+        return a;
+    }
+
+    protected virtual Storage CreateStorage()
+    {
+        Storage a;
+        a = new Storage();
+        a.Init();
+        return a;
     }
 
     protected virtual InfraInfra InfraInfra { get; set; }
@@ -45,6 +96,7 @@ public class StringReadOperate : ReadOperate
 
         ReadArg arg;
         arg = this.Arg;
+
         long index;
         index = arg.StringIndex;
 
@@ -55,7 +107,7 @@ public class StringReadOperate : ReadOperate
         nn = nn * 3;
         long ka;
         ka = sizeof(ulong);
-        
+
         long na;
         na = nn * ka;
         infraInfra.DataIntSet(data, na, row);
