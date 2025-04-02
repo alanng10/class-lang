@@ -9,3 +9,6 @@ Class compiler entry modules are executed with InfraExecute, same as other entry
 
 Class Lang module making is executed with InfraExecute module, passing in Class compiler entry module module ref 
 and the entry module parameters info as argument.
+
+Infra maide that has return int value return 60 bits int value in 64 bit unsigned int.
+Null int value is represented as negative one 64 bit signed int.
