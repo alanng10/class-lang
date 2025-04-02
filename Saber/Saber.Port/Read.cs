@@ -136,8 +136,6 @@ public class Read : ClassBase
         arg.ImportClassIndex = 0;
         arg.ExportIndex = 0;
         arg.StorageIndex = 0;
-
-        this.Operate.Arg = arg;
         return true;
     }
 
