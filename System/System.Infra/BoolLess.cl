@@ -15,11 +15,11 @@ class BoolLess : Less
         return liteInt - riteInt;
     }
 
-    maide precate Int BoolInt(var Bool o)
+    maide precate Int BoolInt(var Bool value)
     {
         var Int a;
         a : 0;
-        inf (o)
+        inf (value)
         {
             a : 1;
         }
