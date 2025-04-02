@@ -420,7 +420,7 @@ Word "stack" has meaning that is put on top of.
 
 Word "push" has meaning that is put at end.
 
-Word "pop" has meaning that is remove at end.
+Word "pop" has meaning that is remove push item.
 
 Word "top" has meaning that is stack end.
 
