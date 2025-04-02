@@ -2,7 +2,7 @@ namespace Saber.Port;
 
 public class ReadOperate : Any
 {
-    public virtual ReadArg Arg { get; set; }
+    public virtual Read Read { get; set; }
 
     public virtual String ExecuteString(long row, Range range)
     {
