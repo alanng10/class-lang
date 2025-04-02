@@ -5,7 +5,7 @@ public class SetReadOperate : ReadOperate
     public override String ExecuteString(long row, Range range)
     {
         ReadArg arg;
-        arg = this.Arg;
+        arg = this.Read.Arg;
         long index;
         index = arg.StringIndex;
         String a;
@@ -17,7 +17,7 @@ public class SetReadOperate : ReadOperate
     public override Array ExecuteArray(long count)
     {
         ReadArg arg;
-        arg = this.Arg;
+        arg = this.Read.Arg;
         long index;
         index = arg.ArrayIndex;
         Array a;
@@ -35,7 +35,7 @@ public class SetReadOperate : ReadOperate
     public override Port ExecutePort()
     {
         ReadArg arg;
-        arg = this.Arg;
+        arg = this.Read.Arg;
         long index;
         index = arg.PortIndex;
         Port a;
@@ -47,7 +47,7 @@ public class SetReadOperate : ReadOperate
     public override ModuleRef ExecuteModuleRef()
     {
         ReadArg arg;
-        arg = this.Arg;
+        arg = this.Read.Arg;
         long index;
         index = arg.ModuleRefIndex;
         ModuleRef a;
@@ -59,7 +59,7 @@ public class SetReadOperate : ReadOperate
     public override Import ExecuteImport()
     {
         ReadArg arg;
-        arg = this.Arg;
+        arg = this.Read.Arg;
         long index;
         index = arg.ImportIndex;
         Import a;
@@ -71,7 +71,7 @@ public class SetReadOperate : ReadOperate
     public override ImportClass ExecuteImportClass()
     {
         ReadArg arg;
-        arg = this.Arg;
+        arg = this.Read.Arg;
         long index;
         index = arg.ImportClassIndex;
         ImportClass a;
@@ -83,7 +83,7 @@ public class SetReadOperate : ReadOperate
     public override Export ExecuteExport()
     {
         ReadArg arg;
-        arg = this.Arg;
+        arg = this.Read.Arg;
         long index;
         index = arg.ExportIndex;
         Export a;
@@ -95,7 +95,7 @@ public class SetReadOperate : ReadOperate
     public override Storage ExecuteStorage()
     {
         ReadArg arg;
-        arg = this.Arg;
+        arg = this.Read.Arg;
         long index;
         index = arg.StorageIndex;
         Storage a;
