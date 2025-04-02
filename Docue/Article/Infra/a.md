@@ -11,4 +11,4 @@ Class Lang module making is executed with InfraExecute module, passing in Class 
 and the entry module parameters info as argument.
 
 Infra maide that has return int value return 60 bits int value in 64 bit unsigned int.
-Null int value is represented as negative one 64 bit signed int.
+Null int value is represented as negative one 64 bit two complement int.
