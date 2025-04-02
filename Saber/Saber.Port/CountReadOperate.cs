@@ -90,7 +90,7 @@ public class CountReadOperate : ReadOperate
     public override String ExecuteString(long row, Range range)
     {
         ReadArg arg;
-        arg = this.Arg;
+        arg = this.Read.Arg;
         arg.StringIndex = arg.StringIndex + 1;
         return this.String;
     }
@@ -98,7 +98,7 @@ public class CountReadOperate : ReadOperate
     public override Array ExecuteArray(long count)
     {
         ReadArg arg;
-        arg = this.Arg;
+        arg = this.Read.Arg;
         arg.ArrayIndex = arg.ArrayIndex + 1;
         return this.Array;
     }
@@ -106,7 +106,7 @@ public class CountReadOperate : ReadOperate
     public override Port ExecutePort()
     {
         ReadArg arg;
-        arg = this.Arg;
+        arg = this.Read.Arg;
         arg.PortIndex = arg.PortIndex + 1;
         return this.Port;
     }
@@ -114,7 +114,7 @@ public class CountReadOperate : ReadOperate
     public override ModuleRef ExecuteModuleRef()
     {
         ReadArg arg;
-        arg = this.Arg;
+        arg = this.Read.Arg;
         arg.ModuleRefIndex = arg.ModuleRefIndex + 1;
         return this.ModuleRef;
     }
@@ -122,7 +122,7 @@ public class CountReadOperate : ReadOperate
     public override Import ExecuteImport()
     {
         ReadArg arg;
-        arg = this.Arg;
+        arg = this.Read.Arg;
         arg.ImportIndex = arg.ImportIndex + 1;
         return this.Import;
     }
@@ -130,7 +130,7 @@ public class CountReadOperate : ReadOperate
     public override ImportClass ExecuteImportClass()
     {
         ReadArg arg;
-        arg = this.Arg;
+        arg = this.Read.Arg;
         arg.ImportClassIndex = arg.ImportClassIndex + 1;
         return this.ImportClass;
     }
@@ -138,7 +138,7 @@ public class CountReadOperate : ReadOperate
     public override Export ExecuteExport()
     {
         ReadArg arg;
-        arg = this.Arg;
+        arg = this.Read.Arg;
         arg.ExportIndex = arg.ExportIndex + 1;
         return this.Export;
     }
@@ -146,7 +146,7 @@ public class CountReadOperate : ReadOperate
     public override Storage ExecuteStorage()
     {
         ReadArg arg;
-        arg = this.Arg;
+        arg = this.Read.Arg;
         arg.StorageIndex = arg.StorageIndex + 1;
         return this.Storage;
     }
