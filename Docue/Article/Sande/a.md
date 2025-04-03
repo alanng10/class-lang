@@ -1,6 +1,8 @@
 # Sande
 
 Sande is system program lang.
+Sande is system class.
+Sande is System Class.
 This programming language word "Sande" is a node name.
 
 Sande is park system program lang.
