@@ -36,7 +36,7 @@ public class Base : Any
         this.StringDataE = this.CreateStringData();
         this.StringDataF = this.CreateStringData();
 
-        this.TRange = this.CreateInfraRange();
+        this.Range = this.CreateInfraRange();
 
         this.Indent = this.CreateIndent();
         return true;
@@ -52,7 +52,7 @@ public class Base : Any
     protected virtual TextLess TLess { get; set; }
     protected virtual LessInt CharLess { get; set; }
     protected virtual TextForm TForm { get; set; }
-    protected virtual InfraRange TRange { get; set; }
+    protected virtual InfraRange Range { get; set; }
     protected virtual Text TextA { get; set; }
     protected virtual Text TextB { get; set; }
     protected virtual Text TextC { get; set; }
@@ -474,10 +474,10 @@ public class Base : Any
 
     public virtual String StringCreateRange(String o, long index, long count)
     {
-        this.TRange.Index = index;
-        this.TRange.Count = count;
+        this.Range.Index = index;
+        this.Range.Count = count;
 
-        return this.StringComp.CreateString(o, this.TRange);
+        return this.StringComp.CreateString(o, this.Range);
     }
 
     public virtual String StringCreateIndex(String o, long index)
