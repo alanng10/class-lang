@@ -31,6 +31,11 @@ public class Infra : Any
         this.Dot = this.S(".");
         this.Hyphen = this.S("-");
         this.Space = this.S(" ");
+        this.TextModule = this.S("Module");
+        this.TextImport = this.S("Import");
+        this.TextExport = this.S("Export");
+        this.TextStorage = this.S("Storage");
+        this.TextEntry = this.S("Entry");
         this.IntSignValueNegateMax = this.InfraInfra.IntCapValue / 2;
         this.IntSignValuePositeMax = this.IntSignValueNegateMax - 1;
         this.SModule = this.S("Module");
@@ -43,6 +48,11 @@ public class Infra : Any
     public virtual String Dot { get; set; }
     public virtual String Hyphen { get; set; }
     public virtual String Space { get; set; }
+    public virtual String TextModule { get; set; }
+    public virtual String TextImport { get; set; }
+    public virtual String TextExport { get; set; }
+    public virtual String TextStorage { get; set; }
+    public virtual String TextEntry { get; set; }
     public virtual long IntSignValuePositeMax { get; set; }
     public virtual long IntSignValueNegateMax { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
