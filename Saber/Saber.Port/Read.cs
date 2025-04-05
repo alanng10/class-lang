@@ -6,15 +6,9 @@ public class Read : ClassBase
     {
         base.Init();
 
-        this.CountOperate = new CountReadOperate();
-        this.CountOperate.Init();
-        this.StringOperate = new StringReadOperate();
-        this.StringOperate.Init();
-        this.SetOperate = new SetReadOperate();
-        this.SetOperate.Init();
-
-        this.Range = new Range();
-        this.Range.Init();
+        this.CountOperate = this.CreateCountOperate();
+        this.StringOperate = this.CreateStringOperate();
+        this.SetOperate = this.CreateSetOperate();
 
         this.SColon = this.S(":");
         this.SDot = this.S(".");
@@ -22,74 +16,78 @@ public class Read : ClassBase
         this.SBraceSquareRite = this.S("]");
         this.SSpace = this.S(" ");
         this.SIndent = this.S("    ");
-        this.HeadModule = this.S("Module");
-        this.HeadImport = this.S("Import");
-        this.HeadExport = this.S("Export");
-        this.HeadStorage = this.S("Storage");
-        this.HeadEntry = this.S("Entry");
         return true;
     }
 
-    public virtual String Source { get; set; }
+    protected virtual CountReadOperate CreateCountOperate()
+    {
+        CountReadOperate a;
+        a = new CountReadOperate();
+        a.Read = this;
+        a.Init();
+        return a;
+    }
+
+    protected virtual StringReadOperate CreateStringOperate()
+    {
+        StringReadOperate a;
+        a = new StringReadOperate();
+        a.Read = this;
+        a.Init();
+        return a;
+    }
+
+    protected virtual SetReadOperate CreateSetOperate()
+    {
+        SetReadOperate a;
+        a = new SetReadOperate();
+        a.Read = this;
+        a.Init();
+        return a;
+    }
+
+    public virtual Array Source { get; set; }
     public virtual Port Port { get; set; }
     public virtual ReadArg Arg { get; set; }
-    protected virtual Array LineList { get; set; }
     protected virtual ReadOperate Operate { get; set; }
     protected virtual CountReadOperate CountOperate { get; set; }
     protected virtual StringReadOperate StringOperate { get; set; }
     protected virtual SetReadOperate SetOperate { get; set; }
-    protected virtual Range Range { get; set; }
     protected virtual String SColon { get; set; }
     protected virtual String SDot { get; set; }
     protected virtual String SBraceSquareLite { get; set; }
     protected virtual String SBraceSquareRite { get; set; }
     protected virtual String SSpace { get; set; }
     protected virtual String SIndent { get; set; }
-    protected virtual String HeadModule { get; set; }
-    protected virtual String HeadImport { get; set; }
-    protected virtual String HeadExport { get; set; }
-    protected virtual String HeadStorage { get; set; }
-    protected virtual String HeadEntry { get; set; }
 
     public virtual bool Execute()
     {
         ListInfra listInfra;
         listInfra = this.ListInfra;
 
-        String source;
-        source = this.Source;
+        this.Arg = new ReadArg();
+        this.Arg.Init();
 
-        Text text;
-        text = new Text();
-        text.Init();
-        text.Range = new Range();
-        text.Range.Init();
-
-        StringData stringData;
-        stringData = new StringData();
-        stringData.Init();
-
-        this.TextString(source, text, stringData);
-
-        this.LineList = this.TextLimit(text, this.TA(this.ClassInfra.NewLine));
-        
         ReadArg arg;
-        arg = new ReadArg();
-        arg.Init();
-        this.Arg = arg;
+        arg = this.Arg;
 
         this.Operate = this.CountOperate;
 
         this.ResetStage();
         this.ExecuteStage();
 
-        long aa;
-        aa = arg.StringIndex;
-        aa = aa * sizeof(ulong) * 3;
-        arg.StringTextData = this.CreateData(aa);
-        aa = arg.ArrayIndex;
-        aa = aa * sizeof(ulong);
-        arg.ArrayCountData = this.CreateData(aa);
+        long ka;
+        ka = arg.StringIndex;
+        ka = ka * sizeof(ulong) * 3;
+        arg.StringRangeData = new Data();
+        arg.StringRangeData.Count = ka;
+        arg.StringRangeData.Init();
+
+        ka = arg.ArrayIndex;
+        ka = ka * sizeof(ulong);
+        arg.ArrayCountData = new Data();
+        arg.ArrayCountData.Count = ka;
+        arg.ArrayCountData.Init();
 
         this.Operate = this.StringOperate;
 
@@ -104,6 +102,7 @@ public class Read : ClassBase
         arg.ImportClassArray = listInfra.ArrayCreate(arg.ImportClassIndex);
         arg.ExportArray = listInfra.ArrayCreate(arg.ExportIndex);
         arg.StorageArray = listInfra.ArrayCreate(arg.StorageIndex);
+
         this.ExecuteCreateString();
         this.ExecuteCreateArray();
         this.ExecuteCreatePort();
@@ -120,7 +119,6 @@ public class Read : ClassBase
 
         this.Arg = null;
         this.Operate = null;
-        this.LineList = null;
         return true;
     }
 
@@ -141,23 +139,14 @@ public class Read : ClassBase
 
     protected virtual bool ExecuteCreateString()
     {
-        InfraInfra infraInfra;
-        infraInfra = this.InfraInfra;
-        TextInfra textInfra;
-        textInfra = this.TextInfra;
+        Array array;
+        array = this.Arg.StringArray;
 
-        ReadArg arg;
-        arg = this.Arg;
-        Text text;
-        text = this.TextA;
-        Range range;
-        range = text.Range;
-        Data textData;
-        textData = arg.StringTextData;
+        Data data;
+        data = this.Arg.StringRangeData;
+
         long ka;
         ka = sizeof(ulong);
-        Array array;
-        array = arg.StringArray;
         long count;
         count = array.Count;
         long i;
@@ -172,27 +161,30 @@ public class Read : ClassBase
             long countA;
             long na;
             na = nn * ka;
-            row = infraInfra.DataIntGet(textData, na);
+            row = this.InfraInfra.DataIntGet(data, na);
 
             na = (nn + 1) * ka;
-            index = infraInfra.DataIntGet(textData, na);
+            index = this.InfraInfra.DataIntGet(data, na);
 
             na = (nn + 2) * ka;
-            countA = infraInfra.DataIntGet(textData, na);
+            countA = this.InfraInfra.DataIntGet(data, na);
 
             Text line;
             line = this.LineText(row);
 
-            text.Data = line.Data;
-            range.Index = index;
-            range.Count = countA;
+            this.TextA.Data = line.Data;
+            this.TextA.Range.Index = index;
+            this.TextA.Range.Count = countA;
 
             String a;
-            a = textInfra.StringCreate(text);
-            text.Data = null;
+            a = this.StringCreate(this.TextA);
+
+            this.TextA.Range.Count = 0;
+            this.TextA.Range.Index = 0;
+            this.TextA.Data = null;
 
             array.SetAt(i, a);
-            
+
             i = i + 1;
         }
         return true;
@@ -200,19 +192,12 @@ public class Read : ClassBase
 
     protected virtual bool ExecuteCreateArray()
     {
-        InfraInfra infraInfra;
-        infraInfra = this.InfraInfra;
-        ListInfra listInfra;
-        listInfra = this.ListInfra;
-
-        ReadArg arg;
-        arg = this.Arg;
+        Array array;
+        array = this.Arg.ArrayArray;
 
         Data data;
-        data = arg.ArrayCountData;
-        Array array;
-        array = arg.ArrayArray;
-        
+        data = this.Arg.ArrayCountData;
+
         long ka;
         ka = sizeof(ulong);
         long count;
@@ -222,15 +207,16 @@ public class Read : ClassBase
         while (i < count)
         {
             long nn;
-            nn = i;
-            nn = nn * ka;
+            nn = i * ka;
 
             long k;
-            k = infraInfra.DataIntGet(data, nn);
+            k = this.InfraInfra.DataIntGet(data, nn);
 
             Array a;
-            a = listInfra.ArrayCreate(k);
+            a = this.ListInfra.ArrayCreate(k);
+
             array.SetAt(i, a);
+
             i = i + 1;
         }
         return true;
@@ -238,10 +224,8 @@ public class Read : ClassBase
 
     protected virtual bool ExecuteCreatePort()
     {
-        ReadArg arg;
-        arg = this.Arg;
         Array array;
-        array = arg.PortArray;
+        array = this.Arg.PortArray;
 
         long count;
         count = array.Count;
@@ -252,7 +236,9 @@ public class Read : ClassBase
             Port a;
             a = new Port();
             a.Init();
+
             array.SetAt(i, a);
+
             i = i + 1;
         }
         return true;
@@ -260,10 +246,8 @@ public class Read : ClassBase
 
     protected virtual bool ExecuteCreateModuleRef()
     {
-        ReadArg arg;
-        arg = this.Arg;
         Array array;
-        array = arg.ModuleRefArray;
+        array = this.Arg.ModuleRefArray;
 
         long count;
         count = array.Count;
@@ -274,7 +258,9 @@ public class Read : ClassBase
             ModuleRef a;
             a = new ModuleRef();
             a.Init();
+
             array.SetAt(i, a);
+
             i = i + 1;
         }
         return true;
@@ -282,10 +268,8 @@ public class Read : ClassBase
 
     protected virtual bool ExecuteCreateImport()
     {
-        ReadArg arg;
-        arg = this.Arg;
         Array array;
-        array = arg.ImportArray;
+        array = this.Arg.ImportArray;
 
         long count;
         count = array.Count;
@@ -296,7 +280,9 @@ public class Read : ClassBase
             Import a;
             a = new Import();
             a.Init();
+
             array.SetAt(i, a);
+
             i = i + 1;
         }
         return true;
@@ -304,10 +290,8 @@ public class Read : ClassBase
 
     protected virtual bool ExecuteCreateImportClass()
     {
-        ReadArg arg;
-        arg = this.Arg;
         Array array;
-        array = arg.ImportClassArray;
+        array = this.Arg.ImportClassArray;
 
         long count;
         count = array.Count;
@@ -318,7 +302,9 @@ public class Read : ClassBase
             ImportClass a;
             a = new ImportClass();
             a.Init();
+
             array.SetAt(i, a);
+
             i = i + 1;
         }
         return true;
@@ -326,10 +312,8 @@ public class Read : ClassBase
 
     protected virtual bool ExecuteCreateExport()
     {
-        ReadArg arg;
-        arg = this.Arg;
         Array array;
-        array = arg.ExportArray;
+        array = this.Arg.ExportArray;
 
         long count;
         count = array.Count;
@@ -340,7 +324,9 @@ public class Read : ClassBase
             Export a;
             a = new Export();
             a.Init();
+
             array.SetAt(i, a);
+
             i = i + 1;
         }
         return true;
@@ -348,10 +334,8 @@ public class Read : ClassBase
 
     protected virtual bool ExecuteCreateStorage()
     {
-        ReadArg arg;
-        arg = this.Arg;
         Array array;
-        array = arg.StorageArray;
+        array = this.Arg.StorageArray;
 
         long count;
         count = array.Count;
@@ -362,33 +346,29 @@ public class Read : ClassBase
             Storage a;
             a = new Storage();
             a.Init();
+
             array.SetAt(i, a);
+
             i = i + 1;
         }
         return true;
     }
 
-    protected virtual Data CreateData(long count)
+    public virtual bool ExecuteStage()
     {
-        Data a;
-        a = new Data();
-        a.Count = count;
-        a.Init();
-        return a;
-    }
-
-    protected virtual bool ExecuteStage()
-    {
-        this.Port = this.ExecutePort(0);
+        this.Port = this.ExecutePort();
 
         this.ClearData();
         return true;
     }
 
-    protected virtual Port ExecutePort(long row)
+    protected virtual Port ExecutePort()
     {
+        long row;
+        row = 0;
+
         bool b;
-        b = this.CheckHead(row, this.HeadModule);
+        b = this.ValidHead(row, this.ClassInfra.TextModule);
         if (!b)
         {
             return null;
@@ -399,7 +379,7 @@ public class Read : ClassBase
         {
             return null;
         }
-        
+
         ModuleRef module;
         module = this.ExecuteModuleRef(row);
         if (module == null)
@@ -418,7 +398,7 @@ public class Read : ClassBase
             return null;
         }
 
-        b = this.CheckHead(row, this.HeadImport);
+        b = this.ValidHead(row, this.ClassInfra.TextImport);
         if (!b)
         {
             return null;
@@ -447,7 +427,7 @@ public class Read : ClassBase
             return null;
         }
 
-        b = this.CheckHead(row, this.HeadExport);
+        b = this.ValidHead(row, this.ClassInfra.TextExport);
         if (!b)
         {
             return null;
@@ -475,7 +455,7 @@ public class Read : ClassBase
             return null;
         }
 
-        b = this.CheckHead(row, this.HeadStorage);
+        b = this.ValidHead(row, this.ClassInfra.TextStorage);
         if (!b)
         {
             return null;
@@ -503,7 +483,7 @@ public class Read : ClassBase
             return null;
         }
 
-        b = this.CheckHead(row, this.HeadEntry);
+        b = this.ValidHead(row, this.ClassInfra.TextEntry);
         if (!b)
         {
             return null;
@@ -515,15 +495,12 @@ public class Read : ClassBase
         entry = null;
         if (this.ValidRow(row))
         {
-            Text aa;
-            aa = this.LineText(row);
-            
-            entry = this.ExecuteString(row, aa.Range);
+            entry = this.ExecuteEntry(row);
 
             row = row + 1;
         }
 
-        if (!(row == this.LineList.Count))
+        if (!(row == this.Source.Count))
         {
             return null;
         }
@@ -542,10 +519,10 @@ public class Read : ClassBase
     {
         long count;
         count = this.ImportCount(row, lineCount);
-        
+
         Array array;
         array = this.Operate.ExecuteArray(count);
-        
+
         long k;
         k = row;
 
@@ -568,7 +545,7 @@ public class Read : ClassBase
 
             this.Operate.ExecuteArrayItemSet(array, i, a);
 
-            k = k + 1 + ka;
+            k = kk + ka;
 
             i = i + 1;
         }
@@ -589,7 +566,7 @@ public class Read : ClassBase
         {
             Text text;
             text = this.LineText(row + i);
-            
+
             if (!this.TextStart(text, this.TA(this.SSpace)))
             {
                 k = k + 1;
@@ -603,7 +580,7 @@ public class Read : ClassBase
         return a;
     }
 
-    protected virtual Import ExecuteImport(long row, long subsectionLineCount)
+    protected virtual Import ExecuteImport(long row, long lineCount)
     {
         ModuleRef module;
         module = this.ExecuteModuleRef(row);
@@ -615,18 +592,18 @@ public class Read : ClassBase
         row = row + 1;
 
         long count;
-        count = subsectionLineCount;
+        count = lineCount;
 
         Array array;
         array = this.Operate.ExecuteArray(count);
-        
+
         long i;
         i = 0;
         while (i < count)
         {
             ImportClass ka;
             ka = this.ExecuteImportClass(row + i);
-            
+
             if (ka == null)
             {
                 return null;
@@ -646,9 +623,6 @@ public class Read : ClassBase
 
     protected virtual ImportClass ExecuteImportClass(long row)
     {
-        TextInfra textInfra;
-        textInfra = this.TextInfra;
-
         Text text;
         text = this.LineText(row);
 
@@ -662,20 +636,27 @@ public class Read : ClassBase
 
         Range range;
         range = text.Range;
+
         long index;
+        long count;
         index = range.Index;
+        count = range.Count;
 
         long indexA;
+        long countA;
         indexA = index + kaa;
+        countA = count - kaa;
 
         range.Index = indexA;
+        range.Count = countA;
 
-        long u;
-        u = this.TextIndex(text, this.TA(this.SSpace));
-        
+        long kk;
+        kk = this.TextIndex(text, this.TA(this.SSpace));
+
         range.Index = index;
+        range.Count = count;
 
-        if (u == -1)
+        if (kk == -1)
         {
             return null;
         }
@@ -684,21 +665,20 @@ public class Read : ClassBase
         rangeA = this.Range;
 
         rangeA.Index = indexA;
-        rangeA.Count = u;
+        rangeA.Count = kk;
 
         String name;
         name = this.ExecuteString(row, rangeA);
 
         long k;
-        k = u + 1;
-        long ka;
-        ka = indexA + k;
-        rangeA.Index = ka;
-        rangeA.Count = text.Range.Count - k - kaa;
+        k = kk + 1;
+
+        rangeA.Index = indexA + k;
+        rangeA.Count = countA - k;
 
         String varClass;
         varClass = this.ExecuteString(row, rangeA);
-        
+
         ImportClass a;
         a = this.Operate.ExecuteImportClass();
         a.Name = name;
@@ -710,8 +690,10 @@ public class Read : ClassBase
     {
         long count;
         count = lineCount;
+
         Array array;
         array = this.Operate.ExecuteArray(count);
+
         long i;
         i = 0;
         while (i < count)
@@ -724,6 +706,7 @@ public class Read : ClassBase
             }
 
             this.Operate.ExecuteArrayItemSet(array, i, a);
+
             i = i + 1;
         }
 
@@ -748,8 +731,10 @@ public class Read : ClassBase
     {
         long count;
         count = lineCount;
+
         Array array;
         array = this.Operate.ExecuteArray(count);
+
         long i;
         i = 0;
         while (i < count)
@@ -762,6 +747,7 @@ public class Read : ClassBase
             }
 
             this.Operate.ExecuteArrayItemSet(array, i, a);
+
             i = i + 1;
         }
 
@@ -770,53 +756,63 @@ public class Read : ClassBase
 
     protected virtual Storage ExecuteStorage(long row)
     {
-        TextInfra textInfra;
-        textInfra = this.TextInfra;
-
         Text text;
         text = this.LineText(row);
 
-        long u;
-        u = this.TextIndex(text, this.TA(this.SColon));
-        if (u == -1)
+        long kk;
+        kk = this.TextIndex(text, this.TA(this.SColon));
+        if (kk == -1)
         {
             return null;
         }
 
-        long ka;
-        ka = text.Range.Index;
+        long index;
+        long count;
+        index = text.Range.Index;
+        count = text.Range.Count;
 
         Range range;
         range = this.Range;
-        
-        range.Index = ka;
-        range.Count = u;
-        
-        String path;
-        path = this.ExecuteString(row, range);
+
+        range.Index = index;
+        range.Count = kk;
+
+        String dest;
+        dest = this.ExecuteString(row, range);
 
         long k;
-        k = u + 1;
-        range.Index = ka + k;
-        range.Count = text.Range.Count - k;
+        k = kk + 1;
 
-        String sourcePath;
-        sourcePath = this.ExecuteString(row, range);
+        range.Index = index + k;
+        range.Count = count - k;
+
+        String source;
+        source = this.ExecuteString(row, range);
 
         Storage a;
         a = this.Operate.ExecuteStorage();
-        a.Dest = path;
-        a.Source = sourcePath;
+        a.Dest = dest;
+        a.Source = source;
+        return a;
+    }
+
+    protected virtual String ExecuteEntry(long row)
+    {
+        Text text;
+        text = this.LineText(row);
+
+        String a;
+        a = this.ExecuteString(row, text.Range);
         return a;
     }
 
     protected virtual long SectionLineCount(long row)
     {
         long lineCount;
-        lineCount = this.LineList.Count;
+        lineCount = this.Source.Count;
 
-        long o;
-        o = -1;
+        long k;
+        k = -1;
 
         bool b;
         b = false;
@@ -834,36 +830,39 @@ public class Read : ClassBase
             if (text.Range.Count == 0)
             {
                 b = true;
-                o = i;
+                k = i;
             }
 
             i = i + 1;
         }
-        
+
         if (!b)
         {
             return count;
         }
-        return o;
+
+        long a;
+        a = k;
+        return a;
     }
 
     protected virtual long SubSectionLineCount(long row)
     {
         long lineCount;
-        lineCount = this.LineList.Count;
+        lineCount = this.Source.Count;
 
-        long o;
-        o = -1;
+        long k;
+        k = -1;
 
         bool b;
         b = false;
-        
+
         long count;
         count = lineCount - row;
 
         long i;
         i = 0;
-        
+
         while (!b & i < count)
         {
             Text text;
@@ -872,7 +871,7 @@ public class Read : ClassBase
             if (!this.TextStart(text, this.TA(this.SSpace)))
             {
                 b = true;
-                o = i;
+                k = i;
             }
 
             i = i + 1;
@@ -883,16 +882,18 @@ public class Read : ClassBase
             return count;
         }
 
-        return o;
+        long a;
+        a = k;
+        return a;
     }
 
-    protected virtual bool CheckHead(long row, String head)
+    protected virtual bool ValidHead(long row, String head)
     {
-        Text line;
-        line = this.LineText(row);
+        Text text;
+        text = this.LineText(row);
 
         Range range;
-        range = line.Range;
+        range = text.Range;
 
         long index;
         long count;
@@ -900,7 +901,7 @@ public class Read : ClassBase
         count = range.Count;
 
         bool a;
-        a = this.CheckHeadAll(line, head);
+        a = this.ValidHeadAll(text, head);
 
         range.Index = index;
         range.Count = count;
@@ -908,10 +909,10 @@ public class Read : ClassBase
         return a;
     }
 
-    protected virtual bool CheckHeadAll(Text line, String head)
+    private bool ValidHeadAll(Text text, String head)
     {
         Range range;
-        range = line.Range;
+        range = text.Range;
 
         long index;
         long count;
@@ -928,14 +929,14 @@ public class Read : ClassBase
 
         range.Count = 1;
 
-        if (!this.TextSame(line, this.TA(this.SBraceSquareLite)))
+        if (!this.TextSame(text, this.TA(this.SBraceSquareLite)))
         {
             return false;
         }
 
         range.Index = index + count - 1;
 
-        if (!this.TextSame(line, this.TA(this.SBraceSquareRite)))
+        if (!this.TextSame(text, this.TA(this.SBraceSquareRite)))
         {
             return false;
         }
@@ -943,7 +944,7 @@ public class Read : ClassBase
         range.Index = index + 1;
         range.Count = count - 2;
 
-        if (!this.TextSame(line, this.TA(head)))
+        if (!this.TextSame(text, this.TA(head)))
         {
             return false;
         }
@@ -953,63 +954,65 @@ public class Read : ClassBase
 
     protected virtual ModuleRef ExecuteModuleRef(long row)
     {
-        TextInfra textInfra;
-        textInfra = this.TextInfra;
-
         Text text;
         text = this.LineText(row);
+
         Range range;
         range = text.Range;
 
         long nameCount;
-        long version;
+        long ver;
         nameCount = 0;
-        version = 0;
-        
-        long n;
-        n = this.TextIndex(text, this.TA(this.SColon));
+        ver = 0;
+
+        long kk;
+        kk = this.TextIndex(text, this.TA(this.SColon));
+
         bool b;
-        b = (n == -1);
+        b = (kk == -1);
         if (b)
         {
             nameCount = range.Count;
-            version = -1;
+            ver = -1;
         }
         if (!b)
         {
-            nameCount = n;
+            nameCount = kk;
 
-            long aa;
-            long ab;
-            aa = range.Index;
-            ab = range.Count;
-            long oo;
-            oo = n + 1;
-            range.Index = aa + oo;
-            range.Count = ab - oo;
+            long ka;
+            long kb;
+            ka = range.Index;
+            kb = range.Count;
 
-            version = this.ExecuteModuleVer(text);
+            long kd;
+            kd = kk + 1;
 
-            range.Index = aa;
-            range.Count = ab;
-            
-            if (version == -1)
+            range.Index = ka + kd;
+            range.Count = kb - kd;
+
+            ver = this.ExecuteModuleVer(text);
+
+            range.Index = ka;
+            range.Count = kb;
+
+            if (ver == -1)
             {
                 return null;
             }
         }
 
-        Range kkk;
-        kkk = this.Range;
-        kkk.Index = range.Index;
-        kkk.Count = nameCount;
+        Range rangeA;
+        rangeA = this.Range;
+        rangeA.Index = range.Index;
+        rangeA.Count = nameCount;
+
         String name;
-        name = this.ExecuteString(row, kkk);
-        
+        name = this.ExecuteString(row, rangeA);
+
         ModuleRef a;
         a = this.Operate.ExecuteModuleRef();
         a.Name = name;
-        a.Ver = version;
+        a.Ver = ver;
         return a;
     }
 
@@ -1022,20 +1025,18 @@ public class Read : ClassBase
         long count;
         index = range.Index;
         count = range.Count;
-        
+
         long a;
         a = this.ExecuteModuleVerAll(text);
 
         range.Index = index;
         range.Count = count;
+
         return a;
     }
 
-    protected virtual long ExecuteModuleVerAll(Text text)
+    private long ExecuteModuleVerAll(Text text)
     {
-        TextInfra textInfra;
-        textInfra = this.TextInfra;
-
         Range range;
         range = text.Range;
 
@@ -1044,38 +1045,42 @@ public class Read : ClassBase
         index = range.Index;
         count = range.Count;
 
-        long u;
-        u = this.TextIndex(text, this.TA(this.SDot));
-        if (u == -1)
+        String dot;
+        dot = this.SDot;
+
+        long kka;
+        kka = this.TextIndex(text, this.TA(dot));
+        if (kka == -1)
         {
             return -1;
         }
-
-        long kka;
-        kka = u;
 
         long ka;
         ka = kka + 1;
+
         range.Index = index + ka;
         range.Count = count - ka;
-        u = this.TextIndex(text, this.TA(this.SDot));
-        if (!(u == 2))
+
+        long kaa;
+        kaa = 2;
+
+        long kkb;
+        kkb = this.TextIndex(text, this.TA(dot));
+        if (!(kkb == kaa))
         {
             return -1;
         }
 
-        long kkb;
-        kkb = u;
         long kb;
         kb = ka + kkb + 1;
 
-        long ku;
-        ku = kb + 2;
-        if (!(ku == count))
+        long kkc;
+        kkc = kb + kaa;
+        if (!(kkc == count))
         {
             return -1;
         }
-        
+
         range.Index = index;
         range.Count = kka;
 
@@ -1086,10 +1091,10 @@ public class Read : ClassBase
             return -1;
         }
 
-        long oo;
-        oo = 1;
-        oo = oo << 44;
-        if (!(major < oo))
+        long kc;
+        kc = 1;
+        kc = kc << 44;
+        if (!(major < kc))
         {
             return -1;
         }
@@ -1105,44 +1110,46 @@ public class Read : ClassBase
         }
 
         range.Index = index + kb;
-        range.Count = 2;
+        range.Count = kaa;
 
-        long vise;
-        vise = this.IntText(text, 10);
-        if (vise == -1)
+        long revise;
+        revise = this.IntText(text, 10);
+        if (revise == -1)
         {
             return -1;
         }
 
+        long k;
+        k = 0;
+        k = k | revise;
+        k = k | (minor << 8);
+        k = k | (major << 16);
+
         long a;
-        a = 0;
-        a = a | vise;
-        a = a | (minor << 8);
-        a = a | (major << 16);
+        a = k;
         return a;
     }
 
     protected virtual Text LineText(long row)
     {
-        return (Text)this.LineList.GetAt(row);
+        return this.Source.GetAt(row) as Text;
     }
 
     protected virtual bool ValidRow(long row)
     {
-        return this.InfraInfra.ValidIndex(this.LineList.Count, row);
+        return this.InfraInfra.ValidIndex(this.Source.Count, row);
     }
 
     protected virtual long NextRow(long row)
     {
-        long a;
-        a = row;
-        a = a + 1;
- 
-        if (!this.ValidRow(a))
+        long k;
+        k = row + 1;
+
+        if (!this.ValidRow(k))
         {
             return -1;
         }
-        return a;
+        return k;
     }
 
     protected virtual String ExecuteString(long row, Range range)
