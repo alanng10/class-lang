@@ -3,7 +3,7 @@ namespace Saber.Port;
 public class ReadArg : Any
 {
     public virtual long StringIndex { get; set; }
-    public virtual Data StringTextData { get; set; }
+    public virtual Data StringRangeData { get; set; }
     public virtual Array StringArray { get; set; }
     public virtual long ArrayIndex { get; set; }
     public virtual Data ArrayCountData { get; set; }
