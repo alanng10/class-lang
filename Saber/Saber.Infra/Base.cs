@@ -8,7 +8,6 @@ public class Base : Any
         this.InfraInfra = InfraInfra.This;
         this.ListInfra = ListInfra.This;
         this.TextInfra = TextInfra.This;
-        this.ClassInfra = Infra.This;
         this.StringComp = StringComp.This;
 
         this.StringAdd = this.CreateStringAdd();
@@ -39,13 +38,14 @@ public class Base : Any
         this.Range = this.CreateInfraRange();
 
         this.Indent = this.CreateIndent();
+
+        this.Space = this.S(" ");
         return true;
     }
 
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
-    protected virtual Infra ClassInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
     protected virtual StringAdd StringAdd { get; set; }
     protected virtual IntParse IntParse { get; set; }
@@ -68,6 +68,7 @@ public class Base : Any
     protected virtual Format Format { get; set; }
     protected virtual FormatArg FormatArg { get; set; }
     protected virtual String Indent { get; set; }
+    protected virtual String Space { get; set; }
 
     protected virtual StringAdd CreateStringAdd()
     {
@@ -362,7 +363,7 @@ public class Base : Any
     public virtual Text TextTrimStart(Text text)
     {
         Text space;
-        space = this.TE(this.ClassInfra.Space);
+        space = this.TE(this.Space);
 
         long start;
         start = text.Range.Index;
@@ -407,7 +408,7 @@ public class Base : Any
     public virtual Text TextTrimEnd(Text text)
     {
         Text space;
-        space = this.TE(this.ClassInfra.Space);
+        space = this.TE(this.Space);
 
         long start;
         start = text.Range.Index;
@@ -524,6 +525,11 @@ public class Base : Any
         o.Range.Count = ab;
 
         return a;
+    }
+
+    public virtual long Char(String value)
+    {
+        return this.TextInfra.Char(value);
     }
 
     public virtual Base AddIndent(long indent)
