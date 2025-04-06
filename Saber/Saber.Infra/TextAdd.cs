@@ -15,7 +15,7 @@ public class TextAdd : Any
 
         this.IntParse = this.CreateIntParse();
 
-        this.CharLess = this.CreateCharLess();
+        this.ILess = this.CreateIntLess();
         this.TForm = this.CreateTextForm();
         this.TLess = this.CreateTextLess();
 
@@ -48,7 +48,7 @@ public class TextAdd : Any
     protected virtual StringAdd StringAdd { get; set; }
     protected virtual IntParse IntParse { get; set; }
     protected virtual TextLess TLess { get; set; }
-    protected virtual LessInt CharLess { get; set; }
+    protected virtual LessInt ILess { get; set; }
     protected virtual TextForm TForm { get; set; }
     protected virtual Text TextA { get; set; }
     protected virtual Text TextB { get; set; }
@@ -98,7 +98,7 @@ public class TextAdd : Any
         return a;
     }
 
-    protected virtual LessInt CreateCharLess()
+    protected virtual LessInt CreateIntLess()
     {
         LessInt a;
         a = new LessInt();
@@ -118,7 +118,7 @@ public class TextAdd : Any
     {
         TextLess a;
         a = new TextLess();
-        a.CharLess = this.CharLess;
+        a.CharLess = this.ILess;
         a.LiteForm = this.TForm;
         a.RiteForm = this.TForm;
         a.Init();
