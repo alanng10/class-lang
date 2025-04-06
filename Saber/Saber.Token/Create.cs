@@ -266,7 +266,7 @@ public class Create : ClassCreate
         sourceText = this.SourceItem.Text;
 
         Range range;
-        range = this.RangeA;
+        range = this.TRangeA;
 
         long charHash;
         long charSpace;
@@ -435,13 +435,13 @@ public class Create : ClassCreate
 
     protected virtual bool AddToken()
     {
-        this.Operate.ExecuteToken(this.Row, this.RangeA);
+        this.Operate.ExecuteToken(this.Row, this.TRangeA);
         return true;
     }
 
     protected virtual bool AddComment()
     {
-        this.Operate.ExecuteComment(this.Row, this.RangeA);
+        this.Operate.ExecuteComment(this.Row, this.TRangeA);
         return true;
     }
 
@@ -450,8 +450,8 @@ public class Create : ClassCreate
         if (!this.NullRange())
         {
             long count;
-            count = this.ClassInfra.Count(this.RangeA.Index, col);
-            this.RangeA.Count = count;
+            count = this.ClassInfra.Count(this.TRangeA.Index, col);
+            this.TRangeA.Count = count;
 
             this.AddToken();
         }
