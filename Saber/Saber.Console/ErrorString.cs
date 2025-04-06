@@ -1,6 +1,6 @@
 namespace Saber.Console;
 
-public class ErrorString : ClassBase
+public class ErrorString : TextAdd
 {
     public override bool Init()
     {
@@ -18,7 +18,6 @@ public class ErrorString : ClassBase
         this.SSource = this.S("Source");
         this.SRow = this.S("Row");
         this.SCol = this.S("Col");
-        this.SSpace = this.S(" ");
         this.SComma = this.S(",");
         this.SColon = this.S(":");
         this.SHyphen = this.S("-");
@@ -38,7 +37,6 @@ public class ErrorString : ClassBase
     protected virtual String SSource { get; set; }
     protected virtual String SRow { get; set; }
     protected virtual String SCol { get; set; }
-    protected virtual String SSpace { get; set; }
     protected virtual String SComma { get; set; }
     protected virtual String SColon { get; set; }
     protected virtual String SHyphen { get; set; }
