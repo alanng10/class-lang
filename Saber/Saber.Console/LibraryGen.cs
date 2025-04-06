@@ -1,11 +1,13 @@
 namespace Saber.Console;
 
-public class LibraryGen : ClassBase
+public class LibraryGen : TextAdd
 {
     public override bool Init()
     {
         base.Init();
+        this.ListInfra = ListInfra.This;
         this.StorageInfra = StorageInfra.This;
+        this.ClassInfra = ClassInfra.This;
         this.StorageComp = StorageComp.This;
 
         this.ClassInitGen = this.CreateClassInitGen();
@@ -47,7 +49,9 @@ public class LibraryGen : ClassBase
     public virtual SystemClass SystemClass { get; set; }
     public virtual String ClassPath { get; set; }
     public virtual long Status { get; set; }
+    protected virtual ListInfra ListInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
+    protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual StorageComp StorageComp { get; set; }
     protected virtual ClassInitGen ClassInitGen { get; set; }
     protected virtual ClassBaseGen ClassBaseGen { get; set; }
@@ -452,7 +456,7 @@ public class LibraryGen : ClassBase
             combine = this.TextInfra.PathCombine;
 
             String fileName;
-            fileName = this.AddClear().AddChar('C').Add(ka).Add(this.ClassInfra.Dot).Add(this.SC).AddResult();
+            fileName = this.AddClear().AddChar('C').Add(ka).Add(this.ClassInfra.TextDot).Add(this.SC).AddResult();
 
             String filePath;
             filePath = this.AddClear().Add(this.GenModuleFoldPath).Add(combine).Add(fileName).AddResult();
@@ -490,7 +494,7 @@ public class LibraryGen : ClassBase
         this.ModuleGen.Gen = null;
 
         String fileName;
-        fileName = this.AddClear().Add(this.SModule).Add(this.ClassInfra.Dot).Add(this.SC).AddResult();
+        fileName = this.AddClear().Add(this.SModule).Add(this.ClassInfra.TextDot).Add(this.SC).AddResult();
 
         String filePath;
         filePath = this.AddClear().Add(this.GenModuleFoldPath).Add(this.TextInfra.PathCombine).Add(fileName).AddResult();
@@ -525,7 +529,7 @@ public class LibraryGen : ClassBase
         this.ModuleHeaderGen.Gen = null;
 
         String fileName;
-        fileName = this.AddClear().Add(this.SModule).Add(this.ClassInfra.Dot).Add(this.SH).AddResult();
+        fileName = this.AddClear().Add(this.SModule).Add(this.ClassInfra.TextDot).Add(this.SH).AddResult();
 
         String filePath;
         filePath = this.AddClear().Add(this.GenModuleFoldPath).Add(this.TextInfra.PathCombine).Add(fileName).AddResult();
@@ -560,7 +564,7 @@ public class LibraryGen : ClassBase
         this.ImportArgGen.Gen = null;
 
         String fileName;
-        fileName = this.AddClear().Add(this.SImport).Add(this.ClassInfra.Dot).Add(this.STxt).AddResult();
+        fileName = this.AddClear().Add(this.SImport).Add(this.ClassInfra.TextDot).Add(this.STxt).AddResult();
 
         String filePath;
         filePath = this.AddClear().Add(this.GenModuleFoldPath).Add(this.TextInfra.PathCombine).Add(fileName).AddResult();
@@ -604,7 +608,7 @@ public class LibraryGen : ClassBase
         ka = this.StringCreate(k);
 
         String fileName;
-        fileName = this.AddClear().Add(this.SModule).Add(this.ClassInfra.Dot).Add(this.SPro).AddResult();
+        fileName = this.AddClear().Add(this.SModule).Add(this.ClassInfra.TextDot).Add(this.SPro).AddResult();
 
         String filePath;
         filePath = this.AddClear().Add(this.GenModuleFoldPath).Add(this.TextInfra.PathCombine).Add(fileName).AddResult();
