@@ -1,11 +1,13 @@
 namespace Saber.Console;
 
-public class PortLoad : ClassBase
+public class PortLoad : TextAdd
 {
     public override bool Init()
     {
         base.Init();
+        this.ListInfra = ListInfra.This;
         this.StorageInfra = StorageInfra.This;
+        this.ClassInfra = ClassInfra.This;
         this.StorageComp = StorageComp.This;
 
         this.ErrorKind = ErrorKindList.This;
@@ -14,9 +16,9 @@ public class PortLoad : ClassBase
         this.StoragePathValid.Init();
 
         this.SystemModuleSingle = this.S("System");
-        this.SystemModulePre = this.AddClear().Add(this.SystemModuleSingle).Add(this.ClassInfra.Dot).AddResult();
+        this.SystemModulePre = this.AddClear().Add(this.SystemModuleSingle).Add(this.ClassInfra.TextDot).AddResult();
         this.ClassModuleSingle = this.S("Class");
-        this.ClassModulePre = this.AddClear().Add(this.ClassModuleSingle).Add(this.ClassInfra.Dot).AddResult();
+        this.ClassModulePre = this.AddClear().Add(this.ClassModuleSingle).Add(this.ClassInfra.TextDot).AddResult();
 
         this.SDotRef = this.S(".ref");
         this.SModule = this.S("Module");
@@ -34,7 +36,9 @@ public class PortLoad : ClassBase
     public virtual NameValid NameValid { get; set; }
     public virtual String ClassPath { get; set; }
     public virtual String SourceFold { get; set; }
+    protected virtual ListInfra ListInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
+    protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual StorageComp StorageComp { get; set; }
     protected virtual ErrorKindList ErrorKind { get; set; }
     protected virtual StoragePathValid StoragePathValid { get; set; }
