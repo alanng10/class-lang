@@ -354,7 +354,9 @@ public class Create : ClassCreate
     {
         StringWrite write;
         write = this.StringWrite;
+
         write.Text = text;
+
         write.Operate = write.CountOperate;
         write.ResetStage();
         write.ExecuteStage();
@@ -365,6 +367,25 @@ public class Create : ClassCreate
         write.Operate = null;
         write.Text = null;
         return a;
+    }
+
+    public virtual bool StringValueSet(Text text)
+    {
+        StringWrite write;
+        write = this.StringWrite;
+
+        write.Text = text;
+        write.Operate = write.SetOperate;
+
+        write.Arg.Data = this.Arg.StringValueTextData;
+        write.Arg.Index = this.Arg.StringValueTextIndex;
+
+        write.ExecuteStage();
+
+        write.Arg.Data = null;
+        write.Operate = null;
+        write.Text = null;
+        return true;
     }
 
     protected virtual Data CountDataCreate(long count)
