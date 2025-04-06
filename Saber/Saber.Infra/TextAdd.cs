@@ -5,7 +5,6 @@ public class TextAdd : Any
     public override bool Init()
     {
         base.Init();
-        this.ListInfra = ListInfra.This;
         this.TextInfra = TextInfra.This;
         this.StringComp = StringComp.This;
 
@@ -42,7 +41,6 @@ public class TextAdd : Any
         return true;
     }
 
-    protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
     protected virtual StringAdd StringAdd { get; set; }
