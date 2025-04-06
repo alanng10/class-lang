@@ -130,7 +130,7 @@ public class StringWrite : TextAdd
         charNext = this.Char(classInfra.TextNext);
         charNewLine = this.Char(classInfra.TextNewLine);
         charAlphaN = this.Char(classInfra.TextAlphaN);
-        charAlphaU = this.Char(classInfra.TextAlphaU); 
+        charAlphaU = this.Char(classInfra.TextAlphaU);
 
         long na;
         na = textInfra.DataCharGet(data, rangeStart);
