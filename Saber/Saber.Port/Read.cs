@@ -50,13 +50,13 @@ public class Read : TextAdd
     public virtual Array Source { get; set; }
     public virtual Port Result { get; set; }
     public virtual ReadArg Arg { get; set; }
+    public virtual ReadOperate Operate { get; set; }
+    public virtual ReadCountOperate CountOperate { get; set; }
+    public virtual ReadStringOperate StringOperate { get; set; }
+    public virtual ReadSetOperate SetOperate { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
-    protected virtual ReadOperate Operate { get; set; }
-    protected virtual ReadCountOperate CountOperate { get; set; }
-    protected virtual ReadStringOperate StringOperate { get; set; }
-    protected virtual ReadSetOperate SetOperate { get; set; }
     protected virtual String SColon { get; set; }
     protected virtual String SDot { get; set; }
     protected virtual String SBraceSquareLite { get; set; }
