@@ -1,6 +1,6 @@
 namespace Saber.Console;
 
-public class ModuleHeaderGen : ClassBase
+public class ModuleHeaderGen : TextAdd
 {
     public virtual ClassGen Gen { get; set; }
     public virtual ClassModule Module { get; set; }
