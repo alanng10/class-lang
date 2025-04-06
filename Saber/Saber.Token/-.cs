@@ -7,6 +7,6 @@ global using ListInfra = Avalon.List.Infra;
 global using Text = Avalon.Text.Text;
 global using TextForm = Avalon.Text.Form;
 global using TextInfra = Avalon.Text.Infra;
-global using InfraCreate = Saber.Infra.Create;
+global using ClassCreate = Saber.Infra.Create;
 global using Source = Saber.Infra.Source;
 global using ClassInfra = Saber.Infra.Infra;

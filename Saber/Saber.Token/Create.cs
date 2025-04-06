@@ -1,6 +1,6 @@
 namespace Saber.Token;
 
-public class Create : InfraCreate
+public class Create : ClassCreate
 {
     public override bool Init()
     {
@@ -35,6 +35,9 @@ public class Create : InfraCreate
     public virtual Array Source { get; set; }
     public virtual Result Result { get; set; }
     public virtual CreateArg Arg { get; set; }
+    protected virtual InfraInfra InfraInfra { get; set; }
+    protected virtual ListInfra ListInfra { get; set; }
+    protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual CountCreateOperate CountOperate { get; set; }
     protected virtual SetCreateOperate SetOperate { get; set; }
     protected virtual CreateOperate Operate { get; set; }
