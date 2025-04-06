@@ -1,36 +1,56 @@
 namespace Saber.Infra;
 
-public class StringValueWrite : Any
+public class StringWrite : Any
 {
     public override bool Init()
     {
         base.Init();
-        
+
         this.InfraInfra = InfraInfra.This;
         this.TextInfra = TextInfra.This;
         this.ClassInfra = Infra.This;
         this.StringComp = StringComp.This;
 
-        this.CountWriteOperate = new CountWriteOperate();
-        this.CountWriteOperate.Write = this;
-        this.CountWriteOperate.Init();
-        this.SetWriteOperate = new SetWriteOperate();
-        this.SetWriteOperate.Write = this;
-        this.SetWriteOperate.Init();
+        this.Arg = this.CreateArg();
+        this.CountWriteOperate = this.CreateCountOperate();
+        this.SetWriteOperate = this.CreateSetOperate();
         return true;
     }
 
+    protected virtual StringWriteArg CreateArg()
+    {
+        StringWriteArg a;
+        a = new StringWriteArg();
+        a.Init();
+        return a;
+    }
+
+    protected virtual StringCountWriteOperate CreateCountOperate()
+    {
+        StringCountWriteOperate a;
+        a = new StringCountWriteOperate();
+        a.Arg = this.Arg;
+        a.Init();
+        return a;
+    }
+
+    protected virtual StringSetWriteOperate CreateSetOperate()
+    {
+        StringSetWriteOperate a;
+        a = new StringSetWriteOperate();
+        a.Arg = this.Arg;
+        a.Init();
+        return a;
+    }
+
+    public virtual StringCountWriteOperate CountOperate { get; set; }
+    public virtual StringSetWriteOperate SetOperate { get; set; }
+    public virtual StringWriteOperate Operate { get; set; }
+    public virtual StringWriteArg Arg { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual Infra ClassInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
-    public virtual CountWriteOperate CountWriteOperate { get; set; }
-    public virtual SetWriteOperate SetWriteOperate { get; set; }
-
-    public virtual WriteOperate WriteOperate { get; set; }
-
-    public virtual Data Data { get; set; }
-    public virtual long Index { get; set; }
 
     public virtual String Value(Text text)
     {
@@ -47,7 +67,7 @@ public class StringValueWrite : Any
 
         long count;
         count = this.Index;
-        
+
         long k;
         k = count;
         k = k * sizeof(uint);
@@ -146,7 +166,7 @@ public class StringValueWrite : Any
                 u = textInfra.DataCharGet(data, indexA);
 
                 bool bba;
-                bba = false;                
+                bba = false;
                 if (u == quote)
                 {
                     bba = true;
@@ -200,7 +220,7 @@ public class StringValueWrite : Any
                 if (c == quote)
                 {
                     return false;
-                }                
+                }
             }
             i = i + 1;
         }
@@ -229,7 +249,7 @@ public class StringValueWrite : Any
         quote = stringComp.Char(classInfra.Quote, 0);
         long newLine;
         newLine = stringComp.Char(classInfra.NewLine, 0);
-        
+
         long countA;
         countA = 8;
         long count;
