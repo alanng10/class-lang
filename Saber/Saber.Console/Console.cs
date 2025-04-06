@@ -402,10 +402,10 @@ public class Console : TextAdd
         read.Execute();
 
         PortPort port;
-        port = read.Port;
+        port = read.Result;
 
         read.Source = null;
-        read.Port = null;
+        read.Result = null;
 
         if (port == null)
         {
