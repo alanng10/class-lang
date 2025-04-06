@@ -25,12 +25,14 @@ public class Infra : Any
         this.TextCodeKindList = TextCodeKindList.This;
         this.CountList = CountList.This;
 
-        this.Quote = this.S("\"");
-        this.BackSlash = this.S("\\");
-        this.NewLine = this.S("\n");
-        this.Dot = this.S(".");
-        this.Hyphen = this.S("-");
-        this.Space = this.S(" ");
+        this.TextNewLine = this.S("\n");
+        this.TextHash = this.S("#");
+        this.TextSpace = this.S(" ");
+        this.TextQuote = this.S("\"");
+        this.TextNext = this.S("\\");
+        this.TextLine = this.S("_");
+        this.TextDot = this.S(".");
+        this.TextHyphen = this.S("-");
         this.TextModule = this.S("Module");
         this.TextImport = this.S("Import");
         this.TextExport = this.S("Export");
@@ -42,12 +44,14 @@ public class Infra : Any
         return true;
     }
 
-    public virtual String Quote { get; set; }
-    public virtual String BackSlash { get; set; }
-    public virtual String NewLine { get; set; }
-    public virtual String Dot { get; set; }
-    public virtual String Hyphen { get; set; }
-    public virtual String Space { get; set; }
+    public virtual String TextNewLine { get; set; }
+    public virtual String TextHash { get; set; }
+    public virtual String TextSpace { get; set; }
+    public virtual String TextQuote { get; set; }
+    public virtual String TextNext { get; set; }
+    public virtual String TextLine { get; set; }
+    public virtual String TextDot { get; set; }
+    public virtual String TextHyphen { get; set; }
     public virtual String TextModule { get; set; }
     public virtual String TextImport { get; set; }
     public virtual String TextExport { get; set; }
