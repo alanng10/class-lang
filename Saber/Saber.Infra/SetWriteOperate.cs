@@ -1,6 +1,6 @@
 namespace Saber.Infra;
 
-public class SetWriteOperate : WriteOperate
+public class StringSetWriteOperate : StringWriteOperate
 {
     public override bool Init()
     {
@@ -9,21 +9,22 @@ public class SetWriteOperate : WriteOperate
         return true;
     }
 
-    public virtual StringValueWrite Write { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
 
     public override bool ExecuteChar(long n)
     {
+        StringWriteArg arg;
+        arg = this.Write.Arg;
         long index;
-        index = this.Write.Index;
+        index = arg.Index;
 
         Data data;
-        data = this.Write.Data;
+        data = arg.Data;
         this.TextInfra.DataCharSet(data, index, n);
         
         index = index + 1;
 
-        this.Write.Index = index;
+        arg.Index = index;
         return true;
     }
 }
