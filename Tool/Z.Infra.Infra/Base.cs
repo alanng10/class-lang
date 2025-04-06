@@ -621,6 +621,22 @@ public class Base : Any
         return array;
     }
 
+    public virtual Text TextCreateDataRange(Data data, long index, long count)
+    {
+        Range range;
+        range = new Range();
+        range.Init();
+        range.Index = index;
+        range.Count = count;
+
+        Text text;
+        text = new Text();
+        text.Init();
+        text.Data = data;
+        text.Range = range;
+        return text;
+    }
+
     public virtual Table TableCreateStringLess()
     {
         StringLess less;
