@@ -1,10 +1,12 @@
 namespace Saber.Port;
 
-public class Read : ClassBase
+public class Read : TextAdd
 {
     public override bool Init()
     {
         base.Init();
+        this.InfraInfra = InfraInfra.This;
+        this.ClassInfra = ClassInfra.This;
 
         this.CountOperate = this.CreateCountOperate();
         this.StringOperate = this.CreateStringOperate();
@@ -49,6 +51,8 @@ public class Read : ClassBase
     public virtual Array Source { get; set; }
     public virtual Port Port { get; set; }
     public virtual ReadArg Arg { get; set; }
+    protected virtual InfraInfra InfraInfra { get; set; }
+    protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual ReadOperate Operate { get; set; }
     protected virtual CountReadOperate CountOperate { get; set; }
     protected virtual StringReadOperate StringOperate { get; set; }
