@@ -33,7 +33,7 @@ public class TextAdd : Any
         this.StringDataE = this.CreateStringData();
         this.StringDataF = this.CreateStringData();
 
-        this.RangeA = this.CreateRange();
+        this.TRangeA = this.CreateRange();
 
         this.SIndent = this.CreateIndent();
 
@@ -50,7 +50,6 @@ public class TextAdd : Any
     protected virtual TextLess TLess { get; set; }
     protected virtual LessInt CharLess { get; set; }
     protected virtual TextForm TForm { get; set; }
-    protected virtual InfraRange RangeA { get; set; }
     protected virtual Text TextA { get; set; }
     protected virtual Text TextB { get; set; }
     protected virtual Text TextC { get; set; }
@@ -63,6 +62,7 @@ public class TextAdd : Any
     protected virtual StringData StringDataD { get; set; }
     protected virtual StringData StringDataE { get; set; }
     protected virtual StringData StringDataF { get; set; }
+    protected virtual InfraRange TRangeA { get; set; }
     protected virtual String SIndent { get; set; }
     protected virtual String SSpace { get; set; }
 
@@ -471,10 +471,10 @@ public class TextAdd : Any
 
     public virtual String StringCreateRange(String o, long index, long count)
     {
-        this.RangeA.Index = index;
-        this.RangeA.Count = count;
+        this.TRangeA.Index = index;
+        this.TRangeA.Count = count;
 
-        return this.StringComp.CreateString(o, this.RangeA);
+        return this.StringComp.CreateString(o, this.TRangeA);
     }
 
     public virtual String StringCreateIndex(String o, long index)
