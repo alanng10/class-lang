@@ -14,11 +14,8 @@ class StateGen : ToolBase
 
     protected virtual bool ExecutePrusateRefer()
     {
-        ToolInfra toolInfra;
-        toolInfra = this.ToolInfra;
-
         String textPronate;
-        textPronate = toolInfra.StorageTextRead(this.S("ToolData/Intern/Prusate.txt"));
+        textPronate = this.StorageTextRead(this.S("ToolData/Intern/Prusate.txt"));
 
         String referList;
         referList = this.GetReferList();
@@ -33,7 +30,7 @@ class StateGen : ToolBase
         String outputPath;
         outputPath = this.S("../../Infra/InfraIntern/Prusate_Intern.h");
 
-        toolInfra.StorageTextWrite(outputPath, a);
+        this.StorageTextWrite(outputPath, a);
         return true;
     }
 
@@ -67,11 +64,8 @@ class StateGen : ToolBase
 
     protected virtual bool ExecuteClassMaide()
     {
-        ToolInfra toolInfra;
-        toolInfra = this.ToolInfra;
-
         String textClass;
-        textClass = toolInfra.StorageTextRead(this.S("ToolData/Intern/Class.txt"));
+        textClass = this.StorageTextRead(this.S("ToolData/Intern/Class.txt"));
 
         String maideList;
         maideList = this.GetMaideList();
@@ -86,7 +80,7 @@ class StateGen : ToolBase
         String outputPath;
         outputPath = this.S("../../System/System.Infra/Intern.cl");
 
-        toolInfra.StorageTextWrite(outputPath, a);
+        this.StorageTextWrite(outputPath, a);
         return true;
     }
 
