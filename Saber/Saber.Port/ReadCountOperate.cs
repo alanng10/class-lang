@@ -1,6 +1,6 @@
 namespace Saber.Port;
 
-public class CountReadOperate : ReadOperate
+public class ReadCountOperate : ReadOperate
 {
     public override bool Init()
     {
