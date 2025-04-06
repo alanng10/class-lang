@@ -6,6 +6,7 @@ public class Read : TextAdd
     {
         base.Init();
         this.InfraInfra = InfraInfra.This;
+        this.ListInfra = ListInfra.This;
         this.ClassInfra = ClassInfra.This;
 
         this.CountOperate = this.CreateCountOperate();
@@ -49,9 +50,10 @@ public class Read : TextAdd
     }
 
     public virtual Array Source { get; set; }
-    public virtual Port Port { get; set; }
+    public virtual Port Result { get; set; }
     public virtual ReadArg Arg { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
+    protected virtual ListInfra ListInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual ReadOperate Operate { get; set; }
     protected virtual CountReadOperate CountOperate { get; set; }
@@ -360,7 +362,7 @@ public class Read : TextAdd
 
     public virtual bool ExecuteStage()
     {
-        this.Port = this.ExecutePort();
+        this.Result = this.ExecutePort();
 
         this.ClearData();
         return true;
