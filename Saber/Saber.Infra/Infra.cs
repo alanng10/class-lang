@@ -135,7 +135,7 @@ public class Infra : Any
         h = new StringAdd();
         h.Init();
 
-        this.Add(h, name).Add(h, this.Hyphen).Add(h, verString);
+        this.Add(h, name).Add(h, this.TextHyphen).Add(h, verString);
 
         String a;
         a = h.Result();
@@ -212,7 +212,7 @@ public class Infra : Any
         oc = this.TextInfra.StringCreate(ac);
 
         String dot;
-        dot = this.Dot;
+        dot = this.TextDot;
 
         StringAdd h;
         h = new StringAdd();
