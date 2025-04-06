@@ -1,16 +1,18 @@
 namespace Saber.Test;
 
-public class Test : ClassBase
+public class Test : TextAdd
 {
     public override bool Init()
     {
         base.Init();
+        this.ListInfra = ListInfra.This;
         this.StorageInfra = StorageInfra.This;
+        this.ClassInfra = ClassInfra.This;
         this.SystemConsole = ConsoleConsole.This;
         this.StorageComp = StorageComp.This;
         this.TaskKindList = TaskKindList.This;
 
-        this.DataFold = this.ClassInfra.Dot;
+        this.DataFold = this.ClassInfra.TextDot;
 
         this.ResultSpace = this.StringComp.CreateChar(' ', 4);
 
@@ -35,7 +37,9 @@ public class Test : ClassBase
         return true;
     }
 
+    protected virtual ListInfra ListInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
+    protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual ConsoleConsole SystemConsole { get; set; }
     protected virtual StorageComp StorageComp { get; set; }
     protected virtual TaskKindList TaskKindList { get; set; }
@@ -64,7 +68,6 @@ public class Test : ClassBase
     private String SPass { get; set; }
     private String SFail { get; set; }
     private String SAll { get; set; }
-    private String SSpace { get; set; }
 
     protected virtual String DataRootDirectory()
     {
