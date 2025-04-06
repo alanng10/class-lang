@@ -101,7 +101,7 @@ public class StringReadOperate : ReadOperate
         index = arg.StringIndex;
 
         Data data;
-        data = arg.StringTextData;
+        data = arg.StringRangeData;
         long nn;
         nn = index;
         nn = nn * 3;
