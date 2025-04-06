@@ -1,11 +1,14 @@
 namespace Saber.Docue;
 
-public class Gen : ClassBase
+public class Gen : TextAdd
 {
     public override bool Init()
     {
         base.Init();
+        this.ListInfra = ListInfra.This;
         this.StorageInfra = StorageInfra.This;
+        this.ClassInfra = ClassInfra.This;
+
         this.StorageComp = StorageComp.This;
         
         this.SFlagD = this.S("-d");
@@ -17,7 +20,9 @@ public class Gen : ClassBase
     public virtual bool LinkFileName { get; set; }
     public virtual Table ModuleTable { get; set; }
     public virtual long Status { get; set; }
+    protected virtual ListInfra ListInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
+    protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual StorageComp StorageComp { get; set; }
     protected virtual String Ver { get; set; }
     protected virtual String ArticleFoldPath { get; set; }
