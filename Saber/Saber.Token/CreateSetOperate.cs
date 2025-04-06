@@ -1,6 +1,6 @@
 namespace Saber.Token;
 
-public class SetCreateOperate : CreateOperate
+public class CreateSetOperate : CreateOperate
 {
     public override bool ExecuteToken(long row, Range range)
     {
