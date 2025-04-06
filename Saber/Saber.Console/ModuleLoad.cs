@@ -700,7 +700,7 @@ public class ModuleLoad : TextAdd
         while (iter.Next())
         {
             Field a;
-            a = (Field)iter.Value;
+            a = iter.Value as Field;
 
             Field k;
             k = null;
@@ -714,7 +714,7 @@ public class ModuleLoad : TextAdd
                     return false;
                 }
 
-                k = (Field)kk;
+                k = kk as Field;
             }
 
             bool ba;
@@ -761,7 +761,7 @@ public class ModuleLoad : TextAdd
         while (iter.Next())
         {
             Maide a;
-            a = (Maide)iter.Value;
+            a = iter.Value as Maide;
 
             Maide k;
             k = null;
@@ -775,7 +775,7 @@ public class ModuleLoad : TextAdd
                     return false;
                 }
 
-                k = (Maide)kk;
+                k = kk as Maide;
             }
 
             bool ba;
