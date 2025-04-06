@@ -1,10 +1,12 @@
 namespace Saber.Console;
 
-public class ModuleLoad : ClassBase
+public class ModuleLoad : TextAdd
 {
     public override bool Init()
     {
         base.Init();
+        this.ListInfra = ListInfra.This;
+        this.ClassInfra = ClassInfra.This;
         this.CountList = CountList.This;
 
         this.SSystemDotInfra = this.S("System.Infra");
@@ -17,6 +19,8 @@ public class ModuleLoad : ClassBase
     public virtual ModuleRef ModuleRef { get; set; }
     public virtual ClassModule Module { get; set; }
     public virtual long Status { get; set; }
+    protected virtual ListInfra ListInfra { get; set; }
+    protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual CountList CountList { get; set; }
     protected virtual BinaryBinary Binary { get; set; }
     protected virtual Array ClassArray { get; set; }
@@ -702,7 +706,7 @@ public class ModuleLoad : ClassBase
             k = null;
 
             object kk;
-            kk = classInfra.CompDefined(varClass.Base, a.Name, this.Module, anyClass);
+            kk = classInfra.CompDefine(varClass.Base, a.Name, this.Module, anyClass);
             if (!(kk == null))
             {
                 if (!(kk is Field))
@@ -763,7 +767,7 @@ public class ModuleLoad : ClassBase
             k = null;
 
             object kk;
-            kk = classInfra.CompDefined(varClass.Base, a.Name, this.Module, anyClass);
+            kk = classInfra.CompDefine(varClass.Base, a.Name, this.Module, anyClass);
             if (!(kk == null))
             {
                 if (!(kk is Maide))
