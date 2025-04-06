@@ -1,6 +1,6 @@
 namespace Saber.Console;
 
-public class ImportArgGen : ClassBase
+public class ImportArgGen : TextAdd
 {
     public override bool Init()
     {
