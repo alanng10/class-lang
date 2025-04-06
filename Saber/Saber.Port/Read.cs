@@ -664,7 +664,7 @@ public class Read : TextAdd
         }
 
         Range rangeA;
-        rangeA = this.RangeA;
+        rangeA = this.TRangeA;
 
         rangeA.Index = indexA;
         rangeA.Count = kk;
@@ -774,7 +774,7 @@ public class Read : TextAdd
         count = text.Range.Count;
 
         Range range;
-        range = this.RangeA;
+        range = this.TRangeA;
 
         range.Index = index;
         range.Count = kk;
@@ -1004,7 +1004,7 @@ public class Read : TextAdd
         }
 
         Range rangeA;
-        rangeA = this.RangeA;
+        rangeA = this.TRangeA;
         rangeA.Index = range.Index;
         rangeA.Count = nameCount;
 
