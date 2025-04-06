@@ -395,17 +395,21 @@ public class Console : TextAdd
             return false;
         }
 
+        Array lineArray;
+        lineArray = this.TextLine(source);
+
         PortRead read;
         read = this.PortRead;
 
-        read.Source = source;
+        read.Source = lineArray;
+
         read.Execute();
 
         PortPort port;
         port = read.Result;
 
-        read.Source = null;
         read.Result = null;
+        read.Source = null;
 
         if (port == null)
         {
