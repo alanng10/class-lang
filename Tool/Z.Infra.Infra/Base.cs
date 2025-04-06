@@ -596,6 +596,31 @@ public class Base : Any
         return this.TextInfra.S(o);
     }
 
+    public virtual Array TextLineString(String value)
+    {
+        Array array;
+        array = this.TextLine(value);
+
+        long count;
+        count = array.Count;
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            Text ka;
+            ka = array.GetAt(i) as Text;
+
+            String a;
+            a = this.StringCreate(ka);
+
+            array.SetAt(i, a);
+
+            i = i + 1;
+        }
+
+        return array;
+    }
+
     public virtual Table TableCreateStringLess()
     {
         StringLess less;
