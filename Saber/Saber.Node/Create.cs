@@ -1606,7 +1606,7 @@ public class Create : InfraCreate
         text = this.TAToken(token);
 
         bool b;
-        b = this.StringValueWrite.CheckValueString(text);
+        b = this.StringValueWrite.ValidValue(text);
         if (!b)
         {
             return null;
