@@ -122,7 +122,7 @@ public class Read : ClassBase
         return true;
     }
 
-    protected virtual bool ResetStage()
+    public virtual bool ResetStage()
     {
         ReadArg arg;
         arg = this.Arg;
