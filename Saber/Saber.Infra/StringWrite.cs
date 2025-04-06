@@ -43,9 +43,9 @@ public class StringWrite : TextAdd
     public virtual Text Text { get; set; }
     public virtual String Result { get; set; }
     public virtual StringWriteArg Arg { get; set; }
-    protected virtual StringWriteOperate Operate { get; set; }
-    protected virtual StringWriteCountOperate CountOperate { get; set; }
-    protected virtual StringWriteSetOperate SetOperate { get; set; }
+    public virtual StringWriteOperate Operate { get; set; }
+    public virtual StringWriteCountOperate CountOperate { get; set; }
+    public virtual StringWriteSetOperate SetOperate { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual Infra ClassInfra { get; set; }
 
@@ -89,8 +89,8 @@ public class StringWrite : TextAdd
 
         this.Result = this.StringComp.CreateData(arg.Data, null);
 
-        this.Operate = null;
         this.Arg = null;
+        this.Operate = null;
         return true;
     }
 
