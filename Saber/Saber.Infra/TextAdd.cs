@@ -35,14 +35,16 @@ public class TextAdd : Any
 
         this.RangeA = this.CreateRange();
 
-        this.Indent = this.CreateIndent();
+        this.SIndent = this.CreateIndent();
 
-        this.Space = this.S(" ");
+        this.SSpace = this.S(" ");
         return true;
     }
 
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
+    protected virtual Format Format { get; set; }
+    protected virtual FormatArg FormatArg { get; set; }
     protected virtual StringAdd StringAdd { get; set; }
     protected virtual IntParse IntParse { get; set; }
     protected virtual TextLess TLess { get; set; }
@@ -61,10 +63,8 @@ public class TextAdd : Any
     protected virtual StringData StringDataD { get; set; }
     protected virtual StringData StringDataE { get; set; }
     protected virtual StringData StringDataF { get; set; }
-    protected virtual Format Format { get; set; }
-    protected virtual FormatArg FormatArg { get; set; }
-    protected virtual String Indent { get; set; }
-    protected virtual String Space { get; set; }
+    protected virtual String SIndent { get; set; }
+    protected virtual String SSpace { get; set; }
 
     protected virtual StringAdd CreateStringAdd()
     {
@@ -359,7 +359,7 @@ public class TextAdd : Any
     public virtual Text TextTrimStart(Text text)
     {
         Text space;
-        space = this.TE(this.Space);
+        space = this.TE(this.SSpace);
 
         long start;
         start = text.Range.Index;
@@ -404,7 +404,7 @@ public class TextAdd : Any
     public virtual Text TextTrimEnd(Text text)
     {
         Text space;
-        space = this.TE(this.Space);
+        space = this.TE(this.SSpace);
 
         long start;
         start = text.Range.Index;
@@ -536,7 +536,7 @@ public class TextAdd : Any
         i = 0;
         while (i < count)
         {
-            this.Add(this.Indent);
+            this.Add(this.SIndent);
             i = i + 1;
         }
         return this;
