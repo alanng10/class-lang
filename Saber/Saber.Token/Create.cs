@@ -34,14 +34,14 @@ public class Create : ClassCreate
 
     public virtual Array Source { get; set; }
     public virtual Result Result { get; set; }
+    public virtual Array Code { get; set; }
     public virtual CreateArg Arg { get; set; }
+    public virtual CreateOperate Operate { get; set; }
+    public virtual CreateCountOperate CountOperate { get; set; }
+    public virtual CreateSetOperate SetOperate { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
-    protected virtual CreateOperate Operate { get; set; }
-    protected virtual CreateCountOperate CountOperate { get; set; }
-    protected virtual CreateSetOperate SetOperate { get; set; }
-    protected virtual Array Code { get; set; }
     protected virtual Source SourceItem { get; set; }
     protected virtual long Row { get; set; }
 
