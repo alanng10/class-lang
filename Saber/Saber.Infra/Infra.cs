@@ -19,8 +19,6 @@ public class Infra : Any
         base.Init();
         this.InfraInfra = InfraInfra.This;
         this.TextInfra = TextInfra.This;
-        this.StorageInfra = StorageInfra.This;
-        this.StringComp = StringComp.This;
         this.CountList = CountList.This;
 
         this.TextNewLine = this.S("\n");
@@ -36,8 +34,8 @@ public class Infra : Any
         this.TextExport = this.S("Export");
         this.TextStorage = this.S("Storage");
         this.TextEntry = this.S("Entry");
-        this.IntSignValueNegateMax = this.InfraInfra.IntCapValue / 2;
-        this.IntSignValuePositeMax = this.IntSignValueNegateMax - 1;
+        this.IntSignNegateMax = this.InfraInfra.IntCapValue / 2;
+        this.IntSignPositeMax = this.IntSignNegateMax - 1;
         return true;
     }
 
@@ -54,12 +52,10 @@ public class Infra : Any
     public virtual String TextExport { get; set; }
     public virtual String TextStorage { get; set; }
     public virtual String TextEntry { get; set; }
-    public virtual long IntSignValuePositeMax { get; set; }
-    public virtual long IntSignValueNegateMax { get; set; }
+    public virtual long IntSignPositeMax { get; set; }
+    public virtual long IntSignNegateMax { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
-    protected virtual StorageInfra StorageInfra { get; set; }
-    protected virtual StringComp StringComp { get; set; }
     protected virtual CountList CountList { get; set; }
 
     public virtual bool IndexRange(Range range, long index)
@@ -74,7 +70,7 @@ public class Infra : Any
         return end - start;
     }
 
-    public virtual bool CheckRange(long totalCount, long start, long end)
+    public virtual bool ValidRange(long totalCount, long start, long end)
     {
         long count;
         count = this.Count(start, end);
@@ -85,7 +81,7 @@ public class Infra : Any
     {
         StringLess less;
         less = this.TextInfra.StringLessCreate();
-        
+
         Table a;
         a = new Table();
         a.Less = less;
@@ -113,48 +109,48 @@ public class Infra : Any
         return a;
     }
 
-    public virtual ModuleRef ModuleRefCreate(String name, long version)
+    public virtual ModuleRef ModuleRefCreate(String name, long ver)
     {
         ModuleRef a;
         a = new ModuleRef();
         a.Init();
         a.Name = name;
-        a.Ver = version;
+        a.Ver = ver;
         return a;
     }
 
     public virtual String ModuleRefString(String name, String verString)
     {
-        StringAdd h;
-        h = new StringAdd();
-        h.Init();
+        StringAdd k;
+        k = new StringAdd();
+        k.Init();
 
-        this.Add(h, name).Add(h, this.TextHyphen).Add(h, verString);
+        this.Add(k, name).Add(k, this.TextHyphen).Add(k, verString);
 
         String a;
-        a = h.Result();
+        a = k.Result();
         return a;
     }
 
-    public virtual String VerString(long o)
+    public virtual String VerString(long value)
     {
-        long ka;
-        ka = this.InfraInfra.IntCapValue - 1;
+        long kf;
+        kf = this.InfraInfra.IntCapValue - 1;
 
-        o = o & ka;
+        value = value & kf;
 
         long revise;
-        revise = o & 0xff;
+        revise = value & 0xff;
 
         long minor;
-        minor = (o >> 8) & 0xff;
+        minor = (value >> 8) & 0xff;
 
         long major;
-        major = o >> 16;
+        major = value >> 16;
 
-        Format write;
-        write = new Format();
-        write.Init();
+        Format format;
+        format = new Format();
+        format.Init();
 
         FormatArg arg;
         arg = new FormatArg();
@@ -167,108 +163,110 @@ public class Infra : Any
         arg.MaxWidth = 2;
         arg.FillChar = '0';
 
+        Text kd;
+
         arg.Value.Int = revise;
 
-        write.ExecuteArgCount(arg);
+        format.ExecuteArgCount(arg);
 
-        Text aa;
-        aa = this.TextInfra.TextCreate(arg.Count);
+        kd = this.TextInfra.TextCreate(arg.Count);
 
-        write.ExecuteArgResult(arg, aa);
+        format.ExecuteArgResult(arg, kd);
 
-        String oa;
-        oa = this.TextInfra.StringCreate(aa);
+        String ka;
+        ka = this.TextInfra.StringCreate(kd);
 
         arg.Value.Int = minor;
 
-        write.ExecuteArgCount(arg);
+        format.ExecuteArgCount(arg);
 
-        Text ab;
-        ab = this.TextInfra.TextCreate(arg.Count);
+        kd = this.TextInfra.TextCreate(arg.Count);
 
-        write.ExecuteArgResult(arg, ab);
+        format.ExecuteArgResult(arg, kd);
 
-        String ob;
-        ob = this.TextInfra.StringCreate(ab);
+        String kb;
+        kb = this.TextInfra.StringCreate(kd);
 
         arg.FieldWidth = 1;
         arg.MaxWidth = -1;
         arg.Value.Int = major;
 
-        write.ExecuteArgCount(arg);
+        format.ExecuteArgCount(arg);
 
-        Text ac;
-        ac = this.TextInfra.TextCreate(arg.Count);
+        kd = this.TextInfra.TextCreate(arg.Count);
 
-        write.ExecuteArgResult(arg, ac);
+        format.ExecuteArgResult(arg, kd);
 
-        String oc;
-        oc = this.TextInfra.StringCreate(ac);
+        String kc;
+        kc = this.TextInfra.StringCreate(kd);
 
         String dot;
         dot = this.TextDot;
 
-        StringAdd h;
-        h = new StringAdd();
-        h.Init();
+        StringAdd kk;
+        kk = new StringAdd();
+        kk.Init();
 
-        this.Add(h, oc).Add(h, dot).Add(h, ob).Add(h, dot).Add(h, oa);
+        this.Add(kk, kc).Add(kk, dot).Add(kk, kb).Add(kk, dot).Add(kk, ka);
 
         String a;
-        a = h.Result();
+        a = kk.Result();
         return a;
     }
 
     public virtual long BaseCount(Class varClass, Class anyClass)
     {
-        Class c;
-        c = varClass;
+        Class kk;
+        kk = varClass;
 
         long k;
         k = 0;
 
-        while (!(c == null))
+        while (!(kk == null))
         {
             k = k + 1;
 
             Class ka;
             ka = null;
-            if (!(c == anyClass))
+            if (!(kk == anyClass))
             {
-                ka = c.Base;
+                ka = kk.Base;
             }
-            c = ka;
+            kk = ka;
         }
 
         return k;
     }
 
-    public virtual bool ValidClass(Class varClass, Class requiredClass, Class anyClass, Class nullClass)
+    public virtual bool ValidClass(Class varClass, Class requireClass, Class anyClass, Class nullClass)
     {
-        Class thisClass;
-        thisClass = varClass;
+        Class k;
+        k = varClass;
 
-        if (thisClass == nullClass)
+        if (k == nullClass)
         {
             return true;
         }
 
         bool b;
         b = false;
-        while (!b & !(thisClass == null))
+        while (!b & !(k == null))
         {
-            if (thisClass == requiredClass)
+            if (k == requireClass)
             {
                 b = true;
             }
 
-            Class k;
-            k = null;
-            if (!(thisClass == anyClass))
+            if (!b)
             {
-                k = thisClass.Base;
+                Class ka;
+                ka = null;
+                if (!(k == anyClass))
+                {
+                    ka = k.Base;
+                }
+                k = ka;
             }
-            thisClass = k;
         }
 
         bool a;
@@ -276,7 +274,7 @@ public class Infra : Any
         return a;
     }
 
-    public virtual bool ValidCount(Class thisClass, Class triggerClass, Class varClass, Count count, Class anyClass, Class nullClass)
+    public virtual bool ValidCount(Class thisClass, Class triggClass, Class varClass, Count count, Class anyClass, Class nullClass)
     {
         CountList countList;
         countList = this.CountList;
@@ -288,7 +286,7 @@ public class Infra : Any
 
         if (count == countList.Precate)
         {
-            if (this.ValidClass(thisClass, triggerClass, anyClass, nullClass))
+            if (this.ValidClass(thisClass, triggClass, anyClass, nullClass))
             {
                 return true;
             }
@@ -306,19 +304,16 @@ public class Infra : Any
 
         if (count == countList.Private)
         {
-            if (triggerClass == varClass)
+            if (thisClass == triggClass)
             {
-                if (thisClass == triggerClass)
-                {
-                    return true;
-                }
+                return true;
             }
             return false;
         }
         return true;
     }
 
-    public virtual object CompDefined(Class varClass, String name, Module module, Class anyClass)
+    public virtual object CompDefine(Class varClass, String name, Module module, Class anyClass)
     {
         Count prusateCount;
         Count precateCount;
@@ -333,15 +328,15 @@ public class Infra : Any
         bool b;
         b = false;
 
-        Class c;
-        c = varClass;
+        Class kk;
+        kk = varClass;
 
-        while (!b & !(c == null))
+        while (!b & !(kk == null))
         {
             if (!b)
             {
                 Field field;
-                field = c.Field.Get(name) as Field;
+                field = kk.Field.Get(name) as Field;
 
                 if (!(field == null))
                 {
@@ -355,7 +350,7 @@ public class Infra : Any
 
                     if (ka == pronateCount)
                     {
-                        if (c.Module == module)
+                        if (kk.Module == module)
                         {
                             k = field;
                             b = true;
@@ -367,7 +362,7 @@ public class Infra : Any
             if (!b)
             {
                 Maide maide;
-                maide = c.Maide.Get(name) as Maide;
+                maide = kk.Maide.Get(name) as Maide;
 
                 if (!(maide == null))
                 {
@@ -381,7 +376,7 @@ public class Infra : Any
 
                     if (kb == pronateCount)
                     {
-                        if (c.Module == module)
+                        if (kk.Module == module)
                         {
                             k = maide;
                             b = true;
@@ -392,17 +387,19 @@ public class Infra : Any
 
             if (!b)
             {
-                Class aa;
-                aa = null;
-                if (!(c == anyClass))
+                Class kd;
+                kd = null;
+                if (!(kk == anyClass))
                 {
-                    aa = c.Base;
+                    kd = kk.Base;
                 }
-                c = aa;
+                kk = kd;
             }
         }
 
-        return k;
+        object a;
+        a = k;
+        return a;
     }
 
     public virtual String ClassModulePath(String classPath)
