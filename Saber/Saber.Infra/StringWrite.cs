@@ -258,12 +258,16 @@ public class StringWrite : TextAdd
         long kk;
         kk = range.Count;
 
-        long quote;
-        quote = textInfra.Char(classInfra.TextQuote);
-        long next;
-        next = textInfra.Char(classInfra.TextNext);
-        long newLine;
-        newLine = textInfra.Char(classInfra.TextNewLine);
+        long charQuote;
+        long charNext;
+        long charNewLine;
+        long charAlphaN;
+        long charAlphaU;
+        charQuote = textInfra.Char(classInfra.TextQuote);
+        charNext = textInfra.Char(classInfra.TextNext);
+        charNewLine = textInfra.Char(classInfra.TextNewLine);
+        charAlphaN = textInfra.Char(classInfra.TextAlphaN);
+        charAlphaU = textInfra.Char(classInfra.TextAlphaU);
 
         long countA;
         countA = 8;
@@ -282,7 +286,7 @@ public class StringWrite : TextAdd
             n = textInfra.DataCharGet(data, index);
 
             bool b;
-            b = (n == next);
+            b = (n == charNext);
             if (b)
             {
                 long j;
@@ -295,19 +299,19 @@ public class StringWrite : TextAdd
 
                 long escapeValue;
                 escapeValue = 0;
-                if (nc == next)
+                if (nc == charNext)
                 {
                     escapeValue = nc;
                 }
-                if (nc == quote)
+                if (nc == charQuote)
                 {
                     escapeValue = nc;
                 }
-                if (nc == 'n')
+                if (nc == charAlphaN)
                 {
-                    escapeValue = newLine;
+                    escapeValue = charNewLine;
                 }
-                if (nc == 'u')
+                if (nc == charAlphaU)
                 {
                     long ka;
                     ka = 0;
