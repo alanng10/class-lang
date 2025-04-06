@@ -126,11 +126,11 @@ public class StringWrite : TextAdd
         long charNewLine;
         long charAlphaN;
         long charAlphaU;
-        charQuote = textInfra.Char(classInfra.TextQuote);
-        charNext = textInfra.Char(classInfra.TextNext);
-        charNewLine = textInfra.Char(classInfra.TextNewLine);
-        charAlphaN = textInfra.Char(classInfra.TextAlphaN);
-        charAlphaU = textInfra.Char(classInfra.TextAlphaU);
+        charQuote = this.Char(classInfra.TextQuote);
+        charNext = this.Char(classInfra.TextNext);
+        charNewLine = this.Char(classInfra.TextNewLine);
+        charAlphaN = this.Char(classInfra.TextAlphaN);
+        charAlphaU = this.Char(classInfra.TextAlphaU);
 
         long na;
         na = textInfra.DataCharGet(data, rangeStart);
@@ -266,11 +266,11 @@ public class StringWrite : TextAdd
         long charNewLine;
         long charAlphaN;
         long charAlphaU;
-        charQuote = textInfra.Char(classInfra.TextQuote);
-        charNext = textInfra.Char(classInfra.TextNext);
-        charNewLine = textInfra.Char(classInfra.TextNewLine);
-        charAlphaN = textInfra.Char(classInfra.TextAlphaN);
-        charAlphaU = textInfra.Char(classInfra.TextAlphaU);
+        charQuote = this.Char(classInfra.TextQuote);
+        charNext = this.Char(classInfra.TextNext);
+        charNewLine = this.Char(classInfra.TextNewLine);
+        charAlphaN = this.Char(classInfra.TextAlphaN);
+        charAlphaU = this.Char(classInfra.TextAlphaU);
 
         long countA;
         countA = 8;
