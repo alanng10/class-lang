@@ -1,6 +1,6 @@
 namespace Z.Infra.Infra;
 
-public class TextAdd : Any
+public class Base : Any
 {
     public override bool Init()
     {
@@ -543,7 +543,7 @@ public class TextAdd : Any
         return this.TextInfra.Char(value);
     }
 
-    public virtual TextAdd AddIndent(long indent)
+    public virtual Base AddIndent(long indent)
     {
         long count;
         count = indent;
@@ -557,30 +557,30 @@ public class TextAdd : Any
         return this;
     }
 
-    public virtual TextAdd Add(String a)
+    public virtual Base Add(String a)
     {
         this.TextInfra.AddString(this.StringAdd, a);
         return this;
     }
 
-    public virtual TextAdd AddChar(long n)
+    public virtual Base AddChar(long n)
     {
         this.StringAdd.Execute(n);
         return this;
     }
 
-    public virtual TextAdd AddLine()
+    public virtual Base AddLine()
     {
         this.Add(this.TextInfra.NewLine);
         return this;
     }
 
-    public virtual TextAdd AddS(string o)
+    public virtual Base AddS(string o)
     {
         return this.Add(this.S(o));
     }
 
-    public virtual TextAdd AddClear()
+    public virtual Base AddClear()
     {
         this.StringAdd.Clear();
         return this;
@@ -595,7 +595,6 @@ public class TextAdd : Any
     {
         return this.TextInfra.S(o);
     }
-
 
     public virtual String StorageTextRead(String filePath)
     {
