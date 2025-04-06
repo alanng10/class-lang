@@ -1,6 +1,6 @@
 namespace Saber.Infra;
 
-public class StringCountWriteOperate : StringWriteOperate
+public class StringWriteCountOperate : StringWriteOperate
 {
     public override bool ExecuteChar(long n)
     {
