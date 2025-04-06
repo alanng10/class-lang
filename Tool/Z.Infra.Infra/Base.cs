@@ -6,6 +6,7 @@ public class Base : Any
     {
         base.Init();
         this.TextInfra = TextInfra.This;
+        this.ListInfra = ListInfra.This;
         this.StorageInfra = StorageInfra.This;
 
         this.StringComp = StringComp.This;
@@ -45,6 +46,7 @@ public class Base : Any
     }
 
     protected virtual TextInfra TextInfra { get; set; }
+    protected virtual ListInfra ListInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
     protected virtual Console Console { get; set; }
