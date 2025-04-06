@@ -22,19 +22,19 @@ public class StringWrite : TextAdd
         return a;
     }
 
-    protected virtual StringCountWriteOperate CreateCountOperate()
+    protected virtual StringWriteCountOperate CreateCountOperate()
     {
-        StringCountWriteOperate a;
-        a = new StringCountWriteOperate();
+        StringWriteCountOperate a;
+        a = new StringWriteCountOperate();
         a.Write = this;
         a.Init();
         return a;
     }
 
-    protected virtual StringSetWriteOperate CreateSetOperate()
+    protected virtual StringWriteSetOperate CreateSetOperate()
     {
-        StringSetWriteOperate a;
-        a = new StringSetWriteOperate();
+        StringWriteSetOperate a;
+        a = new StringWriteSetOperate();
         a.Write = this;
         a.Init();
         return a;
@@ -42,10 +42,10 @@ public class StringWrite : TextAdd
 
     public virtual Text Text { get; set; }
     public virtual String Result { get; set; }
-    public virtual StringCountWriteOperate CountOperate { get; set; }
-    public virtual StringSetWriteOperate SetOperate { get; set; }
-    public virtual StringWriteOperate Operate { get; set; }
     public virtual StringWriteArg Arg { get; set; }
+    protected virtual StringWriteOperate Operate { get; set; }
+    protected virtual StringWriteCountOperate CountOperate { get; set; }
+    protected virtual StringWriteSetOperate SetOperate { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual Infra ClassInfra { get; set; }
 
