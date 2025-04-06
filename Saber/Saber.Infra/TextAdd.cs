@@ -459,6 +459,16 @@ public class TextAdd : Any
         return this.TextInfra.Place(text, limit, join, this.TLess);
     }
 
+    public virtual Array TextLine(String value)
+    {
+        Text text;
+        text = this.TextCreate(value);
+
+        Array a;
+        a =  this.TextLimit(text, this.TE(this.TextInfra.NewLine));
+        return a;
+    }
+
     public virtual long StringCount(String o)
     {
         return this.StringComp.Count(o);
