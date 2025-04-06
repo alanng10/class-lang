@@ -21,8 +21,6 @@ public class Infra : Any
         this.TextInfra = TextInfra.This;
         this.StorageInfra = StorageInfra.This;
         this.StringComp = StringComp.This;
-        this.TextCode = TextCode.This;
-        this.TextCodeKindList = TextCodeKindList.This;
         this.CountList = CountList.This;
 
         this.TextNewLine = this.S("\n");
@@ -40,7 +38,6 @@ public class Infra : Any
         this.TextEntry = this.S("Entry");
         this.IntSignValueNegateMax = this.InfraInfra.IntCapValue / 2;
         this.IntSignValuePositeMax = this.IntSignValueNegateMax - 1;
-        this.SModule = this.S("Module");
         return true;
     }
 
@@ -63,10 +60,7 @@ public class Infra : Any
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
-    protected virtual TextCode TextCode { get; set; }
-    protected virtual TextCodeKindList TextCodeKindList { get; set; }
     protected virtual CountList CountList { get; set; }
-    protected virtual String SModule { get; set; }
 
     public virtual bool IndexRange(Range range, long index)
     {
@@ -418,7 +412,7 @@ public class Infra : Any
         k.Init();
 
         return this.AddClear(k).Add(k, classPath).Add(k, this.TextInfra.PathCombine)
-            .Add(k, this.SModule).AddResult(k);
+            .Add(k, this.TextModule).AddResult(k);
     }
 
     private String S(string o)
