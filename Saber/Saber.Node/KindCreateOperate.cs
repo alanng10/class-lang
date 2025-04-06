@@ -95,8 +95,8 @@ public class KindCreateOperate : CreateOperate
         arg = this.Create.Arg;
 
         long index;
-        index = arg.NameValueIndex;
         long indexA;
+        index = arg.NameValueIndex;
         indexA = arg.NameValueTextIndex;
 
         InfraRange range;
@@ -136,8 +136,8 @@ public class KindCreateOperate : CreateOperate
         arg = create.Arg;
 
         long index;
-        index = arg.StringValueIndex;
         long indexA;
+        index = arg.StringValueIndex;
         indexA = arg.StringValueTextIndex;
 
         long count;
