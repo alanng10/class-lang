@@ -1,6 +1,6 @@
 namespace Saber.Module;
 
-public class Create : InfraCreate
+public class Create : ClassCreate
 {
     public override bool Init()
     {
