@@ -5,6 +5,9 @@ public class Create : InfraCreate
     public override bool Init()
     {
         base.Init();
+        this.InfraInfra = InfraInfra.This;
+        this.ListInfra = ListInfra.This;
+        this.ClassInfra = ClassInfra.This;
 
         this.Index = IndexList.This;
         this.Limit = LimitList.This;
@@ -48,6 +51,9 @@ public class Create : InfraCreate
     public virtual CreateArg Arg { get; set; }
     public virtual CreateSetArg SetArg { get; set; }
 
+    protected virtual InfraInfra InfraInfra { get; set; }
+    protected virtual ListInfra ListInfra { get; set; }
+    protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual IndexList Index { get; set; }
     protected virtual LimitList Limit { get; set; }
     protected virtual ErrorKindList ErrorKind { get; set; }
@@ -86,7 +92,7 @@ public class Create : InfraCreate
     protected virtual SetCreateOperate SetOperate { get; set; }
 
     protected virtual NameValid NameValid { get; set; }
-    public virtual StringValueWrite StringValueWrite { get; set; }
+    public virtual StringWrite StringValueWrite { get; set; }
 
     protected virtual NameValid CreateNameValid()
     {
@@ -99,10 +105,10 @@ public class Create : InfraCreate
         return a;
     }
 
-    protected virtual StringValueWrite CreateStringValueWrite()
+    protected virtual StringWrite CreateStringValueWrite()
     {
-        StringValueWrite a;
-        a = new StringValueWrite();
+        StringWrite a;
+        a = new StringWrite();
         a.Init();
         return a;
     }
