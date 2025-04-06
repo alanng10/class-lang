@@ -1,6 +1,6 @@
 namespace Saber.Infra;
 
-public class StringSetWriteOperate : StringWriteOperate
+public class StringWriteSetOperate : StringWriteOperate
 {
     public override bool Init()
     {
@@ -21,7 +21,7 @@ public class StringSetWriteOperate : StringWriteOperate
         Data data;
         data = arg.Data;
         this.TextInfra.DataCharSet(data, index, n);
-        
+
         index = index + 1;
 
         arg.Index = index;
