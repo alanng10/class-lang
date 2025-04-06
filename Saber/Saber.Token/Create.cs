@@ -7,7 +7,6 @@ public class Create : InfraCreate
         base.Init();
         this.InfraInfra = InfraInfra.This;
         this.ListInfra = ListInfra.This;
-        this.TextInfra = TextInfra.This;
         this.ClassInfra = ClassInfra.This;
 
         this.CountOperate = this.CreateCountOperate();
@@ -39,7 +38,7 @@ public class Create : InfraCreate
     protected virtual CountCreateOperate CountOperate { get; set; }
     protected virtual SetCreateOperate SetOperate { get; set; }
     protected virtual CreateOperate Operate { get; set; }
-    protected virtual Array CodeArray { get; set; }
+    protected virtual Array Code { get; set; }
     protected virtual Source SourceItem { get; set; }
     protected virtual long Row { get; set; }
 
@@ -48,9 +47,9 @@ public class Create : InfraCreate
         this.Result = new Result();
         this.Result.Init();
 
-        this.CodeArray = this.CreateCodeArray();
+        this.Code = this.CreateCodeArray();
 
-        this.Result.Code = this.CodeArray;
+        this.Result.Code = this.Code;
         this.Result.Error = this.ListInfra.ArrayCreate(0);
 
         this.Arg = new CreateArg();
@@ -60,7 +59,7 @@ public class Create : InfraCreate
         arg = this.Arg;
 
         arg.CodeCountData = new Data();
-        arg.CodeCountData.Count = this.CodeArray.Count * 2 * sizeof(ulong);
+        arg.CodeCountData.Count = this.Code.Count * sizeof(ulong) * 2;
         arg.CodeCountData.Init();
 
         this.Operate = this.CountOperate;
@@ -99,6 +98,7 @@ public class Create : InfraCreate
 
         long count;
         count = array.Count;
+
         long i;
         i = 0;
         while (i < count)
@@ -169,18 +169,19 @@ public class Create : InfraCreate
         infraInfra = this.InfraInfra;
         ListInfra listInfra;
         listInfra = this.ListInfra;
+
         Array codeArray;
-        codeArray = this.CodeArray;
-        Data codeCountData;
-        codeCountData = this.Arg.CodeCountData;
+        codeArray = this.Code;
+        Data data;
+        data = this.Arg.CodeCountData;
 
         Array tokenArray;
         Array commentArray;
         tokenArray = this.Arg.TokenArray;
         commentArray = this.Arg.CommentArray;
 
-        long oa;
-        oa = sizeof(ulong);
+        long kaa;
+        kaa = sizeof(ulong);
 
         long totalToken;
         long totalComment;
@@ -196,17 +197,18 @@ public class Create : InfraCreate
             Code code;
             code = codeArray.GetAt(i) as Code;
 
-            long ob;
-            ob = i;
-            ob = ob * 2;
-            long oe;
-            oe = ob * oa;
-            long of;
-            of = (ob + 1) * oa;
+            long kk;
+            kk = i;
+            kk = kk * 2;
+            long ka;
+            ka = kk * kaa;
+            long kb;
+            kb = (kk + 1) * kaa;
+
             long tokenCount;
             long commentCount;
-            tokenCount = infraInfra.DataIntGet(codeCountData, oe);
-            commentCount = infraInfra.DataIntGet(codeCountData, of);
+            tokenCount = infraInfra.DataIntGet(data, ka);
+            commentCount = infraInfra.DataIntGet(data, kb);
 
             code.Token = listInfra.ArrayCreate(tokenCount);
             code.Comment = listInfra.ArrayCreate(commentCount);
@@ -226,7 +228,7 @@ public class Create : InfraCreate
     public virtual bool ExecuteStage()
     {
         long count;
-        count = this.CodeArray.Count;
+        count = this.Code.Count;
 
         long i;
         i = 0;
@@ -244,9 +246,6 @@ public class Create : InfraCreate
         }
 
         this.SourceItem = null;
-        this.Row = -1;
-        this.Range.Index = -1;
-        this.Range.Count = -1;
         return true;
     }
 
@@ -257,8 +256,6 @@ public class Create : InfraCreate
         ClassInfra classInfra;
         classInfra = this.ClassInfra;
 
-        this.Reset();
-
         TextForm textForm;
         textForm = this.TForm;
 
@@ -268,88 +265,101 @@ public class Create : InfraCreate
         Range range;
         range = this.Range;
 
-        long kaa;
-        kaa = '_';
+        long charHash;
+        long charSpace;
+        long charQuote;
+        long charNext;
+        long charLine;
+        charHash = this.Char(this.ClassInfra.TextHash);
+        charSpace = this.Char(this.ClassInfra.TextSpace);
+        charQuote = this.Char(this.ClassInfra.TextQuote);
+        charNext = this.Char(this.ClassInfra.TextNext);
+        charLine = this.Char(this.ClassInfra.TextLine);
 
-        long row;
-        row = 0;
-        long col;
-        col = 0;
+        this.Reset();
 
         long count;
         count = sourceText.Count;
-        while (row < count)
+
+        long i;
+        i = 0;
+
+        while (i < count)
         {
             Text line;
-            line = sourceText.GetAt(row) as Text;
+            line = sourceText.GetAt(i) as Text;
+
             Data data;
             data = line.Data;
 
-            Range ke;
-            ke = line.Range;
-
             long start;
-            start = ke.Index;
+            start = line.Range.Index;
 
             long colCount;
-            colCount = ke.Count;
+            colCount = line.Range.Count;
 
-            col = 0;
+            long j;
+            j = 0;
 
-            while (col < colCount)
+            while (j < colCount)
             {
                 bool valid;
                 valid = false;
 
                 long n;
-                n = textInfra.DataCharGet(data, start + col);
+                n = textInfra.DataCharGet(data, start + j);
 
                 n = textForm.Execute(n);
 
-                if (n == '#')
+                if (n == charHash)
                 {
-                    this.EndToken(col);
-                    this.Row = row;
-                    range.Index = col;
-                    range.Count = classInfra.Count(col, colCount);
+                    this.EndToken(j);
+
+                    this.Row = i;
+                    range.Index = j;
+                    range.Count = classInfra.Count(j, colCount);
                     this.AddComment();
 
-                    col = colCount;
-                    this.Reset();
-
-                    valid = true;
-                }
-
-                if (n == ' ')
-                {
-                    this.EndToken(col);
-
-                    col = col + 1;
+                    j = colCount;
 
                     this.Reset();
 
                     valid = true;
                 }
 
-                if (n == '\"')
+                if (n == charSpace)
                 {
-                    this.EndToken(col);
-                    this.Row = row;
-                    range.Index = col;
+                    this.EndToken(j);
 
-                    long cc;
-                    cc = col + 1;
+                    j = j + 1;
+
+                    this.Reset();
+
+                    valid = true;
+                }
+
+                if (n == charQuote)
+                {
+                    this.EndToken(j);
+
+                    this.Row = i;
+                    range.Index = j;
+
+                    long ka;
+                    ka = j + 1;
+
                     bool b;
                     b = false;
-                    while (!b & cc < colCount)
-                    {
-                        long oc;
-                        oc = textInfra.DataCharGet(data, start + cc);
 
-                        oc = textForm.Execute(oc);
+                    while (!b & ka < colCount)
+                    {
+                        long na;
+                        na = textInfra.DataCharGet(data, start + ka);
+
+                        na = textForm.Execute(na);
 
                         bool ba;
-                        ba = (oc == '\"');
+                        ba = (na == charQuote);
                         if (ba)
                         {
                             b = true;
@@ -358,63 +368,63 @@ public class Create : InfraCreate
                         if (!b)
                         {
                             bool bb;
-                            bb = (oc == '\\');
+                            bb = (na == charNext);
                             if (bb)
                             {
-                                long uu;
-                                uu = cc + 1;
-                                if (uu < colCount)
+                                long kb;
+                                kb = ka + 1;
+                                if (kb < colCount)
                                 {
-                                    cc = cc + 1;
+                                    ka = kb;
                                 }
                             }
                         }
-                        cc = cc + 1;
+                        ka = ka + 1;
                     }
-                    range.Count = classInfra.Count(col, cc);
+                    range.Count = classInfra.Count(j, ka);
                     this.AddToken();
 
-                    col = cc;
+                    j = ka;
 
                     this.Reset();
 
                     valid = true;
                 }
 
-                if (textInfra.Alpha(n, false) | textInfra.Alpha(n, true) | textInfra.Digit(n) | n == kaa)
+                if (textInfra.Alpha(n, false) | textInfra.Alpha(n, true) | textInfra.Digit(n) | n == charLine)
                 {
                     if (this.NullRange())
                     {
-                        this.Row = row;
-                        range.Index = col;
+                        this.Row = i;
+                        range.Index = j;
                     }
 
-                    col = col + 1;
+                    j = j + 1;
 
                     valid = true;
                 }
 
                 if (!valid)
                 {
-                    this.EndToken(col);
+                    this.EndToken(j);
 
-                    this.Row = row;
-                    range.Index = col;
+                    this.Row = i;
+                    range.Index = j;
                     range.Count = 1;
 
                     this.AddToken();
 
-                    col = col + 1;
+                    j = j + 1;
 
                     this.Reset();
                 }
             }
 
-            this.EndToken(col);
+            this.EndToken(j);
 
             this.Reset();
 
-            row = row + 1;
+            i = i + 1;
         }
 
         return true;
