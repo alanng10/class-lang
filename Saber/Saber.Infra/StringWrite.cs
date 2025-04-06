@@ -41,6 +41,7 @@ public class StringWrite : TextAdd
     }
 
     public virtual Text Text { get; set; }
+    public virtual String Result { get; set; }
     public virtual StringCountWriteOperate CountOperate { get; set; }
     public virtual StringSetWriteOperate SetOperate { get; set; }
     public virtual StringWriteOperate Operate { get; set; }
@@ -48,17 +49,22 @@ public class StringWrite : TextAdd
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual Infra ClassInfra { get; set; }
 
-    public virtual String Execute()
+    public virtual bool Execute()
     {
+        this.Result = null;
+
         bool b;
         b = this.ValidValue(this.Text);
         if (!b)
         {
-            return null;
+            return false;
         }
 
         this.Arg = new StringWriteArg();
         this.Arg.Init();
+
+        StringWriteArg arg;
+        arg = this.Arg;
 
         this.Operate = this.CountOperate;
 
@@ -66,27 +72,26 @@ public class StringWrite : TextAdd
         this.ExecuteStage();
 
         long count;
-        count = this.Index;
+        count = arg.Index;
 
         long k;
         k = count;
         k = k * sizeof(uint);
 
-        this.Arg.Data = new Data();
-        this.Arg.Data.Count = k;
-        this.Arg.Data.Init();
+        arg.Data = new Data();
+        arg.Data.Count = k;
+        arg.Data.Init();
 
         this.Operate = this.SetOperate;
 
         this.ResetStage();
         this.ExecuteStage();
 
-        String a;
-        a = this.StringComp.CreateData(this.Arg.Data, null);
+        this.Result = this.StringComp.CreateData(arg.Data, null);
 
         this.Operate = null;
         this.Arg = null;
-        return a;
+        return true;
     }
 
     public virtual bool ValidValue(Text text)
@@ -356,7 +361,7 @@ public class StringWrite : TextAdd
 
     protected virtual bool ExecuteChar(long n)
     {
-        this.WriteOperate.ExecuteChar(n);
+        this.Operate.ExecuteChar(n);
         return true;
     }
 }
