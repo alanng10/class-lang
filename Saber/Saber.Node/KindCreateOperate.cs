@@ -140,23 +140,14 @@ public class KindCreateOperate : CreateOperate
         long indexA;
         indexA = arg.StringValueTextIndex;
 
-        StringValueWrite write;
-        write = create.StringValueWrite;
-        write.WriteOperate = write.CountWriteOperate;
-        write.Index = 0;
-        write.ExecuteValueString(text);
         long count;
-        count = write.Index;
-        long oa;
-        oa = index;
-        oa = oa * sizeof(ulong);
-        this.InfraInfra.DataIntSet(arg.StringValueCountData, oa, count);
-        
-        write.WriteOperate = write.SetWriteOperate;
-        write.Index = indexA;
-        write.Data = arg.StringValueTextData;
-        write.ExecuteValueString(text);
-        write.Data = null;
+        count = create.StringValueCount(text);
+        long ka;
+        ka = index;
+        ka = ka * sizeof(ulong);
+        this.InfraInfra.DataIntSet(arg.StringValueCountData, ka, count);
+
+        create.StringValueSet(text);
 
         index = index + 1;
         indexA = indexA + count;
