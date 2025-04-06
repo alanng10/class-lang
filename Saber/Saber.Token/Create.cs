@@ -10,33 +10,38 @@ public class Create : InfraCreate
         this.TextInfra = TextInfra.This;
         this.ClassInfra = ClassInfra.This;
 
-        this.CountOperate = new CountCreateOperate();
-        this.CountOperate.Create = this;
-        this.CountOperate.Init();
-        this.SetOperate = new SetCreateOperate();
-        this.SetOperate.Create = this;
-        this.SetOperate.Init();
-
-        this.CharForm = new TextForm();
-        this.CharForm.Init();
-
-        this.LineRange = new Range();
-        this.LineRange.Init();
+        this.CountOperate = this.CreateCountOperate();
+        this.SetOperate = this.CreateSetOperate();
         return true;
+    }
+
+    protected virtual CountCreateOperate CreateCountOperate()
+    {
+        CountCreateOperate a;
+        a = new CountCreateOperate();
+        a.Create = this;
+        a.Init();
+        return a;
+    }
+
+    protected virtual SetCreateOperate CreateSetOperate()
+    {
+        SetCreateOperate a;
+        a = new SetCreateOperate();
+        a.Create = this;
+        a.Init();
+        return a;
     }
 
     public virtual Array Source { get; set; }
     public virtual Result Result { get; set; }
-    public virtual Code Code { get; set; }
-    public virtual long Row { get; set; }
-    public virtual Range LineRange { get; set; }
     public virtual CreateArg Arg { get; set; }
     protected virtual CountCreateOperate CountOperate { get; set; }
     protected virtual SetCreateOperate SetOperate { get; set; }
     protected virtual CreateOperate Operate { get; set; }
     protected virtual Array CodeArray { get; set; }
     protected virtual Source SourceItem { get; set; }
-    protected virtual TextForm CharForm { get; set; }
+    protected virtual long Row { get; set; }
 
     public override bool Execute()
     {
@@ -48,11 +53,11 @@ public class Create : InfraCreate
         this.Result.Code = this.CodeArray;
         this.Result.Error = this.ListInfra.ArrayCreate(0);
 
-        CreateArg arg;
-        arg = new CreateArg();
-        arg.Init();
+        this.Arg = new CreateArg();
+        this.Arg.Init();
 
-        this.Arg = arg;
+        CreateArg arg;
+        arg = this.Arg;
 
         arg.CodeCountData = new Data();
         arg.CodeCountData.Count = this.CodeArray.Count * 2 * sizeof(ulong);
@@ -60,7 +65,7 @@ public class Create : InfraCreate
 
         this.Operate = this.CountOperate;
 
-        this.ArgIndexClear();
+        this.ResetStage();
         this.ExecuteStage();
 
         arg.TokenArray = this.ListInfra.ArrayCreate(arg.TokenIndex);
@@ -72,17 +77,149 @@ public class Create : InfraCreate
 
         this.Operate = this.SetOperate;
 
-        this.ArgIndexClear();
+        this.ResetStage();
         this.ExecuteStage();
 
         this.Arg = null;
+        this.Operate = null;
         return true;
     }
 
-    public virtual bool ArgIndexClear()
+    public virtual bool ResetStage()
     {
         this.Arg.TokenIndex = 0;
         this.Arg.CommentIndex = 0;
+        return true;
+    }
+
+    protected virtual Array CreateCodeArray()
+    {
+        Array array;
+        array = this.ListInfra.ArrayCreate(this.Source.Count);
+
+        long count;
+        count = array.Count;
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            Code a;
+            a = new Code();
+            a.Init();
+
+            array.SetAt(i, a);
+
+            i = i + 1;
+        }
+
+        return array;
+    }
+
+    protected virtual bool ExecuteCreateToken()
+    {
+        Array array;
+        array = this.Arg.TokenArray;
+
+        long count;
+        count = array.Count;
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            Token a;
+            a = new Token();
+            a.Init();
+            a.Range = new Range();
+            a.Range.Init();
+
+            array.SetAt(i, a);
+
+            i = i + 1;
+        }
+        return true;
+    }
+
+    protected virtual bool ExecuteCreateComment()
+    {
+        Array array;
+        array = this.Arg.CommentArray;
+
+        long count;
+        count = array.Count;
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            Comment a;
+            a = new Comment();
+            a.Init();
+            a.Range = new Range();
+            a.Range.Init();
+
+            array.SetAt(i, a);
+
+            i = i + 1;
+        }
+        return true;
+    }
+
+    protected virtual bool ExecuteCodeArraySet()
+    {
+        InfraInfra infraInfra;
+        infraInfra = this.InfraInfra;
+        ListInfra listInfra;
+        listInfra = this.ListInfra;
+        Array codeArray;
+        codeArray = this.CodeArray;
+        Data codeCountData;
+        codeCountData = this.Arg.CodeCountData;
+
+        Array tokenArray;
+        Array commentArray;
+        tokenArray = this.Arg.TokenArray;
+        commentArray = this.Arg.CommentArray;
+
+        long oa;
+        oa = sizeof(ulong);
+
+        long totalToken;
+        long totalComment;
+        totalToken = 0;
+        totalComment = 0;
+
+        long count;
+        count = codeArray.Count;
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            Code code;
+            code = codeArray.GetAt(i) as Code;
+
+            long ob;
+            ob = i;
+            ob = ob * 2;
+            long oe;
+            oe = ob * oa;
+            long of;
+            of = (ob + 1) * oa;
+            long tokenCount;
+            long commentCount;
+            tokenCount = infraInfra.DataIntGet(codeCountData, oe);
+            commentCount = infraInfra.DataIntGet(codeCountData, of);
+
+            code.Token = listInfra.ArrayCreate(tokenCount);
+            code.Comment = listInfra.ArrayCreate(commentCount);
+
+            listInfra.ArrayCopy(code.Token, 0, tokenArray, totalToken, tokenCount);
+            listInfra.ArrayCopy(code.Comment, 0, commentArray, totalComment, commentCount);
+
+            totalToken = totalToken + tokenCount;
+            totalComment = totalComment + commentCount;
+
+            i = i + 1;
+        }
+
         return true;
     }
 
@@ -95,42 +232,44 @@ public class Create : InfraCreate
         i = 0;
         while (i < count)
         {
-            Code code;
-            code = (Code)this.CodeArray.GetAt(i);
-
-            this.SourceItem = (Source)this.Source.GetAt(i);
+            this.SourceItem = this.Source.GetAt(i) as Source;
 
             this.Operate.ExecuteCodeStart(i);
 
-            this.ExecuteCode(code);
+            this.ExecuteCode();
 
             this.Operate.ExecuteCodeEnd(i);
 
             i = i + 1;
         }
 
+        this.SourceItem = null;
+        this.Row = -1;
+        this.Range.Index = -1;
+        this.Range.Count = -1;
         return true;
     }
 
-    protected virtual bool ExecuteCode(Code code)
+    protected virtual bool ExecuteCode()
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
         ClassInfra classInfra;
         classInfra = this.ClassInfra;
 
-        this.Code = code;
-
         this.Reset();
 
-        TextForm charForm;
-        charForm = this.CharForm;
+        TextForm textForm;
+        textForm = this.TForm;
 
         Array sourceText;
         sourceText = this.SourceItem.Text;
 
         Range range;
-        range = this.LineRange;
+        range = this.Range;
+
+        long kaa;
+        kaa = '_';
 
         long row;
         row = 0;
@@ -148,7 +287,7 @@ public class Create : InfraCreate
 
             Range ke;
             ke = line.Range;
-            
+
             long start;
             start = ke.Index;
 
@@ -159,15 +298,15 @@ public class Create : InfraCreate
 
             while (col < colCount)
             {
-                bool isValid;
-                isValid = false;
+                bool valid;
+                valid = false;
 
-                long c;
-                c = textInfra.DataCharGet(data, start + col);
+                long n;
+                n = textInfra.DataCharGet(data, start + col);
 
-                c = charForm.Execute(c);
+                n = textForm.Execute(n);
 
-                if (c == '#')
+                if (n == '#')
                 {
                     this.EndToken(col);
                     this.Row = row;
@@ -178,10 +317,10 @@ public class Create : InfraCreate
                     col = colCount;
                     this.Reset();
 
-                    isValid = true;
+                    valid = true;
                 }
 
-                if (c == ' ')
+                if (n == ' ')
                 {
                     this.EndToken(col);
 
@@ -189,10 +328,10 @@ public class Create : InfraCreate
 
                     this.Reset();
 
-                    isValid = true;
+                    valid = true;
                 }
 
-                if (c == '\"')
+                if (n == '\"')
                 {
                     this.EndToken(col);
                     this.Row = row;
@@ -207,7 +346,7 @@ public class Create : InfraCreate
                         long oc;
                         oc = textInfra.DataCharGet(data, start + cc);
 
-                        oc = charForm.Execute(oc);
+                        oc = textForm.Execute(oc);
 
                         bool ba;
                         ba = (oc == '\"');
@@ -239,10 +378,10 @@ public class Create : InfraCreate
 
                     this.Reset();
 
-                    isValid = true;
+                    valid = true;
                 }
 
-                if (textInfra.Alpha(c, false) | textInfra.Alpha(c, true) | textInfra.Digit(c) | c == '_')
+                if (textInfra.Alpha(n, false) | textInfra.Alpha(n, true) | textInfra.Digit(n) | n == kaa)
                 {
                     if (this.NullRange())
                     {
@@ -252,17 +391,17 @@ public class Create : InfraCreate
 
                     col = col + 1;
 
-                    isValid = true;
+                    valid = true;
                 }
 
-                if (!isValid)
+                if (!valid)
                 {
                     this.EndToken(col);
 
                     this.Row = row;
                     range.Index = col;
                     range.Count = 1;
-                    
+
                     this.AddToken();
 
                     col = col + 1;
@@ -277,148 +416,19 @@ public class Create : InfraCreate
 
             row = row + 1;
         }
-        
-        return true;
-    }
-
-    protected virtual Array CreateCodeArray()
-    {
-        Array array;
-        array = this.ListInfra.ArrayCreate(this.Source.Count);
-
-        long count;
-        count = array.Count;
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            Code code;
-            code = new Code();
-            code.Init();
-
-            array.SetAt(i, code);
-
-            i = i + 1;
-        }
-
-        return array;
-    }
-
-    protected virtual bool ExecuteCreateToken()
-    {
-        Array array;
-        array = this.Arg.TokenArray;
-
-        long count;
-        count = array.Count;
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            Token a;
-            a = new Token();
-            a.Init();
-            a.Range = new Range();
-            a.Range.Init();
-            array.SetAt(i, a);
-
-            i = i + 1;
-        }
-        return true;
-    }
-
-    protected virtual bool ExecuteCreateComment()
-    {
-        Array array;
-        array = this.Arg.CommentArray;
-
-        long count;
-        count = array.Count;
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            Comment a;
-            a = new Comment();
-            a.Init();
-            a.Range = new Range();
-            a.Range.Init();
-            array.SetAt(i, a);
-
-            i = i + 1;
-        }
-        return true;
-    }
-
-    protected virtual bool ExecuteCodeArraySet()
-    {
-        InfraInfra infraInfra;
-        infraInfra = this.InfraInfra;
-        ListInfra listInfra;
-        listInfra = this.ListInfra;
-        Array codeArray;
-        codeArray = this.CodeArray;
-        Data codeCountData;
-        codeCountData = this.Arg.CodeCountData;
-
-        Array tokenArray;
-        Array commentArray;
-        tokenArray = this.Arg.TokenArray;
-        commentArray = this.Arg.CommentArray;
-
-        long oa;
-        oa = sizeof(ulong);
-
-        long totalToken;
-        long totalInfo;
-        totalToken = 0;
-        totalInfo = 0;
-
-        long count;
-        count = codeArray.Count;
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            Code code;
-            code = (Code)codeArray.GetAt(i);
-
-            long ob;
-            ob = i;
-            ob = ob * 2;
-            long oe;
-            oe = ob * oa;
-            long of;
-            of = (ob + 1) * oa;
-            long tokenCount;
-            long commentCount;
-            tokenCount = (long)infraInfra.DataIntGet(codeCountData, oe);
-            commentCount = (long)infraInfra.DataIntGet(codeCountData, of);
-
-            code.Token = listInfra.ArrayCreate(tokenCount);
-            code.Comment = listInfra.ArrayCreate(commentCount);
-
-            listInfra.ArrayCopy(code.Token, 0, tokenArray, totalToken, tokenCount);
-            listInfra.ArrayCopy(code.Comment, 0, commentArray, totalInfo, commentCount);
-
-            totalToken = totalToken + tokenCount;
-            totalInfo = totalInfo + commentCount;
-
-            i = i + 1;
-        }
 
         return true;
     }
 
     protected virtual bool AddToken()
     {
-        this.Operate.ExecuteToken();
+        this.Operate.ExecuteToken(this.Row, this.Range);
         return true;
     }
 
     protected virtual bool AddComment()
     {
-        this.Operate.ExecuteComment();
+        this.Operate.ExecuteComment(this.Row, this.Range);
         return true;
     }
 
@@ -427,8 +437,9 @@ public class Create : InfraCreate
         if (!this.NullRange())
         {
             long count;
-            count = this.ClassInfra.Count(this.LineRange.Index, col);
-            this.LineRange.Count = count;
+            count = this.ClassInfra.Count(this.Range.Index, col);
+            this.Range.Count = count;
+
             this.AddToken();
         }
         return true;
