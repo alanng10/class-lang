@@ -22,28 +22,28 @@ public class Read : TextAdd
         return true;
     }
 
-    protected virtual CountReadOperate CreateCountOperate()
+    protected virtual ReadCountOperate CreateCountOperate()
     {
-        CountReadOperate a;
-        a = new CountReadOperate();
+        ReadCountOperate a;
+        a = new ReadCountOperate();
         a.Read = this;
         a.Init();
         return a;
     }
 
-    protected virtual StringReadOperate CreateStringOperate()
+    protected virtual ReadStringOperate CreateStringOperate()
     {
-        StringReadOperate a;
-        a = new StringReadOperate();
+        ReadStringOperate a;
+        a = new ReadStringOperate();
         a.Read = this;
         a.Init();
         return a;
     }
 
-    protected virtual SetReadOperate CreateSetOperate()
+    protected virtual ReadSetOperate CreateSetOperate()
     {
-        SetReadOperate a;
-        a = new SetReadOperate();
+        ReadSetOperate a;
+        a = new ReadSetOperate();
         a.Read = this;
         a.Init();
         return a;
@@ -56,9 +56,9 @@ public class Read : TextAdd
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual ReadOperate Operate { get; set; }
-    protected virtual CountReadOperate CountOperate { get; set; }
-    protected virtual StringReadOperate StringOperate { get; set; }
-    protected virtual SetReadOperate SetOperate { get; set; }
+    protected virtual ReadCountOperate CountOperate { get; set; }
+    protected virtual ReadStringOperate StringOperate { get; set; }
+    protected virtual ReadSetOperate SetOperate { get; set; }
     protected virtual String SColon { get; set; }
     protected virtual String SDot { get; set; }
     protected virtual String SBraceSquareLite { get; set; }
