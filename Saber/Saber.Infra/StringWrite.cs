@@ -5,15 +5,14 @@ public class StringWrite : Any
     public override bool Init()
     {
         base.Init();
-
         this.InfraInfra = InfraInfra.This;
         this.TextInfra = TextInfra.This;
         this.ClassInfra = Infra.This;
         this.StringComp = StringComp.This;
 
         this.Arg = this.CreateArg();
-        this.CountWriteOperate = this.CreateCountOperate();
-        this.SetWriteOperate = this.CreateSetOperate();
+        this.CountOperate = this.CreateCountOperate();
+        this.SetOperate = this.CreateSetOperate();
         return true;
     }
 
@@ -52,18 +51,22 @@ public class StringWrite : Any
     protected virtual Infra ClassInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
 
-    public virtual String Value(Text text)
+    public virtual String Execute(Text text)
     {
         bool b;
-        b = this.CheckValueString(text);
+        b = this.ValidValue(text);
         if (!b)
         {
             return null;
         }
 
-        this.WriteOperate = this.CountWriteOperate;
-        this.Index = 0;
-        this.ExecuteValueString(text);
+        this.Arg = new StringWriteArg();
+        this.Arg.Init();
+
+        this.Operate = this.CountOperate;
+        this.ArgClearIndex();
+
+        this.ExecuteStage(text);
 
         long count;
         count = this.Index;
@@ -71,24 +74,28 @@ public class StringWrite : Any
         long k;
         k = count;
         k = k * sizeof(uint);
-        this.Data = new Data();
-        this.Data.Count = k;
-        this.Data.Init();
 
-        this.WriteOperate = this.SetWriteOperate;
-        this.Index = 0;
-        this.ExecuteValueString(text);
+        this.Arg.Data = new Data();
+        this.Arg.Data.Count = k;
+        this.Arg.Data.Init();
+
+        this.Operate = this.SetOperate;
+        this.ArgClearIndex();
+
+        this.ExecuteStage(text);
 
         String a;
-        a = this.StringComp.CreateData(this.Data, null);
+        a = this.StringComp.CreateData(this.Arg.Data, null);
 
-        this.Data = null;
-        this.WriteOperate = null;
+        this.Operate = null;
+        this.Arg = null;
         return a;
     }
 
-    public virtual bool CheckValueString(Text text)
+    public virtual bool ValidValue(Text text)
     {
+        InfraInfra infraInfra;
+        infraInfra = this.InfraInfra;
         TextInfra textInfra;
         textInfra = this.TextInfra;
         Infra classInfra;
@@ -108,29 +115,29 @@ public class StringWrite : Any
         Data data;
         data = text.Data;
         long rangeStart;
-        rangeStart = range.Index;
         long rangeEnd;
-        rangeEnd = range.Index + range.Count;
+        rangeStart = range.Index;
+        rangeEnd = rangeStart + range.Count;
 
         long quote;
-        quote = stringComp.Char(classInfra.Quote, 0);
+        quote = textInfra.Char(classInfra.TextQuote);
 
-        long oc;
-        oc = textInfra.DataCharGet(data, rangeStart);
-        if (!(oc == quote))
+        long na;
+        na = textInfra.DataCharGet(data, rangeStart);
+        if (!(na == quote))
         {
             return false;
         }
-        oc = textInfra.DataCharGet(data, rangeEnd - 1);
-        if (!(oc == quote))
+        na = textInfra.DataCharGet(data, rangeEnd - 1);
+        if (!(na == quote))
         {
             return false;
         }
 
-        long backSlash;
-        backSlash = stringComp.Char(classInfra.BackSlash, 0);
+        long next;
+        next = textInfra.Char(classInfra.TextNext);
         long newLine;
-        newLine = stringComp.Char(classInfra.NewLine, 0);
+        newLine = textInfra.Char(classInfra.TextNewLine);
 
         long countA;
         countA = 8;
@@ -146,11 +153,11 @@ public class StringWrite : Any
             long index;
             index = start + i;
 
-            long c;
-            c = textInfra.DataCharGet(data, index);
+            long n;
+            n = textInfra.DataCharGet(data, index);
 
             bool b;
-            b = (c == backSlash);
+            b = (n == next);
             if (b)
             {
                 long j;
@@ -162,43 +169,43 @@ public class StringWrite : Any
                 long indexA;
                 indexA = start + j;
 
-                long u;
-                u = textInfra.DataCharGet(data, indexA);
+                long nc;
+                nc = textInfra.DataCharGet(data, indexA);
 
                 bool bba;
                 bba = false;
-                if (u == quote)
+                if (nc == quote)
                 {
                     bba = true;
                 }
-                if (u == 'n')
+                if (nc == 'n')
                 {
                     bba = true;
                 }
-                if (u == backSlash)
+                if (nc == next)
                 {
                     bba = true;
                 }
-                if (u == 'u')
+                if (nc == 'u')
                 {
-                    long k;
-                    k = j + countA;
-                    if (!(k < count))
+                    long ja;
+                    ja = j + 1;
+                    if (!infraInfra.ValidRange(count, ja, countA))
                     {
                         return false;
                     }
                     long indexAa;
-                    indexAa = start + j + 1;
+                    indexAa = start + ja;
                     long iA;
                     iA = 0;
                     while (iA < countA)
                     {
-                        long oa;
-                        oa = indexAa + iA;
-                        long ua;
-                        ua = textInfra.DataCharGet(data, oa);
+                        long ka;
+                        ka = indexAa + iA;
+                        long nd;
+                        nd = textInfra.DataCharGet(data, ka);
 
-                        if (!(textInfra.Digit(ua) | textInfra.HexAlpha(ua, false)))
+                        if (!(textInfra.Digit(nd) | textInfra.HexAlpha(nd, false)))
                         {
                             return false;
                         }
@@ -217,7 +224,7 @@ public class StringWrite : Any
             }
             if (!b)
             {
-                if (c == quote)
+                if (n == quote)
                 {
                     return false;
                 }
@@ -227,7 +234,13 @@ public class StringWrite : Any
         return true;
     }
 
-    public virtual bool ExecuteValueString(Text text)
+    public virtual bool ArgClearIndex()
+    {
+        this.Arg.Index = 0;
+        return true;
+    }
+
+    public virtual bool ExecuteStage(Text text)
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
@@ -243,12 +256,12 @@ public class StringWrite : Any
         long kk;
         kk = range.Count;
 
-        long backSlash;
-        backSlash = stringComp.Char(classInfra.BackSlash, 0);
         long quote;
-        quote = stringComp.Char(classInfra.Quote, 0);
+        quote = textInfra.Char(classInfra.TextQuote);
+        long next;
+        next = textInfra.Char(classInfra.TextNext);
         long newLine;
-        newLine = stringComp.Char(classInfra.NewLine, 0);
+        newLine = textInfra.Char(classInfra.TextNewLine);
 
         long countA;
         countA = 8;
@@ -263,85 +276,80 @@ public class StringWrite : Any
             long index;
             index = start + i;
 
-            long c;
-            c = textInfra.DataCharGet(data, index);
+            long n;
+            n = textInfra.DataCharGet(data, index);
 
             bool b;
-            b = (c == backSlash);
+            b = (n == next);
             if (b)
             {
                 long j;
                 j = i + 1;
 
-                bool bb;
-                bb = (j < count);
-                if (bb)
+                long indexA;
+                indexA = start + j;
+                long nc;
+                nc = textInfra.DataCharGet(data, indexA);
+
+                long escapeValue;
+                escapeValue = 0;
+                if (nc == next)
                 {
-                    long indexA;
-                    indexA = start + j;
-                    long u;
-                    u = textInfra.DataCharGet(data, indexA);
-
-                    long escapeValue;
-                    escapeValue = 0;
-                    if (u == quote)
-                    {
-                        escapeValue = u;
-                    }
-                    if (u == 'n')
-                    {
-                        escapeValue = newLine;
-                    }
-                    if (u == backSlash)
-                    {
-                        escapeValue = u;
-                    }
-                    if (u == 'u')
-                    {
-                        long ka;
-                        ka = 0;
-                        long indexAa;
-                        indexAa = start + j + 1;
-                        long iA;
-                        iA = 0;
-                        while (iA < countA)
-                        {
-                            long oa;
-                            oa = indexAa + iA;
-                            long ua;
-                            ua = textInfra.DataCharGet(data, oa);
-
-                            long od;
-                            od = textInfra.DigitValue(ua, 16);
-
-                            long na;
-                            na = countA - 1 - iA;
-
-                            int shiftCount;
-                            shiftCount = (int)(na * 4);
-
-                            long nn;
-                            nn = od << shiftCount;
-
-                            ka = ka | nn;
-
-                            iA = iA + 1;
-                        }
-
-                        escapeValue = ka;
-
-                        i = i + countA;
-                    }
-
-                    this.ExecuteValueChar(escapeValue);
-
-                    i = i + 1;
+                    escapeValue = nc;
                 }
+                if (nc == quote)
+                {
+                    escapeValue = nc;
+                }
+                if (nc == 'n')
+                {
+                    escapeValue = newLine;
+                }
+                if (nc == 'u')
+                {
+                    long ka;
+                    ka = 0;
+                    long indexAa;
+                    indexAa = start + j + 1;
+                    long iA;
+                    iA = 0;
+                    while (iA < countA)
+                    {
+                        long kb;
+                        kb = indexAa + iA;
+                        long nd;
+                        nd = textInfra.DataCharGet(data, kb);
+
+                        long kc;
+                        kc = textInfra.DigitValue(nd, 16);
+
+                        long na;
+                        na = countA - 1 - iA;
+
+                        int shiftCount;
+                        shiftCount = (int)(na * 4);
+
+                        long nn;
+                        nn = kc << shiftCount;
+
+                        ka = ka | nn;
+
+                        iA = iA + 1;
+                    }
+
+                    escapeValue = ka;
+
+                    i = i + countA;
+                }
+
+                this.ExecuteChar(escapeValue);
+
+                i = i + 1;
             }
 
             if (!b)
             {
-                this.ExecuteValueChar(c);
+                this.ExecuteChar(n);
             }
 
             i = i + 1;
@@ -349,9 +357,9 @@ public class StringWrite : Any
         return true;
     }
 
-    protected virtual bool ExecuteValueChar(long oc)
+    protected virtual bool ExecuteChar(long n)
     {
-        this.WriteOperate.ExecuteChar(oc);
+        this.WriteOperate.ExecuteChar(n);
         return true;
     }
 }
