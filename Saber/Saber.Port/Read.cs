@@ -17,8 +17,6 @@ public class Read : TextAdd
         this.SDot = this.S(".");
         this.SBraceSquareLite = this.S("[");
         this.SBraceSquareRite = this.S("]");
-        this.SSpace = this.S(" ");
-        this.SIndent = this.S("    ");
         return true;
     }
 
@@ -63,8 +61,6 @@ public class Read : TextAdd
     protected virtual String SDot { get; set; }
     protected virtual String SBraceSquareLite { get; set; }
     protected virtual String SBraceSquareRite { get; set; }
-    protected virtual String SSpace { get; set; }
-    protected virtual String SIndent { get; set; }
 
     public virtual bool Execute()
     {
@@ -668,7 +664,7 @@ public class Read : TextAdd
         }
 
         Range rangeA;
-        rangeA = this.Range;
+        rangeA = this.RangeA;
 
         rangeA.Index = indexA;
         rangeA.Count = kk;
@@ -778,7 +774,7 @@ public class Read : TextAdd
         count = text.Range.Count;
 
         Range range;
-        range = this.Range;
+        range = this.RangeA;
 
         range.Index = index;
         range.Count = kk;
@@ -1008,7 +1004,7 @@ public class Read : TextAdd
         }
 
         Range rangeA;
-        rangeA = this.Range;
+        rangeA = this.RangeA;
         rangeA.Index = range.Index;
         rangeA.Count = nameCount;
 
