@@ -1,6 +1,6 @@
 namespace Saber.Console;
 
-class ObjectString : ClassBase
+class ObjectString : TextAdd
 {
     public override bool Init()
     {
@@ -13,7 +13,6 @@ class ObjectString : ClassBase
         this.CommentType = typeof(TokenComment);
 
         this.SComma = this.S(",");
-        this.SSpace = this.S(" ");
         this.SQuote = this.S("\"");
         this.SColon = this.S(":");
         this.SBraceLite = this.S("{");
@@ -32,7 +31,6 @@ class ObjectString : ClassBase
 
     protected virtual PrintChar PrintChar { get; set; }
     private String SComma { get; set; }
-    private String SSpace { get; set; }
     private String SQuote { get; set; }
     private String SColon { get; set; }
     private String SBraceLite { get; set; }
