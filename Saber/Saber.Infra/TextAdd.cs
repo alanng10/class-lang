@@ -1,6 +1,6 @@
 namespace Saber.Infra;
 
-public class Base : Any
+public class TextAdd : Any
 {
     public override bool Init()
     {
@@ -532,7 +532,7 @@ public class Base : Any
         return this.TextInfra.Char(value);
     }
 
-    public virtual Base AddIndent(long indent)
+    public virtual TextAdd AddIndent(long indent)
     {
         long count;
         count = indent;
@@ -546,30 +546,30 @@ public class Base : Any
         return this;
     }
 
-    public virtual Base Add(String a)
+    public virtual TextAdd Add(String a)
     {
         this.TextInfra.AddString(this.StringAdd, a);
         return this;
     }
 
-    public virtual Base AddChar(long n)
+    public virtual TextAdd AddChar(long n)
     {
         this.StringAdd.Execute(n);
         return this;
     }
 
-    public virtual Base AddLine()
+    public virtual TextAdd AddLine()
     {
         this.Add(this.TextInfra.NewLine);
         return this;
     }
 
-    public virtual Base AddS(string o)
+    public virtual TextAdd AddS(string o)
     {
         return this.Add(this.S(o));
     }
 
-    public virtual Base AddClear()
+    public virtual TextAdd AddClear()
     {
         this.StringAdd.Clear();
         return this;
