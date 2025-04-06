@@ -5,6 +5,8 @@ public class Create : ClassCreate
     public override bool Init()
     {
         base.Init();
+        this.ListInfra = ListInfra.This;
+        this.ClassInfra = ClassInfra.This;
 
         this.ErrorKind = this.CreateErrorKindList();
         this.Count = this.CreateCountList();
@@ -30,6 +32,8 @@ public class Create : ClassCreate
     public virtual ErrorKindList ErrorKind { get; set; }
     public virtual CountList Count { get; set; }
     public virtual ClassClass NullClass { get; set; }
+    protected virtual ListInfra ListInfra { get; set; }
+    protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual List ErrorList { get; set; }
     protected virtual Table BaseTable { get; set; }
     protected virtual Table RangeTable { get; set; }
@@ -1074,7 +1078,7 @@ public class Create : ClassCreate
 
     public virtual object CompDefined(ClassClass varClass, String name)
     {
-        return this.ClassInfra.CompDefined(varClass, name, this.Module, this.SystemClass.Any);
+        return this.ClassInfra.CompDefine(varClass, name, this.Module, this.SystemClass.Any);
     }
 
     protected virtual Source SourceGet(long index)
