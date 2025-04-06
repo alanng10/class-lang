@@ -1,11 +1,12 @@
 namespace Saber.Console;
 
-public class StorageGen : ClassBase
+public class StorageGen : TextAdd
 {
     public override bool Init()
     {
         base.Init();
         this.StorageInfra = StorageInfra.This;
+        this.ClassInfra = ClassInfra.This;
         this.StorageComp = StorageComp.This;
         this.SData = this.S("data");
         return true;
@@ -15,6 +16,7 @@ public class StorageGen : ClassBase
     public virtual String ModuleRefString { get; set; }
     public virtual String ClassPath { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
+    protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual StorageComp StorageComp { get; set; }
     protected virtual String SData { get; set; }
 
@@ -23,7 +25,7 @@ public class StorageGen : ClassBase
         String dataFoldPath;
         dataFoldPath = this.AddClear().Add(this.ClassInfra.ClassModulePath(this.ClassPath))
             .Add(this.TextInfra.PathCombine)
-            .Add(this.ModuleRefString).Add(this.ClassInfra.Dot).Add(this.SData).AddResult();
+            .Add(this.ModuleRefString).Add(this.ClassInfra.TextDot).Add(this.SData).AddResult();
 
         this.StorageComp.FoldDelete(dataFoldPath);
 
