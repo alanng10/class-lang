@@ -1,15 +1,13 @@
 namespace Saber.Infra;
 
-public class StringWrite : Any
+public class StringWrite : TextAdd
 {
     public override bool Init()
     {
         base.Init();
         this.InfraInfra = InfraInfra.This;
-        this.TextInfra = TextInfra.This;
         this.ClassInfra = Infra.This;
-        this.StringComp = StringComp.This;
-
+ 
         this.Arg = this.CreateArg();
         this.CountOperate = this.CreateCountOperate();
         this.SetOperate = this.CreateSetOperate();
@@ -28,7 +26,7 @@ public class StringWrite : Any
     {
         StringCountWriteOperate a;
         a = new StringCountWriteOperate();
-        a.Arg = this.Arg;
+        a.Write = this;
         a.Init();
         return a;
     }
@@ -37,24 +35,23 @@ public class StringWrite : Any
     {
         StringSetWriteOperate a;
         a = new StringSetWriteOperate();
-        a.Arg = this.Arg;
+        a.Write = this;
         a.Init();
         return a;
     }
 
+    public virtual Text Text { get; set; }
     public virtual StringCountWriteOperate CountOperate { get; set; }
     public virtual StringSetWriteOperate SetOperate { get; set; }
     public virtual StringWriteOperate Operate { get; set; }
     public virtual StringWriteArg Arg { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
-    protected virtual TextInfra TextInfra { get; set; }
     protected virtual Infra ClassInfra { get; set; }
-    protected virtual StringComp StringComp { get; set; }
 
-    public virtual String Execute(Text text)
+    public virtual String Execute()
     {
         bool b;
-        b = this.ValidValue(text);
+        b = this.ValidValue(this.Text);
         if (!b)
         {
             return null;
@@ -64,9 +61,9 @@ public class StringWrite : Any
         this.Arg.Init();
 
         this.Operate = this.CountOperate;
-        this.ArgClearIndex();
 
-        this.ExecuteStage(text);
+        this.ResetStage();
+        this.ExecuteStage();
 
         long count;
         count = this.Index;
@@ -80,9 +77,9 @@ public class StringWrite : Any
         this.Arg.Data.Init();
 
         this.Operate = this.SetOperate;
-        this.ArgClearIndex();
 
-        this.ExecuteStage(text);
+        this.ResetStage();
+        this.ExecuteStage();
 
         String a;
         a = this.StringComp.CreateData(this.Arg.Data, null);
@@ -234,13 +231,13 @@ public class StringWrite : Any
         return true;
     }
 
-    public virtual bool ArgClearIndex()
+    public virtual bool ResetStage()
     {
         this.Arg.Index = 0;
         return true;
     }
 
-    public virtual bool ExecuteStage(Text text)
+    public virtual bool ExecuteStage()
     {
         TextInfra textInfra;
         textInfra = this.TextInfra;
@@ -250,9 +247,9 @@ public class StringWrite : Any
         stringComp = this.StringComp;
 
         Data data;
-        data = text.Data;
+        data = this.Text.Data;
         InfraRange range;
-        range = text.Range;
+        range = this.Text.Range;
         long kk;
         kk = range.Count;
 
