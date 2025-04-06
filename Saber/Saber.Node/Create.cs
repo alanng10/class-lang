@@ -1,6 +1,6 @@
 namespace Saber.Node;
 
-public class Create : InfraCreate
+public class Create : ClassCreate
 {
     public override bool Init()
     {
@@ -20,7 +20,7 @@ public class Create : InfraCreate
         this.SetArg = this.CreateCreateSetArg();
 
         this.NameValid = this.CreateNameValid();
-        this.StringValueWrite = this.CreateStringValueWrite();
+        this.StringWrite = this.CreateStringWrite();
 
         this.RangeA = this.CreateClassRange();
         this.RangeB = this.CreateClassRange();
@@ -92,7 +92,7 @@ public class Create : InfraCreate
     protected virtual SetCreateOperate SetOperate { get; set; }
 
     protected virtual NameValid NameValid { get; set; }
-    public virtual StringWrite StringValueWrite { get; set; }
+    protected virtual StringWrite StringWrite { get; set; }
 
     protected virtual NameValid CreateNameValid()
     {
@@ -105,11 +105,13 @@ public class Create : InfraCreate
         return a;
     }
 
-    protected virtual StringWrite CreateStringValueWrite()
+    protected virtual StringWrite CreateStringWrite()
     {
         StringWrite a;
         a = new StringWrite();
         a.Init();
+        a.Arg = new StringWriteArg();
+        a.Arg.Init();
         return a;
     }
 
@@ -316,7 +318,7 @@ public class Create : InfraCreate
         return true;
     }
     
-    protected virtual bool ArgClearIndex()
+    public virtual bool ArgClearIndex()
     {
         CreateArg arg;
         arg = this.Arg;
@@ -346,6 +348,23 @@ public class Create : InfraCreate
         a.Start = 0;
         a.End = 0;
         return true;
+    }
+
+    public virtual long StringValueCount(Text text)
+    {
+        StringWrite write;
+        write = this.StringWrite;
+        write.Text = text;
+        write.Operate = write.CountOperate;
+        write.ResetStage();
+        write.ExecuteStage();
+
+        long a;
+        a = write.Arg.Index;
+
+        write.Operate = null;
+        write.Text = null;
+        return a;
     }
 
     protected virtual Data CountDataCreate(long count)
@@ -1606,7 +1625,7 @@ public class Create : InfraCreate
         text = this.TAToken(token);
 
         bool b;
-        b = this.StringValueWrite.ValidValue(text);
+        b = this.StringWrite.ValidValue(text);
         if (!b)
         {
             return null;

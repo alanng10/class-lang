@@ -97,14 +97,9 @@ public class CountCreateOperate : CreateOperate
         index = arg.StringValueIndex;
         long indexA;
         indexA = arg.StringValueTextIndex;
-        
-        StringValueWrite write;
-        write = this.Create.StringValueWrite;
-        write.WriteOperate = write.CountWriteOperate;
-        write.Index = 0;
-        write.ExecuteValueString(text);
+
         long count;
-        count = write.Index;
+        count = this.Create.StringValueCount(text);
         
         index = index + 1;
         indexA = indexA + count;
