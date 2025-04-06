@@ -121,25 +121,28 @@ public class StringWrite : TextAdd
         rangeStart = range.Index;
         rangeEnd = rangeStart + range.Count;
 
-        long quote;
-        quote = textInfra.Char(classInfra.TextQuote);
+        long charQuote;
+        long charNext;
+        long charNewLine;
+        long charAlphaN;
+        long charAlphaU;
+        charQuote = textInfra.Char(classInfra.TextQuote);
+        charNext = textInfra.Char(classInfra.TextNext);
+        charNewLine = textInfra.Char(classInfra.TextNewLine);
+        charAlphaN = textInfra.Char(classInfra.TextAlphaN);
+        charAlphaU = textInfra.Char(classInfra.TextAlphaU);
 
         long na;
         na = textInfra.DataCharGet(data, rangeStart);
-        if (!(na == quote))
+        if (!(na == charQuote))
         {
             return false;
         }
         na = textInfra.DataCharGet(data, rangeEnd - 1);
-        if (!(na == quote))
+        if (!(na == charQuote))
         {
             return false;
         }
-
-        long next;
-        next = textInfra.Char(classInfra.TextNext);
-        long newLine;
-        newLine = textInfra.Char(classInfra.TextNewLine);
 
         long countA;
         countA = 8;
@@ -159,7 +162,7 @@ public class StringWrite : TextAdd
             n = textInfra.DataCharGet(data, index);
 
             bool b;
-            b = (n == next);
+            b = (n == charNext);
             if (b)
             {
                 long j;
@@ -176,19 +179,19 @@ public class StringWrite : TextAdd
 
                 bool bba;
                 bba = false;
-                if (nc == quote)
+                if (nc == charQuote)
                 {
                     bba = true;
                 }
-                if (nc == 'n')
+                if (nc == charAlphaN)
                 {
                     bba = true;
                 }
-                if (nc == next)
+                if (nc == charNext)
                 {
                     bba = true;
                 }
-                if (nc == 'u')
+                if (nc == charAlphaU)
                 {
                     long ja;
                     ja = j + 1;
@@ -226,7 +229,7 @@ public class StringWrite : TextAdd
             }
             if (!b)
             {
-                if (n == quote)
+                if (n == charQuote)
                 {
                     return false;
                 }
