@@ -1,6 +1,6 @@
 namespace Saber.Token;
 
-public class CountCreateOperate : CreateOperate
+public class CreateCountOperate : CreateOperate
 {
     public override bool Init()
     {
