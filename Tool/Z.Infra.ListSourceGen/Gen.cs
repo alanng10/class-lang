@@ -34,7 +34,7 @@ public class Gen : ToolBase
         this.ExecuteItemList();
 
         String a;
-        a = this.ToolInfra.StorageTextRead(this.ClassFileName);
+        a = this.StorageTextRead(this.ClassFileName);
 
         Text k;        
         k = this.TextCreate(a);
@@ -77,18 +77,18 @@ public class Gen : ToolBase
         String ka;
         ka = this.StringCreate(k);
 
-        this.ToolInfra.StorageTextWrite(this.OutputFilePath, ka);
+        this.StorageTextWrite(this.OutputFilePath, ka);
         return 0;
     }
 
     protected virtual bool ExecuteItemList()
     {
         String a;
-        a = this.ToolInfra.StorageTextRead(this.ItemListFileName);
+        a = this.StorageTextRead(this.ItemListFileName);
 
-        this.LineArray = this.TextLimitLineString(this.TA(a));
+        this.LineArray = this.TextLine(a);
 
-        this.ItemTable = this.ToolInfra.TableCreateStringLess();
+        this.ItemTable = this.TableCreateStringLess();
 
         Iter iter;
         iter = this.LineArray.IterCreate();
@@ -119,7 +119,7 @@ public class Gen : ToolBase
     protected virtual String GetInitMethod()
     {
         String e;
-        e = this.ToolInfra.StorageTextRead(this.InitMethodFileName);
+        e = this.StorageTextRead(this.InitMethodFileName);
 
         String kaa;
         kaa = this.GetInitFieldList();
@@ -209,7 +209,7 @@ public class Gen : ToolBase
     protected virtual String GetAddMethod()
     {
         String e;
-        e = this.ToolInfra.StorageTextRead(this.AddMethodFileName);
+        e = this.StorageTextRead(this.AddMethodFileName);
 
         Text k;
         k = this.TextCreate(e);
@@ -226,7 +226,7 @@ public class Gen : ToolBase
     protected virtual String GetArrayCompList()
     {
         String e;
-        e = this.ToolInfra.StorageTextRead(this.ArrayCompListFileName);
+        e = this.StorageTextRead(this.ArrayCompListFileName);
         
         Text k;
         k = this.TextCreate(e);

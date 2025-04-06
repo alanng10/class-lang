@@ -596,6 +596,18 @@ public class Base : Any
         return this.TextInfra.S(o);
     }
 
+    public virtual Table TableCreateStringLess()
+    {
+        StringLess less;
+        less = this.TextInfra.StringLessCreate();
+
+        Table a;
+        a = new Table();
+        a.Less = less;
+        a.Init();
+        return a;
+    }
+
     public virtual String StorageTextRead(String filePath)
     {
         String a;
