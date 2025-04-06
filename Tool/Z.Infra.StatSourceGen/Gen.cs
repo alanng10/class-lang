@@ -42,7 +42,7 @@ public class Gen : ToolBase
         this.ExecuteItemList();
 
         String sourceText;
-        sourceText = this.ToolInfra.StorageTextRead(this.SourceFileName);
+        sourceText = this.StorageTextRead(this.SourceFileName);
 
         Text k;
         k = this.TextCreate(sourceText);
@@ -61,18 +61,18 @@ public class Gen : ToolBase
 
         this.OutputFilePath = this.GetOutputFilePath();
 
-        this.ToolInfra.StorageTextWrite(this.OutputFilePath, a);
+        this.StorageTextWrite(this.OutputFilePath, a);
         return 0;
     }
 
     protected virtual bool ExecuteItemList()
     {
         String a;
-        a = this.ToolInfra.StorageTextRead(this.ItemListFileName);
+        a = this.StorageTextRead(this.ItemListFileName);
 
-        this.LineArray = this.ToolInfra.TextLimitLineString(this.TA(a));
+        this.LineArray = this.TextLineString(a);
 
-        this.ItemTable = this.ToolInfra.TableCreateStringLess();
+        this.ItemTable = this.TableCreateStringLess();
 
         Iter iter;
         iter = this.LineArray.IterCreate();
@@ -80,7 +80,7 @@ public class Gen : ToolBase
         while (iter.Next())
         {
             String line;
-            line = (String)iter.Value;
+            line = iter.Value as String;
 
             Entry entry;
             entry = this.GetItemEntry(line);
@@ -103,7 +103,7 @@ public class Gen : ToolBase
     protected virtual String GetMethodList()
     {
         String maideText;
-        maideText = this.ToolInfra.StorageTextRead(this.MethodFileName);
+        maideText = this.StorageTextRead(this.MethodFileName);
 
         Text ka;
         ka = this.TextCreate(maideText);
@@ -145,7 +145,7 @@ public class Gen : ToolBase
     protected virtual String GetShareVarList()
     {
         String shareVarText;
-        shareVarText = this.ToolInfra.StorageTextRead(this.ShareVarFileName);
+        shareVarText = this.StorageTextRead(this.ShareVarFileName);
 
         Text k;
         k = this.TextCreate(shareVarText);
