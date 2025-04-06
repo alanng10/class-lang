@@ -590,7 +590,7 @@ public class Console : TextAdd
         String filePath;
         filePath = this.AddClear().Add(this.ClassInfra.ClassModulePath(this.ClassPath))
             .Add(this.TextInfra.PathCombine)
-            .Add(moduleRefString).Add(this.ClassInfra.Dot).Add(this.SRef).AddResult();
+            .Add(moduleRefString).Add(this.ClassInfra.TextDot).Add(this.SRef).AddResult();
 
         bool b;
         b = this.StorageInfra.DataWrite(filePath, data);
@@ -840,8 +840,6 @@ public class Console : TextAdd
 
     protected virtual bool ReadSourceText(bool hasFileExtend)
     {
-        InfraInfra infraInfra;
-        infraInfra = this.InfraInfra;
         TextInfra textInfra;
         textInfra = this.TextInfra;
         ClassInfra classInfra;
@@ -862,7 +860,7 @@ public class Console : TextAdd
         while (i < count)
         {
             Source a;
-            a = (Source)array.GetAt(i);
+            a = array.GetAt(i) as Source;
 
             String k;
             k = textInfra.Zero;
@@ -877,11 +875,8 @@ public class Console : TextAdd
             String h;
             h = this.StorageInfra.TextRead(filePath);
 
-            Text aa;
-            aa = textInfra.TextCreateStringData(h, null);
-
             Array text;
-            text = this.TextLimit(aa, this.TA(this.ClassInfra.NewLine));
+            text = this.TextLine(h);
    
             a.Text = text;
 
@@ -892,7 +887,7 @@ public class Console : TextAdd
 
     protected virtual bool Error(String message)
     {
-        this.Err.Write(this.AddClear().Add(message).Add(this.ClassInfra.NewLine).AddResult());
+        this.Err.Write(this.AddClear().Add(message).Add(this.TextInfra.NewLine).AddResult());
         return true;
     }
 }
