@@ -42,7 +42,7 @@ public class AvalonGen : AvalonSourceGen
         ka = this.TextCreate(this.S(" "));
 
         long n;
-        n = this.ToolInfra.TextIndex(k, ka);
+        n = this.TextIndex(k, ka);
 
         bool b;
         b = (n < 0);
@@ -55,7 +55,7 @@ public class AvalonGen : AvalonSourceGen
 
         if (!b)
         {
-            name = this.CreateText(k.Data, 0, n);
+            name = this.TextCreateDataRange(k.Data, 0, n);
 
             long index;
             index = n + 1;
@@ -64,7 +64,7 @@ public class AvalonGen : AvalonSourceGen
             long count;
             count = end - index;
 
-            value = this.CreateText(k.Data, n + 1, count);
+            value = this.TextCreateDataRange(k.Data, n + 1, count);
         }
 
         TableEntry a;
