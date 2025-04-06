@@ -9,24 +9,10 @@ public class Read : ToolBase
 
         this.NameCheck = new NameCheck();
         this.NameCheck.Init();
-        this.NameCheck.TextLess = this.ToolInfra.TextLess;
-        this.NameCheck.CharLess = this.ToolInfra.CharLess;
-        this.NameCheck.TextForm = this.ToolInfra.TextForm;
-
-        this.TextA = this.CreateText();
-        this.StringDataA = new StringData();
-        this.StringDataA.Init();
+        this.NameCheck.TextLess = this.TLess;
+        this.NameCheck.CharLess = this.ILess;
+        this.NameCheck.TextForm = this.TForm;
         return true;
-    }
-
-    private Text CreateText()
-    {
-        Text a;
-        a = new Text();
-        a.Init();
-        a.Range = new Range();
-        a.Range.Init();
-        return a;
     }
 
     public virtual long Execute()
@@ -46,21 +32,17 @@ public class Read : ToolBase
     public virtual Table MaideTable { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual NameCheck NameCheck { get; set; }
-    protected virtual Text TextA { get; set; }
-    protected virtual StringData StringDataA { get; set; }
 
     protected virtual bool SetMaideTable()
     {
         ListInfra listInfra;
         listInfra = this.ListInfra;
-        ToolInfra toolInfra;
-        toolInfra = this.ToolInfra;
 
         String ka;
-        ka = toolInfra.StorageTextRead(this.S("ToolData/Intern/MaideList.txt"));
+        ka = this.StorageTextRead(this.S("ToolData/Intern/MaideList.txt"));
 
         Array lineArray;        
-        lineArray = toolInfra.TextLimitLineString(this.TA(ka));
+        lineArray = this.TextLineString(ka);
 
         Table table;
         table = this.ClassInfra.TableCreateStringLess();

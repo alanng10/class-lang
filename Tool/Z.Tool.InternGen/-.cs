@@ -12,5 +12,4 @@ global using EntryEntry = Avalon.Entry.Entry;
 global using NameCheck = Saber.Infra.NameValid;
 global using ClassInfra = Saber.Infra.Infra;
 global using ToolBase = Z.Infra.Infra.Base;
-global using ToolInfra = Z.Infra.Infra.Infra;
 global using STAThreadAttribute = System.STAThreadAttribute;
