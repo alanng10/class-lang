@@ -1,12 +1,12 @@
 namespace Saber.Console;
 
-public class Console : ClassBase
+public class Console : TextAdd
 {
     public override bool Init()
     {
         base.Init();
-
         this.StorageInfra = StorageInfra.This;
+        this.ClassInfra = ClassInfra.This;
         this.StorageComp = StorageComp.This;
         this.TaskKind = TaskKindList.This;
 
@@ -61,6 +61,7 @@ public class Console : ClassBase
     public virtual Table ImportClass { get; set; }
     public virtual bool ErrorWrite { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
+    protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual StorageComp StorageComp { get; set; }
     protected virtual BinaryRead BinaryRead { get; set; }
     protected virtual BinaryWrite BinaryWrite { get; set; }
