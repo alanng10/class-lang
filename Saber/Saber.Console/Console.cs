@@ -5,6 +5,7 @@ public class Console : TextAdd
     public override bool Init()
     {
         base.Init();
+        this.ListInfra = ListInfra.This;
         this.StorageInfra = StorageInfra.This;
         this.ClassInfra = ClassInfra.This;
         this.StorageComp = StorageComp.This;
@@ -60,6 +61,7 @@ public class Console : TextAdd
     public virtual Table ModuleTable { get; set; }
     public virtual Table ImportClass { get; set; }
     public virtual bool ErrorWrite { get; set; }
+    protected virtual ListInfra ListInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual StorageComp StorageComp { get; set; }
