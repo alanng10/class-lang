@@ -1,12 +1,10 @@
 namespace Saber.Console;
 
-public class ClassGen : ClassBase
+public class ClassGen : TextAdd
 {
     public override bool Init()
     {
         base.Init();
-        this.ClassInfra = ClassInfra.This;
-
         this.CountOperate = new CountClassGenOperate();
         this.CountOperate.Gen = this;
         this.CountOperate.Init();
@@ -3177,7 +3175,7 @@ public class ClassGen : ClassBase
     public virtual bool TextIndent()
     {
         String indent;
-        indent = this.Indent;
+        indent = this.SIndent;
         long count;
         count = this.IndentCount;
         long i;
