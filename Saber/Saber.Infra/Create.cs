@@ -1,6 +1,6 @@
 namespace Saber.Infra;
 
-public class Create : Base
+public class Create : TextAdd
 {
     public virtual Stage Stage { get; set; }
 
