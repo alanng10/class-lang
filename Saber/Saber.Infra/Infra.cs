@@ -26,6 +26,8 @@ public class Infra : Any
         this.TextSpace = this.S(" ");
         this.TextQuote = this.S("\"");
         this.TextNext = this.S("\\");
+        this.TextAlphaN = this.S("n");
+        this.TextAlphaU = this.S("u");
         this.TextLine = this.S("_");
         this.TextDot = this.S(".");
         this.TextHyphen = this.S("-");
@@ -44,6 +46,8 @@ public class Infra : Any
     public virtual String TextSpace { get; set; }
     public virtual String TextQuote { get; set; }
     public virtual String TextNext { get; set; }
+    public virtual String TextAlphaN { get; set; }
+    public virtual String TextAlphaU { get; set; }
     public virtual String TextLine { get; set; }
     public virtual String TextDot { get; set; }
     public virtual String TextHyphen { get; set; }
