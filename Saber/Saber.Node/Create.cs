@@ -22,10 +22,10 @@ public class Create : InfraCreate
         this.NameValid = this.CreateNameValid();
         this.StringValueWrite = this.CreateStringValueWrite();
 
-        this.RangeA = this.CreateRange();
-        this.RangeB = this.CreateRange();
-        this.RangeC = this.CreateRange();
-        this.RangeD = this.CreateRange();
+        this.RangeA = this.CreateClassRange();
+        this.RangeB = this.CreateClassRange();
+        this.RangeC = this.CreateClassRange();
+        this.RangeD = this.CreateClassRange();
         this.TokenA = this.CreateToken();
         this.TokenB = this.CreateToken();
         this.TokenC = this.CreateToken();
@@ -156,7 +156,7 @@ public class Create : InfraCreate
         return a;
     }
 
-    protected virtual Range CreateRange()
+    protected virtual Range CreateClassRange()
     {
         Range a;
         a = new Range();
@@ -406,9 +406,9 @@ public class Create : InfraCreate
             newState.Result = null;
 
             Node node;
-            node = (Node)o;
+            node = o as Node;
             node.Init();
-            node.Range = this.CreateRange();
+            node.Range = this.CreateClassRange();
             array.SetAt(i, node);
 
             i = i + 1;
@@ -467,7 +467,7 @@ public class Create : InfraCreate
             error = new Error();
             error.Init();
             error.Stage = this.Stage;
-            error.Range = this.CreateRange();
+            error.Range = this.CreateClassRange();
 
             array.SetAt(i, error);
             i = i + 1;
@@ -1463,7 +1463,7 @@ public class Create : InfraCreate
         signNegative = this.IsTokenSignNegate(aa, 2);
 
         Text line;
-        line = (Text)this.SourceText.GetAt(aa.Row);
+        line = this.SourceText.GetAt(aa.Row) as Text;
         Text text;
         text = this.TextA;
         text.Data = line.Data;
@@ -1482,11 +1482,11 @@ public class Create : InfraCreate
         max = 0;
         if (!signNegative)
         {
-            max = this.ClassInfra.IntSignValuePositeMax;
+            max = this.ClassInfra.IntSignPositeMax;
         }
         if (signNegative)
         {
-            max = this.ClassInfra.IntSignValueNegateMax;
+            max = this.ClassInfra.IntSignNegateMax;
         }
 
         if (max < o)
@@ -1555,11 +1555,11 @@ public class Create : InfraCreate
         max = 0;
         if (!signNegative)
         {
-            max = this.ClassInfra.IntSignValuePositeMax;
+            max = this.ClassInfra.IntSignPositeMax;
         }
         if (signNegative)
         {
-            max = this.ClassInfra.IntSignValueNegateMax;
+            max = this.ClassInfra.IntSignNegateMax;
         }
 
         if (max < o)
