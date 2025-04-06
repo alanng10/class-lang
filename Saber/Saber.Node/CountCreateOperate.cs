@@ -76,8 +76,8 @@ public class CountCreateOperate : CreateOperate
         arg = this.Create.Arg;
 
         long index;
-        index = arg.NameValueIndex;
         long indexA;
+        index = arg.NameValueIndex;
         indexA = arg.NameValueTextIndex;
 
         index = index + 1;
@@ -94,8 +94,8 @@ public class CountCreateOperate : CreateOperate
         arg = this.Create.Arg;
 
         long index;
-        index = arg.StringValueIndex;
         long indexA;
+        index = arg.StringValueIndex;
         indexA = arg.StringValueTextIndex;
 
         long count;
