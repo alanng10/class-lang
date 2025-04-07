@@ -23,7 +23,7 @@ public class NodeGen : ToolBase
 
     public virtual bool Execute()
     {
-        this.NodeSourceText = this.ToolInfra.StorageTextRead(this.S("ToolData/Saber/NodeSource.txt"));
+        this.NodeSourceText = this.StorageTextRead(this.S("ToolData/Saber/NodeSource.txt"));
 
         Table table;
         table = this.ClassTable;
@@ -59,7 +59,7 @@ public class NodeGen : ToolBase
         String outputFilePath;
         outputFilePath = this.OutputFilePath(varClass);
 
-        this.ToolInfra.StorageTextWrite(outputFilePath, ka);
+        this.StorageTextWrite(outputFilePath, ka);
         return true;
     }
 
