@@ -46,11 +46,8 @@ class PrusateGen : ToolBase
         String maideListString;
         maideListString = this.GetMaideListString();
 
-        ToolInfra toolInfra;
-        toolInfra = ToolInfra.This;
-
         String ka;
-        ka = toolInfra.StorageTextRead(this.PrusateFileName);
+        ka = this.StorageTextRead(this.PrusateFileName);
 
         Text k;
         k = this.TextCreate(ka);
@@ -60,7 +57,7 @@ class PrusateGen : ToolBase
         String a;
         a = this.StringCreate(k);
 
-        toolInfra.StorageTextWrite(this.OutputFilePath, a);
+        this.StorageTextWrite(this.OutputFilePath, a);
         return true;
     }
 
