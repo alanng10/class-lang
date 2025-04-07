@@ -7,6 +7,12 @@ public class SourceSpace : Base
         base.Init();
         this.StorageComp = StorageComp.This;
 
+        this.NameLess = new TextLess();
+        this.NameLess.CharLess = this.ILess;
+        this.NameLess.LiteForm = this.TextInfra.AlphaSiteForm;
+        this.NameLess.RiteForm = this.TextInfra.AlphaSiteForm;
+        this.NameLess.Init();
+
         this.SActual = this.S("Actual");
         this.SOut = this.S("Out");
         this.SBin = this.S("bin");
@@ -17,6 +23,7 @@ public class SourceSpace : Base
 
     public virtual String Path { get; set; }
     protected virtual StorageComp StorageComp { get; set; }
+    protected virtual TextLess NameLess { get; set; }
     protected virtual String SActual { get; set; }
     protected virtual String SOut { get; set; }
     protected virtual String SBin { get; set; }
@@ -169,7 +176,7 @@ public class SourceSpace : Base
     protected virtual bool NameSame(String lite, String rite)
     {
         bool a;
-        a = this.TextSame(this.TextForm(this.TA(lite), this.TextInfra.AlphaSiteForm), this.TextForm(this.TB(rite), this.TextInfra.AlphaSiteForm));
+        a = this.TextInfra.Same(this.TA(lite), this.TB(rite), this.NameLess);
         return a;
     }
 }
