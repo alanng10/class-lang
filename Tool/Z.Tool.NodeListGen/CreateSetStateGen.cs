@@ -22,7 +22,7 @@ public class CreateSetStateGen : ToolBase
         this.SourceFileName = this.S("ToolData/Saber/CreateSetStateSource.txt");
 
         String kk;
-        kk = this.ToolInfra.StorageTextRead(this.SourceFileName);
+        kk = this.StorageTextRead(this.SourceFileName);
 
         Table table;
         table = this.ClassTable;
@@ -53,7 +53,7 @@ public class CreateSetStateGen : ToolBase
             String path;
             path = this.OutputFilePath(kind);
 
-            this.ToolInfra.StorageTextWrite(path, a);
+            this.StorageTextWrite(path, a);
         }
         return 0;
     }
