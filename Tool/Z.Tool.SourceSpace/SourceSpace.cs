@@ -29,6 +29,21 @@ public class SourceSpace : Base
         return 0;
     }
 
+    protected virtual bool ExecuteFold(String path)
+    {
+        Array foldList;
+        foldList = this.StorageComp.EntryList(path, true);
+
+        Array fileList;
+        fileList = this.StorageComp.EntryList(path, false);
+
+        this.ExecuteFoldList(path, foldList);
+
+        this.ExecuteFileList(path, fileList);
+
+        return true;
+    }
+
     protected virtual bool ExecuteFoldList(String path, Array array)
     {
         long count;
