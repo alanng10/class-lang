@@ -106,7 +106,7 @@ public class InternInfra : Any
         this.InternIntern.CopyToByteArray(value, a, 0, dataCount);
         return a;
     }
-    
+
     public virtual ulong StateCreate(MaideAddress maideAddress, ulong arg)
     {
         ulong a;
@@ -190,7 +190,7 @@ public class InternInfra : Any
     {
         ulong pos;
         ulong size;
-        
+
         pos = Extern.Rect_PosGet(rect);
 
         size = Extern.Rect_SizeGet(rect);
@@ -328,7 +328,7 @@ public class InternInfra : Any
         }
         return true;
     }
-    
+
     public virtual long DataMidGet(object data, long index)
     {
         return this.DataByteListGet(data, index, sizeof(uint));
