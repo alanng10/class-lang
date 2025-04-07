@@ -55,7 +55,7 @@ public class List : Any
         {
             this.FirstNode = node;
         }
-        
+
         this.LastNode = node;
 
         this.Count = this.Count + 1;

@@ -29,7 +29,7 @@ public class Infra : Any
         array = new Array();
         array.Count = list.Count;
         array.Init();
-        
+
         Iter iter;
         iter = list.IterCreate();
         list.IterSet(iter);

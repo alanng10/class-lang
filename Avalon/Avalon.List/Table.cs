@@ -102,7 +102,7 @@ public class Table : List
         {
             return null;
         }
-        
+
         ListNode u;
         u = this.ListNode(entry.Index);
         if (!(u == null))

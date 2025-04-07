@@ -76,7 +76,7 @@ public class Array : List
         {
             return false;
         }
-        
+
         this.InternIntern.ArraySet(this.Value, index, value);
         return true;
     }
