@@ -6,7 +6,7 @@ class Gen : ToolBase
 
     public virtual long Execute()
     {
-        this.SourceTemplate = this.ToolInfra.StorageTextRead(this.S("ToolData/Entry.txt"));
+        this.SourceTemplate = this.StorageTextRead(this.S("ToolData/Entry.txt"));
 
         this.ExecuteOne("Avalon.TextCodeKindList");
         this.ExecuteOne("Avalon.StorageStatusList");
@@ -69,7 +69,7 @@ class Gen : ToolBase
         String path;
         path = this.AddClear().AddS("../../Tool/Z.Tool.").Add(ka).AddS("/Entry.cs").AddResult();
 
-        this.ToolInfra.StorageTextWrite(path, a);
+        this.StorageTextWrite(path, a);
         return true;
     }
 }
