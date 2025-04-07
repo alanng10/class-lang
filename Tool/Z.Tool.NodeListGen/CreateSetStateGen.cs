@@ -34,7 +34,7 @@ public class CreateSetStateGen : ToolBase
         while (iter.Next())
         {
             Class varClass;
-            varClass = (Class)iter.Value;
+            varClass = iter.Value as Class;
 
             String kind;
             kind = varClass.Name;
