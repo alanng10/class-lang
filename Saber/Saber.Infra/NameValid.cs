@@ -1,42 +1,18 @@
 namespace Saber.Infra;
 
-public class NameValid : Any
+public class NameValid : TextAdd
 {
     public override bool Init()
     {
         base.Init();
-        this.TextInfra = TextInfra.This;
-        this.StringComp = StringComp.This;
-        this.StringValue = StringValue.This;
+        this.ClassInfra = Infra.This;
+
         this.IndexList = IndexList.This;
-
-        this.StringData = new StringData();
-        this.StringData.Init();
-
-        Text text;
-        text = new Text();
-        text.Init();
-        text.Range = new InfraRange();
-        text.Range.Init();
-        this.Text = text;
-
-        String o;
-        o = this.StringValue.Execute(".");
-
-        this.DotText = this.TextInfra.TextCreateStringData(o, null);
         return true;
     }
 
-    public virtual TextLess TextLess { get; set; }
-    public virtual LessInt CharLess { get; set; }
-    public virtual TextForm TextForm { get; set; }
-    protected virtual TextInfra TextInfra { get; set; }
-    protected virtual StringComp StringComp { get; set; }
-    protected virtual StringValue StringValue { get; set; }
+    protected virtual Infra ClassInfra { get; set; }
     protected virtual IndexList IndexList { get; set; }
-    protected virtual StringData StringData { get; set; }
-    protected virtual Text Text { get; set; }
-    protected virtual Text DotText { get; set; }
 
     public virtual bool Name(Text text)
     {
@@ -54,9 +30,9 @@ public class NameValid : Any
         textInfra = this.TextInfra;
 
         TextForm textForm;
-        textForm = this.TextForm;
+        textForm = this.TForm;
 
-        if (text.Range.Count < 1)
+        if (text.Range.Count == 0)
         {
             return false;
         }
@@ -78,6 +54,9 @@ public class NameValid : Any
             return false;
         }
 
+        long charLine;
+        charLine = this.Char(this.ClassInfra.TextLine);
+
         bool b;
         b = false;
 
@@ -98,7 +77,7 @@ public class NameValid : Any
             n = textForm.Execute(n);
 
             bool ba;
-            ba = textInfra.Alpha(n, true) | textInfra.Alpha(n, false) | textInfra.Digit(n) | n == '_';
+            ba = textInfra.Alpha(n, true) | textInfra.Alpha(n, false) | textInfra.Digit(n) | n == charLine;
 
             if (!ba)
             {
