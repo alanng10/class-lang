@@ -9,30 +9,16 @@ public class Read : ToolBase
 
         this.NameCheck = new NameCheck();
         this.NameCheck.Init();
-        this.NameCheck.TextLess = this.ToolInfra.TextLess;
-        this.NameCheck.CharLess = this.ToolInfra.CharLess;
-        this.NameCheck.TextForm = this.ToolInfra.TextForm;
+        this.NameCheck.TextLess = this.TLess;
+        this.NameCheck.CharLess = this.ILess;
+        this.NameCheck.TextForm = this.TForm;
 
         this.BoolClass = this.TextCreate(this.S("Bool"));
         this.IntClass = this.TextCreate(this.S("Int"));
         this.StringClass = this.TextCreate(this.S("String"));
 
-        this.TextA = this.CreateText();
-        this.StringDataA = new StringData();
-        this.StringDataA.Init();
-
         this.NodeListFilePath = this.S("ToolData/Saber/NodeList.txt");
         return true;
-    }
-
-    private Text CreateText()
-    {
-        Text a;
-        a = new Text();
-        a.Init();
-        a.Range = new Range();
-        a.Range.Init();
-        return a;
     }
 
     public virtual long Execute()
@@ -73,19 +59,14 @@ public class Read : ToolBase
     protected virtual Text BoolClass { get; set; }
     protected virtual Text IntClass { get; set; }
     protected virtual Text StringClass { get; set; }
-    protected virtual Text TextA { get; set; }
-    protected virtual StringData StringDataA { get; set; }
 
     protected virtual bool SetClassTable()
     {
-        ToolInfra infra;
-        infra = this.ToolInfra;
-
         String ka;
-        ka = infra.StorageTextRead(this.NodeListFilePath);
+        ka = this.StorageTextRead(this.NodeListFilePath);
 
         Array lineArray;        
-        lineArray = this.TextLimitLineString(this.TA(ka));
+        lineArray = this.TextLineString(ka);
 
         this.ClassTable = this.ClassInfra.TableCreateStringLess();
 
