@@ -398,7 +398,7 @@ public class Console : TextAdd
         }
 
         Array lineArray;
-        lineArray = this.TextLine(source);
+        lineArray = this.TextLine(this.TextCreate(source));
 
         PortRead read;
         read = this.PortRead;
@@ -876,7 +876,7 @@ public class Console : TextAdd
             h = this.StorageInfra.TextRead(filePath);
 
             Array text;
-            text = this.TextLine(h);
+            text = this.TextLine(this.TextCreate(h));
    
             a.Text = text;
 
