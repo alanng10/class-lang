@@ -37,13 +37,13 @@ class Read : ToolBase
     protected virtual bool SetClassTable()
     {
         String ka;
-        ka = this.ToolInfra.StorageTextRead(this.S("ToolData/Prusate/ClassList.txt"));
+        ka = this.StorageTextRead(this.S("ToolData/Prusate/ClassList.txt"));
 
         Array lineArray;        
-        lineArray = this.TextLimitLineString(this.TA(ka));
+        lineArray = this.TextLineString(ka);
 
         Table table;
-        table = this.ToolInfra.TableCreateStringLess();
+        table = this.TableCreateStringLess();
 
         this.ClassTable = table;
 
@@ -55,7 +55,7 @@ class Read : ToolBase
         while (i < count)
         {
             String line;
-            line = (String)lineArray.GetAt(i);
+            line = lineArray.GetAt(i) as String;
 
             bool b;
             b = this.SetClassArrayOneLine(line);
@@ -484,10 +484,10 @@ class Read : ToolBase
     protected virtual bool SetMaideArray()
     {
         String ka;
-        ka = this.ToolInfra.StorageTextRead(this.S("ToolData/Prusate/MaideList.txt"));
+        ka = this.StorageTextRead(this.S("ToolData/Prusate/MaideList.txt"));
 
         Array lineArray;
-        lineArray = this.TextLimitLineString(this.TA(ka));
+        lineArray = this.TextLineString(ka);
 
         long count;
         count = lineArray.Count;
