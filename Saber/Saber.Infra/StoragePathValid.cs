@@ -1,54 +1,39 @@
 namespace Saber.Infra;
 
-public class StoragePathValid : Any
+public class StoragePathValid : TextAdd
 {
     public override bool Init()
     {
         base.Init();
-        this.InfraInfra = InfraInfra.This;
-        this.TextInfra = TextInfra.This;
         this.StorageInfra = StorageInfra.This;
-        this.StringValue = StringValue.This;
 
-        LessInt charLess;
-        charLess = new LessInt();
-        charLess.Init();
-        TextForm textForm;
-        textForm = new TextForm();
-        textForm.Init();
-        this.TextLess = new TextLess();
-        this.TextLess.CharLess = charLess;
-        this.TextLess.LiteForm = textForm;
-        this.TextLess.RiteForm = textForm;
-        this.TextLess.Init();
-
-        this.Combine = this.TextInfra.TextCreateStringData(this.TextInfra.PathCombine, null);
-        this.Slash = this.TextInfra.TextCreateStringData(this.S("/"), null);
-        this.BackSlash = this.TextInfra.TextCreateStringData(this.S("\\"), null);
-        this.SlashSlash = this.TextInfra.TextCreateStringData(this.S("//"), null);
-        this.Dot = this.TextInfra.TextCreateStringData(this.S("."), null);
-        this.DotDot = this.TextInfra.TextCreateStringData(this.S(".."), null);
+        this.SSlash = this.S("/");
+        this.SNext = this.S("\\");
+        this.SSlashSlash = this.S("//");
+        this.SDot = this.S(".");
+        this.SDotDot = this.S("..");
         return true;
     }
 
-    protected virtual InfraInfra InfraInfra { get; set; }
-    protected virtual TextInfra TextInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
-    protected virtual StringValue StringValue { get; set; }
-    protected virtual TextLess TextLess { get; set; }
-    protected virtual Text Combine { get; set; }
-    protected virtual Text Slash { get; set; }
-    protected virtual Text BackSlash { get; set; }
-    protected virtual Text SlashSlash { get; set; }
-    protected virtual Text Dot { get; set; }
-    protected virtual Text DotDot { get; set; }
+    protected virtual String SSlash { get; set; }
+    protected virtual String SNext { get; set; }
+    protected virtual String SSlashSlash { get; set; }
+    protected virtual String SDot { get; set; }
+    protected virtual String SDotDot { get; set; }
 
-    public virtual bool IsValidSourcePath(Text text)
+    public virtual bool ValidSourcePath(Text text)
     {
-        TextInfra textInfra;
-        textInfra = this.TextInfra;
+        bool a;
+        a = this.PrivateValidSourcePath(text);
 
-        if (text.Range.Count < 1)
+        this.ClearData();
+        return a;
+    }
+
+    private bool PrivateValidSourcePath(Text text)
+    {
+        if (text.Range.Count == 0)
         {
             return false;
         }
@@ -61,28 +46,29 @@ public class StoragePathValid : Any
         text.Range.Index = ka + kb - 1;
         text.Range.Count = 1;
 
-        bool b;
-        b = textInfra.Same(text, this.Slash, this.TextLess);
-        
+        bool ba;
+        ba = this.TextSame(text, this.TA(this.SSlash));
+
         text.Range.Index = ka;
         text.Range.Count = kb;
 
-        if (b)
+        if (ba)
         {
             return false;
         }
 
-        long k;
-        k = textInfra.Index(text, this.BackSlash, this.TextLess);
+        long kaa;
+        kaa = this.TextIndex(text, this.TA(this.SNext));
 
-        if (!(k == -1))
+        if (!(kaa == -1))
         {
             return false;
-        }
+}
 
-        k = textInfra.Index(text, this.SlashSlash, this.TextLess);
+        long kab;
+        kab = this.TextIndex(text, this.TA(this.SSlashSlash));
 
-        if (!(k == -1))
+        if (!(kab == -1))
         {
             return false;
         }
@@ -90,17 +76,14 @@ public class StoragePathValid : Any
         return true;
     }
 
-    public virtual bool IsValidDestPath(Text text)
+    public virtual bool ValidDestPath(Text text)
     {
-        if (!this.IsValidSourcePath(text))
+        if (!this.ValidSourcePath(text))
         {
             return false;
         }
 
-        Less less;
-        less = this.TextLess;
-
-        if (!this.StorageInfra.PathRelate(text, less))
+        if (!this.StorageInfra.PathRelate(text, this.TLess))
         {
             return false;
         }
@@ -115,45 +98,39 @@ public class StoragePathValid : Any
 
     protected virtual bool HasDotOrnDotDot(Text text)
     {
-        TextInfra textInfra;
-        textInfra = this.TextInfra;
-
-        Less less;
-        less = this.TextLess;
-
         Text combine;
-        combine = this.Combine;
         Text dot;
-        dot = this.Dot;
         Text dotDot;
-        dotDot = this.DotDot;
+        combine = this.TA(this.TextInfra.PathCombine);
+        dot = this.TB(this.SDot);
+        dotDot = this.TC(this.SDotDot);
 
         long combineCount;
         combineCount = combine.Range.Count;
 
-        InfraRange textRange;
-        textRange = text.Range;
+        InfraRange range;
+        range = text.Range;
 
         long kaa;
         long kab;
-        kaa = textRange.Index;
-        kab = textRange.Count;
+        kaa = range.Index;
+        kab = range.Count;
 
         bool b;
         b = false;
 
         long kk;
-        kk = textInfra.Index(text, combine, less);
+        kk = this.TextIndex(text, combine);
         while (!b & !(kk == -1))
         {
-            long e;
-            e = textRange.Count;
+            long ke;
+            ke = range.Count;
 
-            textRange.Count = kk;
+            range.Count = kk;
 
             if (!b)
             {
-                if (textInfra.Same(text, dot, less))
+                if (this.TextSame(text, dot))
                 {
                     b = true;
                 }
@@ -161,7 +138,7 @@ public class StoragePathValid : Any
 
             if (!b)
             {
-                if (textInfra.Same(text, dotDot, less))
+                if (this.TextSame(text, dotDot))
                 {
                     b = true;
                 }
@@ -169,21 +146,21 @@ public class StoragePathValid : Any
 
             if (!b)
             {
-                textRange.Count = e;
+                range.Count = ke;
 
                 long ka;
                 ka = kk + combineCount;
 
-                textRange.Index = textRange.Index + ka;
-                textRange.Count = textRange.Count - ka;
+                range.Index = range.Index + ka;
+                range.Count = range.Count - ka;
 
-                kk = textInfra.Index(text, combine, less);
+                kk = this.TextIndex(text, combine);
             }
         }
 
         if (!b)
         {
-            if (textInfra.Same(text, dot, less))
+            if (this.TextSame(text, dot))
             {
                 b = true;
             }
@@ -191,25 +168,19 @@ public class StoragePathValid : Any
 
         if (!b)
         {
-            if (textInfra.Same(text, dotDot, less))
+            if (this.TextSame(text, dotDot))
             {
                 b = true;
             }
         }
 
-        textRange.Index = kaa;
-        textRange.Count = kab;
+        range.Index = kaa;
+        range.Count = kab;
 
-        if (b)
-        {
-            return true;
-        }
+        bool a;
+        a = b;
 
-        return false;
-    }
-
-    private String S(string o)
-    {
-        return this.StringValue.Execute(o);
+        this.ClearData();
+        return a;
     }
 }
