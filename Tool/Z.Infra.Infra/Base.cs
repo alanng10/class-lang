@@ -233,6 +233,22 @@ public class Base : Any
         return true;
     }
 
+    public virtual String StringBool(bool value)
+    {
+        String a;
+        a = null;
+
+        if (value)
+        {
+            a = this.TextInfra.BoolTrueString;
+        }
+        if (!value)
+        {
+            a = this.TextInfra.BoolFalseString;
+        }
+        return a;
+    }
+
     public virtual String StringInt(long n)
     {
         return this.StringIntFormat(n, 10, false, 1, -1, 0);
