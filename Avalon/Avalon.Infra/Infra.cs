@@ -114,7 +114,7 @@ public class Infra : Any
 
             int shiftCount;
             shiftCount = (int)(i * 8);
-            
+
             ulong o;
             o = ob;
             o = o << shiftCount;
@@ -157,7 +157,7 @@ public class Infra : Any
 
             ulong o;
             o = oo >> shiftCount;
-            
+
             byte ob;
             ob = (byte)o;
 
