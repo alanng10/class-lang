@@ -18,7 +18,7 @@ public class NodeStateGen : ToolBase
         this.NodeStateSourceFileName = this.S("ToolData/Saber/NodeStateSource.txt");
 
         String kk;
-        kk = this.ToolInfra.StorageTextRead(this.NodeStateSourceFileName);
+        kk = this.StorageTextRead(this.NodeStateSourceFileName);
 
         Table table;
         table = this.ClassTable;
@@ -45,7 +45,7 @@ public class NodeStateGen : ToolBase
             String path;
             path = this.OutputFilePath(kind);
 
-            this.ToolInfra.StorageTextWrite(path, a);
+            this.StorageTextWrite(path, a);
         }
         return 0;
     }
