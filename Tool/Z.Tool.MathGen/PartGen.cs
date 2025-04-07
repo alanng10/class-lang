@@ -15,13 +15,10 @@ class PartGen : ToolBase
 
     public virtual bool Execute()
     {
-        ToolInfra toolInfra;
-        toolInfra = this.ToolInfra;
-
-        this.TextPart = toolInfra.StorageTextRead(this.PartFilePath);
-        this.TextMaide = toolInfra.StorageTextRead(this.MaideFilePath);
-        this.TextMaideTwo = toolInfra.StorageTextRead(this.MaideTwoFilePath);
-        this.TextMaideOperate = toolInfra.StorageTextRead(this.MaideOperateFilePath);
+        this.TextPart = this.StorageTextRead(this.PartFilePath);
+        this.TextMaide = this.StorageTextRead(this.MaideFilePath);
+        this.TextMaideTwo = this.StorageTextRead(this.MaideTwoFilePath);
+        this.TextMaideOperate = this.StorageTextRead(this.MaideOperateFilePath);
 
         String ka;
         ka = this.GetPart();
@@ -33,15 +30,12 @@ class PartGen : ToolBase
         String a;
         a = this.StringCreate(k);
 
-        toolInfra.StorageTextWrite(this.OutputFilePath, a);
+        this.StorageTextWrite(this.OutputFilePath, a);
         return true;
     }
 
     protected virtual String GetPart()
     {
-        ToolInfra toolInfra;
-        toolInfra = this.ToolInfra;
-
         this.AddClear();
 
         bool ba;
@@ -59,7 +53,7 @@ class PartGen : ToolBase
             }
 
             Maide aa;
-            aa = (Maide)iter.Value;
+            aa = iter.Value as Maide;
 
             String a;
             a = this.MaideString(aa);
