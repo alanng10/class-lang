@@ -18,7 +18,7 @@ public class NewStateGen : ToolBase
         this.NewStateSourceFileName = this.S("ToolData/Saber/NewStateSource.txt");
 
         String kk;
-        kk = this.ToolInfra.StorageTextRead(this.NewStateSourceFileName);
+        kk = this.StorageTextRead(this.NewStateSourceFileName);
 
         Table table;
         table = this.ClassTable;
@@ -45,7 +45,7 @@ public class NewStateGen : ToolBase
             String path;
             path = this.OutputFilePath(kind);
 
-            this.ToolInfra.StorageTextWrite(path, a);
+            this.StorageTextWrite(path, a);
         }
         return 0;
     }
