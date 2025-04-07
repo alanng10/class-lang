@@ -42,7 +42,7 @@ public class Read : ToolBase
         ka = this.StorageTextRead(this.S("ToolData/Intern/MaideList.txt"));
 
         Array lineArray;        
-        lineArray = this.TextLineString(ka);
+        lineArray = this.StringLine(this.TextCreate(ka));
 
         Table table;
         table = this.ClassInfra.TableCreateStringLess();
