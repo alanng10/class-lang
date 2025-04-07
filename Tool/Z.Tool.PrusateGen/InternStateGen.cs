@@ -20,7 +20,7 @@ class InternStateGen : ExternGen
 
     public override bool Execute()
     {
-        this.TextInternState = this.ToolInfra.StorageTextRead(this.S("ToolData/Prusate/InternExternState.txt"));
+        this.TextInternState = this.StorageTextRead(this.S("ToolData/Prusate/InternExternState.txt"));
         return base.Execute();
     }
 
@@ -48,9 +48,9 @@ class InternStateGen : ExternGen
         kk.Init();
 
         StringAdd ke;
-        ke = this.ToolInfra.StringAdd;
+        ke = this.StringAdd;
 
-        this.ToolInfra.StringAdd = kk;
+        this.StringAdd = kk;
 
         this.AddClear();
         
@@ -134,7 +134,7 @@ class InternStateGen : ExternGen
         String a;
         a = this.StringCreate(k);
 
-        this.ToolInfra.StringAdd = ke;
+        this.StringAdd = ke;
 
         this.Add(a);
 
