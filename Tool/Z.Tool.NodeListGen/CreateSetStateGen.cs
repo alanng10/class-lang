@@ -26,7 +26,7 @@ public class CreateSetStateGen : ToolBase
 
         Table table;
         table = this.ClassTable;
-        
+
         Iter iter;
         iter = table.IterCreate();
         table.IterSet(iter);
