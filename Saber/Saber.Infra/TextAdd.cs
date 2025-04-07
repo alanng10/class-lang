@@ -487,11 +487,8 @@ public class TextAdd : Any
         return this.TextInfra.Place(text, limit, join, this.TLess);
     }
 
-    public virtual Array TextLine(String value)
+    public virtual Array TextLine(Text text)
     {
-        Text text;
-        text = this.TextCreate(value);
-
         Array a;
         a =  this.TextLimit(text, this.TE(this.TextInfra.NewLine));
         return a;
