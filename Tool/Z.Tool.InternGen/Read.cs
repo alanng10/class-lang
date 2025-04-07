@@ -55,7 +55,7 @@ public class Read : ToolBase
         while (i < count)
         {
             String line;
-            line = (String)lineArray.GetAt(i);
+            line = lineArray.GetAt(i) as String;
 
             Maide maide;
             maide = this.GetMaide(line);
