@@ -86,7 +86,7 @@ public class Gen : ToolBase
         String a;
         a = this.StorageTextRead(this.ItemListFileName);
 
-        this.LineArray = this.TextLine(a);
+        this.LineArray = this.StringLine(this.TextCreate(a));
 
         this.ItemTable = this.TableCreateStringLess();
 
@@ -96,7 +96,7 @@ public class Gen : ToolBase
         while (iter.Next())
         {
             String line;
-            line = (String)iter.Value;
+            line = iter.Value as String;
 
             TableEntry entry;
             entry = this.GetItemEntry(line);
