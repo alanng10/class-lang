@@ -118,10 +118,10 @@ public class Read : ToolBase
             delimit = this.StringCreate(textDelimit);
 
             bool ba;
-            ba = this.GetBool(operandTwo);
+            ba = this.BoolText(this.TA(operandTwo));
 
             bool bb;
-            bb = this.GetBool(operate);
+            bb = this.BoolText(this.TA(operate));
 
             String kc;
             kc = null;
