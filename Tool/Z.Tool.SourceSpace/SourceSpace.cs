@@ -47,6 +47,8 @@ public class SourceSpace : Base
 
                 String kk;
                 kk = this.StorageTextRead(ka);
+
+                this.ExecuteText(ka, kk);
             }
         }
 
