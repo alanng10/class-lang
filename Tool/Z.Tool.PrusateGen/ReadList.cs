@@ -114,10 +114,10 @@ public class ReadList : ToolBase
         listFilePath = this.GetListFilePath(classNameK);
 
         String k;
-        k = this.ToolInfra.StorageTextRead(listFilePath);
+        k = this.StorageTextRead(listFilePath);
 
         Array array;
-        array = this.TextLimitLineString(this.TA(k));
+        array = this.TextLineString(k);
 
         Text space;
         space = this.TextCreate(this.S(" "));
