@@ -45,7 +45,7 @@ public class Gen : ToolBase
     public virtual long Execute()
     {
         String ua;
-        ua = this.ToolInfra.StorageTextRead(this.S("ToolData/Svg.txt"));
+        ua = this.StorageTextRead(this.S("ToolData/Svg.txt"));
 
         Text text;
         text = this.TextCreate(ua);
@@ -70,7 +70,7 @@ public class Gen : ToolBase
         String output;
         output = this.StringCreate(k);
 
-        this.ToolInfra.StorageTextWrite(this.OutputFilePath, output);
+        this.StorageTextWrite(this.OutputFilePath, output);
 
         return 0;
     }
