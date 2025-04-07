@@ -288,6 +288,10 @@ Word "fail" has meaning that is result not valid.
 
 Word "test" has meaning that is whether valid.
 
+Word "expect" has meaning that is expected result.
+
+Word "actual" has meaning that is actual result.
+
 Word "root" has meaning that is origin entity.
 
 Word "most" has meaning that is highest.
