@@ -7,6 +7,9 @@ class Entry : EntryEntry
         SourceSpace k;
         k = new SourceSpace();
         k.Init();
+
+        k.Path = this.Arg.GetAt(0) as String;
+
         long a;
         a = k.Execute();
         return a;
