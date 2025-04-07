@@ -10,7 +10,6 @@ global using Text = Avalon.Text.Text;
 global using StringAdd = Avalon.Text.StringAdd;
 global using EntryEntry = Avalon.Entry.Entry;
 global using ToolBase = Z.Infra.Infra.Base;
-global using ToolInfra = Z.Infra.Infra.Infra;
 global using MathMaide = Z.Tool.MathGen.Maide;
 global using MathRead = Z.Tool.MathGen.Read;
 global using STAThreadAttribute = System.STAThreadAttribute;

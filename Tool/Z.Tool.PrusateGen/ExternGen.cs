@@ -92,7 +92,7 @@ class ExternGen : PrusateGen
 
     protected override bool AddFunctionHeader()
     {
-        this.ToolInfra.AddIndent(1);
+        this.AddIndent(1);
 
         this
             .AddS("[")
