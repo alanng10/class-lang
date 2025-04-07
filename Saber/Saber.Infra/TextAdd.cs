@@ -231,13 +231,13 @@ public class TextAdd : Any
         String a;
         a = null;
 
-        if (!value)
-        {
-            a = this.TextInfra.BoolFalseString;
-        }
         if (value)
         {
             a = this.TextInfra.BoolTrueString;
+        }
+        if (!value)
+        {
+            a = this.TextInfra.BoolFalseString;
         }
         return a;
     }
