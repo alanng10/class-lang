@@ -843,7 +843,7 @@ public class PortLoad : TextAdd
 
             if (!ba)
             {
-                if (!pathValid.IsValidSourcePath(this.TA(sourcePathA)))
+                if (!pathValid.ValidSourcePath(this.TA(sourcePathA)))
                 {
                     this.ErrorAdd(this.ErrorKind.StorageSourceUnvalid, sourcePath);
 
@@ -853,7 +853,7 @@ public class PortLoad : TextAdd
 
             if (!ba)
             {
-                if (!pathValid.IsValidDestPath(this.TA(destPath)))
+                if (!pathValid.ValidDestPath(this.TA(destPath)))
                 {
                     this.ErrorAdd(this.ErrorKind.StorageDestUnvalid, destPath);
 

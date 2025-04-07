@@ -94,9 +94,6 @@ public class Console : TextAdd
         NameValid a;
         a = new NameValid();
         a.Init();
-        a.TextLess = this.TLess;
-        a.CharLess = this.ILess;
-        a.TextForm = this.TForm;
         return a;
     }
 
