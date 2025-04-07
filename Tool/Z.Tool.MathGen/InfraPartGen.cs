@@ -28,14 +28,14 @@ class InfraPartGen : PartGen
         h.Init();
 
         StringJoin kk;
-        kk = this.ToolInfra.StringAdd;
+        kk = this.StringAdd;
 
-        this.ToolInfra.StringAdd = h;
+        this.StringAdd = h;
 
         String a;
         a = this.AddClear().AddS("std::").Add(ka).AddResult();
 
-        this.ToolInfra.StringAdd = kk;
+        this.StringAdd = kk;
 
         return a;
     }
