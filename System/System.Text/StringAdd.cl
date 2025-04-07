@@ -65,7 +65,7 @@ class StringAdd : Any
         {
             var Int ka;
             ka : capacity * 2;
-            
+
             var Int kd;
             kd : ka * kka;
 
