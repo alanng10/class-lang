@@ -12,8 +12,8 @@ public class MaideAddress : Any
     }
 
     public virtual ulong Value { get; set; }
-    
+
     public virtual SystemDelegate Delegate { get; set; }
-    
+
     protected virtual Intern InternIntern { get; set; }
 }
