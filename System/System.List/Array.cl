@@ -42,7 +42,7 @@ class Array : List
     {
         var Int k;
         k : cast Int(index);
-        
+
         return this.InfraInfra.ValidIndex(this.Count, k);
     }
 
@@ -52,10 +52,10 @@ class Array : List
         {
             return null;
         }
-        
+
         var Int k;
         k : cast Int(index);
-        
+
         return this.InternIntern.ArrayGet(this.Value, k);
     }
 

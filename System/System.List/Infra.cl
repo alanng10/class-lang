@@ -15,7 +15,7 @@ class Infra : Any
         array : new Array;
         array.Count : list.Count;
         array.Init();
-        
+
         var Iter iter;
         iter : list.IterCreate();
         list.IterSet(iter);

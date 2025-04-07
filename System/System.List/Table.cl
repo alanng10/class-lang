@@ -100,7 +100,7 @@ class Table : List
         {
             return null;
         }
-        
+
         var ListNode u;
         u : this.ListNode(entry.Index);
         inf (~(u = null))
