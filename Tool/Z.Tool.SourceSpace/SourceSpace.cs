@@ -53,13 +53,31 @@ public class SourceSpace : Base
         return true;
     }
 
-    protected virtual bool ExecuteText(String text)
+    protected virtual bool ExecuteText(String path, String text)
     {
         Text ka;
         ka = this.TextCreate(text);
 
-        Array lineArray;
-        lineArray = this.TextLine(ka);
+        Array array;
+        array = this.TextLine(ka);
+
+        long count;
+        count = array.Count;
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            Text kk;
+            kk = array.GetAt(i) as Text;
+
+            if (this.TextEnd(kk, this.TA(this.SSpace)))
+            {
+                this.Console.Out.Write(this.AddClear().Add(path).AddS(" : ").Add(this.StringInt(i + 1)).AddLine().AddResult());
+            }
+
+            i = i + 1;
+        }
 
         return true;
     }
