@@ -97,34 +97,34 @@ public class NameValid : TextAdd
         textInfra = this.TextInfra;
 
         Less less;
-        less = this.TextLess;
+        less = this.TLess;
 
         Text dot;
-        dot = this.DotText;
+        dot = this.TA(this.ClassInfra.TextDot);
 
         InfraRange range;
         range = text.Range;
 
-        long aa;
-        long ab;
-        aa = range.Index;
-        ab = range.Count;
-        long ac;
-        ac = aa + ab;
+        long ka;
+        long kb;
+        ka = range.Index;
+        kb = range.Count;
+        long kc;
+        kc = ka + kb;
 
         bool b;
         b = false;
 
-        long u;
-        u = textInfra.Index(text, dot, less);
+        long kk;
+        kk = textInfra.Index(text, dot, less);
 
         long index;
         long count;
-        index = aa;
-        count = ab;
-        while (!b & !(u == -1))
+        index = ka;
+        count = kb;
+        while (!b & !(kk == -1))
         {
-            count = u;
+            count = kk;
             range.Count = count;
 
             if (!this.NamePart(text))
@@ -134,13 +134,13 @@ public class NameValid : TextAdd
 
             if (!b)
             {
-                index = index + u + 1;
-                count = ac - index;
+                index = index + kk + 1;
+                count = kc - index;
 
                 range.Index = index;
                 range.Count = count;
 
-                u = textInfra.Index(text, dot, less);
+                kk = textInfra.Index(text, dot, less);
             }
         }
 
@@ -156,7 +156,7 @@ public class NameValid : TextAdd
         }
         if (!ba)
         {
-            count = ac - index;
+            count = kc - index;
             range.Count = count;
 
             if (!this.NamePart(text))
@@ -165,11 +165,13 @@ public class NameValid : TextAdd
             }
         }
 
-        range.Index = aa;
-        range.Count = ab;
+        range.Index = ka;
+        range.Count = kb;
 
         bool a;
         a = !ba;
+
+        this.ClearData();
         return a;
     }
 
