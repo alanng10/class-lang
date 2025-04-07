@@ -494,11 +494,8 @@ public class Base : Any
         return this.TextInfra.Place(text, limit, join, this.TLess);
     }
 
-    public virtual Array TextLine(String value)
+    public virtual Array TextLine(Text text)
     {
-        Text text;
-        text = this.TextCreate(value);
-
         Array a;
         a =  this.TextLimit(text, this.TE(this.TextInfra.NewLine));
         return a;
@@ -626,10 +623,10 @@ public class Base : Any
         return this.TextInfra.S(o);
     }
 
-    public virtual Array TextLineString(String value)
+    public virtual Array StringLine(Text text)
     {
         Array array;
-        array = this.TextLine(value);
+        array = this.TextLine(text);
 
         long count;
         count = array.Count;
