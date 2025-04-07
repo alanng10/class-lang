@@ -21,7 +21,7 @@ public class SourceSpace : Base
         return 0;
     }
 
-    protected virtual bool FileList(String path, Array array)
+    protected virtual bool ExecuteFileList(String path, Array array)
     {
         long count;
         count = array.Count;
@@ -47,10 +47,10 @@ public class SourceSpace : Base
 
                 String kk;
                 kk = this.StorageTextRead(ka);
-
-                
             }
         }
+
+        return true;
     }
 
     protected virtual bool ExecuteText(String text)
