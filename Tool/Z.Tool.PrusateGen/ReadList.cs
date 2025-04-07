@@ -117,7 +117,7 @@ public class ReadList : ToolBase
         k = this.StorageTextRead(listFilePath);
 
         Array array;
-        array = this.TextLineString(k);
+        array = this.StringLine(this.TextCreate(k));
 
         Text space;
         space = this.TextCreate(this.S(" "));
