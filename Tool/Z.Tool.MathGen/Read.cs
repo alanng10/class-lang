@@ -11,14 +11,11 @@ public class Read : ToolBase
 
     public virtual long Execute()
     {
-        ToolInfra toolInfra;
-        toolInfra = this.ToolInfra;
+        this.TextList = this.StorageTextRead(this.S("ToolData/Math/List.txt"));
+        this.TextTrigoList = this.StorageTextRead(this.S("ToolData/Math/TrigoList.txt"));
 
-        this.TextList = toolInfra.StorageTextRead(this.S("ToolData/Math/List.txt"));
-        this.TextTrigoList = toolInfra.StorageTextRead(this.S("ToolData/Math/TrigoList.txt"));
-
-        this.LineList = toolInfra.TextLimitLineString(this.TA(this.TextList));
-        this.TrigoLineList = toolInfra.TextLimitLineString(this.TA(this.TextTrigoList));
+        this.LineList = this.TextLineString(this.TextList);
+        this.TrigoLineList = this.TextLineString(this.TextTrigoList);
 
         bool b;
         b = this.SetTrigoTable();
@@ -27,7 +24,7 @@ public class Read : ToolBase
             return 450;
         }
 
-        this.MaideTable = toolInfra.TableCreateStringLess();
+        this.MaideTable = this.TableCreateStringLess();
 
         b = this.ExecuteMaideList();
         if (!b)
@@ -66,8 +63,6 @@ public class Read : ToolBase
     {
         ListInfra listInfra;
         listInfra = this.ListInfra;
-        ToolInfra toolInfra;
-        toolInfra = this.ToolInfra;
 
         Table table;
         table = this.MaideTable;
@@ -123,10 +118,10 @@ public class Read : ToolBase
             delimit = this.StringCreate(textDelimit);
 
             bool ba;
-            ba = toolInfra.GetBool(operandTwo);
+            ba = this.GetBool(operandTwo);
 
             bool bb;
-            bb = toolInfra.GetBool(operate);
+            bb = this.GetBool(operate);
 
             String kc;
             kc = null;
@@ -204,14 +199,12 @@ public class Read : ToolBase
     {
         ListInfra listInfra;
         listInfra = this.ListInfra;
-        ToolInfra toolInfra;
-        toolInfra = this.ToolInfra;
 
         Array k;
         k = this.TrigoLineList;
-        
+
         Table table;
-        table = toolInfra.TableCreateStringLess();
+        table = this.TableCreateStringLess();
 
         long count;
         count = k.Count;
