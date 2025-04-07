@@ -183,41 +183,33 @@ public class NameValid : TextAdd
         indexList = this.IndexList;
 
         TextLess less;
-        less = this.TextLess;
+        less = this.TLess;
 
-        Text oo;
-        oo = this.Text;
+        bool b;
+        b = false;
+
         long count;
         count = indexList.Count;
         long i;
         i = 0;
-        while (i < count)
+        while (!b & i < count)
         {
-            Index a;
-            a = indexList.Get(i);
-            String o;
-            o = a.Text;
+            Index ka;
+            ka = indexList.Get(i);
+            String kb;
+            kb = ka.Text;
 
-            this.TextStringGet(oo, o);
-
-            if (textInfra.Same(text, oo, less))
+            if (textInfra.Same(text, this.TA(kb), less))
             {
-                return true;
+                b = true;
             }
             i = i + 1;
         }
-        return false;
-    }
 
-    protected virtual bool TextStringGet(Text text, String o)
-    {
-        StringData d;
-        d = this.StringData;
-        d.ValueString = o;
+        bool a;
+        a = b;
 
-        text.Data = d;
-        text.Range.Index = 0;
-        text.Range.Count = this.StringComp.Count(o);
-        return true;
+        this.ClearData();
+        return a;
     }
 }
