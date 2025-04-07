@@ -20,13 +20,13 @@ public class TravelClassPathGen : TravelGen
 
     public override bool Execute()
     {
-        this.TextSource = this.ToolInfra.StorageTextRead(this.PathSource);
-        this.TextNode = this.ToolInfra.StorageTextRead(this.PathNode);
-        this.TextDerive = this.ToolInfra.StorageTextRead(this.PathDerive);
-        this.TextExecuteNode = this.ToolInfra.StorageTextRead(this.PathExecuteNode);
-        this.TextArray = this.ToolInfra.StorageTextRead(this.PathArray);
-        this.TextField = this.ToolInfra.StorageTextRead(this.PathField);
-        this.TextInitStringMaide = this.ToolInfra.StorageTextRead(this.GetPath(this.S("ClassPathInitStringMaide")));
+        this.TextSource = this.StorageTextRead(this.PathSource);
+        this.TextNode = this.StorageTextRead(this.PathNode);
+        this.TextDerive = this.StorageTextRead(this.PathDerive);
+        this.TextExecuteNode = this.StorageTextRead(this.PathExecuteNode);
+        this.TextArray = this.StorageTextRead(this.PathArray);
+        this.TextField = this.StorageTextRead(this.PathField);
+        this.TextInitStringMaide = this.StorageTextRead(this.GetPath(this.S("ClassPathInitStringMaide")));
 
         this.TextVirtual = this.Virtual();
 
@@ -50,7 +50,7 @@ public class TravelClassPathGen : TravelGen
         String a;
         a = this.StringCreate(k);
 
-        this.ToolInfra.StorageTextWrite(this.PathOutput, a);
+        this.StorageTextWrite(this.PathOutput, a);
         return true;
     }
 
@@ -67,7 +67,7 @@ public class TravelClassPathGen : TravelGen
     protected virtual bool SetFieldTable()
     {
         Table table;
-        table = this.ToolInfra.TableCreateStringLess();
+        table = this.TableCreateStringLess();
 
         Table classTable;
         classTable = this.ClassTable;
@@ -245,16 +245,16 @@ public class TravelClassPathGen : TravelGen
             h.Init();
 
             StringJoin hh;
-            hh = this.ToolInfra.StringAdd;
+            hh = this.StringAdd;
 
-            this.ToolInfra.StringAdd = h;
+            this.StringAdd = h;
 
             this.AddClear().AddS("Node").Add(className);
 
             String a;
             a = this.AddResult();
 
-            this.ToolInfra.StringAdd = hh;
+            this.StringAdd = hh;
 
             return a;
             
