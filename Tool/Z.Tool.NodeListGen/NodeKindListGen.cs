@@ -23,7 +23,7 @@ public class NodeKindListGen : SourceGen
 
     protected override bool ExecuteItemList()
     {   
-        this.ItemTable = this.ToolInfra.TableCreateStringLess();
+        this.ItemTable = this.TableCreateStringLess();
 
         Table table;
         table = this.ClassTable;
