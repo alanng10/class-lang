@@ -32,7 +32,7 @@ class ConsoleIntern : Any
     {
         ulong k;
         k = this.InternInfra.StringCreate(a);
-        
+
         Extern.Console_OutWrite(this.Intern, k);
 
         this.InternInfra.StringDelete(k);
@@ -43,7 +43,7 @@ class ConsoleIntern : Any
     {
         ulong k;
         k = this.InternInfra.StringCreate(a);
-        
+
         Extern.Console_ErrWrite(this.Intern, k);
 
         this.InternInfra.StringDelete(k);

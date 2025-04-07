@@ -95,7 +95,7 @@ public class Entry : Any
 
         return true;
     }
-    
+
     public virtual Array Arg
     {
         get; set;

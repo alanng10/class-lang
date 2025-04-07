@@ -112,7 +112,7 @@ public class Program : Any
         {
             this.InternInfra.StringDelete(workFoldU);
         }
-        
+
         this.InternStringListDelete(argueU);
 
         this.InternInfra.StringDelete(nameU);
@@ -247,7 +247,7 @@ public class Program : Any
 
             ulong oa;
             oa = (ulong)index;
-            
+
             ulong k;
             k = Extern.Array_ItemGet(a, oa);
             ulong ka;
