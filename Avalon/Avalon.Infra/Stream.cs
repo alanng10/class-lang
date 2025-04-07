@@ -37,7 +37,7 @@ public class Stream : Any
             Extern.Stream_Final(this.Intern);
             Extern.Stream_Delete(this.Intern);
         }
-        
+
         Extern.Range_Final(this.InternRange);
         Extern.Range_Delete(this.InternRange);
 
