@@ -6,7 +6,7 @@ public class Handle : Any
     {
         base.Init();
         this.InternIntern = Intern.This;
-                
+
         this.GCHandle = SystemGCHandle.Alloc(this.Any);
         return true;
     }

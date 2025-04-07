@@ -15,7 +15,7 @@ public class Data : Any
     public virtual long Count { get; set; }
     private Intern InternIntern { get; set; }
     protected virtual Infra InfraInfra { get; set; }
-    
+
     protected virtual bool InitValue()
     {
         this.Value = this.InternIntern.DataNew(this.Count);
