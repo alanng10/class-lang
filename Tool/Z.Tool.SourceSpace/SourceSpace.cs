@@ -94,6 +94,8 @@ public class SourceSpace : Base
 
                 this.ExecuteFold(ka);
             }
+
+            i = i + 1;
         }
 
         return true;
@@ -128,6 +130,8 @@ public class SourceSpace : Base
 
                 this.ExecuteText(ka, kk);
             }
+
+            i = i + 1;
         }
 
         return true;
