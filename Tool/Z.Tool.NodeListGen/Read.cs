@@ -66,7 +66,7 @@ public class Read : ToolBase
         ka = this.StorageTextRead(this.NodeListFilePath);
 
         Array lineArray;        
-        lineArray = this.TextLineString(ka);
+        lineArray = this.StringLine(this.TextCreate(ka));
 
         this.ClassTable = this.ClassInfra.TableCreateStringLess();
 
