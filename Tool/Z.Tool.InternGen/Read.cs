@@ -9,9 +9,6 @@ public class Read : ToolBase
 
         this.NameCheck = new NameCheck();
         this.NameCheck.Init();
-        this.NameCheck.TextLess = this.TLess;
-        this.NameCheck.CharLess = this.ILess;
-        this.NameCheck.TextForm = this.TForm;
         return true;
     }
 
