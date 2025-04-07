@@ -40,7 +40,7 @@ class Read : ToolBase
         ka = this.StorageTextRead(this.S("ToolData/Prusate/ClassList.txt"));
 
         Array lineArray;        
-        lineArray = this.TextLineString(ka);
+        lineArray = this.StringLine(this.TextCreate(ka));
 
         Table table;
         table = this.TableCreateStringLess();
@@ -487,7 +487,7 @@ class Read : ToolBase
         ka = this.StorageTextRead(this.S("ToolData/Prusate/MaideList.txt"));
 
         Array lineArray;
-        lineArray = this.TextLineString(ka);
+        lineArray = this.StringLine(this.TextCreate(ka));
 
         long count;
         count = lineArray.Count;
