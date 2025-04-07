@@ -38,12 +38,12 @@ public class TravelGen : ToolBase
 
     public virtual bool Execute()
     {
-        this.TextSource = this.ToolInfra.StorageTextRead(this.PathSource);
-        this.TextNode = this.ToolInfra.StorageTextRead(this.PathNode);
-        this.TextDerive = this.ToolInfra.StorageTextRead(this.PathDerive);
-        this.TextExecuteNode = this.ToolInfra.StorageTextRead(this.PathExecuteNode);
-        this.TextArray = this.ToolInfra.StorageTextRead(this.PathArray);
-        this.TextField = this.ToolInfra.StorageTextRead(this.PathField);
+        this.TextSource = this.StorageTextRead(this.PathSource);
+        this.TextNode = this.StorageTextRead(this.PathNode);
+        this.TextDerive = this.StorageTextRead(this.PathDerive);
+        this.TextExecuteNode = this.StorageTextRead(this.PathExecuteNode);
+        this.TextArray = this.StorageTextRead(this.PathArray);
+        this.TextField = this.StorageTextRead(this.PathField);
 
         this.TextVirtual = this.Virtual();
 
@@ -57,7 +57,7 @@ public class TravelGen : ToolBase
         String a;
         a = this.StringCreate(k);
 
-        this.ToolInfra.StorageTextWrite(this.PathOutput, a);
+        this.StorageTextWrite(this.PathOutput, a);
         return true;
     }
 
@@ -148,9 +148,9 @@ public class TravelGen : ToolBase
         h.Init();
 
         StringJoin hh;
-        hh = this.ToolInfra.StringAdd;
+        hh = this.StringAdd;
 
-        this.ToolInfra.StringAdd = h;
+        this.StringAdd = h;
 
         this.AddClear();
 
@@ -189,7 +189,7 @@ public class TravelGen : ToolBase
         String a;
         a = this.AddResult();
 
-        this.ToolInfra.StringAdd = hh;
+        this.StringAdd = hh;
 
         return a;
     }
@@ -201,9 +201,9 @@ public class TravelGen : ToolBase
         h.Init();
 
         StringJoin hh;
-        hh = this.ToolInfra.StringAdd;
+        hh = this.StringAdd;
 
-        this.ToolInfra.StringAdd = h;
+        this.StringAdd = h;
 
         this.AddClear();
 
@@ -241,7 +241,7 @@ public class TravelGen : ToolBase
         String a;
         a = this.AddResult();
 
-        this.ToolInfra.StringAdd = hh;
+        this.StringAdd = hh;
 
         return a;
     }
@@ -253,9 +253,9 @@ public class TravelGen : ToolBase
         h.Init();
 
         StringJoin hh;
-        hh = this.ToolInfra.StringAdd;
+        hh = this.StringAdd;
 
-        this.ToolInfra.StringAdd = h;
+        this.StringAdd = h;
 
         this.AddClear();
 
@@ -297,7 +297,7 @@ public class TravelGen : ToolBase
         String a;
         a = this.AddResult();
 
-        this.ToolInfra.StringAdd = hh;
+        this.StringAdd = hh;
 
         return a;
     }
@@ -386,9 +386,9 @@ public class TravelGen : ToolBase
         h.Init();
 
         StringJoin hh;
-        hh = this.ToolInfra.StringAdd;
+        hh = this.StringAdd;
 
-        this.ToolInfra.StringAdd = h;
+        this.StringAdd = h;
 
         if (b)
         {
@@ -416,7 +416,7 @@ public class TravelGen : ToolBase
             a = this.AddClear().Add(kh).Add(ke).AddResult();
         }
 
-        this.ToolInfra.StringAdd = hh;
+        this.StringAdd = hh;
 
         return a;
     }
