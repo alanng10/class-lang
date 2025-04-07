@@ -11,6 +11,7 @@ public class SourceSpace : Base
         this.SOut = this.S("Out");
         this.SBin = this.S("bin");
         this.SObj = this.S("obj");
+        this.SDotVSCode = this.S(".vscode");
         return true;
     }
 
@@ -20,6 +21,7 @@ public class SourceSpace : Base
     protected virtual String SOut { get; set; }
     protected virtual String SBin { get; set; }
     protected virtual String SObj { get; set; }
+    protected virtual String SDotVSCode { get; set; }
 
     public virtual long Execute()
     {
@@ -62,10 +64,20 @@ public class SourceSpace : Base
                     b = true;
                 }
             }
+            if (!b)
+            {
+                if (this.NameSame(name, this.SDotVSCode))
+                {
+                    b = true;
+                }
+            }
 
             if (!b)
             {
-                
+                String ka;
+                ka = this.AddClear().Add(path).Add(this.TextInfra.PathCombine).Add(name).AddResult();
+
+                this.ExecuteFold(ka);
             }
         }
 
