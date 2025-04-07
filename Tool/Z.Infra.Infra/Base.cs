@@ -290,6 +290,18 @@ public class Base : Any
         return a;
     }
 
+    public virtual bool BoolText(Text text)
+    {
+        bool k;
+        k = false;
+
+        if (this.TextSame(text, this.TE(this.TextInfra.BoolTrueString)))
+        {
+            k = true;
+        }
+        return k;
+    }
+
     public virtual long IntText(Text text, long varBase)
     {
         return this.IntParse.Execute(text, varBase, null);
