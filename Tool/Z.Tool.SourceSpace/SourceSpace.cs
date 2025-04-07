@@ -25,7 +25,7 @@ public class SourceSpace : Base
 
     public virtual long Execute()
     {
-        
+        this.ExecuteFold(this.Path);
         return 0;
     }
 
