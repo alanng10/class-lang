@@ -6,17 +6,16 @@ public class NewStateGen : ToolBase
     {
         base.Init();
         this.OutputFoldPath = this.S("../../Saber/Saber.Node");
+        this.NewStateSourceFileName = this.S("ToolData/Saber/NewStateSource.txt");
         return true;
     }
 
     public virtual Table ClassTable { get; set; }
     protected virtual String OutputFoldPath { get; set; }
-    private String NewStateSourceFileName { get; set; }
+    protected virtual String NewStateSourceFileName { get; set; }
 
     public virtual int Execute()
     {
-        this.NewStateSourceFileName = this.S("ToolData/Saber/NewStateSource.txt");
-
         String kk;
         kk = this.StorageTextRead(this.NewStateSourceFileName);
 
