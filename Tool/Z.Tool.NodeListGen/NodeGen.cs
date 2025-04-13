@@ -10,10 +10,12 @@ public class NodeGen : ToolBase
         this.BoolClassWord = this.S("bool");
         this.IntClassWord = this.S("long");
         this.OutputFoldPath = this.S("../../Saber/Saber.Node");
+        this.NodeSourceFileName = this.S("ToolData/Saber/NodeSource.txt");
         return true;
     }
 
     public virtual Table ClassTable { get; set; }
+    protected virtual String NodeSourceFileName { get; set; }
     protected virtual String NodeSourceText { get; set; }
     protected virtual String OutputFoldPath { get; set; }
     protected virtual Text BoolClass { get; set; }
@@ -23,7 +25,7 @@ public class NodeGen : ToolBase
 
     public virtual bool Execute()
     {
-        this.NodeSourceText = this.StorageTextRead(this.S("ToolData/Saber/NodeSource.txt"));
+        this.NodeSourceText = this.StorageTextRead(this.NodeSourceFileName);
 
         Table table;
         table = this.ClassTable;
