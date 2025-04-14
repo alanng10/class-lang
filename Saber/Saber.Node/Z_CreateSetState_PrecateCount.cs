@@ -5,12 +5,12 @@ public class PrecateCountCreateSetState : CreateSetState
     public override bool Execute()
     {
         CreateSetStateArg arg;
-        arg = (CreateSetStateArg)this.Arg;
+        arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
         k = arg.SetArg;
 
         PrecateCount node;
-        node = (PrecateCount)arg.Node;
+        node = arg.Node as PrecateCount;
         return true;
     }
 }

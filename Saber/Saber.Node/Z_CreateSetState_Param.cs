@@ -5,13 +5,13 @@ public class ParamCreateSetState : CreateSetState
     public override bool Execute()
     {
         CreateSetStateArg arg;
-        arg = (CreateSetStateArg)this.Arg;
+        arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
         k = arg.SetArg;
 
         Param node;
-        node = (Param)arg.Node;
-        node.Value = (Array)k.Field00;
+        node = arg.Node as Param;
+        node.Value = k.Field00 as Array;
         return true;
     }
 }

@@ -5,12 +5,12 @@ public class PrivateCountCreateSetState : CreateSetState
     public override bool Execute()
     {
         CreateSetStateArg arg;
-        arg = (CreateSetStateArg)this.Arg;
+        arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
         k = arg.SetArg;
 
         PrivateCount node;
-        node = (PrivateCount)arg.Node;
+        node = arg.Node as PrivateCount;
         return true;
     }
 }

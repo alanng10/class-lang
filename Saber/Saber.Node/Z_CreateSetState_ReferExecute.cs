@@ -5,13 +5,13 @@ public class ReferExecuteCreateSetState : CreateSetState
     public override bool Execute()
     {
         CreateSetStateArg arg;
-        arg = (CreateSetStateArg)this.Arg;
+        arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
         k = arg.SetArg;
 
         ReferExecute node;
-        node = (ReferExecute)arg.Node;
-        node.Var = (Var)k.Field00;
+        node = arg.Node as ReferExecute;
+        node.Var = k.Field00 as Var;
         return true;
     }
 }

@@ -5,14 +5,14 @@ public class CastOperateCreateSetState : CreateSetState
     public override bool Execute()
     {
         CreateSetStateArg arg;
-        arg = (CreateSetStateArg)this.Arg;
+        arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
         k = arg.SetArg;
 
         CastOperate node;
-        node = (CastOperate)arg.Node;
-        node.Class = (ClassName)k.Field00;
-        node.Any = (Operate)k.Field01;
+        node = arg.Node as CastOperate;
+        node.Class = k.Field00 as ClassName;
+        node.Any = k.Field01 as Operate;
         return true;
     }
 }

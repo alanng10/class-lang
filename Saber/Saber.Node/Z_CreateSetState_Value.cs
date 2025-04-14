@@ -5,12 +5,12 @@ public class ValueCreateSetState : CreateSetState
     public override bool Execute()
     {
         CreateSetStateArg arg;
-        arg = (CreateSetStateArg)this.Arg;
+        arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
         k = arg.SetArg;
 
         Value node;
-        node = (Value)arg.Node;
+        node = arg.Node as Value;
         return true;
     }
 }

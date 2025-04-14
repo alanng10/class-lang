@@ -5,12 +5,12 @@ public class BoolValueCreateSetState : CreateSetState
     public override bool Execute()
     {
         CreateSetStateArg arg;
-        arg = (CreateSetStateArg)this.Arg;
+        arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
         k = arg.SetArg;
 
         BoolValue node;
-        node = (BoolValue)arg.Node;
+        node = arg.Node as BoolValue;
         node.Value = k.FieldBool;
         return true;
     }

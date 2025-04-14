@@ -5,12 +5,12 @@ public class CompCreateSetState : CreateSetState
     public override bool Execute()
     {
         CreateSetStateArg arg;
-        arg = (CreateSetStateArg)this.Arg;
+        arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
         k = arg.SetArg;
 
         Comp node;
-        node = (Comp)arg.Node;
+        node = arg.Node as Comp;
         return true;
     }
 }

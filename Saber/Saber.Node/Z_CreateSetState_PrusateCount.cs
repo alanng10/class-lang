@@ -5,12 +5,12 @@ public class PrusateCountCreateSetState : CreateSetState
     public override bool Execute()
     {
         CreateSetStateArg arg;
-        arg = (CreateSetStateArg)this.Arg;
+        arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
         k = arg.SetArg;
 
         PrusateCount node;
-        node = (PrusateCount)arg.Node;
+        node = arg.Node as PrusateCount;
         return true;
     }
 }

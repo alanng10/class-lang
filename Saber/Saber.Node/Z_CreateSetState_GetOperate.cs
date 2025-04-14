@@ -5,14 +5,14 @@ public class GetOperateCreateSetState : CreateSetState
     public override bool Execute()
     {
         CreateSetStateArg arg;
-        arg = (CreateSetStateArg)this.Arg;
+        arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
         k = arg.SetArg;
 
         GetOperate node;
-        node = (GetOperate)arg.Node;
-        node.This = (Operate)k.Field00;
-        node.Field = (FieldName)k.Field01;
+        node = arg.Node as GetOperate;
+        node.This = k.Field00 as Operate;
+        node.Field = k.Field01 as FieldName;
         return true;
     }
 }

@@ -5,14 +5,14 @@ public class BitRiteOperateCreateSetState : CreateSetState
     public override bool Execute()
     {
         CreateSetStateArg arg;
-        arg = (CreateSetStateArg)this.Arg;
+        arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
         k = arg.SetArg;
 
         BitRiteOperate node;
-        node = (BitRiteOperate)arg.Node;
-        node.Value = (Operate)k.Field00;
-        node.Count = (Operate)k.Field01;
+        node = arg.Node as BitRiteOperate;
+        node.Value = k.Field00 as Operate;
+        node.Count = k.Field01 as Operate;
         return true;
     }
 }

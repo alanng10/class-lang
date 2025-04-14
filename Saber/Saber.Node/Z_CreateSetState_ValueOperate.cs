@@ -5,13 +5,13 @@ public class ValueOperateCreateSetState : CreateSetState
     public override bool Execute()
     {
         CreateSetStateArg arg;
-        arg = (CreateSetStateArg)this.Arg;
+        arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
         k = arg.SetArg;
 
         ValueOperate node;
-        node = (ValueOperate)arg.Node;
-        node.Value = (Value)k.Field00;
+        node = arg.Node as ValueOperate;
+        node.Value = k.Field00 as Value;
         return true;
     }
 }

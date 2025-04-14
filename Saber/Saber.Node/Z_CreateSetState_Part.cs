@@ -5,13 +5,13 @@ public class PartCreateSetState : CreateSetState
     public override bool Execute()
     {
         CreateSetStateArg arg;
-        arg = (CreateSetStateArg)this.Arg;
+        arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
         k = arg.SetArg;
 
         Part node;
-        node = (Part)arg.Node;
-        node.Value = (Array)k.Field00;
+        node = arg.Node as Part;
+        node.Value = k.Field00 as Array;
         return true;
     }
 }

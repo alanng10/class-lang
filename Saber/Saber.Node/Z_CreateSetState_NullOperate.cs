@@ -5,12 +5,12 @@ public class NullOperateCreateSetState : CreateSetState
     public override bool Execute()
     {
         CreateSetStateArg arg;
-        arg = (CreateSetStateArg)this.Arg;
+        arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
         k = arg.SetArg;
 
         NullOperate node;
-        node = (NullOperate)arg.Node;
+        node = arg.Node as NullOperate;
         return true;
     }
 }

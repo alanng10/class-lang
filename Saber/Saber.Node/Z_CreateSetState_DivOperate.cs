@@ -5,14 +5,14 @@ public class DivOperateCreateSetState : CreateSetState
     public override bool Execute()
     {
         CreateSetStateArg arg;
-        arg = (CreateSetStateArg)this.Arg;
+        arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
         k = arg.SetArg;
 
         DivOperate node;
-        node = (DivOperate)arg.Node;
-        node.Lite = (Operate)k.Field00;
-        node.Rite = (Operate)k.Field01;
+        node = arg.Node as DivOperate;
+        node.Lite = k.Field00 as Operate;
+        node.Rite = k.Field01 as Operate;
         return true;
     }
 }

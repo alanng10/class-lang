@@ -5,12 +5,12 @@ public class IntHexSignValueCreateSetState : CreateSetState
     public override bool Execute()
     {
         CreateSetStateArg arg;
-        arg = (CreateSetStateArg)this.Arg;
+        arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
         k = arg.SetArg;
 
         IntHexSignValue node;
-        node = (IntHexSignValue)arg.Node;
+        node = arg.Node as IntHexSignValue;
         node.Value = k.FieldInt;
         return true;
     }

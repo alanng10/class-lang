@@ -5,13 +5,13 @@ public class ShareOperateCreateSetState : CreateSetState
     public override bool Execute()
     {
         CreateSetStateArg arg;
-        arg = (CreateSetStateArg)this.Arg;
+        arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
         k = arg.SetArg;
 
         ShareOperate node;
-        node = (ShareOperate)arg.Node;
-        node.Class = (ClassName)k.Field00;
+        node = arg.Node as ShareOperate;
+        node.Class = k.Field00 as ClassName;
         return true;
     }
 }

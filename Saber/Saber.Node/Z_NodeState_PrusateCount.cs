@@ -5,8 +5,8 @@ public class PrusateCountNodeState : NodeState
     public override bool Execute()
     {
         Range range;
-        range = (Range)this.Arg;
-        
+        range = this.Arg as Range;
+
         this.Result = this.Create.ExecutePrusateCount(range);
         return true;
     }

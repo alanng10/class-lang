@@ -5,13 +5,13 @@ public class ReturnExecuteCreateSetState : CreateSetState
     public override bool Execute()
     {
         CreateSetStateArg arg;
-        arg = (CreateSetStateArg)this.Arg;
+        arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
         k = arg.SetArg;
 
         ReturnExecute node;
-        node = (ReturnExecute)arg.Node;
-        node.Result = (Operate)k.Field00;
+        node = arg.Node as ReturnExecute;
+        node.Result = k.Field00 as Operate;
         return true;
     }
 }

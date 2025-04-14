@@ -5,15 +5,15 @@ public class CallOperateCreateSetState : CreateSetState
     public override bool Execute()
     {
         CreateSetStateArg arg;
-        arg = (CreateSetStateArg)this.Arg;
+        arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
         k = arg.SetArg;
 
         CallOperate node;
-        node = (CallOperate)arg.Node;
-        node.This = (Operate)k.Field00;
-        node.Maide = (MaideName)k.Field01;
-        node.Argue = (Argue)k.Field02;
+        node = arg.Node as CallOperate;
+        node.This = k.Field00 as Operate;
+        node.Maide = k.Field01 as MaideName;
+        node.Argue = k.Field02 as Argue;
         return true;
     }
 }

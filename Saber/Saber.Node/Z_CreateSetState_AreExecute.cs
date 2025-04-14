@@ -5,14 +5,14 @@ public class AreExecuteCreateSetState : CreateSetState
     public override bool Execute()
     {
         CreateSetStateArg arg;
-        arg = (CreateSetStateArg)this.Arg;
+        arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
         k = arg.SetArg;
 
         AreExecute node;
-        node = (AreExecute)arg.Node;
-        node.Mark = (Mark)k.Field00;
-        node.Value = (Operate)k.Field01;
+        node = arg.Node as AreExecute;
+        node.Mark = k.Field00 as Mark;
+        node.Value = k.Field01 as Operate;
         return true;
     }
 }

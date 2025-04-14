@@ -5,13 +5,13 @@ public class NotOperateCreateSetState : CreateSetState
     public override bool Execute()
     {
         CreateSetStateArg arg;
-        arg = (CreateSetStateArg)this.Arg;
+        arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
         k = arg.SetArg;
 
         NotOperate node;
-        node = (NotOperate)arg.Node;
-        node.Value = (Operate)k.Field00;
+        node = arg.Node as NotOperate;
+        node.Value = k.Field00 as Operate;
         return true;
     }
 }

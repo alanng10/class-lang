@@ -5,13 +5,13 @@ public class MaideNameCreateSetState : CreateSetState
     public override bool Execute()
     {
         CreateSetStateArg arg;
-        arg = (CreateSetStateArg)this.Arg;
+        arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
         k = arg.SetArg;
 
         MaideName node;
-        node = (MaideName)arg.Node;
-        node.Value = (String)k.Field00;
+        node = arg.Node as MaideName;
+        node.Value = k.Field00 as String;
         return true;
     }
 }

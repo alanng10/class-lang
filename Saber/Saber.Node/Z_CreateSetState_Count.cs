@@ -5,12 +5,12 @@ public class CountCreateSetState : CreateSetState
     public override bool Execute()
     {
         CreateSetStateArg arg;
-        arg = (CreateSetStateArg)this.Arg;
+        arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
         k = arg.SetArg;
 
         Count node;
-        node = (Count)arg.Node;
+        node = arg.Node as Count;
         return true;
     }
 }

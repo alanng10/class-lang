@@ -5,13 +5,13 @@ public class BraceOperateCreateSetState : CreateSetState
     public override bool Execute()
     {
         CreateSetStateArg arg;
-        arg = (CreateSetStateArg)this.Arg;
+        arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
         k = arg.SetArg;
 
         BraceOperate node;
-        node = (BraceOperate)arg.Node;
-        node.Any = (Operate)k.Field00;
+        node = arg.Node as BraceOperate;
+        node.Any = k.Field00 as Operate;
         return true;
     }
 }

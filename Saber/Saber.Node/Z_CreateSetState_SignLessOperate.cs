@@ -5,14 +5,14 @@ public class SignLessOperateCreateSetState : CreateSetState
     public override bool Execute()
     {
         CreateSetStateArg arg;
-        arg = (CreateSetStateArg)this.Arg;
+        arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
         k = arg.SetArg;
 
         SignLessOperate node;
-        node = (SignLessOperate)arg.Node;
-        node.Lite = (Operate)k.Field00;
-        node.Rite = (Operate)k.Field01;
+        node = arg.Node as SignLessOperate;
+        node.Lite = k.Field00 as Operate;
+        node.Rite = k.Field01 as Operate;
         return true;
     }
 }

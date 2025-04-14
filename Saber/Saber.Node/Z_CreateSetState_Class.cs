@@ -5,15 +5,15 @@ public class ClassCreateSetState : CreateSetState
     public override bool Execute()
     {
         CreateSetStateArg arg;
-        arg = (CreateSetStateArg)this.Arg;
+        arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
         k = arg.SetArg;
 
         Class node;
-        node = (Class)arg.Node;
-        node.Name = (ClassName)k.Field00;
-        node.Base = (ClassName)k.Field01;
-        node.Part = (Part)k.Field02;
+        node = arg.Node as Class;
+        node.Name = k.Field00 as ClassName;
+        node.Base = k.Field01 as ClassName;
+        node.Part = k.Field02 as Part;
         return true;
     }
 }
