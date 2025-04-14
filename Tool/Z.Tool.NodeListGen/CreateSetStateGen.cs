@@ -8,6 +8,7 @@ public class CreateSetStateGen : ToolBase
         this.BoolClass = this.TextCreate(this.S("Bool"));
         this.IntClass = this.TextCreate(this.S("Int"));
         this.OutputFoldPath = this.S("../../Saber/Saber.Node");
+        this.SourceFileName = this.S("ToolData/Saber/CreateSetStateSource.txt");
         return true;
     }
 
@@ -19,8 +20,6 @@ public class CreateSetStateGen : ToolBase
 
     public virtual long Execute()
     {
-        this.SourceFileName = this.S("ToolData/Saber/CreateSetStateSource.txt");
-
         String kk;
         kk = this.StorageTextRead(this.SourceFileName);
 
