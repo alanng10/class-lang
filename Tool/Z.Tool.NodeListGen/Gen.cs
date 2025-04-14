@@ -13,45 +13,46 @@ public class Gen : Any
             return oo;
         }
 
-        Table classTable;
-        classTable = read.ClassTable;
+        this.ClassTable = read.ClassTable;
 
         NodeGen nodeGen;
         nodeGen = this.CreateNodeGen();
-        nodeGen.ClassTable = classTable;
+        nodeGen.ClassTable = this.ClassTable;
         nodeGen.Execute();
 
         NewStateGen newStateGen;
         newStateGen = this.CreateNewStateGen();
-        newStateGen.ClassTable = classTable;
+        newStateGen.ClassTable = this.ClassTable;
         newStateGen.Execute();
 
         NodeStateGen nodeStateGen;
         nodeStateGen = this.CreateNodeStateGen();
-        nodeStateGen.ClassTable = classTable;
+        nodeStateGen.ClassTable = this.ClassTable;
         nodeStateGen.Execute();
 
         CreateSetStateGen createSetStateGen;
         createSetStateGen = this.CreateCreateSetStateGen();
-        createSetStateGen.ClassTable = classTable;
+        createSetStateGen.ClassTable = this.ClassTable;
         createSetStateGen.Execute();
 
         NodeKindListGen nodeKindListGen;
         nodeKindListGen = this.CreateNodeKindListGen();
-        nodeKindListGen.ClassTable = classTable;
+        nodeKindListGen.ClassTable = this.ClassTable;
         nodeKindListGen.Execute();
 
         TravelGen travelGen;
         travelGen = this.CreateTravelGen();
-        travelGen.ClassTable = classTable;
+        travelGen.ClassTable = this.ClassTable;
         travelGen.Execute();
 
         TravelClassPathGen travelClassPathGen;
         travelClassPathGen = this.CreateTravelClassPathGen();
-        travelClassPathGen.ClassTable = classTable;
+        travelClassPathGen.ClassTable = this.ClassTable;
         travelClassPathGen.Execute();
         return 0;
     }
+
+    protected virtual Table ClassTable { get; set; }
 
     protected virtual Read CreateRead()
     {
