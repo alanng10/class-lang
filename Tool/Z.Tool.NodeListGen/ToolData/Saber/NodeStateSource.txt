@@ -6,7 +6,7 @@ public class #NodeKind#NodeState : NodeState
     {
         Range range;
         range = this.Arg as Range;
-        
+
         this.Result = this.Create.Execute#NodeKind#(range);
         return true;
     }
