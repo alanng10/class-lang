@@ -5,12 +5,12 @@ public class #NodeKind#CreateSetState : CreateSetState
     public override bool Execute()
     {
         CreateSetStateArg arg;
-        arg = (CreateSetStateArg)this.Arg;
+        arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
         k = arg.SetArg;
 
         #NodeKind# node;
-        node = (#NodeKind#)arg.Node;
+        node = arg.Node as #NodeKind#;
 #FieldSetList#        return true;
     }
 }
