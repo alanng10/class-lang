@@ -35,10 +35,7 @@ public class Gen : Any
         createSetStateGen.ClassTable = this.ClassTable;
         createSetStateGen.Execute();
 
-        NodeKindListGen nodeKindListGen;
-        nodeKindListGen = this.CreateNodeKindListGen();
-        nodeKindListGen.ClassTable = this.ClassTable;
-        nodeKindListGen.Execute();
+        this.ExecuteNodeKindList();
 
         TravelGen travelGen;
         travelGen = this.CreateTravelGen();
@@ -116,5 +113,14 @@ public class Gen : Any
         a = new TravelClassPathGen();
         a.Init();
         return a;
+    }
+
+    protected virtual bool ExecuteNodeKindList()
+    {
+        NodeKindListGen nodeKindListGen;
+        nodeKindListGen = this.CreateNodeKindListGen();
+        nodeKindListGen.ClassTable = this.ClassTable;
+        nodeKindListGen.Execute();
+        return true;
     }
 }
