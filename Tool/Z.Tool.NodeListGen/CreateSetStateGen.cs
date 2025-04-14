@@ -96,11 +96,6 @@ public class CreateSetStateGen : ToolBase
             .AddS("node").AddS(".").Add(field.Name)
             .AddS(" ").AddS("=").AddS(" ");
 
-        if (!isValueClass)
-        {
-            this.AddS("(").Add(className).AddS(")");
-        }
-
         this.AddS("k").AddS(".");
 
         if (isValueClass)
@@ -110,6 +105,11 @@ public class CreateSetStateGen : ToolBase
         if (!isValueClass)
         {
             this.AddArgFieldName(index, className);
+        }
+
+        if (!isValueClass)
+        {
+            this.Add(this.SSpace).AddS("as").Add(this.SSpace).Add(className);
         }
 
         this.AddS(";").AddLine();
@@ -148,12 +148,9 @@ public class CreateSetStateGen : ToolBase
     }
 
     protected virtual bool AddArgFieldName(long index, String className)
-    {
-        string u;
-        u = index.ToString("x2");
-        
+    {   
         String fieldIndex;
-        fieldIndex = this.S(u);
+        fieldIndex = this.StringIntFormat(index, 10, false, 2, 2, '0');
 
         this.AddS("Field").Add(fieldIndex);
 
