@@ -75,7 +75,7 @@ public class TravelGen : ToolBase
         while (iter.Next())
         {
             Class varClass;
-            varClass = (Class)iter.Value;
+            varClass = iter.Value as Class;
 
             String nodeString;
             nodeString = this.Node(varClass);
