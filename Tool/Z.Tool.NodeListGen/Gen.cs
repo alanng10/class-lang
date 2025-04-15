@@ -42,10 +42,10 @@ public class Gen : Any
         travelGen.ClassTable = this.ClassTable;
         travelGen.Execute();
 
-        TravelClassPathGen travelClassPathGen;
-        travelClassPathGen = this.CreateTravelClassPathGen();
-        travelClassPathGen.ClassTable = this.ClassTable;
-        travelClassPathGen.Execute();
+        TravelPathGen travelPathGen;
+        travelPathGen = this.CreateTravelPathGen();
+        travelPathGen.ClassTable = this.ClassTable;
+        travelPathGen.Execute();
         return 0;
     }
 
@@ -107,10 +107,10 @@ public class Gen : Any
         return a;
     }
 
-    protected virtual TravelClassPathGen CreateTravelClassPathGen()
+    protected virtual TravelPathGen CreateTravelPathGen()
     {
-        TravelClassPathGen a;
-        a = new TravelClassPathGen();
+        TravelPathGen a;
+        a = new TravelPathGen();
         a.Init();
         return a;
     }
