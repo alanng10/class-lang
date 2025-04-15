@@ -1,6 +1,6 @@
 namespace Saber.Node;
 
-public class Travel : Any
+public class Travel : TextAdd
 {
 #NodeList#    protected virtual bool ExecuteNode(Node node)
     {
