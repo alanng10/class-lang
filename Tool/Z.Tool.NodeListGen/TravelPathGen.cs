@@ -12,11 +12,13 @@ public class TravelPathGen : TravelGen
         this.PathArray = this.GetPath(this.S("PathArray"));
         this.PathExecuteNode = this.GetPath(this.S("PathExecuteNode"));
         this.PathField = this.GetPath(this.S("PathField"));
+        this.ValueOverride = this.S("override");
         return true;
     }
 
     protected virtual String TextInitStringMaide { get; set; }
     protected virtual Table FieldTable { get; set; }
+    protected virtual String ValueOverride { get; set; }
 
     public override bool Execute()
     {
@@ -265,6 +267,6 @@ public class TravelPathGen : TravelGen
 
     protected override String Virtual()
     {
-        return this.S("override");
+        return this.ValueOverride;
     }
 }
