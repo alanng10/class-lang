@@ -206,35 +206,35 @@ public class TravelPathGen : TravelGen
         b = false;
         if (!b)
         {
-            if (this.TextSame(k, this.TextCreate(this.S("Class"))))
+            if (this.TextSame(k, this.TA(this.SClass)))
             {
                 b = true;
             }
         }
         if (!b)
         {
-            if (this.TextSame(k, this.TextCreate(this.S("Field"))))
+            if (this.TextSame(k, this.TA(this.SField)))
             {
                 b = true;
             }
         }
         if (!b)
         {
-            if (this.TextSame(k, this.TextCreate(this.S("Maide"))))
+            if (this.TextSame(k, this.TA(this.SMaide)))
             {
                 b = true;
             }
         }
         if (!b)
         {
-            if (this.TextSame(k, this.TextCreate(this.S("Var"))))
+            if (this.TextSame(k, this.TA(this.SVar)))
             {
                 b = true;
             }
         }
         if (!b)
         {
-            if (this.TextSame(k, this.TextCreate(this.S("Count"))))
+            if (this.TextSame(k, this.TA(this.SCount)))
             {
                 b = true;
             }
