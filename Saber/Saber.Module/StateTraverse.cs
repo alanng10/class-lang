@@ -29,7 +29,6 @@ public class StateTraverse : Traverse
     }
 
     protected virtual ListInfra ListInfra { get; set; }
-    protected virtual TextInfra TextInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual TextStringValue TextStringValue { get; set; }
     protected virtual SystemClass System { get; set; }
@@ -1472,10 +1471,5 @@ public class StateTraverse : Traverse
         iter.Clear();
 
         return null;
-    }
-
-    private String S(string o)
-    {
-        return this.TextStringValue.Execute(o);
     }
 }
