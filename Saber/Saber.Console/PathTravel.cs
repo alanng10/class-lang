@@ -93,48 +93,33 @@ public partial class PathTravel : Travel
 
     protected virtual bool SetFieldNameIndex()
     {
-        Text path;
-        path = this.Path;
-        InfraRange range;
-        range = path.Range;
+        this.TextA.Data = this.Path.Data;
+        this.TextA.Range.Index = this.Path.Range.Index + this.Field.Index;
+        this.TextA.Range.Count = this.Field.Count;
 
-        InfraRange field;
-        field = this.Field;
-
-        InfraRange fieldName;
-        fieldName = this.FieldName;
-
-        Text textA;
-        textA = this.TextA;
-        textA.Data = path.Data;
-        InfraRange rangeA;
-        rangeA = textA.Range;
-        rangeA.Index = range.Index + field.Index;
-        rangeA.Count = field.Count;
-
-        long u;
-        u = this.BraceRightLiteIndex(textA);
+        long ka;
+        ka = this.BraceRightLiteIndex(this.TextA);
 
         bool b;
-        b = (u < 0);
+        b = (ka < 0);
 
         if (!b)
         {
-            long leftSquareIndex;
-            leftSquareIndex = u;
+            long braceRightLite;
+            braceRightLite = ka;
 
-            this.Index = this.GetIndex(this.Field, leftSquareIndex);
+            this.Index = this.GetIndex(this.Field, braceRightLite);
 
-            fieldName.Index = field.Index;
-            fieldName.Count = leftSquareIndex;
+            this.FieldName.Index = this.Field.Index;
+            this.FieldName.Count = braceRightLite;
         }
 
         if (b)
         {
             this.Index = -1;
 
-            fieldName.Index = field.Index;
-            fieldName.Count = field.Count;
+            this.FieldName.Index = this.Field.Index;
+            this.FieldName.Count = this.Field.Count;
         }
         return true;
     }
@@ -146,7 +131,7 @@ public partial class PathTravel : Travel
         return a;
     }
 
-    protected virtual long GetIndex(InfraRange varField, long leftSquareIndex)
+    protected virtual long GetIndex(InfraRange varField, long braceRightLite)
     {
         if (varField.Count < 1)
         {
@@ -179,7 +164,7 @@ public partial class PathTravel : Travel
         }
 
         long start;
-        start = leftSquareIndex + this.StringCount(this.TextBraceRightLite);
+        start = braceRightLite + this.StringCount(this.TextBraceRightLite);
 
         long end;
         end = varField.Count - this.StringCount(this.TextBraceRightRite);
