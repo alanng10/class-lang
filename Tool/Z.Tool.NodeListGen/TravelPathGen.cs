@@ -28,7 +28,7 @@ public class TravelPathGen : TravelGen
         this.TextExecuteNode = this.StorageTextRead(this.PathExecuteNode);
         this.TextArray = this.StorageTextRead(this.PathArray);
         this.TextField = this.StorageTextRead(this.PathField);
-        this.TextInitStringMaide = this.StorageTextRead(this.GetPath(this.S("ClassPathInitStringMaide")));
+        this.TextInitStringMaide = this.StorageTextRead(this.GetPath(this.S("PathInitStringMaide")));
 
         this.TextVirtual = this.Virtual();
 
