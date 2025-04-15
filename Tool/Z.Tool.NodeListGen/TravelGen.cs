@@ -421,8 +421,16 @@ public class TravelGen : ToolBase
         return a;
     }
 
+    protected virtual String GetPathName(String name)
+    {
+        return this.AddClear().AddS("ToolData/Saber/Travel").Add(name).AddResult();
+    }
+
     protected virtual String GetPath(String name)
     {
-        return this.AddClear().AddS("ToolData/Saber/Travel").Add(name).AddS(".txt").AddResult();
+        String k;
+        k = this.AddClear().Add(name).AddS(".txt").AddResult();
+
+        return this.GetPathName(k);
     }
 }
