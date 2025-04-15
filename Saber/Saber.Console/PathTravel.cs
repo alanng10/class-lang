@@ -127,7 +127,7 @@ public partial class PathTravel : Travel
     protected virtual long BraceRightLiteIndex(Text text)
     {
         long a;
-        a = this.TextIndex(text, this.TA(this.TextBraceRightLite));
+        a = this.TextIndex(text, this.TB(this.TextBraceRightLite));
         return a;
     }
 
