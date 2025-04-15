@@ -6,6 +6,7 @@ public partial class PathTravel : Travel
     {
         base.Init();
         this.InfraInfra = InfraInfra.This;
+        this.ClassInfra = ClassInfra.This;
 
         this.TextBraceRightLite = this.S("[");
         this.TextBraceRightRite = this.S("]");
@@ -17,17 +18,17 @@ public partial class PathTravel : Travel
     public virtual NodeNode Result { get; set; }
     public virtual Text Path { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
-    protected virtual TextStringValue TextStringValue { get; set; }
+    protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual InfraRange Field { get; set; }
     protected virtual InfraRange FieldName { get; set; }
     protected virtual long Index { get; set; }
-    protected virtual long CurrentIndex { get; set; }
+    protected virtual long ThisIndex { get; set; }
     protected virtual String TextBraceRightLite { get; set; }
     protected virtual String TextBraceRightRite { get; set; }
 
     protected override bool ExecuteNode(NodeNode node)
     {
-        if (!(this.CurrentIndex < this.Path.Range.Count))
+        if (!(this.ThisIndex < this.Path.Range.Count))
         {
             this.Result = node;
             return true;
@@ -37,14 +38,14 @@ public partial class PathTravel : Travel
 
         this.SetFieldNameIndex();
 
-        this.CurrentIndex = this.CurrentIndex + this.FieldName.Count + 1;
+        this.ThisIndex = this.ThisIndex + this.FieldName.Count + 1;
         return true;
     }
 
     protected virtual bool SetField()
     {
         long start;
-        start = this.CurrentIndex;
+        start = this.ThisIndex;
 
         long end;
         end = 0;
@@ -64,7 +65,7 @@ public partial class PathTravel : Travel
         range.Count = kb - start;
 
         long u;
-        u = this.TextInfra.Index(path, this.Dot, this.TextLess);
+        u = this.TextIndex(path, this.TA(this.ClassInfra.TextDot));
 
         bool b;
         b = (u < 0);
@@ -141,7 +142,7 @@ public partial class PathTravel : Travel
     protected virtual long LeftSquareIndex(Text text)
     {
         long a;
-        a = this.TextInfra.Index(text, this.LeftSquare, this.TextLess);
+        a = this.TextIndex(text, this.TA(this.TextBraceRightLite));
         return a;
     }
 
