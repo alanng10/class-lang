@@ -159,7 +159,7 @@ public class TravelPathGen : TravelGen
         while (iter.Next())
         {
             String k;
-            k = (String)iter.Value;
+            k = iter.Value as String;
 
             this.AddIndent(1).Add(ka).Add(k).Add(kb);
         }
