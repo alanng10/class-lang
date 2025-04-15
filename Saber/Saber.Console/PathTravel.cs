@@ -113,7 +113,7 @@ public partial class PathTravel : Travel
         rangeA.Count = field.Count;
 
         long u;
-        u = this.LeftSquareIndex(textA);
+        u = this.BraceRightLiteIndex(textA);
 
         bool b;
         b = (u < 0);
@@ -139,7 +139,7 @@ public partial class PathTravel : Travel
         return true;
     }
 
-    protected virtual long LeftSquareIndex(Text text)
+    protected virtual long BraceRightLiteIndex(Text text)
     {
         long a;
         a = this.TextIndex(text, this.TA(this.TextBraceRightLite));
