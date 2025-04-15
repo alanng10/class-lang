@@ -1,6 +1,6 @@
 namespace Saber.Node;
 
-public class Travel : Any
+public class Travel : TextAdd
 {
     public virtual bool ExecuteClass(Class varClass)
     {
