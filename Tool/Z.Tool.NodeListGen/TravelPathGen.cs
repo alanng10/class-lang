@@ -81,7 +81,7 @@ public class TravelPathGen : TravelGen
         while (iter.Next())
         {
             Class varClass;
-            varClass = (Class)iter.Value;
+            varClass = iter.Value as Class;
 
             Iter iterA;
             iterA = varClass.Field.IterCreate();
