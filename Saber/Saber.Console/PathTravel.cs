@@ -144,7 +144,7 @@ public partial class PathTravel : Travel
         this.TextA.Range.Count = varField.Count;
 
         bool b;
-        b = this.TextEnd(this.TextA, this.TA(this.TextBraceRightRite));
+        b = this.TextEnd(this.TextA, this.TB(this.TextBraceRightRite));
 
         if (!b)
         {
