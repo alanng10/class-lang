@@ -1,6 +1,6 @@
 namespace Saber.Console;
 
-partial class ClassPathTravel
+partial class PathTravel
 {
     public virtual bool InitString()
     {

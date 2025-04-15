@@ -1,42 +1,14 @@
 namespace Saber.Console;
 
-public partial class ClassPathTravel : Traverse
+public partial class PathTravel : Travel
 {
     public override bool Init()
     {
         base.Init();
         this.InfraInfra = InfraInfra.This;
-        this.TextInfra = TextInfra.This;
 
-        this.StringComp = StringComp.This;
-        this.TextStringValue = TextStringValue.This;
-
-        this.IntParse = new IntParse();
-        this.IntParse.Init();
-
-        this.TextA = this.CreateText();
-        this.TextB = this.CreateText();
-
-        this.StringDataA = new StringData();
-        this.StringDataA.Init();
-        this.StringDataB = new StringData();
-        this.StringDataB.Init();
-
-        LessInt charLess;
-        charLess = new LessInt();
-        charLess.Init();
-        TextForm textForm;
-        textForm = new TextForm();
-        textForm.Init();
-        this.TextLess = new TextLess();
-        this.TextLess.CharLess = charLess;
-        this.TextLess.LiteForm = textForm;
-        this.TextLess.RiteForm = textForm;
-        this.TextLess.Init();
-
-        this.Dot = this.TextInfra.TextCreateStringData(this.S("."), null);
-        this.LeftSquare = this.TextInfra.TextCreateStringData(this.S("["), null);
-        this.RightSquare = this.TextInfra.TextCreateStringData(this.S("]"), null);
+        this.TextBraceRightLite = this.S("[");
+        this.TextBraceRightRite = this.S("]");
 
         this.InitString();
         return true;
@@ -45,32 +17,13 @@ public partial class ClassPathTravel : Traverse
     public virtual NodeNode Result { get; set; }
     public virtual Text Path { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
-    protected virtual TextInfra TextInfra { get; set; }
-    protected virtual StringComp StringComp { get; set; }
     protected virtual TextStringValue TextStringValue { get; set; }
     protected virtual InfraRange Field { get; set; }
     protected virtual InfraRange FieldName { get; set; }
     protected virtual long Index { get; set; }
     protected virtual long CurrentIndex { get; set; }
-    protected virtual IntParse IntParse { get; set; }
-    protected virtual Text TextA { get; set; }
-    protected virtual Text TextB { get; set; }
-    protected virtual StringData StringDataA { get; set; }
-    protected virtual StringData StringDataB { get; set; }
-    protected virtual TextLess TextLess { get; set; }
-    protected virtual Text Dot { get; set; }
-    protected virtual Text LeftSquare { get; set; }
-    protected virtual Text RightSquare { get; set; }
-
-    private Text CreateText()
-    {
-        Text a;
-        a = new Text();
-        a.Init();
-        a.Range = new InfraRange();
-        a.Range.Init();
-        return a;
-    }
+    protected virtual String TextBraceRightLite { get; set; }
+    protected virtual String TextBraceRightRite { get; set; }
 
     protected override bool ExecuteNode(NodeNode node)
     {
