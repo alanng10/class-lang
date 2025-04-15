@@ -22,7 +22,7 @@ public partial class PathTravel : Travel
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual InfraRange Field { get; set; }
     protected virtual InfraRange FieldName { get; set; }
-    protected virtual long Index { get; set; }
+    protected virtual long FieldIndex { get; set; }
     protected virtual String TextBraceRightLite { get; set; }
     protected virtual String TextBraceRightRite { get; set; }
 
@@ -34,15 +34,15 @@ public partial class PathTravel : Travel
             return true;
         }
 
-        this.SetField();
+        this.FieldSet();
 
-        this.SetFieldNameIndex();
+        this.FieldNameIndexSet();
 
         this.ThisIndex = this.ThisIndex + this.Field.Count + 1;
         return true;
     }
 
-    protected virtual bool SetField()
+    protected virtual bool FieldSet()
     {
         long start;
         start = this.ThisIndex;
@@ -91,7 +91,7 @@ public partial class PathTravel : Travel
         return true;
     }
 
-    protected virtual bool SetFieldNameIndex()
+    protected virtual bool FieldNameIndexSet()
     {
         this.TextA.Data = this.Path.Data;
         this.TextA.Range.Index = this.Path.Range.Index + this.Field.Index;
@@ -108,7 +108,7 @@ public partial class PathTravel : Travel
             long braceRightLite;
             braceRightLite = ka;
 
-            this.Index = this.FieldIndex(this.Field, braceRightLite);
+            this.FieldIndex = this.FieldIndexGet(this.Field, braceRightLite);
 
             this.FieldName.Index = this.Field.Index;
             this.FieldName.Count = braceRightLite;
@@ -116,7 +116,7 @@ public partial class PathTravel : Travel
 
         if (b)
         {
-            this.Index = -1;
+            this.FieldIndex = -1;
 
             this.FieldName.Index = this.Field.Index;
             this.FieldName.Count = this.Field.Count;
@@ -131,7 +131,7 @@ public partial class PathTravel : Travel
         return a;
     }
 
-    protected virtual long FieldIndex(InfraRange varField, long braceRightLite)
+    protected virtual long FieldIndexGet(InfraRange varField, long braceRightLite)
     {
         if (varField.Count < 1)
         {
