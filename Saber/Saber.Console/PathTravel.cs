@@ -17,12 +17,12 @@ public partial class PathTravel : Travel
 
     public virtual NodeNode Result { get; set; }
     public virtual Text Path { get; set; }
+    public virtual long ThisIndex { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual InfraRange Field { get; set; }
     protected virtual InfraRange FieldName { get; set; }
     protected virtual long Index { get; set; }
-    protected virtual long ThisIndex { get; set; }
     protected virtual String TextBraceRightLite { get; set; }
     protected virtual String TextBraceRightRite { get; set; }
 
