@@ -277,7 +277,7 @@ public class TravelGen : ToolBase
         while (iter.Next())
         {
             Field aa;
-            aa = (Field)iter.Value;
+            aa = iter.Value as Field;
 
             if (!aa.AnyBool)
             {
