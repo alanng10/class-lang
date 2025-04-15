@@ -103,7 +103,7 @@ partial class PathTravel
         }
 
         Comp item;
-        item = (Comp)array.GetAt(k);
+        item = array.GetAt(k) as Comp;
         this.ExecuteComp(item);
         return true;
     }
@@ -208,7 +208,7 @@ partial class PathTravel
         }
 
         NodeVar item;
-        item = (NodeVar)array.GetAt(k);
+        item = array.GetAt(k) as NodeVar;
         this.ExecuteVar(item);
         return true;
     }
@@ -317,7 +317,7 @@ partial class PathTravel
         }
 
         Execute item;
-        item = (Execute)array.GetAt(k);
+        item = array.GetAt(k) as Execute;
         this.ExecuteExecute(item);
         return true;
     }
@@ -481,7 +481,7 @@ partial class PathTravel
         }
 
         Operate item;
-        item = (Operate)array.GetAt(k);
+        item = array.GetAt(k) as Operate;
         this.ExecuteOperate(item);
         return true;
     }
