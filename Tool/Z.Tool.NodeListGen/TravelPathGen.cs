@@ -1,17 +1,17 @@
 namespace Z.Tool.NodeListGen;
 
-public class TravelClassPathGen : TravelGen
+public class TravelPathGen : TravelGen
 {
     public override bool Init()
     {
         base.Init();
 
-        this.PathOutput = this.S("../../Saber/Saber.Console/ClassPathTravel_Part.cs");
+        this.PathOutput = this.S("../../Saber/Saber.Console/PathTravel_Part.cs");
 
-        this.PathSource = this.GetPath(this.S("ClassPathSource"));
-        this.PathArray = this.GetPath(this.S("ClassPathArray"));
-        this.PathExecuteNode = this.GetPath(this.S("ClassPathExecuteNode"));
-        this.PathField = this.GetPath(this.S("ClassPathField"));
+        this.PathSource = this.GetPath(this.S("PathSource"));
+        this.PathArray = this.GetPath(this.S("PathArray"));
+        this.PathExecuteNode = this.GetPath(this.S("PathExecuteNode"));
+        this.PathField = this.GetPath(this.S("PathField"));
         return true;
     }
 
@@ -131,7 +131,7 @@ public class TravelClassPathGen : TravelGen
         while (iter.Next())
         {
             String k;
-            k = (String)iter.Value;
+            k = iter.Value as String;
 
             this.AddIndent(2).Add(ka).Add(k).Add(kb).Add(k).Add(kc);
         }
