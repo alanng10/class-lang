@@ -138,25 +138,13 @@ public partial class PathTravel : Travel
             return -1;
         }
 
-        Text path;
-        path = this.Path;
+        this.TextA.Data = this.Path.Data;
 
-        InfraRange range;
-        range = path.Range;
-
-        Text textA;
-        textA = this.TextA;
-
-        textA.Data = path.Data;
-        
-        InfraRange rangeA;
-        rangeA = textA.Range;
-
-        rangeA.Index = range.Index + varField.Index;
-        rangeA.Count = varField.Count;
+        this.TextA.Range.Index = this.Path.Range.Index + varField.Index;
+        this.TextA.Range.Count = varField.Count;
 
         bool b;
-        b = this.TextEnd(textA, this.TA(this.TextBraceRightRite));
+        b = this.TextEnd(this.TextA, this.TA(this.TextBraceRightRite));
 
         if (!b)
         {
@@ -172,11 +160,11 @@ public partial class PathTravel : Travel
         long count;
         count = end - start;
 
-        rangeA.Index = rangeA.Index + start;
-        rangeA.Count = count;
+        this.TextA.Range.Index = this.TextA.Range.Index + start;
+        this.TextA.Range.Count = count;
 
         long n;
-        n = this.IntParse.Execute(textA, 10, null);
+        n = this.IntParse.Execute(this.TextA, 10, null);
 
         if (n == -1)
         {
