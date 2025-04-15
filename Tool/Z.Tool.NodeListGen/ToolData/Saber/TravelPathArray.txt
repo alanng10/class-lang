@@ -10,5 +10,5 @@
         }
 
         #ItemDeclareClassName# item;
-        item = (#ItemDeclareClassName#)array.GetAt(k);
+        item = array.GetAt(k) as #ItemDeclareClassName#;
         this.Execute#ItemClassName#(item);
