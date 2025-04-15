@@ -90,7 +90,7 @@ public class TravelPathGen : TravelGen
             while (iterA.Next())
             {
                 Field field;
-                field = (Field)iterA.Value;
+                field = iterA.Value as Field;
 
                 this.ListInfra.TableAdd(table, field.Name, field.Name);
             }
