@@ -108,7 +108,7 @@ public partial class PathTravel : Travel
             long braceRightLite;
             braceRightLite = ka;
 
-            this.Index = this.GetIndex(this.Field, braceRightLite);
+            this.Index = this.FieldIndex(this.Field, braceRightLite);
 
             this.FieldName.Index = this.Field.Index;
             this.FieldName.Count = braceRightLite;
@@ -131,7 +131,7 @@ public partial class PathTravel : Travel
         return a;
     }
 
-    protected virtual long GetIndex(InfraRange varField, long braceRightLite)
+    protected virtual long FieldIndex(InfraRange varField, long braceRightLite)
     {
         if (varField.Count < 1)
         {
