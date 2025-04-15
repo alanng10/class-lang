@@ -16,6 +16,11 @@ public class TravelGen : ToolBase
         this.PathField = this.GetPath(this.S("Field"));
 
         this.ValueVirtual = this.S("virtual");
+        this.SClass = this.S("Class");
+        this.SField = this.S("Field");
+        this.SMaide = this.S("Maide");
+        this.SVar = this.S("Var");
+        this.SCount = this.S("Count");
         return true;
     }
 
@@ -35,6 +40,11 @@ public class TravelGen : ToolBase
     protected virtual String TextField { get; set; }
     protected virtual String TextVirtual { get; set; }
     protected virtual String ValueVirtual { get; set; }
+    protected virtual String SClass { get; set; }
+    protected virtual String SField { get; set; }
+    protected virtual String SMaide { get; set; }
+    protected virtual String SVar { get; set; }
+    protected virtual String SCount { get; set; }
 
     public virtual bool Execute()
     {
@@ -351,28 +361,28 @@ public class TravelGen : ToolBase
         b = false;
         if (!b)
         {
-            if (this.TextSame(ka, this.TextCreate(this.S("Class"))))
+            if (this.TextSame(ka, this.TA(this.SClass)))
             {
                 b = true;
             }
         }
         if (!b)
         {
-            if (this.TextSame(ka, this.TextCreate(this.S("Field"))))
+            if (this.TextSame(ka, this.TA(this.SField)))
             {
                 b = true;
             }
         }
         if (!b)
         {
-            if (this.TextSame(ka, this.TextCreate(this.S("Maide"))))
+            if (this.TextSame(ka, this.TA(this.SMaide)))
             {
                 b = true;
             }
         }
         if (!b)
         {
-            if (this.TextSame(ka, this.TextCreate(this.S("Var"))))
+            if (this.TextSame(ka, this.TA(this.SVar)))
             {
                 b = true;
             }
