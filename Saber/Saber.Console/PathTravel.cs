@@ -38,7 +38,7 @@ public partial class PathTravel : Travel
 
         this.SetFieldNameIndex();
 
-        this.ThisIndex = this.ThisIndex + this.FieldName.Count + 1;
+        this.ThisIndex = this.ThisIndex + this.Field.Count + 1;
         return true;
     }
 
