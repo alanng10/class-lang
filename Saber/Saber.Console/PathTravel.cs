@@ -171,7 +171,7 @@ public partial class PathTravel : Travel
         rangeA.Count = varField.Count;
 
         bool b;
-        b = this.TextInfra.End(textA, this.RightSquare, this.TextLess);
+        b = this.TextEnd(textA, this.TA(this.TextBraceRightRite));
 
         if (!b)
         {
@@ -179,10 +179,10 @@ public partial class PathTravel : Travel
         }
 
         long start;
-        start = leftSquareIndex + this.LeftSquare.Range.Count;
+        start = leftSquareIndex + this.StringCount(this.TextBraceRightLite);
 
         long end;
-        end = varField.Count - this.RightSquare.Range.Count;
+        end = varField.Count - this.StringCount(this.TextBraceRightRite);
 
         long count;
         count = end - start;
@@ -210,43 +210,13 @@ public partial class PathTravel : Travel
 
     protected virtual bool FieldEqual(String name)
     {
-        Text path;
-        path = this.Path;
+        this.TextA.Data = this.Path.Data;
 
-        Text textA;
-        Text textB;
-        textA = this.TextA;
-        textB = this.TextB;
-
-        InfraRange fieldName;
-        fieldName = this.FieldName;
-
-        textA.Data = path.Data;
-        
-        InfraRange ka;
-        ka = textA.Range;
-        ka.Index = path.Range.Index + fieldName.Index;
-        ka.Count = fieldName.Count;
-
-        this.TextStringGet(textB, this.StringDataB, name);
+        this.TextA.Range.Index = this.Path.Range.Index + this.FieldName.Index;
+        this.TextA.Range.Count = this.FieldName.Count;
 
         bool a;
-        a = this.TextInfra.Same(textA, textB, this.TextLess);
+        a = this.TextSame(this.TextA, this.TB(name));
         return a;
-    }
-
-    protected virtual bool TextStringGet(Text text, StringData data, String o)
-    {
-        data.ValueString = o;
-
-        text.Data = data;
-        text.Range.Index = 0;
-        text.Range.Count = this.StringComp.Count(o);
-        return true;
-    }
-
-    private String S(string o)
-    {
-        return this.TextStringValue.Execute(o);
     }
 }
