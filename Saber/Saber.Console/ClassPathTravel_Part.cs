@@ -97,7 +97,7 @@ partial class ClassPathTravel
 
         Array array;
         array = part.Value;
-        if (!(this.InfraInfra.ValidIndex(array.Count, k)))
+        if (!this.InfraInfra.ValidIndex(array.Count, k))
         {
             return true;
         }
@@ -202,7 +202,7 @@ partial class ClassPathTravel
 
         Array array;
         array = param.Value;
-        if (!(this.InfraInfra.ValidIndex(array.Count, k)))
+        if (!this.InfraInfra.ValidIndex(array.Count, k))
         {
             return true;
         }
@@ -311,7 +311,7 @@ partial class ClassPathTravel
 
         Array array;
         array = state.Value;
-        if (!(this.InfraInfra.ValidIndex(array.Count, k)))
+        if (!this.InfraInfra.ValidIndex(array.Count, k))
         {
             return true;
         }
@@ -475,7 +475,7 @@ partial class ClassPathTravel
 
         Array array;
         array = argue.Value;
-        if (!(this.InfraInfra.ValidIndex(array.Count, k)))
+        if (!this.InfraInfra.ValidIndex(array.Count, k))
         {
             return true;
         }
