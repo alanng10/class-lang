@@ -93,7 +93,7 @@ partial class PathTravel
         }
 
         long k;
-        k = this.Index;
+        k = this.FieldIndex;
 
         Array array;
         array = part.Value;
@@ -198,7 +198,7 @@ partial class PathTravel
         }
 
         long k;
-        k = this.Index;
+        k = this.FieldIndex;
 
         Array array;
         array = param.Value;
@@ -307,7 +307,7 @@ partial class PathTravel
         }
 
         long k;
-        k = this.Index;
+        k = this.FieldIndex;
 
         Array array;
         array = state.Value;
@@ -471,7 +471,7 @@ partial class PathTravel
         }
 
         long k;
-        k = this.Index;
+        k = this.FieldIndex;
 
         Array array;
         array = argue.Value;
