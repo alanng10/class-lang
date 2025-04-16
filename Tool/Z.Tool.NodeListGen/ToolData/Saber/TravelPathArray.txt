@@ -1,6 +1,6 @@
 
         long k;
-        k = this.Index;
+        k = this.FieldIndex;
 
         Array array;
         array = #VarName#.Value;
