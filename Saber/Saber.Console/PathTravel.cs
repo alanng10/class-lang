@@ -50,11 +50,8 @@ public partial class PathTravel : Travel
         long end;
         end = 0;
 
-        Text path;
-        path = this.Path;
-
         InfraRange range;
-        range = path.Range;
+        range = this.Path.Range;
 
         long ka;
         long kb;
@@ -65,7 +62,7 @@ public partial class PathTravel : Travel
         range.Count = kb - start;
 
         long u;
-        u = this.TextIndex(path, this.TA(this.ClassInfra.TextDot));
+        u = this.TextIndex(this.Path, this.TA(this.ClassInfra.TextDot));
 
         bool b;
         b = (u < 0);
