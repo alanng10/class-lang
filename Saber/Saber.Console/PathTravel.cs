@@ -61,18 +61,18 @@ public partial class PathTravel : Travel
         range.Index = ka + start;
         range.Count = kb - start;
 
-        long u;
-        u = this.TextIndex(this.Path, this.TA(this.ClassInfra.TextDot));
+        long kaa;
+        kaa = this.TextIndex(this.Path, this.TA(this.ClassInfra.TextDot));
 
         bool b;
-        b = (u < 0);
+        b = (kaa == -1);
         if (b)
         {
             end = kb;
         }
         if (!b)
         {
-            end = start + u;
+            end = start + kaa;
         }
 
         long count;
@@ -98,7 +98,7 @@ public partial class PathTravel : Travel
         ka = this.BraceRightLiteIndex(this.TextA);
 
         bool b;
-        b = (ka < 0);
+        b = (ka == -1);
 
         if (!b)
         {
