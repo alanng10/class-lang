@@ -155,7 +155,7 @@ public partial class PathTravel : Travel
         end = varField.Count - this.StringCount(this.TextBraceRightRite);
 
         long count;
-        count = end - start;
+        count = this.ClassInfra.Count(start, end);
 
         this.TextA.Range.Index = this.TextA.Range.Index + start;
         this.TextA.Range.Count = count;
