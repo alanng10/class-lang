@@ -8,7 +8,7 @@ Int Intern_Intern_Memory(Eval* eval, Int frame)
     Int ke;
     ke = ka;
 
-    RefMemory(ke);
+    RefKindClear(ke);
     RefKindSet(ke, RefKindInt);
 
     Return(ke, 1);
