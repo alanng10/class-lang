@@ -2,10 +2,10 @@
 
 Class System has 4 tier of execute certainty when execute module.
 
-The first tier is operate and execute lang elements except new, share, get, set and call.
+The first tier is operate and execute lang elements except new, share, get, set, call, inf and while.
 This tier is the fastest. It is faster than function call, memory allocation call and effect load.
 
-The second tier is function call. This includes get, set, and call.
+The second tier is function call. This includes get, set, and call, inf and while.
 And also includes phore.
 This tier is the second fastest. It is faster than memory allocation call and effect load.
 
