@@ -10,6 +10,7 @@ global using ArrayIter = Avalon.List.ArrayIter;
 global using TableIter = Avalon.List.TableIter;
 global using ListInfra = Avalon.List.Infra;
 global using TextStringValue = Avalon.Text.StringValue;
+global using TextAdd = Avalon.Text.TextAdd;
 global using TextInfra = Avalon.Text.Infra;
 global using ClassCreate = Saber.Infra.Create;
 global using Source = Saber.Infra.Source;

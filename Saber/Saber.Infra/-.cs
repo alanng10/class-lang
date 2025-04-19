@@ -21,6 +21,7 @@ global using StringLess = Avalon.Text.StringLess;
 global using TextCode = Avalon.Text.Code;
 global using TextCodeKind = Avalon.Text.CodeKind;
 global using TextCodeKindList = Avalon.Text.CodeKindList;
+global using TextAdd = Avalon.Text.TextAdd;
 global using Format = Avalon.Text.Format;
 global using FormatArg = Avalon.Text.FormatArg;
 global using StringValue = Avalon.Text.StringValue;
