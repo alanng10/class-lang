@@ -375,7 +375,7 @@ Int Thread_ExecuteHandle(Int o)
 
     Int finishCase;
     finishCase = Stat_ThreadCaseFinish(stat);
-    
+
     Int uc;
     uc = Thread_InternCaseMutex(o);
     QMutex* caseMutex;
@@ -386,7 +386,7 @@ Int Thread_ExecuteHandle(Int o)
     Thread_CaseSet(o, finishCase);
 
     caseMutex->unlock();
-    
+
     return true;
 }
 
