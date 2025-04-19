@@ -563,6 +563,17 @@ public class TextAdd : Any
         return this.TextInfra.Char(value);
     }
 
+    public virtual TextAdd AddClear()
+    {
+        this.StringAdd.Clear();
+        return this;
+    }
+
+    public virtual String AddResult()
+    {
+        return this.StringAdd.Result();
+    }
+
     public virtual TextAdd AddIndent(long indent)
     {
         long count;
@@ -583,6 +594,11 @@ public class TextAdd : Any
         return this;
     }
 
+    public virtual TextAdd AddBool(bool value)
+    {
+        return this.Add(this.StringBool(value));
+    }
+
     public virtual TextAdd AddChar(long n)
     {
         this.StringAdd.Execute(n);
@@ -598,17 +614,6 @@ public class TextAdd : Any
     public virtual TextAdd AddS(string o)
     {
         return this.Add(this.S(o));
-    }
-
-    public virtual TextAdd AddClear()
-    {
-        this.StringAdd.Clear();
-        return this;
-    }
-
-    public virtual String AddResult()
-    {
-        return this.StringAdd.Result();
     }
 
     public virtual String S(string o)
