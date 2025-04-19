@@ -281,6 +281,7 @@ public class TextAdd : Any
         arg.FieldWidth = fieldWidth;
         arg.MaxWidth = maxWidth;
         arg.FillChar = fillChar;
+        arg.Form = null;
 
         return this.StringFormat();
     }
@@ -297,6 +298,7 @@ public class TextAdd : Any
         arg.FieldWidth = fieldWidth;
         arg.MaxWidth = maxWidth;
         arg.FillChar = fillChar;
+        arg.Form = null;
 
         return this.StringFormat();
     }
