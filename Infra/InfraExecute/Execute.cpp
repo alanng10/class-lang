@@ -221,12 +221,7 @@ Int ExecuteMain()
 
 Int ExecuteMainError(Int status, Int text)
 {
-    Int ka;
-    ka = String_ConstantCreate(text);
-
-    Console_ErrWrite(0, ka);
-
-    String_ConstantDelete(ka);
+    Console_ErrWrite(0, String_ConstantCreate(text));
 
     Exit(status);
     return 0;
