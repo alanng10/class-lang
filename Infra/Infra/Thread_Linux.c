@@ -16,11 +16,27 @@ Int Thread_OS_Pause(Int handle)
 {
     int k;
     k = pthread_kill(handle, SIGUSR1);
+
+    if (!(k == 0))
+    {
+        return false;
+    }
+
+    return true;
 }
 
 
 Int Thread_OS_Resume(Int handle)
 {
+    int k;
+    k = pthread_kill(handle, SIGUSR2);
+
+    if (!(k == 0))
+    {
+        return false;
+    }
+
+    return true;
 }
 
 
