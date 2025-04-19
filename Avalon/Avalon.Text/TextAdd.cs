@@ -643,6 +643,21 @@ public class TextAdd : Any
         return this.Add(this.StringIntHex(value));
     }
 
+    public virtual TextAdd AddIntFormat(long value, long varBase, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
+    {
+        return this.Add(this.StringIntFormat(value, varBase, alignLeft, fieldWidth, maxWidth, fillChar));
+    }
+
+    public virtual TextAdd AddText(Text value)
+    {
+        return this.Add(this.StringCreate(value));
+    }
+
+    public virtual TextAdd AddTextFormat(Text value, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
+    {
+        return this.Add(this.StringTextFormat(value, alignLeft, fieldWidth, maxWidth, fillChar));
+    }
+
     public virtual TextAdd AddChar(long n)
     {
         this.StringAdd.Execute(n);
