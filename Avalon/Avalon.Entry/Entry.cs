@@ -20,14 +20,35 @@ public class Entry : Any
     {
         this.MainBefore();
 
-        long o;
-        o = this.ExecuteMain();
+        long k;
+        k = this.ExecuteMain();
 
         this.MainAfter();
 
+        k = this.StatusWrite(k);
+
         int a;
-        a = (int)o;
+        a = (int)k;
         return a;
+    }
+
+    protected virtual long StatusWrite(long value)
+    {
+        long k;
+        k = value;
+
+        if (!(k == 0))
+        {
+            ConsoleConsole ka;
+            ka = new ConsoleConsole();
+            ka.Init();
+
+            ka.Err.Write(TextCreate.This.Add().AddS("Status: ").AddInt(k).AddLine().AddResult());
+
+            k = 1;
+        }
+
+        return k;
     }
 
     protected virtual bool MainBefore()
