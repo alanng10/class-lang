@@ -252,6 +252,23 @@ public class TextAdd : Any
         return this.StringIntFormat(n, 16, false, 15, 15, '0');
     }
 
+    public virtual String StringBoolFormat(bool value, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
+    {
+        FormatArg arg;
+        arg = this.FormatArg;
+
+        arg.Kind = 0;
+        arg.Value.Bool = value;
+        arg.Base = 0;
+        arg.AlignLeft = alignLeft;
+        arg.FieldWidth = fieldWidth;
+        arg.MaxWidth = maxWidth;
+        arg.FillChar = fillChar;
+        arg.Form = null;
+
+        return this.StringFormat();
+    }
+
     public virtual String StringIntFormat(long n, long varBase, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
     {
         FormatArg arg;
@@ -286,17 +303,34 @@ public class TextAdd : Any
 
     public virtual String StringFormat()
     {
-        this.Format.ExecuteArgCount(this.FormatArg);
+        bool b;
 
-        Text aa;
-        aa = this.TextInfra.TextCreate(this.FormatArg.Count);
+        b = this.Format.ExecuteArgCount(this.FormatArg);
 
-        this.Format.ExecuteArgResult(this.FormatArg, aa);
+        if (!b)
+        {
+            return null;
+        }
+
+        Text k;
+        k = this.TextInfra.TextCreate(this.FormatArg.Count);
+
+        b = this.Format.ExecuteArgResult(this.FormatArg, k);
+
+        if (!b)
+        {
+            return null;
+        }
 
         String a;
-        a = this.StringCreate(aa);
+        a = this.StringCreate(k);
 
         return a;
+    }
+
+    public virtual String StringCreate(Text text)
+    {
+        return this.TextInfra.StringCreate(text);
     }
 
     public virtual bool BoolText(Text text)
@@ -342,11 +376,6 @@ public class TextAdd : Any
         this.TextInfra.Form(a, text, form);
 
         return a;
-    }
-
-    public virtual String StringCreate(Text text)
-    {
-        return this.TextInfra.StringCreate(text);
     }
 
     public virtual Text TextCreate(String o)
