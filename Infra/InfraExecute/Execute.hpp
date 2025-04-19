@@ -6,6 +6,7 @@
 #include <QLibrary>
 
 Int ExecuteMain();
+Int ExecuteMainError(Int status, Int text);
 Int ExecuteStatusWrite(Int value);
 Int ExecuteArg(Int result, Int arg);
 Int ExecuteModuleString(Int result, Int moduleRef);
