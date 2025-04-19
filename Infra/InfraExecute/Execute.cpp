@@ -58,7 +58,7 @@ Int ExecuteMain()
 
     if (argCount < 1)
     {
-        ExecuteMainError(270, CastInt("unvalid module ref"));
+        ExecuteMainError(1, CastInt("unvalid module ref"));
     }
 
     Int arg;
@@ -73,7 +73,7 @@ Int ExecuteMain()
 
     if (!ba)
     {
-        ExecuteMainError(271, CastInt("unvalid module ref"));
+        ExecuteMainError(1, CastInt("unvalid module ref"));
     }
 
     QString moduleString;
@@ -85,7 +85,7 @@ Int ExecuteMain()
 
     if (!bb)
     {
-        ExecuteMainError(272, CastInt("unvalid module ref"));
+        ExecuteMainError(1, CastInt("unvalid module ref"));
     }
 
     QString initString;
@@ -112,7 +112,7 @@ Int ExecuteMain()
 
     if (!bc)
     {
-        ExecuteMainError(273, CastInt("unachieve this fold set"));
+        ExecuteMainError(1, CastInt("unachieve this fold set"));
     }
 
     QLibrary library;
@@ -126,7 +126,7 @@ Int ExecuteMain()
 
     if (!bd)
     {
-        ExecuteMainError(280, CastInt("unachieve library load"));
+        ExecuteMainError(1, CastInt("unachieve library load"));
     }
 
     QByteArray initStringK;
@@ -158,7 +158,7 @@ Int ExecuteMain()
 
     if (initState == null)
     {
-        ExecuteMainError(281, CastInt("unachieve init state"));
+        ExecuteMainError(1, CastInt("unachieve init state"));
     }
 
     Intern_Module_State varState;
@@ -166,7 +166,7 @@ Int ExecuteMain()
 
     if (varState == null)
     {
-        ExecuteMainError(282, CastInt("unachieve var state"));
+        ExecuteMainError(1, CastInt("unachieve var state"));
     }
 
     Intern_Module_State entryState;
@@ -174,7 +174,7 @@ Int ExecuteMain()
 
     if (entryState == null)
     {
-        ExecuteMainError(283, CastInt("unachieve entry state"));
+        ExecuteMainError(1, CastInt("unachieve entry state"));
     }
 
     Intern_Module_State countState;
@@ -182,7 +182,7 @@ Int ExecuteMain()
 
     if (countState == null)
     {
-        ExecuteMainError(284, CastInt("unachieve count state"));
+        ExecuteMainError(1, CastInt("unachieve count state"));
     }
 
     Int entryModule;
@@ -199,7 +199,7 @@ Int ExecuteMain()
 
     if (entryClassIndex == intNull)
     {
-        ExecuteMainError(285, CastInt("unvalid entry class"));
+        ExecuteMainError(1, CastInt("unvalid entry class"));
     }
 
     Int entryModuleInit;
