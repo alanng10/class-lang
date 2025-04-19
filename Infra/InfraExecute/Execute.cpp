@@ -224,7 +224,7 @@ Int ExecuteMainError(Int status, Int text)
     Console_ErrWrite(0, String_ConstantCreate(text));
 
     Exit(status);
-    return 0;
+    return true;
 }
 
 Int ExecuteArg(Int result, Int arg)
