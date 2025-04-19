@@ -14,4 +14,4 @@ Int ExecuteModuleNameString(Int result, Int moduleName);
 Int ExecuteModuleVerString(Int result, Int moduleVer);
 Int ExecuteHexDigitChar(Int value);
 Int ExecuteValidModuleNameChar(Int n);
-Int ExecuteStringQStringSet(Int result, Int a);
+Int ExecuteStringQString(Int value);
