@@ -355,17 +355,17 @@ Int Thread_ExecuteHandle(Int o)
 
     if (!(state == null))
     {
-        Int aa;
-        aa = State_MaideGet(state);
-        Int ab;
-        ab = State_ArgGet(state);
+        Int ka;
+        ka = State_MaideGet(state);
+        Int kb;
+        kb = State_ArgGet(state);
 
-        if (!(aa == null))
+        if (!(ka == null))
         {
             Thread_Execute_Maide maide;
-            maide = (Thread_Execute_Maide)aa;
+            maide = (Thread_Execute_Maide)ka;
 
-            status = maide(o, ab);
+            status = maide(o, kb);
         }
     }
 
