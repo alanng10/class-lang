@@ -15,12 +15,17 @@ Int Thread_OS_Set()
     struct sigaction act;
     act = { };
 
-    sigemptyset(&act.sa_mask);
+    int k;
+    k = sigemptyset(&act.sa_mask);
+
+    if (!(k == 0)) 
+    {
+        return false;
+    }
 
     act.sa_flags = 0;
     act.sa_handler = SignalHandle;
 
-    int k;
     k = sigaction(SIGUSR1, &act, NULL);
 
     if (!(k == 0)) 
