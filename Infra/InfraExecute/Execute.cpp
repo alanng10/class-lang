@@ -2,6 +2,52 @@
 
 Int Execute()
 {
+    Int k;
+    k = ExecuteMain();
+
+    k = ExecuteStatusWrite(k);
+
+    Int a;
+    a = k;
+    return a;
+}
+
+Int ExecuteStatusWrite(Int value)
+{
+    Int k;
+    k = value;
+
+    if (!(k == 0))
+    {
+        QString kk;
+        kk = "Status: ";
+        kk = kk + QString::number(k);
+        kk = kk + "\n";
+
+        Int kaa;
+        kaa = CastInt(&kk);
+
+        Int ka;
+        ka = ExecuteStringQString(kaa);
+
+        Console_ErrWrite(0, ka);
+
+        Int kab;
+        kab = String_ValueGet(ka);
+
+        String_Final(ka);
+        String_Delete(ka);
+
+        Delete(kab);
+
+        k = 1;
+    }
+
+    return k;
+}
+
+Int ExecuteMain()
+{
     Main_Init();
 
     Int argArray;
@@ -510,5 +556,55 @@ Int ExecuteHexDigitChar(Int value)
 
     Int a;
     a = 'a' + k;
+    return a;
+}
+
+Int ExecuteStringQString(Int value)
+{
+    QString* ka;
+    ka = (QString*)value;
+
+    const QChar* pa;
+    pa = ka->constData();
+
+    Int count;
+    count = ka->length();
+
+    Int share;
+    share = Infra_Share();
+    Int stat;
+    stat = Share_Stat(share);
+
+    Int innKind;
+    innKind = Stat_TextCodeKindUtf16(stat);
+    Int outKind;
+    outKind = Stat_TextCodeKindUtf32(stat);
+
+    Int innDataValue;
+    Int innDataCount;
+    innDataValue = CastInt(pa);
+    innDataCount = count * sizeof(Int16);
+
+    Int k;
+    k = TextCode_ExecuteCount(0, innKind, outKind, innDataValue, innDataCount);
+
+    Int outDataValue;
+    Int outDataCount;
+    outDataValue = New(k);
+    outDataCount = k;
+
+    TextCode_ExecuteResult(0, outDataValue, innKind, outKind, innDataValue, innDataCount);
+
+    Int stringCount;
+    stringCount = outDataCount / sizeof(Char);
+
+    Int kk;
+    kk = String_New();
+    String_Init(kk);
+    String_ValueSet(kk, outDataValue);
+    String_CountSet(kk, stringCount);
+
+    Int a;
+    a = kk;
     return a;
 }
