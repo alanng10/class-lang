@@ -58,7 +58,7 @@ Int ExecuteMain()
 
     if (argCount < 1)
     {
-        return 270;
+        ExecuteMainError(270, CastInt("unvalid module ref"));
     }
 
     Int arg;
@@ -73,7 +73,7 @@ Int ExecuteMain()
 
     if (!ba)
     {
-        return 271;
+        ExecuteMainError(271, CastInt("unvalid module ref"));
     }
 
     QString moduleString;
@@ -85,7 +85,7 @@ Int ExecuteMain()
 
     if (!bb)
     {
-        return 272;
+        ExecuteMainError(272, CastInt("unvalid module ref"));
     }
 
     QString initString;
@@ -112,7 +112,7 @@ Int ExecuteMain()
 
     if (!bc)
     {
-        return 273;
+        ExecuteMainError(273, CastInt("unachieve this fold set"));
     }
 
     QLibrary library;
@@ -126,7 +126,7 @@ Int ExecuteMain()
 
     if (!bd)
     {
-        return 280;
+        ExecuteMainError(280, CastInt("unachieve library load"));
     }
 
     QByteArray initStringK;
@@ -158,7 +158,7 @@ Int ExecuteMain()
 
     if (initState == null)
     {
-        return 281;
+        ExecuteMainError(281, CastInt("unachieve init state"));
     }
 
     Intern_Module_State varState;
@@ -166,7 +166,7 @@ Int ExecuteMain()
 
     if (varState == null)
     {
-        return 282;
+        ExecuteMainError(282, CastInt("unachieve var state"));
     }
 
     Intern_Module_State entryState;
@@ -174,7 +174,7 @@ Int ExecuteMain()
 
     if (entryState == null)
     {
-        return 283;
+        ExecuteMainError(283, CastInt("unachieve entry state"));
     }
 
     Intern_Module_State countState;
@@ -182,7 +182,7 @@ Int ExecuteMain()
 
     if (countState == null)
     {
-        return 284;
+        ExecuteMainError(284, CastInt("unachieve count state"));
     }
 
     Int entryModule;
@@ -199,7 +199,7 @@ Int ExecuteMain()
 
     if (entryClassIndex == intNull)
     {
-        return 285;
+        ExecuteMainError(285, CastInt("unvalid entry class"));
     }
 
     Int entryModuleInit;
@@ -217,6 +217,19 @@ Int ExecuteMain()
     Main_Final();
 
     return a;
+}
+
+Int ExecuteMainError(Int status, Int text)
+{
+    Int ka;
+    ka = String_ConstantCreate(text);
+
+    Console_ErrWrite(0, ka);
+
+    String_ConstantDelete(ka);
+
+    Exit(status);
+    return 0;
 }
 
 Int ExecuteArg(Int result, Int arg)
