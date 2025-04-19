@@ -204,7 +204,7 @@ Int Thread_Pause(Int o)
         b = Thread_OS_Pause(m->Handle);
         if (!b)
         {
-            Exit(40);
+            Exit(151);
         }
 
         Int pauseCase;
@@ -236,7 +236,7 @@ Int Thread_Resume(Int o)
         b = Thread_OS_Resume(m->Handle);
         if (!b)
         {
-            Exit(41);
+            Exit(152);
         }
 
         Int executeCase;
