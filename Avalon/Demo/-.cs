@@ -30,6 +30,7 @@ global using StringLess = Avalon.Text.StringLess;
 global using TextCode = Avalon.Text.Code;
 global using TextCodeKind = Avalon.Text.CodeKind;
 global using TextCodeKindList = Avalon.Text.CodeKindList;
+global using TextAdd = Avalon.Text.TextAdd;
 global using TextInfra = Avalon.Text.Infra;
 global using ThreadThread = Avalon.Thread.Thread;
 global using ThreadThis = Avalon.Thread.This;

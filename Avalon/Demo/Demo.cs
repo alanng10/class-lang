@@ -1,6 +1,6 @@
 namespace Demo;
 
-class Demo : Any
+class Demo : TextAdd
 {
     public override bool Init()
     {
@@ -44,9 +44,7 @@ class Demo : Any
     public virtual InfraInfra InfraInfra { get; set; }
     public virtual ListInfra ListInfra { get; set; }
     public virtual MathInfra MathInfra { get; set; }
-    public virtual TextInfra TextInfra { get; set; }
     public virtual StorageInfra StorageInfra { get; set; }
-    public virtual StringComp StringComp { get; set; }
     public virtual TextCode TextCode { get; set; }
     public virtual TextCodeKindList TextCodeKindList { get; set; }
     public virtual StorageStatusList StorageStatusList { get; set; }
@@ -58,12 +56,7 @@ class Demo : Any
 
     public virtual MathMath Math { get; set; }
     protected virtual MathComp MathComp { get; set; }
-    protected virtual TextLess TLess { get; set; }
     protected virtual LessInt CharLess { get; set; }
-    protected virtual TextForm TForm { get; set; }
-    protected virtual StringAdd StringAdd { get; set; }
-    protected virtual Format Format { get; set; }
-    protected virtual FormatArg FormatArg { get; set; }
     protected virtual Range TRange { get; set; }
     private long ArrayIndex { get; set; }
     private String SSuccess { get; set; }
@@ -73,33 +66,6 @@ class Demo : Any
     {
         LessInt a;
         a = new LessInt();
-        a.Init();
-        return a;
-    }
-
-    protected virtual TextForm CreateTextForm()
-    {
-        TextForm a;
-        a = new TextForm();
-        a.Init();
-        return a;
-    }
-
-    protected virtual TextLess CreateTextLess()
-    {
-        TextLess a;
-        a = new TextLess();
-        a.CharLess = this.CharLess;
-        a.LiteForm = this.TForm;
-        a.RiteForm = this.TForm;
-        a.Init();
-        return a;
-    }
-
-    protected virtual Range CreateRange()
-    {
-        Range a;
-        a = new Range();
         a.Init();
         return a;
     }
@@ -1542,114 +1508,6 @@ class Demo : Any
 
         this.Console.Out.Write(this.S("Demo.ExecuteTimeEventOne Thread Status: 0h" + o.ToString("x8") + "\n"));
         return true;
-    }
-
-    public virtual String StringInt(long n)
-    {
-        return this.StringIntFormat(n, 10, false, 1, -1, 0);
-    }
-
-    public virtual String StringIntHex(long n)
-    {
-        return this.StringIntFormat(n, 16, false, 15, 15, '0');
-    }
-
-    public virtual String StringIntFormat(long n, long varBase, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
-    {
-        FormatArg arg;
-        arg = this.FormatArg;
-
-        arg.Kind = 1;
-        arg.Value.Int = n;
-        arg.Base = varBase;
-        arg.AlignLeft = alignLeft;
-        arg.FieldWidth = fieldWidth;
-        arg.MaxWidth = maxWidth;
-        arg.FillChar = fillChar;
-
-        return this.StringFormat();
-    }
-
-    public virtual String StringTextFormat(Text text, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
-    {
-        FormatArg arg;
-        arg = this.FormatArg;
-
-        arg.Kind = 2;
-        arg.Value.Any = text;
-        arg.Base = 0;
-        arg.AlignLeft = alignLeft;
-        arg.FieldWidth = fieldWidth;
-        arg.MaxWidth = maxWidth;
-        arg.FillChar = fillChar;
-
-        return this.StringFormat();
-    }
-
-    public virtual String StringFormat()
-    {
-        this.Format.ExecuteArgCount(this.FormatArg);
-
-        Text aa;
-        aa = this.TextInfra.TextCreate(this.FormatArg.Count);
-
-        this.Format.ExecuteArgResult(this.FormatArg, aa);
-
-        String a;
-        a = this.StringCreate(aa);
-
-        return a;
-    }
-
-    public virtual String StringCreateRange(String o, long index, long count)
-    {
-        this.TRange.Index = index;
-        this.TRange.Count = count;
-
-        return this.StringComp.CreateString(o, this.TRange);
-    }
-
-    public virtual Text TextCreate(String o)
-    {
-        return this.TextInfra.TextCreateStringData(o, null);
-    }
-
-    public virtual String StringCreate(Text text)
-    {
-        return this.TextInfra.StringCreate(text);
-    }
-
-    public virtual Demo Add(String a)
-    {
-        this.TextInfra.AddString(this.StringAdd, a);
-        return this;
-    }
-
-    public virtual Demo AddLine()
-    {
-        return this.Add(this.TextInfra.NewLine);
-    }
-
-    public virtual Demo AddS(string o)
-    {
-        this.Add(this.S(o));
-        return this;
-    }
-
-    public virtual Demo AddClear()
-    {
-        this.StringAdd.Clear();
-        return this;
-    }
-
-    public virtual String AddResult()
-    {
-        return this.StringAdd.Result();
-    }
-
-    public virtual String S(string o)
-    {
-        return this.TextInfra.S(o);
     }
 
     public virtual long MathInt(long n)
