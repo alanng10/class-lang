@@ -628,6 +628,21 @@ public class TextAdd : Any
         return this.Add(this.StringBool(value));
     }
 
+    public virtual TextAdd AddBoolFormat(bool value, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
+    {
+        return this.Add(this.StringBoolFormat(value, alignLeft, fieldWidth, maxWidth, fillChar));
+    }
+
+    public virtual TextAdd AddInt(long value)
+    {
+        return this.Add(this.StringInt(value));
+    }
+
+    public virtual TextAdd AddIntHex(long value)
+    {
+        return this.Add(this.StringIntHex(value));
+    }
+
     public virtual TextAdd AddChar(long n)
     {
         this.StringAdd.Execute(n);
