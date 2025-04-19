@@ -5,6 +5,7 @@ class NetworkB : NetworkNetwork
     public override bool Init()
     {
         base.Init();
+        this.StringComp = StringComp.This;
 
         this.Data = new Data();
         this.Data.Count = 5 * sizeof(uint);
@@ -16,7 +17,7 @@ class NetworkB : NetworkNetwork
     }
 
     public ThreadNetworkHostState ThreadState { get; set; }
-
+    protected virtual StringComp StringComp { get; set; }
     private Data Data { get; set; }
     private Range Range { get; set; }
     private long Stage { get; set; }
@@ -159,7 +160,7 @@ class NetworkB : NetworkNetwork
         if (cc == 2)
         {
             String ka;
-            ka = this.ThreadState.Demo.StringComp.CreateData(data, null);
+            ka = this.StringComp.CreateData(data, null);
 
             String kaa;
             kaa = this.AddClear().AddS("Network Host Case 2 Read Text: ").Add(ka).AddS("\n").AddResult();
