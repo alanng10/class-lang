@@ -327,7 +327,12 @@ Int Thread_ExecuteHandle(Int o)
 
     Thread_HandleSet(o, handle);
 
-    Thread_OS_Set();
+    Bool ba;
+    ba = Thread_OS_Set();
+    if (!ba)
+    {
+        Exit(153);
+    }
 
     Int share;
     share = Infra_Share();
