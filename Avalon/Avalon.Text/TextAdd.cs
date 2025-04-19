@@ -1,11 +1,11 @@
-namespace Saber.Infra;
+namespace Avalon.Text;
 
 public class TextAdd : Any
 {
     public override bool Init()
     {
         base.Init();
-        this.TextInfra = TextInfra.This;
+        this.TextInfra = Infra.This;
         this.StringComp = StringComp.This;
 
         this.StringAdd = this.CreateStringAdd();
@@ -41,15 +41,15 @@ public class TextAdd : Any
         return true;
     }
 
-    protected virtual TextInfra TextInfra { get; set; }
+    protected virtual Infra TextInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
     protected virtual Format Format { get; set; }
     protected virtual FormatArg FormatArg { get; set; }
     protected virtual StringAdd StringAdd { get; set; }
     protected virtual IntParse IntParse { get; set; }
-    protected virtual TextLess TLess { get; set; }
+    protected virtual Less TLess { get; set; }
     protected virtual LessInt ILess { get; set; }
-    protected virtual TextForm TForm { get; set; }
+    protected virtual Form TForm { get; set; }
     protected virtual Text TextA { get; set; }
     protected virtual Text TextB { get; set; }
     protected virtual Text TextC { get; set; }
@@ -62,7 +62,7 @@ public class TextAdd : Any
     protected virtual StringData StringDataD { get; set; }
     protected virtual StringData StringDataE { get; set; }
     protected virtual StringData StringDataF { get; set; }
-    protected virtual InfraRange TRangeA { get; set; }
+    protected virtual Range TRangeA { get; set; }
     protected virtual String SIndent { get; set; }
     protected virtual String SSpace { get; set; }
 
@@ -106,18 +106,18 @@ public class TextAdd : Any
         return a;
     }
 
-    protected virtual TextForm CreateTextForm()
+    protected virtual Form CreateTextForm()
     {
-        TextForm a;
-        a = new TextForm();
+        Form a;
+        a = new Form();
         a.Init();
         return a;
     }
 
-    protected virtual TextLess CreateTextLess()
+    protected virtual Less CreateTextLess()
     {
-        TextLess a;
-        a = new TextLess();
+        Less a;
+        a = new Less();
         a.CharLess = this.ILess;
         a.LiteForm = this.TForm;
         a.RiteForm = this.TForm;
@@ -130,7 +130,7 @@ public class TextAdd : Any
         Text a;
         a = new Text();
         a.Init();
-        a.Range = new InfraRange();
+        a.Range = new Range();
         a.Range.Init();
         return a;
     }
@@ -143,10 +143,10 @@ public class TextAdd : Any
         return a;
     }
 
-    protected virtual InfraRange CreateRange()
+    protected virtual Range CreateRange()
     {
-        InfraRange a;
-        a = new InfraRange();
+        Range a;
+        a = new Range();
         a.Init();
         return a;
     }
@@ -331,7 +331,7 @@ public class TextAdd : Any
         return this.TextForm(text, this.TextInfra.AlphaSiteForm);
     }
 
-    public virtual Text TextForm(Text text, TextForm form)
+    public virtual Text TextForm(Text text, Form form)
     {
         long count;
         count = text.Range.Count;
