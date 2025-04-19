@@ -340,8 +340,6 @@ Int Thread_ExecuteHandle(Int o)
 
     Thread_StoreSetThread(o);
 
-    Main_CurrentThreadSignalHandleSet();
-
     Int ua;
     ua = Thread_InternHandleSemaphore(o);
 
