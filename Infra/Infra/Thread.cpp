@@ -204,7 +204,7 @@ Int Thread_Pause(Int o)
         b = Thread_OS_Pause(m->Handle);
         if (!b)
         {
-            Exit(151);
+            Exit(152);
         }
 
         Int pauseCase;
@@ -236,7 +236,7 @@ Int Thread_Resume(Int o)
         b = Thread_OS_Resume(m->Handle);
         if (!b)
         {
-            Exit(152);
+            Exit(153);
         }
 
         Int executeCase;
@@ -331,7 +331,7 @@ Int Thread_ExecuteHandle(Int o)
     ba = Thread_OS_Set();
     if (!ba)
     {
-        Exit(153);
+        Exit(151);
     }
 
     Int share;
