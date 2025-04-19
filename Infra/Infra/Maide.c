@@ -16,7 +16,7 @@ Int New(Int k)
 
     if (p == null)
     {
-        Exit(100);
+        Exit(150);
     }
 
     Int memory;
