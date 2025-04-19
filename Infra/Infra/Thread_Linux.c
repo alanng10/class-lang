@@ -2,10 +2,12 @@
 
 Int Thread_OS_OpenHandle(Int threadId)
 {
+    return threadId;
 }
 
 Int Thread_OS_CloseHandle(Int handle)
 {
+    return true;
 }
 
 Int Thread_OS_Set()
@@ -14,7 +16,7 @@ Int Thread_OS_Set()
     act = { };
 
     sigemptyset(&act.sa_mask);
-    
+
     act.sa_flags = 0;
     act.sa_handler = SignalHandle;
 
@@ -27,7 +29,7 @@ Int Thread_OS_Set()
     }
     
     k = sigaction(SIGUSR2, &act, NULL);
-    
+
     if (!(k == 0)) 
     {
         return false;
