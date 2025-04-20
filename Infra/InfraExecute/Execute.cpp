@@ -223,7 +223,7 @@ Int ExecuteMainError(Int status, Int text)
 {
     Console_ErrWrite(0, String_ConstantCreate(text));
 
-    Exit(status);
+    Environ_Exit(status);
     return true;
 }
 
