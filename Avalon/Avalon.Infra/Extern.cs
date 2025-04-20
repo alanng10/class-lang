@@ -4,10 +4,10 @@ public static class Extern
 {
     const string InfraLib = ExternConstant.NameBefore + "Infra" + ExternConstant.NameAfter;
 
-    [DllImport(InfraLib)] public extern static ulong New(ulong count);
-    [DllImport(InfraLib)] public extern static ulong Delete(ulong any);
-    [DllImport(InfraLib)] public extern static ulong Copy(ulong dest, ulong source, ulong count);
-    [DllImport(InfraLib)] public extern static ulong Exit(ulong code);
+    [DllImport(InfraLib)] public extern static ulong Environ_New(ulong count);
+    [DllImport(InfraLib)] public extern static ulong Environ_Delete(ulong any);
+    [DllImport(InfraLib)] public extern static ulong Environ_Copy(ulong dest, ulong source, ulong count);
+    [DllImport(InfraLib)] public extern static ulong Environ_Exit(ulong status);
 
     [DllImport(InfraLib)] public extern static ulong String_New();
     [DllImport(InfraLib)] public extern static ulong String_Delete(ulong o);
