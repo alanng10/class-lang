@@ -48,7 +48,7 @@ Int ExecuteStatusWrite(Int value)
 
 Int ExecuteMain(Int argc, Int argv)
 {
-    Main_Init();
+    Main_Init(argc, argv);
 
     Int argArray;
     argArray = Main_Arg();
