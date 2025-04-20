@@ -81,7 +81,7 @@ Int Main_CurrentThreadSignalHandleSet();
 
 Int Console_OS_Init();
 
-Int Main_OS_Arg();
+Int Main_OS_Arg(Int argc, Int argv);
 
 Int HasFlag(Int value, Int flag);
 
