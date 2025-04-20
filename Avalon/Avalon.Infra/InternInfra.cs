@@ -175,8 +175,7 @@ public class InternInfra : Any
         pos = this.PosCreate();
 
         ulong size;
-        size = Extern.Size_New();
-        Extern.Size_Init(size);
+        size = this.SizeCreate();
 
         ulong rect;
         rect = Extern.Rect_New();
