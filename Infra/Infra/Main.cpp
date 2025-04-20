@@ -2,7 +2,7 @@
 
 Main D_Var;
 
-Int Main_Init()
+Int Main_Init(Int argc, Int argv)
 {
     Main* m;
     m = &D_Var;
@@ -14,14 +14,14 @@ Int Main_Init()
 
     m->Argv[0] = (char*)"Application";
 
-    int argc;
-    argc = 1;
-    char** argv;
-    argv = m->Argv;
+    int ka;
+    ka = 1;
+    char** kb;
+    kb = m->Argv;
 
     QCoreApplication::addLibraryPath(".");
 
-    m->Intern = new QApplication(argc, argv);
+    m->Intern = new QApplication(ka, kb);
 
     m->MainThread = Thread_New();
     Thread_InitMainThread(m->MainThread);
