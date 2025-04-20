@@ -567,52 +567,51 @@ Int ExecuteHexDigitChar(Int value)
     return a;
 }
 
-Int ExecuteStringQString(Int value)
+Int ExecuteStringQString(Int u)
 {
     QString* ka;
-    ka = (QString*)value;
+    ka = (QString*)u;
 
-    const QChar* pa;
-    pa = ka->constData();
+    QList<uint> kk;
+    kk = ka->toUcs4();
+
+    qsizetype countU;
+    countU = kk.size();
 
     Int count;
-    count = ka->length();
+    count = countU;
 
-    Int share;
-    share = Infra_Share();
-    Int stat;
-    stat = Share_Stat(share);
+    Int dataCount;
+    dataCount = count * Constant_CharByteCount();
 
-    Int innKind;
-    innKind = Stat_TextCodeKindUtf16(stat);
-    Int outKind;
-    outKind = Stat_TextCodeKindUtf32(stat);
+    Int value;
+    value = Environ_New(dataCount);
 
-    Int innDataValue;
-    Int innDataCount;
-    innDataValue = CastInt(pa);
-    innDataCount = count * sizeof(Int16);
+    Char* p;
+    p = (Char*)value;
+
+    Int i;
+    i = 0;
+    while (i < count)
+    {
+        qsizetype iU;
+        iU = i;
+        
+        uint n;
+        n = kk.at(iU);
+
+        p[i] = n;
+
+        i = i + 1;
+    }
 
     Int k;
-    k = TextCode_ExecuteCount(0, innKind, outKind, innDataValue, innDataCount);
-
-    Int outDataValue;
-    Int outDataCount;
-    outDataValue = Environ_New(k);
-    outDataCount = k;
-
-    TextCode_ExecuteResult(0, outDataValue, innKind, outKind, innDataValue, innDataCount);
-
-    Int stringCount;
-    stringCount = outDataCount / sizeof(Char);
-
-    Int kk;
-    kk = String_New();
-    String_Init(kk);
-    String_ValueSet(kk, outDataValue);
-    String_CountSet(kk, stringCount);
+    k = String_New();
+    String_Init(k);
+    String_ValueSet(k, value);
+    String_CountSet(k, count);
 
     Int a;
-    a = kk;
+    a = k;
     return a;
 }
