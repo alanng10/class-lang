@@ -195,11 +195,10 @@ class Extern : Any
     maide prusate Int Main_TerminateStateGet() { }
     maide prusate Int Main_TerminateStateSet(var Int value) { }
 
-    maide prusate Int Main_Init() { }
+    maide prusate Int Main_Init(var Int argc, var Int argv) { }
     maide prusate Int Main_Final() { }
     maide prusate Int Main_IsCSharpSet(var Int value) { }
     maide prusate Int Main_Arg() { }
-    maide prusate Int Main_ArgSet(var Int argc, var Int argv) { }
 
     maide prusate Int Frame_New() { }
     maide prusate Int Frame_Delete(var Int o) { }

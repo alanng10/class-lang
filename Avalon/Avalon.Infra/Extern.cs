@@ -199,11 +199,10 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Main_TerminateStateGet();
     [DllImport(InfraLib)] public extern static ulong Main_TerminateStateSet(ulong value);
 
-    [DllImport(InfraLib)] public extern static ulong Main_Init();
+    [DllImport(InfraLib)] public extern static ulong Main_Init(ulong argc, ulong argv);
     [DllImport(InfraLib)] public extern static ulong Main_Final();
     [DllImport(InfraLib)] public extern static ulong Main_IsCSharpSet(ulong value);
     [DllImport(InfraLib)] public extern static ulong Main_Arg();
-    [DllImport(InfraLib)] public extern static ulong Main_ArgSet(ulong argc, ulong argv);
 
     public delegate ulong Main_Terminate_Maide(ulong arg);
 

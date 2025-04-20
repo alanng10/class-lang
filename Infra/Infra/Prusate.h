@@ -240,11 +240,10 @@ Infra_Api Int State_ArgSet(Int o, Int value);
 Infra_Api Int Main_TerminateStateGet();
 Infra_Api Int Main_TerminateStateSet(Int value);
 
-Infra_Api Int Main_Init();
+Infra_Api Int Main_Init(Int argc, Int argv);
 Infra_Api Int Main_Final();
 Infra_Api Int Main_IsCSharpSet(Int value);
 Infra_Api Int Main_Arg();
-Infra_Api Int Main_ArgSet(Int argc, Int argv);
 
 typedef Int (*Main_Terminate_Maide)(Int arg);
 

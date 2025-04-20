@@ -1,9 +1,9 @@
 #include "Execute.hpp"
 
-Int Execute()
+Int Execute(Int argc, Int argv)
 {
     Int k;
-    k = ExecuteMain();
+    k = ExecuteMain(argc, argv);
 
     k = ExecuteStatusWrite(k);
 
@@ -46,7 +46,7 @@ Int ExecuteStatusWrite(Int value)
     return k;
 }
 
-Int ExecuteMain()
+Int ExecuteMain(Int argc, Int argv)
 {
     Main_Init();
 

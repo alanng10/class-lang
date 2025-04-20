@@ -2,4 +2,4 @@
 
 #include "Prusate.h"
 
-Int Execute();
+Int Execute(Int argc, Int argv);

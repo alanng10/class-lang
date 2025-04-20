@@ -2330,10 +2330,13 @@ Int Intern_Extern_Main_TerminateStateSet(Eval* eval, Int frame)
 Int Intern_Extern_Main_Init(Eval* eval, Int frame)
 {
     Int paramCount;
-    paramCount = 0;
+    paramCount = 2;
+
+    Param(0);
+    Param(1);
 
     Int a;
-    a = Main_Init();
+    a = Main_Init(a0, a1);
 
     Return;
 }
@@ -2369,20 +2372,6 @@ Int Intern_Extern_Main_Arg(Eval* eval, Int frame)
 
     Int a;
     a = Main_Arg();
-
-    Return;
-}
-
-Int Intern_Extern_Main_ArgSet(Eval* eval, Int frame)
-{
-    Int paramCount;
-    paramCount = 2;
-
-    Param(0);
-    Param(1);
-
-    Int a;
-    a = Main_ArgSet(a0, a1);
 
     Return;
 }
