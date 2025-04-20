@@ -482,7 +482,12 @@ Int VideoOutFrameHandle(Int videoOut, Int arg)
 
 int main(int argc, char* argv[])
 {
-    Main_Init();
+    Int kaaa;
+    Int kaab;
+    kaaa = argc;
+    kaab = CastInt(argv);
+
+    Main_Init(argc, argv);
 
     Console = Console_New();
 
