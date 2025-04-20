@@ -4,5 +4,4 @@ public static class Extern
 {
     const string InfraLib = ExternConstant.NameBefore + "Infra" + ExternConstant.NameAfter;
 
-#MaideList#
 #ClassList#}
