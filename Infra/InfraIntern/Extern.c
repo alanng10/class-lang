@@ -2,7 +2,7 @@
 
 Int IntNull = ((Int)((SInt)-1));
 
-Int Intern_Extern_New(Eval* eval, Int frame)
+Int Intern_Extern_Environ_New(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -10,12 +10,11 @@ Int Intern_Extern_New(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = New(a0);
+    a = Environ_New(a0);
 
     Return;
 }
-
-Int Intern_Extern_Delete(Eval* eval, Int frame)
+Int Intern_Extern_Environ_Delete(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -23,12 +22,12 @@ Int Intern_Extern_Delete(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Delete(a0);
+    a = Environ_Delete(a0);
 
     Return;
 }
 
-Int Intern_Extern_Copy(Eval* eval, Int frame)
+Int Intern_Extern_Environ_Copy(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 3;
@@ -38,12 +37,12 @@ Int Intern_Extern_Copy(Eval* eval, Int frame)
     Param(2);
 
     Int a;
-    a = Copy(a0, a1, a2);
+    a = Environ_Copy(a0, a1, a2);
 
     Return;
 }
 
-Int Intern_Extern_Exit(Eval* eval, Int frame)
+Int Intern_Extern_Environ_Exit(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -51,11 +50,10 @@ Int Intern_Extern_Exit(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Exit(a0);
+    a = Environ_Exit(a0);
 
     Return;
 }
-
 
 Int Intern_Extern_String_New(Eval* eval, Int frame)
 {
@@ -67,6 +65,7 @@ Int Intern_Extern_String_New(Eval* eval, Int frame)
 
     Return;
 }
+
 Int Intern_Extern_String_Delete(Eval* eval, Int frame)
 {
     Int paramCount;
