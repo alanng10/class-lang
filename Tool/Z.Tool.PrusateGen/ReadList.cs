@@ -43,7 +43,7 @@ public class ReadList : ToolBase
     protected virtual bool SetStatMethod()
     {
         Class statClass;
-        statClass = (Class)this.ReadResult.Class.Get(this.S("Stat"));
+        statClass = this.ReadResult.Class.Get(this.S("Stat")) as Class;
 
         if (statClass == null)
         {
@@ -68,7 +68,7 @@ public class ReadList : ToolBase
         while (i < count)
         {
             Maide maide;
-            maide = (Maide)statClass.Maide.GetAt(i);
+            maide = statClass.Maide.GetAt(i) as Maide;
 
             array.SetAt(i, maide);
 
@@ -90,7 +90,7 @@ public class ReadList : ToolBase
             iter.Next();
 
             Maide maide;
-            maide = (Maide)iter.Value;
+            maide = iter.Value as Maide;
 
             long index;
             index = start + i;
