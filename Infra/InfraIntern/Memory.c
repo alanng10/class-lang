@@ -55,7 +55,7 @@ Int Intern_New(Int kind, Int info, Eval* eval)
     dataCount = intCount * Constant_IntByteCount();
 
     Int p;
-    p = New(dataCount);
+    p = Environ_New(dataCount);
 
     Int n;
     n = p;
