@@ -5,7 +5,7 @@
 #include <QString>
 #include <QLibrary>
 
-Int ExecuteMain();
+Int ExecuteMain(Int argc, Int argv);
 Int ExecuteMainError(Int status, Int text);
 Int ExecuteStatusWrite(Int value);
 Int ExecuteArg(Int result, Int arg);
