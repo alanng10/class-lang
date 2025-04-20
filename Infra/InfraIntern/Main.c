@@ -231,7 +231,7 @@ Int Intern_Base_Set(Intern_Class* varClass, Intern_Class* baseClass, Int count)
     Int dataCount;
     dataCount = count * Constant_IntByteCount();
 
-    Copy(dest, source, dataCount);
+    Environ_Copy(dest, source, dataCount);
 
     Int* p;
     p = CastPointer(dest);
