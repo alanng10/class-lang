@@ -43,16 +43,12 @@ class PrusateGen : ToolBase
         String classListString;
         classListString = this.GetClassListString();
 
-        String maideListString;
-        maideListString = this.GetMaideListString();
-
         String ka;
         ka = this.StorageTextRead(this.PrusateFileName);
 
         Text k;
         k = this.TextCreate(ka);
         k = this.Place(k, "#ClassList#", classListString);
-        k = this.Place(k, "#MaideList#", maideListString);
 
         String a;
         a = this.StringCreate(k);
@@ -252,30 +248,6 @@ class PrusateGen : ToolBase
             this.AddParamWithOffset(param, 1);
         }
         return true;
-    }
-
-    protected virtual String GetMaideListString()
-    {
-        this.AddClear();
-
-        long count;
-        count = this.ReadResult.Maide.Count;
-
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            Maide maide;
-            maide = (Maide)this.ReadResult.Maide.GetAt(i);
-
-            this.AddMaide(null, maide);
-
-            i = i + 1;
-        }
-
-        String a;
-        a = this.AddResult();
-        return a;
     }
 
     public virtual bool AddParamWithOffset(Array param, long offset)
