@@ -90,5 +90,4 @@ Int m##_##c##_Delete(Int o)\
 }\
 
 
-#MaideList#
 #ClassList#
