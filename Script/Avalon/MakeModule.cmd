@@ -1,6 +1,6 @@
 @echo off
 
 echo Make Module
-pushd Avalon\MakeProject
+pushd Avalon\MakePackage
 dotnet build -v quiet
 popd
