@@ -709,7 +709,7 @@ int main(int argc, char* argv[])
     pointListDataCount = PointListCount * pointDataCount;
 
     Int pointListDataValue;
-    pointListDataValue = New(pointListDataCount);
+    pointListDataValue = Environ_New(pointListDataCount);
 
     PointListData = Data_New();
     Data_Init(PointListData);
@@ -874,7 +874,7 @@ int main(int argc, char* argv[])
     memoryDataCount = stringCountA * Constant_CharByteCount();
 
     Int dataValueA;
-    dataValueA = New(memoryDataCount);
+    dataValueA = Environ_New(memoryDataCount);
 
     Data_CountSet(dataA, memoryDataCount);
 
