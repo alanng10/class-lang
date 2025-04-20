@@ -67,7 +67,7 @@ class Program : Any
 
     maide prusate Bool Exit()
     {
-        this.Extern.Program_Terminate(this.Intern);
+        this.Extern.Program_Exit(this.Intern);
         return true;
     }
 
