@@ -64,7 +64,7 @@ Int c##_New()\
     Int count;\
     count = sizeof(c);\
     Int o;\
-    o = New(count);\
+    o = Environ_New(count);\
     return o;\
 }\
 Int c##_Delete(Int o)\
@@ -80,7 +80,7 @@ Int m##_##c##_New()\
     Int count;\
     count = sizeof(c);\
     Int o;\
-    o = New(count);\
+    o = Environ_New(count);\
     return o;\
 }\
 Int m##_##c##_Delete(Int o)\

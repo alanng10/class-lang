@@ -16,7 +16,7 @@ Int Image_Init(Int o)
     dataCount = 0;
 
     Int dataValue;
-    dataValue = New(dataCount);
+    dataValue = Environ_New(dataCount);
 
     Data_CountSet(m->Data, dataCount);
     Data_ValueSet(m->Data, dataValue);
@@ -88,7 +88,7 @@ Int Image_DataCreate(Int o)
     dataCount = het * rowByteCount;
 
     Int dataValue;
-    dataValue = New(dataCount);
+    dataValue = Environ_New(dataCount);
 
     Data_CountSet(data, dataCount);
     Data_ValueSet(data, dataValue);
@@ -147,7 +147,7 @@ Int Image_SetReadIntern(Int o, Int value)
     dataCount = wed * het * pixelByteCount;
 
     Int dataValue;
-    dataValue = New(dataCount);
+    dataValue = Environ_New(dataCount);
 
     Int source;
     source = CastInt(bits);

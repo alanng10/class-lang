@@ -21,7 +21,7 @@ Int Draw_Init(Int o)
     Int count;
     count = TextCountMax * 2 * sizeof(Int16);
     Int p;
-    p = New(count);
+    p = Environ_New(count);
     m->TextData = p;
 
     m->InternIdentityForm = new QTransform;

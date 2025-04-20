@@ -75,7 +75,7 @@ Int Main_OS_Arg(Int argc, Int argv)
         resultCount = TextCode_ExecuteCount(0, innKind, outKind, data, dataCount);
 
         Int result;
-        result = New(resultCount);
+        result = Environ_New(resultCount);
 
         TextCode_ExecuteResult(0, result, innKind, outKind, data, dataCount);
 

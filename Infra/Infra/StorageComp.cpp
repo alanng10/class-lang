@@ -365,7 +365,7 @@ Int StorageComp_StringCreate(Int o, Int u)
     dataCount = count * Constant_CharByteCount();
 
     Int value;
-    value = New(dataCount);
+    value = Environ_New(dataCount);
 
     Char* p;
     p = (Char*)value;
