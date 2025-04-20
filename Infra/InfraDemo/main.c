@@ -487,7 +487,7 @@ int main(int argc, char* argv[])
     kaaa = argc;
     kaab = CastInt(argv);
 
-    Main_Init(argc, argv);
+    Main_Init(kaaa, kaab);
 
     Console = Console_New();
 
