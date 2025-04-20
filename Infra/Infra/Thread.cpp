@@ -84,8 +84,6 @@ Int Thread_InitMainThread(Int o)
     Thread_HandleSet(thread, handle);
 
     Thread_StoreSetThread(thread);
-
-    Main_CurrentThreadSignalHandleSet();
     return true;
 }
 
