@@ -142,6 +142,20 @@ SOURCES += \
 
 
 
+unix {
+
+HEADERS += \
+    Main_Linux.h \
+    Thread_Linux.h \
+    Console_Linux.h
+
+SOURCES += \
+    Main_Linux.c \
+    Thread_Linux.c \
+    Console_Linux.c
+
+}
+
 win32 {
 
 HEADERS += \
