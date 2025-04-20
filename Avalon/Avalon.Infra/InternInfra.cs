@@ -197,8 +197,7 @@ public class InternInfra : Any
         Extern.Rect_Final(rect);
         Extern.Rect_Delete(rect);
 
-        Extern.Size_Final(size);
-        Extern.Size_Delete(size);
+        this.SizeDelete(size);
 
         this.PosDelete(pos);
         return true;
