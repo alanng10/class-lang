@@ -18,7 +18,7 @@ public class LibraryGen : TextAdd
 
         this.ClassGen = this.CreateClassGen();
 
-        this.StringValueTraverse = this.CreateStringValueTraverse();
+        this.StringValueTravel = this.CreateStringValueTravel();
 
         this.ModuleGen = this.CreateModuleGen();
 
@@ -57,7 +57,7 @@ public class LibraryGen : TextAdd
     protected virtual ClassBaseGen ClassBaseGen { get; set; }
     protected virtual ClassCompGen ClassCompGen { get; set; }
     protected virtual ClassGen ClassGen { get; set; }
-    protected virtual StringValueTraverse StringValueTraverse { get; set; }
+    protected virtual StringValueTravel StringValueTravel { get; set; }
     protected virtual ModuleGen ModuleGen { get; set; }
     protected virtual ModuleHeaderGen ModuleHeaderGen { get; set; }
     protected virtual ImportArgGen ImportArgGen { get; set; }
@@ -111,10 +111,10 @@ public class LibraryGen : TextAdd
         return a;
     }
 
-    protected virtual StringValueTraverse CreateStringValueTraverse()
+    protected virtual StringValueTravel CreateStringValueTravel()
     {
-        StringValueTraverse a;
-        a = new StringValueTraverse();
+        StringValueTravel a;
+        a = new StringValueTravel();
         a.Init();
         return a;
     }
@@ -406,20 +406,20 @@ public class LibraryGen : TextAdd
             iter.Next();
 
             ClassClass varClass;
-            varClass = (ClassClass)iter.Value;
+            varClass = iter.Value as ClassClass;
 
             NodeClass nodeClass;
             nodeClass = varClass.Any as NodeClass;
 
-            this.StringValueTraverse.Class = nodeClass;
+            this.StringValueTravel.Class = nodeClass;
 
-            this.StringValueTraverse.Execute();
+            this.StringValueTravel.Execute();
 
             Array stringValueArray;
-            stringValueArray = this.StringValueTraverse.Array;
+            stringValueArray = this.StringValueTravel.Array;
 
-            this.StringValueTraverse.Array = null;
-            this.StringValueTraverse.Class = null;
+            this.StringValueTravel.Array = null;
+            this.StringValueTravel.Class = null;
 
             Array baseArray;
             baseArray = this.ClassBaseArray.GetAt(i) as Array;
