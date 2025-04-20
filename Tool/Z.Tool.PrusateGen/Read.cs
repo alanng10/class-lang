@@ -25,12 +25,6 @@ class Read : ToolBase
             return 1;
         }
 
-        b = this.SetMaideArray();
-        if (!b)
-        {
-            return 2;
-        }
-        
         return 0;
     }
 
@@ -479,43 +473,5 @@ class Read : ToolBase
         }
 
         return array;
-    }
-
-    protected virtual bool SetMaideArray()
-    {
-        String ka;
-        ka = this.StorageTextRead(this.S("ToolData/Prusate/MaideList.txt"));
-
-        Array lineArray;
-        lineArray = this.StringLine(this.TextCreate(ka));
-
-        long count;
-        count = lineArray.Count;
-
-        Array array;
-        array = this.ListInfra.ArrayCreate(count);
-
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            String line;
-            line = (String)lineArray.GetAt(i);
-
-            Maide maide;
-            maide = this.GetMethod(line, true);
-
-            if (maide == null)
-            {
-                return false;
-            }
-
-            array.SetAt(i, maide);
-
-            i = i + 1;
-        }
-
-        this.Result.Maide = array;
-        return true;
     }
 }
