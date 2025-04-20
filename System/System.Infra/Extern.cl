@@ -1,9 +1,9 @@
 class Extern : Any
 {
-    maide prusate Int New(var Int count) { }
-    maide prusate Int Delete(var Int any) { }
-    maide prusate Int Copy(var Int dest, var Int source, var Int count) { }
-    maide prusate Int Exit(var Int code) { }
+    maide prusate Int Environ_New(var Int count) { }
+    maide prusate Int Environ_Delete(var Int any) { }
+    maide prusate Int Environ_Copy(var Int dest, var Int source, var Int count) { }
+    maide prusate Int Environ_Exit(var Int status) { }
 
     maide prusate Int String_New() { }
     maide prusate Int String_Delete(var Int o) { }
