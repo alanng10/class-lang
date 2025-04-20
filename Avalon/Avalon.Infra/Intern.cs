@@ -297,7 +297,7 @@ public class Intern : Any
                 ulong destU;
                 destU = (ulong)destP;
 
-                Extern.Copy(destU, source, count);
+                Extern.Environ_Copy(destU, source, count);
             }
         }
         return true;
@@ -318,7 +318,7 @@ public class Intern : Any
                 ulong sourceU;
                 sourceU = (ulong)sourceP;
 
-                Extern.Copy(dest, sourceU, count);
+                Extern.Environ_Copy(dest, sourceU, count);
             }
         }
         return true;

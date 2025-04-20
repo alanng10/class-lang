@@ -45,7 +45,7 @@ public class InternInfra : Any
         ka = countA * sizeof(uint);
 
         ulong kk;
-        kk = Extern.New(ka);
+        kk = Extern.Environ_New(ka);
 
         this.InternIntern.CopyFromByteArray(kk, value, 0, ka);
 
@@ -65,7 +65,7 @@ public class InternInfra : Any
         Extern.String_Final(k);
         Extern.String_Delete(k);
 
-        Extern.Delete(value);
+        Extern.Environ_Delete(value);
         return true;
     }
 
