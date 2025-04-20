@@ -79,11 +79,10 @@ State
     Arg
 
 Main -
-    Init() -
+    Init(argc, argv) -
     Final() -
     IsCSharpSet(value) -
     Arg() -
-    ArgSet(argc, argv) -
     TerminateState -
     Terminate(arg) --
 
