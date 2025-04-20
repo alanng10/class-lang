@@ -316,7 +316,6 @@ Thread
     Status
     Case
     Execute()
-    Terminate()
     Pause()
     Resume()
     Wait()
