@@ -13,7 +13,7 @@ Int Array_Init(Int o)
     byteCount = count * Constant_IntByteCount();
 
     Int u;
-    u = New(byteCount);
+    u = Environ_New(byteCount);
     m->Item = u;
     return true;
 }

@@ -98,7 +98,7 @@ Int String_ConstantCreate(Int o)
 
     Int outDataValue;
     Int outDataCount;
-    outDataValue = New(k);
+    outDataValue = Environ_New(k);
     outDataCount = k;
 
     TextCode_ExecuteResult(0, outDataValue, innKind, outKind, innDataValue, innDataCount);

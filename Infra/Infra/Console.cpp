@@ -61,7 +61,7 @@ Int Console_StreamWrite(Int o, Int text, Int stream)
     k = TextCode_ExecuteCount(0, innKind, outKind, dataValue, dataCount);
 
     Int result;
-    result = New(k);
+    result = Environ_New(k);
 
     TextCode_ExecuteResult(0, result, innKind, outKind, dataValue, dataCount);
 
@@ -127,7 +127,7 @@ Int Console_InnRead(Int o)
     resultCount = TextCode_ExecuteCount(0, innKind, outKind, dataValue, dataCount);
 
     Int result;
-    result = New(resultCount);
+    result = Environ_New(resultCount);
 
     TextCode_ExecuteResult(0, result, innKind, outKind, dataValue, dataCount);
 
