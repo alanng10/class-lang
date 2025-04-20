@@ -6,12 +6,7 @@ class MaideCallFunctionOperate : FunctionOperate
 
     public override bool ExecuteName()
     {
-        if (!(this.Class == null))
-        {
-            this.Gen.Add(this.Class.Name).Add(this.Gen.Combine);
-        }
-
-        this.Gen.Add(this.Maide.Name);
+        this.Gen.Add(this.Class.Name).Add(this.Gen.Combine).Add(this.Maide.Name);
         return true;
     }
 
