@@ -69,9 +69,9 @@ Int Intern_State_Thread_Execute(Int thread, Int arg)
 
     Intern_New_Close();
 
-    Delete(pa);
+    Environ_Delete(pa);
 
-    Delete(p);
+    Environ_Delete(p);
 
     return a;
 }

@@ -364,7 +364,7 @@ Int Intern_New_DeleteUnused()
                 m->LastNode = previousNode;
             }
 
-            Delete(node);
+            Environ_Delete(node);
         }
 
         if (!b)

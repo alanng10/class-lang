@@ -140,7 +140,7 @@ Bool Intern_FinalThread(Int thread)
 
     Intern_New_Close();
 
-    Delete(ka);
+    Environ_Delete(ka);
 
     return true;
 }
