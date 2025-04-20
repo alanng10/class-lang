@@ -7,6 +7,9 @@ Int Main_Init(Int argc, Int argv)
     Main* m;
     m = &D_Var;
 
+    m->ArgC = argc;
+    m->ArgV = argv;
+
     m->Share = Share_New();
     Share_Init(m->Share);
 
@@ -52,16 +55,6 @@ Int Main_IsCSharpSet(Int value)
     Main* m;
     m = &D_Var;
     m->IsCSharp = value;
-    return true;
-}
-
-Int Main_ArgSet(Int argc, Int argv)
-{
-    Main* m;
-    m = &D_Var;
-
-    m->ArgC = argc;
-    m->ArgV = argv;
     return true;
 }
 
