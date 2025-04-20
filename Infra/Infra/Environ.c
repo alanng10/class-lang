@@ -2,7 +2,7 @@
 
 Int Environ_Memory_M_K;
 
-Int New(Int k)
+Int Environ_New(Int k)
 {
     if (k == 0)
     {
@@ -69,7 +69,7 @@ Int Environ_TrigAlloc(Int k, Int memory)
     return true;
 }
 
-Int Delete(Int o)
+Int Environ_Delete(Int o)
 {
     if (o == null)
     {
@@ -90,7 +90,7 @@ Int Delete(Int o)
     return true;
 }
 
-Int Copy(Int dest, Int source, Int count)
+Int Environ_Copy(Int dest, Int source, Int count)
 {
     void* pa;
     pa = CastPointer(dest);
@@ -103,7 +103,7 @@ Int Copy(Int dest, Int source, Int count)
     return true;
 }
 
-Int Exit(Int code)
+Int Environ_Exit(Int code)
 {
     int o;
     o = (int)code;
@@ -111,7 +111,7 @@ Int Exit(Int code)
     return true;
 }
 
-Int HasFlag(Int value, Int flag)
+Int Environ_HasFlag(Int value, Int flag)
 {
     Bool a;
     a = (!((value & flag) == 0));
