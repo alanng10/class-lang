@@ -71,7 +71,7 @@ Int Thread_InitMainThread(Int o)
 
     Qt::HANDLE uu;
     uu = QThread::currentThreadId();
-    
+
     Int threadId;
     threadId = CastInt(uu);
 
