@@ -81,7 +81,7 @@ Int Console_StreamWrite(Int o, Int text, Int stream)
         ob->flush();
     }
 
-    Delete(result);
+    Environ_Delete(result);
 
     Phore_Close(phore);
     return true;

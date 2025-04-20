@@ -22,7 +22,7 @@ Int Array_Final(Int o)
 {
     Array* m;
     m = CastPointer(o);
-    Delete(m->Item);
+    Environ_Delete(m->Item);
     return true;
 }
 

@@ -109,7 +109,7 @@ Int Main_FinalArg()
 
         String_Delete(a);
 
-        Delete(value);
+        Environ_Delete(value);
 
         i = i + 1;
     }

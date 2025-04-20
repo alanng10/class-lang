@@ -125,7 +125,7 @@ Int String_ConstantDelete(Int o)
     String_Final(o);
     String_Delete(o);
 
-    Delete(data);
+    Environ_Delete(data);
     return true;
 }
 

@@ -51,7 +51,7 @@ Int Draw_Final(Int o)
     delete m->InternText;
     delete m->InternIdentityForm;
 
-    Delete(m->TextData);
+    Environ_Delete(m->TextData);
     return true;
 }
 

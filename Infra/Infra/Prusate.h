@@ -69,7 +69,7 @@ Int c##_New()\
 }\
 Int c##_Delete(Int o)\
 {\
-    Delete(o);\
+    Environ_Delete(o);\
     return true;\
 }\
 
@@ -85,7 +85,7 @@ Int m##_##c##_New()\
 }\
 Int m##_##c##_Delete(Int o)\
 {\
-    Delete(o);\
+    Environ_Delete(o);\
     return true;\
 }\
 

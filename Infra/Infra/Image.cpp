@@ -50,7 +50,7 @@ Int Image_Final(Int o)
 
     Int oa;
     oa = Data_ValueGet(m->Data);
-    Delete(oa);
+    Environ_Delete(oa);
     
     return true;
 }
@@ -62,7 +62,7 @@ Int Image_DataCreate(Int o)
 
     Int oa;
     oa = Data_ValueGet(m->Data);
-    Delete(oa);
+    Environ_Delete(oa);
 
     Int size;
     size = m->Size;
@@ -116,7 +116,7 @@ Int Image_SetReadIntern(Int o, Int value)
 
     Int oa;
     oa = Data_ValueGet(m->Data);
-    Delete(oa);
+    Environ_Delete(oa);
     
     QImage* u;
     u = (QImage*)value;
