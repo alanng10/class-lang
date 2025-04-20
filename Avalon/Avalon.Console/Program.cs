@@ -61,9 +61,9 @@ public class Program : Any
         return true;
     }
 
-    public virtual bool Terminate()
+    public virtual bool Exit()
     {
-        Extern.Program_Terminate(this.Intern);
+        Extern.Program_Exit(this.Intern);
         return true;
     }
 
