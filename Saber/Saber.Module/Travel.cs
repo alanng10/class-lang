@@ -1,6 +1,6 @@
 namespace Saber.Module;
 
-public class Traverse : NodeTraverse
+public class Travel : NodeTravel
 {
     public override bool Init()
     {
