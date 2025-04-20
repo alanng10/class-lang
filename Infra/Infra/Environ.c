@@ -1,13 +1,13 @@
-#include "Maide.h"
+#include "Environ.h"
 
-Int Memory_M_K;
+Int Environ_Memory_M_K;
 
 Int New(Int k)
 {
     if (k == 0)
     {
         Int d;
-        d = CastInt(&Memory_M_K);
+        d = CastInt(&Environ_Memory_M_K);
         return d;
     }
 
@@ -22,14 +22,14 @@ Int New(Int k)
     Int memory;
     memory = CastInt(p);
 
-    TrigAlloc(k, memory);
+    Environ_TrigAlloc(k, memory);
 
     Int a;
     a = memory;
     return a;
 }
 
-Int TrigAlloc(Int k, Int memory)
+Int Environ_TrigAlloc(Int k, Int memory)
 {
     Int kaa;
     kaa = 4 * 1024;
@@ -77,7 +77,7 @@ Int Delete(Int o)
     }
 
     Int ua;
-    ua = CastInt(&Memory_M_K);
+    ua = CastInt(&Environ_Memory_M_K);
     if (o == ua)
     {
         return true;

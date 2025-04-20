@@ -5,4 +5,4 @@
 
 #include "Pronate.h"
 
-Int TrigAlloc(Int k, Int memory);
+Int Environ_TrigAlloc(Int k, Int memory);
