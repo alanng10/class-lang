@@ -1,6 +1,6 @@
 #include "Main_Windows.h"
 
-Int Main_OS_Arg()
+Int Main_OS_Arg(Int argc, Int argv)
 {
     LPWSTR sa;
     sa = 0;
@@ -10,12 +10,12 @@ Int Main_OS_Arg()
     int countA;
     countA = 0;
 
-    LPWSTR* argv;
-    argv = 0;
+    LPWSTR* kk;
+    kk = 0;
 
-    argv = CommandLineToArgvW(sa, &countA);
+    kk = CommandLineToArgvW(sa, &countA);
 
-    if (argv == NULL)
+    if (kk == NULL)
     {
         return null;
     }
@@ -57,7 +57,7 @@ Int Main_OS_Arg()
         index = i + 1;
 
         LPWSTR arg;
-        arg = argv[index];
+        arg = kk[index];
 
         int kaa;
         kaa = lstrlenW(arg);
@@ -96,7 +96,7 @@ Int Main_OS_Arg()
         i = i + 1;
     }
 
-    LocalFree(argv);
+    LocalFree(kk);
 
     return array;
 }
