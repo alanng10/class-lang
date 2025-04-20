@@ -1,9 +1,7 @@
-Memory -
+Environ -
     New(count) -
     Delete(any) -
     Copy(dest, source, count) -
-
-Environ -
     Exit(status) -
 
 String
