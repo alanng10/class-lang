@@ -72,9 +72,9 @@ Int Storage_Open(Int o)
         kind = Stat_StreamKindStorage(stat);
 
         Bool canRead;
-        canRead = HasFlag(mode, Stat_StorageModeRead(stat));
+        canRead = Environ_HasFlag(mode, Stat_StorageModeRead(stat));
         Bool canWrite;
-        canWrite = HasFlag(mode, Stat_StorageModeWrite(stat));
+        canWrite = Environ_HasFlag(mode, Stat_StorageModeWrite(stat));
 
         Stream_KindSet(stream, kind);
         Stream_ValueSet(stream, uo);
