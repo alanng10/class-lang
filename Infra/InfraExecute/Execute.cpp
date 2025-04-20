@@ -58,7 +58,7 @@ Int ExecuteMain(Int argc, Int argv)
 
     if (argCount < 1)
     {
-        ExecuteMainError(1, CastInt("unvalid module ref"));
+        ExecuteMainError(1, CastInt("module ref unvalid"));
     }
 
     Int arg;
@@ -73,7 +73,7 @@ Int ExecuteMain(Int argc, Int argv)
 
     if (!ba)
     {
-        ExecuteMainError(1, CastInt("unvalid module ref"));
+        ExecuteMainError(1, CastInt("module ref unvalid"));
     }
 
     QString moduleString;
@@ -85,7 +85,7 @@ Int ExecuteMain(Int argc, Int argv)
 
     if (!bb)
     {
-        ExecuteMainError(1, CastInt("unvalid module ref"));
+        ExecuteMainError(1, CastInt("module ref unvalid"));
     }
 
     QString initString;
@@ -112,7 +112,7 @@ Int ExecuteMain(Int argc, Int argv)
 
     if (!bc)
     {
-        ExecuteMainError(1, CastInt("unachieve this fold set"));
+        ExecuteMainError(1, CastInt("this fold set unachieve"));
     }
 
     QLibrary library;
@@ -126,7 +126,7 @@ Int ExecuteMain(Int argc, Int argv)
 
     if (!bd)
     {
-        ExecuteMainError(1, CastInt("unachieve library load"));
+        ExecuteMainError(1, CastInt("library load unachieve"));
     }
 
     QByteArray initStringK;
@@ -158,7 +158,7 @@ Int ExecuteMain(Int argc, Int argv)
 
     if (initState == null)
     {
-        ExecuteMainError(1, CastInt("unachieve init state"));
+        ExecuteMainError(1, CastInt("init state unachieve"));
     }
 
     Intern_Module_State varState;
@@ -166,7 +166,7 @@ Int ExecuteMain(Int argc, Int argv)
 
     if (varState == null)
     {
-        ExecuteMainError(1, CastInt("unachieve var state"));
+        ExecuteMainError(1, CastInt("var state unachieve"));
     }
 
     Intern_Module_State entryState;
@@ -174,7 +174,7 @@ Int ExecuteMain(Int argc, Int argv)
 
     if (entryState == null)
     {
-        ExecuteMainError(1, CastInt("unachieve entry state"));
+        ExecuteMainError(1, CastInt("entry state unachieve"));
     }
 
     Intern_Module_State countState;
@@ -182,7 +182,7 @@ Int ExecuteMain(Int argc, Int argv)
 
     if (countState == null)
     {
-        ExecuteMainError(1, CastInt("unachieve count state"));
+        ExecuteMainError(1, CastInt("count state unachieve"));
     }
 
     Int entryModule;
@@ -199,7 +199,7 @@ Int ExecuteMain(Int argc, Int argv)
 
     if (entryClassIndex == intNull)
     {
-        ExecuteMainError(1, CastInt("unvalid entry class"));
+        ExecuteMainError(1, CastInt("entry class unvalid"));
     }
 
     Int entryModuleInit;
