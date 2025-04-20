@@ -6,7 +6,7 @@ class FieldGetFunctionOperate : FunctionOperate
 
     public override bool ExecuteName()
     {
-        this.Add(this.Class.Name).Add(this.Gen.Combine).Add(this.Field.Name).AddS("Get");
+        this.Gen.Add(this.Class.Name).Add(this.Gen.Combine).Add(this.Field.Name).AddS("Get");
         return true;
     }
 

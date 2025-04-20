@@ -6,7 +6,7 @@ class FieldSetFunctionOperate : FunctionOperate
 
     public override bool ExecuteName()
     {
-        this.Add(this.Class.Name).Add(this.Gen.Combine).Add(this.Field.Name).AddS("Set");
+        this.Gen.Add(this.Class.Name).Add(this.Gen.Combine).Add(this.Field.Name).AddS("Set");
         return true;
     }
 

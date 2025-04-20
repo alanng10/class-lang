@@ -8,10 +8,10 @@ class MaideCallFunctionOperate : FunctionOperate
     {
         if (!(this.Class == null))
         {
-            this.Add(this.Class.Name).Add(this.Gen.Combine);
+            this.Gen.Add(this.Class.Name).Add(this.Gen.Combine);
         }
-                
-        this.Add(this.Maide.Name);
+
+        this.Gen.Add(this.Maide.Name);
         return true;
     }
 
