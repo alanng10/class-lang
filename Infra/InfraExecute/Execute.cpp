@@ -38,7 +38,7 @@ Int ExecuteStatusWrite(Int value)
         String_Final(ka);
         String_Delete(ka);
 
-        Delete(kab);
+        Environ_Delete(kab);
 
         k = 1;
     }
