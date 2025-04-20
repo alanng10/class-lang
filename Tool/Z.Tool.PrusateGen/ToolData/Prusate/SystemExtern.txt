@@ -1,4 +1,3 @@
 class Extern : Any
 {
-#MaideList#
 #ClassList#}
