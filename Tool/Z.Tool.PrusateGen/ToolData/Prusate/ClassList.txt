@@ -1,3 +1,11 @@
+Memory -
+    New(count) -
+    Delete(any) -
+    Copy(dest, source, count) -
+
+Environ -
+    Exit(status) -
+
 String
     Value
     Count
