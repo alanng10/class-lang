@@ -11,6 +11,7 @@ HEADERS += \
     Data.h \
     Draw.hpp \
     Entry.h \
+    Environ.h \
     Font.hpp \
     FontStore.hpp \
     Form.hpp \
@@ -21,7 +22,6 @@ HEADERS += \
     Image.hpp \
     ImageRead.hpp \
     ImageWrite.hpp \
-    Maide.h \
     Main.hpp \
     Math.hpp \
     Memory.hpp \
@@ -72,6 +72,7 @@ SOURCES += \
     Data.c \
     Draw.cpp \
     Entry.c \
+    Environ.c \
     Font.cpp \
     FontStore.cpp \
     Form.cpp \
@@ -82,7 +83,6 @@ SOURCES += \
     Image.cpp \
     ImageRead.cpp \
     ImageWrite.cpp \
-    Maide.c \
     Main.cpp \
     Math.cpp \
     Math_Part.cpp \
