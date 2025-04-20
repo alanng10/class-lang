@@ -1,6 +1,6 @@
 namespace Saber.Console;
 
-public class ClassGenTraverse : Travel
+public class ClassGenTravel : Travel
 {
     public virtual ClassGen Gen { get; set; }
 

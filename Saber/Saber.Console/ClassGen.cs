@@ -12,7 +12,7 @@ public class ClassGen : TextAdd
         this.SetOperate.Gen = this;
         this.SetOperate.Init();
 
-        this.Traverse = new ClassGenTraverse();
+        this.Traverse = new ClassGenTravel();
         this.Traverse.Gen = this;
         this.Traverse.Init();
 
@@ -155,7 +155,7 @@ public class ClassGen : TextAdd
     public virtual String Result { get; set; }
     public virtual CountClassGenOperate CountOperate { get; set; }
     public virtual SetClassGenOperate SetOperate { get; set; }
-    public virtual ClassGenTraverse Traverse { get; set; }
+    public virtual ClassGenTravel Traverse { get; set; }
     public virtual Array StringValue { get; set; }
     public virtual long StringValueIndex { get; set; }
     public virtual String ClassBaseMask { get; set; }
