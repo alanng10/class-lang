@@ -88,7 +88,7 @@ Int NetworkPort_ValueSet(Int o, Int pointer, Int index, Int value, Int count)
     source = CastInt(sourceU);
     Int dest;
     dest = pointer + index;
-    Copy(dest, source, count);
+    Environ_Copy(dest, source, count);
     return true;
 }
 
