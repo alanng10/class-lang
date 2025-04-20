@@ -11,7 +11,7 @@ HEADERS += \
     Extern.h \
     Intern.h \
     Main.h \
-    New.h \
+    Memory.h \
     Share.h \
     State.h \
     Thread.h \
@@ -22,7 +22,7 @@ SOURCES += \
     Extern.c \
     Intern.c \
     Main.c \
-    New.c \
+    Memory.c \
     Share.c \
     State.c \
     Thread.c \
