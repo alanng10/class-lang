@@ -201,6 +201,7 @@ Intern_Api Int Intern_Extern_Main_Init(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Main_Final(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Main_IsCSharpSet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Main_Arg(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Main_ArgSet(Eval* e, Int f);
 
 Intern_Api Int Intern_Extern_Frame_New(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Frame_Delete(Eval* e, Int f);
@@ -601,7 +602,6 @@ Intern_Api Int Intern_Extern_Thread_CaseGet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Thread_CaseSet(Eval* e, Int f);
 
 Intern_Api Int Intern_Extern_Thread_Execute(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Thread_Terminate(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Thread_Pause(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Thread_Resume(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Thread_Wait(Eval* e, Int f);
@@ -700,7 +700,7 @@ Intern_Api Int Intern_Extern_Program_StatusSet(Eval* e, Int f);
 
 Intern_Api Int Intern_Extern_Program_Execute(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Program_Wait(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Program_Terminate(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Program_Exit(Eval* e, Int f);
 
 Intern_Api Int Intern_Extern_Infra_Share(Eval* e, Int f);
 

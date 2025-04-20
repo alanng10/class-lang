@@ -2373,6 +2373,20 @@ Int Intern_Extern_Main_Arg(Eval* eval, Int frame)
     Return;
 }
 
+Int Intern_Extern_Main_ArgSet(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 2;
+
+    Param(0);
+    Param(1);
+
+    Int a;
+    a = Main_ArgSet(a0, a1);
+
+    Return;
+}
+
 Int Intern_Extern_Frame_New(Eval* eval, Int frame)
 {
     Int paramCount;
@@ -7133,19 +7147,6 @@ Int Intern_Extern_Thread_Execute(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_Thread_Terminate(Eval* eval, Int frame)
-{
-    Int paramCount;
-    paramCount = 1;
-
-    Param(0);
-
-    Int a;
-    a = Thread_Terminate(a0);
-
-    Return;
-}
-
 Int Intern_Extern_Thread_Pause(Eval* eval, Int frame)
 {
     Int paramCount;
@@ -8324,7 +8325,7 @@ Int Intern_Extern_Program_Wait(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_Program_Terminate(Eval* eval, Int frame)
+Int Intern_Extern_Program_Exit(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -8332,7 +8333,7 @@ Int Intern_Extern_Program_Terminate(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Program_Terminate(a0);
+    a = Program_Exit(a0);
 
     Return;
 }

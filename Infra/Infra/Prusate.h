@@ -244,6 +244,7 @@ Infra_Api Int Main_Init();
 Infra_Api Int Main_Final();
 Infra_Api Int Main_IsCSharpSet(Int value);
 Infra_Api Int Main_Arg();
+Infra_Api Int Main_ArgSet(Int argc, Int argv);
 
 typedef Int (*Main_Terminate_Maide)(Int arg);
 
@@ -580,7 +581,6 @@ Infra_Api Int Thread_CaseGet(Int o);
 Infra_Api Int Thread_CaseSet(Int o, Int value);
 
 Infra_Api Int Thread_Execute(Int o);
-Infra_Api Int Thread_Terminate(Int o);
 Infra_Api Int Thread_Pause(Int o);
 Infra_Api Int Thread_Resume(Int o);
 Infra_Api Int Thread_Wait(Int o);
@@ -671,7 +671,7 @@ Infra_Api Int Program_StatusSet(Int o, Int value);
 
 Infra_Api Int Program_Execute(Int o);
 Infra_Api Int Program_Wait(Int o);
-Infra_Api Int Program_Terminate(Int o);
+Infra_Api Int Program_Exit(Int o);
 
 Infra_Api Int Infra_Share();
 
