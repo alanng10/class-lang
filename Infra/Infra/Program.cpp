@@ -101,7 +101,7 @@ Int Program_Wait(Int o)
     return true;
 }
 
-Int Program_Terminate(Int o)
+Int Program_Exit(Int o)
 {
     Program* m;
     m = CP(o);
