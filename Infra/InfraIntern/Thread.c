@@ -92,7 +92,7 @@ Int Intern_InitThread(Int thread, Int threadAny)
 
     if (!b)
     {
-        Console_ErrWrite(0, String_ConstantCreate(CastInt("unachieve thread init")));
+        Console_ErrWrite(0, String_ConstantCreate(CastInt("thread init unachieve")));
         Environ_Exit(1);
     }
 
