@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="../MakeProject/MakeProject.csproj" />
+        <ProjectReference Include="../MakePackage/MakePackage.csproj" />
         <ProjectReference Include="../Demo/Demo.csproj" />
     </ItemGroup>
 
