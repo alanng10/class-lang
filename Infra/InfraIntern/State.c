@@ -18,7 +18,7 @@ Int Intern_State_Thread_Execute(Int thread, Int arg)
     kaa = count * Constant_IntByteCount();
 
     Int p;
-    p = New(kaa);
+    p = Environ_New(kaa);
 
     Int* stack;
     stack = CastPointer(p);
@@ -27,7 +27,7 @@ Int Intern_State_Thread_Execute(Int thread, Int arg)
     kab = sizeof(Eval);
 
     Int pa;
-    pa = New(kab);
+    pa = Environ_New(kab);
 
     Eval* eval;
     eval = CastPointer(pa);

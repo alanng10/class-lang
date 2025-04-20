@@ -21,7 +21,7 @@ Int Intern_Init(Int entryModule, Int entryClassIndex, Int entryModuleInit, Int m
     Int dataCount;
     dataCount = count * Constant_IntByteCount();
 
-    ModuleArray = New(dataCount);
+    ModuleArray = Environ_New(dataCount);
     ModuleArrayCount = count;
 
     Intern_Module_State moduleInit;
@@ -178,7 +178,7 @@ Bool Intern_ArgInit()
     ka = intCount * Constant_IntByteCount();
 
     Int k;
-    k = New(ka);
+    k = Environ_New(ka);
 
     Int* p;
     p = CastPointer(k);
