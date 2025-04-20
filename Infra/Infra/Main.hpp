@@ -11,8 +11,10 @@ struct Main
     Int Share;
     Int MainThread;
     Int Arg;
-    Int TerminateState;
+    Int ArgC;
+    Int ArgV;
     char* Argv[2];
+    Int TerminateState;
     Int IsCSharp;
     QApplication* Intern;
 };
