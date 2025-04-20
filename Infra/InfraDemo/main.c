@@ -903,7 +903,7 @@ int main(int argc, char* argv[])
 
     String_Delete(stringOb);
 
-    Delete(dataValueA);
+    Environ_Delete(dataValueA);
 
     Data_Final(dataA);
 
@@ -1594,7 +1594,7 @@ int main(int argc, char* argv[])
 
 
 
-    Delete(pointListDataValue);
+    Environ_Delete(pointListDataValue);
 
 
 
