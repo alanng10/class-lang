@@ -16,7 +16,7 @@ Int Environ_New(Int k)
 
     if (p == null)
     {
-        Exit(150);
+        Environ_Exit(150);
     }
 
     Int memory;
