@@ -2,9 +2,9 @@
 
 call Script\Infra\Var
 
-set InfraExecuteProjectOutFold=.\Out\InfraExecute-Windows-Release
+set InfraExecutePackageOutFold=.\Out\InfraExecute-Windows-Release
 
-mkdir %InfraExecuteProjectOutFold% 1>NUL 2>NUL
-pushd %InfraExecuteProjectOutFold%
+mkdir %InfraExecutePackageOutFold% 1>NUL 2>NUL
+pushd %InfraExecutePackageOutFold%
 mingw32-make 1>NUL
 popd

@@ -2,9 +2,9 @@
 
 call Script\Infra\Var
 
-set InfraInternProjectOutFold=.\Out\InfraIntern-Windows-Release
+set InfraInternPackageOutFold=.\Out\InfraIntern-Windows-Release
 
-mkdir %InfraInternProjectOutFold% 1>NUL 2>NUL
-pushd %InfraInternProjectOutFold%
+mkdir %InfraInternPackageOutFold% 1>NUL 2>NUL
+pushd %InfraInternPackageOutFold%
 mingw32-make 1>NUL
 popd

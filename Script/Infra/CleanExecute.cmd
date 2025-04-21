@@ -2,5 +2,5 @@
 
 call Script\Infra\Var
 
-set InfraExecuteProjectOutFold=.\Out\InfraExecute-Windows-Release
-rmdir /S /Q %InfraExecuteProjectOutFold% 2>NUL
+set InfraExecutePackageOutFold=.\Out\InfraExecute-Windows-Release
+rmdir /S /Q %InfraExecutePackageOutFold% 2>NUL

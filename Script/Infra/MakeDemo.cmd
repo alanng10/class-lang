@@ -2,9 +2,9 @@
 
 call Script\Infra\Var
 
-set InfraDemoProjectOutFold=.\Out\InfraDemo-Windows-Release
+set InfraDemoPackageOutFold=.\Out\InfraDemo-Windows-Release
 
-mkdir %InfraDemoProjectOutFold% 1>NUL 2>NUL
-pushd %InfraDemoProjectOutFold%
+mkdir %InfraDemoPackageOutFold% 1>NUL 2>NUL
+pushd %InfraDemoPackageOutFold%
 mingw32-make 1>NUL
 popd
