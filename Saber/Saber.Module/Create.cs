@@ -1007,7 +1007,7 @@ public class Create : ClassCreate
         while (i < count)
         {
             NodeNode root;
-            root = (NodeNode)this.RootNode.GetAt(i);
+            root = this.RootNode.GetAt(i) as NodeNode;
 
             Source source;
             source = this.SourceGet(i);
@@ -1015,7 +1015,7 @@ public class Create : ClassCreate
             if (!(root == null))
             {
                 NodeClass nodeClass;
-                nodeClass = (NodeClass)root;
+                nodeClass = root as NodeClass;
                 this.ExecuteTravel(traverse, nodeClass, source);
             }
             i = i + 1;
