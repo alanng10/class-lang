@@ -8,11 +8,11 @@ public class StringValueTravel : Travel
         this.ListInfra = ListInfra.This;
 
         this.CountOperate = new CountStringValueOperate();
-        this.CountOperate.Traverse = this;
+        this.CountOperate.Travel = this;
         this.CountOperate.Init();
 
         this.SetOperate = new SetStringValueOperate();
-        this.SetOperate.Traverse = this;
+        this.SetOperate.Travel = this;
         this.SetOperate.Init();
         return true;
     }
