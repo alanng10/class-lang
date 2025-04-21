@@ -1083,7 +1083,7 @@ public class Create : ClassCreate
 
     protected virtual Source SourceGet(long index)
     {
-        return (Source)this.Source.GetAt(index);
+        return this.Source.GetAt(index) as Source;
     }
 
     public virtual bool Error(ErrorKind kind, NodeNode node, Source source)
