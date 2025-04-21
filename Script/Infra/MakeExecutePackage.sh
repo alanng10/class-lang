@@ -2,7 +2,7 @@
 
 InfraExecutePackageOutFold=Out/InfraExecute-Linux-Release
 
-mkdir $InfraExecutePackageOutFold 1>/dev/null 2>/dev/null
+mkdir -p $InfraExecutePackageOutFold
 pushd $InfraExecutePackageOutFold
 qmake6 ../../Infra/InfraExecute/InfraExecute.pro
 popd
