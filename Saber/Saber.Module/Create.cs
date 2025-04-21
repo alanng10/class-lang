@@ -136,16 +136,16 @@ public class Create : ClassCreate
 
     protected virtual bool ExecuteInit()
     {
-        Traverse traverse;
-        traverse = this.InitTraverse();
-        this.ExecuteRootTraverse(traverse);
+        Travel traverse;
+        traverse = this.InitTravel();
+        this.ExecuteRootTravel(traverse);
         return true;
     }
 
-    protected virtual Traverse InitTraverse()
+    protected virtual Travel InitTravel()
     {
-        InitTraverse a;
-        a = new InitTraverse();
+        InitTravel a;
+        a = new InitTravel();
         a.Create = this;
         a.Init();
         return a;
@@ -153,18 +153,18 @@ public class Create : ClassCreate
 
     protected virtual bool ExecuteClass()
     {
-        Traverse traverse;
-        traverse = this.ClassTraverse();
-        this.ExecuteRootTraverse(traverse);
+        Travel traverse;
+        traverse = this.ClassTravel();
+        this.ExecuteRootTravel(traverse);
 
         this.SystemClassSet();
         return true;
     }
 
-    protected virtual Traverse ClassTraverse()
+    protected virtual Travel ClassTravel()
     {
-        ClassTraverse a;
-        a = new ClassTraverse();
+        ClassTravel a;
+        a = new ClassTravel();
         a.Create = this;
         a.Init();
         return a;
@@ -381,9 +381,9 @@ public class Create : ClassCreate
 
     protected virtual bool ExecuteComp()
     {
-        Traverse traverse;
-        traverse = this.CompTraverse();
-        this.ExecuteClassTraverse(traverse);
+        Travel traverse;
+        traverse = this.CompTravel();
+        this.ExecuteClassTravel(traverse);
         return true;
     }
 
@@ -530,10 +530,10 @@ public class Create : ClassCreate
         return (Info)node.NodeAny;
     }
 
-    protected virtual Traverse CompTraverse()
+    protected virtual Travel CompTravel()
     {
-        CompTraverse a;
-        a = new CompTraverse();
+        CompTravel a;
+        a = new CompTravel();
         a.Create = this;
         a.Init();
         return a;
@@ -776,16 +776,16 @@ public class Create : ClassCreate
 
     protected virtual bool ExecuteState()
     {
-        Traverse traverse;
-        traverse = this.StateTraverse();
-        this.ExecuteClassTraverse(traverse);
+        Travel traverse;
+        traverse = this.StateTravel();
+        this.ExecuteClassTravel(traverse);
         return true;
     }
 
-    protected virtual Traverse StateTraverse()
+    protected virtual Travel StateTravel()
     {
-        StateTraverse a;
-        a = new StateTraverse();
+        StateTravel a;
+        a = new StateTravel();
         a.Create = this;
         a.Init();
         return a;
@@ -998,7 +998,7 @@ public class Create : ClassCreate
         return true;
     }
 
-    protected virtual bool ExecuteRootTraverse(Traverse traverse)
+    protected virtual bool ExecuteRootTravel(Travel traverse)
     {
         long count;
         count = this.Source.Count;
@@ -1016,14 +1016,14 @@ public class Create : ClassCreate
             {
                 NodeClass nodeClass;
                 nodeClass = (NodeClass)root;
-                this.ExecuteTraverse(traverse, nodeClass, source);
+                this.ExecuteTravel(traverse, nodeClass, source);
             }
             i = i + 1;
         }
         return true;
     }
 
-    protected virtual bool ExecuteClassTraverse(Traverse traverse)
+    protected virtual bool ExecuteClassTravel(Travel traverse)
     {
         Table table;
         table = this.Module.Class;
@@ -1033,18 +1033,18 @@ public class Create : ClassCreate
         while (iter.Next())
         {
             ClassClass varClass;
-            varClass = (ClassClass)iter.Value;
+            varClass = iter.Value as ClassClass;
             Source source;
             source = this.SourceGet(varClass.Index);
             NodeClass nodeClass;
-            nodeClass = (NodeClass)varClass.Any;
+            nodeClass = varClass.Any as NodeClass;
 
-            this.ExecuteTraverse(traverse, nodeClass, source);
+            this.ExecuteTravel(traverse, nodeClass, source);
         }
         return true;
     }
 
-    protected virtual bool ExecuteTraverse(Traverse traverse, NodeClass nodeClass, Source source)
+    protected virtual bool ExecuteTravel(Travel traverse, NodeClass nodeClass, Source source)
     {
         traverse.Source = source;
         traverse.ExecuteClass(nodeClass);
