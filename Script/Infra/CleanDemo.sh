@@ -1,4 +1,4 @@
 #!/bin/bash
 
-InfraDemoProjectOutFold=Out/InfraDemo-Linux-Release
-rm -rf $InfraDemoProjectOutFold 2>/dev/null
+InfraDemoPackageOutFold=Out/InfraDemo-Linux-Release
+rm -rf $InfraDemoPackageOutFold 2>/dev/null
