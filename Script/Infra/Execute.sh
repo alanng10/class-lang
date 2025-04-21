@@ -6,6 +6,6 @@ WorkFold=$PWD
 
 pushd $InfraDemoPackageOutFold
 
-PATH=$WorkFold/$InfraPackageOutFold:$PATH" InfraDemo
+PATH="$WorkFold/$InfraPackageOutFold:$PATH" InfraDemo
 
 popd
