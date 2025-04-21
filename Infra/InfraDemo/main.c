@@ -762,7 +762,7 @@ int main(int argc, char* argv[])
 
 
     Int imagePath;
-    imagePath = String_ConstantCreate(CastInt("../../DemoImage.png"));
+    imagePath = String_ConstantCreate(CastInt("DemoImage.png"));
 
     Int stream;
 
@@ -1104,7 +1104,7 @@ int main(int argc, char* argv[])
 
 
     Int soundFilePath;
-    soundFilePath = String_ConstantCreate(CastInt("../../DemoSound.wav"));
+    soundFilePath = String_ConstantCreate(CastInt("DemoSound.wav"));
 
     Int audioStream;
     audioStream = Stream_New();
@@ -1142,7 +1142,7 @@ int main(int argc, char* argv[])
     Play_AudioOutSet(Play, audioOut);
 
     Int playFilePath;
-    playFilePath = String_ConstantCreate(CastInt("../../DemoMedia.mp4"));
+    playFilePath = String_ConstantCreate(CastInt("DemoMedia.mp4"));
 
     Int playStream;
     playStream = Stream_New();
