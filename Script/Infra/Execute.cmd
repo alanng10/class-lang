@@ -2,12 +2,12 @@
 
 set InfraDemoPackageOutFold=.\Out\InfraDemo-Windows-Release
 set InfraDeployFold=.\Out\InfraDeploy
-set WorkingFold=%cd%
+set WorkFold=%cd%
 
 pushd %InfraDemoPackageOutFold%
 
 setlocal
-set "QT_PLUGIN_PATH=%WorkingFold%\%InfraDeployFold%" && set "PATH=%WorkingFold%\%InfraDeployFold%;%PATH%" && release\InfraDemo
+set "QT_PLUGIN_PATH=%WorkFold%\%InfraDeployFold%" && set "PATH=%WorkFold%\%InfraDeployFold%;%PATH%" && release\InfraDemo
 echo Status: %errorlevel%
 endlocal
 
