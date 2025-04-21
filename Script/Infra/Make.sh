@@ -1,14 +1,14 @@
 #!/bin/bash
 
-Script/Infra/CleanModule
-Script/Infra/CleanDemo
-Script/Infra/CleanIntern
-Script/Infra/CleanExecute
-Script/Infra/MakeModulePackage
-Script/Infra/MakeModule
-Script/Infra/MakeDemoPackage
-Script/Infra/MakeDemo
-Script/Infra/MakeInternPackage
-Script/Infra/MakeIntern
-Script/Infra/MakeExecutePackage
-Script/Infra/MakeExecute
+Script/Infra/CleanModule.sh
+Script/Infra/CleanDemo.sh
+Script/Infra/CleanIntern.sh
+Script/Infra/CleanExecute.sh
+Script/Infra/MakeModulePackage.sh
+Script/Infra/MakeModule.sh
+Script/Infra/MakeDemoPackage.sh
+Script/Infra/MakeDemo.sh
+Script/Infra/MakeInternPackage.sh
+Script/Infra/MakeIntern.sh
+Script/Infra/MakeExecutePackage.sh
+Script/Infra/MakeExecute.sh
