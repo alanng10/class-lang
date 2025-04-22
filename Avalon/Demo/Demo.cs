@@ -381,53 +381,39 @@ class Demo : TextAdd
         ca.Cand = 3;
         ca.Expo = 2;
 
-        long aaaa;
-        aaaa = this.Math.ValueTen(ca);
+        long value;
 
-        ba = this.MathValid(aaaa, 0x12c0000000000, -40);
+        value = this.Math.ValueTen(ca);
+        ba = this.MathValid(value, 0x12c0000000000, -40);
 
         ca.Cand = 5;
         ca.Expo = -1;
 
-        long aaab;
-        aaab = this.Math.ValueTen(ca);
+        value = this.Math.ValueTen(ca);
+        bb = this.MathValid(value, 0x1000000000000, -49);
 
-        bb = this.MathValid(aaab, 0x1000000000000, -49);
+        value = this.Math.Sin(0);
+        bc = this.MathValid(value, 0, -49);
 
-        long aa;
-        aa = this.Math.Sin(0);
-
-        bc = this.MathValid(aa, 0, -49);
-
-        long aaa;
-        aaa = this.Math.Cos(0);
-
-        bd = this.MathValid(aaa, 0x1000000000000, -48);
+        value = this.Math.Cos(0);
+        bd = this.MathValid(value, 0x1000000000000, -48);
 
         ca.Cand = 0x3243F6A8885;
         ca.Expo = -40;
 
-        long pi;
-        pi = this.Math.Value(ca);
+        value = this.Math.Value(ca);
+        be = this.MathValid(value, 0x1921fb5444280, -47);
 
-        be = this.MathValid(pi, 0x1921fb5444280, -47);
-
-        long ab;
-        ab = this.Math.Sin(pi);
-
-        bf = this.MathValid(ab, 0x14611a6263314, -89);
+        value = this.Math.Sin(value);
+        bf = this.MathValid(value, 0x14611a6263314, -89);
 
         ca.Expo = -41;
 
-        long piHalf;
-        piHalf = this.Math.Value(ca);
+        value = this.Math.Value(ca);
+        bg = this.MathValid(value, 0x1921fb5444280, -48);
 
-        bg = this.MathValid(piHalf, 0x1921fb5444280, -48);
-
-        long ac;
-        ac = this.Math.Sin(piHalf);
-
-        bh = this.MathValid(ac, 0x1000000000000, -48);
+        value = this.Math.Sin(value);
+        bh = this.MathValid(value, 0x1000000000000, -48);
 
         long ad;
         ad = this.Math.Tan(0);
