@@ -426,21 +426,20 @@ class Demo : TextAdd
         value = this.Math.Tan(value);
         bk = this.MathValid(value, 0x1ffffffffff5c, -49);
 
-        long af;
-        af = this.Math.ASin(0);
-        this.ConsoleWriteMathValue("ASin(0): ", af);
+        value = this.Math.ASin(0);
+        bl = this.MathValid(value, 0, -49);
 
         long one;
-        one = 1;
-        long ag;
-        ag = this.Math.ASin(one);
-        this.ConsoleWriteMathValue("ASin(one): ", ag);
+        one = this.MathInt(1);
+
+        value = this.Math.ASin(one);
+        bm = this.MathValid(value, 0x1921fb54442d1, -48);
 
         bool b;
         b = ba & bb & bc & bd
              & be & bf & bg & bh
-             & bi & bj & bk
-             ;
+             & bi & bj & bk & bl
+             & bm;
         this.Console.Out.Write(this.AddClear().AddS("Math ").Add(this.StatusString(b)).AddLine().AddResult());
         return true;
     }
