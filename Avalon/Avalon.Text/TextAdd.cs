@@ -13,9 +13,9 @@ public class TextAdd : Any
         this.IntParse = this.CreateIntParse();
         this.StringAdd = this.CreateStringAdd();
         this.TForm = this.CreateTextForm();
+        this.ILess = this.CreateIntLess();
         this.TLess = this.CreateTextLess();
         this.SLess = this.CreateStringLess();
-        this.ILess = this.CreateIntLess();
 
         this.TextA = this.CreateText();
         this.TextB = this.CreateText();
