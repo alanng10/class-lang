@@ -561,16 +561,16 @@ class Demo : TextAdd
         argD.FillChar = ' ';
         argD.Form = this.TextInfra.AlphaNiteForm;
 
-        FormatArg argDA;
-        argDA = new FormatArg();
-        argDA.Init();
-        argDA.Pos = 7;
-        argDA.Kind = 1;
-        argDA.Value.Int = 100;
-        argDA.AlignLeft = false;
-        argDA.FieldWidth = 4;
-        argDA.MaxWidth = -1;
-        argDA.Base = 10;
+        FormatArg argE;
+        argE = new FormatArg();
+        argE.Init();
+        argE.Pos = 7;
+        argE.Kind = 1;
+        argE.Value.Int = 100;
+        argE.AlignLeft = false;
+        argE.FieldWidth = 4;
+        argE.MaxWidth = -1;
+        argE.Base = 10;
 
         FormatArg argF;
         argF = new FormatArg();
@@ -613,7 +613,7 @@ class Demo : TextAdd
         argList.SetAt(1, argB);
         argList.SetAt(2, argC);
         argList.SetAt(3, argD);
-        argList.SetAt(4, argDA);
+        argList.SetAt(4, argE);
         argList.SetAt(5, argF);
         argList.SetAt(6, argG);
         argList.SetAt(7, argH);
