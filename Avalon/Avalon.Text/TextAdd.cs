@@ -235,115 +235,6 @@ public class TextAdd : Any
         return true;
     }
 
-    public virtual String StringBool(bool value)
-    {
-        String a;
-        a = null;
-
-        if (value)
-        {
-            a = this.TextInfra.BoolTrueString;
-        }
-        if (!value)
-        {
-            a = this.TextInfra.BoolFalseString;
-        }
-        return a;
-    }
-
-    public virtual String StringInt(long n)
-    {
-        return this.StringIntFormat(n, 10, false, 1, -1, 0);
-    }
-
-    public virtual String StringIntHex(long n)
-    {
-        return this.StringIntFormat(n, 16, false, 15, 15, '0');
-    }
-
-    public virtual String StringBoolFormat(bool value, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
-    {
-        FormatArg arg;
-        arg = this.FormatArg;
-
-        arg.Kind = 0;
-        arg.Value.Bool = value;
-        arg.Base = 0;
-        arg.AlignLeft = alignLeft;
-        arg.FieldWidth = fieldWidth;
-        arg.MaxWidth = maxWidth;
-        arg.FillChar = fillChar;
-        arg.Form = null;
-
-        return this.StringFormat();
-    }
-
-    public virtual String StringIntFormat(long n, long varBase, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
-    {
-        FormatArg arg;
-        arg = this.FormatArg;
-
-        arg.Kind = 1;
-        arg.Value.Int = n;
-        arg.Base = varBase;
-        arg.AlignLeft = alignLeft;
-        arg.FieldWidth = fieldWidth;
-        arg.MaxWidth = maxWidth;
-        arg.FillChar = fillChar;
-        arg.Form = null;
-
-        return this.StringFormat();
-    }
-
-    public virtual String StringTextFormat(Text text, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
-    {
-        FormatArg arg;
-        arg = this.FormatArg;
-
-        arg.Kind = 2;
-        arg.Value.Any = text;
-        arg.Base = 0;
-        arg.AlignLeft = alignLeft;
-        arg.FieldWidth = fieldWidth;
-        arg.MaxWidth = maxWidth;
-        arg.FillChar = fillChar;
-        arg.Form = null;
-
-        return this.StringFormat();
-    }
-
-    public virtual String StringFormat()
-    {
-        bool b;
-
-        b = this.Format.ExecuteArgCount(this.FormatArg);
-
-        if (!b)
-        {
-            return null;
-        }
-
-        Text k;
-        k = this.TextInfra.TextCreate(this.FormatArg.Count);
-
-        b = this.Format.ExecuteArgResult(this.FormatArg, k);
-
-        if (!b)
-        {
-            return null;
-        }
-
-        String a;
-        a = this.StringCreate(k);
-
-        return a;
-    }
-
-    public virtual String StringCreate(Text text)
-    {
-        return this.TextInfra.StringCreate(text);
-    }
-
     public virtual bool BoolText(Text text)
     {
         bool k;
@@ -359,11 +250,6 @@ public class TextAdd : Any
     public virtual long IntText(Text text, long varBase)
     {
         return this.IntParse.Execute(text, varBase, null);
-    }
-
-    public virtual Text Place(Text text, string limit, String join)
-    {
-        return this.TextPlace(text, this.TE(this.S(limit)), this.TF(join));
     }
 
     public virtual Text TextAlphaNite(Text text)
@@ -530,8 +416,122 @@ public class TextAdd : Any
     public virtual Array TextLine(Text text)
     {
         Array a;
-        a =  this.TextLimit(text, this.TE(this.TextInfra.NewLine));
+        a = this.TextLimit(text, this.TE(this.TextInfra.NewLine));
         return a;
+    }
+
+    public virtual String StringBool(bool value)
+    {
+        String a;
+        a = null;
+
+        if (value)
+        {
+            a = this.TextInfra.BoolTrueString;
+        }
+        if (!value)
+        {
+            a = this.TextInfra.BoolFalseString;
+        }
+        return a;
+    }
+
+    public virtual String StringInt(long n)
+    {
+        return this.StringIntFormat(n, 10, false, 1, -1, 0);
+    }
+
+    public virtual String StringIntHex(long n)
+    {
+        return this.StringIntFormat(n, 16, false, 15, 15, '0');
+    }
+
+    public virtual String StringBoolFormat(bool value, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
+    {
+        FormatArg arg;
+        arg = this.FormatArg;
+
+        arg.Kind = 0;
+        arg.Value.Bool = value;
+        arg.Base = 0;
+        arg.AlignLeft = alignLeft;
+        arg.FieldWidth = fieldWidth;
+        arg.MaxWidth = maxWidth;
+        arg.FillChar = fillChar;
+        arg.Form = null;
+
+        return this.StringFormat();
+    }
+
+    public virtual String StringIntFormat(long n, long varBase, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
+    {
+        FormatArg arg;
+        arg = this.FormatArg;
+
+        arg.Kind = 1;
+        arg.Value.Int = n;
+        arg.Base = varBase;
+        arg.AlignLeft = alignLeft;
+        arg.FieldWidth = fieldWidth;
+        arg.MaxWidth = maxWidth;
+        arg.FillChar = fillChar;
+        arg.Form = null;
+
+        return this.StringFormat();
+    }
+
+    public virtual String StringTextFormat(Text text, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
+    {
+        FormatArg arg;
+        arg = this.FormatArg;
+
+        arg.Kind = 2;
+        arg.Value.Any = text;
+        arg.Base = 0;
+        arg.AlignLeft = alignLeft;
+        arg.FieldWidth = fieldWidth;
+        arg.MaxWidth = maxWidth;
+        arg.FillChar = fillChar;
+        arg.Form = null;
+
+        return this.StringFormat();
+    }
+
+    public virtual String StringFormat()
+    {
+        bool b;
+
+        b = this.Format.ExecuteArgCount(this.FormatArg);
+
+        if (!b)
+        {
+            return null;
+        }
+
+        Text k;
+        k = this.TextInfra.TextCreate(this.FormatArg.Count);
+
+        b = this.Format.ExecuteArgResult(this.FormatArg, k);
+
+        if (!b)
+        {
+            return null;
+        }
+
+        String a;
+        a = this.StringCreate(k);
+
+        return a;
+    }
+
+    public virtual String StringCreate(Text text)
+    {
+        return this.TextInfra.StringCreate(text);
+    }
+
+    public virtual Text Place(Text text, string limit, String join)
+    {
+        return this.TextPlace(text, this.TE(this.S(limit)), this.TF(join));
     }
 
     public virtual long StringCount(String o)
