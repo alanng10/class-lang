@@ -163,7 +163,7 @@ class NetworkB : NetworkNetwork
             ka = this.StringComp.CreateData(data, null);
 
             bool bb;
-            bb = this.ThreadState.Demo.TextSame(this.ThreadState.Demo.TA(ka), this.ThreadState.Demo.TB(this.S("Fy Qi")));
+            bb = this.ThreadState.Demo.TextSame(this.ThreadState.Demo.TA(ka), this.ThreadState.Demo.TB(this.S("Fy Oi")));
 
             if (bb)
             {
