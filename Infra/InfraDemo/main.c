@@ -469,25 +469,16 @@ int main(int argc, char* argv[])
 
     Int penRectBrush;
     penRectBrush = Brush_New();
-
     Brush_KindSet(penRectBrush, penRectBrushKind);
-
     Brush_ColorSet(penRectBrush, 0xff00ff00);
-
     Brush_Init(penRectBrush);
 
     PenRect = Slash_New();
-
     Slash_BrushSet(PenRect, penRectBrush);
-
     Slash_LineSet(PenRect, penRectLine);
-
     Slash_SizeSet(PenRect, 10);
-
     Slash_CapeSet(PenRect, penRectCape);
-
     Slash_JoinSet(PenRect, penRectJoin);
-
     Slash_Init(PenRect);
 
     Int penTextBrushKind;
@@ -504,25 +495,16 @@ int main(int argc, char* argv[])
 
     Int penTextBrush;
     penTextBrush = Brush_New();
-
     Brush_KindSet(penTextBrush, penTextBrushKind);
-
     Brush_ColorSet(penTextBrush, 0xff0000ff);
-
     Brush_Init(penTextBrush);
 
     PenText = Slash_New();
-
     Slash_BrushSet(PenText, penTextBrush);
-
     Slash_LineSet(PenText, penTextLine);
-
     Slash_SizeSet(PenText, 4);
-
     Slash_CapeSet(PenText, penTextCape);
-
     Slash_JoinSet(PenText, penTextJoin);
-
     Slash_Init(PenText);
 
     Int rectPosA;
