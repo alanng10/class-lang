@@ -603,66 +603,48 @@ int main(int argc, char* argv[])
     imagePath = String_ConstantCreate(CastInt("DemoImage.png"));
 
     Int stream;
-
     stream = Stream_New();
-
     Stream_Init(stream);
 
     Int storageMode;
     storageMode = Stat_StorageModeRead(Stat);
 
     Int storage;
-
     storage = Storage_New();
-
     Storage_Init(storage);
 
     Storage_PathSet(storage, imagePath);
-
     Storage_ModeSet(storage, storageMode);
-
     Storage_StreamSet(storage, stream);
 
     Storage_Open(storage);
 
     Int imageRead;
-
     imageRead = ImageRead_New();
-
     ImageRead_Init(imageRead);
 
     ImageRead_StreamSet(imageRead, stream);
 
     Int imageSize;
-
     imageSize = Size_New();
-
     Size_Init(imageSize);
 
     Int imageData;
-
     imageData = Data_New();
-
     Data_Init(imageData);
 
     Image = Image_New();
-
     Image_SizeSet(Image, imageSize);
-
     Image_DataSet(Image, imageData);
-
     Image_Init(Image);
 
     ImageRead_ImageSet(imageRead, Image);
-
     ImageRead_Execute(imageRead);
 
     Storage_Close(storage);
 
     Int memory;
-
     memory = Memory_New();
-
     Memory_Init(memory);
 
     Memory_StreamSet(memory, stream);
@@ -679,13 +661,9 @@ int main(int argc, char* argv[])
     memoryDataCount = String_CountGet(stringOa) * Constant_CharByteCount();
 
     Int dataA;
-
     dataA = Data_New();
-
     Data_Init(dataA);
-
     Data_CountSet(dataA, memoryDataCount);
-
     Data_ValueSet(dataA, memoryDataValue);
 
     SetRange(RangeA, 0, memoryDataCount);
@@ -701,7 +679,6 @@ int main(int argc, char* argv[])
     dataValueA = Environ_New(memoryDataCount);
 
     Data_CountSet(dataA, memoryDataCount);
-
     Data_ValueSet(dataA, dataValueA);
 
     SetRange(RangeA, 0, memoryDataCount);
@@ -711,25 +688,19 @@ int main(int argc, char* argv[])
     Stream_Read(stream, dataA, RangeA);
 
     Int stringOb;
-
     stringOb = String_New();
-
     String_Init(stringOb);
-
     String_CountSet(stringOb, stringCountA);
-
     String_ValueSet(stringOb, dataValueA);
 
     Console_OutWrite(Console, stringOb);
 
     String_Final(stringOb);
-
     String_Delete(stringOb);
 
     Environ_Delete(dataValueA);
 
     Data_Final(dataA);
-
     Data_Delete(dataA);
 
     String_ConstantDelete(stringOa);
@@ -737,15 +708,12 @@ int main(int argc, char* argv[])
     Memory_Close(memory);
 
     Memory_Final(memory);
-
     Memory_Delete(memory);
 
     Form = Form_New();
-
     Form_Init(Form);
 
     Int imageBrushKind;
-
     imageBrushKind = Stat_BrushKindImage(Stat);
 
     ImageBrush = Brush_New();
