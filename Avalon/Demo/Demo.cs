@@ -642,23 +642,23 @@ class Demo : TextAdd
 
     private bool ExecuteIntParse()
     {
-        Text ooo;
+        Text ka;
         long ooa;
 
-        ooo = this.TextCreate(this.S("43695"));
-        ooa = this.IntParse.Execute(ooo, 10, null);
+        ka = this.TextCreate(this.S("43695"));
+        ooa = this.IntParse.Execute(ka, 10, null);
         this.ConsoleWriteIntParse(ooa);
 
-        ooo = this.TextCreate(this.S("9E532F"));
-        ooa = this.IntParse.Execute(ooo, 16, this.TextInfra.AlphaSiteForm);
+        ka = this.TextCreate(this.S("9E532F"));
+        ooa = this.IntParse.Execute(ka, 16, this.TextInfra.AlphaSiteForm);
         this.ConsoleWriteIntParse(ooa);
 
-        ooo = this.TextCreate(this.S("0000000000009294ef0d"));
-        ooa = this.IntParse.Execute(ooo, 16, null);
+        ka = this.TextCreate(this.S("0000000000009294ef0d"));
+        ooa = this.IntParse.Execute(ka, 16, null);
         this.ConsoleWriteIntParse(ooa);
 
-        ooo = this.TextCreate(this.S("1000000000000000"));
-        ooa = this.IntParse.Execute(ooo, 16, this.TextInfra.AlphaSiteForm);
+        ka = this.TextCreate(this.S("1000000000000000"));
+        ooa = this.IntParse.Execute(ka, 16, this.TextInfra.AlphaSiteForm);
         this.ConsoleWriteIntParse(ooa);
         return true;
     }
