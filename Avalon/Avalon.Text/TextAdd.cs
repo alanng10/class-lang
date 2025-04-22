@@ -418,6 +418,65 @@ public class TextAdd : Any
         return text;
     }
 
+    public virtual String StringCreate(Text text)
+    {
+        return this.TextInfra.StringCreate(text);
+    }
+
+    public virtual String StringCreateRange(String o, long index, long count)
+    {
+        this.TRangeA.Index = index;
+        this.TRangeA.Count = count;
+
+        return this.StringComp.CreateString(o, this.TRangeA);
+    }
+
+    public virtual String StringCreateIndex(String o, long index)
+    {
+        long count;
+        count = this.StringCount(o) - index;
+
+        return this.StringCreateRange(o, index, count);
+    }
+
+    public virtual String StringCreateTextRange(Text o, long index, long count)
+    {
+        long aa;
+        long ab;
+        aa = o.Range.Index;
+        ab = o.Range.Count;
+
+        o.Range.Index = index;
+        o.Range.Count = count;
+
+        String a;
+        a = this.StringCreate(o);
+
+        o.Range.Index = aa;
+        o.Range.Count = ab;
+
+        return a;
+    }
+
+    public virtual String StringCreateTextIndex(Text o, long index)
+    {
+        long aa;
+        long ab;
+        aa = o.Range.Index;
+        ab = o.Range.Count;
+
+        o.Range.Index = index;
+        o.Range.Count = aa + ab - index;
+
+        String a;
+        a = this.StringCreate(o);
+
+        o.Range.Index = aa;
+        o.Range.Count = ab;
+
+        return a;
+    }
+
     public virtual String StringBool(bool value)
     {
         String a;
@@ -522,11 +581,6 @@ public class TextAdd : Any
         return a;
     }
 
-    public virtual String StringCreate(Text text)
-    {
-        return this.TextInfra.StringCreate(text);
-    }
-
     public virtual long StringCount(String o)
     {
         return this.StringComp.Count(o);
@@ -535,60 +589,6 @@ public class TextAdd : Any
     public virtual long StringChar(String o, long index)
     {
         return this.StringComp.Char(o, index);
-    }
-
-    public virtual String StringCreateRange(String o, long index, long count)
-    {
-        this.TRangeA.Index = index;
-        this.TRangeA.Count = count;
-
-        return this.StringComp.CreateString(o, this.TRangeA);
-    }
-
-    public virtual String StringCreateIndex(String o, long index)
-    {
-        long count;
-        count = this.StringCount(o) - index;
-
-        return this.StringCreateRange(o, index, count);
-    }
-
-    public virtual String StringCreateTextRange(Text o, long index, long count)
-    {
-        long aa;
-        long ab;
-        aa = o.Range.Index;
-        ab = o.Range.Count;
-
-        o.Range.Index = index;
-        o.Range.Count = count;
-
-        String a;
-        a = this.StringCreate(o);
-
-        o.Range.Index = aa;
-        o.Range.Count = ab;
-
-        return a;
-    }
-
-    public virtual String StringCreateTextIndex(Text o, long index)
-    {
-        long aa;
-        long ab;
-        aa = o.Range.Index;
-        ab = o.Range.Count;
-
-        o.Range.Index = index;
-        o.Range.Count = aa + ab - index;
-
-        String a;
-        a = this.StringCreate(o);
-
-        o.Range.Index = aa;
-        o.Range.Count = ab;
-
-        return a;
     }
 
     public virtual long Char(String value)
