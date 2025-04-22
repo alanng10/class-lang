@@ -366,10 +366,6 @@ class Demo : TextAdd
 
         bool ba;
         bool bb;
-        bool bc;
-        bool bd;
-        bool be;
-        bool bf;
 
         ca.Cand = 3;
         ca.Expo = 2;
