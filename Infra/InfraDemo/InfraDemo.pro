@@ -6,7 +6,6 @@ HEADERS += \
 SOURCES += \
     main.c
 
-
 unix {
 
 LIBS += -L$$PWD/../../Out/Infra-Linux-Release

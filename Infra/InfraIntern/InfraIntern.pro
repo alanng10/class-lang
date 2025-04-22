@@ -28,7 +28,17 @@ SOURCES += \
     Thread.c \
     Value.c
 
-LIBS += -L$$PWD/../../Out/InfraDeploy/
+unix {
+
+LIBS += -L$$PWD/../../Out/Infra-Linux-Release
+
+}
+
+win32 {
+
+LIBS += -L$$PWD/../../Out/InfraDeploy
+
+}
 
 LIBS += -lInfra
 
