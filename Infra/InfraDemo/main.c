@@ -37,9 +37,7 @@ Int Console;
 Bool TypeHandle(Int frame, Int arg, Int index, Int value)
 {
     Bool b;
-
     b = false;
-
 
     if (value == 0)
     {
@@ -49,30 +47,24 @@ Bool TypeHandle(Int frame, Int arg, Int index, Int value)
 
             b = true;
         }
-
         if (index == 'D')
         {
             TextLeft = TextLeft + 10;
 
             b = true;
         }
-
         if (index == 'W')
         {
             TextUp = TextUp - 10;
 
             b = true;
         }
-
         if (index == 'S')
         {
             TextUp = TextUp + 10;
 
             b = true;
         }
-
-
-
 
         if (index == 'J')
         {
@@ -166,10 +158,6 @@ Bool TypeHandle(Int frame, Int arg, Int index, Int value)
 
     return true;
 }
-
-
-
-
 
 Bool SetRect(Int rect, Int left, Int up, Int width, Int height)
 {
