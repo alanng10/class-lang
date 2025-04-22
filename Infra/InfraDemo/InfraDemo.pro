@@ -6,7 +6,18 @@ HEADERS += \
 SOURCES += \
     main.c
 
-LIBS += -L$$PWD/../../Out/InfraDeploy/
+
+unix {
+
+LIBS += -L$$PWD/../../Out/Infra-Linux-Release
+
+}
+
+win32 {
+
+LIBS += -L$$PWD/../../Out/InfraDeploy
+
+}
 
 LIBS += -lInfra
 
