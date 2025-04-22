@@ -34,6 +34,7 @@ public class TextAdd : Any
         this.TRangeA = this.CreateRange();
 
         this.SSpace = this.S(" ");
+        this.SZero = this.S("0");
         this.SIndent = this.CreateIndent();
         return true;
     }
@@ -162,8 +163,9 @@ public class TextAdd : Any
     protected virtual StringData StringDataE { get; set; }
     protected virtual StringData StringDataF { get; set; }
     protected virtual Range TRangeA { get; set; }
-    protected virtual String SIndent { get; set; }
     protected virtual String SSpace { get; set; }
+    protected virtual String SZero { get; set; }
+    protected virtual String SIndent { get; set; }
 
     public virtual Text TA(String k)
     {
