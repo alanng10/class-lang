@@ -415,19 +415,16 @@ class Demo : TextAdd
         value = this.Math.Sin(value);
         bh = this.MathValid(value, 0x1000000000000, -48);
 
-        long ad;
-        ad = this.Math.Tan(0);
-        this.ConsoleWriteMathValue("Tan(0): ", ad);
+        value = this.Math.Tan(0);
+        bi = this.MathValid(value, 0, -49);
 
         ca.Expo = -42;
 
-        long piQuarter;
-        piQuarter = this.Math.Value(ca);
-        this.ConsoleWriteMathValue("piQuarter: ", piQuarter);
+        value = this.Math.Value(ca);
+        bj = this.MathValid(value, 0x1921fb5444280, -49);
 
-        long ae;
-        ae = this.Math.Tan(piQuarter);
-        this.ConsoleWriteMathValue("Tan(piQuarter): ", ae);
+        value = this.Math.Tan(value);
+        bk = this.MathValid(value, 0x1ffffffffff5c, -49);
 
         long af;
         af = this.Math.ASin(0);
@@ -440,7 +437,10 @@ class Demo : TextAdd
         this.ConsoleWriteMathValue("ASin(one): ", ag);
 
         bool b;
-        b = ba & bb & bc & bd & be & bf & bg & bh;
+        b = ba & bb & bc & bd
+             & be & bf & bg & bh
+             & bi & bj & bk
+             ;
         this.Console.Out.Write(this.AddClear().AddS("Math ").Add(this.StatusString(b)).AddLine().AddResult());
         return true;
     }
