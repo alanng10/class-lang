@@ -1,8 +1,8 @@
 #!/bin/bash
 
-InfraPackageOutFold=Out/Infra-Linux-Release
+InfraOutFold=Out/Infra-Linux-Release
 
-mkdir -p $InfraPackageOutFold
-pushd $InfraPackageOutFold
+mkdir -p $InfraOutFold
+pushd $InfraOutFold
 qmake6 ../../Infra/Infra/Infra.pro
 popd

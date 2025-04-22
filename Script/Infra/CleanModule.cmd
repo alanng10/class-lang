@@ -2,5 +2,5 @@
 
 call Script\Infra\Var
 
-set InfraPackageOutFold=.\Out\Infra-Windows-Release
-rmdir /S /Q %InfraPackageOutFold% 2>NUL
+set InfraOutFold=.\Out\Infra-Windows-Release
+rmdir /S /Q %InfraOutFold% 2>NUL
