@@ -1,4 +1,4 @@
 #!/bin/bash
 
-InfraExecutePackageOutFold=Out/InfraExecute-Linux-Release
-rm -rf $InfraExecutePackageOutFold 2>/dev/null
+InfraExecuteOutFold=Out/InfraExecute-Linux-Release
+rm -rf $InfraExecuteOutFold 2>/dev/null

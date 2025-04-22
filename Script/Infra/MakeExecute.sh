@@ -1,8 +1,8 @@
 #!/bin/bash
 
-InfraExecutePackageOutFold=Out/InfraExecute-Linux-Release
+InfraExecuteOutFold=Out/InfraExecute-Linux-Release
 
-mkdir -p $InfraExecutePackageOutFold
-pushd $InfraExecutePackageOutFold
+mkdir -p $InfraExecuteOutFold
+pushd $InfraExecuteOutFold
 make >/dev/null
 popd
