@@ -257,14 +257,34 @@ public class TextAdd : Any
         return this.TextInfra.TextCreateStringData(value, null);
     }
 
-    public virtual Text TextAlphaNite(Text text)
+    public virtual long TextIndex(Text text, Text other)
     {
-        return this.TextForm(text, this.TextInfra.AlphaNiteForm);
+        return this.TextInfra.Index(text, other, this.TLess);
     }
 
-    public virtual Text TextAlphaSite(Text text)
+    public virtual long TextLastIndex(Text text, Text other)
     {
-        return this.TextForm(text, this.TextInfra.AlphaSiteForm);
+        return this.TextInfra.LastIndex(text, other, this.TLess);
+    }
+
+    public virtual bool TextStart(Text text, Text other)
+    {
+        return this.TextInfra.Start(text, other, this.TLess);
+    }
+
+    public virtual bool TextEnd(Text text, Text other)
+    {
+        return this.TextInfra.End(text, other, this.TLess);
+    }
+
+    public virtual long TextLess(Text lite, Text rite)
+    {
+        return this.TLess.Execute(lite, rite);
+    }
+
+    public virtual bool TextSame(Text text, Text other)
+    {
+        return this.TextInfra.Same(text, other, this.TLess);
     }
 
     public virtual Text TextForm(Text text, Form form)
@@ -280,34 +300,14 @@ public class TextAdd : Any
         return a;
     }
 
-    public virtual bool TextStart(Text text, Text other)
+    public virtual Text TextAlphaNite(Text text)
     {
-        return this.TextInfra.Start(text, other, this.TLess);
+        return this.TextForm(text, this.TextInfra.AlphaNiteForm);
     }
 
-    public virtual bool TextEnd(Text text, Text other)
+    public virtual Text TextAlphaSite(Text text)
     {
-        return this.TextInfra.End(text, other, this.TLess);
-    }
-
-    public virtual bool TextSame(Text text, Text other)
-    {
-        return this.TextInfra.Same(text, other, this.TLess);
-    }
-
-    public virtual long TextLess(Text lite, Text rite)
-    {
-        return this.TLess.Execute(lite, rite);
-    }
-
-    public virtual long TextIndex(Text text, Text other)
-    {
-        return this.TextInfra.Index(text, other, this.TLess);
-    }
-
-    public virtual long TextLastIndex(Text text, Text other)
-    {
-        return this.TextInfra.LastIndex(text, other, this.TLess);
+        return this.TextForm(text, this.TextInfra.AlphaSiteForm);
     }
 
     public virtual Text TextTrimStart(Text text)
