@@ -525,23 +525,23 @@ public class TextAdd : Any
         return this.StringFormat();
     }
 
-    public virtual String StringInt(long n)
+    public virtual String StringInt(long value)
     {
-        return this.StringIntFormat(n, 10, false, 1, -1, 0);
+        return this.StringIntFormat(value, 10, false, 0, -1, 0);
     }
 
-    public virtual String StringIntHex(long n)
+    public virtual String StringIntHex(long value)
     {
-        return this.StringIntFormat(n, 16, false, 15, 15, '0');
+        return this.StringIntFormat(value, 16, false, 15, 15, '0');
     }
 
-    public virtual String StringIntFormat(long n, long varBase, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
+    public virtual String StringIntFormat(long value, long varBase, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
     {
         FormatArg arg;
         arg = this.FormatArg;
 
         arg.Kind = 1;
-        arg.Value.Int = n;
+        arg.Value.Int = value;
         arg.Base = varBase;
         arg.AlignLeft = alignLeft;
         arg.FieldWidth = fieldWidth;
