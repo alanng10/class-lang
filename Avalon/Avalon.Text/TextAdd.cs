@@ -310,6 +310,23 @@ public class TextAdd : Any
         return this.TextForm(text, this.TextInfra.AlphaSiteForm);
     }
 
+    public virtual Array TextLimit(Text text, Text limit)
+    {
+        return this.TextInfra.Limit(text, limit, this.TLess);
+    }
+
+    public virtual Text TextPlace(Text text, Text limit, Text join)
+    {
+        return this.TextInfra.Place(text, limit, join, this.TLess);
+    }
+
+    public virtual Array TextLine(Text text)
+    {
+        Array a;
+        a = this.TextLimit(text, this.TE(this.TextInfra.NewLine));
+        return a;
+    }
+
     public virtual Text TextTrimStart(Text text)
     {
         Text space;
@@ -401,23 +418,6 @@ public class TextAdd : Any
         text.Range.Count = k;
 
         return text;
-    }
-
-    public virtual Array TextLimit(Text text, Text limit)
-    {
-        return this.TextInfra.Limit(text, limit, this.TLess);
-    }
-
-    public virtual Text TextPlace(Text text, Text limit, Text join)
-    {
-        return this.TextInfra.Place(text, limit, join, this.TLess);
-    }
-
-    public virtual Array TextLine(Text text)
-    {
-        Array a;
-        a = this.TextLimit(text, this.TE(this.TextInfra.NewLine));
-        return a;
     }
 
     public virtual String StringBool(bool value)
