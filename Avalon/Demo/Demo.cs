@@ -364,19 +364,28 @@ class Demo : TextAdd
         ca = new MathComp();
         ca.Init();
 
+        bool ba;
+        bool bb;
+        bool bc;
+        bool bd;
+        bool be;
+        bool bf;
+
         ca.Cand = 3;
         ca.Expo = 2;
 
         long aaaa;
         aaaa = this.Math.ValueTen(ca);
-        this.ConsoleWriteMathValue("ValueTen: ", aaaa);
+
+        ba = this.MathValid(aaaa, 0x12c0000000000, -40);
 
         ca.Cand = 5;
         ca.Expo = -1;
 
         long aaab;
         aaab = this.Math.ValueTen(ca);
-        this.ConsoleWriteMathValue("ValueTen 2: ", aaab);
+
+        bb = this.MathValid(aaab, 0x1000000000000, -49);
 
         long aa;
         aa = this.Math.Sin(0);
@@ -430,7 +439,26 @@ class Demo : TextAdd
         long ag;
         ag = this.Math.ASin(one);
         this.ConsoleWriteMathValue("ASin(one): ", ag);
+
+        bool b;
+        b = ba & bb;
+        this.Console.Out.Write(this.AddClear().AddS("Math ").Add(this.StatusString(b)).AddLine().AddResult());
         return true;
+    }
+
+    private bool MathValid(long value, long cand, long expo)
+    {
+        this.Math.Comp(this.MathComp, value);
+
+        bool ba;
+        ba = (this.MathComp.Cand == cand);
+
+        bool bb;
+        bb = (this.MathComp.Expo == expo);
+
+        bool a;
+        a = (ba & bb);
+        return a;
     }
 
     private bool ConsoleWriteMathValue(string prefix, long value)
