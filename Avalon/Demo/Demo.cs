@@ -369,6 +369,14 @@ class Demo : TextAdd
         bool bc;
         bool bd;
         bool be;
+        bool bf;
+        bool bg;
+        bool bh;
+        bool bi;
+        bool bj;
+        bool bk;
+        bool bl;
+        bool bm;
 
         ca.Cand = 3;
         ca.Expo = 2;
@@ -406,7 +414,8 @@ class Demo : TextAdd
 
         long ab;
         ab = this.Math.Sin(pi);
-        this.ConsoleWriteMathValue("Sin(pi): ", ab);
+
+        bf = this.MathValid(ab, 0x14611a6263314, -89);
 
         ca.Expo = -41;
 
@@ -443,7 +452,7 @@ class Demo : TextAdd
         this.ConsoleWriteMathValue("ASin(one): ", ag);
 
         bool b;
-        b = ba & bb & bc & bd & be;
+        b = ba & bb & bc & bd & be & bf;
         this.Console.Out.Write(this.AddClear().AddS("Math ").Add(this.StatusString(b)).AddLine().AddResult());
         return true;
     }
