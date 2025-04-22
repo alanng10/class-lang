@@ -645,13 +645,18 @@ class Demo : TextAdd
         Text ka;
         long kk;
 
+        bool b;
+        b = true;
+
         ka = this.TextCreate(this.S("43695"));
         kk = this.IntParse.Execute(ka, 10, null);
-        this.ConsoleWriteIntParse(kk);
+
+        b = b & (kk == 43695);
 
         ka = this.TextCreate(this.S("9E532F"));
         kk = this.IntParse.Execute(ka, 16, this.TextInfra.AlphaSiteForm);
-        this.ConsoleWriteIntParse(kk);
+
+        b = b & (kk == 0x9e532f);
 
         ka = this.TextCreate(this.S("0000000000009294ef0d"));
         kk = this.IntParse.Execute(ka, 16, null);
