@@ -421,7 +421,8 @@ class Demo : TextAdd
 
         long piHalf;
         piHalf = this.Math.Value(ca);
-        this.ConsoleWriteMathValue("piHalf: ", piHalf);
+
+        bg = this.MathValid(piHalf, 0x1921fb5444280, -48);
 
         long ac;
         ac = this.Math.Sin(piHalf);
@@ -452,7 +453,7 @@ class Demo : TextAdd
         this.ConsoleWriteMathValue("ASin(one): ", ag);
 
         bool b;
-        b = ba & bb & bc & bd & be & bf;
+        b = ba & bb & bc & bd & be & bf & bg;
         this.Console.Out.Write(this.AddClear().AddS("Math ").Add(this.StatusString(b)).AddLine().AddResult());
         return true;
     }
