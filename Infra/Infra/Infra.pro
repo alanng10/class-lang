@@ -140,8 +140,6 @@ SOURCES += \
     VideoOut.cpp \
     VideoOutIntern.cpp
 
-
-
 unix {
 
 HEADERS += \
