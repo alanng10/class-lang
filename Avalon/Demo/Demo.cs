@@ -7,11 +7,9 @@ class Demo : TextAdd
         base.Init();
         this.InfraInfra = InfraInfra.This;
         this.ListInfra = ListInfra.This;
-        this.TextInfra = TextInfra.This;
         this.MathInfra = MathInfra.This;
         this.StorageInfra = StorageInfra.This;
         this.Math = MathMath.This;
-        this.StringComp = StringComp.This;
         this.TextCode = TextCode.This;
         this.TextCodeKindList = TextCodeKindList.This;
         this.StorageStatusList = StorageStatusList.This;
@@ -21,30 +19,21 @@ class Demo : TextAdd
         this.NetworkStatusList = NetworkStatusList.This;
         this.Console = Console.This;
 
-        this.CharLess = this.CreateCharLess();
-        this.TForm = this.CreateTextForm();
-        this.TLess = this.CreateTextLess();
-
-        this.StringAdd = new StringAdd();
-        this.StringAdd.Init();
-
         this.MathComp = new MathComp();
         this.MathComp.Init();
-
-        this.TRange = this.CreateRange();
 
         this.SSuccess = this.S("Success");
         this.SError = this.S("Error");
         return true;
     }
 
-    public NetworkNetwork Peer { get; set; }
-    public NetworkHostA Host { get; set; }
-
+    public virtual NetworkNetwork Peer { get; set; }
+    public virtual NetworkHostA Host { get; set; }
     public virtual InfraInfra InfraInfra { get; set; }
     public virtual ListInfra ListInfra { get; set; }
     public virtual MathInfra MathInfra { get; set; }
     public virtual StorageInfra StorageInfra { get; set; }
+    public virtual MathMath Math { get; set; }
     public virtual TextCode TextCode { get; set; }
     public virtual TextCodeKindList TextCodeKindList { get; set; }
     public virtual StorageStatusList StorageStatusList { get; set; }
@@ -53,22 +42,10 @@ class Demo : TextAdd
     public virtual NetworkCaseList NetworkCaseList { get; set; }
     public virtual NetworkStatusList NetworkStatusList { get; set; }
     public virtual Console Console { get; set; }
-
-    public virtual MathMath Math { get; set; }
     protected virtual MathComp MathComp { get; set; }
-    protected virtual LessInt CharLess { get; set; }
-    protected virtual Range TRange { get; set; }
     private long ArrayIndex { get; set; }
     private String SSuccess { get; set; }
     private String SError { get; set; }
-
-    protected virtual LessInt CreateCharLess()
-    {
-        LessInt a;
-        a = new LessInt();
-        a.Init();
-        return a;
-    }
 
     public bool Execute()
     {
@@ -99,21 +76,20 @@ class Demo : TextAdd
 
         this.Console.Out.Write(this.S("Input a: "));
 
-        String ka;
-
         String a;
         a = this.Console.Inn.Read();
 
-        ka = this.AddClear().AddS("a: ").Add(a).AddS("\n").AddResult();
+        String ka;
+        ka = this.AddClear().AddS("a: ").Add(a).AddLine().AddResult();
 
         this.Console.Out.Write(ka);
 
         this.Console.Out.Write(this.S("Input aa: "));
-        
+
         String aa;
         aa = this.Console.Inn.Read();
 
-        ka = this.AddClear().AddS("aa: ").Add(aa).AddS("\n").AddResult();
+        ka = this.AddClear().AddS("aa: ").Add(aa).AddLine().AddResult();
         
         this.Console.Out.Write(ka);
         return true;
