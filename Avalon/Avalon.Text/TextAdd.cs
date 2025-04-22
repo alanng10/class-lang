@@ -145,9 +145,10 @@ public class TextAdd : Any
     protected virtual FormatArg FormatArg { get; set; }
     protected virtual IntParse IntParse { get; set; }
     protected virtual StringAdd StringAdd { get; set; }
-    protected virtual Less TLess { get; set; }
-    protected virtual LessInt ILess { get; set; }
     protected virtual Form TForm { get; set; }
+    protected virtual Less TLess { get; set; }
+    protected virtual StringLess SLess { get; set; }
+    protected virtual LessInt ILess { get; set; }
     protected virtual Text TextA { get; set; }
     protected virtual Text TextB { get; set; }
     protected virtual Text TextC { get; set; }
