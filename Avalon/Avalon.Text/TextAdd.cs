@@ -252,6 +252,11 @@ public class TextAdd : Any
         return this.IntParse.Execute(text, varBase, null);
     }
 
+    public virtual Text TextCreate(String value)
+    {
+        return this.TextInfra.TextCreateStringData(value, null);
+    }
+
     public virtual Text TextAlphaNite(Text text)
     {
         return this.TextForm(text, this.TextInfra.AlphaNiteForm);
@@ -273,11 +278,6 @@ public class TextAdd : Any
         this.TextInfra.Form(a, text, form);
 
         return a;
-    }
-
-    public virtual Text TextCreate(String o)
-    {
-        return this.TextInfra.TextCreateStringData(o, null);
     }
 
     public virtual bool TextStart(Text text, Text other)
