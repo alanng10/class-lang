@@ -717,110 +717,71 @@ int main(int argc, char* argv[])
     imageBrushKind = Stat_BrushKindImage(Stat);
 
     ImageBrush = Brush_New();
-
     Brush_KindSet(ImageBrush, imageBrushKind);
-
     Brush_ImageSet(ImageBrush, Image);
-
     Brush_Init(ImageBrush);
 
     Int scaleFactor;
     scaleFactor = 1 << 20;
 
     Int polateRadialCenterPos;
-
     polateRadialCenterPos = Pos_New();
-
     Pos_Init(polateRadialCenterPos);
-
     Pos_ColSet(polateRadialCenterPos, MathInt(1450));
-
     Pos_RowSet(polateRadialCenterPos, MathInt(250));
 
     Int polateRadialFocusPos;
-
     polateRadialFocusPos = Pos_New();
-
     Pos_Init(polateRadialFocusPos);
-
     Pos_ColSet(polateRadialFocusPos, MathInt(1500));
-
     Pos_RowSet(polateRadialFocusPos, MathInt(250));
 
     Int polateRadial;
-
     polateRadial = PolateRadial_New();
-
     PolateRadial_CenterPosSet(polateRadial, polateRadialCenterPos);
-
     PolateRadial_CenterRadiusSet(polateRadial, MathInt(100));
-
     PolateRadial_FocusPosSet(polateRadial, polateRadialFocusPos);
-
     PolateRadial_FocusRadiusSet(polateRadial, MathInt(20));
-
     PolateRadial_Init(polateRadial);
 
     Int polateStop;
-
     polateStop = PolateStop_New();
-
     PolateStop_CountSet(polateStop, 3);
-
     PolateStop_Init(polateStop);
-
     PolateStop_PointSet(polateStop, 0, MathInt(0), 0xffff0000);
-
     PolateStop_PointSet(polateStop, 1, Math_Value(0, scaleFactor / 2, -20), 0xff00ff00);
-
     PolateStop_PointSet(polateStop, 2, MathInt(1), 0xff0000ff);
 
     Int polateKind;
-
     polateKind = Stat_PolateKindRadial(Stat);
 
     Int polate;
-
     polate = Polate_New();
-
     Polate_KindSet(polate, polateKind);
-
     Polate_ValueSet(polate, polateRadial);
-
     Polate_StopSet(polate, polateStop);
-
     Polate_SpreadSet(polate, Stat_PolateSpreadFlect(Stat));
-
     Polate_Init(polate);
 
     Int polateBrushKind;
-
     polateBrushKind = Stat_BrushKindPolate(Stat);
 
     PolateBrush = Brush_New();
-
     Brush_KindSet(PolateBrush, polateBrushKind);
-
     Brush_PolateSet(PolateBrush, polate);
-
     Brush_Init(PolateBrush);
 
     Draw = Draw_New();
-
     Draw_Init(Draw);
 
     Text = String_ConstantCreate(CastInt("DEMO Infra ABCD abcd"));
 
     Int updatePos;
-
     updatePos = Pos_New();
-
     Pos_Init(updatePos);
 
     UpdateRect = Rect_New();
-
     Rect_Init(UpdateRect);
-
     Rect_PosSet(UpdateRect, updatePos);
 
     Int soundFilePath;
@@ -835,30 +796,22 @@ int main(int argc, char* argv[])
 
     Int audioStorage;
     audioStorage = Storage_New();
-
     Storage_Init(audioStorage);
 
     Storage_PathSet(audioStorage, soundFilePath);
-
     Storage_ModeSet(audioStorage, audioStorageMode);
-
     Storage_StreamSet(audioStorage, audioStream);
 
     Storage_Open(audioStorage);
 
     Int audioOut;
     audioOut = AudioOut_New();
-
     AudioOut_Init(audioOut);
 
     Play = Play_New();
-
     Play_Init(Play);
-
     Play_SourceSet(Play, audioStream);
-
     Play_SourceThisSet(Play);
-
     Play_AudioOutSet(Play, audioOut);
 
     Int playFilePath;
@@ -873,60 +826,43 @@ int main(int argc, char* argv[])
 
     Int playStorage;
     playStorage = Storage_New();
-
     Storage_Init(playStorage);
 
     Storage_PathSet(playStorage, playFilePath);
-
     Storage_ModeSet(playStorage, playStorageMode);
-
     Storage_StreamSet(playStorage, playStream);
 
     Storage_Open(playStorage);
 
     VideoOut_FrameEvent_Maide maideAaa;
-
     maideAaa = &VideoOutFrameHandle;
 
     Int videoOutFrameMaide;
-
     videoOutFrameMaide = CastInt(maideAaa);
 
     Int videoOutFrameState;
     videoOutFrameState = State_New();
-
     State_Init(videoOutFrameState);
-
     State_MaideSet(videoOutFrameState, videoOutFrameMaide);
 
     VideoFrame = VideoFrame_New();
-
     VideoFrame_Init(VideoFrame);
 
     Int playVideoOut;
     playVideoOut = VideoOut_New();
-
     VideoOut_Init(playVideoOut);
-
     VideoOut_FrameEventStateSet(playVideoOut, videoOutFrameState);
-
     VideoOut_FrameSet(playVideoOut, VideoFrame);
 
     Int playAudioOut;
     playAudioOut = AudioOut_New();
-
     AudioOut_Init(playAudioOut);
 
     PlayA = Play_New();
-
     Play_Init(PlayA);
-
     Play_SourceSet(PlayA, playStream);
-
     Play_SourceThisSet(PlayA);
-
     Play_VideoOutSet(PlayA, playVideoOut);
-
     Play_AudioOutSet(PlayA, playAudioOut);
 
     Int playImageData;
