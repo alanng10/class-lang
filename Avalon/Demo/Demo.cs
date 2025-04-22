@@ -589,7 +589,7 @@ class Demo : TextAdd
         argE.Init();
         argE.Pos = 10;
         argE.Kind = 2;
-        argE.Value.Any = this.TextInfra.TextCreateStringData(this.S("F Hre a"), null);
+        argE.Value.Any = this.TextCreate(this.S("F Hre a"));
         argE.AlignLeft = true;
         argE.FieldWidth = 11;
         argE.MaxWidth = 10;
@@ -601,7 +601,7 @@ class Demo : TextAdd
         argF.Init();
         argF.Pos = 10;
         argF.Kind = 2;
-        argF.Value.Any = this.TextInfra.TextCreateStringData(this.StringComp.CreateChar('H', 1), null);
+        argF.Value.Any = this.TextCreate(this.StringComp.CreateChar('H', 1));
         argF.AlignLeft = false;
         argF.FieldWidth = 10;
         argF.MaxWidth = -1;
@@ -619,22 +619,18 @@ class Demo : TextAdd
         argList.SetAt(7, argF);
 
         Text varBase;
-        varBase = this.TextInfra.TextCreateStringData(this.S("G H , j h\n\n"), null);
-
-        Format write;
-        write = new Format();
-        write.Init();
+        varBase = this.TextCreate(this.S("G H , j h\n\n"));
 
         long count;
-        count = write.ExecuteCount(varBase, argList);
+        count = this.Format.ExecuteCount(varBase, argList);
 
         Text text;
         text = this.TextInfra.TextCreate(count);
 
-        write.ExecuteResult(varBase, argList, text);
+        this.Format.ExecuteResult(varBase, argList, text);
 
         String a;
-        a = this.TextInfra.StringCreate(text);
+        a = this.StringCreate(text);
 
         this.Console.Out.Write(a);
         return true;
