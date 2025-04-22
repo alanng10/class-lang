@@ -552,13 +552,13 @@ public class TextAdd : Any
         return this.StringFormat();
     }
 
-    public virtual String StringTextFormat(Text text, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
+    public virtual String StringTextFormat(Text value, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
     {
         FormatArg arg;
         arg = this.FormatArg;
 
         arg.Kind = 2;
-        arg.Value.Any = text;
+        arg.Value.Any = value;
         arg.Base = 0;
         arg.AlignLeft = alignLeft;
         arg.FieldWidth = fieldWidth;
