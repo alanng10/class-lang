@@ -458,21 +458,21 @@ public class TextAdd : Any
         return a;
     }
 
-    public virtual String StringCreateTextIndex(Text o, long index)
+    public virtual String StringCreateTextIndex(Text value, long index)
     {
-        long aa;
-        long ab;
-        aa = o.Range.Index;
-        ab = o.Range.Count;
+        long ka;
+        long kb;
+        ka = value.Range.Index;
+        kb = value.Range.Count;
 
-        o.Range.Index = index;
-        o.Range.Count = aa + ab - index;
+        value.Range.Index = index;
+        value.Range.Count = (ka + kb) - index;
 
         String a;
-        a = this.StringCreate(o);
+        a = this.StringCreate(value);
 
-        o.Range.Index = aa;
-        o.Range.Count = ab;
+        value.Range.Index = ka;
+        value.Range.Count = kb;
 
         return a;
     }
