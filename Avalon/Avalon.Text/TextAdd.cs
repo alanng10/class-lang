@@ -477,6 +477,21 @@ public class TextAdd : Any
         return a;
     }
 
+    public virtual long StringCount(String value)
+    {
+        return this.StringComp.Count(value);
+    }
+
+    public virtual long StringChar(String value, long index)
+    {
+        return this.StringComp.Char(value, index);
+    }
+
+    public virtual long StringLess(String lite, String rite)
+    {
+        return this.SLess.Execute(lite, rite);
+    }
+
     public virtual String StringBool(bool value)
     {
         String a;
@@ -579,16 +594,6 @@ public class TextAdd : Any
         a = this.StringCreate(k);
 
         return a;
-    }
-
-    public virtual long StringCount(String o)
-    {
-        return this.StringComp.Count(o);
-    }
-
-    public virtual long StringChar(String o, long index)
-    {
-        return this.StringComp.Char(o, index);
     }
 
     public virtual long Char(String value)
