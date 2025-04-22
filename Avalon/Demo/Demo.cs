@@ -369,67 +369,67 @@ class Demo : TextAdd
 
         long aaaa;
         aaaa = this.Math.ValueTen(ca);
-        this.ConsoleWriteMathValue("Demo.ExecuteMath ValueTen: ", aaaa);
+        this.ConsoleWriteMathValue("ValueTen: ", aaaa);
 
         ca.Cand = 5;
         ca.Expo = -1;
 
         long aaab;
         aaab = this.Math.ValueTen(ca);
-        this.ConsoleWriteMathValue("Demo.ExecuteMath ValueTen 2: ", aaab);
+        this.ConsoleWriteMathValue("ValueTen 2: ", aaab);
 
         long aa;
         aa = this.Math.Sin(0);
-        this.ConsoleWriteMathValue("Demo.ExecuteMath Sin(0): ", aa);
+        this.ConsoleWriteMathValue("Sin(0): ", aa);
 
         long aaa;
         aaa = this.Math.Cos(0);
-        this.ConsoleWriteMathValue("Demo.ExecuteMath Cos(0): ", aaa);
+        this.ConsoleWriteMathValue("Cos(0): ", aaa);
 
         ca.Cand = 0x3243F6A8885;
         ca.Expo = -40;
 
         long pi;
         pi = this.Math.Value(ca);
-        this.ConsoleWriteMathValue("Demo.ExecuteMath pi: ", pi);
+        this.ConsoleWriteMathValue("pi: ", pi);
 
         long ab;
         ab = this.Math.Sin(pi);
-        this.ConsoleWriteMathValue("Demo.ExecuteMath Sin(pi): ", ab);
+        this.ConsoleWriteMathValue("Sin(pi): ", ab);
 
         ca.Expo = -41;
 
         long piHalf;
         piHalf = this.Math.Value(ca);
-        this.ConsoleWriteMathValue("Demo.ExecuteMath piHalf: ", piHalf);
+        this.ConsoleWriteMathValue("piHalf: ", piHalf);
 
         long ac;
         ac = this.Math.Sin(piHalf);
-        this.ConsoleWriteMathValue("Demo.ExecuteMath Sin(piHalf): ", ac);
+        this.ConsoleWriteMathValue("Sin(piHalf): ", ac);
 
         long ad;
         ad = this.Math.Tan(0);
-        this.ConsoleWriteMathValue("Demo.ExecuteMath Tan(0): ", ad);
+        this.ConsoleWriteMathValue("Tan(0): ", ad);
 
         ca.Expo = -42;
 
         long piQuarter;
         piQuarter = this.Math.Value(ca);
-        this.ConsoleWriteMathValue("Demo.ExecuteMath piQuarter: ", piQuarter);
+        this.ConsoleWriteMathValue("piQuarter: ", piQuarter);
 
         long ae;
         ae = this.Math.Tan(piQuarter);
-        this.ConsoleWriteMathValue("Demo.ExecuteMath Tan(piQuarter): ", ae);
+        this.ConsoleWriteMathValue("Tan(piQuarter): ", ae);
 
         long af;
         af = this.Math.ASin(0);
-        this.ConsoleWriteMathValue("Demo.ExecuteMath ASin(0): ", af);
+        this.ConsoleWriteMathValue("ASin(0): ", af);
 
         long one;
         one = 1;
         long ag;
         ag = this.Math.ASin(one);
-        this.ConsoleWriteMathValue("Demo.ExecuteMath ASin(one): ", ag);
+        this.ConsoleWriteMathValue("ASin(one): ", ag);
         return true;
     }
 
@@ -440,6 +440,7 @@ class Demo : TextAdd
         String ka;
 
         ka = this.AddClear()
+            .AddS("Math ")
             .AddS(prefix)
             .AddS("Cand: ")
             .AddS(this.MathComp.Cand.ToString("x"))
