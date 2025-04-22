@@ -614,10 +614,26 @@ public class TextAdd : Any
         return this.StringAdd.Result();
     }
 
-    public virtual TextAdd AddIndent(long indent)
+    public virtual TextAdd Add(String value)
     {
-        long count;
-        count = indent;
+        this.TextInfra.AddString(this.StringAdd, value);
+        return this;
+    }
+
+    public virtual TextAdd AddChar(long value)
+    {
+        this.StringAdd.Execute(value);
+        return this;
+    }
+
+    public virtual TextAdd AddLine()
+    {
+        this.Add(this.TextInfra.NewLine);
+        return this;
+    }
+
+    public virtual TextAdd AddIndent(long count)
+    {
         long i;
         i = 0;
         while (i < count)
@@ -625,12 +641,6 @@ public class TextAdd : Any
             this.Add(this.SIndent);
             i = i + 1;
         }
-        return this;
-    }
-
-    public virtual TextAdd Add(String a)
-    {
-        this.TextInfra.AddString(this.StringAdd, a);
         return this;
     }
 
@@ -667,18 +677,6 @@ public class TextAdd : Any
     public virtual TextAdd AddTextFormat(Text value, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
     {
         return this.Add(this.StringTextFormat(value, alignLeft, fieldWidth, maxWidth, fillChar));
-    }
-
-    public virtual TextAdd AddChar(long n)
-    {
-        this.StringAdd.Execute(n);
-        return this;
-    }
-
-    public virtual TextAdd AddLine()
-    {
-        this.Add(this.TextInfra.NewLine);
-        return this;
     }
 
     public virtual TextAdd AddS(string o)
