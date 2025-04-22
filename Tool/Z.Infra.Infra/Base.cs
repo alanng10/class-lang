@@ -5,43 +5,9 @@ public class Base : TextAdd
     public override bool Init()
     {
         base.Init();
-        this.TextInfra = TextInfra.This;
         this.ListInfra = ListInfra.This;
         this.StorageInfra = StorageInfra.This;
-
-        this.StringComp = StringComp.This;
         this.Console = Console.This;
-
-        this.StringAdd = this.CreateStringAdd();
-
-        this.Format = this.CreateFormat();
-        this.FormatArg = this.CreateFormatArg();
-
-        this.IntParse = this.CreateIntParse();
-
-        this.ILess = this.CreateIntLess();
-        this.TForm = this.CreateTextForm();
-        this.TLess = this.CreateTextLess();
-
-        this.TextA = this.CreateText();
-        this.TextB = this.CreateText();
-        this.TextC = this.CreateText();
-        this.TextD = this.CreateText();
-        this.TextE = this.CreateText();
-        this.TextF = this.CreateText();
-
-        this.StringDataA = this.CreateStringData();
-        this.StringDataB = this.CreateStringData();
-        this.StringDataC = this.CreateStringData();
-        this.StringDataD = this.CreateStringData();
-        this.StringDataE = this.CreateStringData();
-        this.StringDataF = this.CreateStringData();
-
-        this.TRangeA = this.CreateRange();
-
-        this.SIndent = this.CreateIndent();
-
-        this.SSpace = this.S(" ");
         return true;
     }
 
