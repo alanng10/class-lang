@@ -642,10 +642,6 @@ class Demo : TextAdd
 
     private bool ExecuteIntParse()
     {
-        TextIntParse a;
-        a = new TextIntParse();
-        a.Init();
-
         Text ooo;
         long ooa;
 
