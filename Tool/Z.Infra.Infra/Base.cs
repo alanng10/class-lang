@@ -84,7 +84,7 @@ public class Base : TextAdd
             k = this.AddClear().AddS("Text File Read Error path: ").Add(filePath).AddLine().AddResult();
 
             this.Console.Err.Write(k);
-            global::System.Environment.Exit(1);
+            Extern.Environ_Exit(1);
         }
         return a;
     }
@@ -100,7 +100,7 @@ public class Base : TextAdd
             k = this.AddClear().AddS("Text File Write Error path: ").Add(filePath).AddLine().AddResult();
 
             this.Console.Err.Write(k);
-            global::System.Environment.Exit(1);
+            Extern.Environ_Exit(1);
         }
         return a;
     }
