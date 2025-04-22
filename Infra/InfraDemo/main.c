@@ -1207,71 +1207,26 @@ int main(int argc, char* argv[])
     Draw_Final(Draw);
     Draw_Delete(Draw);
 
-
-
-
-
     Brush_Final(PolateBrush);
-
-
     Brush_Delete(PolateBrush);
 
-
-
-
     Polate_Final(polate);
-
-
     Polate_Delete(polate);
 
-
-
-
     PolateStop_Final(polateStop);
-
-
     PolateStop_Delete(polateStop);
 
-
-
-
     PolateRadial_Final(polateRadial);
-
-
-
     PolateRadial_Delete(polateRadial);
 
-
-
-
-
     Pos_Final(polateRadialFocusPos);
-
-
-
     Pos_Delete(polateRadialFocusPos);
 
-
-
-
     Pos_Final(polateRadialCenterPos);
-
-
-
     Pos_Delete(polateRadialCenterPos);
 
-
-
-
     Brush_Final(ImageBrush);
-
-
-
     Brush_Delete(ImageBrush);
-
-
-
-
 
     Form_Final(Form);
     Form_Delete(Form);
@@ -1279,54 +1234,19 @@ int main(int argc, char* argv[])
     Image_Final(Image);
     Image_Delete(Image);
 
-
-
-
-
     Data_Final(imageData);
-
-
-
     Data_Delete(imageData);
 
-
-
-
-
     Size_Final(imageSize);
-
-
-
     Size_Delete(imageSize);
 
-
-
-
     ImageRead_Final(imageRead);
-
-
-
     ImageRead_Delete(imageRead);
 
-
-
-
-
-
     Storage_Final(storage);
-
-
-
     Storage_Delete(storage);
 
-
-
-
-
     Stream_Final(stream);
-
-
-
     Stream_Delete(stream);
 
 
