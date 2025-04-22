@@ -572,17 +572,17 @@ class Demo : TextAdd
         argDA.MaxWidth = -1;
         argDA.Base = 10;
 
-        FormatArg argDB;
-        argDB = new FormatArg();
-        argDB.Init();
-        argDB.Pos = 8;
-        argDB.Kind = 1;
-        argDB.Value.Int = 0;
-        argDB.AlignLeft = false;
-        argDB.FieldWidth = 3;
-        argDB.MaxWidth = -1;
-        argDB.Base = 10;
-        argDB.FillChar = ':';
+        FormatArg argF;
+        argF = new FormatArg();
+        argF.Init();
+        argF.Pos = 8;
+        argF.Kind = 1;
+        argF.Value.Int = 0;
+        argF.AlignLeft = false;
+        argF.FieldWidth = 3;
+        argF.MaxWidth = -1;
+        argF.Base = 10;
+        argF.FillChar = ':';
 
         FormatArg argG;
         argG = new FormatArg();
@@ -614,7 +614,7 @@ class Demo : TextAdd
         argList.SetAt(2, argC);
         argList.SetAt(3, argD);
         argList.SetAt(4, argDA);
-        argList.SetAt(5, argDB);
+        argList.SetAt(5, argF);
         argList.SetAt(6, argG);
         argList.SetAt(7, argH);
 
