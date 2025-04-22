@@ -534,7 +534,7 @@ public class TextAdd : Any
 
     public virtual String StringIntHex(long value)
     {
-        return this.StringIntFormat(value, 16, false, 15, 15, '0');
+        return this.StringIntFormat(value, 16, false, 15, 15, this.Char(this.SZero));
     }
 
     public virtual String StringIntFormat(long value, long varBase, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
