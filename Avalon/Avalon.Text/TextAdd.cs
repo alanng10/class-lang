@@ -423,37 +423,37 @@ public class TextAdd : Any
         return this.TextInfra.StringCreate(text);
     }
 
-    public virtual String StringCreateRange(String o, long index, long count)
+    public virtual String StringCreateRange(String value, long index, long count)
     {
         this.TRangeA.Index = index;
         this.TRangeA.Count = count;
 
-        return this.StringComp.CreateString(o, this.TRangeA);
+        return this.StringComp.CreateString(value, this.TRangeA);
     }
 
-    public virtual String StringCreateIndex(String o, long index)
+    public virtual String StringCreateIndex(String value, long index)
     {
         long count;
-        count = this.StringCount(o) - index;
+        count = this.StringCount(value) - index;
 
-        return this.StringCreateRange(o, index, count);
+        return this.StringCreateRange(value, index, count);
     }
 
-    public virtual String StringCreateTextRange(Text o, long index, long count)
+    public virtual String StringCreateTextRange(Text value, long index, long count)
     {
-        long aa;
-        long ab;
-        aa = o.Range.Index;
-        ab = o.Range.Count;
+        long ka;
+        long kb;
+        ka = value.Range.Index;
+        kb = value.Range.Count;
 
-        o.Range.Index = index;
-        o.Range.Count = count;
+        value.Range.Index = index;
+        value.Range.Count = count;
 
         String a;
-        a = this.StringCreate(o);
+        a = this.StringCreate(value);
 
-        o.Range.Index = aa;
-        o.Range.Count = ab;
+        value.Range.Index = ka;
+        value.Range.Count = kb;
 
         return a;
     }
