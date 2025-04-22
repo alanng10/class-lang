@@ -119,7 +119,7 @@ class InternInfra : Any
         dataValue : this.InternIntern.Memory(dest);
         dataValue : dataValue + index;
         
-        this.Extern.Copy(dataValue, source, count);
+        this.Extern.Environ_Copy(dataValue, source, count);
         return true;
     }
     
@@ -129,7 +129,7 @@ class InternInfra : Any
         dataValue : this.InternIntern.Memory(source);
         dataValue : dataValue + index;
         
-        this.Extern.Copy(dest, dataValue, count);
+        this.Extern.Environ_Copy(dest, dataValue, count);
         return true;
     }
     
@@ -148,7 +148,7 @@ class InternInfra : Any
         extern : this.Extern;
 
         var Int kk;
-        kk : extern.New(ka);
+        kk : extern.Environ_New(ka);
 
         this.CopyFromByteArray(kk, value, 0, ka);
 
@@ -171,7 +171,7 @@ class InternInfra : Any
         extern.String_Final(k);
         extern.String_Delete(k);
 
-        extern.Delete(value);
+        extern.Environ_Delete(value);
         return true;
     }
 
