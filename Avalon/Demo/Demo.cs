@@ -496,6 +496,8 @@ class Demo : TextAdd
         long kb;
         kb = rand.Execute();
 
+        rand.Final();
+
         bool ba;
         ba = (ka == 0xb86ed3ea0326c2a);
 
@@ -507,7 +509,6 @@ class Demo : TextAdd
 
         this.Console.Out.Write(this.AddClear().AddS("Rand ").Add(this.StatusString(b)).AddLine().AddResult());
 
-        rand.Final();
         return true;
     }
 
@@ -632,7 +633,10 @@ class Demo : TextAdd
         String a;
         a = this.StringCreate(text);
 
-        this.Console.Out.Write(a);
+        bool b;
+        b = this.TextSame(this.TA(a), this.TB(this.S("G H  TRUE56712  ,  46842j5BD9EA100 ::0h\nF HRE A===OOOOOOOOOH\n")));
+
+        this.Console.Out.Write(this.AddClear().AddS("Format ").Add(this.StatusString(b)).AddLine().AddResult());
         return true;
     }
 
