@@ -18,6 +18,7 @@ global using StringAdd = Avalon.Text.StringAdd;
 global using StringData = Avalon.Text.StringData;
 global using StringLess = Avalon.Text.StringLess;
 global using StringValue = Avalon.Text.StringValue;
+global using TextAdd = Avalon.Text.TextAdd;
 global using TextInfra = Avalon.Text.Infra;
 global using StorageInfra = Avalon.Storage.Infra;
 global using Console = Avalon.Console.Console;
