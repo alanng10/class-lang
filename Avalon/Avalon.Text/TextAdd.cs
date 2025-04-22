@@ -678,13 +678,13 @@ public class TextAdd : Any
         return this.Add(this.StringTextFormat(value, alignLeft, fieldWidth, maxWidth, fillChar));
     }
 
-    public virtual TextAdd AddS(string o)
+    public virtual TextAdd AddS(string value)
     {
-        return this.Add(this.S(o));
+        return this.Add(this.S(value));
     }
 
-    public virtual String S(string o)
+    public virtual String S(string value)
     {
-        return this.TextInfra.S(o);
+        return this.TextInfra.S(value);
     }
 }
