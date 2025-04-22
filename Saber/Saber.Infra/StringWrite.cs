@@ -8,18 +8,9 @@ public class StringWrite : TextAdd
         this.InfraInfra = InfraInfra.This;
         this.ClassInfra = Infra.This;
  
-        this.Arg = this.CreateArg();
         this.CountOperate = this.CreateCountOperate();
         this.SetOperate = this.CreateSetOperate();
         return true;
-    }
-
-    protected virtual StringWriteArg CreateArg()
-    {
-        StringWriteArg a;
-        a = new StringWriteArg();
-        a.Init();
-        return a;
     }
 
     protected virtual StringWriteCountOperate CreateCountOperate()
