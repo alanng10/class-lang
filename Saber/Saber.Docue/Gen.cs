@@ -379,11 +379,11 @@ public class Gen : TextAdd
 
         Text k;
         k = this.TextCreate(this.ArticleTemplate);
-        k = this.Place(k, "#PageRootPath#", pageRootPath);
-        k = this.Place(k, "#AssetVer#", this.Ver);
-        k = this.Place(k, "#ArticleTitle#", title);
-        k = this.Place(k, "#ArticleInner#", innerK);
-        k = this.Place(k, "#ArticlePath#", path);
+        k = this.TextPlace(k, this.TA(this.S("#PageRootPath#")), this.TB(pageRootPath));
+        k = this.TextPlace(k, this.TA(this.S("#AssetVer#")), this.TB(this.Ver));
+        k = this.TextPlace(k, this.TA(this.S("#ArticleTitle#")), this.TB(title));
+        k = this.TextPlace(k, this.TA(this.S("#ArticleInner#")), this.TB(innerK));
+        k = this.TextPlace(k, this.TA(this.S("#ArticlePath#")), this.TB(path));
 
         String a;
         a = this.StringCreate(k);
