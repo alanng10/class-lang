@@ -905,31 +905,19 @@ int main(int argc, char* argv[])
 
     Draw_Init(Draw);
 
-
     Text = String_ConstantCreate(CastInt("DEMO Infra ABCD abcd"));
-
 
     Int updatePos;
 
-
     updatePos = Pos_New();
-
 
     Pos_Init(updatePos);
 
-
-
     UpdateRect = Rect_New();
-
 
     Rect_Init(UpdateRect);
 
-
-
     Rect_PosSet(UpdateRect, updatePos);
-
-
-
 
     Int soundFilePath;
     soundFilePath = String_ConstantCreate(CastInt("DemoSound.wav"));
@@ -1065,87 +1053,39 @@ int main(int argc, char* argv[])
     areaSize = Size_New();
     Size_Init(areaSize);
 
-
-
-
     Int area;
-
     area = Rect_New();
-
-
     Rect_Init(area);
-
-
     Rect_PosSet(area, areaPos);
-
     Rect_SizeSet(area, areaSize);
 
-
-
-
-
     Int fillPos;
-
     fillPos = Pos_New();
-
-
     Pos_Init(fillPos);
 
-
-
-
-
     Int frameTitle;
-
     frameTitle = String_ConstantCreate(CastInt("Infra Demo Frame"));
 
-
-
-
-
-
     Frame_Draw_Maide ku;
-
     ku = &DrawHandle;
 
-
-
     Int drawMaide;
-
     drawMaide = CastInt(ku);
 
-
-
-
     Int frameDrawState;
-
     frameDrawState = State_New();
-
-
     State_Init(frameDrawState);
-
-
     State_MaideSet(frameDrawState, drawMaide);
-
-
     State_ArgSet(frameDrawState, Draw);
 
-
-
-
-
     Frame_Type_Maide kua;
-
     kua = &TypeHandle;
-
-
 
     Int typeMaide;
     typeMaide = CastInt(kua);
 
     Int frameTypeState;
     frameTypeState = State_New();
-
     State_Init(frameTypeState);
     State_MaideSet(frameTypeState, typeMaide);
 
