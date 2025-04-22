@@ -508,7 +508,6 @@ class Demo : TextAdd
         b = ba & bb;
 
         this.Console.Out.Write(this.AddClear().AddS("Rand ").Add(this.StatusString(b)).AddLine().AddResult());
-
         return true;
     }
 
