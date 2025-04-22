@@ -463,32 +463,24 @@ class Demo : TextAdd
 
         rand.Seed = 36719;
 
-        long oa;
-        oa = rand.Execute();
+        long ka;
+        ka = rand.Execute();
 
-        this.ConsoleWriteRand(oa);
+        long kb;
+        kb = rand.Execute();
 
-        oa = rand.Execute();
+        bool ba;
+        ba = (ka == 0xb86ed3ea0326c2a);
 
-        this.ConsoleWriteRand(oa);
+        bool bb;
+        bb = (kb == 0x0af07c3df31044c);
+
+        bool b;
+        b = ba & bb;
+
+        this.Console.Out.Write(this.AddClear().AddS("Rand ").Add(this.StatusString(b)).AddLine().AddResult());
 
         rand.Final();
-        return true;
-    }
-
-    private bool ConsoleWriteRand(long n)
-    {
-        String ka;
-
-        ka = this.AddClear()
-            .AddS("Demo Rand: 0h")
-            .AddS(n.ToString("x15"))
-            .AddLine()
-            .AddResult();
-        ;
-
-        this.Console.Out.Write(ka);
-
         return true;
     }
 
