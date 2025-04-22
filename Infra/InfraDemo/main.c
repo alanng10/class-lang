@@ -441,7 +441,6 @@ int main(int argc, char* argv[])
 
     String_ConstantDelete(stringAa);
 
-
     Int share;
 
     share = Infra_Share();
@@ -452,11 +451,8 @@ int main(int argc, char* argv[])
     brushKind = Stat_BrushKindColor(Stat);
 
     Brush = Brush_New();
-
     Brush_KindSet(Brush, brushKind);
-
     Brush_ColorSet(Brush, 0xff0000ff);
-
     Brush_Init(Brush);
 
     Int penRectBrushKind;
