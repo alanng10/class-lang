@@ -521,7 +521,7 @@ class Demo : TextAdd
         argA.Value.Bool = true;
         argA.FieldWidth = 6;
         argA.MaxWidth = -1;
-        argA.FillChar = ' ';
+        argA.FillChar = this.Char(this.SSpace);
         argA.Form = this.TextInfra.AlphaNiteForm;
 
         FormatArg argB;
@@ -534,7 +534,7 @@ class Demo : TextAdd
         argB.FieldWidth = 8;
         argB.MaxWidth = 6;
         argB.Base = 10;
-        argB.FillChar = ' ';
+        argB.FillChar = this.Char(this.SSpace);
 
         FormatArg argC;
         argC = new FormatArg();
@@ -546,7 +546,7 @@ class Demo : TextAdd
         argC.FieldWidth = 8;
         argC.MaxWidth = 6;
         argC.Base = 10;
-        argC.FillChar = ' ';
+        argC.FillChar = this.Char(this.SSpace);
 
         FormatArg argD;
         argD = new FormatArg();
@@ -558,7 +558,7 @@ class Demo : TextAdd
         argD.FieldWidth = 8;
         argD.MaxWidth = 6;
         argD.Base = 16;
-        argD.FillChar = ' ';
+        argD.FillChar = this.Char(this.SSpace);
         argD.Form = this.TextInfra.AlphaNiteForm;
 
         FormatArg argE;
@@ -571,6 +571,7 @@ class Demo : TextAdd
         argE.FieldWidth = 4;
         argE.MaxWidth = -1;
         argE.Base = 10;
+        argE.FillChar = '-';
 
         FormatArg argF;
         argF = new FormatArg();
@@ -633,7 +634,7 @@ class Demo : TextAdd
         a = this.StringCreate(text);
 
         bool b;
-        b = this.TextSame(this.TA(a), this.TB(this.S("G H  TRUE56712  ,  46842j5BD9EA100 ::0h\nF HRE A===OOOOOOOOOH\n")));
+        b = this.TextSame(this.TA(a), this.TB(this.S("G H  TRUE56712  ,  46842j5BD9EA-100 ::0h\nF HRE A===OOOOOOOOOH\n")));
 
         this.Console.Out.Write(this.AddClear().AddS("Format ").Add(this.StatusString(b)).AddLine().AddResult());
         return true;
