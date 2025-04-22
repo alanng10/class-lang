@@ -102,6 +102,11 @@ public class Base : TextAdd
         return a;
     }
 
+    public virtual Text Place(Text text, string limit, String join)
+    {
+        return this.TextPlace(text, this.TE(this.S(limit)), this.TF(join));
+    }
+
     public virtual String StorageTextRead(String filePath)
     {
         String a;

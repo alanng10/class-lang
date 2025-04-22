@@ -527,11 +527,6 @@ public class TextAdd : Any
         return this.TextInfra.StringCreate(text);
     }
 
-    public virtual Text Place(Text text, string limit, String join)
-    {
-        return this.TextPlace(text, this.TE(this.S(limit)), this.TF(join));
-    }
-
     public virtual long StringCount(String o)
     {
         return this.StringComp.Count(o);
