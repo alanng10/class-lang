@@ -165,43 +165,43 @@ public class TextAdd : Any
     protected virtual String SIndent { get; set; }
     protected virtual String SSpace { get; set; }
 
-    public virtual Text TA(String o)
+    public virtual Text TA(String k)
     {
-        return this.TextString(o, this.TextA, this.StringDataA);
+        return this.TextString(k, this.TextA, this.StringDataA);
     }
 
-    public virtual Text TB(String o)
+    public virtual Text TB(String k)
     {
-        return this.TextString(o, this.TextB, this.StringDataB);
+        return this.TextString(k, this.TextB, this.StringDataB);
     }
 
-    public virtual Text TC(String o)
+    public virtual Text TC(String k)
     {
-        return this.TextString(o, this.TextC, this.StringDataC);
+        return this.TextString(k, this.TextC, this.StringDataC);
     }
 
-    public virtual Text TD(String o)
+    public virtual Text TD(String k)
     {
-        return this.TextString(o, this.TextD, this.StringDataD);
+        return this.TextString(k, this.TextD, this.StringDataD);
     }
 
-    public virtual Text TE(String o)
+    public virtual Text TE(String k)
     {
-        return this.TextString(o, this.TextE, this.StringDataE);
+        return this.TextString(k, this.TextE, this.StringDataE);
     }
 
-    public virtual Text TF(String o)
+    public virtual Text TF(String k)
     {
-        return this.TextString(o, this.TextF, this.StringDataF);
+        return this.TextString(k, this.TextF, this.StringDataF);
     }
 
-    public virtual Text TextString(String o, Text text, StringData data)
+    public virtual Text TextString(String k, Text text, StringData data)
     {
-        data.ValueString = o;
+        data.ValueString = k;
 
         text.Data = data;
         text.Range.Index = 0;
-        text.Range.Count = this.StringCount(o);
+        text.Range.Count = this.StringCount(k);
         return text;
     }
 
