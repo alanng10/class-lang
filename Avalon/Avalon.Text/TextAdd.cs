@@ -628,8 +628,7 @@ public class TextAdd : Any
 
     public virtual TextAdd AddLine()
     {
-        this.Add(this.TextInfra.NewLine);
-        return this;
+        return this.Add(this.TextInfra.NewLine);
     }
 
     public virtual TextAdd AddIndent(long count)
