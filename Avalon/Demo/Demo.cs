@@ -584,17 +584,17 @@ class Demo : TextAdd
         argDB.Base = 10;
         argDB.FillChar = ':';
 
-        FormatArg argE;
-        argE = new FormatArg();
-        argE.Init();
-        argE.Pos = 10;
-        argE.Kind = 2;
-        argE.Value.Any = this.TextCreate(this.S("F Hre a"));
-        argE.AlignLeft = true;
-        argE.FieldWidth = 11;
-        argE.MaxWidth = 10;
-        argE.FillChar = '=';
-        argE.Form = this.TextInfra.AlphaNiteForm;
+        FormatArg argG;
+        argG = new FormatArg();
+        argG.Init();
+        argG.Pos = 10;
+        argG.Kind = 2;
+        argG.Value.Any = this.TextCreate(this.S("F Hre a"));
+        argG.AlignLeft = true;
+        argG.FieldWidth = 11;
+        argG.MaxWidth = 10;
+        argG.FillChar = '=';
+        argG.Form = this.TextInfra.AlphaNiteForm;
 
         FormatArg argH;
         argH = new FormatArg();
@@ -615,7 +615,7 @@ class Demo : TextAdd
         argList.SetAt(3, argD);
         argList.SetAt(4, argDA);
         argList.SetAt(5, argDB);
-        argList.SetAt(6, argE);
+        argList.SetAt(6, argG);
         argList.SetAt(7, argH);
 
         Text varBase;
