@@ -27,7 +27,7 @@ public class StringComp : Any
     private InternInfra InternInfra { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
 
-    public virtual String CreateChar(uint c, long count)
+    public virtual String CreateChar(long varChar, long count)
     {
         InternInfra internInfra;
         internInfra = this.InternInfra;
@@ -53,7 +53,7 @@ public class StringComp : Any
             long index;
             index = i * ko;
 
-            internInfra.DataCharSet(value, index, c);
+            internInfra.DataCharSet(value, index, varChar);
 
             i = i + 1;
         }

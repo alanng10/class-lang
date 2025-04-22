@@ -8,16 +8,14 @@ public class TextAdd : Any
         this.TextInfra = Infra.This;
         this.StringComp = StringComp.This;
 
-        this.StringAdd = this.CreateStringAdd();
-
         this.Format = this.CreateFormat();
         this.FormatArg = this.CreateFormatArg();
-
         this.IntParse = this.CreateIntParse();
-
-        this.ILess = this.CreateIntLess();
+        this.StringAdd = this.CreateStringAdd();
         this.TForm = this.CreateTextForm();
         this.TLess = this.CreateTextLess();
+        this.SLess = this.CreateStringLess();
+        this.ILess = this.CreateIntLess();
 
         this.TextA = this.CreateText();
         this.TextB = this.CreateText();
@@ -35,43 +33,9 @@ public class TextAdd : Any
 
         this.TRangeA = this.CreateRange();
 
-        this.SIndent = this.CreateIndent();
-
         this.SSpace = this.S(" ");
+        this.SIndent = this.CreateIndent();
         return true;
-    }
-
-    protected virtual Infra TextInfra { get; set; }
-    protected virtual StringComp StringComp { get; set; }
-    protected virtual Format Format { get; set; }
-    protected virtual FormatArg FormatArg { get; set; }
-    protected virtual StringAdd StringAdd { get; set; }
-    protected virtual IntParse IntParse { get; set; }
-    protected virtual Less TLess { get; set; }
-    protected virtual LessInt ILess { get; set; }
-    protected virtual Form TForm { get; set; }
-    protected virtual Text TextA { get; set; }
-    protected virtual Text TextB { get; set; }
-    protected virtual Text TextC { get; set; }
-    protected virtual Text TextD { get; set; }
-    protected virtual Text TextE { get; set; }
-    protected virtual Text TextF { get; set; }
-    protected virtual StringData StringDataA { get; set; }
-    protected virtual StringData StringDataB { get; set; }
-    protected virtual StringData StringDataC { get; set; }
-    protected virtual StringData StringDataD { get; set; }
-    protected virtual StringData StringDataE { get; set; }
-    protected virtual StringData StringDataF { get; set; }
-    protected virtual Range TRangeA { get; set; }
-    protected virtual String SIndent { get; set; }
-    protected virtual String SSpace { get; set; }
-
-    protected virtual StringAdd CreateStringAdd()
-    {
-        StringAdd a;
-        a = new StringAdd();
-        a.Init();
-        return a;
     }
 
     protected virtual Format CreateFormat()
@@ -98,10 +62,10 @@ public class TextAdd : Any
         return a;
     }
 
-    protected virtual LessInt CreateIntLess()
+    protected virtual StringAdd CreateStringAdd()
     {
-        LessInt a;
-        a = new LessInt();
+        StringAdd a;
+        a = new StringAdd();
         a.Init();
         return a;
     }
@@ -118,9 +82,28 @@ public class TextAdd : Any
     {
         Less a;
         a = new Less();
-        a.CharLess = this.ILess;
         a.LiteForm = this.TForm;
         a.RiteForm = this.TForm;
+        a.CharLess = this.ILess;
+        a.Init();
+        return a;
+    }
+
+    protected virtual StringLess CreateStringLess()
+    {
+        StringLess a;
+        a = new StringLess();
+        a.LiteForm = this.TForm;
+        a.RiteForm = this.TForm;
+        a.CharLess = this.ILess;
+        a.Init();
+        return a;
+    }
+
+    protected virtual LessInt CreateIntLess()
+    {
+        LessInt a;
+        a = new LessInt();
         a.Init();
         return a;
     }
@@ -153,8 +136,33 @@ public class TextAdd : Any
 
     protected virtual String CreateIndent()
     {
-        return this.StringComp.CreateChar(' ', 4);
+        return this.StringComp.CreateChar(this.Char(this.SSpace), 4);
     }
+
+    protected virtual Infra TextInfra { get; set; }
+    protected virtual StringComp StringComp { get; set; }
+    protected virtual Format Format { get; set; }
+    protected virtual FormatArg FormatArg { get; set; }
+    protected virtual IntParse IntParse { get; set; }
+    protected virtual StringAdd StringAdd { get; set; }
+    protected virtual Less TLess { get; set; }
+    protected virtual LessInt ILess { get; set; }
+    protected virtual Form TForm { get; set; }
+    protected virtual Text TextA { get; set; }
+    protected virtual Text TextB { get; set; }
+    protected virtual Text TextC { get; set; }
+    protected virtual Text TextD { get; set; }
+    protected virtual Text TextE { get; set; }
+    protected virtual Text TextF { get; set; }
+    protected virtual StringData StringDataA { get; set; }
+    protected virtual StringData StringDataB { get; set; }
+    protected virtual StringData StringDataC { get; set; }
+    protected virtual StringData StringDataD { get; set; }
+    protected virtual StringData StringDataE { get; set; }
+    protected virtual StringData StringDataF { get; set; }
+    protected virtual Range TRangeA { get; set; }
+    protected virtual String SIndent { get; set; }
+    protected virtual String SSpace { get; set; }
 
     public virtual Text TA(String o)
     {
