@@ -1,99 +1,38 @@
 #include "Demo.h"
 
-
 Int Frame;
-
 Int Text;
-
-
-
 Int Brush;
-
-
-
 Int ImageBrush;
-
-
-
 Int PolateBrush;
-
-
-
-
 Int FillLeft;
-
-
 Int FillUp;
-
-
-
 Int RectA;
-
-
 Int RectB;
-
-
 Int PosA;
-
-
 Int PosB;
-
-
-
 Int RangeA;
-
-
-
 Int RotateAngle;
-
-
-
 Int PenRect;
-
-
 Int PenText;
-
-
-
 Int PointListCount;
-
-
 Int PointListData;
-
 Int Font;
-
 Int TextAlignHoriz;
 Int TextAlignVert;
-
 Int Image;
-
 Int Form;
-
 Int Draw;
-
 Int AreaOffset;
-
 Int UpdateRect;
-
 Int Stat;
-
 SInt TextLeft;
-
 SInt TextUp;
-
 Int Play;
-
 Int PlayA;
-
 Int PlayImage;
-
 Int VideoFrame;
-
 Int Console;
-
-
-
-
 
 Bool TypeHandle(Int frame, Int arg, Int index, Int value)
 {
