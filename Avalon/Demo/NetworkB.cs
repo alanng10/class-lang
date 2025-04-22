@@ -152,7 +152,7 @@ class NetworkB : NetworkNetwork
             if (!ba)
             {
                 Console.This.Err.Write(this.S("Network Host Case 1 Read Data Invalid\n"));
-                this.StatusCode = 24;
+                this.StatusCode = 23;
                 return false;
             }
         }
@@ -162,13 +162,23 @@ class NetworkB : NetworkNetwork
             String ka;
             ka = this.StringComp.CreateData(data, null);
 
-            String kaa;
-            kaa = this.AddClear().AddS("Network Host Case 2 Read Text: ").Add(ka).AddS("\n").AddResult();
+            bool bb;
+            bb = this.ThreadState.Demo.TextSame(this.ThreadState.Demo.TA(ka), this.ThreadState.Demo.TB(this.S("Fy Qi")));
 
-            Console.This.Out.Write(kaa);
+            if (bb)
+            {
+                Console.This.Out.Write(this.S("Network Host Case 2 Success\n"));
 
-            this.ThreadState.ExitNetwork(0);
-            return true;
+                this.ThreadState.ExitNetwork(0);
+                return true;
+            }
+
+            if (!bb)
+            {
+                Console.This.Err.Write(this.S("Network Host Case 2 Read Data Invalid\n"));
+                this.StatusCode = 24;
+                return false;
+            }
         }
         return true;
     }
