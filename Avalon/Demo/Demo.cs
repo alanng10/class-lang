@@ -649,20 +649,20 @@ class Demo : TextAdd
         Text ooo;
         long ooa;
 
-        ooo = this.TextInfra.TextCreateStringData(this.S("43695"), null);        
-        ooa = a.Execute(ooo, 10, null);
+        ooo = this.TextCreate(this.S("43695"));
+        ooa = this.IntParse.Execute(ooo, 10, null);
         this.ConsoleWriteIntParse(ooa);
 
-        ooo = this.TextInfra.TextCreateStringData(this.S("9E532F"), null);
-        ooa = a.Execute(ooo, 16, this.TextInfra.AlphaSiteForm);
+        ooo = this.TextCreate(this.S("9E532F"));
+        ooa = this.IntParse.Execute(ooo, 16, this.TextInfra.AlphaSiteForm);
         this.ConsoleWriteIntParse(ooa);
 
-        ooo = this.TextInfra.TextCreateStringData(this.S("0000000000009294ef0d"), null);
-        ooa = a.Execute(ooo, 16, null);
+        ooo = this.TextCreate(this.S("0000000000009294ef0d"));
+        ooa = this.IntParse.Execute(ooo, 16, null);
         this.ConsoleWriteIntParse(ooa);
 
-        ooo = this.TextInfra.TextCreateStringData(this.S("1000000000000000"), null);
-        ooa = a.Execute(ooo, 16, this.TextInfra.AlphaSiteForm);
+        ooo = this.TextCreate(this.S("1000000000000000"));
+        ooa = this.IntParse.Execute(ooo, 16, this.TextInfra.AlphaSiteForm);
         this.ConsoleWriteIntParse(ooa);
         return true;
     }
