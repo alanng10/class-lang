@@ -333,9 +333,8 @@ public class TextAdd : Any
         space = this.TE(this.SSpace);
 
         long start;
-        start = text.Range.Index;
-
         long count;
+        start = text.Range.Index;
         count = text.Range.Count;
 
         long k;
@@ -378,9 +377,8 @@ public class TextAdd : Any
         space = this.TE(this.SSpace);
 
         long start;
-        start = text.Range.Index;
-
         long count;
+        start = text.Range.Index;
         count = text.Range.Count;
 
         long k;
@@ -396,7 +394,7 @@ public class TextAdd : Any
         while (!b & i < count)
         {
             long index;
-            index = count - 1 - i;
+            index = (count - 1) - i;
 
             text.Range.Index = start + index;
 
