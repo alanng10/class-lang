@@ -231,10 +231,10 @@ public class Gen : TextAdd
 
         Text k;
         k = this.TextCreate(this.HomeTemplate);
-        k = this.Place(k, "#PageRootPath#", pageRootPath);
-        k = this.Place(k, "#AssetVer#", this.Ver);
-        k = this.Place(k, "#HomeTitle#", title);
-        k = this.Place(k, "#HomeInner#", innerK);
+        k = this.TextPlace(k, this.TA(this.S("#PageRootPath#")), this.TB(pageRootPath));
+        k = this.TextPlace(k, this.TA(this.S("#AssetVer#")), this.TB(this.Ver));
+        k = this.TextPlace(k, this.TA(this.S("#HomeTitle#")), this.TB(title));
+        k = this.TextPlace(k, this.TA(this.S("#HomeInner#")), this.TB(innerK));
 
         String a;
         a = this.StringCreate(k);
