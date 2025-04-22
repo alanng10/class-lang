@@ -488,38 +488,18 @@ int main(int argc, char* argv[])
 
     share = Infra_Share();
 
-
-
     Stat = Share_Stat(share);
 
-
-
     Int brushKind;
-
     brushKind = Stat_BrushKindColor(Stat);
-
-
-
 
     Brush = Brush_New();
 
-
-
     Brush_KindSet(Brush, brushKind);
-
 
     Brush_ColorSet(Brush, 0xff0000ff);
 
-
-
-
     Brush_Init(Brush);
-
-
-
-
-
-
 
     Int penRectBrushKind;
     penRectBrushKind = Stat_BrushKindColor(Stat);
@@ -556,7 +536,6 @@ int main(int argc, char* argv[])
 
     Slash_Init(PenRect);
 
-
     Int penTextBrushKind;
     penTextBrushKind = Stat_BrushKindColor(Stat);
 
@@ -568,7 +547,6 @@ int main(int argc, char* argv[])
 
     Int penTextJoin;
     penTextJoin = Stat_SlashJoinMiter(Stat);
-
 
     Int penTextBrush;
     penTextBrush = Brush_New();
@@ -616,7 +594,6 @@ int main(int argc, char* argv[])
     Rect_Init(RectB);
     Rect_PosSet(RectB, rectPosB);
     Rect_SizeSet(RectB, rectSizeB);
-
 
     PosA = Pos_New();
     Pos_Init(PosA);
@@ -670,7 +647,6 @@ int main(int argc, char* argv[])
         iia = iia + 1;
     }
 
-
     Int fontName;
     fontName = String_ConstantCreate(CastInt("Source Sans 3"));
 
@@ -687,7 +663,6 @@ int main(int argc, char* argv[])
     TextAlignHoriz = Stat_TextAlignEnd(Stat);
     TextAlignVert = Stat_TextAlignMid(Stat);
 
-
     Int imagePath;
     imagePath = String_ConstantCreate(CastInt("DemoImage.png"));
 
@@ -697,10 +672,8 @@ int main(int argc, char* argv[])
 
     Stream_Init(stream);
 
-
     Int storageMode;
     storageMode = Stat_StorageModeRead(Stat);
-
 
     Int storage;
 
@@ -716,7 +689,6 @@ int main(int argc, char* argv[])
 
     Storage_Open(storage);
 
-
     Int imageRead;
 
     imageRead = ImageRead_New();
@@ -725,20 +697,17 @@ int main(int argc, char* argv[])
 
     ImageRead_StreamSet(imageRead, stream);
 
-
     Int imageSize;
 
     imageSize = Size_New();
 
     Size_Init(imageSize);
 
-
     Int imageData;
 
     imageData = Data_New();
 
     Data_Init(imageData);
-
 
     Image = Image_New();
 
@@ -748,14 +717,11 @@ int main(int argc, char* argv[])
 
     Image_Init(Image);
 
-
     ImageRead_ImageSet(imageRead, Image);
 
     ImageRead_Execute(imageRead);
 
-
     Storage_Close(storage);
-
 
     Int memory;
 
@@ -767,17 +733,14 @@ int main(int argc, char* argv[])
 
     Memory_Open(memory);
 
-
     Int stringOa;
     stringOa = String_ConstantCreate(CastInt("ABCD GGHH o4\n"));
 
     Int memoryDataValue;
     memoryDataValue = String_ValueGet(stringOa);
 
-
     Int memoryDataCount;
     memoryDataCount = String_CountGet(stringOa) * Constant_CharByteCount();
-
 
     Int dataA;
 
@@ -790,7 +753,6 @@ int main(int argc, char* argv[])
     Data_ValueSet(dataA, memoryDataValue);
 
     SetRange(RangeA, 0, memoryDataCount);
-
 
     Stream_Write(stream, dataA, RangeA);
 
