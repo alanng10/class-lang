@@ -1,8 +1,8 @@
 #!/bin/bash
 
-InfraDemoPackageOutFold=Out/InfraDemo-Linux-Release
+InfraDemoOutFold=Out/InfraDemo-Linux-Release
 
-mkdir -p $InfraDemoPackageOutFold
-pushd $InfraDemoPackageOutFold
+mkdir -p $InfraDemoOutFold
+pushd $InfraDemoOutFold
 make >/dev/null
 popd

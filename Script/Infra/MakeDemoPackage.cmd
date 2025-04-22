@@ -2,9 +2,9 @@
 
 call Script\Infra\Var
 
-set InfraDemoPackageOutFold=.\Out\InfraDemo-Windows-Release
+set InfraDemoOutFold=.\Out\InfraDemo-Windows-Release
 
-mkdir %InfraDemoPackageOutFold% 1>NUL 2>NUL
-pushd %InfraDemoPackageOutFold%
+mkdir %InfraDemoOutFold% 1>NUL 2>NUL
+pushd %InfraDemoOutFold%
 qmake ../../Infra/InfraDemo/InfraDemo.pro
 popd
