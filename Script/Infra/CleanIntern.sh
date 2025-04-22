@@ -1,4 +1,4 @@
 #!/bin/bash
 
-InfraInternPackageOutFold=Out/InfraIntern-Linux-Release
-rm -rf $InfraInternPackageOutFold 2>/dev/null
+InfraInternOutFold=Out/InfraIntern-Linux-Release
+rm -rf $InfraInternOutFold 2>/dev/null

@@ -1,8 +1,8 @@
 #!/bin/bash
 
-InfraInternPackageOutFold=Out/InfraIntern-Linux-Release
+InfraInternOutFold=Out/InfraIntern-Linux-Release
 
-mkdir -p $InfraInternPackageOutFold
-pushd $InfraInternPackageOutFold
+mkdir -p $InfraInternOutFold
+pushd $InfraInternOutFold
 make >/dev/null
 popd

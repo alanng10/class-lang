@@ -2,9 +2,9 @@
 
 call Script\Infra\Var
 
-set InfraInternPackageOutFold=.\Out\InfraIntern-Windows-Release
+set InfraInternOutFold=.\Out\InfraIntern-Windows-Release
 
-mkdir %InfraInternPackageOutFold% 1>NUL 2>NUL
-pushd %InfraInternPackageOutFold%
+mkdir %InfraInternOutFold% 1>NUL 2>NUL
+pushd %InfraInternOutFold%
 qmake ../../Infra/InfraIntern/InfraIntern.pro
 popd
