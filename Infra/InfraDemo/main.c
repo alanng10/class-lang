@@ -1249,130 +1249,59 @@ int main(int argc, char* argv[])
     Stream_Final(stream);
     Stream_Delete(stream);
 
-
-
-
-
     String_ConstantDelete(imagePath);
 
-
-
-
-
-
     Font_Final(Font);
-
-
     Font_Delete(Font);
-
-
-
 
     String_ConstantDelete(fontName);
 
-
-
-
-
     Data_Final(PointListData);
-
-
     Data_Delete(PointListData);
-
-
-
 
     Environ_Delete(pointListDataValue);
 
-
-
-
     Range_Final(RangeA);
-
-
     Range_Delete(RangeA);
 
-
-
     Pos_Final(PosB);
-
-
     Pos_Delete(PosB);
 
-
-
     Pos_Final(PosA);
-
-
     Pos_Delete(PosA);
 
-
-
-
-
     Rect_Final(RectB);
-
-
     Rect_Delete(RectB);
 
-
-
     Size_Final(rectSizeB);
-
-
     Size_Delete(rectSizeB);
 
-
-
     Pos_Final(rectPosB);
-
-
     Pos_Delete(rectPosB);
 
-
-
-
     Rect_Final(RectA);
-
-
     Rect_Delete(RectA);
 
-
-
     Size_Final(rectSizeA);
-
-
     Size_Delete(rectSizeA);
 
-
-
     Pos_Final(rectPosA);
-
     Pos_Delete(rectPosA);
 
     Slash_Final(PenText);
-
     Slash_Delete(PenText);
 
     Brush_Final(penTextBrush);
-
     Brush_Delete(penTextBrush);
 
     Slash_Final(PenRect);
-
     Slash_Delete(PenRect);
 
     Brush_Final(penRectBrush);
-
     Brush_Delete(penRectBrush);
 
-
     Brush_Final(Brush);
-
-
     Brush_Delete(Brush);
-
-
 
     Console_Final(Console);
     Console_Delete(Console);
