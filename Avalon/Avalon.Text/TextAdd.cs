@@ -508,16 +508,6 @@ public class TextAdd : Any
         return a;
     }
 
-    public virtual String StringInt(long n)
-    {
-        return this.StringIntFormat(n, 10, false, 1, -1, 0);
-    }
-
-    public virtual String StringIntHex(long n)
-    {
-        return this.StringIntFormat(n, 16, false, 15, 15, '0');
-    }
-
     public virtual String StringBoolFormat(bool value, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
     {
         FormatArg arg;
@@ -533,6 +523,16 @@ public class TextAdd : Any
         arg.Form = null;
 
         return this.StringFormat();
+    }
+
+    public virtual String StringInt(long n)
+    {
+        return this.StringIntFormat(n, 10, false, 1, -1, 0);
+    }
+
+    public virtual String StringIntHex(long n)
+    {
+        return this.StringIntFormat(n, 16, false, 15, 15, '0');
     }
 
     public virtual String StringIntFormat(long n, long varBase, bool alignLeft, long fieldWidth, long maxWidth, long fillChar)
