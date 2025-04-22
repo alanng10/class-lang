@@ -866,23 +866,16 @@ int main(int argc, char* argv[])
     Play_AudioOutSet(PlayA, playAudioOut);
 
     Int playImageData;
-
     playImageData = Data_New();
-
     Data_Init(playImageData);
 
     Int playImageSize;
-
     playImageSize = Size_New();
-
     Size_Init(playImageSize);
 
     PlayImage = Image_New();
-
     Image_DataSet(PlayImage, playImageData);
-
     Image_SizeSet(PlayImage, playImageSize);
-
     Image_Init(PlayImage);
 
     Int areaPos;
@@ -930,11 +923,9 @@ int main(int argc, char* argv[])
     State_MaideSet(frameTypeState, typeMaide);
 
     Frame = Frame_New();
-
     Frame_Init(Frame);
 
     Frame_DrawStateSet(Frame, frameDrawState);
-
     Frame_TypeStateSet(Frame, frameTypeState);
 
     Int frameSize;
@@ -944,19 +935,14 @@ int main(int argc, char* argv[])
     videoOut = Frame_Out(Frame);
 
     Draw_SizeSet(Draw, frameSize);
-
     Draw_OutSet(Draw, videoOut);
-
     Draw_AreaSet(Draw, area);
-
     Draw_FillPosSet(Draw, fillPos);
 
     Rect_SizeSet(UpdateRect, frameSize);
 
     Frame_TitleSet(Frame, frameTitle);
-
     Frame_TitleThisSet(Frame);
-
     Frame_ShownSet(Frame, true);
 
     Int thread;
