@@ -256,69 +256,47 @@ Int DrawHandle(Int frame, Int arg)
     Draw_AreaThisSet(Draw);
 
     SetRect(RectA, 100, 50, 1600, 900);
-
     SetRect(RectB, 0, 0, 1920, 1080);
-
     Draw_ExecuteImage(Draw, PlayImage, RectA, RectB);
 
     Draw_FillSet(Draw, Brush);
-
     Draw_LineSet(Draw, PenRect);
 
     SetRect(RectA, MathInt(100), MathInt(100), MathInt(200), MathInt(200));
-
     Draw_ExecuteRect(Draw, RectA);
 
-
     SetPos(PosA, MathInt(120), MathInt(470));
-
     SetPos(PosB, MathInt(230), MathInt(370));
-
     Draw_ExecuteLine(Draw, PosA, PosB);
-
 
     Draw_LineSet(Draw, PenRect);
 
     SetRect(RectA, MathInt(500), MathInt(350), MathInt(100), MathInt(100));
-
     SetRange(RangeA, 100 * 16, 120 * 16);
-
     Draw_ExecuteRoundLine(Draw, RectA, RangeA);
 
-
     SetRect(RectA, MathInt(500), MathInt(550), MathInt(100), MathInt(100));
-
     SetRange(RangeA, 120 * 16, 160 * 16);
-
     Draw_ExecuteRoundShape(Draw, RectA, RangeA);
-
 
     Draw_LineSet(Draw, null);
 
     SetRect(RectA, MathInt(500), MathInt(200), MathInt(100), MathInt(100));
-
     SetRange(RangeA, 10 * 16, 80 * 16);
-
     Draw_ExecuteRoundPart(Draw, RectA, RangeA);
-
 
     Draw_LineSet(Draw, PenRect);
 
     SetRect(RectA, MathInt(130), MathInt(550), MathInt(150), MathInt(100));
-
     Draw_ExecuteRound(Draw, RectA);
 
-
     Int scaleFactor;
-
     scaleFactor = (1 << 20);
 
     Draw_FillSet(Draw, PolateBrush);
 
     SetRect(RectA, MathInt(1400), MathInt(200), MathInt(250), MathInt(110));
-
     Draw_ExecuteRectRound(Draw, RectA, MathInt(30), MathInt(23));
-
 
     Draw_FillSet(Draw, ImageBrush);
 
@@ -326,23 +304,15 @@ Int DrawHandle(Int frame, Int arg)
     fillPos = Draw_FillPosGet(Draw);
 
     SetPos(fillPos, MathInt(FillLeft), MathInt(FillUp));
-
     Draw_FillPosThisSet(Draw);
-
 
     Draw_LineSet(Draw, PenRect);
 
-
     Form_Reset(Form);
-
     Form_Pos(Form, MathInt(-780), MathInt(-450));
-
     Form_Scale(Form, MathInt(1), Math_Value(0, 1 * scaleFactor + (1 << 18), -20));
-
     Form_Angle(Form, MathInt(RotateAngle + 30));
-
     Form_Pos(Form, MathInt(1080), MathInt(-600));
-
 
     Draw_FormSet(Draw, Form);
 
@@ -350,14 +320,10 @@ Int DrawHandle(Int frame, Int arg)
 
     Draw_FormSet(Draw, null);
 
-
     SetPos(fillPos, MathInt(0), MathInt(0));
-
     Draw_FillPosThisSet(Draw);
 
-
     Form_Reset(Form);
-
     Form_Pos(Form, MathInt(500), MathInt(100));
 
     Draw_FormSet(Draw, Form);
@@ -366,33 +332,25 @@ Int DrawHandle(Int frame, Int arg)
 
     Draw_FormSet(Draw, null);
 
-
     SetRect(RectA, MathInt(850), MathInt(150), MathInt(150), MathInt(150));
-
     SetRect(RectB, MathInt(50), MathInt(10), MathInt(150), MathInt(150));
-
     Draw_ExecuteImage(Draw, Image, RectA, RectB);
-
 
     Draw_FillSet(Draw, null);
 
     Draw_LineSet(Draw, PenRect);
 
     SetRect(RectA, MathInt(400 + TextLeft), MathInt(400 + TextUp), MathInt(300), MathInt(100));
-
     Draw_ExecuteRect(Draw, RectA);
-
 
     Draw_FontSet(Draw, Font);
 
     Draw_LineSet(Draw, PenText);
 
     SetRect(RectA, MathInt(400 + TextLeft), MathInt(400 + TextUp), MathInt(300), MathInt(100));
-
     Draw_ExecuteText(Draw, Text, TextAlignHoriz, TextAlignVert, false, RectA, RectB);
 
     Draw_FontSet(Draw, null);
-
 
     Draw_End(Draw);
     return true;
