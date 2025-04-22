@@ -756,7 +756,6 @@ int main(int argc, char* argv[])
 
     Stream_Write(stream, dataA, RangeA);
 
-
     Int stringCountA;
     stringCountA = 8;
 
@@ -774,7 +773,6 @@ int main(int argc, char* argv[])
     Stream_PosSet(stream, 5 * Constant_CharByteCount());
 
     Stream_Read(stream, dataA, RangeA);
-
 
     Int stringOb;
 
@@ -798,9 +796,7 @@ int main(int argc, char* argv[])
 
     Data_Delete(dataA);
 
-
     String_ConstantDelete(stringOa);
-
 
     Memory_Close(memory);
 
@@ -808,16 +804,13 @@ int main(int argc, char* argv[])
 
     Memory_Delete(memory);
 
-
     Form = Form_New();
 
     Form_Init(Form);
 
-
     Int imageBrushKind;
 
     imageBrushKind = Stat_BrushKindImage(Stat);
-
 
     ImageBrush = Brush_New();
 
@@ -826,7 +819,6 @@ int main(int argc, char* argv[])
     Brush_ImageSet(ImageBrush, Image);
 
     Brush_Init(ImageBrush);
-
 
     Int scaleFactor;
     scaleFactor = 1 << 20;
@@ -841,126 +833,73 @@ int main(int argc, char* argv[])
 
     Pos_RowSet(polateRadialCenterPos, MathInt(250));
 
-
-
-
     Int polateRadialFocusPos;
-
 
     polateRadialFocusPos = Pos_New();
 
-
     Pos_Init(polateRadialFocusPos);
-
 
     Pos_ColSet(polateRadialFocusPos, MathInt(1500));
 
-
     Pos_RowSet(polateRadialFocusPos, MathInt(250));
-
-
-
-
 
     Int polateRadial;
 
     polateRadial = PolateRadial_New();
 
-
     PolateRadial_CenterPosSet(polateRadial, polateRadialCenterPos);
-
 
     PolateRadial_CenterRadiusSet(polateRadial, MathInt(100));
 
-
     PolateRadial_FocusPosSet(polateRadial, polateRadialFocusPos);
-
 
     PolateRadial_FocusRadiusSet(polateRadial, MathInt(20));
 
-
     PolateRadial_Init(polateRadial);
-
-
-
-
 
     Int polateStop;
 
     polateStop = PolateStop_New();
 
-
     PolateStop_CountSet(polateStop, 3);
-
 
     PolateStop_Init(polateStop);
 
-
-
     PolateStop_PointSet(polateStop, 0, MathInt(0), 0xffff0000);
-
 
     PolateStop_PointSet(polateStop, 1, Math_Value(0, scaleFactor / 2, -20), 0xff00ff00);
 
-
     PolateStop_PointSet(polateStop, 2, MathInt(1), 0xff0000ff);
-
-
-
-
 
     Int polateKind;
 
     polateKind = Stat_PolateKindRadial(Stat);
 
-
-
-
     Int polate;
 
     polate = Polate_New();
 
-
     Polate_KindSet(polate, polateKind);
-
 
     Polate_ValueSet(polate, polateRadial);
 
-
     Polate_StopSet(polate, polateStop);
-
 
     Polate_SpreadSet(polate, Stat_PolateSpreadFlect(Stat));
 
-
     Polate_Init(polate);
-
-
-
-
 
     Int polateBrushKind;
 
     polateBrushKind = Stat_BrushKindPolate(Stat);
 
-
-
     PolateBrush = Brush_New();
-
 
     Brush_KindSet(PolateBrush, polateBrushKind);
 
-
     Brush_PolateSet(PolateBrush, polate);
 
-
     Brush_Init(PolateBrush);
-
-
-
-
-
-
 
     Draw = Draw_New();
 
