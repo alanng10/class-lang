@@ -599,10 +599,10 @@ public class LibraryGen : TextAdd
         this.ProjectGen.Gen = null;
 
         Text k;
-        k = this.TA(this.ModuleProjectText);
-        k = this.Place(k, "#Name#", this.ModuleRefString);
-        k = this.Place(k, "#Import#", import);
-        k = this.Place(k, "#ClassPath#", this.ClassPath);
+        k = this.TextCreate(this.ModuleProjectText);
+        k = this.TextPlace(k, this.TA(this.S("#Name#")), this.TB(this.ModuleRefString));
+        k = this.TextPlace(k, this.TA(this.S("#Import#")), this.TB(import));
+        k = this.TextPlace(k, this.TA(this.S("#ClassPath#")), this.TB(this.ClassPath));
 
         String ka;
         ka = this.StringCreate(k);
