@@ -136,3 +136,13 @@ Class has park element kind arch marry.
 Class has park element kind arch land.
 
 Class has major.
+
+Class has major on any.
+
+Class has major on class.
+
+Class has major on effect.
+
+Class has major on execute.
+
+Class has major on tool.
