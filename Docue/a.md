@@ -134,3 +134,5 @@ Class has park element kind arch benefit.
 Class has park element kind arch marry.
 
 Class has park element kind arch land.
+
+Class has major.
