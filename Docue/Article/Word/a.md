@@ -120,6 +120,8 @@ Word "storey" has meaning that is repository.
 
 Word "persist" has meaning that is persist entity.
 
+Word "permane" has meaning that is permanent entity.
+
 Word "commit" has meaning that is mod record.
 
 Word "revert" has meaning that is unmod.
