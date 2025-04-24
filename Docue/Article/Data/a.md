@@ -47,3 +47,5 @@ Data has park kind arch benefit.
 Data has park kind arch marry.
 
 Data has park kind arch land.
+
+Data has major.
