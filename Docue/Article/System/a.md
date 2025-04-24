@@ -59,3 +59,5 @@ System has park kind arch benefit.
 System has park kind arch marry.
 
 System has park kind arch land.
+
+System has major.
