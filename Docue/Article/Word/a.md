@@ -354,6 +354,8 @@ Word "string" has meaning that is char list.
 
 Word "infra" has meaning that is supported.
 
+Word "stat" has meaning that is constant.
+
 Word "token" has meaning that is string unit.
 
 Word "code" has meaning that is data with value.
