@@ -83,6 +83,13 @@ Int Thread_InitMainThread(Int o)
 
     Thread_HandleSet(thread, handle);
 
+    Bool ba;
+    ba = Thread_OS_Set();
+    if (!ba)
+    {
+        Environ_Exit(171);
+    }
+
     Thread_StoreSetThread(thread);
     return true;
 }
