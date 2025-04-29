@@ -126,7 +126,7 @@ Bool TypeHandle(Int frame, Int arg, Int index, Int value)
         if (index == 'G')
         {
             Int kaa;
-            kaa = Play_AudioOutGet(Play);
+            kaa = Play_AudioOutGet(PlayA);
 
             Bool kab;
             kab = AudioOut_MuteGet(kaa);
