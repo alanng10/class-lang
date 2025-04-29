@@ -123,6 +123,18 @@ Bool TypeHandle(Int frame, Int arg, Int index, Int value)
         {
             Play_Stop(PlayA);
         }
+        if (index == 'G')
+        {
+            Int kaa;
+            kaa = Play_AudioOutGet(Play);
+
+            Bool kab;
+            kab = AudioOut_MuteGet(kaa);
+
+            kab = !kab;
+
+            AudioOut_MuteSet(kaa, kab);
+        }
 
         if (index == 'Y')
         {
@@ -132,17 +144,17 @@ Bool TypeHandle(Int frame, Int arg, Int index, Int value)
         {
             Play_Stop(Play);
         }
-        if (index == 'G')
+        if (index == 'H')
         {
-            Int k;
-            k = Play_AudioOutGet(Play);
+            Int kac;
+            kac = Play_AudioOutGet(Play);
 
-            Bool ka;
-            ka = AudioOut_MuteGet(k);
+            Bool kad;
+            kad = AudioOut_MuteGet(kac);
 
-            ka = !ka;
+            kad = !kad;
 
-            AudioOut_MuteSet(k, ka);
+            AudioOut_MuteSet(kac, kad);
         }
 
         if (index == 'B')
