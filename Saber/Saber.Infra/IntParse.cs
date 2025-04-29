@@ -100,7 +100,7 @@ public class IntParse : TextAdd
 
         if (count < 3)
         {
-            return null;
+            return -1;
         }
 
         Data data;
@@ -110,11 +110,11 @@ public class IntParse : TextAdd
 
         if (!(this.TextInfra.DataCharGet(data, index) == '0'))
         {
-            return null;
+            return -1;
         }
         if (!(this.TextInfra.DataCharGet(data, index + 1) == 'h'))
         {
-            return null;
+            return -1;
         }
 
         long indexA;
@@ -129,7 +129,7 @@ public class IntParse : TextAdd
         k = this.IntText(this.TextA, 16);
         if (k == -1)
         {
-            return null;
+            return -1;
         }
 
         long a;
