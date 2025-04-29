@@ -13,6 +13,8 @@ public class IntParse : TextAdd
     public virtual long HexSignValue(Text text)
     {
         long count;
+        long index;
+        index = text.Range.Index;
         count = text.Range.Count;
 
         if (count < 5)
@@ -22,8 +24,6 @@ public class IntParse : TextAdd
 
         Data data;
         data = text.Data;
-        long index;
-        index = text.Range.Index;
 
         if (!(this.TextInfra.DataCharGet(data, index) == '0'))
         {
@@ -53,12 +53,15 @@ public class IntParse : TextAdd
         long countA;
         indexA = index + 4;
         countA = count - 4;
-        this.TextA.Data = data;
-        this.TextA.Range.Index = indexA;
-        this.TextA.Range.Count = countA;
+        text.Range.Index = indexA;
+        text.Range.Count = countA;
 
         long k;
-        k = this.IntText(this.TextA, 16);
+        k = this.IntText(text, 16);
+
+        text.Range.Index = index;
+        text.Range.Count = count;
+
         if (k == -1)
         {
             return -1;
@@ -95,7 +98,9 @@ public class IntParse : TextAdd
 
     public virtual long HexValue(Text text)
     {
+        long index;
         long count;
+        index = text.Range.Index;
         count = text.Range.Count;
 
         if (count < 3)
@@ -105,8 +110,6 @@ public class IntParse : TextAdd
 
         Data data;
         data = text.Data;
-        long index;
-        index = text.Range.Index;
 
         if (!(this.TextInfra.DataCharGet(data, index) == '0'))
         {
@@ -121,12 +124,15 @@ public class IntParse : TextAdd
         long countA;
         indexA = index + 2;
         countA = count - 2;
-        this.TextA.Data = data;
-        this.TextA.Range.Index = indexA;
-        this.TextA.Range.Count = countA;
+        text.Range.Index = indexA;
+        text.Range.Count = countA;
 
         long k;
-        k = this.IntText(this.TextA, 16);
+        k = this.IntText(text, 16);
+
+        text.Range.Index = index;
+        text.Range.Count = count;
+
         if (k == -1)
         {
             return -1;
@@ -139,7 +145,9 @@ public class IntParse : TextAdd
 
     public virtual long SignValue(Text text)
     {
+        long index;
         long count;
+        index = text.Range.Index;
         count = text.Range.Count;
 
         if (count < 4)
@@ -149,8 +157,6 @@ public class IntParse : TextAdd
 
         Data data;
         data = text.Data;
-        long index;
-        index = text.Range.Index;
 
         if (!(this.TextInfra.DataCharGet(data, index) == '0'))
         {
@@ -176,12 +182,14 @@ public class IntParse : TextAdd
         long countA;
         indexA = index + 3;
         countA = count - 3;
-        this.TextA.Data = data;
-        this.TextA.Range.Index = indexA;
-        this.TextA.Range.Count = countA;
+        text.Range.Index = indexA;
+        text.Range.Count = countA;
 
         long k;
-        k = this.IntText(this.TextA, 10);
+        k = this.IntText(text, 10);
+
+        text.Range.Index = index;
+        text.Range.Count = count;
 
         if (k == -1)
         {
