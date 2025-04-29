@@ -227,6 +227,11 @@ public class IntParse : TextAdd
 
     public virtual long Value(Text text)
     {
+        if (text.Range.Count < 1)
+        {
+            return -1;
+        }
+
         long k;
         k = this.IntText(text, 10);
 
