@@ -2,6 +2,14 @@ namespace Saber.Infra;
 
 public class IntParse : TextAdd
 {
+    public override bool Init()
+    {
+        this.ClassInfra = Infra.This;
+        return true;
+    }
+
+    protected virtual Infra ClassInfra { get; set; }
+
     public virtual long HexSignValue(Text text)
     {
         long count;
@@ -230,11 +238,11 @@ public class IntParse : TextAdd
         a = -1;
         if (value == 'p')
         {
-        a: 0;
+            a = 0;
         }
         if (value == 'n')
         {
-        a: 1;
+            a = 1;
         }
         return a;
     }
