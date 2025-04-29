@@ -42,7 +42,7 @@ public class IntParse : TextAdd
         kaa = this.TextInfra.DataCharGet(data, index + 3);
 
         long negate;
-        negate = this.IntSign(kaa);
+        negate = this.Sign(kaa);
 
         if (negate == -1)
         {
@@ -67,32 +67,8 @@ public class IntParse : TextAdd
             return -1;
         }
 
-        long max;
-        max = 0;
-        if (negate == 0)
-        {
-            max = this.ClassInfra.IntSignPositeMax;
-        }
-        if (negate == 1)
-        {
-            max = this.ClassInfra.IntSignNegateMax;
-        }
-
-        if (max < k)
-        {
-            return -1;
-        }
-
         long a;
-        a = 0;
-        if (negate == 0)
-        {
-            a = k;
-        }
-        if (negate == 1)
-        {
-            a = -k;
-        }
+        a = this.Negate(!(negate == 0), k);
         return a;
     }
 
@@ -171,7 +147,7 @@ public class IntParse : TextAdd
         kaa = this.TextInfra.DataCharGet(data, index + 2);
 
         long negate;
-        negate = this.IntSign(kaa);
+        negate = this.Sign(kaa);
 
         if (negate == -1)
         {
@@ -196,32 +172,8 @@ public class IntParse : TextAdd
             return -1;
         }
 
-        long max;
-        max = 0;
-        if (negate == 0)
-        {
-            max = this.ClassInfra.IntSignPositeMax;
-        }
-        if (negate == 1)
-        {
-            max = this.ClassInfra.IntSignNegateMax;
-        }
-
-        if (max < k)
-        {
-            return -1;
-        }
-
         long a;
-        a = 0;
-        if (negate == 0)
-        {
-            a = k;
-        }
-        if (negate == 1)
-        {
-            a = -k;
-        }
+        a = this.Negate(!(negate == 0), k);
         return a;
     }
 
@@ -245,7 +197,43 @@ public class IntParse : TextAdd
         return a;
     }
 
-    protected virtual long IntSign(long value)
+    protected virtual long Negate(bool negate, long value)
+    {
+        if (value < 0)
+        {
+            return -1;
+        }
+
+        long max;
+        max = 0;
+        if (!negate)
+        {
+            max = this.ClassInfra.IntSignPositeMax;
+        }
+        if (negate)
+        {
+            max = this.ClassInfra.IntSignNegateMax;
+        }
+
+        if (max < value)
+        {
+            return -1;
+        }
+
+        long a;
+        a = 0;
+        if (!negate)
+        {
+            a = value;
+        }
+        if (negate)
+        {
+            a = 0 - value;
+        }
+        return a;
+    }
+
+    protected virtual long Sign(long value)
     {
         long a;
         a = -1;
