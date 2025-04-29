@@ -22,20 +22,20 @@ public class LimitList : Any
         this.Count = this.Array.Count;
         this.Index = 0;
 
-        this.StopSign = this.AddItem(".");
-        this.PauseSign = this.AddItem(",");
-        this.AreSign = this.AddItem(":");
-        this.ExecuteSign = this.AddItem(";");
-        this.SameSign = this.AddItem("=");
-        this.AddSign = this.AddItem("+");
-        this.SubSign = this.AddItem("-");
-        this.MulSign = this.AddItem("*");
-        this.DivSign = this.AddItem("/");
-        this.AndSign = this.AddItem("&");
-        this.OrnSign = this.AddItem("|");
-        this.NotSign = this.AddItem("~");
-        this.LessSign = this.AddItem("<");
-        this.MoreSign = this.AddItem(">");
+        this.Stop = this.AddItem(".");
+        this.Pause = this.AddItem(",");
+        this.Are = this.AddItem(":");
+        this.Execute = this.AddItem(";");
+        this.Same = this.AddItem("=");
+        this.Add = this.AddItem("+");
+        this.Sub = this.AddItem("-");
+        this.Mul = this.AddItem("*");
+        this.Div = this.AddItem("/");
+        this.And = this.AddItem("&");
+        this.Orn = this.AddItem("|");
+        this.Not = this.AddItem("~");
+        this.Less = this.AddItem("<");
+        this.More = this.AddItem(">");
         this.BraceRoundLite = this.AddItem("(");
         this.BraceRoundRite = this.AddItem(")");
         this.BraceCurveLite = this.AddItem("{");
@@ -43,20 +43,20 @@ public class LimitList : Any
         return true;
     }
 
-    public virtual Limit StopSign { get; set; }
-    public virtual Limit PauseSign { get; set; }
-    public virtual Limit AreSign { get; set; }
-    public virtual Limit ExecuteSign { get; set; }
-    public virtual Limit SameSign { get; set; }
-    public virtual Limit AddSign { get; set; }
-    public virtual Limit SubSign { get; set; }
-    public virtual Limit MulSign { get; set; }
-    public virtual Limit DivSign { get; set; }
-    public virtual Limit AndSign { get; set; }
-    public virtual Limit OrnSign { get; set; }
-    public virtual Limit NotSign { get; set; }
-    public virtual Limit LessSign { get; set; }
-    public virtual Limit MoreSign { get; set; }
+    public virtual Limit Stop { get; set; }
+    public virtual Limit Pause { get; set; }
+    public virtual Limit Are { get; set; }
+    public virtual Limit Execute { get; set; }
+    public virtual Limit Same { get; set; }
+    public virtual Limit Add { get; set; }
+    public virtual Limit Sub { get; set; }
+    public virtual Limit Mul { get; set; }
+    public virtual Limit Div { get; set; }
+    public virtual Limit And { get; set; }
+    public virtual Limit Orn { get; set; }
+    public virtual Limit Not { get; set; }
+    public virtual Limit Less { get; set; }
+    public virtual Limit More { get; set; }
     public virtual Limit BraceRoundLite { get; set; }
     public virtual Limit BraceRoundRite { get; set; }
     public virtual Limit BraceCurveLite { get; set; }
