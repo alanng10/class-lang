@@ -17,15 +17,15 @@ public class IntParse : TextAdd
         long index;
         index = text.Range.Index;
 
-        if (!(this.TextInfra.DataCharGet(data, index) = '0'))
+        if (!(this.TextInfra.DataCharGet(data, index) == '0'))
         {
             return -1;
         }
-        if (!(this.TextInfra.DataCharGet(data, index + 1) = 'h'))
+        if (!(this.TextInfra.DataCharGet(data, index + 1) == 'h'))
         {
             return -1;
         }
-        if (!(this.TextInfra.DataCharGet(data, index + 2) = 's'))
+        if (!(this.TextInfra.DataCharGet(data, index + 2) == 's'))
         {
             return -1;
         }
