@@ -2,9 +2,9 @@ Class
 Field
 Maide
 Var
-ItemGet
+Get
 Set
-ItemThis
+This
 Base
 Return
 Inf
