@@ -66,3 +66,5 @@ Type has park kind arch benefit.
 Type has park kind arch marry.
 
 Type has park kind arch land.
+
+Type has park mark.
