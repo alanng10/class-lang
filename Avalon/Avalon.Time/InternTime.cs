@@ -1,0 +1,90 @@
+namespace Avalon.Time;
+
+class InternTime : Any
+{
+    public override bool Init()
+    {
+        base.Init();
+        this.Intern = SystemTime.MinValue;
+        return true;
+    }
+
+    public virtual long Yea
+    {
+        get
+        {
+            return this.Intern.Year;
+        }
+        set
+        {
+        }
+    }
+
+    public virtual long Mon
+    {
+        get
+        {
+            return this.Intern.Month;
+        }
+        set
+        {
+        }
+    }
+
+    public virtual long Day
+    {
+        get
+        {
+            return this.Intern.Day;
+        }
+        set
+        {
+        }
+    }
+
+    public virtual long Our
+    {
+        get
+        {
+            return this.Intern.Hour;
+        }
+        set
+        {
+        }
+    }
+
+    public virtual long Min
+    {
+        get
+        {
+            return this.Intern.Minute;
+        }
+        set
+        {
+        }
+    }
+
+    public virtual long Sec
+    {
+        get
+        {
+            return this.Intern.Second;
+        }
+        set
+        {
+        }
+    }
+
+    public virtual long Tick
+    {
+        get
+        {
+            return this.Intern.Millisecond;
+        }
+        set
+        {
+        }
+    }
+
+    private SystemTime Intern;
+}
