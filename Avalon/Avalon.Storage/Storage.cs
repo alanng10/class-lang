@@ -105,10 +105,13 @@ public class Storage : Any
         SystemStorageMode mode;
         mode = this.InternMode(this.Mode);
 
+        SystemStorageAccess access;
+        access = this.InternAccess(this.Mode);
+
         SystemStorageStream k;
         try
         {
-            k = new SystemStorageStream(path, mode);
+            k = new SystemStorageStream(path, mode, access);
         }
         catch
         {
