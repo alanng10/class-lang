@@ -17,47 +17,32 @@ public class StringValue : Any
     public override bool Init()
     {
         base.Init();
-        this.Code = Code.This;
+        this.InternIntern = Intern.This;
         this.CodeKindList = CodeKindList.This;
         return true;
     }
 
-    protected virtual Code Code { get; set; }
     protected virtual CodeKindList CodeKindList { get; set; }
+    private Intern InternIntern { get; set; }
 
-    public virtual String Execute(string o)
+    public virtual String Execute(string value)
     {
-        Code code;
-        code = this.Code;
         CodeKindList codeKindList;
         codeKindList = this.CodeKindList;
 
-        CodeKind innKind;
         CodeKind outKind;
-        innKind = codeKindList.Utf16;
         outKind = codeKindList.Utf32;
 
-        Range range;
-        range = new Range();
-        range.Init();
-        range.Count = o.Length * sizeof(char);
-
-        long resultCount;
-        resultCount = code.ExecuteCountString(innKind, outKind, o, range);
-
-        byte[] result;
-        result = new byte[resultCount];
-
-        code.ExecuteResultString(result, 0, innKind, outKind, o, range);
+        byte[] k;
+        k = outKind.Intern.GetBytes(value);
 
         long count;
-        count = resultCount / sizeof(uint);
+        count = k.LongLength / sizeof(uint);
 
         String a;
-        a = new String();
-        a.Value = result;
-        a.Count = count;
-        a.Init();
+        a = this.InternIntern.StringNew();
+        this.InternIntern.StringValueSet(a, k);
+        this.InternIntern.StringCountSet(a, count);
         return a;
     }
 }
