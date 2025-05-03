@@ -134,5 +134,23 @@ class InternTime : Any
         return true;
     }
 
+    public virtual bool AddMon(long value)
+    {
+        int k;
+        k = (int)value;
+
+        this.Intern = this.Intern.AddMonths(k);
+        return true;
+    }
+
+    public virtual bool AddDay(long value)
+    {
+        int k;
+        k = (int)value;
+
+        this.Intern = this.Intern.AddDays(k);
+        return true;
+    }
+
     private SystemTime Intern;
 }
