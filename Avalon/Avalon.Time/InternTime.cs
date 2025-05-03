@@ -114,6 +114,9 @@ class InternTime : Any
         {
             return this.Intern.Ticks / 10000;
         }
+        set
+        {
+        }
     }
 
     private SystemTime Intern;
