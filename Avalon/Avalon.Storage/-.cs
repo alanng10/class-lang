@@ -20,3 +20,4 @@ global using SystemStorageStream = System.IO.FileStream;
 global using SystemStorageMode = System.IO.FileMode;
 global using SystemStorageAccess = System.IO.FileAccess;
 global using SystemStorageComp = System.IO.File;
+global using SystemStorageCompFold = System.IO.Directory;

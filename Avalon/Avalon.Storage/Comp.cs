@@ -87,17 +87,19 @@ public class Comp : Any
 
     public virtual bool FoldCreate(String path)
     {
-        ulong pathU;
-        pathU = this.InternInfra.StringCreate(path);
+        string pathK;
+        pathK = this.StringValue.ExecuteIntern(path);
 
-        ulong k;
-        k = Extern.StorageComp_FoldCreate(this.Intern, pathU);
+        try
+        {
+            SystemStorageCompFold.CreateDirectory(pathK);
+        }
+        catch
+        {
+            return false;
+        }
 
-        this.InternInfra.StringDelete(pathU);
-
-        bool a;
-        a = !(k == 0);
-        return a;
+        return true;
     }
 
     public virtual bool FoldCopy(String path, String destPath)
