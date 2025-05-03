@@ -203,17 +203,19 @@ public class Comp : Any
 
     public virtual bool ThisFoldSet(String path)
     {
-        ulong pathU;
-        pathU = this.InternInfra.StringCreate(path);
+        string pathK;
+        pathK = this.StringValue.ExecuteIntern(path);
 
-        ulong k;
-        k = Extern.StorageComp_ThisFoldSet(this.Intern, pathU);
+        try
+        {
+            SystemStorageCompFold.SetCurrentDirectory(pathK);
+        }
+        catch
+        {
+            return false;
+        }
 
-        this.InternInfra.StringDelete(pathU);
-
-        bool a;
-        a = !(k == 0);
-        return a;
+        return true;
     }
 
     private void FoldCopyRecursive(SystemStorageFoldInfo source, SystemStorageFoldInfo target)
