@@ -24,7 +24,6 @@ public class MemoryStream : Stream
         }
         set
         {
-            this.Intern.Ident = value;
         }
     }
 
