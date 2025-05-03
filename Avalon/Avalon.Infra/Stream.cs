@@ -74,7 +74,7 @@ public class Stream : Any
 
     public virtual bool PosSet(long value)
     {
-        this.Intern.Seek(value, SeekOrigin.Begin);
+        this.Intern.Seek(value, SystemSeekOrigin.Begin);
         return true;
     }
 
