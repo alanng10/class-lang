@@ -354,31 +354,103 @@ partial class Math
 
     public virtual long SinH(long value)
     {
-        return 0;
+        double ka;
+        ka = this.InternValue(value);
+        if (!this.ValidIntern(ka))
+        {
+            return -1;
+        }
+
+        double kc;
+        kc = SystemMath.Sinh(ka);
+
+        long a;
+        a = this.ValueInternValue(kc);
+        return a;
     }
 
     public virtual long CosH(long value)
     {
-        return 0;
+        double ka;
+        ka = this.InternValue(value);
+        if (!this.ValidIntern(ka))
+        {
+            return -1;
+        }
+
+        double kc;
+        kc = SystemMath.Cosh(ka);
+
+        long a;
+        a = this.ValueInternValue(kc);
+        return a;
     }
 
     public virtual long TanH(long value)
     {
-        return 0;
+        double ka;
+        ka = this.InternValue(value);
+        if (!this.ValidIntern(ka))
+        {
+            return -1;
+        }
+
+        double kc;
+        kc = SystemMath.Tanh(ka);
+
+        long a;
+        a = this.ValueInternValue(kc);
+        return a;
     }
 
     public virtual long ASinH(long value)
     {
-        return 0;
+        double ka;
+        ka = this.InternValue(value);
+        if (!this.ValidIntern(ka))
+        {
+            return -1;
+        }
+
+        double kc;
+        kc = SystemMath.Asinh(ka);
+
+        long a;
+        a = this.ValueInternValue(kc);
+        return a;
     }
 
     public virtual long ACosH(long value)
     {
-        return 0;
+        double ka;
+        ka = this.InternValue(value);
+        if (!this.ValidIntern(ka))
+        {
+            return -1;
+        }
+
+        double kc;
+        kc = SystemMath.Acosh(ka);
+
+        long a;
+        a = this.ValueInternValue(kc);
+        return a;
     }
 
     public virtual long ATanH(long value)
     {
-        return 0;
+        double ka;
+        ka = this.InternValue(value);
+        if (!this.ValidIntern(ka))
+        {
+            return -1;
+        }
+
+        double kc;
+        kc = SystemMath.Atanh(ka);
+
+        long a;
+        a = this.ValueInternValue(kc);
+        return a;
     }
 }
