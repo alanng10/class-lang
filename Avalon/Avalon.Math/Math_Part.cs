@@ -252,32 +252,104 @@ partial class Math
 
     public virtual long Sin(long value)
     {
-        return 0;
+        double ka;
+        ka = this.InternValue(value);
+        if (!this.ValidIntern(ka))
+        {
+            return -1;
+        }
+
+        double kc;
+        kc = SystemMath.Sin(ka);
+
+        long a;
+        a = this.ValueInternValue(kc);
+        return a;
     }
 
     public virtual long Cos(long value)
     {
-        return 0;
+        double ka;
+        ka = this.InternValue(value);
+        if (!this.ValidIntern(ka))
+        {
+            return -1;
+        }
+
+        double kc;
+        kc = SystemMath.Cos(ka);
+
+        long a;
+        a = this.ValueInternValue(kc);
+        return a;
     }
 
     public virtual long Tan(long value)
     {
-        return 0;
+        double ka;
+        ka = this.InternValue(value);
+        if (!this.ValidIntern(ka))
+        {
+            return -1;
+        }
+
+        double kc;
+        kc = SystemMath.Tan(ka);
+
+        long a;
+        a = this.ValueInternValue(kc);
+        return a;
     }
 
     public virtual long ASin(long value)
     {
-        return 0;
+        double ka;
+        ka = this.InternValue(value);
+        if (!this.ValidIntern(ka))
+        {
+            return -1;
+        }
+
+        double kc;
+        kc = SystemMath.Asin(ka);
+
+        long a;
+        a = this.ValueInternValue(kc);
+        return a;
     }
 
     public virtual long ACos(long value)
     {
-        return 0;
+        double ka;
+        ka = this.InternValue(value);
+        if (!this.ValidIntern(ka))
+        {
+            return -1;
+        }
+
+        double kc;
+        kc = SystemMath.Acos(ka);
+
+        long a;
+        a = this.ValueInternValue(kc);
+        return a;
     }
 
     public virtual long ATan(long value)
     {
-        return 0;
+        double ka;
+        ka = this.InternValue(value);
+        if (!this.ValidIntern(ka))
+        {
+            return -1;
+        }
+
+        double kc;
+        kc = SystemMath.Atan(ka);
+
+        long a;
+        a = this.ValueInternValue(kc);
+        return a;
     }
 
     public virtual long SinH(long value)
