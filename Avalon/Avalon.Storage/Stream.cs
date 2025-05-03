@@ -6,7 +6,7 @@ public class Stream : StreamStream
     {
         base.Init();
         this.Intern = new InternStream();
-        this.Intern.Ident = new SystemStorageStream();
+        this.Intern.Ident = this.SetIdent;
         this.Intern.Init();
         return true;
     }
@@ -16,6 +16,8 @@ public class Stream : StreamStream
         this.Intern.Final();
         return true;
     }
+
+    public virtual object SetIdent { get; set; }
 
     public override object Ident
     {
