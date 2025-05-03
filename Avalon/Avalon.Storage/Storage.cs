@@ -5,19 +5,14 @@ public class Storage : Any
     public override bool Init()
     {
         base.Init();
-        this.InternIntern = global::Avalon.Infra.Intern.This;
-        this.InternInfra = InternInfra.This;
         this.StorageInfra = Infra.This;
+        this.StringValue = StringValue.This;
         this.StorageStatusList = StatusList.This;
-        this.Intern = Extern.Storage_New();
-        Extern.Storage_Init(this.Intern);
         return true;
     }
 
     public virtual bool Final()
     {
-        Extern.Storage_Final(this.Intern);
-        Extern.Storage_Delete(this.Intern);
         return true;
     }
 
@@ -41,12 +36,9 @@ public class Storage : Any
         }
     }
     protected virtual StreamStream DataStream { get; set; }
-    private Intern InternIntern { get; set; }
-    private InternInfra InternInfra { get; set; }
     protected virtual Infra StorageInfra { get; set; }
+    protected virtual StringValue StringValue { get; set; }
     protected virtual StatusList StorageStatusList { get; set; }
-    private ulong Intern { get; set; }
-    private ulong InternPath { get; set; }
 
     public virtual bool Open()
     {
@@ -67,10 +59,6 @@ public class Storage : Any
         ulong k;
         k = (ulong)this.DataStream.Ident;
 
-        Extern.Storage_PathSet(this.Intern, this.InternPath);
-        Extern.Storage_ModeSet(this.Intern, modeU);
-        Extern.Storage_StreamSet(this.Intern, k);
-        Extern.Storage_Open(this.Intern);
         if (!(this.Status == this.StorageStatusList.NoError))
         {
             return false;
@@ -109,10 +97,24 @@ public class Storage : Any
         return true;
     }
 
+    protected virtual object CreateStreamIdent()
+    {
+        string path;
+        path = this.StringValue.ExecuteIntern(this.Path);
+
+        SystemStorageStream k;
+        k = new SystemStorageStream();
+        return k;
+    }
+
     protected virtual StreamStream CreateStream()
     {
+        object kk;
+        kk = this.CreateStreamIdent();
+
         Stream k;
         k = new Stream();
+        k.SetIdent = kk;
         k.Init();
         StreamStream a;
         a = k;
