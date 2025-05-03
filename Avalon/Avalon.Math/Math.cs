@@ -33,19 +33,13 @@ public partial class Math : Any
     {
         long cand;
         cand = comp.Cand;
-        long expoTen;
-        expoTen = comp.Expo;
+        long expo;
+        expo = comp.Expo;
 
-        ulong ua;
-        ulong ub;
-        ua = (ulong)cand;
-        ub = (ulong)expoTen;
+        double internValue;
+        internValue = this.InternValueTen(cand, expo);
 
-        ulong u;
-        u = Extern.Math_ValueTen(this.Intern, ua, ub);
-        long a;
-        a = (long)u;
-        return a;
+        return this.ValueInternValue(internValue);
     }
 
     public virtual bool Comp(Comp result, long value)
@@ -189,6 +183,25 @@ public partial class Math : Any
 
         double kc;
         kc = SystemMath.Pow(2, kb);
+
+        double k;
+        k = ka;
+        k = k * kc;
+
+        double a;
+        a = k;
+        return a;
+    }
+
+    private double InternValueTen(long cand, long expo)
+    {
+        double ka;
+        ka = cand;
+        double kb;
+        kb = expo;
+
+        double kc;
+        kc = SystemMath.Pow(10, kb);
 
         double k;
         k = ka;
