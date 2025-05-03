@@ -106,7 +106,14 @@ public class Storage : Any
         mode = this.InternMode(this.Mode);
 
         SystemStorageStream k;
-        k = new SystemStorageStream(path, mode);
+        try
+        {
+            k = new SystemStorageStream(path, mode);
+        }
+        catch
+        {
+            return null;
+        }
         return k;
     }
 
@@ -114,6 +121,11 @@ public class Storage : Any
     {
         object kk;
         kk = this.CreateStreamIdent();
+
+        if (kk == null)
+        {
+            return null;
+        }
 
         Stream k;
         k = new Stream();
