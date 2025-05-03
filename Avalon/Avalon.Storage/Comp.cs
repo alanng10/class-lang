@@ -70,17 +70,19 @@ public class Comp : Any
 
     public virtual bool FileDelete(String path)
     {
-        ulong pathU;
-        pathU = this.InternInfra.StringCreate(path);
+        string pathK;
+        pathK = this.StringValue.ExecuteIntern(path);
 
-        ulong k;
-        k = Extern.StorageComp_FileDelete(this.Intern, pathU);
+        try
+        {
+            SystemStorageComp.Delete(pathK);
+        }
+        catch
+        {
+            return false;
+        }
 
-        this.InternInfra.StringDelete(pathU);
-
-        bool a;
-        a = !(k == 0);
-        return a;
+        return true;
     }
 
     public virtual bool FoldCreate(String path)
