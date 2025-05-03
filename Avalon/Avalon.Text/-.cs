@@ -9,3 +9,4 @@ global using Data = Avalon.Infra.Data;
 global using Value = Avalon.Infra.Value;
 global using InfraInfra = Avalon.Infra.Infra;
 global using Array = Avalon.List.Array;
+global using SystemTextCode = System.Text.Encoding;
