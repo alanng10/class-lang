@@ -184,15 +184,21 @@ public class Comp : Any
 
     public virtual String ThisFoldGet()
     {
-        ulong k;
-        k = Extern.StorageComp_ThisFoldGet(this.Intern);
+        string ka;
+        try
+        {
+            ka = SystemStorageCompFold.GetCurrentDirectory();
+        }
+        catch
+        {
+            return null;
+        }
 
-        String a;
-        a = this.InternInfra.StringCreateIntern(k);
+        ka = ka.Replace('\\', '/');
 
-        this.InternInfra.StringDelete(k);
-
-        return a;
+        String k;
+        k = this.StringValue.Execute(ka);
+        return k;
     }
 
     public virtual bool ThisFoldSet(String path)
