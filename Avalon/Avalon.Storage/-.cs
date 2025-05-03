@@ -21,3 +21,5 @@ global using SystemStorageMode = System.IO.FileMode;
 global using SystemStorageAccess = System.IO.FileAccess;
 global using SystemStorageComp = System.IO.File;
 global using SystemStorageCompFold = System.IO.Directory;
+global using SystemStorageFileInfo = System.IO.FileInfo;
+global using SystemStorageFoldInfo = System.IO.DirectoryInfo;

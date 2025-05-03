@@ -104,20 +104,22 @@ public class Comp : Any
 
     public virtual bool FoldCopy(String path, String destPath)
     {
-        ulong pathU;
-        pathU = this.InternInfra.StringCreate(path);
-        ulong destPathU;
-        destPathU = this.InternInfra.StringCreate(destPath);
+        string pathK;
+        pathK = this.StringValue.ExecuteIntern(path);
+        string destPathK;
+        destPathK = this.StringValue.ExecuteIntern(destPath);
 
-        ulong k;
-        k = Extern.StorageComp_FoldCopy(this.Intern, pathU, destPathU);
+        try
+        {
+            SystemStorageCompFold.Copy(pathK, destPathK);
+        }
+        catch
+        {
+            return false;
+        }
 
-        this.InternInfra.StringDelete(destPathU);
-        this.InternInfra.StringDelete(pathU);
 
-        bool a;
-        a = !(k == 0);
-        return a;
+        return true;
     }
 
     public virtual bool FoldDelete(String path)
@@ -191,6 +193,18 @@ public class Comp : Any
         bool a;
         a = !(k == 0);
         return a;
+    }
+
+    private void CopyFilesRecursive(SystemStorageFoldInfo source, SystemStorageFoldInfo target)
+    {
+        foreach (SystemStorageFoldInfo dir in source.GetDirectories())
+        {
+            CopyFilesRecursive(dir, target.CreateSubdirectory(dir.Name));
+        }
+        foreach (SystemStorageFileInfo file in source.GetFiles())
+        {
+            file.CopyTo(target.FullName + "/" + file.Name);
+        }
     }
 
     public virtual Array EntryList(String path, bool fold)
