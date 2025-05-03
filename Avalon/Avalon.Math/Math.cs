@@ -23,16 +23,43 @@ public partial class Math : Any
         long expo;
         expo = comp.Expo;
 
-        ulong ua;
-        ulong ub;
-        ua = (ulong)cand;
-        ub = (ulong)expo;
+        double internValue;
+        internValue = this.InternValue(cand, expo);
 
-        ulong u;
-        u = Extern.Math_Value(this.Intern, ua, ub);
-        long a;
-        a = (long)u;
-        return a;
+        if (!this.ValidIntern(internValue))
+        {
+            return -1;
+        }
+
+        if (internValue == 0)
+        {
+            return 0;
+        }
+
+        bool negate;
+        negate = internValue < 0;
+
+        double ka;
+        ka = internValue;
+
+        if (negate)
+        {
+            ka = - ka;
+        }
+
+        double kb;
+        kb = SystemMath.Log2(ka);
+
+        if (!this.ValidIntern(kb))
+        {
+            return -1;
+        }
+
+        long kaa;
+        kaa = (long)kb;
+
+        long kd;
+        kd = 48 - kaa;
     }
 
     public virtual long ValueTen(Comp comp)
@@ -87,5 +114,57 @@ public partial class Math : Any
         long a;
         a = k;
         return a;
+    }
+
+    private long ValueComp(long cand, long expo)
+    {
+        long ka;
+        ka = 1 << 50;
+        ka = ka - 1;
+
+        cand = cand & ka;
+
+        long kb;
+        kb = 1 << 10;
+        kb = kb - 1;
+
+        expo = expo & kb;
+
+        long kc;
+        kc = expo;
+        kc = kc << 50;
+
+        long k;
+        k = 0;
+        k = k | ka;
+        k = k | kc;
+
+        long a;
+        a = k;
+        return a;
+    }
+
+    private double InternValue(long cand, long expo)
+    {
+        double ka;
+        ka = cand;
+        double kb;
+        kb = expo;
+
+        double kc;
+        kc = SystemMath.Pow(2, kb);
+
+        double k;
+        k = ka;
+        k = k * kc;
+
+        double a;
+        a = k;
+        return a;
+    }
+
+    private bool ValidIntern(double k)
+    {
+        return !(double.IsInfinity(k) | double.IsNaN(k));
     }
 }

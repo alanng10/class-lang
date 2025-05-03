@@ -1,2 +1,2 @@
-global using Extern = Avalon.Infra.Extern;
 global using Any = Avalon.Infra.Any;
+global using SystemMath = System.Math;
