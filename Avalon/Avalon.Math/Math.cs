@@ -26,71 +26,7 @@ public partial class Math : Any
         double internValue;
         internValue = this.InternValue(cand, expo);
 
-        if (!this.ValidIntern(internValue))
-        {
-            return -1;
-        }
-
-        if (internValue == 0)
-        {
-            return 0;
-        }
-
-        bool negate;
-        negate = internValue < 0;
-
-        double ka;
-        ka = internValue;
-
-        if (negate)
-        {
-            ka = - ka;
-        }
-
-        double kb;
-        kb = SystemMath.Log2(ka);
-
-        if (!this.ValidIntern(kb))
-        {
-            return -1;
-        }
-
-        long kaa;
-        kaa = (long)kb;
-
-        long kd;
-        kd = 48 - kaa;
-
-        double ke;
-        ke = SystemMath.Pow(2, kd);
-
-        if (!this.ValidIntern(ke))
-        {
-            return -1;
-        }
-
-        double kf;
-        kf = ka * ke;
-
-        if (!this.ValidIntern(kf))
-        {
-            return -1;
-        }
-
-        long kk;
-        kk = (long)kf;
-
-        if (negate)
-        {
-            kk = - kk;
-        }
-
-        long kl;
-        kl = -kd;
-
-        long a;
-        a = this.ValueComp(kk, kl);
-        return a;
+        return this.ValueInternValue(internValue);
     }
 
     public virtual long ValueTen(Comp comp)
@@ -144,6 +80,75 @@ public partial class Math : Any
 
         long a;
         a = k;
+        return a;
+    }
+
+    private long ValueInternValue(double internValue)
+    {
+        if (!this.ValidIntern(internValue))
+        {
+            return -1;
+        }
+
+        if (internValue == 0)
+        {
+            return 0;
+        }
+
+        bool negate;
+        negate = internValue < 0;
+
+        double ka;
+        ka = internValue;
+
+        if (negate)
+        {
+            ka = -ka;
+        }
+
+        double kb;
+        kb = SystemMath.Log2(ka);
+
+        if (!this.ValidIntern(kb))
+        {
+            return -1;
+        }
+
+        long kaa;
+        kaa = (long)kb;
+
+        long kd;
+        kd = 48 - kaa;
+
+        double ke;
+        ke = SystemMath.Pow(2, kd);
+
+        if (!this.ValidIntern(ke))
+        {
+            return -1;
+        }
+
+        double kf;
+        kf = ka * ke;
+
+        if (!this.ValidIntern(kf))
+        {
+            return -1;
+        }
+
+        long kk;
+        kk = (long)kf;
+
+        if (negate)
+        {
+            kk = -kk;
+        }
+
+        long kl;
+        kl = -kd;
+
+        long a;
+        a = this.ValueComp(kk, kl);
         return a;
     }
 
