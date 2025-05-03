@@ -48,7 +48,10 @@ public class Storage : Any
 
     public virtual bool Close()
     {
-        this.DataStream.Final();
+        if (!(this.DataStream == null))
+        {
+            this.DataStream.Final();
+        }
         this.DataStream = null;
         this.Stream = null;
         return true;
