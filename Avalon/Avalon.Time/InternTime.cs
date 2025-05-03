@@ -169,5 +169,37 @@ class InternTime : Any
         return SystemTime.IsLeapYear(k);
     }
 
+    public virtual bool Set(long yea, long mon, long day, long our, long min, long sec, long tick)
+    {
+        int yeaA;
+        int monA;
+        int dayA;
+        int ourA;
+        int minA;
+        int secA;
+        int tickA;
+        yeaA = (int)yea;
+        monA = (int)mon;
+        dayA = (int)day;
+        ourA = (int)our;
+        minA = (int)min;
+        secA = (int)sec;
+        tickA = (int)tick;
+
+        SystemTime k;
+
+        try
+        {
+            k = new SystemTime(yeaA, monA, dayA, ourA, minA, secA, tickA);
+        }
+        catch
+        {
+            return false;
+        }
+
+        this.Intern = k;
+        return true;
+    }
+
     private SystemTime Intern;
 }
