@@ -126,9 +126,32 @@ public class Stream : Any
 
     public virtual bool Write(Data data, Range range)
     {
+        if (!this.InfraInfra.ValidRange(data.Count, range.Index, range.Count))
+        {
+            return false;
+        }
+
         if (!this.CanWrite)
         {
-            return true;
+            return false;
+        }
+
+        long count;
+        count = range.Count;
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            long ka;
+            ka = data.Get(range.Index + i);
+
+            byte kd;
+            kd = (byte)ka;
+
+            this.Intern.WriteByte(kd);
+
+            i = i + 1;
         }
 
         return true;
