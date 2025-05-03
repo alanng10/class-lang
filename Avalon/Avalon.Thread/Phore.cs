@@ -5,18 +5,17 @@ public class Phore : Any
     public override bool Init()
     {
         base.Init();
-        ulong ua;
-        ua = (ulong)(this.InitCount);
-        this.Intern = Extern.Phore_New();
-        Extern.Phore_InitCountSet(this.Intern, ua);
-        Extern.Phore_Init(this.Intern);
+        
+        int k;
+        k = (int)this.InitCount;
+
+        this.Intern = new SystemPhore(k);
         return true;
     }
 
     public virtual bool Final()
     {
-        Extern.Phore_Final(this.Intern);
-        Extern.Phore_Delete(this.Intern);
+        this.Intern.Dispose();
         return true;
     }
 
@@ -25,27 +24,25 @@ public class Phore : Any
     {
         get
         {
-            ulong u;
-            u = Extern.Phore_CountGet(this.Intern);
             long a;
-            a = (long)u;
+            a = this.Intern.CurrentCount;
             return a;
         }
         set
         {
         }
     }
-    private ulong Intern { get; set; }
+    private SystemPhore Intern { get; set; }
 
     public virtual bool Open()
     {
-        Extern.Phore_Open(this.Intern);
+        this.Intern.Wait();
         return true;
     }
 
     public virtual bool Close()
     {
-        Extern.Phore_Close(this.Intern);
+        this.Intern.Release();
         return true;
     }
 }
