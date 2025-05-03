@@ -6,6 +6,7 @@ public class MemoryStream : Stream
     {
         base.Init();
         this.Intern = new InternStream();
+        this.Intern.Ident = new SystemMemoryStream();
         this.Intern.Init();
         return true;
     }
