@@ -24,7 +24,7 @@ public partial class Math : Any
         expo = comp.Expo;
 
         double internValue;
-        internValue = this.InternValue(cand, expo);
+        internValue = this.InternValueComp(cand, expo);
 
         return this.ValueInternValue(internValue);
     }
@@ -37,7 +37,7 @@ public partial class Math : Any
         expo = comp.Expo;
 
         double internValue;
-        internValue = this.InternValueTen(cand, expo);
+        internValue = this.InternValueTenComp(cand, expo);
 
         return this.ValueInternValue(internValue);
     }
@@ -61,19 +61,30 @@ public partial class Math : Any
 
     public virtual long Less(long valueA, long valueB)
     {
-        ulong ua;
-        ulong ub;
-        ua = (ulong)valueA;
-        ub = (ulong)valueB;
+        double ka;
+        double kb;
+        ka = this.InternValue(valueA);
+        kb = this.InternValue(valueB);
 
-        ulong u;
-        u = Extern.Math_Less(this.Intern, ua, ub);
+        if (!this.ValidIntern(ka))
+        {
+            return -1;
+        }
 
-        long k;
-        k = (long)u;
+        if (!this.ValidIntern(kb))
+        {
+            return -1;
+        }
+
+        bool b;
+        b = ka < kb;
 
         long a;
-        a = k;
+        a = 0;
+        if (b)
+        {
+            a = 1;
+        }
         return a;
     }
 
@@ -174,7 +185,22 @@ public partial class Math : Any
         return a;
     }
 
-    private double InternValue(long cand, long expo)
+    private double InternValue(long value)
+    {
+        long ka;
+        ka = value;
+        ka = ka << 14;
+        ka = ka >> 14;
+
+        long kb;
+        kb = value;
+        kb = kb << 4;
+        kb = kb >> 54;
+
+        return this.InternValueComp(ka, kb);
+    }
+
+    private double InternValueComp(long cand, long expo)
     {
         double ka;
         ka = cand;
@@ -193,7 +219,7 @@ public partial class Math : Any
         return a;
     }
 
-    private double InternValueTen(long cand, long expo)
+    private double InternValueTenComp(long cand, long expo)
     {
         double ka;
         ka = cand;
