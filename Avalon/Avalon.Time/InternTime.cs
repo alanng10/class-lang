@@ -119,5 +119,11 @@ class InternTime : Any
         }
     }
 
+    public virtual bool This()
+    {
+        this.Intern = SystemTime.Now;
+        return true;
+    }
+
     private SystemTime Intern;
 }
