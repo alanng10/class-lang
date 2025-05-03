@@ -1,6 +1,4 @@
 global using Intern = Avalon.Infra.Intern;
-global using Extern = Avalon.Infra.Extern;
-global using InternInfra = Avalon.Infra.InternInfra;
 global using InternStream = Avalon.Infra.Stream;
 global using Any = Avalon.Infra.Any;
 global using String = Avalon.Infra.String;
@@ -16,3 +14,4 @@ global using TextCodeKind = Avalon.Text.CodeKind;
 global using TextCodeKindList = Avalon.Text.CodeKindList;
 global using TextInfra = Avalon.Text.Infra;
 global using StreamStream = Avalon.Stream.Stream;
+global using SystemStorageStream = System.IO.FileStream;

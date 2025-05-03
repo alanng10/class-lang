@@ -6,6 +6,7 @@ public class Stream : StreamStream
     {
         base.Init();
         this.Intern = new InternStream();
+        this.Intern.Ident = new SystemStorageStream();
         this.Intern.Init();
         return true;
     }
@@ -16,7 +17,7 @@ public class Stream : StreamStream
         return true;
     }
 
-    public override long Ident
+    public override object Ident
     {
         get
         {
@@ -97,18 +98,6 @@ public class Stream : StreamStream
         set
         {
             this.Intern.Pos = value;
-        }
-    }
-
-    public override long Status
-    {
-        get
-        {
-            return this.Intern.Status;
-        }
-        set
-        {
-            this.Intern.Status = value;
         }
     }
 
