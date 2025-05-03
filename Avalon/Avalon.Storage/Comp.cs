@@ -148,17 +148,19 @@ public class Comp : Any
 
     public virtual bool Exist(String path)
     {
-        ulong pathU;
-        pathU = this.InternInfra.StringCreate(path);
+        string pathK;
+        pathK = this.StringValue.ExecuteIntern(path);
 
-        ulong k;
-        k = Extern.StorageComp_Exist(this.Intern, pathU);
+        try
+        {
+            SystemStorageComp.Exists(pathK);
+        }
+        catch
+        {
+            return false;
+        }
 
-        this.InternInfra.StringDelete(pathU);
-
-        bool a;
-        a = !(k == 0);
-        return a;
+        return true;
     }
 
     public virtual bool Fold(String path)
