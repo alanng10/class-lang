@@ -108,5 +108,13 @@ class InternTime : Any
         }
     }
 
+    public virtual long TotalTick
+    {
+        get
+        {
+            return this.Intern.Ticks / 10000;
+        }
+    }
+
     private SystemTime Intern;
 }
