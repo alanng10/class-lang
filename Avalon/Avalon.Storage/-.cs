@@ -23,3 +23,4 @@ global using SystemStorageComp = System.IO.File;
 global using SystemStorageCompFold = System.IO.Directory;
 global using SystemStorageFileInfo = System.IO.FileInfo;
 global using SystemStorageFoldInfo = System.IO.DirectoryInfo;
+global using SystemStoragePath = System.IO.Path;

@@ -111,13 +111,15 @@ public class Comp : Any
 
         try
         {
-            SystemStorageCompFold.Copy(pathK, destPathK);
+            SystemStorageFoldInfo source;
+            source = new SystemStorageFoldInfo(pathK);
+
+            this.FoldCopyRecursive(source, destPathK);
         }
         catch
         {
             return false;
         }
-
 
         return true;
     }
@@ -195,15 +197,15 @@ public class Comp : Any
         return a;
     }
 
-    private void CopyFilesRecursive(SystemStorageFoldInfo source, SystemStorageFoldInfo target)
+    private void FoldCopyRecursive(SystemStorageFoldInfo source, SystemStorageFoldInfo target)
     {
         foreach (SystemStorageFoldInfo dir in source.GetDirectories())
         {
-            CopyFilesRecursive(dir, target.CreateSubdirectory(dir.Name));
+            this.FoldCopyRecursive(dir, target.CreateSubdirectory(dir.Name));
         }
         foreach (SystemStorageFileInfo file in source.GetFiles())
         {
-            file.CopyTo(target.FullName + "/" + file.Name);
+            file.CopyTo(SystemStoragePath.Combine(target.FullName, file.Name));
         }
     }
 
