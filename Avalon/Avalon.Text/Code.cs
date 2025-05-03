@@ -40,7 +40,7 @@ public class Code : Any
 
         string kk;
         kk = innKind.Intern.GetString(ka, index, count);
-        
+
         byte[] k;
         k = outKind.Intern.GetBytes(kk);
 
