@@ -131,17 +131,19 @@ public class Comp : Any
 
     public virtual bool FoldDelete(String path)
     {
-        ulong pathU;
-        pathU = this.InternInfra.StringCreate(path);
+        string pathK;
+        pathK = this.StringValue.ExecuteIntern(path);
 
-        ulong k;
-        k = Extern.StorageComp_FoldDelete(this.Intern, pathU);
+        try
+        {
+            SystemStorageCompFold.Delete(pathK, true);
+        }
+        catch
+        {
+            return false;
+        }
 
-        this.InternInfra.StringDelete(pathU);
-
-        bool a;
-        a = !(k == 0);
-        return a;
+        return true;
     }
 
     public virtual bool Exist(String path)
