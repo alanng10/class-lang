@@ -22,9 +22,6 @@ public class Comp : Any
         this.StringValue = StringValue.This;
 
         this.ModuleFoldPath = this.InternInfra.ModuleFoldPath;
-
-        this.Intern = Extern.StorageComp_New();
-        Extern.StorageComp_Init(this.Intern);
         return true;
     }
 
@@ -32,7 +29,6 @@ public class Comp : Any
     private InternInfra InternInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual StringValue StringValue { get; set; }
-    private ulong Intern { get; set; }
 
     public virtual bool Rename(String path, String destPath)
     {
