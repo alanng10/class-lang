@@ -14,8 +14,6 @@ public partial class Math : Any
         return share;
     }
 
-    private ulong Intern { get; set; }
-
     public virtual long Value(Comp comp)
     {
         long cand;
