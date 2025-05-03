@@ -45,4 +45,23 @@ public class StringValue : Any
         this.InternIntern.StringCountSet(a, count);
         return a;
     }
+
+    public virtual string ExecuteIntern(String value)
+    {
+        CodeKindList codeKindList;
+        codeKindList = this.CodeKindList;
+
+        CodeKind innKind;
+        innKind = codeKindList.Utf32;
+
+        byte[] ka;
+        ka = this.InternIntern.StringValueGet(value) as byte[];
+
+        string k;
+        k = innKind.Intern.GetString(ka);
+        
+        string a;
+        a = k;
+        return a;
+    }
 }
