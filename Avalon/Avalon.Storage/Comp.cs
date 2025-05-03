@@ -151,16 +151,17 @@ public class Comp : Any
         string pathK;
         pathK = this.StringValue.ExecuteIntern(path);
 
+        bool k;
         try
         {
-            SystemStorageComp.Exists(pathK);
+            k = SystemStorageComp.Exists(pathK);
         }
         catch
         {
             return false;
         }
 
-        return true;
+        return k;
     }
 
     public virtual bool Fold(String path)
