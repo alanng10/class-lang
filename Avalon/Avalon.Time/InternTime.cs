@@ -145,10 +145,19 @@ class InternTime : Any
 
     public virtual bool AddDay(long value)
     {
-        int k;
-        k = (int)value;
+        double k;
+        k = value;
 
         this.Intern = this.Intern.AddDays(k);
+        return true;
+    }
+
+    public virtual bool AddTick(long value)
+    {
+        double k;
+        k = value;
+
+        this.Intern = this.Intern.AddMilliseconds(k);
         return true;
     }
 
