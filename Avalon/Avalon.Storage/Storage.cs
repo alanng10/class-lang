@@ -142,10 +142,31 @@ public class Storage : Any
         {
             return SystemStorageMode.CreateNew;
         }
+
         if (mode.Exist)
         {
             return SystemStorageMode.Truncate;
         }
+
         return SystemStorageMode.Create;
+    }
+
+    private SystemStorageAccess InternAccess(Mode mode)
+    {
+        if (mode.Read & mode.Write)
+        {
+            return SystemStorageAccess.ReadWrite;
+        }
+
+        if (mode.Read)
+        {
+            return SystemStorageAccess.Read;
+        }
+
+        if (mode.Write)
+        {
+            return SystemStorageAccess.Write;
+        }
+        return 0;
     }
 }
