@@ -5,6 +5,7 @@ public class Stream : Any
     public override bool Init()
     {
         base.Init();
+        this.InfraInfra = Infra.This;
         this.Intern = this.Ident as SystemStream;
         return true;
     }
@@ -46,10 +47,8 @@ public class Stream : Any
     {
         get
         {
-            ulong u;
-            u = Extern.Stream_CountGet(this.Intern);
             long a;
-            a = (long)u;
+            a = this.Intern.Length;
             return a;
         }
         set
@@ -61,10 +60,8 @@ public class Stream : Any
     {
         get
         {
-            ulong u;
-            u = Extern.Stream_PosGet(this.Intern);
             long a;
-            a = (long)u;
+            a = this.Intern.Position;
             return a;
         }
         set
@@ -72,42 +69,58 @@ public class Stream : Any
         }
     }
 
-    public virtual long Status
-    {
-        get
-        {
-            ulong u;
-            u = Extern.Stream_StatusGet(this.Intern);
-            long a;
-            a = (long)u;
-            return a;
-        }
-        set
-        {
-        }
-    }
-
+    protected virtual Infra InfraInfra { get; set; }
     private SystemStream Intern { get; set; }
 
     public virtual bool PosSet(long value)
     {
-        ulong u;
-        u = (ulong)value;
-        Extern.Stream_PosSet(this.Intern, u);
+        this.Intern.Seek(value, SeekOrigin.Begin);
         return true;
     }
 
     public virtual bool Read(Data data, Range range)
     {
-        if (!this.CanRead)
+        if (!this.InfraInfra.ValidRange(data.Count, range.Index, range.Count))
         {
-            return true;
+            return false;
         }
 
-        this.InternDataCountSet(data.Count);
-        this.InternRangeSet(range.Index, range.Count);
+        if (!this.CanRead)
+        {
+            return false;
+        }
 
-        this.InternIntern.StreamRead(this.Intern, data.Value, this.InternData, this.InternRange);
+        long count;
+        count = range.Count;
+
+        if (!this.InfraInfra.ValidRange(this.Count, this.Pos, count))
+        {
+            return false;
+        }
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            int k;
+            k = this.Intern.ReadByte();
+
+            if (k == -1)
+            {
+                return false;
+            }
+
+            byte kd;
+            kd = (byte)k;
+
+            long ka;
+            ka = kd;
+
+            data.Set(range.Index + i, ka);
+
+            i = i + 1;
+        }
+        
         return true;
     }
 
@@ -118,31 +131,6 @@ public class Stream : Any
             return true;
         }
 
-        this.InternDataCountSet(data.Count);
-        this.InternRangeSet(range.Index, range.Count);
-
-        this.InternIntern.StreamWrite(this.Intern, data.Value, this.InternData, this.InternRange);
-        return true;
-    }
-
-    private bool InternDataCountSet(long count)
-    {
-        ulong countU;
-        countU = (ulong)count;
-
-        Extern.Data_CountSet(this.InternData, countU);
-        return true;
-    }
-
-    private bool InternRangeSet(long index, long count)
-    {
-        ulong indexU;
-        ulong countU;
-        indexU = (ulong)index;
-        countU = (ulong)count;
-
-        Extern.Range_IndexSet(this.InternRange, indexU);
-        Extern.Range_CountSet(this.InternRange, countU);
         return true;
     }
 }
