@@ -146,7 +146,7 @@ public class Comp : Any
         return true;
     }
 
-    public virtual bool Exist(String path)
+    public virtual bool FileExist(String path)
     {
         string pathK;
         pathK = this.StringValue.ExecuteIntern(path);
@@ -164,19 +164,22 @@ public class Comp : Any
         return k;
     }
 
-    public virtual bool Fold(String path)
+    public virtual bool FoldExist(String path)
     {
-        ulong pathU;
-        pathU = this.InternInfra.StringCreate(path);
+        string pathK;
+        pathK = this.StringValue.ExecuteIntern(path);
 
-        ulong k;
-        k = Extern.StorageComp_Fold(this.Intern, pathU);
+        bool k;
+        try
+        {
+            k = SystemStorageCompFold.Exists(pathK);
+        }
+        catch
+        {
+            return false;
+        }
 
-        this.InternInfra.StringDelete(pathU);
-
-        bool a;
-        a = !(k == 0);
-        return a;
+        return k;
     }
 
     public virtual String ThisFoldGet()
