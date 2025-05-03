@@ -232,68 +232,6 @@ public class Comp : Any
 
     public virtual Array EntryList(String path, bool fold)
     {
-        ulong pathU;
-        pathU = this.InternInfra.StringCreate(path);
-
-        ulong foldU;
-        foldU = 0;
-        if (fold)
-        {
-            foldU = 1;
-        }
-
-        ulong k;
-        k = Extern.StorageComp_EntryList(this.Intern, pathU, foldU);
-
-        this.InternInfra.StringDelete(pathU);
-
-        ulong countU;
-        countU = Extern.Array_CountGet(k);
-
-        long count;
-        count = (long)countU;
-
-        Array array;
-        array = this.ListInfra.ArrayCreate(count);
-
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            ulong indexU;
-            indexU = (ulong)i;
-
-            ulong u;
-            u = Extern.Array_ItemGet(k, indexU);
-
-            String a;
-            a = this.InternInfra.StringCreateIntern(u);
-
-            array.SetAt(i, a);
-
-            i = i + 1;
-        }
-
-        i = 0;
-        while (i < count)
-        {
-            long indexA;
-            indexA = count - 1 - i;
-
-            ulong indexAU;
-            indexAU = (ulong)indexA;
-
-            ulong ua;
-            ua = Extern.Array_ItemGet(k, indexAU);
-
-            this.InternInfra.StringDelete(ua);
-
-            i = i + 1;
-        }
-
-        Extern.Array_Final(k);
-        Extern.Array_Delete(k);
-
-        return array;
+        return null;
     }
 }
