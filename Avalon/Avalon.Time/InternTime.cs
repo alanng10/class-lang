@@ -161,5 +161,13 @@ class InternTime : Any
         return true;
     }
 
+    public virtual bool LeapYea(long yea)
+    {
+        int k;
+        k = (int)yea;
+
+        return SystemTime.IsLeapYear(k);
+    }
+
     private SystemTime Intern;
 }
