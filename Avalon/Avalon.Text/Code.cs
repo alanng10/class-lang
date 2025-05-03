@@ -29,7 +29,26 @@ public class Code : Any
         {
             return null;
         }
-        return null;
+
+        byte[] ka;
+        ka = data.Value as byte[];
+
+        int index;
+        int count;
+        index = (int)range.Index;
+        count = (int)range.Count;
+
+        string kk;
+        kk = innKind.Intern.GetString(ka, index, count);
+        
+        byte[] k;
+        k = outKind.Intern.GetBytes(kk);
+
+        Data a;
+        a = new Data();
+        a.Value = k;
+        a.Count = k.LongLength;
+        return a;
     }
 
     public virtual bool ValidKind(CodeKind innKind, CodeKind outKind)
