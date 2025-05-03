@@ -102,8 +102,11 @@ public class Storage : Any
         string path;
         path = this.StringValue.ExecuteIntern(this.Path);
 
+        SystemStorageMode mode;
+        mode = this.InternMode(this.Mode);
+
         SystemStorageStream k;
-        k = new SystemStorageStream();
+        k = new SystemStorageStream(path, mode);
         return k;
     }
 
@@ -121,31 +124,16 @@ public class Storage : Any
         return a;
     }
 
-    private ulong InternMode(Mode mode)
+    private SystemStorageMode InternMode(Mode mode)
     {
-        ulong share;
-        share = Extern.Infra_Share();
-        ulong stat;
-        stat = Extern.Share_Stat(share);
-
-        ulong k;
-        k = 0;
-        if (mode.Read)
-        {
-            k = k | Extern.Stat_StorageModeRead(stat);
-        }
-        if (mode.Write)
-        {
-            k = k | Extern.Stat_StorageModeWrite(stat);
-        }
         if (mode.New)
         {
-            k = k | Extern.Stat_StorageModeNew(stat);
+            return SystemStorageMode.CreateNew;
         }
         if (mode.Exist)
         {
-            k = k | Extern.Stat_StorageModeExist(stat);
+            return SystemStorageMode.Truncate;
         }
-        return k;
+        return SystemStorageMode.Create;
     }
 }
