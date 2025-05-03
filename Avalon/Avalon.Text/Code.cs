@@ -30,6 +30,11 @@ public class Code : Any
             return null;
         }
 
+        if (!this.InfraInfra.ValidRange(data.Count, range.Index, range.Count))
+        {
+            return null;
+        }
+
         byte[] ka;
         ka = data.Value as byte[];
 
