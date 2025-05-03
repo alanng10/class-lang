@@ -125,5 +125,14 @@ class InternTime : Any
         return true;
     }
 
+    public virtual bool AddYea(long value)
+    {
+        int k;
+        k = (int)value;
+
+        this.Intern = this.Intern.AddYears(k);
+        return true;
+    }
+
     private SystemTime Intern;
 }
