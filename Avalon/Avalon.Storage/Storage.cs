@@ -51,13 +51,7 @@ public class Storage : Any
             return false;
         }
 
-        this.InternPath = this.InternInfra.StringCreate(this.Path);
-        ulong modeU;
-        modeU = this.InternMode(this.Mode);
         this.DataStream = this.CreateStream();
-
-        ulong k;
-        k = (ulong)this.DataStream.Ident;
 
         if (!(this.Status == this.StorageStatusList.NoError))
         {
@@ -71,16 +65,9 @@ public class Storage : Any
 
     public virtual bool Close()
     {
-        Extern.Storage_Close(this.Intern);
-        Extern.Storage_StreamSet(this.Intern, 0);
-        Extern.Storage_ModeSet(this.Intern, 0);
-        Extern.Storage_PathSet(this.Intern, 0);
-
         this.DataStream.Final();
         this.DataStream = null;
         this.Stream = null;
-
-        this.InternInfra.StringDelete(this.InternPath);
         return true;
     }
 
@@ -91,9 +78,17 @@ public class Storage : Any
             return false;
         }
 
-        ulong u;
-        u = (ulong)value;
-        Extern.Storage_CountSet(this.Intern, u);
+        SystemStorageStream k;
+        k = this.Stream.Ident as SystemStorageStream;
+
+        try
+        {
+            k.SetLength(value);
+        }
+        catch
+        {
+            return false;
+        }
         return true;
     }
 
