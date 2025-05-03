@@ -19,26 +19,9 @@ public class Storage : Any
     public virtual String Path { get; set; }
     public virtual Mode Mode { get; set; }
     public virtual StreamStream Stream { get; set; }
-    public virtual Status Status
-    {
-        get
-        {
-            ulong u;
-            u = Extern.Storage_StatusGet(this.Intern);
-            long k;
-            k = (long)u;
-            Status a;
-            a = this.StorageStatusList.Get(k);
-            return a;
-        }
-        set
-        {
-        }
-    }
     protected virtual StreamStream DataStream { get; set; }
     protected virtual Infra StorageInfra { get; set; }
     protected virtual StringValue StringValue { get; set; }
-    protected virtual StatusList StorageStatusList { get; set; }
 
     public virtual bool Open()
     {
@@ -53,7 +36,7 @@ public class Storage : Any
 
         this.DataStream = this.CreateStream();
 
-        if (!(this.Status == this.StorageStatusList.NoError))
+        if (this.DataStream == null)
         {
             return false;
         }
