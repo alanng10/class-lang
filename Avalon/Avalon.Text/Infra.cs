@@ -722,17 +722,9 @@ public class Infra : Any
             return null;
         }
 
-        long resultCount;
-        resultCount = code.ExecuteCount(innKind, outKind, data, range);
-
-        Data result;
-        result = new Data();
-        result.Count = resultCount;
-        result.Init();
-
-        code.ExecuteResult(result, 0, innKind, outKind, data, range);
-
-        return result;
+        Data a;
+        a = code.Execute(innKind, outKind, data, range);
+        return a;
     }
 
     private Text TextCreateDataRange(Data data, Range range)
