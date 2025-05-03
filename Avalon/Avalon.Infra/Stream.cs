@@ -74,7 +74,14 @@ public class Stream : Any
 
     public virtual bool PosSet(long value)
     {
-        this.Intern.Seek(value, SystemSeekOrigin.Begin);
+        try
+        {
+            this.Intern.Seek(value, SystemSeekOrigin.Begin);
+        }
+        catch
+        {
+            return false;
+        }
         return true;
     }
 
@@ -103,7 +110,14 @@ public class Stream : Any
         while (i < count)
         {
             int k;
-            k = this.Intern.ReadByte();
+            try
+            {
+                k = this.Intern.ReadByte();
+            }
+            catch
+            {
+                return false;
+            }
 
             if (k == -1)
             {
@@ -149,7 +163,14 @@ public class Stream : Any
             byte kd;
             kd = (byte)ka;
 
-            this.Intern.WriteByte(kd);
+            try
+            {
+                this.Intern.WriteByte(kd);
+            }
+            catch
+            {
+                return false;
+            }
 
             i = i + 1;
         }
