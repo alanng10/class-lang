@@ -86,5 +86,27 @@ class InternTime : Any
         }
     }
 
+    public virtual long YeaDay
+    {
+        get
+        {
+            return this.Intern.DayOfYear;
+        }
+        set
+        {
+        }
+    }
+
+    public virtual long WeekDay
+    {
+        get
+        {
+            return (int)this.Intern.DayOfWeek;
+        }
+        set
+        {
+        }
+    }
+
     private SystemTime Intern;
 }
