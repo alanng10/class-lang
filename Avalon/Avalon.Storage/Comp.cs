@@ -19,6 +19,7 @@ public class Comp : Any
         base.Init();
         this.InternInfra = InternInfra.This;
         this.ListInfra = ListInfra.This;
+        this.StringValue = StringValue.This;
 
         this.ModuleFoldPath = this.InternInfra.ModuleFoldPath;
 
@@ -27,52 +28,48 @@ public class Comp : Any
         return true;
     }
 
-    public virtual bool Final()
-    {
-        Extern.StorageComp_Final(this.Intern);
-        Extern.StorageComp_Delete(this.Intern);
-        return true;
-    }
-
     public virtual String ModuleFoldPath { get; set; }
     private InternInfra InternInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
+    protected virtual StringValue StringValue { get; set; }
     private ulong Intern { get; set; }
 
     public virtual bool Rename(String path, String destPath)
     {
-        ulong pathU;
-        pathU = this.InternInfra.StringCreate(path);
-        ulong destPathU;
-        destPathU = this.InternInfra.StringCreate(destPath);
+        string pathK;
+        pathK = this.StringValue.ExecuteIntern(path);
+        string destPathK;
+        destPathK = this.StringValue.ExecuteIntern(destPath);
 
-        ulong k;
-        k = Extern.StorageComp_Rename(this.Intern, pathU, destPathU);
+        try
+        {
+            SystemStorageComp.Move(pathK, destPathK);
+        }
+        catch
+        {
+            return false;
+        }
 
-        this.InternInfra.StringDelete(destPathU);
-        this.InternInfra.StringDelete(pathU);
-
-        bool a;
-        a = !(k == 0);
-        return a;
+        return true;
     }
 
     public virtual bool FileCopy(String path, String destPath)
     {
-        ulong pathU;
-        pathU = this.InternInfra.StringCreate(path);
-        ulong destPathU;
-        destPathU = this.InternInfra.StringCreate(destPath);
+        string pathK;
+        pathK = this.StringValue.ExecuteIntern(path);
+        string destPathK;
+        destPathK = this.StringValue.ExecuteIntern(destPath);
 
-        ulong k;
-        k = Extern.StorageComp_FileCopy(this.Intern, pathU, destPathU);
+        try
+        {
+            SystemStorageComp.Copy(pathK, destPathK);
+        }
+        catch
+        {
+            return false;
+        }
 
-        this.InternInfra.StringDelete(destPathU);
-        this.InternInfra.StringDelete(pathU);
-
-        bool a;
-        a = !(k == 0);
-        return a;
+        return true;
     }
 
     public virtual bool FileDelete(String path)

@@ -1,4 +1,5 @@
 global using Intern = Avalon.Infra.Intern;
+global using InternInfra = Avalon.Infra.InternInfra;
 global using InternStream = Avalon.Infra.Stream;
 global using Any = Avalon.Infra.Any;
 global using String = Avalon.Infra.String;
@@ -18,3 +19,4 @@ global using StreamStream = Avalon.Stream.Stream;
 global using SystemStorageStream = System.IO.FileStream;
 global using SystemStorageMode = System.IO.FileMode;
 global using SystemStorageAccess = System.IO.FileAccess;
+global using SystemStorageComp = System.IO.File;
