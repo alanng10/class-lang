@@ -7,7 +7,6 @@ public class Storage : Any
         base.Init();
         this.StorageInfra = Infra.This;
         this.StringValue = StringValue.This;
-        this.StorageStatusList = StatusList.This;
         return true;
     }
 
