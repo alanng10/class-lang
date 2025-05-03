@@ -114,7 +114,12 @@ public class Comp : Any
             SystemStorageFoldInfo source;
             source = new SystemStorageFoldInfo(pathK);
 
-            this.FoldCopyRecursive(source, destPathK);
+            SystemStorageFoldInfo dest;
+            dest = new SystemStorageFoldInfo(destPathK);
+
+            dest.Create();
+
+            this.FoldCopyRecursive(source, dest);
         }
         catch
         {
