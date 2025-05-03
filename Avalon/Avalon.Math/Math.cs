@@ -60,6 +60,37 @@ public partial class Math : Any
 
         long kd;
         kd = 48 - kaa;
+
+        double ke;
+        ke = SystemMath.Pow(2, kd);
+
+        if (!this.ValidIntern(ke))
+        {
+            return -1;
+        }
+
+        double kf;
+        kf = ka * ke;
+
+        if (!this.ValidIntern(kf))
+        {
+            return -1;
+        }
+
+        long kk;
+        kk = (long)kf;
+
+        if (negate)
+        {
+            kk = - kk;
+        }
+
+        long kl;
+        kl = -kd;
+
+        long a;
+        a = this.ValueComp(kk, kl);
+        return a;
     }
 
     public virtual long ValueTen(Comp comp)
