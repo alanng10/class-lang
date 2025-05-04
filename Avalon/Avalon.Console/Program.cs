@@ -73,19 +73,38 @@ public class Program : Any
 
     public virtual bool Execute()
     {
-        ulong nameU;
-        nameU = this.InternInfra.StringCreate(this.Name);
-        ulong argueU;
-        argueU = this.InternStringListCreate(this.Argue);
+        SystemProgramInfo ka;
+        ka = new SystemProgramInfo();
 
-        ulong workFoldU;
-        workFoldU = 0;
+        string nameK;
+        nameK = this.StringValue.ExecuteIntern(this.Name);
+
+        ka.FileName = nameK;
+
+        Iter iter;
+        iter = this.Argue.IterCreate();
+        this.Argue.IterSet(iter);
+        while (iter.Next())
+        {
+            String kaa;
+            kaa = iter.Value as String;
+
+            string kab;
+            kab = this.StringValue.ExecuteIntern(kaa);
+
+            ka.ArgumentList.Add(kab);
+        }
+
+        string workFoldK;
+        workFoldK = "";
         bool ba;
         ba = !(this.WorkFold == null);
         if (ba)
         {
-            workFoldU = this.InternInfra.StringCreate(this.WorkFold);
+            workFoldK = this.StringValue.ExecuteIntern(this.WorkFold);
         }
+
+        ka.WorkingDirectory = workFoldK;
 
         ulong environU;
         environU = 0;
@@ -120,156 +139,6 @@ public class Program : Any
         this.InternStringListDelete(argueU);
 
         this.InternInfra.StringDelete(nameU);
-        return true;
-    }
-
-    private ulong InternStringListCreate(ListList stringList)
-    {
-        Iter iter;
-        iter = stringList.IterCreate();
-        stringList.IterSet(iter);
-        long count;
-        count = stringList.Count;
-        ulong countU;
-        countU = (ulong)count;
-
-        ulong a;
-        a = Extern.Array_New();
-        Extern.Array_CountSet(a, countU);
-        Extern.Array_Init(a);
-
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            iter.Next();
-
-            String ka;
-            ka = iter.Value as String;
-
-            ulong k;
-            k = this.InternInfra.StringCreate(ka);
-
-            ulong oa;
-            oa = (ulong)i;
-            Extern.Array_ItemSet(a, oa, k);
-
-            i = i + 1;
-        }
-        return a;
-    }
-
-    private bool InternStringListDelete(ulong a)
-    {
-        ulong countU;
-        countU = Extern.Array_CountGet(a);
-        long count;
-        count = (long)countU;
-
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            long index;
-            index = count - 1 - i;
-
-            ulong oa;
-            oa = (ulong)index;
-
-            ulong k;
-            k = Extern.Array_ItemGet(a, oa);
-
-            this.InternInfra.StringDelete(k);
-
-            i = i + 1;
-        }
-
-        Extern.Array_Final(a);
-        Extern.Array_Delete(a);
-        return true;
-    }
-
-    private ulong InternStringEntryListCreate(Table stringTable)
-    {
-        Iter iter;
-        iter = stringTable.IterCreate();
-        stringTable.IterSet(iter);
-
-        long count;
-        count = stringTable.Count;
-        ulong countU;
-        countU = (ulong)count;
-
-        ulong a;
-        a = Extern.Array_New();
-        Extern.Array_CountSet(a, countU);
-        Extern.Array_Init(a);
-
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            iter.Next();
-
-            String index;
-            String value;
-            index = iter.Index as String;
-            value = iter.Value as String;
-            ulong ka;
-            ka = this.InternInfra.StringCreate(index);
-            ulong kb;
-            kb = this.InternInfra.StringCreate(value);
-
-            ulong k;
-            k = Extern.Entry_New();
-            Extern.Entry_Init(k);
-            Extern.Entry_IndexSet(k, ka);
-            Extern.Entry_ValueSet(k, kb);
-
-            ulong oa;
-            oa = (ulong)i;
-            Extern.Array_ItemSet(a, oa, k);
-
-            i = i + 1;
-        }
-        return a;
-    }
-
-    private bool InternStringEntryListDelete(ulong a)
-    {
-        ulong countU;
-        countU = Extern.Array_CountGet(a);
-
-        long count;
-        count = (long)countU;
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            long index;
-            index = count - 1 - i;
-
-            ulong oa;
-            oa = (ulong)index;
-
-            ulong k;
-            k = Extern.Array_ItemGet(a, oa);
-            ulong ka;
-            ka = Extern.Entry_IndexGet(k);
-            ulong kb;
-            kb = Extern.Entry_ValueGet(k);
-
-            Extern.Entry_Final(k);
-            Extern.Entry_Delete(k);
-
-            this.InternInfra.StringDelete(kb);
-            this.InternInfra.StringDelete(ka);
-
-            i = i + 1;
-        }
-
-        Extern.Array_Final(a);
-        Extern.Array_Delete(a);
         return true;
     }
 }
