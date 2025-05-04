@@ -100,7 +100,7 @@ public class ThreadNetworkState : State
 
         if (!ba)
         {
-            Console.This.Err.Write(this.S("Network Case 0 Read Data Invalid\n"));
+            Console.This.Err.Write(this.S("Network Case 0 Read Data Unvalid\n"));
             return true;
         }
 
@@ -137,7 +137,7 @@ public class ThreadNetworkState : State
 
         if (!ba)
         {
-            Console.This.Err.Write(this.S("Network Case 1 Read Data Invalid\n"));
+            Console.This.Err.Write(this.S("Network Case 1 Read Data Unvalid\n"));
             return true;
         }
 
