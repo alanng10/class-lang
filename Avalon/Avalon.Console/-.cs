@@ -12,3 +12,5 @@ global using StringValue = Avalon.Text.StringValue;
 global using TextInfra = Avalon.Text.Infra;
 global using SystemConsole = System.Console;
 global using SystemOut = System.IO.TextWriter;
+global using SystemProgram = System.Diagnostics.Process;
+global using SystemProgramInfo = System.Diagnostics.ProcessStartInfo;
