@@ -12,11 +12,7 @@ class Demo : TextAdd
         this.Math = MathMath.This;
         this.TextCode = TextCode.This;
         this.TextCodeKindList = TextCodeKindList.This;
-        this.StorageStatusList = StorageStatusList.This;
         this.StorageComp = StorageComp.This;
-        this.NetworkPortKindList = NetworkPortKindList.This;
-        this.NetworkCaseList = NetworkCaseList.This;
-        this.NetworkStatusList = NetworkStatusList.This;
         this.Console = Console.This;
 
         this.MathComp = new MathComp();
@@ -36,11 +32,7 @@ class Demo : TextAdd
     public virtual MathMath Math { get; set; }
     public virtual TextCode TextCode { get; set; }
     public virtual TextCodeKindList TextCodeKindList { get; set; }
-    public virtual StorageStatusList StorageStatusList { get; set; }
     public virtual StorageComp StorageComp { get; set; }
-    public virtual NetworkPortKindList NetworkPortKindList { get; set; }
-    public virtual NetworkCaseList NetworkCaseList { get; set; }
-    public virtual NetworkStatusList NetworkStatusList { get; set; }
     public virtual Console Console { get; set; }
     protected virtual MathComp MathComp { get; set; }
     private long ArrayIndex { get; set; }
@@ -496,8 +488,6 @@ class Demo : TextAdd
         long kb;
         kb = rand.Execute();
 
-        rand.Final();
-
         bool ba;
         ba = (ka == 0xb86ed3ea0326c2a);
 
@@ -776,9 +766,6 @@ class Demo : TextAdd
         time.This();
         this.ConsoleWriteTime("Demo.ExecuteTime time current : ", time);
 
-        time.ToPos(2 * 60 * 60);
-        this.ConsoleWriteTime("Demo.ExecuteTime time ToPos : ", time);
-
         time.AddTick(200 * 1000);
         this.ConsoleWriteTime("Demo.ExecuteTime time AddTick : ", time);
 
@@ -797,7 +784,6 @@ class Demo : TextAdd
             .AddS(", min: ").Add(this.StringInt(time.Min))
             .AddS(", sec: ").Add(this.StringInt(time.Sec))
             .AddS(", tick: ").Add(this.StringInt(time.Tick))
-            .AddS(", pos: ").Add(this.StringInt(time.Pos))
             .AddS(", total tick: ").Add(this.StringInt(time.TotalTick))
             .AddLine();
 
