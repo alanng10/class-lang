@@ -119,17 +119,34 @@ public class Storage : Any
 
     private SystemStorageMode InternMode(Mode mode)
     {
-        if (mode.New)
+        if (mode.Read & mode.Write)
         {
-            return SystemStorageMode.CreateNew;
+            if (mode.New)
+            {
+                return SystemStorageMode.CreateNew;
+            }
+            if (mode.Exist)
+            {
+                return SystemStorageMode.Open;
+            }
         }
 
-        if (mode.Exist)
+        if (mode.Write)
         {
-            return SystemStorageMode.Truncate;
-        }
+            if (mode.New)
+            {
+                return SystemStorageMode.CreateNew;
+            }
 
-        return SystemStorageMode.Create;
+            if (mode.Exist)
+            {
+                return SystemStorageMode.Truncate;
+            }
+
+            return SystemStorageMode.Create;
+        }
+        
+        return SystemStorageMode.Open;
     }
 
     private SystemStorageAccess InternAccess(Mode mode)
