@@ -36,24 +36,13 @@ public class ThreadNetworkState : State
         }
 
 
-        
+
+        network.Close();
+
+        Console.This.Out.Write(this.S("Network Close\n"));
 
         network.Final();
 
-        string k;
-        k = null;
-        bool b;
-        b = (o == 0);
-        if (b)
-        {
-            k = "Success";
-        }
-        if (!b)
-        {
-            k = "Fail";
-        }
-
-        Console.This.Out.Write(this.S("Network " + k + ", code: " + o + "\n"));
         return true;
     }
 
