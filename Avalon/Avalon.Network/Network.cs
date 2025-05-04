@@ -27,18 +27,6 @@ public class Network : Any
 
     public virtual bool Final()
     {
-        bool b;
-        b = (this.HostPeer == 0);
-        if (b)
-        {
-            Extern.Network_Final(this.Intern);
-            Extern.Network_Delete(this.Intern);
-        }
-        if (!b)
-        {
-            this.DataStream.Final();
-            this.Stream = null;
-        }
         return true;
     }
 
