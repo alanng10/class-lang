@@ -76,7 +76,19 @@ public class Host : Any
 
     public virtual bool Reque()
     {
-        return this.Intern.Pending();
+        bool k;
+        k = false;
+
+        try
+        {
+            k = this.Intern.Pending();
+        }
+        catch
+        {
+            return false;
+        }
+
+        return true;
     }
 
     public virtual Network OpenPeer()
