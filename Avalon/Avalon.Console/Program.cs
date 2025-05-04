@@ -11,6 +11,10 @@ public class Program : Any
 
     public virtual bool Final()
     {
+        if (!(this.Intern == null))
+        {
+            this.Intern.Dispose();
+        }
         return true;
     }
 
