@@ -15,15 +15,20 @@ public class Host : Any
 
     public virtual Port Port { get; set; }
     private SystemNetworkHost Intern { get; set; }
-    private SystemNetworkPort InternPort { get; set; }
 
     public virtual bool Open()
     {
-        this.InternPortSet();
+        SystemNetworkPort internPort;
+        internPort = this.InternPort();
+
+        if (internPort == null)
+        {
+            return false;
+        }
 
         try
         {
-            this.Intern = new SystemNetworkHost(this.InternPort);
+            this.Intern = new SystemNetworkHost(internPort);
         }
         catch
         {
@@ -134,13 +139,13 @@ public class Host : Any
         return true;
     }
 
-    private bool InternPortSet()
+    private SystemNetworkPort InternPort()
     {
         int host;
         host = (int)this.Port.Host;
 
-        SystemNetworkPort ka;
-        ka = null;
+        SystemNetworkPort k;
+        k = null;
 
         try
         {
@@ -149,12 +154,12 @@ public class Host : Any
 
             bool b;
             b = (this.Port.ValueB == null);
-            
+
             if (b)
             {
                 kc = new SystemNetworkAddress(this.Port.ValueA);
             }
-            
+
             if (!b)
             {
                 byte[] kaa;
@@ -164,16 +169,14 @@ public class Host : Any
             }
 
 
-            ka = new SystemNetworkPort(kc, host);
+            k = new SystemNetworkPort(kc, host);
         }
         catch
         {
-            return false;
+            return null;
         }
 
-        this.InternPort = ka;
-        
-        return true;
+        return k;
     }
 
     public virtual bool NewPeer()
