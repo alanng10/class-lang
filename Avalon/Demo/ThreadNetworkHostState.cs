@@ -2,81 +2,72 @@ namespace Demo;
 
 class ThreadNetworkHostState : State
 {
-    public Demo Demo { get; set; }
+    public override bool Init()
+    {
+        base.Init();
+        this.TextInfra = TextInfra.This;
+        return true;
+    }
 
-    public virtual TimeEvent TimeEvent { get; set; }
+    protected virtual TextInfra TextInfra { get; set; }
 
     public override bool Execute()
     {
-        NetworkPortKindList portKindList;
-        portKindList = this.Demo.NetworkPortKindList;
+        TimeEvent timeEvent;
+        timeEvent = new TimeEvent();
+        timeEvent.Init();
 
         NetworkPort port;
         port = new NetworkPort();
         port.Init();
-        port.Kind = portKindList.LocalHost;
+        port.ValueA = 0x0100007f;
         port.Host = 50920;
 
-        NetworkHostA host;
-        host = new NetworkHostA();
+        NetworkHost host;
+        host = new NetworkHost();
         host.Init();
-        host.ThreadState = this;
-        host.Demo = this.Demo;
-
-        this.Demo.Host = host;
 
         host.Port = port;
 
-        this.Demo.Host.Open();
-
-        ThreadThis varThis;
-        varThis = new ThreadThis();
-        varThis.Init();
-
-        ThreadThread thread;
-        thread = varThis.Thread;
-
-        long o;
-        o = thread.ExecuteMain();
-
-        this.Demo.Host.Final();
-
-        this.Demo.Peer = null;
-        this.Demo.Host = null;
-
-        string k;
-        k = null;
         bool b;
-        b = (o == 0);
-        if (b)
-        {
-            k = "Success";
-        }
+        b = host.Open();
+
         if (!b)
         {
-            k = "Fail";
+            Console.This.Out.Write(this.S("Network Host Open Error\n"));
         }
 
-        Console.This.Out.Write(this.Demo.S("Network Host " + k + ", code: " + o + "\n"));
+        while (!host.Reque())
+        {
+            timeEvent.Wait(100);
+        }
+
+        NetworkNetwork network;
+
+        network = host.OpenPeer();
+
+        if (network == null)
+        {
+            Console.This.Out.Write(this.S("Network Host Open Peer Error\n"));
+        }
+
+        if (!(network == null))
+        {
+            Console.This.Out.Write(this.S("Network Host Open Peer Success\n"));
+        }
+
+        host.Close();
+
+        host.Final();
+
+        timeEvent.Final();
+
+        Console.This.Out.Write(this.S("Network Host End\n"));
         return true;
     }
 
-    public bool ExitNetwork(long code)
+    private String S(string o)
     {
-        NetworkNetwork peer;
-        peer = this.Demo.Peer;
-
-        this.Demo.Host.ClosePeer(peer);
-
-        this.Demo.Host.Close();
-
-        ThreadThis varThis;
-        varThis = new ThreadThis();
-        varThis.Init();
-        ThreadThread thread;
-        thread = varThis.Thread;
-
-        thread.Exit(code);
-        return true;
+        return this.TextInfra.S(o);
     }
 }
