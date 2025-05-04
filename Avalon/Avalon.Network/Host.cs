@@ -75,6 +75,11 @@ public class Host : Any
         return true;
     }
 
+    public virtual bool Reque()
+    {
+        return this.Intern.Pending();
+    }
+
     public virtual Network OpenPeer()
     {
         ulong k;
