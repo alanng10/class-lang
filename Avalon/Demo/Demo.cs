@@ -1308,8 +1308,6 @@ class Demo : TextAdd
         aakb = this.AddResult();
 
         this.Console.Out.Write(aakb);
-
-        storageComp.Final();
         return true;
     }
 
