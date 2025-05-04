@@ -7,7 +7,7 @@ class TimeEventA : TimeEvent
     public long ElapseCount { get; set; }
     public long ExitCode { get; set; }
     private long Count { get; set; }
-    
+
     public override bool Elapse()
     {
         Console console;
