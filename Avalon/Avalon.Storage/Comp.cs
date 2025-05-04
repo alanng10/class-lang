@@ -220,13 +220,38 @@ public class Comp : Any
 
     private void FoldCopyRecursive(SystemStorageFoldInfo source, SystemStorageFoldInfo target)
     {
-        foreach (SystemStorageFoldInfo dir in source.GetDirectories())
+        SystemStorageFoldInfo[] foldArray;
+        foldArray = source.GetDirectories();
+
+        long count;
+        count = foldArray.LongLength;
+
+        long i;
+        i = 0;
+        while (i < count)
         {
-            this.FoldCopyRecursive(dir, target.CreateSubdirectory(dir.Name));
+            SystemStorageFoldInfo fold;
+            fold = foldArray[i];
+
+            this.FoldCopyRecursive(fold, target.CreateSubdirectory(fold.Name));
+
+            i = i + 1;
         }
-        foreach (SystemStorageFileInfo file in source.GetFiles())
+
+        SystemStorageFileInfo[] fileArray;
+        fileArray = source.GetFiles();
+
+        count = fileArray.LongLength;
+
+        i = 0;
+        while (i < count)
         {
-            file.CopyTo(SystemStoragePath.Combine(target.FullName, file.Name));
+            SystemStorageFileInfo file;
+            file = fileArray[i];
+
+            file.CopyTo(target.FullName + "/" + file.Name);
+
+            i = i + 1;
         }
     }
 
