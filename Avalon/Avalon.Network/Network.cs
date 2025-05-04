@@ -39,6 +39,31 @@ public class Network : Any
     public virtual String HostName { get; set; }
     public virtual long HostPort { get; set; }
     public virtual StreamStream Stream { get; set; }
+
+    public virtual long Avail
+    {
+        get
+        {
+            long k;
+
+            try
+            {
+                k = this.Intern.Available;
+            }
+            catch
+            {
+                return -1;
+            }
+
+            long a;
+            a = k;
+            return a;
+        }
+        set
+        {
+        }
+    }
+
     protected virtual StringValue StringValue { get; set; }
     private SystemNetwork Intern { get; set; }
 
