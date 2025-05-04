@@ -232,6 +232,63 @@ public class Comp : Any
 
     public virtual Array EntryList(String path, bool fold)
     {
-        return null;
+        string pathK;
+        pathK = this.StringValue.ExecuteIntern(path);
+
+        string[] k;
+        k = null;
+        try
+        {
+            if (fold)
+            {
+                k = SystemStorageCompFold.GetDirectories(pathK);
+            }
+            if (!fold)
+            {
+                k = SystemStorageCompFold.GetFiles(pathK);
+            }
+        }
+        catch
+        {
+            return null;
+        }
+
+        long count;
+        count = k.Length;
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            string ka;
+            ka = k[i];
+
+            ka = SystemStoragePath.GetFileName(ka);
+            
+            k[i] = ka;
+            
+            i = i + 1;
+        }
+
+        SystemArray.Sort(k);
+
+        Array array;
+        array = this.ListInfra.ArrayCreate(count);
+
+        i = 0;
+        while (i < count)
+        {
+            string kb;
+            kb = k[i];
+
+            String kk;
+            kk = this.StringValue.Execute(kb);
+
+            array.SetAt(i, kk);
+
+            i = i + 1;
+        }
+
+        return array;
     }
 }
