@@ -6,7 +6,7 @@ public class Stream : StreamStream
     {
         base.Init();
         this.Intern = new InternStream();
-        this.Intern.SetIntern = this.InitIdent;
+        this.Intern.Ident = this.SetIdent;
         this.Intern.Init();
         return true;
     }
@@ -17,14 +17,14 @@ public class Stream : StreamStream
         return true;
     }
 
-    public virtual long InitIdent { get; set; }
+    public virtual object SetIdent { get; set; }
 
-    public override long Ident
-    { 
+    public override object Ident
+    {
         get
         {
             return this.Intern.Ident;
-        } 
+        }
         set
         {
             this.Intern.Ident = value;
@@ -78,7 +78,7 @@ public class Stream : StreamStream
             this.Intern.CanWrite = value;
         }
     }
-    
+
     public override long Count
     {
         get
@@ -100,18 +100,6 @@ public class Stream : StreamStream
         set
         {
             this.Intern.Pos = value;
-        }
-    }
-
-    public override long Status
-    {
-        get
-        {
-            return this.Intern.Status;
-        }
-        set
-        {
-            this.Intern.Status = value;
         }
     }
 
