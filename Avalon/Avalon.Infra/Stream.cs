@@ -100,11 +100,6 @@ public class Stream : Any
         long count;
         count = range.Count;
 
-        if (!this.InfraInfra.ValidRange(this.Count, this.Pos, count))
-        {
-            return false;
-        }
-
         long i;
         i = 0;
         while (i < count)
