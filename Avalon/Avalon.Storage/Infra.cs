@@ -21,7 +21,6 @@ public class Infra : Any
         this.TextInfra = TextInfra.This;
         this.StringComp = StringComp.This;
         this.TextCodeKindList = TextCodeKindList.This;
-        this.StorageStatusList = StatusList.This;
 
         this.SSlash = this.TextInfra.S("/");
         this.SDot = this.TextInfra.S(".");
@@ -42,7 +41,6 @@ public class Infra : Any
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
     protected virtual TextCodeKindList TextCodeKindList { get; set; }
-    protected virtual StatusList StorageStatusList { get; set; }
 
     public virtual bool ValidMode(Mode mode)
     {
@@ -70,11 +68,13 @@ public class Infra : Any
 
         storage.Path = filePath;
         storage.Mode = mode;
-        storage.Open();
+
+        bool b;
+        b = storage.Open();
 
         Data a;
         a = null;
-        if (storage.Status == this.StorageStatusList.NoError)
+        if (b)
         {
             StreamStream stream;
             stream = storage.Stream;
@@ -91,8 +91,8 @@ public class Infra : Any
             range.Index = 0;
             range.Count = count;
 
-            stream.Read(data, range);
-            if (storage.Status == this.StorageStatusList.NoError)
+            b = stream.Read(data, range);
+            if (b)
             {
                 a = data;
             }
