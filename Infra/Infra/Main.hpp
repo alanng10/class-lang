@@ -1,0 +1,25 @@
+#pragma once
+
+#include <signal.h>
+
+#include <QApplication>
+
+#include "Pronate.hpp"
+
+struct Main
+{
+    Int Share;
+    Int MainThread;
+    Int Arg;
+    Int ArgC;
+    Int ArgV;
+    char* Argv[2];
+    Int TerminateState;
+    Int IsCSharp;
+    QApplication* Intern;
+};
+
+Int Main_InitArg();
+Int Main_FinalArg();
+
+void Main_SignalHandle(int signo);
