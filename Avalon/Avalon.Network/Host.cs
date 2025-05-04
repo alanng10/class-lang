@@ -88,7 +88,7 @@ public class Host : Any
     public virtual Network OpenPeer()
     {
         object peer;
-        
+
         try
         {
             peer = this.Intern.AcceptTcpClient();
