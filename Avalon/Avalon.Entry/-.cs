@@ -1,4 +1,6 @@
+global using Intern = Avalon.Infra.Intern;
 global using InternInfra = Avalon.Infra.InternInfra;
+global using Extern = Avalon.Infra.Extern;
 global using Any = Avalon.Infra.Any;
 global using String = Avalon.Infra.String;
 global using Array = Avalon.List.Array;
@@ -7,5 +9,3 @@ global using TextStringValue = Avalon.Text.StringValue;
 global using ThreadThread = Avalon.Thread.Thread;
 global using StorageComp = Avalon.Storage.Comp;
 global using ConsoleConsole = Avalon.Console.Console;
-global using SystemConsole = System.Console;
-global using SystemTextCode = System.Text.Encoding;

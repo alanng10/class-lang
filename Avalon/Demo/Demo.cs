@@ -12,7 +12,11 @@ class Demo : TextAdd
         this.Math = MathMath.This;
         this.TextCode = TextCode.This;
         this.TextCodeKindList = TextCodeKindList.This;
+        this.StorageStatusList = StorageStatusList.This;
         this.StorageComp = StorageComp.This;
+        this.NetworkPortKindList = NetworkPortKindList.This;
+        this.NetworkCaseList = NetworkCaseList.This;
+        this.NetworkStatusList = NetworkStatusList.This;
         this.Console = Console.This;
 
         this.MathComp = new MathComp();
@@ -23,6 +27,8 @@ class Demo : TextAdd
         return true;
     }
 
+    public virtual NetworkNetwork Peer { get; set; }
+    public virtual NetworkHostA Host { get; set; }
     public virtual InfraInfra InfraInfra { get; set; }
     public virtual ListInfra ListInfra { get; set; }
     public virtual MathInfra MathInfra { get; set; }
@@ -30,7 +36,11 @@ class Demo : TextAdd
     public virtual MathMath Math { get; set; }
     public virtual TextCode TextCode { get; set; }
     public virtual TextCodeKindList TextCodeKindList { get; set; }
+    public virtual StorageStatusList StorageStatusList { get; set; }
     public virtual StorageComp StorageComp { get; set; }
+    public virtual NetworkPortKindList NetworkPortKindList { get; set; }
+    public virtual NetworkCaseList NetworkCaseList { get; set; }
+    public virtual NetworkStatusList NetworkStatusList { get; set; }
     public virtual Console Console { get; set; }
     protected virtual MathComp MathComp { get; set; }
     private long ArrayIndex { get; set; }
@@ -45,7 +55,6 @@ class Demo : TextAdd
         this.ExecuteRand();
         this.ExecuteFormat();
         this.ExecuteIntParse();
-        this.ExecuteStringValue();
         this.ExecuteMemoryStream();
         this.ExecuteTime();
         this.ExecuteStorage();
@@ -487,6 +496,8 @@ class Demo : TextAdd
         long kb;
         kb = rand.Execute();
 
+        rand.Final();
+
         bool ba;
         ba = (ka == 0xb86ed3ea0326c2a);
 
@@ -673,24 +684,6 @@ class Demo : TextAdd
         return true;
     }
 
-    private bool ExecuteStringValue()
-    {
-        string kaa;
-        kaa = "H m * & 的了";
-
-        String k;
-        k = this.S(kaa);
-
-        string ka;
-        ka = StringValue.This.ExecuteIntern(k);
-
-        bool b;
-        b = (ka == kaa);
-
-        this.Console.Out.Write(this.AddClear().AddS("StringValue ").Add(this.StatusString(b)).AddLine().AddResult());
-        return true;
-    }
-
     private bool ExecuteMemoryStream()
     {
         Memory memory;
@@ -783,8 +776,13 @@ class Demo : TextAdd
         time.This();
         this.ConsoleWriteTime("Demo.ExecuteTime time current : ", time);
 
+        time.ToPos(2 * 60 * 60);
+        this.ConsoleWriteTime("Demo.ExecuteTime time ToPos : ", time);
+
         time.AddTick(200 * 1000);
         this.ConsoleWriteTime("Demo.ExecuteTime time AddTick : ", time);
+
+        time.Final();
         return true;
     }
 
@@ -799,6 +797,7 @@ class Demo : TextAdd
             .AddS(", min: ").Add(this.StringInt(time.Min))
             .AddS(", sec: ").Add(this.StringInt(time.Sec))
             .AddS(", tick: ").Add(this.StringInt(time.Tick))
+            .AddS(", pos: ").Add(this.StringInt(time.Pos))
             .AddS(", total tick: ").Add(this.StringInt(time.TotalTick))
             .AddLine();
 
@@ -975,30 +974,27 @@ class Demo : TextAdd
         mode.Write = true;
         storage.Path = filePath;
         storage.Mode = mode;
+        storage.Open();
 
-        bool b;
-        b = storage.Open();
-
-        bool a;
-        a = false;
-        if (b)
+        bool o;
+        o = false;
+        if (storage.Status == this.StorageStatusList.NoError)
         {
             Stream stream;
             stream = storage.Stream;
-
-            b = stream.PosSet(pos);
-            if (b)
+            stream.PosSet(pos);
+            if (stream.Status == 0)
             {
-                b = stream.Write(resultData, resultRange);
-                if (b)
+                stream.Write(resultData, resultRange);
+                if (stream.Status == 0)
                 {
-                    a = true;
+                    o = true;
                 }
             }
         }
         storage.Close();
         storage.Final();
-        return a;
+        return o;
     }
 
     private bool ExecuteStorageStream()
@@ -1325,6 +1321,8 @@ class Demo : TextAdd
         aakb = this.AddResult();
 
         this.Console.Out.Write(aakb);
+
+        storageComp.Final();
         return true;
     }
 
@@ -1360,8 +1358,8 @@ class Demo : TextAdd
         hostThread = new ThreadThread();
         hostThread.Init();
 
-        NetworkHostState state;
-        state = new NetworkHostState();
+        ThreadNetworkHostState state;
+        state = new ThreadNetworkHostState();
         state.Demo = this;
         state.Init();
 
@@ -1373,8 +1371,8 @@ class Demo : TextAdd
         networkThread = new ThreadThread();
         networkThread.Init();
 
-        NetworkState aa;
-        aa = new NetworkState();
+        ThreadNetworkState aa;
+        aa = new ThreadNetworkState();
         aa.Init();
 
         networkThread.ExecuteState = aa;
@@ -1401,8 +1399,8 @@ class Demo : TextAdd
         hostThread = new ThreadThread();
         hostThread.Init();
 
-        NetworkHostState state;
-        state = new NetworkHostState();
+        ThreadNetworkHostState state;
+        state = new ThreadNetworkHostState();
         state.Demo = this;
         state.Init();
 
@@ -1458,11 +1456,13 @@ class Demo : TextAdd
 
         phore.Open();
 
-        this.Console.Out.Write(this.S("Phore Open Success\n"));
+        this.Console.Out.Write(this.S("Demo.ExecuteDemoThread phore Open Success\n"));
 
         thread.Wait();
 
-        this.Console.Out.Write(this.S("Thread Success\n"));
+        long aa;
+        aa = thread.Status;
+        this.Console.Out.Write(this.S("Demo.ExecuteDemoThread Thread Status: 0h" + aa.ToString("x8") + "\n"));
 
         thread.Final();
 
@@ -1472,34 +1472,37 @@ class Demo : TextAdd
 
     private bool ExecuteTimeEvent()
     {
-        this.ExecuteTimeEventOne(4, 340, 0x4efd);
-        this.ExecuteTimeEventOne(1, 610, 0xf06e);
+        this.ExecuteTimeEventOne(false, 4, 340, 0x4efd);
+        this.ExecuteTimeEventOne(true, 0, 610, 0xf06e);
         return true;
     }
 
-    private bool ExecuteTimeEventOne(long elapseCount, long time, long exitCode)
+    private bool ExecuteTimeEventOne(bool single, long elapseCount, long time, long exitCode)
     {
-        ThreadPhore phore;
-        phore = new ThreadPhore();
-        phore.InitCount = 0;
-        phore.Init();
+        ThreadThread thread;
+        thread = new ThreadThread();
+        thread.Init();
 
-        TimeEventA timeEvent;
-        timeEvent = new TimeEventA();
-        timeEvent.Init();
+        ThreadIntervalState state;
+        state = new ThreadIntervalState();
+        state.Init();
+        state.Demo = this;
+        state.ElapseCount = elapseCount;
+        state.Time = time;
+        state.ExitCode = exitCode;
 
-        timeEvent.Time = time;
-        timeEvent.Demo = this;
-        timeEvent.ElapseCount = elapseCount;
-        timeEvent.Phore = phore;
+        thread.ExecuteState = state;
 
-        timeEvent.Start();
+        thread.Execute();
 
-        phore.Open();
+        thread.Wait();
 
-        timeEvent.Final();
+        long o;
+        o = thread.Status;
 
-        phore.Final();
+        thread.Final();
+
+        this.Console.Out.Write(this.S("Demo.ExecuteTimeEventOne Thread Status: 0h" + o.ToString("x8") + "\n"));
         return true;
     }
 

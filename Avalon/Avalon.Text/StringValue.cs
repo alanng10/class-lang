@@ -17,51 +17,47 @@ public class StringValue : Any
     public override bool Init()
     {
         base.Init();
-        this.InternIntern = Intern.This;
+        this.Code = Code.This;
         this.CodeKindList = CodeKindList.This;
         return true;
     }
 
+    protected virtual Code Code { get; set; }
     protected virtual CodeKindList CodeKindList { get; set; }
-    private Intern InternIntern { get; set; }
 
-    public virtual String Execute(string value)
+    public virtual String Execute(string o)
     {
-        CodeKindList codeKindList;
-        codeKindList = this.CodeKindList;
-
-        CodeKind outKind;
-        outKind = codeKindList.Utf32;
-
-        byte[] k;
-        k = outKind.Intern.GetBytes(value);
-
-        long count;
-        count = k.LongLength / sizeof(uint);
-
-        String a;
-        a = this.InternIntern.StringNew();
-        this.InternIntern.StringValueSet(a, k);
-        this.InternIntern.StringCountSet(a, count);
-        return a;
-    }
-
-    public virtual string ExecuteIntern(String value)
-    {
+        Code code;
+        code = this.Code;
         CodeKindList codeKindList;
         codeKindList = this.CodeKindList;
 
         CodeKind innKind;
-        innKind = codeKindList.Utf32;
+        CodeKind outKind;
+        innKind = codeKindList.Utf16;
+        outKind = codeKindList.Utf32;
 
-        byte[] ka;
-        ka = this.InternIntern.StringValueGet(value) as byte[];
+        Range range;
+        range = new Range();
+        range.Init();
+        range.Count = o.Length * sizeof(char);
 
-        string k;
-        k = innKind.Intern.GetString(ka);
+        long resultCount;
+        resultCount = code.ExecuteCountString(innKind, outKind, o, range);
 
-        string a;
-        a = k;
+        byte[] result;
+        result = new byte[resultCount];
+
+        code.ExecuteResultString(result, 0, innKind, outKind, o, range);
+
+        long count;
+        count = resultCount / sizeof(uint);
+
+        String a;
+        a = new String();
+        a.Value = result;
+        a.Count = count;
+        a.Init();
         return a;
     }
 }

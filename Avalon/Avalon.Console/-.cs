@@ -1,3 +1,5 @@
+global using InternInfra = Avalon.Infra.InternInfra;
+global using Extern = Avalon.Infra.Extern;
 global using Any = Avalon.Infra.Any;
 global using String = Avalon.Infra.String;
 global using Range = Avalon.Infra.Range;
@@ -7,9 +9,4 @@ global using Table = Avalon.List.Table;
 global using Iter = Avalon.List.Iter;
 global using StringComp = Avalon.Text.StringComp;
 global using StringAdd = Avalon.Text.StringAdd;
-global using StringValue = Avalon.Text.StringValue;
 global using TextInfra = Avalon.Text.Infra;
-global using SystemConsole = System.Console;
-global using SystemOut = System.IO.TextWriter;
-global using SystemProgram = System.Diagnostics.Process;
-global using SystemProgramInfo = System.Diagnostics.ProcessStartInfo;

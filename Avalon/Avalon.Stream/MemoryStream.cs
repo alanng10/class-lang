@@ -6,7 +6,6 @@ public class MemoryStream : Stream
     {
         base.Init();
         this.Intern = new InternStream();
-        this.Intern.Ident = new SystemMemoryStream();
         this.Intern.Init();
         return true;
     }
@@ -17,12 +16,12 @@ public class MemoryStream : Stream
         return true;
     }
 
-    public override object Ident
+    public override long Ident
     { 
         get
         {
             return this.Intern.Ident;
-        }
+        } 
         set
         {
             this.Intern.Ident = value;
@@ -98,6 +97,18 @@ public class MemoryStream : Stream
         set
         {
             this.Intern.Pos = value;
+        }
+    }
+
+    public override long Status
+    {
+        get
+        {
+            return this.Intern.Status;
+        }
+        set
+        {
+            this.Intern.Status = value;
         }
     }
         

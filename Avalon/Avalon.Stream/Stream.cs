@@ -7,11 +7,11 @@ public class Stream : Any
         return false;
     }
 
-    public virtual object Ident
+    public virtual long Ident
     {
         get
         {
-            return null;
+            return 0;
         }
         set
         {
@@ -74,6 +74,17 @@ public class Stream : Any
     }
 
     public virtual long Pos
+    {
+        get
+        {
+            return 0;
+        }
+        set
+        {
+        }
+    }
+
+    public virtual long Status
     {
         get
         {

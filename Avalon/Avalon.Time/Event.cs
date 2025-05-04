@@ -2,18 +2,43 @@ namespace Avalon.Time;
 
 public class Event : Any
 {
+    private bool PrivateElapse()
+    {
+        this.Elapse();
+        return true;
+    }
+
     public override bool Init()
     {
         base.Init();
-        this.Intern = new SystemTimeEvent();
-        this.Intern.AutoReset = true;
-        this.Intern.Elapsed += this.ElapseHandle;
+        this.InternIntern = InternIntern.This;
+        this.InternInfra = InternInfra.This;
+        this.TimeInfra = Infra.This;
+
+        this.InternHandle = new Handle();
+        this.InternHandle.Any = this;
+        this.InternHandle.Init();
+
+        MaideAddress oa;
+        oa = this.TimeInfra.TimeEventElapseMaideAddress;
+        ulong arg;
+        arg = this.InternHandle.ULong();
+        this.InternElapseState = this.InternInfra.StateCreate(oa, arg);
+
+        this.Intern = Extern.TimeEvent_New();
+        Extern.TimeEvent_Init(this.Intern);
+        Extern.TimeEvent_ElapseStateSet(this.Intern, this.InternElapseState);
         return true;
     }
 
     public virtual bool Final()
     {
-        this.Intern.Dispose();
+        Extern.TimeEvent_Final(this.Intern);
+        Extern.TimeEvent_Delete(this.Intern);
+
+        this.InternInfra.StateDelete(this.InternElapseState);
+
+        this.InternHandle.Final();
         return true;
     }
 
@@ -21,28 +46,35 @@ public class Event : Any
     {
         get
         {
+            ulong u;
+            u = Extern.TimeEvent_TimeGet(this.Intern);
             long a;
-            a = (long)this.Intern.Interval;
+            a = (long)u;
             return a;
         }
         set
         {
-            double k;
-            k = value;
-            this.Intern.Interval = k;
+            ulong u;
+            u = (ulong)value;
+            Extern.TimeEvent_TimeSet(this.Intern, u);
         }
     }
-    private SystemTimeEvent Intern { get; set; }
+    private InternIntern InternIntern { get; set; }
+    private InternInfra InternInfra { get; set; }
+    private Infra TimeInfra { get; set; }
+    private ulong Intern { get; set; }
+    private ulong InternElapseState { get; set; }
+    private Handle InternHandle { get; set; }
 
     public virtual bool Start()
     {
-        this.Intern.Start();
+        Extern.TimeEvent_Start(this.Intern);
         return true;
     }
 
     public virtual bool Stop()
     {
-        this.Intern.Stop();
+        Extern.TimeEvent_Stop(this.Intern);
         return true;
     }
 
@@ -51,18 +83,18 @@ public class Event : Any
         return false;
     }
 
-    public virtual bool Wait(long time)
+    internal static ulong InternElapse(ulong interval, ulong arg)
     {
-        int k;
-        k = (int)time;
+        InternIntern internIntern;
+        internIntern = InternIntern.This;
 
-        SystemThread.Sleep(k);
+        object ao;
+        ao = internIntern.HandleTarget(arg);
 
-        return true;
-    }
+        Event a;
+        a = (Event)ao;
+        a.PrivateElapse();
 
-    private void ElapseHandle(object sender, SystemTimeEventHandleArg e)
-    {
-        this.Elapse();
+        return 1;
     }
 }

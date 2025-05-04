@@ -5,21 +5,48 @@ public class Storage : Any
     public override bool Init()
     {
         base.Init();
+        this.InternIntern = global::Avalon.Infra.Intern.This;
+        this.InternInfra = InternInfra.This;
         this.StorageInfra = Infra.This;
-        this.StringValue = StringValue.This;
+        this.StorageStatusList = StatusList.This;
+        this.Intern = Extern.Storage_New();
+        Extern.Storage_Init(this.Intern);
         return true;
     }
 
     public virtual bool Final()
     {
+        Extern.Storage_Final(this.Intern);
+        Extern.Storage_Delete(this.Intern);
         return true;
     }
 
     public virtual String Path { get; set; }
     public virtual Mode Mode { get; set; }
     public virtual StreamStream Stream { get; set; }
+    public virtual Status Status
+    {
+        get
+        {
+            ulong u;
+            u = Extern.Storage_StatusGet(this.Intern);
+            long k;
+            k = (long)u;
+            Status a;
+            a = this.StorageStatusList.Get(k);
+            return a;
+        }
+        set
+        {
+        }
+    }
+    protected virtual StreamStream DataStream { get; set; }
+    private Intern InternIntern { get; set; }
+    private InternInfra InternInfra { get; set; }
     protected virtual Infra StorageInfra { get; set; }
-    protected virtual StringValue StringValue { get; set; }
+    protected virtual StatusList StorageStatusList { get; set; }
+    private ulong Intern { get; set; }
+    private ulong InternPath { get; set; }
 
     public virtual bool Open()
     {
@@ -32,25 +59,40 @@ public class Storage : Any
             return false;
         }
 
-        StreamStream stream;
-        stream = this.CreateStream();
+        this.InternPath = this.InternInfra.StringCreate(this.Path);
+        ulong modeU;
+        modeU = this.InternMode(this.Mode);
+        this.DataStream = this.CreateStream();
 
-        if (stream == null)
+        ulong k;
+        k = (ulong)this.DataStream.Ident;
+
+        Extern.Storage_PathSet(this.Intern, this.InternPath);
+        Extern.Storage_ModeSet(this.Intern, modeU);
+        Extern.Storage_StreamSet(this.Intern, k);
+        Extern.Storage_Open(this.Intern);
+        if (!(this.Status == this.StorageStatusList.NoError))
         {
             return false;
         }
 
-        this.Stream = stream;
+        this.Stream = this.DataStream;
+
         return true;
     }
 
     public virtual bool Close()
     {
-        if (!(this.Stream == null))
-        {
-            this.Stream.Final();
-        }
+        Extern.Storage_Close(this.Intern);
+        Extern.Storage_StreamSet(this.Intern, 0);
+        Extern.Storage_ModeSet(this.Intern, 0);
+        Extern.Storage_PathSet(this.Intern, 0);
+
+        this.DataStream.Final();
+        this.DataStream = null;
         this.Stream = null;
+
+        this.InternInfra.StringDelete(this.InternPath);
         return true;
     }
 
@@ -61,110 +103,47 @@ public class Storage : Any
             return false;
         }
 
-        SystemStorageStream k;
-        k = this.Stream.Ident as SystemStorageStream;
-
-        try
-        {
-            k.SetLength(value);
-        }
-        catch
-        {
-            return false;
-        }
+        ulong u;
+        u = (ulong)value;
+        Extern.Storage_CountSet(this.Intern, u);
         return true;
-    }
-
-    protected virtual object CreateStreamIdent()
-    {
-        string path;
-        path = this.StringValue.ExecuteIntern(this.Path);
-
-        SystemStorageMode mode;
-        mode = this.InternMode(this.Mode);
-
-        SystemStorageAccess access;
-        access = this.InternAccess(this.Mode);
-
-        SystemStorageStream k;
-        try
-        {
-            k = new SystemStorageStream(path, mode, access);
-        }
-        catch
-        {
-            return null;
-        }
-        return k;
     }
 
     protected virtual StreamStream CreateStream()
     {
-        object kk;
-        kk = this.CreateStreamIdent();
-
-        if (kk == null)
-        {
-            return null;
-        }
-
         Stream k;
         k = new Stream();
-        k.SetIdent = kk;
         k.Init();
         StreamStream a;
         a = k;
         return a;
     }
 
-    private SystemStorageMode InternMode(Mode mode)
+    private ulong InternMode(Mode mode)
     {
-        if (mode.Read & mode.Write)
-        {
-            if (mode.New)
-            {
-                return SystemStorageMode.CreateNew;
-            }
-            if (mode.Exist)
-            {
-                return SystemStorageMode.Open;
-            }
-        }
+        ulong share;
+        share = Extern.Infra_Share();
+        ulong stat;
+        stat = Extern.Share_Stat(share);
 
-        if (mode.Write)
-        {
-            if (mode.New)
-            {
-                return SystemStorageMode.CreateNew;
-            }
-
-            if (mode.Exist)
-            {
-                return SystemStorageMode.Truncate;
-            }
-
-            return SystemStorageMode.Create;
-        }
-        
-        return SystemStorageMode.Open;
-    }
-
-    private SystemStorageAccess InternAccess(Mode mode)
-    {
-        if (mode.Read & mode.Write)
-        {
-            return SystemStorageAccess.ReadWrite;
-        }
-
+        ulong k;
+        k = 0;
         if (mode.Read)
         {
-            return SystemStorageAccess.Read;
+            k = k | Extern.Stat_StorageModeRead(stat);
         }
-
         if (mode.Write)
         {
-            return SystemStorageAccess.Write;
+            k = k | Extern.Stat_StorageModeWrite(stat);
         }
-        return 0;
+        if (mode.New)
+        {
+            k = k | Extern.Stat_StorageModeNew(stat);
+        }
+        if (mode.Exist)
+        {
+            k = k | Extern.Stat_StorageModeExist(stat);
+        }
+        return k;
     }
 }

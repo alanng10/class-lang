@@ -5,10 +5,12 @@ public class Entry : Any
     public override bool Init()
     {
         base.Init();
+        this.InternIntern = Intern.This;
         this.InternInfra = InternInfra.This;
         return true;
     }
 
+    private Intern InternIntern { get; set; }
     private InternInfra InternInfra { get; set; }
     protected virtual TextStringValue TextStringValue { get; set; }
     private StorageComp StorageComp { get; set; }
@@ -51,6 +53,11 @@ public class Entry : Any
 
     protected virtual bool MainBefore()
     {
+        ulong ua;
+        ua = 1;
+        Extern.Main_IsCSharpSet(ua);
+        Extern.Main_Init(0, 0);
+
         ThreadThread o;
         o = new ThreadThread();
         o.InitMainThread();
@@ -66,15 +73,13 @@ public class Entry : Any
 
         this.StorageComp.ModuleFoldPath = kk;
 
-        SystemConsole.OutputEncoding = SystemTextCode.UTF8;
-        SystemConsole.InputEncoding = SystemTextCode.UTF8;
-
         this.ArrayArg();
         return true;
     }
 
     protected virtual bool MainAfter()
     {
+        Extern.Main_Final();
         return true;
     }
 
@@ -85,29 +90,28 @@ public class Entry : Any
 
     protected virtual bool ArrayArg()
     {
-        long count;
-        count = this.InternArg.LongLength;
+        string[] ao;
+        ao = this.InternArg;
 
+        long count;
+        count = ao.LongLength;
         Array array;
         array = new Array();
         array.Count = count;
         array.Init();
-
         long i;
         i = 0;
         while (i < count)
         {
-            string ka;
-            ka = this.InternArg[i];
+            string ku;
+            ku = ao[i];
 
             String a;
-            a = this.S(ka);
+            a = this.S(ku);
 
             array.SetAt(i, a);
-
             i = i + 1;
         }
-
         this.Arg = array;
 
         return true;

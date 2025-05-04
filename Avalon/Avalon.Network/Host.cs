@@ -2,135 +2,101 @@ namespace Avalon.Network;
 
 public class Host : Any
 {
+    private bool PrivateNewPeer()
+    {
+        this.NewPeer();
+        return true;
+    }
+
+    public override bool Init()
+    {
+        base.Init();
+        this.InternIntern = global::Avalon.Infra.Intern.This;
+        this.InternInfra = InternInfra.This;
+        this.NetworkInfra = Infra.This;
+        this.InternHandle = new Handle();
+        this.InternHandle.Any = this;
+        this.InternHandle.Init();
+
+        MaideAddress ka;
+        ka = this.NetworkInfra.HostNewPeerMaideAddress;
+        ulong arg;
+        arg = this.InternHandle.ULong();
+        this.InternNewPeerState = this.InternInfra.StateCreate(ka, arg);
+
+        this.InternPort = Extern.NetworkPort_New();
+        Extern.NetworkPort_Init(this.InternPort);
+
+        this.Intern = Extern.NetworkHost_New();
+        Extern.NetworkHost_Init(this.Intern);
+        Extern.NetworkHost_NewPeerStateSet(this.Intern, this.InternNewPeerState);
+        Extern.NetworkHost_PortSet(this.Intern, this.InternPort);
+        return true;
+    }
+
     public virtual bool Final()
     {
+        Extern.NetworkHost_Final(this.Intern);
+        Extern.NetworkHost_Delete(this.Intern);
+
+        Extern.NetworkPort_Final(this.InternPort);
+        Extern.NetworkPort_Delete(this.InternPort);
+
+        this.InternInfra.StateDelete(this.InternNewPeerState);
+
+        this.InternHandle.Final();
         return true;
     }
 
     public virtual Port Port { get; set; }
-    private SystemNetworkHost Intern { get; set; }
+    private InternIntern InternIntern { get; set; }
+    private InternInfra InternInfra { get; set; }
+    private Infra NetworkInfra { get; set; }
+    private ulong Intern { get; set; }
+    private ulong InternPort { get; set; }
+    private ulong InternNewPeerState { get; set; }
+    private Handle InternHandle { get; set; }
 
     public virtual bool Open()
     {
-        SystemNetworkPort internPort;
-        internPort = this.InternPort();
+        this.InternPortSet();
+        
+        ulong k;
+        k = Extern.NetworkHost_Open(this.Intern);
 
-        if (internPort == null)
-        {
-            return false;
-        }
-
-        try
-        {
-            this.Intern = new SystemNetworkHost(internPort);
-        }
-        catch
-        {
-            return false;
-        }
-
-        try
-        {
-            this.Intern.Start();
-        }
-        catch
-        {
-            try
-            {
-                this.Intern.Dispose();
-            }
-            catch
-            {
-            }
-
-            this.Intern = null;
-
-            return false;
-        }
-
-        return true;
+        bool a;
+        a = !(k == 0);
+        return a;
     }
 
     public virtual bool Close()
     {
-        try
-        {
-            this.Intern.Stop();
-        }
-        catch
-        {
-        }
-
-        try
-        {
-            this.Intern.Dispose();
-        }
-        catch
-        {
-        }
-
-        this.Intern = null;
-
-        return true;
-    }
-
-    public virtual bool Reque()
-    {
-        bool k;
-        k = false;
-
-        try
-        {
-            k = this.Intern.Pending();
-        }
-        catch
-        {
-            return false;
-        }
-
+        Extern.NetworkHost_Close(this.Intern);
         return true;
     }
 
     public virtual Network OpenPeer()
     {
-        object peer;
-
-        try
-        {
-            peer = this.Intern.AcceptTcpClient();
-        }
-        catch
-        {
-            return null;
-        }
+        ulong k;
+        k = Extern.NetworkHost_OpenPeer(this.Intern);
 
         Network a;
-        a = this.CreatePeer(peer);
-
+        a = this.CreatePeer(k);
         return a;
     }
 
     public virtual bool ClosePeer(Network a)
     {
-        object k;
+        ulong k;
         k = a.HostPeer;
 
         this.FinalPeer(a);
 
-        SystemNetwork ka;
-        ka = k as SystemNetwork;
-
-        try
-        {
-            ka.Close();
-        }
-        catch
-        {
-        }
+        Extern.NetworkHost_ClosePeer(this.Intern, k);
         return true;
     }
 
-    protected virtual Network CreatePeer(object peer)
+    protected virtual Network CreatePeer(ulong peer)
     {
         Network a;
         a = new Network();
@@ -145,43 +111,45 @@ public class Host : Any
         return true;
     }
 
-    private SystemNetworkPort InternPort()
+    private bool InternPortSet()
     {
-        int host;
-        host = (int)this.Port.Host;
+        ulong kindU;
+        kindU = this.Port.Kind.Intern;
+        ulong valueAU;
+        ulong valueBU;
+        ulong valueCU;
+        ulong hostU;
+        valueAU = (ulong)this.Port.ValueA;
+        valueBU = (ulong)this.Port.ValueB;
+        valueCU = (ulong)this.Port.ValueC;
+        hostU = (ulong)this.Port.Host;
 
-        SystemNetworkPort k;
-        k = null;
+        Extern.NetworkPort_KindSet(this.InternPort, kindU);
+        Extern.NetworkPort_ValueASet(this.InternPort, valueAU);
+        Extern.NetworkPort_ValueBSet(this.InternPort, valueBU);
+        Extern.NetworkPort_ValueCSet(this.InternPort, valueCU);
+        Extern.NetworkPort_HostSet(this.InternPort, hostU);
+        Extern.NetworkPort_Set(this.InternPort);
+        return true;
+    }
 
-        try
-        {
-            SystemNetworkAddress kc;
-            kc = null;
+    public virtual bool NewPeer()
+    {
+        return false;
+    }
 
-            bool b;
-            b = (this.Port.ValueB == null);
+    internal static ulong InternNewPeer(ulong networkServer, ulong arg)
+    {
+        InternIntern internIntern;
+        internIntern = InternIntern.This;
 
-            if (b)
-            {
-                kc = new SystemNetworkAddress(this.Port.ValueA);
-            }
+        object ao;
+        ao = internIntern.HandleTarget(arg);
 
-            if (!b)
-            {
-                byte[] kaa;
-                kaa = this.Port.ValueB.Value as byte[];
+        Host a;
+        a = (Host)ao;
+        a.PrivateNewPeer();
 
-                kc = new SystemNetworkAddress(kaa);
-            }
-
-
-            k = new SystemNetworkPort(kc, host);
-        }
-        catch
-        {
-            return null;
-        }
-
-        return k;
+        return 1;
     }
 }

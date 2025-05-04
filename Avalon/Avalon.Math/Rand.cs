@@ -5,27 +5,44 @@ public class Rand : Any
     public override bool Init()
     {
         base.Init();
-        this.InfraInfra = InfraInfra.This;
-        this.SeedSet(0);
+        this.Intern = Extern.Rand_New();
+        Extern.Rand_Init(this.Intern);
         return true;
     }
 
-    public virtual long Seed { get; set; }
-    protected virtual InfraInfra InfraInfra { get; set; }
-    private SystemRand Intern { get; set; }
-
-    public virtual bool SeedSet(long value)
+    public virtual bool Final()
     {
-        int k;
-        k = (int)value;
-        this.Intern = new SystemRand(k);
+        Extern.Rand_Final(this.Intern);
+        Extern.Rand_Delete(this.Intern);
         return true;
+    }
+
+    private ulong Intern { get; set; }
+
+    public virtual long Seed
+    {
+        get
+        {
+            ulong u;
+            u = Extern.Rand_SeedGet(this.Intern);
+            long a;
+            a = (long)u;
+            return a;
+        }
+        set
+        {
+            ulong u;
+            u = (ulong)value;
+            Extern.Rand_SeedSet(this.Intern, u);
+        }
     }
 
     public virtual long Execute()
     {
+        ulong u;
+        u = Extern.Rand_Execute(this.Intern);
         long a;
-        a = this.Intern.NextInt64(this.InfraInfra.IntCapValue);
+        a = (long)u;
         return a;
     }
 }

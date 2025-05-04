@@ -18,21 +18,27 @@ public class Console : Any
     {
         base.Init();
 
+        this.Intern = new ConsoleIntern();
+        this.Intern.Init();
+
         ConsoleOut ka;
         ka = new ConsoleOut();
         ka.Init();
+        ka.Intern = this.Intern;
         ka.Stream = 0;
         this.Out = ka;
 
         ConsoleOut kb;
         kb = new ConsoleOut();
         kb.Init();
+        kb.Intern = this.Intern;
         kb.Stream = 1;
         this.Err = kb;
 
         ConsoleInn kc;
         kc = new ConsoleInn();
         kc.Init();
+        kc.Intern = this.Intern;
         this.Inn = kc;
 
         return true;
@@ -41,4 +47,5 @@ public class Console : Any
     public virtual Out Out { get; set; }
     public virtual Out Err { get; set; }
     public virtual Inn Inn { get; set; }
+    private ConsoleIntern Intern { get; set; }
 }

@@ -1,5 +1,9 @@
 global using InternIntern = Avalon.Infra.Intern;
+global using Extern = Avalon.Infra.Extern;
+global using ThreadExecuteMaide = Avalon.Infra.Extern.Thread_Execute_Maide;
+global using MaideAddress = Avalon.Infra.MaideAddress;
+global using Handle = Avalon.Infra.Handle;
+global using InternInfra = Avalon.Infra.InternInfra;
 global using Any = Avalon.Infra.Any;
 global using State = Avalon.Infra.State;
-global using SystemThread = System.Threading.Thread;
-global using SystemPhore = System.Threading.SemaphoreSlim;
+global using Value = Avalon.Infra.Value;

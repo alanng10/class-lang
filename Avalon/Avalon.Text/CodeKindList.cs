@@ -21,9 +21,14 @@ public class CodeKindList : Any
         this.Count = this.Array.Count;
         this.Index = 0;
 
-        this.Utf8 = this.AddItem(SystemTextCode.UTF8);
-        this.Utf16 = this.AddItem(SystemTextCode.Unicode);
-        this.Utf32 = this.AddItem(SystemTextCode.UTF32);
+        ulong share;
+        share = Extern.Infra_Share();
+        ulong stat;
+        stat = Extern.Share_Stat(share);
+
+        this.Utf8 = this.AddItem(Extern.Stat_TextCodeKindUtf8(stat));
+        this.Utf16 = this.AddItem(Extern.Stat_TextCodeKindUtf16(stat));
+        this.Utf32 = this.AddItem(Extern.Stat_TextCodeKindUtf32(stat));
         return true;
     }
 
@@ -31,13 +36,13 @@ public class CodeKindList : Any
     public virtual CodeKind Utf16 { get; set; }
     public virtual CodeKind Utf32 { get; set; }
 
-    protected virtual CodeKind AddItem(SystemTextCode intern)
+    protected virtual CodeKind AddItem(ulong o)
     {
         CodeKind item;
         item = new CodeKind();
         item.Init();
         item.Index = this.Index;
-        item.Intern = intern;
+        item.Intern = o;
         this.Array.SetAt(item.Index, item);
         this.Index = this.Index + 1;
         return item;
@@ -61,6 +66,6 @@ public class CodeKindList : Any
 
     public virtual CodeKind Get(long index)
     {
-        return this.Array.GetAt(index) as CodeKind;
+        return (CodeKind)this.Array.GetAt(index);
     }
 }

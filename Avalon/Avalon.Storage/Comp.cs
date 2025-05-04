@@ -13,313 +13,252 @@ public class Comp : Any
         a.Init();
         return share;
     }
-
+    
     public override bool Init()
     {
         base.Init();
         this.InternInfra = InternInfra.This;
         this.ListInfra = ListInfra.This;
-        this.StringValue = StringValue.This;
 
         this.ModuleFoldPath = this.InternInfra.ModuleFoldPath;
+
+        this.Intern = Extern.StorageComp_New();
+        Extern.StorageComp_Init(this.Intern);
+        return true;
+    }
+
+    public virtual bool Final()
+    {
+        Extern.StorageComp_Final(this.Intern);
+        Extern.StorageComp_Delete(this.Intern);
         return true;
     }
 
     public virtual String ModuleFoldPath { get; set; }
     private InternInfra InternInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
-    protected virtual StringValue StringValue { get; set; }
+    private ulong Intern { get; set; }
 
     public virtual bool Rename(String path, String destPath)
     {
-        string pathK;
-        pathK = this.StringValue.ExecuteIntern(path);
-        string destPathK;
-        destPathK = this.StringValue.ExecuteIntern(destPath);
+        ulong pathU;
+        pathU = this.InternInfra.StringCreate(path);
+        ulong destPathU;
+        destPathU = this.InternInfra.StringCreate(destPath);
 
-        try
-        {
-            SystemStorageCompFold.Move(pathK, destPathK);
-        }
-        catch
-        {
-            return false;
-        }
+        ulong k;
+        k = Extern.StorageComp_Rename(this.Intern, pathU, destPathU);
 
-        return true;
+        this.InternInfra.StringDelete(destPathU);
+        this.InternInfra.StringDelete(pathU);
+
+        bool a;
+        a = !(k == 0);
+        return a;
     }
 
     public virtual bool FileCopy(String path, String destPath)
     {
-        string pathK;
-        pathK = this.StringValue.ExecuteIntern(path);
-        string destPathK;
-        destPathK = this.StringValue.ExecuteIntern(destPath);
+        ulong pathU;
+        pathU = this.InternInfra.StringCreate(path);
+        ulong destPathU;
+        destPathU = this.InternInfra.StringCreate(destPath);
 
-        try
-        {
-            SystemStorageComp.Copy(pathK, destPathK, true);
-        }
-        catch
-        {
-            return false;
-        }
+        ulong k;
+        k = Extern.StorageComp_FileCopy(this.Intern, pathU, destPathU);
 
-        return true;
+        this.InternInfra.StringDelete(destPathU);
+        this.InternInfra.StringDelete(pathU);
+
+        bool a;
+        a = !(k == 0);
+        return a;
     }
 
     public virtual bool FileDelete(String path)
     {
-        string pathK;
-        pathK = this.StringValue.ExecuteIntern(path);
+        ulong pathU;
+        pathU = this.InternInfra.StringCreate(path);
 
-        try
-        {
-            SystemStorageComp.Delete(pathK);
-        }
-        catch
-        {
-            return false;
-        }
+        ulong k;
+        k = Extern.StorageComp_FileDelete(this.Intern, pathU);
 
-        return true;
+        this.InternInfra.StringDelete(pathU);
+
+        bool a;
+        a = !(k == 0);
+        return a;
     }
 
     public virtual bool FoldCreate(String path)
     {
-        string pathK;
-        pathK = this.StringValue.ExecuteIntern(path);
+        ulong pathU;
+        pathU = this.InternInfra.StringCreate(path);
 
-        try
-        {
-            SystemStorageCompFold.CreateDirectory(pathK);
-        }
-        catch
-        {
-            return false;
-        }
+        ulong k;
+        k = Extern.StorageComp_FoldCreate(this.Intern, pathU);
 
-        return true;
+        this.InternInfra.StringDelete(pathU);
+
+        bool a;
+        a = !(k == 0);
+        return a;
     }
 
     public virtual bool FoldCopy(String path, String destPath)
     {
-        string pathK;
-        pathK = this.StringValue.ExecuteIntern(path);
-        string destPathK;
-        destPathK = this.StringValue.ExecuteIntern(destPath);
+        ulong pathU;
+        pathU = this.InternInfra.StringCreate(path);
+        ulong destPathU;
+        destPathU = this.InternInfra.StringCreate(destPath);
 
-        try
-        {
-            SystemStorageFoldInfo source;
-            source = new SystemStorageFoldInfo(pathK);
+        ulong k;
+        k = Extern.StorageComp_FoldCopy(this.Intern, pathU, destPathU);
 
-            SystemStorageFoldInfo dest;
-            dest = new SystemStorageFoldInfo(destPathK);
+        this.InternInfra.StringDelete(destPathU);
+        this.InternInfra.StringDelete(pathU);
 
-            dest.Create();
-
-            this.FoldCopyRecursive(source, dest);
-        }
-        catch
-        {
-            return false;
-        }
-
-        return true;
+        bool a;
+        a = !(k == 0);
+        return a;
     }
 
     public virtual bool FoldDelete(String path)
     {
-        string pathK;
-        pathK = this.StringValue.ExecuteIntern(path);
+        ulong pathU;
+        pathU = this.InternInfra.StringCreate(path);
 
-        try
-        {
-            SystemStorageCompFold.Delete(pathK, true);
-        }
-        catch
-        {
-            return false;
-        }
+        ulong k;
+        k = Extern.StorageComp_FoldDelete(this.Intern, pathU);
 
-        return true;
+        this.InternInfra.StringDelete(pathU);
+
+        bool a;
+        a = !(k == 0);
+        return a;
     }
 
     public virtual bool Exist(String path)
     {
-        string pathK;
-        pathK = this.StringValue.ExecuteIntern(path);
+        ulong pathU;
+        pathU = this.InternInfra.StringCreate(path);
 
-        bool k;
-        try
-        {
-            bool ba;
-            bool bb;
-            ba = SystemStorageComp.Exists(pathK);
-            bb = SystemStorageCompFold.Exists(pathK);
-        
-            k = ba | bb;
-        }
-        catch
-        {
-            return false;
-        }
+        ulong k;
+        k = Extern.StorageComp_Exist(this.Intern, pathU);
 
-        return k;
+        this.InternInfra.StringDelete(pathU);
+
+        bool a;
+        a = !(k == 0);
+        return a;
     }
 
     public virtual bool Fold(String path)
     {
-        string pathK;
-        pathK = this.StringValue.ExecuteIntern(path);
+        ulong pathU;
+        pathU = this.InternInfra.StringCreate(path);
 
-        bool k;
-        try
-        {
-            k = SystemStorageCompFold.Exists(pathK);
-        }
-        catch
-        {
-            return false;
-        }
+        ulong k;
+        k = Extern.StorageComp_Fold(this.Intern, pathU);
 
-        return k;
+        this.InternInfra.StringDelete(pathU);
+
+        bool a;
+        a = !(k == 0);
+        return a;
     }
 
     public virtual String ThisFoldGet()
     {
-        string ka;
-        try
-        {
-            ka = SystemStorageCompFold.GetCurrentDirectory();
-        }
-        catch
-        {
-            return null;
-        }
+        ulong k;
+        k = Extern.StorageComp_ThisFoldGet(this.Intern);
 
-        ka = ka.Replace('\\', '/');
+        String a;
+        a = this.InternInfra.StringCreateIntern(k);
 
-        String k;
-        k = this.StringValue.Execute(ka);
-        return k;
+        this.InternInfra.StringDelete(k);
+
+        return a;
     }
 
     public virtual bool ThisFoldSet(String path)
     {
-        string pathK;
-        pathK = this.StringValue.ExecuteIntern(path);
+        ulong pathU;
+        pathU = this.InternInfra.StringCreate(path);
 
-        try
-        {
-            SystemStorageCompFold.SetCurrentDirectory(pathK);
-        }
-        catch
-        {
-            return false;
-        }
+        ulong k;
+        k = Extern.StorageComp_ThisFoldSet(this.Intern, pathU);
 
-        return true;
-    }
+        this.InternInfra.StringDelete(pathU);
 
-    private bool FoldCopyRecursive(SystemStorageFoldInfo source, SystemStorageFoldInfo target)
-    {
-        SystemStorageFoldInfo[] foldArray;
-        foldArray = source.GetDirectories();
-
-        long count;
-        count = foldArray.LongLength;
-
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            SystemStorageFoldInfo fold;
-            fold = foldArray[i];
-
-            this.FoldCopyRecursive(fold, target.CreateSubdirectory(fold.Name));
-
-            i = i + 1;
-        }
-
-        SystemStorageFileInfo[] fileArray;
-        fileArray = source.GetFiles();
-
-        count = fileArray.LongLength;
-
-        i = 0;
-        while (i < count)
-        {
-            SystemStorageFileInfo file;
-            file = fileArray[i];
-
-            file.CopyTo(target.FullName + "/" + file.Name);
-
-            i = i + 1;
-        }
-
-        return true;
+        bool a;
+        a = !(k == 0);
+        return a;
     }
 
     public virtual Array EntryList(String path, bool fold)
     {
-        string pathK;
-        pathK = this.StringValue.ExecuteIntern(path);
+        ulong pathU;
+        pathU = this.InternInfra.StringCreate(path);
 
-        string[] k;
-        k = null;
-        try
+        ulong foldU;
+        foldU = 0;
+        if (fold)
         {
-            if (fold)
-            {
-                k = SystemStorageCompFold.GetDirectories(pathK);
-            }
-            if (!fold)
-            {
-                k = SystemStorageCompFold.GetFiles(pathK);
-            }
+            foldU = 1;
         }
-        catch
-        {
-            return null;
-        }
+
+        ulong k;
+        k = Extern.StorageComp_EntryList(this.Intern, pathU, foldU);
+
+        this.InternInfra.StringDelete(pathU);
+
+        ulong countU;
+        countU = Extern.Array_CountGet(k);
 
         long count;
-        count = k.LongLength;
+        count = (long)countU;
+
+        Array array;
+        array = this.ListInfra.ArrayCreate(count);
 
         long i;
         i = 0;
         while (i < count)
         {
-            string ka;
-            ka = k[i];
+            ulong indexU;
+            indexU = (ulong)i;
 
-            ka = SystemStoragePath.GetFileName(ka);
+            ulong u;
+            u = Extern.Array_ItemGet(k, indexU);
 
-            k[i] = ka;
-            
+            String a;
+            a = this.InternInfra.StringCreateIntern(u);
+
+            array.SetAt(i, a);
+
             i = i + 1;
         }
-
-        SystemArray.Sort(k);
-
-        Array array;
-        array = this.ListInfra.ArrayCreate(count);
 
         i = 0;
         while (i < count)
         {
-            string kb;
-            kb = k[i];
+            long indexA;
+            indexA = count - 1 - i;
 
-            String kk;
-            kk = this.StringValue.Execute(kb);
+            ulong indexAU;
+            indexAU = (ulong)indexA;
 
-            array.SetAt(i, kk);
+            ulong ua;
+            ua = Extern.Array_ItemGet(k, indexAU);
+
+            this.InternInfra.StringDelete(ua);
 
             i = i + 1;
         }
+
+        Extern.Array_Final(k);
+        Extern.Array_Delete(k);
 
         return array;
     }

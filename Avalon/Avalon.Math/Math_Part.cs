@@ -4,453 +4,308 @@ partial class Math
 {
     public virtual long Add(long valueA, long valueB)
     {
-        double ka;
-        double kb;
-        ka = this.InternValue(valueA);
-        kb = this.InternValue(valueB);
-        if (!(this.ValidIntern(ka) & this.ValidIntern(kb)))
-        {
-            return -1;
-        }
-
-        double kc;
-        kc = ka + kb;
-
+        ulong ua;
+        ulong ub;
+        ua = (ulong)valueA;
+        ub = (ulong)valueB;
+        ulong u;
+        u = Extern.Math_Add(this.Intern, ua, ub);
         long a;
-        a = this.ValueInternValue(kc);
+        a = (long)u;
         return a;
     }
 
     public virtual long Sub(long valueA, long valueB)
     {
-        double ka;
-        double kb;
-        ka = this.InternValue(valueA);
-        kb = this.InternValue(valueB);
-        if (!(this.ValidIntern(ka) & this.ValidIntern(kb)))
-        {
-            return -1;
-        }
-
-        double kc;
-        kc = ka - kb;
-
+        ulong ua;
+        ulong ub;
+        ua = (ulong)valueA;
+        ub = (ulong)valueB;
+        ulong u;
+        u = Extern.Math_Sub(this.Intern, ua, ub);
         long a;
-        a = this.ValueInternValue(kc);
+        a = (long)u;
         return a;
     }
 
     public virtual long Mul(long valueA, long valueB)
     {
-        double ka;
-        double kb;
-        ka = this.InternValue(valueA);
-        kb = this.InternValue(valueB);
-        if (!(this.ValidIntern(ka) & this.ValidIntern(kb)))
-        {
-            return -1;
-        }
-
-        double kc;
-        kc = ka * kb;
-
+        ulong ua;
+        ulong ub;
+        ua = (ulong)valueA;
+        ub = (ulong)valueB;
+        ulong u;
+        u = Extern.Math_Mul(this.Intern, ua, ub);
         long a;
-        a = this.ValueInternValue(kc);
+        a = (long)u;
         return a;
     }
 
     public virtual long Div(long valueA, long valueB)
     {
-        double ka;
-        double kb;
-        ka = this.InternValue(valueA);
-        kb = this.InternValue(valueB);
-        if (!(this.ValidIntern(ka) & this.ValidIntern(kb)))
-        {
-            return -1;
-        }
-
-        double kc;
-        kc = ka / kb;
-
+        ulong ua;
+        ulong ub;
+        ua = (ulong)valueA;
+        ub = (ulong)valueB;
+        ulong u;
+        u = Extern.Math_Div(this.Intern, ua, ub);
         long a;
-        a = this.ValueInternValue(kc);
+        a = (long)u;
         return a;
     }
 
     public virtual long Abs(long value)
     {
-        double ka;
-        ka = this.InternValue(value);
-        if (!this.ValidIntern(ka))
-        {
-            return -1;
-        }
-
-        double kc;
-        kc = SystemMath.Abs(ka);
-
+        ulong ua;
+        ua = (ulong)value;
+        ulong u;
+        u = Extern.Math_Abs(this.Intern, ua);
         long a;
-        a = this.ValueInternValue(kc);
+        a = (long)u;
         return a;
     }
 
     public virtual long Exp(long value)
     {
-        double ka;
-        ka = this.InternValue(value);
-        if (!this.ValidIntern(ka))
-        {
-            return -1;
-        }
-
-        double kc;
-        kc = SystemMath.Exp(ka);
-
+        ulong ua;
+        ua = (ulong)value;
+        ulong u;
+        u = Extern.Math_Exp(this.Intern, ua);
         long a;
-        a = this.ValueInternValue(kc);
+        a = (long)u;
+        return a;
+    }
+
+    public virtual long Exp2(long value)
+    {
+        ulong ua;
+        ua = (ulong)value;
+        ulong u;
+        u = Extern.Math_Exp2(this.Intern, ua);
+        long a;
+        a = (long)u;
         return a;
     }
 
     public virtual long Log(long value)
     {
-        double ka;
-        ka = this.InternValue(value);
-        if (!this.ValidIntern(ka))
-        {
-            return -1;
-        }
-
-        double kc;
-        kc = SystemMath.Log(ka);
-
+        ulong ua;
+        ua = (ulong)value;
+        ulong u;
+        u = Extern.Math_Log(this.Intern, ua);
         long a;
-        a = this.ValueInternValue(kc);
+        a = (long)u;
         return a;
     }
 
     public virtual long Log10(long value)
     {
-        double ka;
-        ka = this.InternValue(value);
-        if (!this.ValidIntern(ka))
-        {
-            return -1;
-        }
-
-        double kc;
-        kc = SystemMath.Log10(ka);
-
+        ulong ua;
+        ua = (ulong)value;
+        ulong u;
+        u = Extern.Math_Log10(this.Intern, ua);
         long a;
-        a = this.ValueInternValue(kc);
+        a = (long)u;
         return a;
     }
 
     public virtual long Log2(long value)
     {
-        double ka;
-        ka = this.InternValue(value);
-        if (!this.ValidIntern(ka))
-        {
-            return -1;
-        }
-
-        double kc;
-        kc = SystemMath.Log2(ka);
-
+        ulong ua;
+        ua = (ulong)value;
+        ulong u;
+        u = Extern.Math_Log2(this.Intern, ua);
         long a;
-        a = this.ValueInternValue(kc);
+        a = (long)u;
         return a;
     }
 
     public virtual long Pow(long valueA, long valueB)
     {
-        double ka;
-        double kb;
-        ka = this.InternValue(valueA);
-        kb = this.InternValue(valueB);
-        if (!(this.ValidIntern(ka) & this.ValidIntern(kb)))
-        {
-            return -1;
-        }
-
-        double kc;
-        kc = SystemMath.Pow(ka, kb);
-
+        ulong ua;
+        ulong ub;
+        ua = (ulong)valueA;
+        ub = (ulong)valueB;
+        ulong u;
+        u = Extern.Math_Pow(this.Intern, ua, ub);
         long a;
-        a = this.ValueInternValue(kc);
+        a = (long)u;
         return a;
     }
 
     public virtual long Ceil(long value)
     {
-        double ka;
-        ka = this.InternValue(value);
-        if (!this.ValidIntern(ka))
-        {
-            return -1;
-        }
-
-        double kc;
-        kc = SystemMath.Ceiling(ka);
-
+        ulong ua;
+        ua = (ulong)value;
+        ulong u;
+        u = Extern.Math_Ceil(this.Intern, ua);
         long a;
-        a = this.ValueInternValue(kc);
+        a = (long)u;
         return a;
     }
 
     public virtual long Floor(long value)
     {
-        double ka;
-        ka = this.InternValue(value);
-        if (!this.ValidIntern(ka))
-        {
-            return -1;
-        }
-
-        double kc;
-        kc = SystemMath.Floor(ka);
-
+        ulong ua;
+        ua = (ulong)value;
+        ulong u;
+        u = Extern.Math_Floor(this.Intern, ua);
         long a;
-        a = this.ValueInternValue(kc);
+        a = (long)u;
         return a;
     }
 
     public virtual long Trunc(long value)
     {
-        double ka;
-        ka = this.InternValue(value);
-        if (!this.ValidIntern(ka))
-        {
-            return -1;
-        }
-
-        double kc;
-        kc = SystemMath.Truncate(ka);
-
+        ulong ua;
+        ua = (ulong)value;
+        ulong u;
+        u = Extern.Math_Trunc(this.Intern, ua);
         long a;
-        a = this.ValueInternValue(kc);
+        a = (long)u;
         return a;
     }
 
     public virtual long Round(long value)
     {
-        double ka;
-        ka = this.InternValue(value);
-        if (!this.ValidIntern(ka))
-        {
-            return -1;
-        }
-
-        double kc;
-        kc = SystemMath.Round(ka);
-
+        ulong ua;
+        ua = (ulong)value;
+        ulong u;
+        u = Extern.Math_Round(this.Intern, ua);
         long a;
-        a = this.ValueInternValue(kc);
+        a = (long)u;
         return a;
     }
 
     public virtual long Sin(long value)
     {
-        double ka;
-        ka = this.InternValue(value);
-        if (!this.ValidIntern(ka))
-        {
-            return -1;
-        }
-
-        double kc;
-        kc = SystemMath.Sin(ka);
-
+        ulong ua;
+        ua = (ulong)value;
+        ulong u;
+        u = Extern.Math_Sin(this.Intern, ua);
         long a;
-        a = this.ValueInternValue(kc);
+        a = (long)u;
         return a;
     }
 
     public virtual long Cos(long value)
     {
-        double ka;
-        ka = this.InternValue(value);
-        if (!this.ValidIntern(ka))
-        {
-            return -1;
-        }
-
-        double kc;
-        kc = SystemMath.Cos(ka);
-
+        ulong ua;
+        ua = (ulong)value;
+        ulong u;
+        u = Extern.Math_Cos(this.Intern, ua);
         long a;
-        a = this.ValueInternValue(kc);
+        a = (long)u;
         return a;
     }
 
     public virtual long Tan(long value)
     {
-        double ka;
-        ka = this.InternValue(value);
-        if (!this.ValidIntern(ka))
-        {
-            return -1;
-        }
-
-        double kc;
-        kc = SystemMath.Tan(ka);
-
+        ulong ua;
+        ua = (ulong)value;
+        ulong u;
+        u = Extern.Math_Tan(this.Intern, ua);
         long a;
-        a = this.ValueInternValue(kc);
+        a = (long)u;
         return a;
     }
 
     public virtual long ASin(long value)
     {
-        double ka;
-        ka = this.InternValue(value);
-        if (!this.ValidIntern(ka))
-        {
-            return -1;
-        }
-
-        double kc;
-        kc = SystemMath.Asin(ka);
-
+        ulong ua;
+        ua = (ulong)value;
+        ulong u;
+        u = Extern.Math_ASin(this.Intern, ua);
         long a;
-        a = this.ValueInternValue(kc);
+        a = (long)u;
         return a;
     }
 
     public virtual long ACos(long value)
     {
-        double ka;
-        ka = this.InternValue(value);
-        if (!this.ValidIntern(ka))
-        {
-            return -1;
-        }
-
-        double kc;
-        kc = SystemMath.Acos(ka);
-
+        ulong ua;
+        ua = (ulong)value;
+        ulong u;
+        u = Extern.Math_ACos(this.Intern, ua);
         long a;
-        a = this.ValueInternValue(kc);
+        a = (long)u;
         return a;
     }
 
     public virtual long ATan(long value)
     {
-        double ka;
-        ka = this.InternValue(value);
-        if (!this.ValidIntern(ka))
-        {
-            return -1;
-        }
-
-        double kc;
-        kc = SystemMath.Atan(ka);
-
+        ulong ua;
+        ua = (ulong)value;
+        ulong u;
+        u = Extern.Math_ATan(this.Intern, ua);
         long a;
-        a = this.ValueInternValue(kc);
+        a = (long)u;
         return a;
     }
 
     public virtual long SinH(long value)
     {
-        double ka;
-        ka = this.InternValue(value);
-        if (!this.ValidIntern(ka))
-        {
-            return -1;
-        }
-
-        double kc;
-        kc = SystemMath.Sinh(ka);
-
+        ulong ua;
+        ua = (ulong)value;
+        ulong u;
+        u = Extern.Math_SinH(this.Intern, ua);
         long a;
-        a = this.ValueInternValue(kc);
+        a = (long)u;
         return a;
     }
 
     public virtual long CosH(long value)
     {
-        double ka;
-        ka = this.InternValue(value);
-        if (!this.ValidIntern(ka))
-        {
-            return -1;
-        }
-
-        double kc;
-        kc = SystemMath.Cosh(ka);
-
+        ulong ua;
+        ua = (ulong)value;
+        ulong u;
+        u = Extern.Math_CosH(this.Intern, ua);
         long a;
-        a = this.ValueInternValue(kc);
+        a = (long)u;
         return a;
     }
 
     public virtual long TanH(long value)
     {
-        double ka;
-        ka = this.InternValue(value);
-        if (!this.ValidIntern(ka))
-        {
-            return -1;
-        }
-
-        double kc;
-        kc = SystemMath.Tanh(ka);
-
+        ulong ua;
+        ua = (ulong)value;
+        ulong u;
+        u = Extern.Math_TanH(this.Intern, ua);
         long a;
-        a = this.ValueInternValue(kc);
+        a = (long)u;
         return a;
     }
 
     public virtual long ASinH(long value)
     {
-        double ka;
-        ka = this.InternValue(value);
-        if (!this.ValidIntern(ka))
-        {
-            return -1;
-        }
-
-        double kc;
-        kc = SystemMath.Asinh(ka);
-
+        ulong ua;
+        ua = (ulong)value;
+        ulong u;
+        u = Extern.Math_ASinH(this.Intern, ua);
         long a;
-        a = this.ValueInternValue(kc);
+        a = (long)u;
         return a;
     }
 
     public virtual long ACosH(long value)
     {
-        double ka;
-        ka = this.InternValue(value);
-        if (!this.ValidIntern(ka))
-        {
-            return -1;
-        }
-
-        double kc;
-        kc = SystemMath.Acosh(ka);
-
+        ulong ua;
+        ua = (ulong)value;
+        ulong u;
+        u = Extern.Math_ACosH(this.Intern, ua);
         long a;
-        a = this.ValueInternValue(kc);
+        a = (long)u;
         return a;
     }
 
     public virtual long ATanH(long value)
     {
-        double ka;
-        ka = this.InternValue(value);
-        if (!this.ValidIntern(ka))
-        {
-            return -1;
-        }
-
-        double kc;
-        kc = SystemMath.Atanh(ka);
-
+        ulong ua;
+        ua = (ulong)value;
+        ulong u;
+        u = Extern.Math_ATanH(this.Intern, ua);
         long a;
-        a = this.ValueInternValue(kc);
+        a = (long)u;
         return a;
     }
 }

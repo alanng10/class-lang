@@ -21,6 +21,7 @@ public class Infra : Any
         this.TextInfra = TextInfra.This;
         this.StringComp = StringComp.This;
         this.TextCodeKindList = TextCodeKindList.This;
+        this.StorageStatusList = StatusList.This;
 
         this.SSlash = this.TextInfra.S("/");
         this.SDot = this.TextInfra.S(".");
@@ -41,6 +42,7 @@ public class Infra : Any
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
     protected virtual TextCodeKindList TextCodeKindList { get; set; }
+    protected virtual StatusList StorageStatusList { get; set; }
 
     public virtual bool ValidMode(Mode mode)
     {
@@ -68,13 +70,11 @@ public class Infra : Any
 
         storage.Path = filePath;
         storage.Mode = mode;
-
-        bool b;
-        b = storage.Open();
+        storage.Open();
 
         Data a;
         a = null;
-        if (b)
+        if (storage.Status == this.StorageStatusList.NoError)
         {
             StreamStream stream;
             stream = storage.Stream;
@@ -91,8 +91,8 @@ public class Infra : Any
             range.Index = 0;
             range.Count = count;
 
-            b = stream.Read(data, range);
-            if (b)
+            stream.Read(data, range);
+            if (storage.Status == this.StorageStatusList.NoError)
             {
                 a = data;
             }
@@ -115,13 +115,11 @@ public class Infra : Any
 
         storage.Path = filePath;
         storage.Mode = mode;
-
-        bool b;
-        b = storage.Open();
+        storage.Open();
 
         bool a;
         a = false;
-        if (b)
+        if (storage.Status == this.StorageStatusList.NoError)
         {
             StreamStream stream;
             stream = storage.Stream;
@@ -132,8 +130,8 @@ public class Infra : Any
             range.Index = 0;
             range.Count = data.Count;
 
-            b = stream.Write(data, range);
-            if (b)
+            stream.Write(data, range);
+            if (storage.Status == this.StorageStatusList.NoError)
             {
                 a = true;
             }
@@ -217,16 +215,14 @@ public class Infra : Any
 
         storage.Path = filePath;
         storage.Mode = mode;
-
-        bool b;
-        b = storage.Open();
+        storage.Open();
 
         bool a;
         a = false;
-        if (b)
+        if (storage.Status == this.StorageStatusList.NoError)
         {
-            b = storage.CountSet(value);
-            if (b)
+            storage.CountSet(value);
+            if (storage.Status == this.StorageStatusList.NoError)
             {
                 a = true;
             }

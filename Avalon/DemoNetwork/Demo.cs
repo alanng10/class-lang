@@ -10,8 +10,8 @@ class Demo : Any
 
         Console.This.Out.Write(this.S("DemoNetwork Start\n"));
 
-        NetworkState state;
-        state = new NetworkState();
+        ThreadNetworkState state;
+        state = new ThreadNetworkState();
         state.Init();
 
         state.Execute();

@@ -5,15 +5,29 @@ public class Time : Any
     public override bool Init()
     {
         base.Init();
-        this.Intern = SystemTime.MinValue;
+        this.Intern = Extern.Time_New();
+        Extern.Time_Init(this.Intern);
         return true;
     }
+
+    public virtual bool Final()
+    {
+        Extern.Time_Final(this.Intern);
+        Extern.Time_Delete(this.Intern);
+        return true;
+    }
+
+    private ulong Intern { get; set; }
 
     public virtual long Yea
     {
         get
         {
-            return this.Intern.Year;
+            ulong u;
+            u = Extern.Time_YeaGet(this.Intern);
+            long a;
+            a = (long)u;
+            return a;
         }
         set
         {
@@ -24,7 +38,11 @@ public class Time : Any
     {
         get
         {
-            return this.Intern.Month;
+            ulong u;
+            u = Extern.Time_MonGet(this.Intern);
+            long a;
+            a = (long)u;
+            return a;
         }
         set
         {
@@ -35,7 +53,11 @@ public class Time : Any
     {
         get
         {
-            return this.Intern.Day;
+            ulong u;
+            u = Extern.Time_DayGet(this.Intern);
+            long a;
+            a = (long)u;
+            return a;
         }
         set
         {
@@ -46,7 +68,11 @@ public class Time : Any
     {
         get
         {
-            return this.Intern.Hour;
+            ulong u;
+            u = Extern.Time_OurGet(this.Intern);
+            long a;
+            a = (long)u;
+            return a;
         }
         set
         {
@@ -57,7 +83,11 @@ public class Time : Any
     {
         get
         {
-            return this.Intern.Minute;
+            ulong u;
+            u = Extern.Time_MinGet(this.Intern);
+            long a;
+            a = (long)u;
+            return a;
         }
         set
         {
@@ -68,7 +98,11 @@ public class Time : Any
     {
         get
         {
-            return this.Intern.Second;
+            ulong u;
+            u = Extern.Time_SecGet(this.Intern);
+            long a;
+            a = (long)u;
+            return a;
         }
         set
         {
@@ -79,7 +113,26 @@ public class Time : Any
     {
         get
         {
-            return this.Intern.Millisecond;
+            ulong u;
+            u = Extern.Time_TickGet(this.Intern);
+            long a;
+            a = (long)u;
+            return a;
+        }
+        set
+        {
+        }
+    }
+
+    public virtual long Pos
+    {
+        get
+        {
+            ulong u;
+            u = Extern.Time_PosGet(this.Intern);
+            long a;
+            a = (long)u;
+            return a;
         }
         set
         {
@@ -90,7 +143,11 @@ public class Time : Any
     {
         get
         {
-            return this.Intern.DayOfYear;
+            ulong u;
+            u = Extern.Time_YeaDayGet(this.Intern);
+            long a;
+            a = (long)u;
+            return a;
         }
         set
         {
@@ -101,7 +158,41 @@ public class Time : Any
     {
         get
         {
-            return (int)this.Intern.DayOfWeek;
+            ulong u;
+            u = Extern.Time_WeekDayGet(this.Intern);
+            long a;
+            a = (long)u;
+            return a;
+        }
+        set
+        {
+        }
+    }
+
+    public virtual long YeaDayCount
+    {
+        get
+        {
+            ulong u;
+            u = Extern.Time_YeaDayCountGet(this.Intern);
+            long a;
+            a = (long)u;
+            return a;
+        }
+        set
+        {
+        }
+    }
+
+    public virtual long MonDayCount
+    {
+        get
+        {
+            ulong u;
+            u = Extern.Time_MonDayCountGet(this.Intern);
+            long a;
+            a = (long)u;
+            return a;
         }
         set
         {
@@ -112,7 +203,11 @@ public class Time : Any
     {
         get
         {
-            return this.Intern.Ticks / 10000;
+            ulong u;
+            u = Extern.Time_TotalTickGet(this.Intern);
+            long a;
+            a = (long)u;
+            return a;
         }
         set
         {
@@ -121,85 +216,140 @@ public class Time : Any
 
     public virtual bool This()
     {
-        this.Intern = SystemTime.Now;
+        ulong k;
+        k = Extern.Time_This(this.Intern);
+
+        bool a;
+        a = !(k == 0);
+        return a;
+    }
+
+    public virtual bool ToPos(long pos)
+    {
+        ulong u;
+        u = (ulong)pos;
+        Extern.Time_ToPos(this.Intern, u);
         return true;
     }
 
     public virtual bool AddYea(long value)
     {
-        int k;
-        k = (int)value;
+        ulong valueU;
+        valueU = (ulong)value;
+        ulong k;
+        k = Extern.Time_AddYea(this.Intern, valueU);
 
-        this.Intern = this.Intern.AddYears(k);
-        return true;
+        bool a;
+        a = !(k == 0);
+        return a;
     }
 
     public virtual bool AddMon(long value)
     {
-        int k;
-        k = (int)value;
+        ulong valueU;
+        valueU = (ulong)value;
+        ulong k;
+        k = Extern.Time_AddMon(this.Intern, valueU);
 
-        this.Intern = this.Intern.AddMonths(k);
-        return true;
+        bool a;
+        a = !(k == 0);
+        return a;
     }
 
     public virtual bool AddDay(long value)
     {
-        double k;
-        k = value;
+        ulong valueU;
+        valueU = (ulong)value;
+        ulong k;
+        k = Extern.Time_AddDay(this.Intern, valueU);
 
-        this.Intern = this.Intern.AddDays(k);
-        return true;
+        bool a;
+        a = !(k == 0);
+        return a;
     }
 
     public virtual bool AddTick(long value)
     {
-        double k;
-        k = value;
+        ulong valueU;
+        valueU = (ulong)value;
+        ulong k;
+        k = Extern.Time_AddTick(this.Intern, valueU);
 
-        this.Intern = this.Intern.AddMilliseconds(k);
-        return true;
+        bool a;
+        a = !(k == 0);
+        return a;
     }
 
     public virtual bool LeapYea(long yea)
     {
-        int k;
-        k = (int)yea;
+        ulong ua;
+        ua = (ulong)yea;
+        ulong k;
+        k = Extern.Time_LeapYea(ua);
 
-        return SystemTime.IsLeapYear(k);
+        bool a;
+        a = !(k == 0);
+        return a;
     }
 
-    public virtual bool Set(long yea, long mon, long day, long our, long min, long sec, long tick)
+    public virtual bool ValidDate(long yea, long mon, long day)
     {
-        int yeaA;
-        int monA;
-        int dayA;
-        int ourA;
-        int minA;
-        int secA;
-        int tickA;
-        yeaA = (int)yea;
-        monA = (int)mon;
-        dayA = (int)day;
-        ourA = (int)our;
-        minA = (int)min;
-        secA = (int)sec;
-        tickA = (int)tick;
+        ulong yeaU;
+        ulong monU;
+        ulong dayU;
+        yeaU = (ulong)yea;
+        monU = (ulong)mon;
+        dayU = (ulong)day;
+        ulong k;
+        k = Extern.Time_ValidDate(yeaU, monU, dayU);
 
-        SystemTime k;
-
-        try
-        {
-            k = new SystemTime(yeaA, monA, dayA, ourA, minA, secA, tickA);
-        }
-        catch
-        {
-            return false;
-        }
-
-        this.Intern = k;
-        return true;
+        bool a;
+        a = !(k == 0);
+        return a;
     }
 
-    private SystemTime Intern;
+    public virtual bool ValidTime(long our, long min, long sec, long tick)
+    {
+        ulong ourU;
+        ulong minU;
+        ulong secU;
+        ulong tickU;
+        ourU = (ulong)our;
+        minU = (ulong)min;
+        secU = (ulong)sec;
+        tickU = (ulong)tick;
+        ulong k;
+        k = Extern.Time_ValidTime(ourU, minU, secU, tickU);
+
+        bool a;
+        a = (!(k == 0));
+        return a;
+    }
+
+    public virtual bool Set(long yea, long mon, long day, long our, long min, long sec, long tick, long pos)
+    {
+        ulong yeaU;
+        ulong monU;
+        ulong dayU;
+        ulong ourU;
+        ulong minU;
+        ulong secU;
+        ulong tickU;
+        ulong posU;
+        yeaU = (ulong)yea;
+        monU = (ulong)mon;
+        dayU = (ulong)day;
+        ourU = (ulong)our;
+        minU = (ulong)min;
+        secU = (ulong)sec;
+        tickU = (ulong)tick;
+        posU = (ulong)pos;
+
+        ulong k;
+        k = Extern.Time_Set(this.Intern, yeaU, monU, dayU, ourU, minU, secU, tickU, posU);
+        
+        bool a;
+        a = !(k == 0);
+        return a;
+    }
 }
