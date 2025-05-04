@@ -1470,6 +1470,7 @@ class Demo : TextAdd
         timeEvent.Init();
 
         timeEvent.Time = time;
+        timeEvent.Demo = this;
         timeEvent.ElapseCount = elapseCount;
         timeEvent.Phore = phore;
 
