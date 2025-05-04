@@ -5,23 +5,6 @@ public class Network : Any
     public override bool Init()
     {
         base.Init();
-
-        bool b;
-        b = (this.HostPeer == null);
-        if (b)
-        {
-            this.Intern = Extern.Network_New();
-            Extern.Network_Init(this.Intern);
-        }
-        if (!b)
-        {
-            this.Intern = this.HostPeer as SystemNetwork;
-
-            long ident;
-            ident = (long)streamU;
-            this.DataStream = this.StreamCreateSet(ident);
-            this.Stream = this.DataStream;
-        }
         return true;
     }
 
