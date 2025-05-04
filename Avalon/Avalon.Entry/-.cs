@@ -8,3 +8,4 @@ global using ThreadThread = Avalon.Thread.Thread;
 global using StorageComp = Avalon.Storage.Comp;
 global using ConsoleConsole = Avalon.Console.Console;
 global using SystemConsole = System.Console;
+global using SystemTextCode = System.Text.Encoding;

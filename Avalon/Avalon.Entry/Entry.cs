@@ -66,7 +66,8 @@ public class Entry : Any
 
         this.StorageComp.ModuleFoldPath = kk;
 
-        SystemConsole.OutputEncoding = System.Text.Encoding.UTF8;
+        SystemConsole.OutputEncoding = SystemTextCode.UTF8;
+        SystemConsole.InputEncoding = SystemTextCode.UTF8;
 
         this.ArrayArg();
         return true;
