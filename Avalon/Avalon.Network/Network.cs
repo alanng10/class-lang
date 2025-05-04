@@ -2,38 +2,12 @@ namespace Avalon.Network;
 
 public class Network : Any
 {
-    private bool PrivateStatusEvent()
-    {
-        this.StatusEvent();
-        return true;
-    }
-
-    private bool PrivateCaseEvent()
-    {
-        if (this.Case == this.NetworkCaseList.Connected)
-        {
-            this.Stream = this.DataStream;
-            this.LoadOpen = false;
-        }
-
-        this.CaseEvent();
-        return true;
-    }
-
-    private bool PrivateDataEvent()
-    {
-        this.DataEvent();
-        return true;
-    }
-
     public override bool Init()
     {
         base.Init();
         this.InternIntern = InternIntern.This;
         this.InternInfra = InternInfra.This;
         this.NetworkInfra = Infra.This;
-        this.NetworkStatusList = StatusList.This;
-        this.NetworkCaseList = CaseList.This;
         this.InternHandle = new Handle();
         this.InternHandle.Any = this;
         this.InternHandle.Init();
