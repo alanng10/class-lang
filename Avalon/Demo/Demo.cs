@@ -1441,13 +1441,11 @@ class Demo : TextAdd
 
         phore.Open();
 
-        this.Console.Out.Write(this.S("Demo.ExecuteDemoThread phore Open Success\n"));
+        this.Console.Out.Write(this.S("Phore Open Success\n"));
 
         thread.Wait();
 
-        long aa;
-        aa = thread.Status;
-        this.Console.Out.Write(this.S("Demo.ExecuteDemoThread Thread Status: 0h" + aa.ToString("x8") + "\n"));
+        this.Console.Out.Write(this.S("Thread Success\n"));
 
         thread.Final();
 
@@ -1464,30 +1462,6 @@ class Demo : TextAdd
 
     private bool ExecuteTimeEventOne(bool single, long elapseCount, long time, long exitCode)
     {
-        ThreadThread thread;
-        thread = new ThreadThread();
-        thread.Init();
-
-        ThreadIntervalState state;
-        state = new ThreadIntervalState();
-        state.Init();
-        state.Demo = this;
-        state.ElapseCount = elapseCount;
-        state.Time = time;
-        state.ExitCode = exitCode;
-
-        thread.ExecuteState = state;
-
-        thread.Execute();
-
-        thread.Wait();
-
-        long o;
-        o = thread.Status;
-
-        thread.Final();
-
-        this.Console.Out.Write(this.S("Demo.ExecuteTimeEventOne Thread Status: 0h" + o.ToString("x8") + "\n"));
         return true;
     }
 

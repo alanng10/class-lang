@@ -6,14 +6,13 @@ class TimeEventA : TimeEvent
     public ThreadThread Thread { get; set; }
     public long ElapseCount { get; set; }
     public long ExitCode { get; set; }
-
     private long Count { get; set; }
     
     public override bool Elapse()
     {
         Console console;
         console = Console.This;
-        console.Out.Write(this.S("ElapseState.Execute START\n"));
+        console.Out.Write(this.S("TimeEvent Elapse START\n"));
 
         this.Count = this.Count + 1;
 
@@ -23,12 +22,10 @@ class TimeEventA : TimeEvent
         {
             this.Stop();
 
-            console.Out.Write(this.S("ElapseState.Execute Time Event Stop\n"));
-
-            this.Thread.Exit(this.ExitCode);
+            console.Out.Write(this.S("TimeEvent Stop\n"));
         }
 
-        console.Out.Write(this.S("ElapseState.Execute END\n"));
+        console.Out.Write(this.S("TimeEvent Elapse END\n"));
 
         return true;
     }
