@@ -136,6 +136,43 @@ public class Host : Any
 
     private bool InternPortSet()
     {
+        int host;
+        host = (int)this.Port.Host;
+
+        SystemNetworkPort ka;
+        ka = null;
+
+        try
+        {
+            SystemNetworkAddress kc;
+            kc = null;
+
+            bool b;
+            b = (this.Port.ValueB == null);
+            
+            if (b)
+            {
+                kc = new SystemNetworkAddress(this.Port.ValueA);
+            }
+            
+            if (!b)
+            {
+                byte[] kaa;
+                kaa = this.Port.ValueB.Value as byte[];
+
+                kc = new SystemNetworkAddress(kaa);
+            }
+
+
+            ka = new SystemNetworkPort(kc, host);
+        }
+        catch
+        {
+            return false;
+        }
+
+        this.InternPort = ka;
+        
         return true;
     }
 

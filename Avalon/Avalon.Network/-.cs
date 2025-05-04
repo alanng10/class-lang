@@ -12,3 +12,4 @@ global using SystemNetwork = System.Net.Sockets.TcpClient;
 global using SystemNetworkHost = System.Net.Sockets.TcpListener;
 global using SystemNetworkStream = System.Net.Sockets.NetworkStream;
 global using SystemNetworkPort = System.Net.IPEndPoint;
+global using SystemNetworkAddress = System.Net.IPAddress;
