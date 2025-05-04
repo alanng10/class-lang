@@ -6,14 +6,10 @@ public class ThreadNetworkState : State
     {
         base.Init();
         this.TextInfra = TextInfra.This;
-        this.NetworkStatusList = NetworkStatusList.This;
-        this.NetworkCaseList = NetworkCaseList.This;
         return true;
     }
 
     public TextInfra TextInfra { get; set; }
-    public NetworkStatusList NetworkStatusList { get; set; }
-    public NetworkCaseList NetworkCaseList { get; set; }
     public NetworkA Network { get; set; }
 
     public override bool Execute()
@@ -23,32 +19,26 @@ public class ThreadNetworkState : State
         long hostPort;
         hostPort = 50920;
 
-        NetworkA network;
-        network = new NetworkA();
+        NetworkNetwork network;
+        network = new NetworkNetwork();
         network.Init();
-
-        network.ThreadState = this;
 
         network.HostName = hostName;
         network.HostPort = hostPort;
 
-        this.Network = network;
+        bool b;
+        b = network.Open();
 
-        network.Open();
+        if (!b)
+        {
+            Console.This.Out.Write(this.S("Network Open Error\n"));
+            return true;
+        }
 
-        ThreadThis varThis;
-        varThis = new ThreadThis();
-        varThis.Init();
 
-        ThreadThread thread;
-        thread = varThis.Thread;
-
-        long o;
-        o = thread.ExecuteMain();
+        
 
         network.Final();
-
-        this.Network = null;
 
         string k;
         k = null;
@@ -64,23 +54,6 @@ public class ThreadNetworkState : State
         }
 
         Console.This.Out.Write(this.S("Network " + k + ", code: " + o + "\n"));
-        return true;
-    }
-
-    public bool ExitNetwork(long code)
-    {
-        NetworkA network;
-        network = this.Network;
-
-        network.Close();
-
-        ThreadThis varThis;
-        varThis = new ThreadThis();
-        varThis.Init();
-        ThreadThread thread;
-        thread = varThis.Thread;
-
-        thread.Exit(code);
         return true;
     }
 
