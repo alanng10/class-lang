@@ -1,15 +1,11 @@
-global using InternIntern = Avalon.Infra.Intern;
-global using InternInfra = Avalon.Infra.InternInfra;
 global using InternStream = Avalon.Infra.Stream;
 global using Any = Avalon.Infra.Any;
 global using String = Avalon.Infra.String;
 global using Data = Avalon.Infra.Data;
 global using Range = Avalon.Infra.Range;
-global using Array = Avalon.List.Array;
 global using StringValue = Avalon.Text.StringValue;
 global using StreamStream = Avalon.Stream.Stream;
 global using SystemNetwork = System.Net.Sockets.TcpClient;
 global using SystemNetworkHost = System.Net.Sockets.TcpListener;
-global using SystemNetworkStream = System.Net.Sockets.NetworkStream;
 global using SystemNetworkPort = System.Net.IPEndPoint;
 global using SystemNetworkAddress = System.Net.IPAddress;
