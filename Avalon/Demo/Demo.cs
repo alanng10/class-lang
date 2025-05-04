@@ -1454,7 +1454,7 @@ class Demo : TextAdd
     private bool ExecuteTimeEvent()
     {
         this.ExecuteTimeEventOne(4, 340, 0x4efd);
-        this.ExecuteTimeEventOne(0, 610, 0xf06e);
+        this.ExecuteTimeEventOne(1, 610, 0xf06e);
         return true;
     }
 
@@ -1471,6 +1471,7 @@ class Demo : TextAdd
 
         timeEvent.Time = time;
         timeEvent.ElapseCount = elapseCount;
+        timeEvent.Phore = phore;
 
         timeEvent.Start();
 

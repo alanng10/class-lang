@@ -17,14 +17,14 @@ class TimeEventA : TimeEvent
 
         console.Out.Write(this.S("Elapse Count: " + this.Count + "\n"));
          
-        if (!(this.Count < this.ElapseCount))
-        {
+        //if (!(this.Count < this.ElapseCount))
+        //{
             this.Stop();
 
             this.Phore.Close();
 
             console.Out.Write(this.S("TimeEvent Stop\n"));
-        }
+        //}
 
         console.Out.Write(this.S("TimeEvent Elapse END\n"));
 
