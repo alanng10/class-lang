@@ -3,9 +3,8 @@ namespace Demo;
 class TimeEventA : TimeEvent
 {
     public virtual Demo Demo { get; set; }
-    public ThreadThread Thread { get; set; }
-    public long ElapseCount { get; set; }
-    public long ExitCode { get; set; }
+    public virtual long ElapseCount { get; set; }
+    public virtual ThreadPhore Phore { get; set; }
     private long Count { get; set; }
 
     public override bool Elapse()
@@ -21,6 +20,8 @@ class TimeEventA : TimeEvent
         if (!(this.Count < this.ElapseCount))
         {
             this.Stop();
+
+            this.Phore.Close();
 
             console.Out.Write(this.S("TimeEvent Stop\n"));
         }

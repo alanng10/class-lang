@@ -23,8 +23,6 @@ class Demo : TextAdd
         return true;
     }
 
-    public virtual NetworkNetwork Peer { get; set; }
-    public virtual NetworkHostA Host { get; set; }
     public virtual InfraInfra InfraInfra { get; set; }
     public virtual ListInfra ListInfra { get; set; }
     public virtual MathInfra MathInfra { get; set; }
@@ -1455,13 +1453,32 @@ class Demo : TextAdd
 
     private bool ExecuteTimeEvent()
     {
-        this.ExecuteTimeEventOne(false, 4, 340, 0x4efd);
-        this.ExecuteTimeEventOne(true, 0, 610, 0xf06e);
+        this.ExecuteTimeEventOne(4, 340, 0x4efd);
+        this.ExecuteTimeEventOne(0, 610, 0xf06e);
         return true;
     }
 
-    private bool ExecuteTimeEventOne(bool single, long elapseCount, long time, long exitCode)
+    private bool ExecuteTimeEventOne(long elapseCount, long time, long exitCode)
     {
+        ThreadPhore phore;
+        phore = new ThreadPhore();
+        phore.InitCount = 0;
+        phore.Init();
+
+        TimeEventA timeEvent;
+        timeEvent = new TimeEventA();
+        timeEvent.Init();
+
+        timeEvent.Time = time;
+        timeEvent.ElapseCount = elapseCount;
+
+        timeEvent.Start();
+
+        phore.Open();
+
+        timeEvent.Final();
+
+        phore.Final();
         return true;
     }
 
