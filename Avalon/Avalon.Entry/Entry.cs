@@ -74,7 +74,6 @@ public class Entry : Any
 
     protected virtual bool MainAfter()
     {
-        Extern.Main_Final();
         return true;
     }
 
