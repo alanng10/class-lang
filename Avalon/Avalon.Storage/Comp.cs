@@ -146,7 +146,7 @@ public class Comp : Any
         return true;
     }
 
-    public virtual bool FileExist(String path)
+    public virtual bool Exist(String path)
     {
         string pathK;
         pathK = this.StringValue.ExecuteIntern(path);
@@ -154,7 +154,12 @@ public class Comp : Any
         bool k;
         try
         {
-            k = SystemStorageComp.Exists(pathK);
+            bool ba;
+            bool bb;
+            ba = SystemStorageComp.Exists(pathK);
+            bb = SystemStorageCompFold.Exists(pathK);
+        
+            k = ba | bb;
         }
         catch
         {
@@ -164,7 +169,7 @@ public class Comp : Any
         return k;
     }
 
-    public virtual bool FoldExist(String path)
+    public virtual bool Fold(String path)
     {
         string pathK;
         pathK = this.StringValue.ExecuteIntern(path);
