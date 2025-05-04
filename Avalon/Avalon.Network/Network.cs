@@ -58,18 +58,43 @@ public class Network : Any
             return false;
         }
 
-        this.InternHostName = this.InternInfra.StringCreate(this.HostName);
-        ulong hostPortU;
-        hostPortU = (ulong)this.HostPort;
-        this.DataStream = this.StreamCreate();
+        string hostNameK;
+        hostNameK = this.StringValue.ExecuteIntern(this.HostName);
 
-        ulong k;
-        k = (ulong)this.DataStream.Ident;
+        int hostPortK;
+        hostPortK = (int)this.HostPort;
 
-        Extern.Network_HostNameSet(this.Intern, this.InternHostName);
-        Extern.Network_HostPortSet(this.Intern, hostPortU);
-        Extern.Network_StreamSet(this.Intern, k);
-        Extern.Network_Open(this.Intern);
+        try
+        {
+            this.Intern = new SystemNetwork(hostNameK, hostPortK);
+        }
+        catch
+        {
+            return false;
+        }
+
+        try
+        {
+            this.StreamIdent = this.Intern.GetStream();
+        }
+        catch
+        {
+            try
+            {
+                this.Intern.Dispose();
+            }
+            catch
+            {
+            }
+            
+            this.Intern = null;
+
+            return false;
+        }
+
+        this.DataStream = this.CreateStream();
+
+        this.Stream = this.DataStream;
         return true;
     }
 
