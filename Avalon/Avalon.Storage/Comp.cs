@@ -218,7 +218,7 @@ public class Comp : Any
         return true;
     }
 
-    private void FoldCopyRecursive(SystemStorageFoldInfo source, SystemStorageFoldInfo target)
+    private bool FoldCopyRecursive(SystemStorageFoldInfo source, SystemStorageFoldInfo target)
     {
         SystemStorageFoldInfo[] foldArray;
         foldArray = source.GetDirectories();
@@ -253,6 +253,8 @@ public class Comp : Any
 
             i = i + 1;
         }
+
+        return true;
     }
 
     public virtual Array EntryList(String path, bool fold)
