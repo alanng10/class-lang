@@ -18,7 +18,6 @@ public class Storage : Any
     public virtual String Path { get; set; }
     public virtual Mode Mode { get; set; }
     public virtual StreamStream Stream { get; set; }
-    protected virtual StreamStream DataStream { get; set; }
     protected virtual Infra StorageInfra { get; set; }
     protected virtual StringValue StringValue { get; set; }
 
@@ -33,25 +32,24 @@ public class Storage : Any
             return false;
         }
 
-        this.DataStream = this.CreateStream();
+        StreamStream stream;
+        stream = this.CreateStream();
 
-        if (this.DataStream == null)
+        if (stream == null)
         {
             return false;
         }
 
-        this.Stream = this.DataStream;
-
+        this.Stream = stream;
         return true;
     }
 
     public virtual bool Close()
     {
-        if (!(this.DataStream == null))
+        if (!(this.Stream == null))
         {
-            this.DataStream.Final();
+            this.Stream.Final();
         }
-        this.DataStream = null;
         this.Stream = null;
         return true;
     }
