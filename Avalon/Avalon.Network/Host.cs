@@ -2,49 +2,14 @@ namespace Avalon.Network;
 
 public class Host : Any
 {
-    private bool PrivateNewPeer()
-    {
-        this.NewPeer();
-        return true;
-    }
-
     public override bool Init()
     {
         base.Init();
-        this.InternIntern = global::Avalon.Infra.Intern.This;
-        this.InternInfra = InternInfra.This;
-        this.NetworkInfra = Infra.This;
-        this.InternHandle = new Handle();
-        this.InternHandle.Any = this;
-        this.InternHandle.Init();
-
-        MaideAddress ka;
-        ka = this.NetworkInfra.HostNewPeerMaideAddress;
-        ulong arg;
-        arg = this.InternHandle.ULong();
-        this.InternNewPeerState = this.InternInfra.StateCreate(ka, arg);
-
-        this.InternPort = Extern.NetworkPort_New();
-        Extern.NetworkPort_Init(this.InternPort);
-
-        this.Intern = Extern.NetworkHost_New();
-        Extern.NetworkHost_Init(this.Intern);
-        Extern.NetworkHost_NewPeerStateSet(this.Intern, this.InternNewPeerState);
-        Extern.NetworkHost_PortSet(this.Intern, this.InternPort);
         return true;
     }
 
     public virtual bool Final()
     {
-        Extern.NetworkHost_Final(this.Intern);
-        Extern.NetworkHost_Delete(this.Intern);
-
-        Extern.NetworkPort_Final(this.InternPort);
-        Extern.NetworkPort_Delete(this.InternPort);
-
-        this.InternInfra.StateDelete(this.InternNewPeerState);
-
-        this.InternHandle.Final();
         return true;
     }
 
@@ -171,20 +136,5 @@ public class Host : Any
     public virtual bool NewPeer()
     {
         return false;
-    }
-
-    internal static ulong InternNewPeer(ulong networkServer, ulong arg)
-    {
-        InternIntern internIntern;
-        internIntern = InternIntern.This;
-
-        object ao;
-        ao = internIntern.HandleTarget(arg);
-
-        Host a;
-        a = (Host)ao;
-        a.PrivateNewPeer();
-
-        return 1;
     }
 }
