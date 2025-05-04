@@ -2,17 +2,6 @@ namespace Avalon.Network;
 
 public class Host : Any
 {
-    public override bool Init()
-    {
-        base.Init();
-        return true;
-    }
-
-    public virtual bool Final()
-    {
-        return true;
-    }
-
     public virtual Port Port { get; set; }
     private SystemNetworkHost Intern { get; set; }
 
