@@ -1,4 +1,3 @@
-global using Intern = Avalon.Infra.Intern;
 global using InternInfra = Avalon.Infra.InternInfra;
 global using InternStream = Avalon.Infra.Stream;
 global using Any = Avalon.Infra.Any;
