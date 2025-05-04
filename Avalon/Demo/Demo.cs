@@ -768,8 +768,6 @@ class Demo : TextAdd
 
         time.AddTick(200 * 1000);
         this.ConsoleWriteTime("Demo.ExecuteTime time AddTick : ", time);
-
-        time.Final();
         return true;
     }
 
