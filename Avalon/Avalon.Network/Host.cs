@@ -2,6 +2,11 @@ namespace Avalon.Network;
 
 public class Host : Any
 {
+    public virtual bool Final()
+    {
+        return true;
+    }
+
     public virtual Port Port { get; set; }
     private SystemNetworkHost Intern { get; set; }
 
