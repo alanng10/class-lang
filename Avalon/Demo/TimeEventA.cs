@@ -16,7 +16,7 @@ class TimeEventA : TimeEvent
         this.Count = this.Count + 1;
 
         console.Out.Write(this.S("Elapse Count: " + this.Count + "\n"));
-         
+
         //if (!(this.Count < this.ElapseCount))
         //{
             this.Stop();
