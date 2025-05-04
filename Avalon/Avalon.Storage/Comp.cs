@@ -58,7 +58,7 @@ public class Comp : Any
 
         try
         {
-            SystemStorageComp.Copy(pathK, destPathK);
+            SystemStorageComp.Copy(pathK, destPathK, true);
         }
         catch
         {
