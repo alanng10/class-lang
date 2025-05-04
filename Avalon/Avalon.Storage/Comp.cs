@@ -39,7 +39,7 @@ public class Comp : Any
 
         try
         {
-            SystemStorageComp.Move(pathK, destPathK);
+            SystemStorageCompFold.Move(pathK, destPathK);
         }
         catch
         {
