@@ -49,29 +49,64 @@ public class Host : Any
     }
 
     public virtual Port Port { get; set; }
-    private InternIntern InternIntern { get; set; }
-    private InternInfra InternInfra { get; set; }
-    private Infra NetworkInfra { get; set; }
-    private ulong Intern { get; set; }
-    private ulong InternPort { get; set; }
-    private ulong InternNewPeerState { get; set; }
-    private Handle InternHandle { get; set; }
+    private SystemNetworkHost Intern { get; set; }
+    private SystemNetworkPort InternPort { get; set; }
 
     public virtual bool Open()
     {
         this.InternPortSet();
-        
-        ulong k;
-        k = Extern.NetworkHost_Open(this.Intern);
 
-        bool a;
-        a = !(k == 0);
-        return a;
+        try
+        {
+            this.Intern = new SystemNetworkHost(this.InternPort);
+        }
+        catch
+        {
+            return false;
+        }
+
+        try
+        {
+            this.Intern.Start();
+        }
+        catch
+        {
+            try
+            {
+                this.Intern.Dispose();
+            }
+            catch
+            {
+            }
+
+            this.Intern = null;
+
+            return false;
+        }
+
+        return true;
     }
 
     public virtual bool Close()
     {
-        Extern.NetworkHost_Close(this.Intern);
+        try
+        {
+            this.Intern.Stop();
+        }
+        catch
+        {
+        }
+
+        try
+        {
+            this.Intern.Dispose();
+        }
+        catch
+        {
+        }
+
+        this.Intern = null;
+
         return true;
     }
 
