@@ -45,6 +45,7 @@ class Demo : TextAdd
         this.ExecuteRand();
         this.ExecuteFormat();
         this.ExecuteIntParse();
+        this.ExecuteStringValue();
         this.ExecuteMemoryStream();
         this.ExecuteTime();
         this.ExecuteStorage();
@@ -669,6 +670,24 @@ class Demo : TextAdd
 
         this.Console.Out.Write(ka);
 
+        return true;
+    }
+
+    private bool ExecuteStringValue()
+    {
+        string kaa;
+        kaa = "H m * & 的了";
+
+        String k;
+        k = this.S(kaa);
+
+        string ka;
+        ka = StringValue.This.ExecuteIntern(k);
+
+        bool b;
+        b = (ka == kaa);
+
+        this.Console.Out.Write(this.AddClear().AddS("StringValue ").Add(this.StatusString(b)).AddLine().AddResult());
         return true;
     }
 
