@@ -9,8 +9,7 @@ public class ThreadNetworkState : State
         return true;
     }
 
-    public TextInfra TextInfra { get; set; }
-    public NetworkA Network { get; set; }
+    public virtual TextInfra TextInfra { get; set; }
 
     public override bool Execute()
     {
