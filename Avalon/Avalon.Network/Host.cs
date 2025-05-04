@@ -101,12 +101,21 @@ public class Host : Any
 
     public virtual bool ClosePeer(Network a)
     {
-        ulong k;
+        object k;
         k = a.HostPeer;
 
         this.FinalPeer(a);
 
-        Extern.NetworkHost_ClosePeer(this.Intern, k);
+        SystemNetwork ka;
+        ka = k as SystemNetwork;
+
+        try
+        {
+            ka.Close();
+        }
+        catch
+        {
+        }
         return true;
     }
 
@@ -127,23 +136,6 @@ public class Host : Any
 
     private bool InternPortSet()
     {
-        ulong kindU;
-        kindU = this.Port.Kind.Intern;
-        ulong valueAU;
-        ulong valueBU;
-        ulong valueCU;
-        ulong hostU;
-        valueAU = (ulong)this.Port.ValueA;
-        valueBU = (ulong)this.Port.ValueB;
-        valueCU = (ulong)this.Port.ValueC;
-        hostU = (ulong)this.Port.Host;
-
-        Extern.NetworkPort_KindSet(this.InternPort, kindU);
-        Extern.NetworkPort_ValueASet(this.InternPort, valueAU);
-        Extern.NetworkPort_ValueBSet(this.InternPort, valueBU);
-        Extern.NetworkPort_ValueCSet(this.InternPort, valueCU);
-        Extern.NetworkPort_HostSet(this.InternPort, hostU);
-        Extern.NetworkPort_Set(this.InternPort);
         return true;
     }
 

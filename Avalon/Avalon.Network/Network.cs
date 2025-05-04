@@ -5,6 +5,25 @@ public class Network : Any
     public override bool Init()
     {
         base.Init();
+
+        if (!(this.HostPeer == null))
+        {
+            SystemNetwork ka;
+            ka = this.HostPeer as SystemNetwork;
+
+            this.Intern = ka;
+
+            bool b;
+            b = this.StreamGet();
+
+            if (!b)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         return true;
     }
 
@@ -42,6 +61,20 @@ public class Network : Any
             return false;
         }
 
+        return this.StreamGet();
+    }
+
+    public virtual bool Close()
+    {
+        this.Intern.Dispose();
+        this.Intern = null;
+
+        this.Stream = null;
+        return true;
+    }
+
+    private bool StreamGet()
+    {
         object streamIdent;
         try
         {
@@ -56,22 +89,13 @@ public class Network : Any
             catch
             {
             }
-            
+
             this.Intern = null;
 
             return false;
         }
 
         this.Stream = this.CreateStream(streamIdent);
-        return true;
-    }
-
-    public virtual bool Close()
-    {
-        this.Intern.Dispose();
-        this.Intern = null;
-
-        this.Stream = null;
         return true;
     }
 
