@@ -50,7 +50,8 @@ public class Code : Any
         k = outKind.Intern.GetBytes(kk);
 
         Data a;
-        a = new Data();
+        a = new CodeData();
+        a.Init();
         a.Value = k;
         a.Count = k.LongLength;
         return a;
