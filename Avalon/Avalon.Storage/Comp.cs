@@ -254,7 +254,7 @@ public class Comp : Any
         }
 
         long count;
-        count = k.Length;
+        count = k.LongLength;
 
         long i;
         i = 0;
@@ -264,7 +264,7 @@ public class Comp : Any
             ka = k[i];
 
             ka = SystemStoragePath.GetFileName(ka);
-            
+
             k[i] = ka;
             
             i = i + 1;
