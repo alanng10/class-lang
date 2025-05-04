@@ -112,34 +112,20 @@ public class Program : Any
 
         if (!(this.Environ == null))
         {
-            
+            this.EnvironSet(ka);
         }
 
-
-        Extern.Program_NameSet(this.Intern, nameU);
-        Extern.Program_ArgueSet(this.Intern, argueU);
-        Extern.Program_WorkFoldSet(this.Intern, workFoldU);
-        Extern.Program_EnvironSet(this.Intern, environU);
-
-        Extern.Program_Execute(this.Intern);
-
-        Extern.Program_EnvironSet(this.Intern, 0);
-        Extern.Program_WorkFoldSet(this.Intern, 0);
-        Extern.Program_ArgueSet(this.Intern, 0);
-        Extern.Program_NameSet(this.Intern, 0);
-
-        if (bb)
+        SystemProgram k;
+        try
         {
-            this.InternStringEntryListDelete(environU);
+            k = SystemProgram.Start(ka);
         }
-        if (ba)
+        catch
         {
-            this.InternInfra.StringDelete(workFoldU);
+            return false;
         }
 
-        this.InternStringListDelete(argueU);
-
-        this.InternInfra.StringDelete(nameU);
+        this.Intern = k;
         return true;
     }
 
