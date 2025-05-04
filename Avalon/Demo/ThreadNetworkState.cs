@@ -6,10 +6,13 @@ public class ThreadNetworkState : State
     {
         base.Init();
         this.TextInfra = TextInfra.This;
+        this.StringComp = StringComp.This;
         return true;
     }
 
-    public virtual TextInfra TextInfra { get; set; }
+    protected virtual TextInfra TextInfra { get; set; }
+    protected virtual StringComp StringComp { get; set; }
+    private NetworkNetwork Network { get; set; }
     private Data Data { get; set; }
     private Range Range { get; set; }
 
@@ -36,6 +39,26 @@ public class ThreadNetworkState : State
             return true;
         }
 
+        this.Network = network;
+
+        this.ExecuteNetwork();
+
+        this.Network = null;
+ 
+        network.Close();
+
+        Console.This.Out.Write(this.S("Network Close\n"));
+
+        network.Final();
+
+        return true;
+    }
+
+    private bool ExecuteNetwork()
+    {
+        NetworkNetwork network;
+        network = this.Network;
+
         Data data;
         data = new Data();
         data.Count = 5 * sizeof(uint);
@@ -49,10 +72,14 @@ public class ThreadNetworkState : State
 
         range.Count = 1;
 
-        network.Stream.Write(data, range);
+        bool b;
+        b = network.Stream.Write(data, range);
 
-        long stage;
-        stage = 0;
+        if (!b)
+        {
+            Console.This.Err.Write(this.S("Network Case 0 Write Error\n"));
+            return true;
+        }
 
         range.Index = 0;
         range.Count = 1;
@@ -79,8 +106,6 @@ public class ThreadNetworkState : State
 
         Console.This.Out.Write(this.S("Network Case 0 Success\n"));
 
-        stage = 1;
-
         data.Set(0, 11);
         data.Set(1, 57);
         data.Set(2, 98);
@@ -88,7 +113,13 @@ public class ThreadNetworkState : State
 
         range.Count = 4;
 
-        network.Stream.Write(data, range);
+        b = network.Stream.Write(data, range);
+
+        if (!b)
+        {
+            Console.This.Err.Write(this.S("Network Case 1 Write Error\n"));
+            return true;
+        }
 
         range.Count = 1;
 
@@ -134,16 +165,13 @@ public class ThreadNetworkState : State
 
         range.Count = data.Count;
 
-        this.Stream.Write(data, range);
+        b = network.Stream.Write(data, range);
 
-        this.ThreadState.ExitNetwork(0);
-        return true;
-            
-        network.Close();
-
-        Console.This.Out.Write(this.S("Network Close\n"));
-
-        network.Final();
+        if (!b)
+        {
+            Console.This.Err.Write(this.S("Network Case 2 Write Error\n"));
+            return true;
+        }
 
         return true;
     }
