@@ -214,7 +214,7 @@ class NetworkHostState : State
     {
         while (this.Network.Avail < count)
         {
-            this.TimeEvent.Wait(100);
+            this.TimeEvent.Wait(5);
         }
         return true;
     }
