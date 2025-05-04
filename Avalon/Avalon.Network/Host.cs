@@ -178,9 +178,4 @@ public class Host : Any
 
         return k;
     }
-
-    public virtual bool NewPeer()
-    {
-        return false;
-    }
 }
