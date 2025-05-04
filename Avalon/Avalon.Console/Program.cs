@@ -5,14 +5,12 @@ public class Program : Any
     public override bool Init()
     {
         base.Init();
-
+        this.StringValue = StringValue.This;
         return true;
     }
 
     public virtual bool Final()
     {
-        Extern.Program_Final(this.Intern);
-        Extern.Program_Delete(this.Intern);
         return true;
     }
 
@@ -44,17 +42,32 @@ public class Program : Any
         }
     }
 
+    protected virtual StringValue StringValue { get; set; }
     private SystemProgram Intern { get; set; }
 
     public virtual bool Wait()
     {
-        Extern.Program_Wait(this.Intern);
+        try
+        {
+            this.Intern.WaitForExit();
+        }
+        catch
+        {
+            return false;
+        }
         return true;
     }
 
     public virtual bool Exit()
     {
-        Extern.Program_Exit(this.Intern);
+        try
+        {
+            this.Intern.Kill(true);
+        }
+        catch
+        {
+            return false;
+        }
         return true;
     }
 
