@@ -155,39 +155,41 @@ public class Program : Any
             index = iter.Index as String;
             value = iter.Value as String;
 
-            string kca;
-            string kcb;
-            kca = this.StringValue.ExecuteIntern(index);
-            kcb = null;
+            string indexK;
+            string valueK;
+            indexK = this.StringValue.ExecuteIntern(index);
+            valueK = null;
 
             bool b;
             b = (value == null);
 
             if (b)
             {
-                if (k.Environment.ContainsKey(kca))
+                if (k.Environment.ContainsKey(indexK))
                 {
-                    k.Environment.Remove(kca);
+                    k.Environment.Remove(indexK);
                 }
             }
 
             if (!b)
             {
-                kcb = this.StringValue.ExecuteIntern(value);
+                valueK = this.StringValue.ExecuteIntern(value);
 
                 bool ba;
-                ba = k.Environment.ContainsKey(kca);
+                ba = k.Environment.ContainsKey(indexK);
 
                 if (ba)
                 {
-                    k.Environment[kca] = kcb;
+                    k.Environment[indexK] = valueK;
                 }
 
                 if (!ba)
                 {
-                    k.Environment.Add(kca, kcb);
+                    k.Environment.Add(indexK, valueK);
                 }
             }
         }
+
+        return true;
     }
 }
