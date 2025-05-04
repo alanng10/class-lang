@@ -82,11 +82,20 @@ public class Host : Any
 
     public virtual Network OpenPeer()
     {
-        ulong k;
-        k = Extern.NetworkHost_OpenPeer(this.Intern);
+        object peer;
+        
+        try
+        {
+            peer = this.Intern.AcceptTcpClient();
+        }
+        catch
+        {
+            return null;
+        }
 
         Network a;
-        a = this.CreatePeer(k);
+        a = this.CreatePeer(peer);
+
         return a;
     }
 
@@ -101,7 +110,7 @@ public class Host : Any
         return true;
     }
 
-    protected virtual Network CreatePeer(ulong peer)
+    protected virtual Network CreatePeer(object peer)
     {
         Network a;
         a = new Network();
