@@ -5,27 +5,9 @@ public class Network : Any
     public override bool Init()
     {
         base.Init();
-        this.InternIntern = InternIntern.This;
-        this.InternInfra = InternInfra.This;
-        this.NetworkInfra = Infra.This;
-        this.InternHandle = new Handle();
-        this.InternHandle.Any = this;
-        this.InternHandle.Init();
-
-        MaideAddress ka;
-        ka = this.NetworkInfra.NetworkStatusEventMaideAddress;
-        MaideAddress kb;
-        kb = this.NetworkInfra.NetworkCaseEventMaideAddress;
-        MaideAddress kc;
-        kc = this.NetworkInfra.NetworkDataEventMaideAddress;
-        ulong arg;
-        arg = this.InternHandle.ULong();
-        this.InternStatusEventState = this.InternInfra.StateCreate(ka, arg);
-        this.InternCaseEventState = this.InternInfra.StateCreate(kb, arg);
-        this.InternDataEventState = this.InternInfra.StateCreate(kc, arg);
 
         bool b;
-        b = (this.HostPeer == 0);
+        b = (this.HostPeer == null);
         if (b)
         {
             this.Intern = Extern.Network_New();
@@ -33,20 +15,13 @@ public class Network : Any
         }
         if (!b)
         {
-            this.Intern = this.HostPeer;
-
-            ulong streamU;
-            streamU = Extern.Network_StreamGet(this.Intern);
+            this.Intern = this.HostPeer as SystemNetwork;
 
             long ident;
             ident = (long)streamU;
             this.DataStream = this.StreamCreateSet(ident);
             this.Stream = this.DataStream;
         }
-
-        Extern.Network_StatusEventStateSet(this.Intern, this.InternStatusEventState);
-        Extern.Network_CaseEventStateSet(this.Intern, this.InternCaseEventState);
-        Extern.Network_DataEventStateSet(this.Intern, this.InternDataEventState);
         return true;
     }
 
@@ -73,78 +48,12 @@ public class Network : Any
         return true;
     }
 
-    public virtual ulong HostPeer { get; set; }
+    public virtual object HostPeer { get; set; }
     public virtual String HostName { get; set; }
     public virtual long HostPort { get; set; }
     public virtual StreamStream Stream { get; set; }
     protected virtual StreamStream DataStream { get; set; }
-    public virtual bool LoadOpen { get; set; }
-
-    public virtual Status Status
-    {
-        get
-        {
-            ulong u;
-            u = Extern.Network_StatusGet(this.Intern);
-            long k;
-            k = (long)u;
-            Status a;
-            a = this.NetworkStatusList.Get(k);
-            return a;
-        }
-        set
-        {
-        }
-    }
-
-    public virtual Case Case
-    {
-        get
-        {
-            ulong u;
-            u = Extern.Network_CaseGet(this.Intern);
-            if (u == 0)
-            {
-                return null;
-            }
-            u = u - 1;
-            long k;
-            k = (long)u;
-            Case a;
-            a = this.NetworkCaseList.Get(k);
-            return a;
-        }
-        set
-        {
-        }
-    }
-
-    public virtual long ReadyCount
-    {
-        get
-        {
-            ulong u;
-            u = Extern.Network_ReadyCountGet(this.Intern);
-            long a;
-            a = (long)u;
-            return a;
-        }
-        set
-        {
-        }
-    }
-
-    private InternIntern InternIntern { get; set; }
-    private InternInfra InternInfra { get; set; }
-    private Infra NetworkInfra { get; set; }
-    protected virtual StatusList NetworkStatusList { get; set; }
-    protected virtual CaseList NetworkCaseList { get; set; }
-    private ulong Intern { get; set; }
-    private ulong InternDataEventState { get; set; }
-    private ulong InternCaseEventState { get; set; }
-    private ulong InternStatusEventState { get; set; }
-    private Handle InternHandle { get; set; }
-    private ulong InternHostName { get; set; }
+    private SystemNetwork Intern { get; set; }
 
     public virtual bool Open()
     {
@@ -211,65 +120,5 @@ public class Network : Any
         StreamStream a;
         a = k;
         return a;
-    }
-
-    public virtual bool StatusEvent()
-    {
-        return false;
-    }
-
-    public virtual bool CaseEvent()
-    {
-        return false;
-    }
-
-    public virtual bool DataEvent()
-    {
-        return false;
-    }
-
-    internal static ulong InternStatusEvent(ulong network, ulong arg)
-    {
-        InternIntern internIntern;
-        internIntern = InternIntern.This;
-
-        object ao;
-        ao = internIntern.HandleTarget(arg);
-
-        Network a;
-        a = (Network)ao;
-        a.PrivateStatusEvent();
-
-        return 1;
-    }
-
-    internal static ulong InternCaseEvent(ulong network, ulong arg)
-    {
-        InternIntern internIntern;
-        internIntern = InternIntern.This;
-
-        object ao;
-        ao = internIntern.HandleTarget(arg);
-
-        Network a;
-        a = (Network)ao;
-        a.PrivateCaseEvent();
-
-        return 1;
-    }
-
-    internal static ulong InternDataEvent(ulong network, ulong arg)
-    {
-        InternIntern internIntern;
-        internIntern = InternIntern.This;
-
-        object ao;
-        ao = internIntern.HandleTarget(arg);
-
-        Network a;
-        a = (Network)ao;
-        a.PrivateDataEvent();
-
-        return 1;
     }
 }
