@@ -364,6 +364,7 @@ Time
 TimeEvent
     Start()
     Stop()
+    Wait(time)
     Time
     Single
     Active
