@@ -5,6 +5,7 @@ public class Network : Any
     public override bool Init()
     {
         base.Init();
+        this.StringValue = StringValue.This;
 
         if (!(this.HostPeer == null))
         {
