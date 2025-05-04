@@ -29,6 +29,13 @@ public class Network : Any
 
     public virtual bool Final()
     {
+        if (!(this.Stream == null))
+        {
+            this.Stream.Final();
+        }
+
+        this.Stream = null;
+        this.Intern = null;
         return true;
     }
 
