@@ -39,12 +39,6 @@ public class Network : Any
             this.DataStream.Final();
             this.Stream = null;
         }
-
-        this.InternInfra.StateDelete(this.InternDataEventState);
-        this.InternInfra.StateDelete(this.InternCaseEventState);
-        this.InternInfra.StateDelete(this.InternStatusEventState);
-
-        this.InternHandle.Final();
         return true;
     }
 
@@ -52,7 +46,9 @@ public class Network : Any
     public virtual String HostName { get; set; }
     public virtual long HostPort { get; set; }
     public virtual StreamStream Stream { get; set; }
+    protected virtual StringValue StringValue { get; set; }
     protected virtual StreamStream DataStream { get; set; }
+    protected virtual object StreamIdent { get; set; }
     private SystemNetwork Intern { get; set; }
 
     public virtual bool Open()
@@ -61,12 +57,6 @@ public class Network : Any
         {
             return false;
         }
-        if (this.LoadOpen)
-        {
-            return false;
-        }
-
-        this.LoadOpen = true;
 
         this.InternHostName = this.InternInfra.StringCreate(this.HostName);
         ulong hostPortU;
@@ -101,21 +91,19 @@ public class Network : Any
         return true;
     }
 
-    protected virtual StreamStream StreamCreateSet(long ident)
+    protected virtual StreamStream CreateStream()
     {
-        Stream k;
-        k = new Stream();
-        k.InitIdent = ident;
-        k.Init();
-        StreamStream a;
-        a = k;
-        return a;
-    }
+        object kk;
+        kk = this.StreamIdent;
 
-    protected virtual StreamStream StreamCreate()
-    {
+        if (kk == null)
+        {
+            return null;
+        }
+
         Stream k;
         k = new Stream();
+        k.SetIdent = kk;
         k.Init();
         StreamStream a;
         a = k;

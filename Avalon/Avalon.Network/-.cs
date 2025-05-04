@@ -6,5 +6,7 @@ global using String = Avalon.Infra.String;
 global using Data = Avalon.Infra.Data;
 global using Range = Avalon.Infra.Range;
 global using Array = Avalon.List.Array;
+global using StringValue = Avalon.Text.StringValue;
 global using StreamStream = Avalon.Stream.Stream;
 global using SystemNetwork = System.Net.Sockets.TcpClient;
+global using SystemNetworkStream = System.Net.Sockets.NetworkStream;
