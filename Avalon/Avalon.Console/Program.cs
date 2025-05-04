@@ -110,14 +110,53 @@ public class Program : Any
 
         ka.WorkingDirectory = workFoldK;
 
-        ulong environU;
-        environU = 0;
-        bool bb;
-        bb = !(this.Environ == null);
-        if (bb)
+        if (!(this.Environ == null))
         {
-            environU = this.InternStringEntryListCreate(this.Environ);
+            iter = this.Environ.IterCreate();
+            this.Environ.IterSet(iter);
+            while (iter.Next())
+            {
+                String kba;
+                String kbb;
+                kba = iter.Index as String;
+                kbb = iter.Value as String;
+
+                string kca;
+                string kcb;
+                kca = this.StringValue.ExecuteIntern(kba);
+                kcb = null;
+
+                bool bb;
+                bb = (kbb == null);
+
+                if (bb)
+                {
+                    if (ka.Environment.ContainsKey(kca))
+                    {
+                        ka.Environment.Remove(kca);
+                    }
+                }
+
+                if (!bb)
+                {
+                    kcb = this.StringValue.ExecuteIntern(kbb);
+
+                    bool baa;
+                    baa = ka.Environment.ContainsKey(kca);
+
+                    if (baa)
+                    {
+                        ka.Environment[kca] = kcb;
+                    }
+
+                    if (!baa)
+                    {
+                        ka.Environment.Add(kca, kcb);
+                    }
+                }
+            }
         }
+
 
         Extern.Program_NameSet(this.Intern, nameU);
         Extern.Program_ArgueSet(this.Intern, argueU);
