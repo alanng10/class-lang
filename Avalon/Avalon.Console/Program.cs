@@ -5,10 +5,7 @@ public class Program : Any
     public override bool Init()
     {
         base.Init();
-        this.InternInfra = InternInfra.This;
 
-        this.Intern = Extern.Program_New();
-        Extern.Program_Init(this.Intern);
         return true;
     }
 
@@ -23,14 +20,23 @@ public class Program : Any
     public virtual ListList Argue { get; set; }
     public virtual String WorkFold { get; set; }
     public virtual Table Environ { get; set; }
-    public virtual long Ident
+
+    public virtual long Status
     {
         get
         {
-            ulong u;
-            u = Extern.Program_IdentGet(this.Intern);
+            int k;
+            try
+            {
+                k = this.Intern.ExitCode;
+            }
+            catch
+            {
+                return -1;
+            }
+
             long a;
-            a = (long)u;
+            a = k;
             return a;
         }
         set
@@ -38,22 +44,7 @@ public class Program : Any
         }
     }
 
-    public virtual long Status
-    {
-        get
-        {
-            ulong u;
-            u = Extern.Program_StatusGet(this.Intern);
-            long a;
-            a = (long)u;
-            return a;
-        }
-        set
-        {
-        }
-    }
-    private InternInfra InternInfra { get; set; }
-    private ulong Intern { get; set; }
+    private SystemProgram Intern { get; set; }
 
     public virtual bool Wait()
     {
