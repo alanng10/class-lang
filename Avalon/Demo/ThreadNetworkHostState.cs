@@ -10,6 +10,7 @@ class ThreadNetworkHostState : State
     }
 
     protected virtual TextInfra TextInfra { get; set; }
+    private NetworkNetwork Network { get; set; }
 
     public override bool Execute()
     {
@@ -54,6 +55,12 @@ class ThreadNetworkHostState : State
         if (!(network == null))
         {
             Console.This.Out.Write(this.S("Network Host Open Peer Success\n"));
+
+            this.Network = network;
+
+            this.ExecuteNetwork();
+
+            this.Network = null;
         }
 
         host.Close();
@@ -63,6 +70,11 @@ class ThreadNetworkHostState : State
         timeEvent.Final();
 
         Console.This.Out.Write(this.S("Network Host End\n"));
+        return true;
+    }
+
+    private bool ExecuteNetwork()
+    {
         return true;
     }
 
