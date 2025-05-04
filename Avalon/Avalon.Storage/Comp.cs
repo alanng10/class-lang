@@ -13,7 +13,7 @@ public class Comp : Any
         a.Init();
         return share;
     }
-    
+
     public override bool Init()
     {
         base.Init();
