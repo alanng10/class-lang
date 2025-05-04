@@ -69,7 +69,11 @@ public class Network : Any
 
     public virtual bool Close()
     {
-        this.Intern.Dispose();
+        if (!(this.Intern == null))
+        {
+            this.Intern.Dispose();
+        }
+
         this.Intern = null;
 
         this.Stream = null;
