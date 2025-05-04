@@ -958,27 +958,30 @@ class Demo : TextAdd
         mode.Write = true;
         storage.Path = filePath;
         storage.Mode = mode;
-        storage.Open();
 
-        bool o;
-        o = false;
-        if (storage.Status == this.StorageStatusList.NoError)
+        bool b;
+        b = storage.Open();
+
+        bool a;
+        a = false;
+        if (b)
         {
             Stream stream;
             stream = storage.Stream;
-            stream.PosSet(pos);
-            if (stream.Status == 0)
+
+            b = stream.PosSet(pos);
+            if (b)
             {
-                stream.Write(resultData, resultRange);
-                if (stream.Status == 0)
+                b = stream.Write(resultData, resultRange);
+                if (b)
                 {
-                    o = true;
+                    a = true;
                 }
             }
         }
         storage.Close();
         storage.Final();
-        return o;
+        return a;
     }
 
     private bool ExecuteStorageStream()
