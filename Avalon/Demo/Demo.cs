@@ -1341,8 +1341,8 @@ class Demo : TextAdd
         hostThread = new ThreadThread();
         hostThread.Init();
 
-        ThreadNetworkHostState state;
-        state = new ThreadNetworkHostState();
+        NetworkHostState state;
+        state = new NetworkHostState();
         state.Demo = this;
         state.Init();
 
@@ -1354,8 +1354,8 @@ class Demo : TextAdd
         networkThread = new ThreadThread();
         networkThread.Init();
 
-        ThreadNetworkState aa;
-        aa = new ThreadNetworkState();
+        NetworkState aa;
+        aa = new NetworkState();
         aa.Init();
 
         networkThread.ExecuteState = aa;

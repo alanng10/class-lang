@@ -1,6 +1,6 @@
 namespace Demo;
 
-class ThreadNetworkHostState : State
+class NetworkHostState : State
 {
     public override bool Init()
     {
