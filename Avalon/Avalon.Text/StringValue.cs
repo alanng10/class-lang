@@ -59,7 +59,7 @@ public class StringValue : Any
 
         string k;
         k = innKind.Intern.GetString(ka);
-        
+
         string a;
         a = k;
         return a;
