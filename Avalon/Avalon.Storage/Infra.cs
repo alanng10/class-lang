@@ -115,11 +115,13 @@ public class Infra : Any
 
         storage.Path = filePath;
         storage.Mode = mode;
-        storage.Open();
+
+        bool b;
+        b = storage.Open();
 
         bool a;
         a = false;
-        if (storage.Status == this.StorageStatusList.NoError)
+        if (b)
         {
             StreamStream stream;
             stream = storage.Stream;
@@ -130,8 +132,8 @@ public class Infra : Any
             range.Index = 0;
             range.Count = data.Count;
 
-            stream.Write(data, range);
-            if (storage.Status == this.StorageStatusList.NoError)
+            b = stream.Write(data, range);
+            if (b)
             {
                 a = true;
             }
