@@ -217,14 +217,16 @@ public class Infra : Any
 
         storage.Path = filePath;
         storage.Mode = mode;
-        storage.Open();
+
+        bool b;
+        b = storage.Open();
 
         bool a;
         a = false;
-        if (storage.Status == this.StorageStatusList.NoError)
+        if (b)
         {
-            storage.CountSet(value);
-            if (storage.Status == this.StorageStatusList.NoError)
+            b = storage.CountSet(value);
+            if (b)
             {
                 a = true;
             }
