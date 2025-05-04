@@ -47,8 +47,6 @@ public class Network : Any
     public virtual long HostPort { get; set; }
     public virtual StreamStream Stream { get; set; }
     protected virtual StringValue StringValue { get; set; }
-    protected virtual StreamStream DataStream { get; set; }
-    protected virtual object StreamIdent { get; set; }
     private SystemNetwork Intern { get; set; }
 
     public virtual bool Open()
@@ -73,9 +71,10 @@ public class Network : Any
             return false;
         }
 
+        object streamIdent;
         try
         {
-            this.StreamIdent = this.Intern.GetStream();
+            streamIdent = this.Intern.GetStream();
         }
         catch
         {
@@ -92,43 +91,29 @@ public class Network : Any
             return false;
         }
 
-        this.DataStream = this.CreateStream();
-
-        this.Stream = this.DataStream;
+        this.Stream = this.CreateStream(streamIdent);
         return true;
     }
 
     public virtual bool Close()
     {
-        this.LoadOpen = false;
+        this.Intern.Dispose();
+        this.Intern = null;
 
-        Extern.Network_Close(this.Intern);
-
-        Extern.Network_StreamSet(this.Intern, 0);
-        Extern.Network_HostPortSet(this.Intern, 0);
-        Extern.Network_HostNameSet(this.Intern, 0);
-
-        this.DataStream.Final();
-        this.DataStream = null;
         this.Stream = null;
-
-        this.InternInfra.StringDelete(this.InternHostName);
         return true;
     }
 
-    protected virtual StreamStream CreateStream()
+    protected virtual StreamStream CreateStream(object ident)
     {
-        object kk;
-        kk = this.StreamIdent;
-
-        if (kk == null)
+        if (ident == null)
         {
             return null;
         }
 
         Stream k;
         k = new Stream();
-        k.SetIdent = kk;
+        k.SetIdent = ident;
         k.Init();
         StreamStream a;
         a = k;
