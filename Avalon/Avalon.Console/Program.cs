@@ -112,49 +112,7 @@ public class Program : Any
 
         if (!(this.Environ == null))
         {
-            iter = this.Environ.IterCreate();
-            this.Environ.IterSet(iter);
-            while (iter.Next())
-            {
-                String kba;
-                String kbb;
-                kba = iter.Index as String;
-                kbb = iter.Value as String;
-
-                string kca;
-                string kcb;
-                kca = this.StringValue.ExecuteIntern(kba);
-                kcb = null;
-
-                bool bb;
-                bb = (kbb == null);
-
-                if (bb)
-                {
-                    if (ka.Environment.ContainsKey(kca))
-                    {
-                        ka.Environment.Remove(kca);
-                    }
-                }
-
-                if (!bb)
-                {
-                    kcb = this.StringValue.ExecuteIntern(kbb);
-
-                    bool baa;
-                    baa = ka.Environment.ContainsKey(kca);
-
-                    if (baa)
-                    {
-                        ka.Environment[kca] = kcb;
-                    }
-
-                    if (!baa)
-                    {
-                        ka.Environment.Add(kca, kcb);
-                    }
-                }
-            }
+            
         }
 
 
@@ -183,5 +141,53 @@ public class Program : Any
 
         this.InternInfra.StringDelete(nameU);
         return true;
+    }
+
+    private bool EnvironSet(SystemProgramInfo k)
+    {
+        Iter iter;
+        iter = this.Environ.IterCreate();
+        this.Environ.IterSet(iter);
+        while (iter.Next())
+        {
+            String index;
+            String value;
+            index = iter.Index as String;
+            value = iter.Value as String;
+
+            string kca;
+            string kcb;
+            kca = this.StringValue.ExecuteIntern(index);
+            kcb = null;
+
+            bool b;
+            b = (value == null);
+
+            if (b)
+            {
+                if (k.Environment.ContainsKey(kca))
+                {
+                    k.Environment.Remove(kca);
+                }
+            }
+
+            if (!b)
+            {
+                kcb = this.StringValue.ExecuteIntern(value);
+
+                bool ba;
+                ba = k.Environment.ContainsKey(kca);
+
+                if (ba)
+                {
+                    k.Environment[kca] = kcb;
+                }
+
+                if (!ba)
+                {
+                    k.Environment.Add(kca, kcb);
+                }
+            }
+        }
     }
 }
