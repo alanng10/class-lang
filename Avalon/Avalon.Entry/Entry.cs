@@ -53,11 +53,6 @@ public class Entry : Any
 
     protected virtual bool MainBefore()
     {
-        ulong ua;
-        ua = 1;
-        Extern.Main_IsCSharpSet(ua);
-        Extern.Main_Init(0, 0);
-
         ThreadThread o;
         o = new ThreadThread();
         o.InitMainThread();
@@ -90,28 +85,29 @@ public class Entry : Any
 
     protected virtual bool ArrayArg()
     {
-        string[] ao;
-        ao = this.InternArg;
-
         long count;
-        count = ao.LongLength;
+        count = this.InternArg.LongLength;
+
         Array array;
         array = new Array();
         array.Count = count;
         array.Init();
+
         long i;
         i = 0;
         while (i < count)
         {
-            string ku;
-            ku = ao[i];
+            string ka;
+            ka = this.InternArg[i];
 
             String a;
-            a = this.S(ku);
+            a = this.S(ka);
 
             array.SetAt(i, a);
+
             i = i + 1;
         }
+
         this.Arg = array;
 
         return true;

@@ -1,6 +1,5 @@
 global using Intern = Avalon.Infra.Intern;
 global using InternInfra = Avalon.Infra.InternInfra;
-global using Extern = Avalon.Infra.Extern;
 global using Any = Avalon.Infra.Any;
 global using String = Avalon.Infra.String;
 global using Array = Avalon.List.Array;
