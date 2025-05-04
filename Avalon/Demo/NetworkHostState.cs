@@ -14,12 +14,15 @@ class NetworkHostState : State
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
     private NetworkNetwork Network { get; set; }
+    private TimeEvent TimeEvent { get; set; }
 
     public override bool Execute()
     {
         TimeEvent timeEvent;
         timeEvent = new TimeEvent();
         timeEvent.Init();
+
+        this.TimeEvent = timeEvent;
 
         NetworkPort port;
         port = new NetworkPort();
@@ -70,6 +73,8 @@ class NetworkHostState : State
 
         host.Final();
 
+        this.TimeEvent = null;
+
         timeEvent.Final();
 
         Console.This.Out.Write(this.S("Network Host End\n"));
@@ -95,6 +100,8 @@ class NetworkHostState : State
         range.Count = 1;
 
         bool b;
+
+        this.WaitAvail(range.Count);
 
         b = network.Stream.Read(data, range);
 
@@ -133,6 +140,8 @@ class NetworkHostState : State
         }
 
         range.Count = 4;
+
+        this.WaitAvail(range.Count);
 
         b = network.Stream.Read(data, range);
 
@@ -175,6 +184,8 @@ class NetworkHostState : State
 
         range.Count = 20;
 
+        this.WaitAvail(range.Count);
+
         b = network.Stream.Read(data, range);
 
         if (!b)
@@ -196,6 +207,15 @@ class NetworkHostState : State
 
         Console.This.Out.Write(this.S("Network Host Case 2 Success\n"));
 
+        return true;
+    }
+
+    private bool WaitAvail(long count)
+    {
+        while (this.Network.Avail < count)
+        {
+            this.TimeEvent.Wait(100);
+        }
         return true;
     }
 

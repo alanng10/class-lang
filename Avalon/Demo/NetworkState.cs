@@ -13,11 +13,16 @@ public class NetworkState : State
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
     private NetworkNetwork Network { get; set; }
-    private Data Data { get; set; }
-    private Range Range { get; set; }
+    private TimeEvent TimeEvent { get; set; }
 
     public override bool Execute()
     {
+        TimeEvent timeEvent;
+        timeEvent = new TimeEvent();
+        timeEvent.Init();
+
+        this.TimeEvent = timeEvent;
+
         String hostName;
         hostName = this.S("localhost");
         long hostPort;
@@ -51,6 +56,10 @@ public class NetworkState : State
 
         network.Final();
 
+        this.TimeEvent = null;
+
+        timeEvent.Final();
+
         return true;
     }
 
@@ -83,6 +92,8 @@ public class NetworkState : State
 
         range.Index = 0;
         range.Count = 1;
+
+        this.WaitAvail(range.Count);
 
         b = network.Stream.Read(data, range);
 
@@ -122,6 +133,8 @@ public class NetworkState : State
         }
 
         range.Count = 1;
+
+        this.WaitAvail(range.Count);
 
         b = network.Stream.Read(data, range);
 
@@ -173,6 +186,15 @@ public class NetworkState : State
             return true;
         }
 
+        return true;
+    }
+
+    private bool WaitAvail(long count)
+    {
+        while (this.Network.Avail < count)
+        {
+            this.TimeEvent.Wait(100);
+        }
         return true;
     }
 
