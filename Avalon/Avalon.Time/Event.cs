@@ -51,6 +51,16 @@ public class Event : Any
         return false;
     }
 
+    public virtual bool Wait(long time)
+    {
+        int k;
+        k = (int)time;
+
+        SystemThread.Sleep(k);
+
+        return true;
+    }
+
     private void ElapseHandle(object sender, SystemTimeEventHandleArg e)
     {
         this.Elapse();
