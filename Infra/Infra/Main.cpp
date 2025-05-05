@@ -15,16 +15,13 @@ Int Main_Init(Int argc, Int argv)
 
     Main_InitArg();
 
-    m->Argv[0] = (char*)"Application";
+    m->Argc = 1;
 
-    int ka;
-    ka = 1;
-    char** kb;
-    kb = m->Argv;
+    m->Argv[0] = (char*)"Application";
 
     QCoreApplication::addLibraryPath(".");
 
-    m->Intern = new QApplication(ka, kb);
+    m->Intern = new QApplication(m->Argc, m->Argv);
 
     m->MainThread = Thread_New();
     Thread_InitMainThread(m->MainThread);

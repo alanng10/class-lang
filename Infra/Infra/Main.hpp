@@ -13,6 +13,7 @@ struct Main
     Int Arg;
     Int ArgC;
     Int ArgV;
+    int Argc;
     char* Argv[2];
     Int TerminateState;
     Int IsCSharp;
