@@ -136,6 +136,10 @@ Class has park element kind arch marry.
 
 Class has park element kind arch land.
 
+Class has park mark.
+
+Class has park cross.
+
 Class has major.
 
 Class has major on any.
