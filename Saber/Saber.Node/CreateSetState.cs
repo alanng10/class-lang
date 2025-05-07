@@ -5,8 +5,11 @@ public class CreateSetState : InfraState
     public override bool Init()
     {
         base.Init();
-        this.Arg = new CreateSetStateArg();
-        this.Arg.Init();
+
+        CreateSetStateArg k;
+        k = new CreateSetStateArg();
+        k.Init();
+        this.Arg = k;
         return true;
     }
 }
