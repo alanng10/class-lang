@@ -652,6 +652,8 @@ Infra_Api Int TimeEvent_ElapseStateSet(Int o, Int value);
 Infra_Api Int TimeEvent_Start(Int o);
 Infra_Api Int TimeEvent_Stop(Int o);
 
+Infra_Api Int TimeEvent_Wait(Int time);
+
 typedef Int (*TimeEvent_Elapse_Maide)(Int timeEvent, Int arg);
 
 InfraApiNew(Program)
