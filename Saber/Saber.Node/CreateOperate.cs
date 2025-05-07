@@ -4,7 +4,7 @@ public class CreateOperate : Any
 {
     public virtual Create Create { get; set; }
 
-    public virtual Node Execute()
+    public virtual Node ExecuteNode()
     {
         return null;
     }
@@ -19,7 +19,7 @@ public class CreateOperate : Any
         return null;
     }
 
-    public virtual bool ExecuteListSetItem(long index, long itemIndex, object item)
+    public virtual bool ExecuteListItemSet(long index, long itemIndex, object value)
     {
         return false;
     }
@@ -28,8 +28,8 @@ public class CreateOperate : Any
     {
         return false;
     }
-    
-    public virtual bool ExecuteError(ErrorKind kind, long start, long end)
+
+    public virtual bool ExecuteError(ErrorKind kind, Range range)
     {
         return false;
     }
