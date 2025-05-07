@@ -2,6 +2,6 @@ ValueOperate
 {
     Value : IntValue
             {
-                Value : 1,
+                Value : 0h000000000000001,
             },
 },
