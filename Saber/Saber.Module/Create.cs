@@ -1094,7 +1094,7 @@ public class Create : ClassCreate
         a.Stage = this.Stage;
         a.Kind = kind;
         a.Range = node.Range;
-        a.Source = source;
+        a.Source = source.Index;
 
         this.ErrorList.Add(a);
         return true;
