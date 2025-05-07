@@ -5,10 +5,12 @@ public class IntParse : TextAdd
     public override bool Init()
     {
         base.Init();
+        this.InfraInfra = InfraInfra.This;
         this.ClassInfra = Infra.This;
         return true;
     }
 
+    protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual Infra ClassInfra { get; set; }
 
     public virtual long HexSignValue(Text text)
@@ -221,16 +223,25 @@ public class IntParse : TextAdd
             return -1;
         }
 
-        long a;
-        a = 0;
+        long k;
+        k = 0;
         if (!negate)
         {
-            a = value;
+            k = value;
         }
         if (negate)
         {
-            a = 0 - value;
+            k = 0 - value;
         }
+
+        long ka;
+        ka = this.InfraInfra.IntCapValue;
+        ka = ka - 1;
+
+        k = k & ka;
+
+        long a;
+        a = k;
         return a;
     }
 
