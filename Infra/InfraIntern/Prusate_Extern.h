@@ -680,6 +680,8 @@ Intern_Api Int Intern_Extern_TimeEvent_ElapseStateSet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_TimeEvent_Start(Eval* e, Int f);
 Intern_Api Int Intern_Extern_TimeEvent_Stop(Eval* e, Int f);
 
+Intern_Api Int Intern_Extern_TimeEvent_Wait(Eval* e, Int f);
+
 Intern_Api Int Intern_Extern_Program_New(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Program_Delete(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Program_Init(Eval* e, Int f);

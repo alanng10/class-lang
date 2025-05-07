@@ -8075,6 +8075,19 @@ Int Intern_Extern_TimeEvent_Stop(Eval* eval, Int frame)
     Return;
 }
 
+Int Intern_Extern_TimeEvent_Wait(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 1;
+
+    Param(0);
+
+    Int a;
+    a = TimeEvent_Wait(a0);
+
+    Return;
+}
+
 Int Intern_Extern_Program_New(Eval* eval, Int frame)
 {
     Int paramCount;
