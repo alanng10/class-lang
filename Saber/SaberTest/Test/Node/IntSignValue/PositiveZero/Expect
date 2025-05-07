@@ -1,4 +1,4 @@
 IntSignValue
 {
-    Value : 0,
+    Value : 0h000000000000000,
 },
