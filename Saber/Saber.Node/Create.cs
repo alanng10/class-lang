@@ -3231,7 +3231,9 @@ public class Create : ClassCreate
 
     protected virtual bool Error(ErrorKind kind, long start, long end)
     {
-        this.Operate.ExecuteError(kind, start, end);
+        this.Range(this.RangeC, start, end);
+
+        this.Operate.ExecuteError(kind, this.RangeC);
         return true;
     }
 
