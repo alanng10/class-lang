@@ -6,5 +6,5 @@ public class Error : Any
     public virtual ErrorKind Kind { get; set; }
     public virtual Range Range { get; set; }
     public virtual String Name { get; set; }
-    public virtual Source Source { get; set; }
+    public virtual long Source { get; set; }
 }
