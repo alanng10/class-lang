@@ -5,11 +5,9 @@ public class ArgueItemNodeState : NodeState
     public override bool Execute()
     {
         Range range;
-        range = (Range)this.Arg;
+        range = this.Arg as Range;
 
-        Node a;
-        a = this.Create.ExecuteOperate(range);
-        this.Result = a;
+        this.Result = this.Create.ExecuteOperate(range);
         return true;
     }
 }
