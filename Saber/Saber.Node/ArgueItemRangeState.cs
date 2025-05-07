@@ -5,11 +5,9 @@ public class ArgueItemRangeState : RangeState
     public override bool Execute()
     {
         RangeStateArg arg;
-        arg = (RangeStateArg)this.Arg;
+        arg = this.Arg as RangeStateArg;
 
-        Range a;
-        a = this.Create.ExecuteArgueItemRange(arg.Result, arg.Range);
-        this.Result = a;
+        this.Result = this.Create.ExecuteArgueItemRange(arg.Result, arg.Range);
         return true;
     }
 }
