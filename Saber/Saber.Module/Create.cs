@@ -1108,6 +1108,7 @@ public class Create : ClassCreate
         a.Stage = this.Stage;
         a.Kind = kind;
         a.Name = name;
+        a.Source = -1;
 
         this.ErrorList.Add(a);
         return true;
