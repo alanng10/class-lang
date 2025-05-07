@@ -10,7 +10,7 @@ BitAndOperate
            {
                Value : IntValue
                        {
-                           Value : 9,
+                           Value : 0h000000000000009,
                        },
            },
 },

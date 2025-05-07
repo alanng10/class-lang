@@ -4,14 +4,14 @@ BitLiteOperate
             {
                 Value : IntValue
                         {
-                            Value : 10,
+                            Value : 0h00000000000000a,
                         },
             },
     Count : ValueOperate
             {
                 Value : IntValue
                         {
-                            Value : 20,
+                            Value : 0h000000000000014,
                         },
             },
 },
