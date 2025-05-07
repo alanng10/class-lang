@@ -5,11 +5,9 @@ public class StateItemRangeState : RangeState
     public override bool Execute()
     {
         RangeStateArg arg;
-        arg = (RangeStateArg)this.Arg;
+        arg = this.Arg as RangeStateArg;
 
-        Range a;
-        a = this.Create.ExecuteExecuteRange(arg.Result, arg.Range);
-        this.Result = a;
+        this.Result = this.Create.ExecuteStateItemRange(arg.Result, arg.Range);
         return true;
     }
 }
