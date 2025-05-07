@@ -9,7 +9,7 @@ BitOrnOperate
            {
                Value : IntValue
                        {
-                           Value : 10,
+                           Value : 0h00000000000000a,
                        },
            },
     Rite : null,
