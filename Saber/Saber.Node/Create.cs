@@ -8,20 +8,18 @@ public class Create : ClassCreate
         this.InfraInfra = InfraInfra.This;
         this.ListInfra = ListInfra.This;
         this.ClassInfra = ClassInfra.This;
-
         this.Index = IndexList.This;
         this.Limit = LimitList.This;
         this.ErrorKind = ErrorKindList.This;
         this.NodeKind = NodeKindList.This;
 
-        this.CountOperate = this.CreateCountCreateOperate();
-        this.KindOperate = this.CreateKindCreateOperate();
-        this.SetOperate = this.CreateSetCreateOperate();
-        this.SetArg = this.CreateCreateSetArg();
-
+        this.CountOperate = this.CreateCountOperate();
+        this.KindOperate = this.CreateKindOperate();
+        this.SetOperate = this.CreateSetOperate();
+        this.SetArg = this.CreateSetArg();
         this.NameValid = this.CreateNameValid();
+        this.ClassIntParse = this.CreateClassIntParse();
         this.StringWrite = this.CreateStringWrite();
-
         this.RangeA = this.CreateClassRange();
         this.RangeB = this.CreateClassRange();
         this.RangeC = this.CreateClassRange();
@@ -37,67 +35,59 @@ public class Create : ClassCreate
         this.TokenI = this.CreateToken();
 
         this.InitListItemState();
-
         this.InitNodeState();
         return true;
     }
 
-    public virtual Array Source { get; set; }
-    public virtual Array Code { get; set; }
-    public virtual String Task { get; set; }
-    public virtual Result Result { get; set; }
-    public virtual Source SourceItem { get; set; }
-    public virtual CreateOperate Operate { get; set; }
-    public virtual CreateArg Arg { get; set; }
-    public virtual CreateSetArg SetArg { get; set; }
+    protected virtual CreateCountOperate CreateCountOperate()
+    {
+        CreateCountOperate a;
+        a = new CreateCountOperate();
+        a.Create = this;
+        a.Init();
+        return a;
+    }
 
-    protected virtual InfraInfra InfraInfra { get; set; }
-    protected virtual ListInfra ListInfra { get; set; }
-    protected virtual ClassInfra ClassInfra { get; set; }
-    protected virtual IndexList Index { get; set; }
-    protected virtual LimitList Limit { get; set; }
-    protected virtual ErrorKindList ErrorKind { get; set; }
-    protected virtual NodeKindList NodeKind { get; set; }
+    protected virtual CreateKindOperate CreateKindOperate()
+    {
+        CreateKindOperate a;
+        a = new CreateKindOperate();
+        a.Create = this;
+        a.Init();
+        return a;
+    }
 
-    protected virtual Array SourceText { get; set; }
-    protected virtual Code CodeItem { get; set; }
-    protected virtual Table NodeStateTable { get; set; }
-    protected virtual NodeState NodeState { get; set; }
+    protected virtual CreateSetOperate CreateSetOperate()
+    {
+        CreateSetOperate a;
+        a = new CreateSetOperate();
+        a.Create = this;
+        a.Init();
+        return a;
+    }
 
-    protected virtual RangeState PartItemRangeState { get; set; }
-    protected virtual RangeState StateItemRangeState { get; set; }
-    protected virtual RangeState ParamItemRangeState { get; set; }
-    protected virtual RangeState ArgueItemRangeState { get; set; }
-    protected virtual NodeState PartItemNodeState { get; set; }
-    protected virtual NodeState StateItemNodeState { get; set; }
-    protected virtual NodeState ParamItemNodeState { get; set; }
-    protected virtual NodeState ArgueItemNodeState { get; set; }
-
-    protected virtual Range RangeA { get; set; }
-    protected virtual Range RangeB { get; set; }
-    protected virtual Range RangeC { get; set; }
-    protected virtual Range RangeD { get; set; }
-    protected virtual Token TokenA { get; set; }
-    protected virtual Token TokenB { get; set; }
-    protected virtual Token TokenC { get; set; }
-    protected virtual Token TokenD { get; set; }
-    protected virtual Token TokenE { get; set; }
-    protected virtual Token TokenF { get; set; }
-    protected virtual Token TokenG { get; set; }
-    protected virtual Token TokenH { get; set; }
-    protected virtual Token TokenI { get; set; }
-
-    protected virtual CountCreateOperate CountOperate { get; set; }
-    protected virtual KindCreateOperate KindOperate { get; set; }
-    protected virtual SetCreateOperate SetOperate { get; set; }
-
-    protected virtual NameValid NameValid { get; set; }
-    protected virtual StringWrite StringWrite { get; set; }
+    protected virtual CreateSetArg CreateSetArg()
+    {
+        CreateSetArg a;
+        a = new CreateSetArg();
+        a.Init();
+        a.Range = new Range();
+        a.Range.Init();
+        return a;
+    }
 
     protected virtual NameValid CreateNameValid()
     {
         NameValid a;
         a = new NameValid();
+        a.Init();
+        return a;
+    }
+
+    protected virtual IntParse CreateClassIntParse()
+    {
+        IntParse a;
+        a = new IntParse();
         a.Init();
         return a;
     }
@@ -109,49 +99,6 @@ public class Create : ClassCreate
         a.Init();
         a.Arg = new StringWriteArg();
         a.Arg.Init();
-        return a;
-    }
-
-    protected virtual TextIntParse CreateTextIntParse()
-    {
-        TextIntParse a;
-        a = new TextIntParse();
-        a.Init();
-        return a;
-    }
-
-    protected virtual CountCreateOperate CreateCountCreateOperate()
-    {
-        CountCreateOperate a;
-        a = new CountCreateOperate();
-        a.Create = this;
-        a.Init();
-        return a;
-    }
-
-    protected virtual KindCreateOperate CreateKindCreateOperate()
-    {
-        KindCreateOperate a;
-        a = new KindCreateOperate();
-        a.Create = this;
-        a.Init();
-        return a;
-    }
-
-    protected virtual SetCreateOperate CreateSetCreateOperate()
-    {
-        SetCreateOperate a;
-        a = new SetCreateOperate();
-        a.Create = this;
-        a.Init();
-        return a;
-    }
-
-    protected virtual CreateSetArg CreateCreateSetArg()
-    {
-        CreateSetArg a;
-        a = new CreateSetArg();
-        a.Init();
         return a;
     }
 
@@ -173,6 +120,51 @@ public class Create : ClassCreate
         return a;
     }
 
+    public virtual Array Source { get; set; }
+    public virtual Array Code { get; set; }
+    public virtual String Task { get; set; }
+    public virtual Result Result { get; set; }
+    public virtual long SourceIndex { get; set; }
+    public virtual CreateArg Arg { get; set; }
+    public virtual CreateOperate Operate { get; set; }
+    public virtual CreateCountOperate CountOperate { get; set; }
+    public virtual CreateKindOperate KindOperate { get; set; }
+    public virtual CreateSetOperate SetOperate { get; set; }
+    public virtual CreateSetArg SetArg { get; set; }
+    protected virtual InfraInfra InfraInfra { get; set; }
+    protected virtual ListInfra ListInfra { get; set; }
+    protected virtual ClassInfra ClassInfra { get; set; }
+    protected virtual IndexList Index { get; set; }
+    protected virtual LimitList Limit { get; set; }
+    protected virtual ErrorKindList ErrorKind { get; set; }
+    protected virtual NodeKindList NodeKind { get; set; }
+    protected virtual Table NodeStateTable { get; set; }
+    protected virtual NodeState NodeState { get; set; }
+    protected virtual RangeState PartItemRangeState { get; set; }
+    protected virtual RangeState StateItemRangeState { get; set; }
+    protected virtual RangeState ParamItemRangeState { get; set; }
+    protected virtual RangeState ArgueItemRangeState { get; set; }
+    protected virtual NodeState PartItemNodeState { get; set; }
+    protected virtual NodeState StateItemNodeState { get; set; }
+    protected virtual NodeState ParamItemNodeState { get; set; }
+    protected virtual NodeState ArgueItemNodeState { get; set; }
+    protected virtual NameValid NameValid { get; set; }
+    protected virtual IntParse ClassIntParse { get; set; }
+    protected virtual StringWrite StringWrite { get; set; }
+    protected virtual Range RangeA { get; set; }
+    protected virtual Range RangeB { get; set; }
+    protected virtual Range RangeC { get; set; }
+    protected virtual Range RangeD { get; set; }
+    protected virtual Token TokenA { get; set; }
+    protected virtual Token TokenB { get; set; }
+    protected virtual Token TokenC { get; set; }
+    protected virtual Token TokenD { get; set; }
+    protected virtual Token TokenE { get; set; }
+    protected virtual Token TokenF { get; set; }
+    protected virtual Token TokenG { get; set; }
+    protected virtual Token TokenH { get; set; }
+    protected virtual Token TokenI { get; set; }
+
     protected virtual bool InitListItemState()
     {
         this.PartItemRangeState = this.RangeStateSet(new PartItemRangeState());
@@ -191,12 +183,8 @@ public class Create : ClassCreate
     {
         state.Init();
         state.Create = this;
-
-        RangeStateArg k;
-        k = new RangeStateArg();
-        k.Init();
-
-        state.Arg = k;
+        state.Arg = new RangeStateArg();
+        state.Arg.Init();
         return state;
     }
 
@@ -211,17 +199,14 @@ public class Create : ClassCreate
     {
         this.NodeStateTable = this.ClassInfra.TableCreateStringLess();
 
-        NodeKindList nodeKind;
-        nodeKind = this.NodeKind;
-
         long count;
-        count = nodeKind.Count;
+        count = this.NodeKind.Count;
         int i;
         i = 0;
         while (i < count)
         {
             NodeKind kind;
-            kind = nodeKind.Get(i);
+            kind = this.NodeKind.Get(i);
             this.AddNodeState(kind);
             i = i + 1;
         }
@@ -230,71 +215,58 @@ public class Create : ClassCreate
 
     protected virtual bool AddNodeState(NodeKind kind)
     {
-        NodeState state;
-        state = kind.NodeState;
-        state.Create = this;
+        kind.NodeState.Create = this;
 
-        this.ListInfra.TableAdd(this.NodeStateTable, kind.Name, state);
+        this.ListInfra.TableAdd(this.NodeStateTable, kind.Name, kind.NodeState);
         return true;
     }
 
     public override bool Execute()
     {
-        ListInfra listInfra;
-        listInfra = this.ListInfra;
-
         this.Result = new Result();
         this.Result.Init();
+
         Array rootArray;
-        rootArray = new Array();
-        rootArray.Count = this.Code.Count;
-        rootArray.Init();
+        rootArray = this.ListInfra.ArrayCreate(this.Code.Count);
         this.Result.Root = rootArray;
 
         this.NodeState = this.NodeStateTable.Get(this.Task) as NodeState;
         if (this.NodeState == null)
         {
-            Array ooo;
-            ooo = new Array();
-            ooo.Count = 0;
-            ooo.Init();
-            this.Result.Error = ooo;
+            Array ka;
+            ka = this.ListInfra.ArrayCreate(0);
+            this.Result.Error = ka;
             return true;
         }
 
+        this.Arg = new CreateArg();
+        this.Arg.Init();
+
         CreateArg arg;
-        arg = new CreateArg();
-        arg.Init();
-        this.Arg = arg;
+        arg = this.Arg;
 
         this.Operate = this.CountOperate;
 
+        this.ResetStage();
         this.ExecuteStage();
-        this.SetArgClear();
 
-        Data nodeData;
-        nodeData = new Data();
-        nodeData.Count = arg.NodeIndex;
-        nodeData.Init();
-        arg.NodeData = nodeData;
+        arg.NodeData = this.DataCreate(arg.NodeIndex);
+        arg.ListData = this.DataCreate(arg.ListIndex * sizeof(ulong));
+        arg.NameValueCountData = this.DataCreate(arg.NameValueIndex * sizeof(ulong));
+        arg.NameValueTextData = this.DataCreate(arg.NameValueTextIndex * sizeof(uint));
+        arg.StringValueCountData = this.DataCreate(arg.StringValueIndex * sizeof(ulong));
+        arg.StringValueTextData = this.DataCreate(arg.StringValueTextIndex * sizeof(uint));
 
-        arg.ListData = this.CountDataCreate(arg.ListIndex);
-        arg.NameValueCountData = this.CountDataCreate(arg.NameValueIndex);
-        arg.NameValueTextData = this.TextDataCreate(arg.NameValueTextIndex);
-        arg.StringValueCountData = this.CountDataCreate(arg.StringValueIndex);
-        arg.StringValueTextData = this.TextDataCreate(arg.StringValueTextIndex);
-        
         this.Operate = this.KindOperate;
 
-        this.ArgClearIndex();
+        this.ResetStage();
         this.ExecuteStage();
-        this.SetArgClear();
 
-        arg.NodeArray = listInfra.ArrayCreate(arg.NodeIndex);
-        arg.ListArray = listInfra.ArrayCreate(arg.ListIndex);
-        arg.NameValueArray = listInfra.ArrayCreate(arg.NameValueIndex);
-        arg.StringValueArray = listInfra.ArrayCreate(arg.StringValueIndex);
-        arg.ErrorArray = listInfra.ArrayCreate(arg.ErrorIndex);
+        arg.NodeArray = this.ListInfra.ArrayCreate(arg.NodeIndex);
+        arg.ListArray = this.ListInfra.ArrayCreate(arg.ListIndex);
+        arg.NameValueArray = this.ListInfra.ArrayCreate(arg.NameValueIndex);
+        arg.StringValueArray = this.ListInfra.ArrayCreate(arg.StringValueIndex);
+        arg.ErrorArray = this.ListInfra.ArrayCreate(arg.ErrorIndex);
 
         this.ExecuteCreateNode();
         this.ExecuteCreateList();
@@ -304,9 +276,8 @@ public class Create : ClassCreate
 
         this.Operate = this.SetOperate;
 
-        this.ArgClearIndex();
+        this.ResetStage();
         this.ExecuteStage();
-        this.SetArgClear();
 
         this.Result.Error = arg.ErrorArray;
 
@@ -314,8 +285,8 @@ public class Create : ClassCreate
         this.Arg = null;
         return true;
     }
-    
-    public virtual bool ArgClearIndex()
+
+    public virtual bool ResetStage()
     {
         CreateArg arg;
         arg = this.Arg;
@@ -342,8 +313,8 @@ public class Create : ClassCreate
         a.Field04 = null;
         a.FieldBool = false;
         a.FieldInt = 0;
-        a.Start = 0;
-        a.End = 0;
+        a.Range.Start = 0;
+        a.Range.End = 0;
         return true;
     }
 
@@ -372,39 +343,26 @@ public class Create : ClassCreate
         write = this.StringWrite;
 
         write.Text = text;
+
         write.Operate = write.SetOperate;
 
-        write.Arg.Data = this.Arg.StringValueTextData;
         write.Arg.Index = this.Arg.StringValueTextIndex;
+        write.Arg.Data = this.Arg.StringValueTextData;
 
         write.ExecuteStage();
 
         write.Arg.Data = null;
+        write.Arg.Index = 0;
         write.Operate = null;
         write.Text = null;
         return true;
     }
 
-    protected virtual Data CountDataCreate(long count)
+    protected virtual Data DataCreate(long count)
     {
-        long o;
-        o = count;
-        o = o * sizeof(ulong);
         Data a;
         a = new Data();
-        a.Count = o;
-        a.Init();
-        return a;
-    }
-
-    protected virtual Data TextDataCreate(long count)
-    {
-        long o;
-        o = count;
-        o = o * sizeof(uint);
-        Data a;
-        a = new Data();
-        a.Count = o;
+        a.Count = count;
         a.Init();
         return a;
     }
@@ -420,33 +378,31 @@ public class Create : ClassCreate
         Data data;
         data = arg.NodeData;
 
-        NodeKindList nodeKind;
-        nodeKind = this.NodeKind;
-
         long count;
         count = array.Count;
         long i;
         i = 0;
         while (i < count)
         {
-            long oa;
-            oa = data.Get(i);
+            long ka;
+            ka = data.Get(i);
             NodeKind kind;
-            kind = nodeKind.Get(oa);
+            kind = this.NodeKind.Get(ka);
 
             InfraState newState;
             newState = kind.NewState;
             newState.Execute();
 
-            object o;
-            o = newState.Result;
+            object k;
+            k = newState.Result;
             newState.Result = null;
 
-            Node node;
-            node = o as Node;
-            node.Init();
-            node.Range = this.CreateClassRange();
-            array.SetAt(i, node);
+            Node a;
+            a = k as Node;
+            a.Init();
+            a.Range = this.CreateClassRange();
+
+            array.SetAt(i, a);
 
             i = i + 1;
         }
@@ -455,17 +411,14 @@ public class Create : ClassCreate
 
     protected virtual bool ExecuteCreateList()
     {
-        ListInfra listInfra;
-        listInfra = this.ListInfra;
-
         CreateArg arg;
         arg = this.Arg;
-        
-        Data data;
-        data = arg.ListData;
 
         Array array;
         array = arg.ListArray;
+
+        Data data;
+        data = arg.ListData;
 
         long count;
         count = array.Count;
@@ -473,17 +426,18 @@ public class Create : ClassCreate
         i = 0;
         while (i < count)
         {
-            long index;
-            index = i;
-            index = index * sizeof(ulong);
+            long ka;
+            ka = i;
+            ka = ka * sizeof(ulong);
 
-            long oa;
-            oa = this.InfraInfra.DataIntGet(data, index);
+            long k;
+            k = this.InfraInfra.DataIntGet(data, ka);
 
             Array a;
-            a = listInfra.ArrayCreate(oa);
+            a = this.ListInfra.ArrayCreate(k);
 
             array.SetAt(i, a);
+
             i = i + 1;
         }
         return true;
@@ -500,13 +454,13 @@ public class Create : ClassCreate
         i = 0;
         while (i < count)
         {
-            Error error;
-            error = new Error();
-            error.Init();
-            error.Stage = this.Stage;
-            error.Range = this.CreateClassRange();
+            Error a;
+            a = new Error();
+            a.Init();
+            a.Range = this.CreateClassRange();
 
-            array.SetAt(i, error);
+            array.SetAt(i, a);
+
             i = i + 1;
         }
         return true;
@@ -514,82 +468,44 @@ public class Create : ClassCreate
 
     protected virtual bool ExecuteCreateNameValue()
     {
-        InfraInfra infraInfra;
-        infraInfra = this.InfraInfra;
-        TextInfra textInfra;
-        textInfra = this.TextInfra;
-
         CreateArg arg;
         arg = this.Arg;
 
         Array array;
         array = arg.NameValueArray;
 
-        Data data;
-        data = arg.NameValueCountData;
+        Data countData;
+        countData = arg.NameValueCountData;
 
-        Text text;
-        text = this.TextA;
-        text.Data = arg.NameValueTextData;
-        InfraRange range;
-        range = text.Range;
-        range.Index = 0;
-        range.Count = 0;
+        Data textData;
+        textData = arg.NameValueTextData;
 
-        long total;
-        total = 0;
-
-        long count;
-        count = array.Count;
-        int i;
-        i = 0;
-        while (i < count)
-        {
-            long index;
-            index = i;
-            index = index * sizeof(ulong);
-
-            long oa;
-            oa = infraInfra.DataIntGet(data, index);
-
-            range.Index = total;
-            range.Count = oa;
-
-            String a;
-            a = textInfra.StringCreate(text);
-
-            array.SetAt(i, a);
-
-            total = total + oa;
-
-            i = i + 1;
-        }
+        this.PrivateExecuteCreateString(array, countData, textData);
         return true;
     }
 
     protected virtual bool ExecuteCreateStringValue()
     {
-        InfraInfra infraInfra;
-        infraInfra = this.InfraInfra;
-        TextInfra textInfra;
-        textInfra = this.TextInfra;
-
         CreateArg arg;
         arg = this.Arg;
 
         Array array;
         array = arg.StringValueArray;
 
-        Data data;
-        data = arg.StringValueCountData;
+        Data countData;
+        countData = arg.StringValueCountData;
 
+        Data textData;
+        textData = arg.StringValueTextData;
+
+        this.PrivateExecuteCreateString(array, countData, textData);
+        return true;
+    }
+
+    private bool PrivateExecuteCreateString(Array array, Data countData, Data textData)
+    {
         Text text;
         text = this.TextA;
-        text.Data = arg.StringValueTextData;
-        InfraRange range;
-        range = text.Range;
-        range.Index = 0;
-        range.Count = 0;
 
         long total;
         total = 0;
@@ -600,22 +516,25 @@ public class Create : ClassCreate
         i = 0;
         while (i < count)
         {
-            long index;
-            index = i;
-            index = index * sizeof(ulong);
+            long ka;
+            ka = i;
+            ka = ka * sizeof(ulong);
 
-            long oa;
-            oa = infraInfra.DataIntGet(data, index);
+            long kk;
+            kk = this.InfraInfra.DataIntGet(countData, ka);
 
-            range.Index = total;
-            range.Count = oa;
+            text.Data = textData;
+            text.Range.Index = total;
+            text.Range.Count = kk;
 
             String a;
-            a = textInfra.StringCreate(text);
+            a = this.StringCreate(text);
+
+            this.ClearText(text);
 
             array.SetAt(i, a);
 
-            total = total + oa;
+            total = total + kk;
 
             i = i + 1;
         }
@@ -630,43 +549,38 @@ public class Create : ClassCreate
         i = 0;
         while (i < count)
         {
-            this.CodeItem = (Code)this.Code.GetAt(i);
-
-            this.SourceItem = (Source)this.Source.GetAt(i);
-            this.SourceText = this.SourceItem.Text;
-
             Node root;
-            root = this.ExecuteRoot();
+            root = this.ExecuteRoot(i);
+
             this.Result.Root.SetAt(i, root);
+
             i = i + 1;
         }
 
+        this.SetArgClear();
         this.ClearData();
         return true;
     }
 
-    protected virtual Node ExecuteCreateOperate()
+    protected virtual Node ExecuteRoot(long sourceIndex)
     {
-        Node node;
-        node = this.Operate.Execute();
-        return node;
-    }
+        this.SourceIndex = sourceIndex;
 
-    protected virtual Node ExecuteRoot()
-    {
-        Range range;
-        range = this.RangeA;
+        Code code;
+        code = this.Code.GetAt(this.SourceIndex) as Code;
+
         long rangeStart;
-        rangeStart = 0;
         long rangeEnd;
-        rangeEnd = this.CodeItem.Token.Count;
-        this.Range(range, rangeStart, rangeEnd);
+        rangeStart = 0;
+        rangeEnd = code.Token.Count;
 
-        this.NodeState.Arg = range;
+        this.Range(this.RangeA, rangeStart, rangeEnd);
+
+        this.NodeState.Arg = this.RangeA;
         this.NodeState.Execute();
 
         Node node;
-        node = (Node)this.NodeState.Result;
+        node = this.NodeState.Result as Node;
 
         this.NodeState.Result = null;
         this.NodeState.Arg = null;
@@ -675,6 +589,7 @@ public class Create : ClassCreate
         {
             this.Error(this.ErrorKind.Unvalid, rangeStart, rangeEnd);
         }
+
         Node a;
         a = node;
         return a;
@@ -691,6 +606,7 @@ public class Create : ClassCreate
         {
             return null;
         }
+
         Token classToken;
         classToken = this.Token(this.TokenA, this.Index.Class.Text, this.IndexRange(this.RangeA, start));
         if (classToken == null)
@@ -698,28 +614,28 @@ public class Create : ClassCreate
             return null;
         }
 
-        Token colon;
-        colon = this.TokenForwardNoSkip(this.TokenB, this.Limit.AreSign.Text, this.Range(this.RangeA, classToken.Range.End, end));
-        if (colon == null)
+        Token signAre;
+        signAre = this.TokenFront(this.TokenB, this.Limit.Are.Text, this.Range(this.RangeA, classToken.Range.End, end));
+        if (signAre == null)
         {
             return null;
         }
 
-        Token leftBrace;
-        leftBrace = this.TokenForwardNoSkip(this.TokenC, this.Limit.BraceCurveLite.Text, this.Range(this.RangeA, colon.Range.End, end));
-        if (leftBrace == null)
+        Token braceCurveLite;
+        braceCurveLite = this.TokenFront(this.TokenC, this.Limit.BraceCurveLite.Text, this.Range(this.RangeA, signAre.Range.End, end));
+        if (braceCurveLite == null)
         {
             return null;
         }
 
-        Token rightBrace;
-        rightBrace = this.TokenMatchBraceCurveLite(this.TokenD, this.Range(this.RangeA, leftBrace.Range.End, end));
-        if (rightBrace == null)
+        Token braceCurveRite;
+        braceCurveRite = this.TokenBraceCurveRite(this.TokenD, this.Range(this.RangeA, braceCurveLite.Range.End, end));
+        if (braceCurveRite == null)
         {
             return null;
         }
 
-        if (!(rightBrace.Range.End == end))
+        if (!(braceCurveRite.Range.End == end))
         {
             return null;
         }
@@ -727,15 +643,17 @@ public class Create : ClassCreate
         long nameStart;
         long nameEnd;
         nameStart = classToken.Range.End;
-        nameEnd = colon.Range.Start;
+        nameEnd = signAre.Range.Start;
+
         long baseStart;
         long baseEnd;
-        baseStart = colon.Range.End;
-        baseEnd = leftBrace.Range.Start;
+        baseStart = signAre.Range.End;
+        baseEnd = braceCurveLite.Range.Start;
+
         long partStart;
         long partEnd;
-        partStart = leftBrace.Range.End;
-        partEnd = rightBrace.Range.Start;
+        partStart = braceCurveLite.Range.End;
+        partEnd = braceCurveRite.Range.Start;
 
         Node name;
         name = this.ExecuteName(this.NodeKind.ClassName, this.Range(this.RangeA, nameStart, nameEnd));
@@ -759,13 +677,13 @@ public class Create : ClassCreate
         }
 
         this.SetArg.Kind = this.NodeKind.Class;
-        this.SetArg.Start = start;
-        this.SetArg.End = end;
+        this.SetArg.Range.Start = start;
+        this.SetArg.Range.End = end;
         this.SetArg.Field00 = name;
         this.SetArg.Field01 = varBase;
         this.SetArg.Field02 = part;
         Node ret;
-        ret = this.ExecuteCreateOperate();
+        ret = this.Operate.Execute();
         return ret;
     }
 
@@ -788,21 +706,21 @@ public class Create : ClassCreate
             return null;
         }
 
-        Token leftBrace;
-        leftBrace = this.TokenForwardNoSkip(this.TokenB, this.Limit.BraceCurveLite.Text, this.Range(this.RangeA, fieldToken.Range.End, end));
-        if (leftBrace == null)
+        Token braceCurveLite;
+        braceCurveLite = this.TokenFront(this.TokenB, this.Limit.BraceCurveLite.Text, this.Range(this.RangeA, fieldToken.Range.End, end));
+        if (braceCurveLite == null)
         {
             return null;
         }
 
-        Token rightBrace;
-        rightBrace = this.TokenMatchBraceCurveLite(this.TokenC, this.Range(this.RangeA, leftBrace.Range.End, end));
-        if (rightBrace == null)
+        Token braceCurveRite;
+        braceCurveRite = this.TokenBraceCurveRite(this.TokenC, this.Range(this.RangeA, braceCurveLite.Range.End, end));
+        if (braceCurveRite == null)
         {
             return null;
         }
 
-        if (!(rightBrace.Range.End == end))
+        if (!(braceCurveRite.Range.End == end))
         {
             return null;
         }
@@ -813,7 +731,7 @@ public class Create : ClassCreate
         countEnd = countStart + 1;
 
         long ke;
-        ke = leftBrace.Range.Start;
+        ke = braceCurveLite.Range.Start;
 
         if (ke < countEnd)
         {
@@ -834,11 +752,11 @@ public class Create : ClassCreate
         long nameEnd;
         nameStart = classEnd;
         nameEnd = ke;
-        
-        long oStart;
-        long oEnd;
-        oStart = leftBrace.Range.End;
-        oEnd = rightBrace.Range.Start;
+
+        long braceStart;
+        long braceEnd;
+        braceStart = braceCurveLite.Range.End;
+        braceEnd = braceCurveRite.Range.Start;
 
         Node count;
         count = this.ExecuteCount(this.Range(this.RangeA, countStart, countEnd));
@@ -863,18 +781,20 @@ public class Create : ClassCreate
 
         bool b;
         b = false;
+
         if (!b)
         {
-            if (oStart == oEnd)
+            if (braceStart == braceEnd)
             {
                 b = true;
             }
         }
+
         Token getToken;
         getToken = null;
         if (!b)
         {
-            getToken = this.Token(this.TokenD, this.Index.ItemGet.Text, this.IndexRange(this.RangeA, oStart));
+            getToken = this.Token(this.TokenD, this.Index.ItemGet.Text, this.IndexRange(this.RangeA, braceStart));
             if (getToken == null)
             {
                 b = true;
@@ -883,28 +803,29 @@ public class Create : ClassCreate
 
         if (!b)
         {
-            if (getToken.Range.End == oEnd)
-            {
-                b = true;
-            }
-        }
-        Token getLeftBrace;
-        getLeftBrace = null;
-        if (!b)
-        {
-            getLeftBrace = this.Token(this.TokenE, this.Limit.BraceCurveLite.Text, this.IndexRange(this.RangeA, getToken.Range.End));
-            if (getLeftBrace == null)
+            if (getToken.Range.End == braceEnd)
             {
                 b = true;
             }
         }
 
-        Token getRightBrace;
-        getRightBrace = null;
+        Token getBraceLite;
+        getBraceLite = null;
         if (!b)
         {
-            getRightBrace = this.TokenMatchBraceCurveLite(this.TokenF, this.Range(this.RangeA, getLeftBrace.Range.End, oEnd));
-            if (getRightBrace == null)
+            getBraceLite = this.Token(this.TokenE, this.Limit.BraceCurveLite.Text, this.IndexRange(this.RangeA, getToken.Range.End));
+            if (getBraceLite == null)
+            {
+                b = true;
+            }
+        }
+
+        Token getBraceRite;
+        getBraceRite = null;
+        if (!b)
+        {
+            getBraceRite = this.TokenBraceCurveRite(this.TokenF, this.Range(this.RangeA, getBraceLite.Range.End, braceEnd));
+            if (getBraceRite == null)
             {
                 b = true;
             }
@@ -912,16 +833,17 @@ public class Create : ClassCreate
 
         if (!b)
         {
-            if (getRightBrace.Range.End == oEnd)
+            if (getBraceRite.Range.End == braceEnd)
             {
                 b = true;
             }
         }
+
         Token setToken;
         setToken = null;
         if (!b)
         {
-            setToken = this.Token(this.TokenG, this.Index.Set.Text, this.IndexRange(this.RangeA, getRightBrace.Range.End));
+            setToken = this.Token(this.TokenG, this.Index.Set.Text, this.IndexRange(this.RangeA, getBraceRite.Range.End));
             if (setToken == null)
             {
                 b = true;
@@ -930,28 +852,29 @@ public class Create : ClassCreate
 
         if (!b)
         {
-            if (setToken.Range.End == oEnd)
-            {
-                b = true;
-            }
-        }
-        Token setLeftBrace;
-        setLeftBrace = null;
-        if (!b)
-        {
-            setLeftBrace = this.Token(this.TokenH, this.Limit.BraceCurveLite.Text, this.IndexRange(this.RangeA, setToken.Range.End));
-            if (setLeftBrace == null)
+            if (setToken.Range.End == braceEnd)
             {
                 b = true;
             }
         }
 
-        Token setRightBrace;
-        setRightBrace = null;
+        Token setBraceLite;
+        setBraceLite = null;
         if (!b)
         {
-            setRightBrace = this.TokenMatchBraceCurveLite(this.TokenI, this.Range(this.RangeA, setLeftBrace.Range.End, oEnd));
-            if (setRightBrace == null)
+            setBraceLite = this.Token(this.TokenH, this.Limit.BraceCurveLite.Text, this.IndexRange(this.RangeA, setToken.Range.End));
+            if (setBraceLite == null)
+            {
+                b = true;
+            }
+        }
+
+        Token setBraceRite;
+        setBraceRite = null;
+        if (!b)
+        {
+            setBraceRite = this.TokenBraceCurveRite(this.TokenI, this.Range(this.RangeA, setBraceLite.Range.End, braceEnd));
+            if (setBraceRite == null)
             {
                 b = true;
             }
@@ -959,7 +882,7 @@ public class Create : ClassCreate
 
         if (!b)
         {
-            if (!(setRightBrace.Range.End == oEnd))
+            if (!(setBraceRite.Range.End == braceEnd))
             {
                 b = true;
             }
@@ -970,42 +893,43 @@ public class Create : ClassCreate
 
         Node varSet;
         varSet = null;
+
         if (!b)
         {
             long getStart;
             long getEnd;
-            getStart = getLeftBrace.Range.End;
-            getEnd = getRightBrace.Range.Start;
+            getStart = getBraceLite.Range.End;
+            getEnd = getBraceRite.Range.Start;
             long setStart;
             long setEnd;
-            setStart = setLeftBrace.Range.End;
-            setEnd = setRightBrace.Range.Start;
-            
+            setStart = setBraceLite.Range.End;
+            setEnd = setBraceRite.Range.Start;
+
             varGet = this.ExecuteState(this.Range(this.RangeA, getStart, getEnd));
 
             varSet = this.ExecuteState(this.Range(this.RangeA, setStart, setEnd));
         }
-        
+
         if (varGet == null)
         {
-            this.Error(this.ErrorKind.GetUnvalid, oStart, oEnd);
+            this.Error(this.ErrorKind.GetUnvalid, braceStart, braceEnd);
         }
 
         if (varSet == null)
         {
-            this.Error(this.ErrorKind.SetUnvalid, oStart, oEnd);
+            this.Error(this.ErrorKind.SetUnvalid, braceStart, braceEnd);
         }
 
         this.SetArg.Kind = this.NodeKind.Field;
-        this.SetArg.Start = start;
-        this.SetArg.End = end;
+        this.SetArg.Range.Start = start;
+        this.SetArg.Range.End = end;
         this.SetArg.Field00 = varClass;
         this.SetArg.Field01 = name;
         this.SetArg.Field02 = count;
         this.SetArg.Field03 = varGet;
         this.SetArg.Field04 = varSet;
         Node ret;
-        ret = this.ExecuteCreateOperate();
+        ret = this.Operate.Execute();
         return ret;
     }
 
@@ -1028,39 +952,40 @@ public class Create : ClassCreate
             return null;
         }
 
-        Token leftBracket;
-        leftBracket = this.TokenForwardNoSkip(this.TokenB, this.Limit.BraceRoundLite.Text, this.Range(this.RangeA, maideToken.Range.End, end));
-        if (leftBracket == null)
+        Token braceRoundLite;
+        braceRoundLite = this.TokenFront(this.TokenB, this.Limit.BraceRoundLite.Text, this.Range(this.RangeA, maideToken.Range.End, end));
+        if (braceRoundLite == null)
         {
             return null;
         }
 
-        Token rightBracket;
-        rightBracket = this.TokenMatchBraceRoundLite(this.TokenC, this.Range(this.RangeA, leftBracket.Range.End, end));
-        if (rightBracket == null)
+        Token braceRoundRite;
+        braceRoundRite = this.TokenBraceRoundRite(this.TokenC, this.Range(this.RangeA, braceRoundLite.Range.End, end));
+        if (braceRoundRite == null)
         {
             return null;
         }
 
-        if (rightBracket.Range.End == end)
-        {
-            return null;
-        }
-        Token leftBrace;
-        leftBrace = this.Token(this.TokenD, this.Limit.BraceCurveLite.Text, this.IndexRange(this.RangeA, rightBracket.Range.End));
-        if (leftBrace == null)
+        if (braceRoundRite.Range.End == end)
         {
             return null;
         }
 
-        Token rightBrace;
-        rightBrace = this.TokenMatchBraceCurveLite(this.TokenE, this.Range(this.RangeA, leftBrace.Range.End, end));
-        if (rightBrace == null)
+        Token braceCurveLite;
+        braceCurveLite = this.Token(this.TokenD, this.Limit.BraceCurveLite.Text, this.IndexRange(this.RangeA, braceRoundRite.Range.End));
+        if (braceCurveLite == null)
         {
             return null;
         }
 
-        if (!(rightBrace.Range.End == end))
+        Token braceCurveRite;
+        braceCurveRite = this.TokenBraceCurveRite(this.TokenE, this.Range(this.RangeA, braceCurveLite.Range.End, end));
+        if (braceCurveRite == null)
+        {
+            return null;
+        }
+
+        if (!(braceCurveRite.Range.End == end))
         {
             return null;
         }
@@ -1071,7 +996,7 @@ public class Create : ClassCreate
         countEnd = countStart + 1;
 
         long ke;
-        ke = leftBracket.Range.Start;
+        ke = braceRoundLite.Range.Start;
 
         if (ke < countEnd)
         {
@@ -1092,15 +1017,16 @@ public class Create : ClassCreate
         long nameEnd;
         nameStart = classEnd;
         nameEnd = ke;
-        
+
         long paramStart;
         long paramEnd;
-        paramStart = leftBracket.Range.End;
-        paramEnd = rightBracket.Range.Start;
+        paramStart = braceRoundLite.Range.End;
+        paramEnd = braceRoundRite.Range.Start;
+
         long callStart;
         long callEnd;
-        callStart = leftBrace.Range.End;
-        callEnd = rightBrace.Range.Start;
+        callStart = braceCurveLite.Range.End;
+        callEnd = braceCurveRite.Range.Start;
 
         Node count;
         count = this.ExecuteCount(this.Range(this.RangeA, countStart, countEnd));
@@ -1138,15 +1064,15 @@ public class Create : ClassCreate
         }
 
         this.SetArg.Kind = this.NodeKind.Maide;
-        this.SetArg.Start = start;
-        this.SetArg.End = end;
+        this.SetArg.Range.Start = start;
+        this.SetArg.Range.End = end;
         this.SetArg.Field00 = varClass;
         this.SetArg.Field01 = name;
         this.SetArg.Field02 = count;
         this.SetArg.Field03 = param;
         this.SetArg.Field04 = call;
         Node ret;
-        ret = this.ExecuteCreateOperate();
+        ret = this.Operate.Execute();
         return ret;
     }
 
@@ -1181,7 +1107,7 @@ public class Create : ClassCreate
         {
             classEnd = end;
         }
-        
+
         long nameStart;
         long nameEnd;
         nameStart = classEnd;
@@ -1202,12 +1128,12 @@ public class Create : ClassCreate
         }
 
         this.SetArg.Kind = this.NodeKind.Var;
-        this.SetArg.Start = start;
-        this.SetArg.End = end;
+        this.SetArg.Range.Start = start;
+        this.SetArg.Range.End = end;
         this.SetArg.Field00 = varClass;
         this.SetArg.Field01 = name;
         Node ret;
-        ret = this.ExecuteCreateOperate();
+        ret = this.Operate.Execute();
         return ret;
     }
 
@@ -1243,12 +1169,12 @@ public class Create : ClassCreate
 
     public virtual Node ExecuteParam(Range range)
     {
-        return this.ExecuteListComma(this.NodeKind.Param, this.ParamItemRangeState, this.ParamItemNodeState, range);
+        return this.ExecuteListPause(this.NodeKind.Param, this.ParamItemRangeState, this.ParamItemNodeState, range);
     }
 
     public virtual Node ExecuteArgue(Range range)
     {
-        return this.ExecuteListComma(this.NodeKind.Argue, this.ArgueItemRangeState, this.ArgueItemNodeState, range);
+        return this.ExecuteListPause(this.NodeKind.Argue, this.ArgueItemRangeState, this.ArgueItemNodeState, range);
     }
 
     public virtual Node ExecuteComp(Range range)
@@ -1268,7 +1194,7 @@ public class Create : ClassCreate
         {
             a = this.ExecuteMaide(this.Range(this.RangeA, start, end));
         }
-       return a;
+        return a;
     }
 
     public virtual Node ExecuteMark(Range range)
@@ -1293,7 +1219,7 @@ public class Create : ClassCreate
 
     public virtual Node ExecuteVarMark(Range range)
     {
-        return this.ExecuteVarNameResult(this.NodeKind.VarMark, range);
+        return this.ExecuteVarNameNode(this.NodeKind.VarMark, range);
     }
 
     public virtual Node ExecuteSetMark(Range range)
@@ -1344,19 +1270,16 @@ public class Create : ClassCreate
         start = range.Start;
         end = range.End;
 
-        if (!(start + 1 == end))
+        if (!(this.Count(start, end) == 1))
         {
             return null;
         }
-
-        TextInfra textInfra;
-        textInfra = this.TextInfra;
 
         TokenToken token;
         token = this.TokenToken(start);
 
         Text text;
-        text = this.TAToken(token);
+        text = this.TextToken(this.TextA, token);
 
         bool value;
         value = false;
@@ -1386,168 +1309,11 @@ public class Create : ClassCreate
         }
 
         this.SetArg.Kind = this.NodeKind.BoolValue;
-        this.SetArg.Start = start;
-        this.SetArg.End = end;
+        this.SetArg.Range.Start = start;
+        this.SetArg.Range.End = end;
         this.SetArg.FieldBool = value;
         Node ret;
-        ret = this.ExecuteCreateOperate();
-        return ret;
-    }
-
-    public virtual Node ExecuteIntValue(Range range)
-    {
-        long start;
-        long end;
-        start = range.Start;
-        end = range.End;
-
-        if (!(start + 1 == end))
-        {
-            return null;
-        }
-
-        TokenToken token;
-        token = this.TokenToken(start);
-
-        if (!this.IsIntValue(token))
-        {
-            return null;
-        }
-
-        Text text;
-        text = this.TAToken(token);
-
-        long value;
-        value = this.IntText(text, 10);
-        if (value == -1)
-        {
-            return null;
-        }
-
-        this.SetArg.Kind = this.NodeKind.IntValue;
-        this.SetArg.Start = start;
-        this.SetArg.End = end;
-        this.SetArg.FieldInt = value;
-        Node ret;
-        ret = this.ExecuteCreateOperate();
-        return ret;
-    }
-
-    public virtual Node ExecuteIntHexValue(Range range)
-    {
-        long start;
-        long end;
-        start = range.Start;
-        end = range.End;
-
-        if (!(start + 1 == end))
-        {
-            return null;
-        }
-
-        TokenToken aa;
-        aa = this.TokenToken(start);
-
-        if (!this.IsIntHexValue(aa))
-        {
-            return null;
-        }
-
-        Text line;
-        line = (Text)this.SourceText.GetAt(aa.Row);
-        Text text;
-        text = this.TextA;
-        text.Data = line.Data;
-        text.Range.Index = line.Range.Index + aa.Range.Index + 2;
-        text.Range.Count = aa.Range.Count - 2;
-
-        long value;
-        value = this.IntText(text, 16);
-        if (value == -1)
-        {
-            return null;
-        }
-
-        this.SetArg.Kind = this.NodeKind.IntHexValue;
-        this.SetArg.Start = start;
-        this.SetArg.End = end;
-        this.SetArg.FieldInt = value;
-        Node ret;
-        ret = this.ExecuteCreateOperate();
-        return ret;
-    }
-
-    public virtual Node ExecuteIntSignValue(Range range)
-    {
-        long start;
-        long end;
-        start = range.Start;
-        end = range.End;
-
-        if (!(start + 1 == end))
-        {
-            return null;
-        }
-
-        TokenToken aa;
-        aa = this.TokenToken(start);
-        if (!this.IsIntSignValue(aa))
-        {
-            return null;
-        }
-
-        bool signNegative;
-        signNegative = this.IsTokenSignNegate(aa, 2);
-
-        Text line;
-        line = this.SourceText.GetAt(aa.Row) as Text;
-        Text text;
-        text = this.TextA;
-        text.Data = line.Data;
-        text.Range.Index = line.Range.Index + aa.Range.Index + 3;
-        text.Range.Count = aa.Range.Count - 3;
-
-        long o;
-        o = this.IntText(text, 10);
-
-        if (o == -1)
-        {
-            return null;
-        }
-
-        long max;
-        max = 0;
-        if (!signNegative)
-        {
-            max = this.ClassInfra.IntSignPositeMax;
-        }
-        if (signNegative)
-        {
-            max = this.ClassInfra.IntSignNegateMax;
-        }
-
-        if (max < o)
-        {
-            return null;
-        }
-
-        long value;
-        value = 0;
-        if (!signNegative)
-        {
-            value = o;
-        }
-        if (signNegative)
-        {
-            value = -o;
-        }
-
-        this.SetArg.Kind = this.NodeKind.IntSignValue;
-        this.SetArg.Start = start;
-        this.SetArg.End = end;
-        this.SetArg.FieldInt = value;
-        Node ret;
-        ret = this.ExecuteCreateOperate();
+        ret = this.Operate.Execute();
         return ret;
     }
 
@@ -1558,69 +1324,136 @@ public class Create : ClassCreate
         start = range.Start;
         end = range.End;
 
-        if (!(start + 1 == end))
+        if (!(this.Count(start, end) == 1))
         {
             return null;
         }
 
-        TokenToken aa;
-        aa = this.TokenToken(start);
-        if (!this.IsIntHexSignValue(aa))
-        {
-            return null;
-        }
+        TokenToken token;
+        token = this.TokenToken(start);
 
-        bool signNegative;
-        signNegative = this.IsTokenSignNegate(aa, 3);
-
-        Text line;
-        line = (Text)this.SourceText.GetAt(aa.Row);
         Text text;
-        text = this.TextA;
-        text.Data = line.Data;
-        text.Range.Index = line.Range.Index + aa.Range.Index + 4;
-        text.Range.Count = aa.Range.Count - 4;
-
-        long o;
-        o = this.IntText(text, 16);
-        if (o == -1)
-        {
-            return null;
-        }
-
-        long max;
-        max = 0;
-        if (!signNegative)
-        {
-            max = this.ClassInfra.IntSignPositeMax;
-        }
-        if (signNegative)
-        {
-            max = this.ClassInfra.IntSignNegateMax;
-        }
-
-        if (max < o)
-        {
-            return null;
-        }
+        text = this.TextToken(this.TextA, token);
 
         long value;
-        value = 0;
-        if (!signNegative)
+        value = this.ClassIntParse.HexSignValue(text);
+
+        if (value == -1)
         {
-            value = o;
-        }
-        if (signNegative)
-        {
-            value = -o;
+            return null;
         }
 
         this.SetArg.Kind = this.NodeKind.IntHexSignValue;
-        this.SetArg.Start = start;
-        this.SetArg.End = end;
+        this.SetArg.Range.Start = start;
+        this.SetArg.Range.End = end;
         this.SetArg.FieldInt = value;
         Node ret;
-        ret = this.ExecuteCreateOperate();
+        ret = this.Operate.Execute();
+        return ret;
+    }
+
+    public virtual Node ExecuteIntHexValue(Range range)
+    {
+        long start;
+        long end;
+        start = range.Start;
+        end = range.End;
+
+        if (!(this.Count(start, end) == 1))
+        {
+            return null;
+        }
+
+        TokenToken token;
+        token = this.TokenToken(start);
+
+        Text text;
+        text = this.TextToken(this.TextA, token);
+
+        long value;
+        value = this.ClassIntParse.HexValue(text);
+
+        if (value == -1)
+        {
+            return null;
+        }
+
+        this.SetArg.Kind = this.NodeKind.IntHexValue;
+        this.SetArg.Range.Start = start;
+        this.SetArg.Range.End = end;
+        this.SetArg.FieldInt = value;
+        Node ret;
+        ret = this.Operate.Execute();
+        return ret;
+    }
+
+    public virtual Node ExecuteIntSignValue(Range range)
+    {
+        long start;
+        long end;
+        start = range.Start;
+        end = range.End;
+
+        if (!(this.Count(start, end) == 1))
+        {
+            return null;
+        }
+
+        TokenToken token;
+        token = this.TokenToken(start);
+
+        Text text;
+        text = this.TextToken(this.TextA, token);
+
+        long value;
+        value = this.ClassIntParse.SignValue(text);
+
+        if (value == -1)
+        {
+            return null;
+        }
+
+        this.SetArg.Kind = this.NodeKind.IntSignValue;
+        this.SetArg.Range.Start = start;
+        this.SetArg.Range.End = end;
+        this.SetArg.FieldInt = value;
+        Node ret;
+        ret = this.Operate.Execute();
+        return ret;
+    }
+
+    public virtual Node ExecuteIntValue(Range range)
+    {
+        long start;
+        long end;
+        start = range.Start;
+        end = range.End;
+
+        if (!(this.Count(start, end) == 1))
+        {
+            return null;
+        }
+
+        TokenToken token;
+        token = this.TokenToken(start);
+
+        Text text;
+        text = this.TextToken(this.TextA, token);
+
+        long value;
+        value = this.ClassIntParse.Value(text);
+
+        if (value == -1)
+        {
+            return null;
+        }
+
+        this.SetArg.Kind = this.NodeKind.IntValue;
+        this.SetArg.Range.Start = start;
+        this.SetArg.Range.End = end;
+        this.SetArg.FieldInt = value;
+        Node ret;
+        ret = this.Operate.Execute();
         return ret;
     }
 
@@ -1631,7 +1464,7 @@ public class Create : ClassCreate
         start = range.Start;
         end = range.End;
 
-        if (!(start + 1 == end))
+        if (!(this.Count(start, end) == 1))
         {
             return null;
         }
@@ -1640,7 +1473,7 @@ public class Create : ClassCreate
         token = this.TokenToken(start);
 
         Text text;
-        text = this.TAToken(token);
+        text = this.TextToken(this.TextA, token);
 
         bool b;
         b = this.StringWrite.ValidValue(text);
@@ -1653,11 +1486,11 @@ public class Create : ClassCreate
         value = this.Operate.ExecuteStringValue(text);
 
         this.SetArg.Kind = this.NodeKind.StringValue;
-        this.SetArg.Start = start;
-        this.SetArg.End = end;
+        this.SetArg.Range.Start = start;
+        this.SetArg.Range.End = end;
         this.SetArg.Field00 = value;
         Node ret;
-        ret = this.ExecuteCreateOperate();
+        ret = this.Operate.Execute();
         return ret;
     }
 
@@ -1691,22 +1524,22 @@ public class Create : ClassCreate
 
     public virtual Node ExecutePrusateCount(Range range)
     {
-        return this.ExecuteOneWord(this.NodeKind.PrusateCount, this.Index.Prusate, range);
+        return this.ExecuteIndex(this.NodeKind.PrusateCount, this.Index.Prusate, range);
     }
 
     public virtual Node ExecutePrecateCount(Range range)
     {
-        return this.ExecuteOneWord(this.NodeKind.PrecateCount, this.Index.Precate, range);
+        return this.ExecuteIndex(this.NodeKind.PrecateCount, this.Index.Precate, range);
     }
 
     public virtual Node ExecutePronateCount(Range range)
     {
-        return this.ExecuteOneWord(this.NodeKind.PronateCount, this.Index.Pronate, range);
+        return this.ExecuteIndex(this.NodeKind.PronateCount, this.Index.Pronate, range);
     }
 
     public virtual Node ExecutePrivateCount(Range range)
     {
-        return this.ExecuteOneWord(this.NodeKind.PrivateCount, this.Index.Private, range);
+        return this.ExecuteIndex(this.NodeKind.PrivateCount, this.Index.Private, range);
     }
 
     public virtual Node ExecuteExecute(Range range)
@@ -1747,12 +1580,12 @@ public class Create : ClassCreate
 
     public virtual Node ExecuteInfExecute(Range range)
     {
-        return this.ExecuteWordBracketBody(this.NodeKind.InfExecute, this.Index.Inf, range);
+        return this.ExecuteIndexBraceBody(this.NodeKind.InfExecute, this.Index.Inf, range);
     }
 
     public virtual Node ExecuteWhileExecute(Range range)
     {
-        return this.ExecuteWordBracketBody(this.NodeKind.WhileExecute, this.Index.While, range);
+        return this.ExecuteIndexBraceBody(this.NodeKind.WhileExecute, this.Index.While, range);
     }
 
     public virtual Node ExecuteReturnExecute(Range range)
@@ -1766,6 +1599,7 @@ public class Create : ClassCreate
         {
             return null;
         }
+
         Token returnToken;
         returnToken = this.Token(this.TokenA, this.Index.Return.Text, this.IndexRange(this.RangeA, start));
         if (returnToken == null)
@@ -1777,11 +1611,13 @@ public class Create : ClassCreate
         {
             return null;
         }
+
         long lastIndex;
         lastIndex = end - 1;
-        Token semicolon;
-        semicolon = this.Token(this.TokenB, this.Limit.ExecuteSign.Text, this.IndexRange(this.RangeA, lastIndex));
-        if (semicolon == null)
+
+        Token signExecute;
+        signExecute = this.Token(this.TokenB, this.Limit.Execute.Text, this.IndexRange(this.RangeA, lastIndex));
+        if (signExecute == null)
         {
             return null;
         }
@@ -1789,7 +1625,7 @@ public class Create : ClassCreate
         long resultStart;
         long resultEnd;
         resultStart = returnToken.Range.End;
-        resultEnd = semicolon.Range.Start;
+        resultEnd = signExecute.Range.Start;
 
         Node result;
         result = this.ExecuteOperate(this.Range(this.RangeA, resultStart, resultEnd));
@@ -1799,11 +1635,11 @@ public class Create : ClassCreate
         }
 
         this.SetArg.Kind = this.NodeKind.ReturnExecute;
-        this.SetArg.Start = start;
-        this.SetArg.End = end;
+        this.SetArg.Range.Start = start;
+        this.SetArg.Range.End = end;
         this.SetArg.Field00 = result;
         Node ret;
-        ret = this.ExecuteCreateOperate();
+        ret = this.Operate.Execute();
         return ret;
     }
 
@@ -1833,9 +1669,10 @@ public class Create : ClassCreate
 
         long lastIndex;
         lastIndex = end - 1;
-        Token semicolon;
-        semicolon = this.Token(this.TokenB, this.Limit.ExecuteSign.Text, this.IndexRange(this.RangeA, lastIndex));
-        if (semicolon == null)
+
+        Token signExecute;
+        signExecute = this.Token(this.TokenB, this.Limit.Execute.Text, this.IndexRange(this.RangeA, lastIndex));
+        if (signExecute == null)
         {
             return null;
         }
@@ -1843,7 +1680,7 @@ public class Create : ClassCreate
         long varStart;
         long varEnd;
         varStart = start;
-        varEnd = semicolon.Range.Start;
+        varEnd = signExecute.Range.Start;
 
         Node varVar;
         varVar = this.ExecuteVar(this.Range(this.RangeA, varStart, varEnd));
@@ -1853,11 +1690,11 @@ public class Create : ClassCreate
         }
 
         this.SetArg.Kind = this.NodeKind.ReferExecute;
-        this.SetArg.Start = start;
-        this.SetArg.End = end;
+        this.SetArg.Range.Start = start;
+        this.SetArg.Range.End = end;
         this.SetArg.Field00 = varVar;
         Node ret;
-        ret = this.ExecuteCreateOperate();
+        ret = this.Operate.Execute();
         return ret;
     }
 
@@ -1875,16 +1712,17 @@ public class Create : ClassCreate
 
         long lastIndex;
         lastIndex = end - 1;
-        Token semicolon;
-        semicolon = this.Token(this.TokenA, this.Limit.ExecuteSign.Text, this.IndexRange(this.RangeA, lastIndex));
-        if (semicolon == null)
+
+        Token signExecute;
+        signExecute = this.Token(this.TokenA, this.Limit.Execute.Text, this.IndexRange(this.RangeA, lastIndex));
+        if (signExecute == null)
         {
             return null;
         }
 
-        Token colon;
-        colon = this.TokenForward(this.TokenB, this.Limit.AreSign.Text, this.Range(this.RangeA, start, semicolon.Range.Start));
-        if (colon == null)
+        Token signAre;
+        signAre = this.TokenFrontSkip(this.TokenB, this.Limit.Are.Text, this.Range(this.RangeA, start, signExecute.Range.Start));
+        if (signAre == null)
         {
             return null;
         }
@@ -1892,11 +1730,12 @@ public class Create : ClassCreate
         long markStart;
         long markEnd;
         markStart = start;
-        markEnd = colon.Range.Start;
+        markEnd = signAre.Range.Start;
+
         long valueStart;
         long valueEnd;
-        valueStart = colon.Range.End;
-        valueEnd = semicolon.Range.Start;
+        valueStart = signAre.Range.End;
+        valueEnd = signExecute.Range.Start;
 
         Node mark;
         mark = this.ExecuteMark(this.Range(this.RangeA, markStart, markEnd));
@@ -1913,12 +1752,12 @@ public class Create : ClassCreate
         }
 
         this.SetArg.Kind = this.NodeKind.AreExecute;
-        this.SetArg.Start = start;
-        this.SetArg.End = end;
+        this.SetArg.Range.Start = start;
+        this.SetArg.Range.End = end;
         this.SetArg.Field00 = mark;
         this.SetArg.Field01 = value;
         Node ret;
-        ret = this.ExecuteCreateOperate();
+        ret = this.Operate.Execute();
         return ret;
     }
 
@@ -1933,11 +1772,13 @@ public class Create : ClassCreate
         {
             return null;
         }
+
         long lastIndex;
         lastIndex = end - 1;
-        Token semicolon;
-        semicolon = this.Token(this.TokenA, this.Limit.ExecuteSign.Text, this.IndexRange(this.RangeA, lastIndex));
-        if (semicolon == null)
+
+        Token signExecute;
+        signExecute = this.Token(this.TokenA, this.Limit.Execute.Text, this.IndexRange(this.RangeA, lastIndex));
+        if (signExecute == null)
         {
             return null;
         }
@@ -1945,7 +1786,7 @@ public class Create : ClassCreate
         long anyStart;
         long anyEnd;
         anyStart = start;
-        anyEnd = semicolon.Range.Start;
+        anyEnd = signExecute.Range.Start;
 
         Node any;
         any = this.ExecuteOperate(this.Range(this.RangeA, anyStart, anyEnd));
@@ -1955,11 +1796,11 @@ public class Create : ClassCreate
         }
 
         this.SetArg.Kind = this.NodeKind.OperateExecute;
-        this.SetArg.Start = start;
-        this.SetArg.End = end;
+        this.SetArg.Range.Start = start;
+        this.SetArg.Range.End = end;
         this.SetArg.Field00 = any;
         Node ret;
-        ret = this.ExecuteCreateOperate();
+        ret = this.Operate.Execute();
         return ret;
     }
 
@@ -2000,9 +1841,9 @@ public class Create : ClassCreate
         {
             if (!(start == end))
             {
-                Token wordTokenA;
-                wordTokenA = this.Token(this.TokenA, this.Index.Sign.Text, this.IndexRange(this.RangeA, start));
-                if (!(wordTokenA == null))
+                Token indexTokenA;
+                indexTokenA = this.Token(this.TokenA, this.Index.Sign.Text, this.IndexRange(this.RangeA, start));
+                if (!(indexTokenA == null))
                 {
                     if (a == null)
                     {
@@ -2023,9 +1864,9 @@ public class Create : ClassCreate
         {
             if (!(start == end))
             {
-                Token wordTokenB;
-                wordTokenB = this.Token(this.TokenA, this.Index.Bit.Text, this.IndexRange(this.RangeA, start));
-                if (!(wordTokenB == null))
+                Token indexTokenB;
+                indexTokenB = this.Token(this.TokenA, this.Index.Bit.Text, this.IndexRange(this.RangeA, start));
+                if (!(indexTokenB == null))
                 {
                     if (a == null)
                     {
@@ -2125,27 +1966,27 @@ public class Create : ClassCreate
 
     public virtual Node ExecuteThisOperate(Range range)
     {
-        return this.ExecuteOneWord(this.NodeKind.ThisOperate, this.Index.ItemThis, range);
+        return this.ExecuteIndex(this.NodeKind.ThisOperate, this.Index.ItemThis, range);
     }
 
     public virtual Node ExecuteBaseOperate(Range range)
     {
-        return this.ExecuteOneWord(this.NodeKind.BaseOperate, this.Index.Base, range);
+        return this.ExecuteIndex(this.NodeKind.BaseOperate, this.Index.Base, range);
     }
 
     public virtual Node ExecuteNullOperate(Range range)
     {
-        return this.ExecuteOneWord(this.NodeKind.NullOperate, this.Index.Null, range);
+        return this.ExecuteIndex(this.NodeKind.NullOperate, this.Index.Null, range);
     }
 
     public virtual Node ExecuteNewOperate(Range range)
     {
-        return this.ExecuteWordClass(this.NodeKind.NewOperate, this.Index.New, range);
+        return this.ExecuteIndexClass(this.NodeKind.NewOperate, this.Index.New, range);
     }
 
     public virtual Node ExecuteShareOperate(Range range)
     {
-        return this.ExecuteWordClass(this.NodeKind.ShareOperate, this.Index.Share, range);
+        return this.ExecuteIndexClass(this.NodeKind.ShareOperate, this.Index.Share, range);
     }
 
     public virtual Node ExecuteCastOperate(Range range)
@@ -2159,6 +2000,7 @@ public class Create : ClassCreate
         {
             return null;
         }
+
         Token castToken;
         castToken = this.Token(this.TokenA, this.Index.Cast.Text, this.IndexRange(this.RangeA, start));
         if (castToken == null)
@@ -2166,21 +2008,21 @@ public class Create : ClassCreate
             return null;
         }
 
-        Token leftBracket;
-        leftBracket = this.TokenForwardNoSkip(this.TokenB, this.Limit.BraceRoundLite.Text, this.Range(this.RangeA, castToken.Range.End, end));
-        if (leftBracket == null)
+        Token braceRoundLite;
+        braceRoundLite = this.TokenFront(this.TokenB, this.Limit.BraceRoundLite.Text, this.Range(this.RangeA, castToken.Range.End, end));
+        if (braceRoundLite == null)
         {
             return null;
         }
 
-        Token rightBracket;
-        rightBracket = this.TokenMatchBraceRoundLite(this.TokenC, this.Range(this.RangeA, leftBracket.Range.End, end));
-        if (rightBracket == null)
+        Token braceRoundRite;
+        braceRoundRite = this.TokenBraceRoundRite(this.TokenC, this.Range(this.RangeA, braceRoundLite.Range.End, end));
+        if (braceRoundRite == null)
         {
             return null;
         }
 
-        if (!(rightBracket.Range.End == end))
+        if (!(braceRoundRite.Range.End == end))
         {
             return null;
         }
@@ -2188,11 +2030,12 @@ public class Create : ClassCreate
         long classStart;
         long classEnd;
         classStart = castToken.Range.End;
-        classEnd = leftBracket.Range.Start;
+        classEnd = braceRoundLite.Range.Start;
+
         long anyStart;
         long anyEnd;
-        anyStart = leftBracket.Range.End;
-        anyEnd = rightBracket.Range.Start;
+        anyStart = braceRoundLite.Range.End;
+        anyEnd = braceRoundRite.Range.Start;
 
         Node varClass;
         varClass = this.ExecuteName(this.NodeKind.ClassName, this.Range(this.RangeA, classStart, classEnd));
@@ -2209,18 +2052,70 @@ public class Create : ClassCreate
         }
 
         this.SetArg.Kind = this.NodeKind.CastOperate;
-        this.SetArg.Start = start;
-        this.SetArg.End = end;
+        this.SetArg.Range.Start = start;
+        this.SetArg.Range.End = end;
         this.SetArg.Field00 = varClass;
         this.SetArg.Field01 = any;
         Node ret;
-        ret = this.ExecuteCreateOperate();
+        ret = this.Operate.Execute();
+        return ret;
+    }
+
+    public virtual Node ExecuteBraceOperate(Range range)
+    {
+        long start;
+        long end;
+        start = range.Start;
+        end = range.End;
+
+        if (start == end)
+        {
+            return null;
+        }
+
+        Token braceRoundLite;
+        braceRoundLite = this.Token(this.TokenA, this.Limit.BraceRoundLite.Text, this.IndexRange(this.RangeA, start));
+        if (braceRoundLite == null)
+        {
+            return null;
+        }
+
+        Token braceRoundRite;
+        braceRoundRite = this.TokenBraceRoundRite(this.TokenB, this.Range(this.RangeA, braceRoundLite.Range.End, end));
+        if (braceRoundRite == null)
+        {
+            return null;
+        }
+
+        if (!(braceRoundRite.Range.End == end))
+        {
+            return null;
+        }
+
+        long anyStart;
+        long anyEnd;
+        anyStart = braceRoundLite.Range.End;
+        anyEnd = braceRoundRite.Range.Start;
+
+        Node any;
+        any = this.ExecuteOperate(this.Range(this.RangeA, anyStart, anyEnd));
+        if (any == null)
+        {
+            this.Error(this.ErrorKind.AnyUnvalid, anyStart, anyEnd);
+        }
+
+        this.SetArg.Kind = this.NodeKind.BraceOperate;
+        this.SetArg.Range.Start = start;
+        this.SetArg.Range.End = end;
+        this.SetArg.Field00 = any;
+        Node ret;
+        ret = this.Operate.Execute();
         return ret;
     }
 
     public virtual Node ExecuteVarOperate(Range range)
     {
-        return this.ExecuteVarNameResult(this.NodeKind.VarOperate, range);
+        return this.ExecuteVarNameNode(this.NodeKind.VarOperate, range);
     }
 
     public virtual Node ExecuteValueOperate(Range range)
@@ -2238,156 +2133,105 @@ public class Create : ClassCreate
         }
 
         this.SetArg.Kind = this.NodeKind.ValueOperate;
-        this.SetArg.Start = start;
-        this.SetArg.End = end;
+        this.SetArg.Range.Start = start;
+        this.SetArg.Range.End = end;
         this.SetArg.Field00 = value;
         Node ret;
-        ret = this.ExecuteCreateOperate();
+        ret = this.Operate.Execute();
         return ret;
-    }
-
-    public virtual Node ExecuteBraceOperate(Range range)
-    {
-        long start;
-        long end;
-        start = range.Start;
-        end = range.End;
-
-        if (start == end)
-        {
-            return null;
-        }
-        Token leftBracket;
-        leftBracket = this.Token(this.TokenA, this.Limit.BraceRoundLite.Text, this.IndexRange(this.RangeA, start));
-        if (leftBracket == null)
-        {
-            return null;
-        }
-
-        Token rightBracket;
-        rightBracket = this.TokenMatchBraceRoundLite(this.TokenB, this.Range(this.RangeA, leftBracket.Range.End, end));
-        if (rightBracket == null)
-        {
-            return null;
-        }
-
-        if (!(rightBracket.Range.End == end))
-        {
-            return null;
-        }
-
-        long anyStart;
-        long anyEnd;
-        anyStart = leftBracket.Range.End;
-        anyEnd = rightBracket.Range.Start;
-
-        Node any;
-        any = this.ExecuteOperate(this.Range(this.RangeA, anyStart, anyEnd));
-        if (any == null)
-        {
-            this.Error(this.ErrorKind.AnyUnvalid, anyStart, anyEnd);
-        }
-
-        this.SetArg.Kind = this.NodeKind.BraceOperate;
-        this.SetArg.Start = start;
-        this.SetArg.End = end;
-        this.SetArg.Field00 = any;
-        Node ret;
-        ret = this.ExecuteCreateOperate();
-        return ret;
-    }
-
-    public virtual Node ExecuteSameOperate(Range range)
-    {
-        return this.ExecuteLimitTwoOperand(this.NodeKind.SameOperate, this.Limit.SameSign, range);
     }
 
     public virtual Node ExecuteAndOperate(Range range)
     {
-        return this.ExecuteLimitTwoOperand(this.NodeKind.AndOperate, this.Limit.AndSign, range);
+        return this.ExecuteLimitTwoOperand(this.NodeKind.AndOperate, this.Limit.And, range);
     }
 
     public virtual Node ExecuteOrnOperate(Range range)
     {
-        return this.ExecuteLimitTwoOperand(this.NodeKind.OrnOperate, this.Limit.OrnSign, range);
+        return this.ExecuteLimitTwoOperand(this.NodeKind.OrnOperate, this.Limit.Orn, range);
     }
 
     public virtual Node ExecuteNotOperate(Range range)
     {
-        return this.ExecuteLimitOneOperand(this.NodeKind.NotOperate, this.Limit.NotSign, range);
+        return this.ExecuteLimitOneOperand(this.NodeKind.NotOperate, this.Limit.Not, range);
     }
 
-    public virtual Node ExecuteAddOperate(Range range)
+    public virtual Node ExecuteSameOperate(Range range)
     {
-        return this.ExecuteLimitTwoOperand(this.NodeKind.AddOperate, this.Limit.AddSign, range);
-    }
-
-    public virtual Node ExecuteSubOperate(Range range)
-    {
-        return this.ExecuteLimitTwoOperand(this.NodeKind.SubOperate, this.Limit.SubSign, range);
-    }
-
-    public virtual Node ExecuteMulOperate(Range range)
-    {
-        return this.ExecuteLimitTwoOperand(this.NodeKind.MulOperate, this.Limit.MulSign, range);
-    }
-
-    public virtual Node ExecuteDivOperate(Range range)
-    {
-        return this.ExecuteLimitTwoOperand(this.NodeKind.DivOperate, this.Limit.DivSign, range);
+        return this.ExecuteLimitTwoOperand(this.NodeKind.SameOperate, this.Limit.Same, range);
     }
 
     public virtual Node ExecuteLessOperate(Range range)
     {
-        return this.ExecuteLimitTwoOperand(this.NodeKind.LessOperate, this.Limit.LessSign, range);
+        return this.ExecuteLimitTwoOperand(this.NodeKind.LessOperate, this.Limit.Less, range);
     }
 
-    public virtual Node ExecuteSignMulOperate(Range range)
+    public virtual Node ExecuteAddOperate(Range range)
     {
-        return this.ExecuteWordLimitTwoOperand(this.NodeKind.SignMulOperate, this.Index.Sign, this.Limit.MulSign, range);
+        return this.ExecuteLimitTwoOperand(this.NodeKind.AddOperate, this.Limit.Add, range);
     }
 
-    public virtual Node ExecuteSignDivOperate(Range range)
+    public virtual Node ExecuteSubOperate(Range range)
     {
-        return this.ExecuteWordLimitTwoOperand(this.NodeKind.SignDivOperate, this.Index.Sign, this.Limit.DivSign, range);
+        return this.ExecuteLimitTwoOperand(this.NodeKind.SubOperate, this.Limit.Sub, range);
+    }
+
+    public virtual Node ExecuteMulOperate(Range range)
+    {
+        return this.ExecuteLimitTwoOperand(this.NodeKind.MulOperate, this.Limit.Mul, range);
+    }
+
+    public virtual Node ExecuteDivOperate(Range range)
+    {
+        return this.ExecuteLimitTwoOperand(this.NodeKind.DivOperate, this.Limit.Div, range);
     }
 
     public virtual Node ExecuteSignLessOperate(Range range)
     {
-        return this.ExecuteWordLimitTwoOperand(this.NodeKind.SignLessOperate, this.Index.Sign, this.Limit.LessSign, range);
+        return this.ExecuteIndexLimitTwoOperand(this.NodeKind.SignLessOperate, this.Index.Sign, this.Limit.Less, range);
+    }
+
+    public virtual Node ExecuteSignMulOperate(Range range)
+    {
+        return this.ExecuteIndexLimitTwoOperand(this.NodeKind.SignMulOperate, this.Index.Sign, this.Limit.Mul, range);
+    }
+
+    public virtual Node ExecuteSignDivOperate(Range range)
+    {
+        return this.ExecuteIndexLimitTwoOperand(this.NodeKind.SignDivOperate, this.Index.Sign, this.Limit.Div, range);
     }
 
     public virtual Node ExecuteBitAndOperate(Range range)
     {
-        return this.ExecuteWordLimitTwoOperand(this.NodeKind.BitAndOperate, this.Index.Bit, this.Limit.AndSign, range);
+        return this.ExecuteIndexLimitTwoOperand(this.NodeKind.BitAndOperate, this.Index.Bit, this.Limit.And, range);
     }
 
     public virtual Node ExecuteBitOrnOperate(Range range)
     {
-        return this.ExecuteWordLimitTwoOperand(this.NodeKind.BitOrnOperate, this.Index.Bit, this.Limit.OrnSign, range);
+        return this.ExecuteIndexLimitTwoOperand(this.NodeKind.BitOrnOperate, this.Index.Bit, this.Limit.Orn, range);
     }
 
     public virtual Node ExecuteBitNotOperate(Range range)
     {
-        return this.ExecuteWordLimitOneOperand(this.NodeKind.BitNotOperate, this.Index.Bit, this.Limit.NotSign, range);
+        return this.ExecuteIndexLimitOneOperand(this.NodeKind.BitNotOperate, this.Index.Bit, this.Limit.Not, range);
     }
 
     public virtual Node ExecuteBitLiteOperate(Range range)
     {
-        return this.ExecuteWordLimitTwoOperand(this.NodeKind.BitLiteOperate, this.Index.Bit, this.Limit.LessSign, range);
+        return this.ExecuteIndexLimitTwoOperand(this.NodeKind.BitLiteOperate, this.Index.Bit, this.Limit.Less, range);
     }
 
     public virtual Node ExecuteBitRiteOperate(Range range)
     {
-        return this.ExecuteWordLimitTwoOperand(this.NodeKind.BitRiteOperate, this.Index.Bit, this.Limit.MoreSign, range);
+        return this.ExecuteIndexLimitTwoOperand(this.NodeKind.BitRiteOperate, this.Index.Bit, this.Limit.More, range);
     }
 
     public virtual Node ExecuteBitSignRiteOperate(Range range)
     {
-        return this.ExecuteWordTwoLimitTwoOperand(this.NodeKind.BitSignRiteOperate, this.Index.Bit, this.Limit.MoreSign, this.Limit.MoreSign, range);
+        return this.ExecuteIndexTwoLimitTwoOperand(this.NodeKind.BitSignRiteOperate, this.Index.Bit, this.Limit.More, this.Limit.More, range);
     }
 
-    protected virtual Node ExecuteWordBracketBody(NodeKind kind, Index word, Range range)
+    protected virtual Node ExecuteIndexBraceBody(NodeKind kind, Index index, Range range)
     {
         long start;
         long end;
@@ -2398,62 +2242,66 @@ public class Create : ClassCreate
         {
             return null;
         }
-        Token wordToken;
-        wordToken = this.Token(this.TokenA, word.Text, this.IndexRange(this.RangeA, start));
-        if (wordToken == null)
+
+        Token indexToken;
+        indexToken = this.Token(this.TokenA, index.Text, this.IndexRange(this.RangeA, start));
+        if (indexToken == null)
         {
             return null;
         }
 
-        if (wordToken.Range.End == end)
-        {
-            return null;
-        }
-        Token leftBracket;
-        leftBracket = this.Token(this.TokenB, this.Limit.BraceRoundLite.Text, this.IndexRange(this.RangeA, wordToken.Range.End));
-        if (leftBracket == null)
+        if (indexToken.Range.End == end)
         {
             return null;
         }
 
-        Token rightBracket;
-        rightBracket = this.TokenMatchBraceRoundLite(this.TokenC, this.Range(this.RangeA, leftBracket.Range.End, end));
-        if (rightBracket == null)
+        Token braceRoundLite;
+        braceRoundLite = this.Token(this.TokenB, this.Limit.BraceRoundLite.Text, this.IndexRange(this.RangeA, indexToken.Range.End));
+        if (braceRoundLite == null)
         {
             return null;
         }
 
-        if (rightBracket.Range.End == end)
-        {
-            return null;
-        }
-        Token leftBrace;
-        leftBrace = this.Token(this.TokenD, this.Limit.BraceCurveLite.Text, this.IndexRange(this.RangeA, rightBracket.Range.End));
-        if (leftBrace == null)
+        Token braceRoundRite;
+        braceRoundRite = this.TokenBraceRoundRite(this.TokenC, this.Range(this.RangeA, braceRoundLite.Range.End, end));
+        if (braceRoundRite == null)
         {
             return null;
         }
 
-        Token rightBrace;
-        rightBrace = this.TokenMatchBraceCurveLite(this.TokenA, this.Range(this.RangeA, leftBrace.Range.End, end));
-        if (rightBrace == null)
+        if (braceRoundRite.Range.End == end)
         {
             return null;
         }
 
-        if (!(rightBrace.Range.End == end))
+        Token braceCurveLite;
+        braceCurveLite = this.Token(this.TokenD, this.Limit.BraceCurveLite.Text, this.IndexRange(this.RangeA, braceRoundRite.Range.End));
+        if (braceCurveLite == null)
+        {
+            return null;
+        }
+
+        Token braceCurveRite;
+        braceCurveRite = this.TokenBraceCurveRite(this.TokenA, this.Range(this.RangeA, braceCurveLite.Range.End, end));
+        if (braceCurveRite == null)
+        {
+            return null;
+        }
+
+        if (!(braceCurveRite.Range.End == end))
         {
             return null;
         }
 
         long condStart;
         long condEnd;
-        condStart = leftBracket.Range.End;
-        condEnd = rightBracket.Range.Start;
+        condStart = braceRoundLite.Range.End;
+        condEnd = braceRoundRite.Range.Start;
+
         long bodyStart;
         long bodyEnd;
-        bodyStart = leftBrace.Range.End;
-        bodyEnd = rightBrace.Range.Start;
+        bodyStart = braceCurveLite.Range.End;
+        bodyEnd = braceCurveRite.Range.Start;
 
         Node cond;
         cond = this.ExecuteOperate(this.Range(this.RangeA, condStart, condEnd));
@@ -2470,38 +2318,38 @@ public class Create : ClassCreate
         }
 
         this.SetArg.Kind = kind;
-        this.SetArg.Start = start;
-        this.SetArg.End = end;
+        this.SetArg.Range.Start = start;
+        this.SetArg.Range.End = end;
         this.SetArg.Field00 = cond;
         this.SetArg.Field01 = body;
         Node ret;
-        ret = this.ExecuteCreateOperate();
+        ret = this.Operate.Execute();
         return ret;
     }
 
-    protected virtual Node ExecuteOneWord(NodeKind kind, Index word, Range range)
+    protected virtual Node ExecuteIndex(NodeKind kind, Index index, Range range)
     {
         long start;
         long end;
         start = range.Start;
         end = range.End;
 
-        Token wordToken;
-        wordToken = this.Token(this.TokenA, word.Text, this.Range(this.RangeA, start, end));
-        if (wordToken == null)
+        Token indexToken;
+        indexToken = this.Token(this.TokenA, index.Text, this.Range(this.RangeA, start, end));
+        if (indexToken == null)
         {
             return null;
         }
 
         this.SetArg.Kind = kind;
-        this.SetArg.Start = start;
-        this.SetArg.End = end;
+        this.SetArg.Range.Start = start;
+        this.SetArg.Range.End = end;
         Node ret;
-        ret = this.ExecuteCreateOperate();
+        ret = this.Operate.Execute();
         return ret;
     }
 
-    protected virtual Node ExecuteWordClass(NodeKind kind, Index keyword, Range range)
+    protected virtual Node ExecuteIndexClass(NodeKind kind, Index index, Range range)
     {
         long start;
         long end;
@@ -2516,16 +2364,16 @@ public class Create : ClassCreate
             return null;
         }
 
-        Token wordToken;
-        wordToken = this.Token(this.TokenA, keyword.Text, this.IndexRange(this.RangeA, start));
-        if (wordToken == null)
+        Token indexToken;
+        indexToken = this.Token(this.TokenA, index.Text, this.IndexRange(this.RangeA, start));
+        if (indexToken == null)
         {
             return null;
         }
 
         long classStart;
         long classEnd;
-        classStart = wordToken.Range.End;
+        classStart = indexToken.Range.End;
         classEnd = end;
 
         Node varClass;
@@ -2534,13 +2382,13 @@ public class Create : ClassCreate
         {
             this.Error(this.ErrorKind.ClassUnvalid, classStart, classEnd);
         }
-        
+
         this.SetArg.Kind = kind;
-        this.SetArg.Start = start;
-        this.SetArg.End = end;
+        this.SetArg.Range.Start = start;
+        this.SetArg.Range.End = end;
         this.SetArg.Field00 = varClass;
         Node ret;
-        ret = this.ExecuteCreateOperate();
+        ret = this.Operate.Execute();
         return ret;
     }
 
@@ -2551,9 +2399,9 @@ public class Create : ClassCreate
         start = range.Start;
         end = range.End;
 
-        Token dot;
-        dot = this.TokenBackwardNoSkip(this.TokenA, this.Limit.StopSign.Text, this.Range(this.RangeA, start, end));
-        if (dot == null)
+        Token signStop;
+        signStop = this.TokenBack(this.TokenA, this.Limit.Stop.Text, this.Range(this.RangeA, start, end));
+        if (signStop == null)
         {
             return null;
         }
@@ -2561,10 +2409,11 @@ public class Create : ClassCreate
         long thisStart;
         long thisEnd;
         thisStart = start;
-        thisEnd = dot.Range.Start;
+        thisEnd = signStop.Range.Start;
+
         long fieldStart;
         long fieldEnd;
-        fieldStart = dot.Range.End;
+        fieldStart = signStop.Range.End;
         fieldEnd = end;
 
         Node varThis;
@@ -2582,12 +2431,12 @@ public class Create : ClassCreate
         }
 
         this.SetArg.Kind = kind;
-        this.SetArg.Start = start;
-        this.SetArg.End = end;
+        this.SetArg.Range.Start = start;
+        this.SetArg.Range.End = end;
         this.SetArg.Field00 = varThis;
         this.SetArg.Field01 = field;
         Node ret;
-        ret = this.ExecuteCreateOperate();
+        ret = this.Operate.Execute();
         return ret;
     }
 
@@ -2602,25 +2451,27 @@ public class Create : ClassCreate
         {
             return null;
         }
+
         long lastIndex;
         lastIndex = end - 1;
-        Token rightBracket;
-        rightBracket = this.Token(this.TokenA, this.Limit.BraceRoundRite.Text, this.IndexRange(this.RangeA, lastIndex));
-        if (rightBracket == null)
+
+        Token braceRoundRite;
+        braceRoundRite = this.Token(this.TokenA, this.Limit.BraceRoundRite.Text, this.IndexRange(this.RangeA, lastIndex));
+        if (braceRoundRite == null)
         {
             return null;
         }
 
-        Token leftBracket;
-        leftBracket = this.TokenMatchBraceRoundRite(this.TokenB, this.Range(this.RangeA, start, rightBracket.Range.Start));
-        if (leftBracket == null)
+        Token braceRoundLite;
+        braceRoundLite = this.TokenBraceRoundLite(this.TokenB, this.Range(this.RangeA, start, braceRoundRite.Range.Start));
+        if (braceRoundLite == null)
         {
             return null;
         }
 
-        Token dot;
-        dot = this.TokenBackwardNoSkip(this.TokenC, this.Limit.StopSign.Text, this.Range(this.RangeA, start, leftBracket.Range.Start));
-        if (dot == null)
+        Token signStop;
+        signStop = this.TokenBack(this.TokenC, this.Limit.Stop.Text, this.Range(this.RangeA, start, braceRoundLite.Range.Start));
+        if (signStop == null)
         {
             return null;
         }
@@ -2628,17 +2479,17 @@ public class Create : ClassCreate
         long thisStart;
         long thisEnd;
         thisStart = start;
-        thisEnd = dot.Range.Start;
+        thisEnd = signStop.Range.Start;
 
         long maideStart;
         long maideEnd;
-        maideStart = dot.Range.End;
-        maideEnd = leftBracket.Range.Start;
+        maideStart = signStop.Range.End;
+        maideEnd = braceRoundLite.Range.Start;
 
         long argueStart;
         long argueEnd;
-        argueStart = leftBracket.Range.End;
-        argueEnd = rightBracket.Range.Start;
+        argueStart = braceRoundLite.Range.End;
+        argueEnd = braceRoundRite.Range.Start;
 
         Node varThis;
         varThis = this.ExecuteOperate(this.Range(this.RangeA, thisStart, thisEnd));
@@ -2662,17 +2513,17 @@ public class Create : ClassCreate
         }
 
         this.SetArg.Kind = kind;
-        this.SetArg.Start = start;
-        this.SetArg.End = end;
+        this.SetArg.Range.Start = start;
+        this.SetArg.Range.End = end;
         this.SetArg.Field00 = varThis;
         this.SetArg.Field01 = maide;
         this.SetArg.Field02 = argue;
         Node ret;
-        ret = this.ExecuteCreateOperate();
+        ret = this.Operate.Execute();
         return ret;
     }
 
-    protected virtual Node ExecuteVarNameResult(NodeKind kind, Range range)
+    protected virtual Node ExecuteVarNameNode(NodeKind kind, Range range)
     {
         long start;
         long end;
@@ -2687,11 +2538,11 @@ public class Create : ClassCreate
         }
 
         this.SetArg.Kind = kind;
-        this.SetArg.Start = start;
-        this.SetArg.End = end;
+        this.SetArg.Range.Start = start;
+        this.SetArg.Range.End = end;
         this.SetArg.Field00 = varVar;
         Node ret;
-        ret = this.ExecuteCreateOperate();
+        ret = this.Operate.Execute();
         return ret;
     }
 
@@ -2704,21 +2555,25 @@ public class Create : ClassCreate
 
         Node node;
         node = null;
+
         bool b;
         b = false;
-        Range aRange;
-        aRange = this.ExecuteNameRange(this.RangeB, this.Range(this.RangeA, start, end));
-        if (aRange == null)
+
+        Range nameRange;
+        nameRange = this.ExecuteNameRange(this.RangeB, this.Range(this.RangeA, start, end));
+        if (nameRange == null)
         {
             b = true;
         }
+
         if (!b)
         {
-            if (!(aRange.End == end))
+            if (!(nameRange.End == end))
             {
                 b = true;
             }
         }
+
         if (!b)
         {
             node = this.ExecuteNameNode(kind, this.Range(this.RangeA, start, end));
@@ -2742,12 +2597,35 @@ public class Create : ClassCreate
         }
 
         this.SetArg.Kind = kind;
-        this.SetArg.Start = start;
-        this.SetArg.End = end;
+        this.SetArg.Range.Start = start;
+        this.SetArg.Range.End = end;
         this.SetArg.Field00 = value;
         Node ret;
-        ret = this.ExecuteCreateOperate();
+        ret = this.Operate.Execute();
         return ret;
+    }
+
+    protected virtual String ExecuteNameValue(Range range)
+    {
+        long start;
+        long end;
+        start = range.Start;
+        end = range.End;
+
+        if (!(this.Count(start, end) == 1))
+        {
+            return null;
+        }
+
+        TokenToken token;
+        token = this.TokenToken(start);
+
+        Text text;
+        text = this.TextToken(this.TextA, token);
+
+        String a;
+        a = this.Operate.ExecuteNameValue(text);
+        return a;
     }
 
     protected virtual Node ExecuteLimitTwoOperand(NodeKind kind, Limit limit, Range range)
@@ -2757,152 +2635,22 @@ public class Create : ClassCreate
         start = range.Start;
         end = range.End;
 
-        Token op;
-        op = this.TokenForward(this.TokenA, limit.Text, this.Range(this.RangeA, start, end));
-        if (op == null)
-        {
-            return null;
-        }
-
-        long leftStart;
-        long leftEnd;
-        leftStart = start;
-        leftEnd = op.Range.Start;
-        long rightStart;
-        long rightEnd;
-        rightStart = op.Range.End;
-        rightEnd = end;
-
-        Node left;
-        left = this.ExecuteOperate(this.Range(this.RangeA, leftStart, leftEnd));
-        if (left == null)
-        {
-            this.Error(this.ErrorKind.OperandUnvalid, leftStart, leftEnd);
-        }
-
-        Node right;
-        right = this.ExecuteOperate(this.Range(this.RangeA, rightStart, rightEnd));
-        if (right == null)
-        {
-            this.Error(this.ErrorKind.OperandUnvalid, rightStart, rightEnd);
-        }
-
-        this.SetArg.Kind = kind;
-        this.SetArg.Start = start;
-        this.SetArg.End = end;
-        this.SetArg.Field00 = left;
-        this.SetArg.Field01 = right;
-        Node ret;
-        ret = this.ExecuteCreateOperate();
-        return ret;
-    }
-
-    protected virtual Node ExecuteLimitOneOperand(NodeKind kind, Limit limit, Range range)
-    {
-        long start;
-        long end;
-        start = range.Start;
-        end = range.End;
-
-        if (start == end)
-        {
-            return null;
-        }
-        Token op;
-        op = this.Token(this.TokenA, limit.Text, this.IndexRange(this.RangeA, start));
-        if (op == null)
-        {
-            return null;
-        }
-
-        long valueStart;
-        long valueEnd;
-        valueStart = op.Range.End;
-        valueEnd = end;
-
-        Node value;
-        value = this.ExecuteOperate(this.Range(this.RangeA, valueStart, valueEnd));
-        if (value == null)
-        {
-            this.Error(this.ErrorKind.OperandUnvalid, valueStart, valueEnd);
-        }
-
-        this.SetArg.Kind = kind;
-        this.SetArg.Start = start;
-        this.SetArg.End = end;
-        this.SetArg.Field00 = value;
-        Node ret;
-        ret = this.ExecuteCreateOperate();
-        return ret;
-    }
-
-    protected virtual Node ExecuteWordLimitTwoOperand(NodeKind kind, Index word, Limit limit, Range range)
-    {
-        long start;
-        long end;
-        start = range.Start;
-        end = range.End;
-
-        if (start == end)
-        {
-            return null;
-        }
-        Token wordToken;
-        wordToken = this.Token(this.TokenA, word.Text, this.IndexRange(this.RangeA, start));
-        if (wordToken == null)
-        {
-            return null;
-        }
-
-        if (wordToken.Range.End == end)
-        {
-            return null;
-        }
-        Token op;
-        op = this.Token(this.TokenB, limit.Text, this.IndexRange(this.RangeA, wordToken.Range.End));
-        if (op == null)
-        {
-            return null;
-        }
-
-        if (op.Range.End == end)
-        {
-            return null;
-        }
-        Token braceLite;
-        braceLite = this.Token(this.TokenC, this.Limit.BraceRoundLite.Text, this.IndexRange(this.RangeA, op.Range.End));
-        if (braceLite == null)
-        {
-            return null;
-        }
-
-        Token braceRite;
-        braceRite = this.TokenMatchBraceRoundLite(this.TokenD, this.Range(this.RangeA, braceLite.Range.End, end));
-        if (braceRite == null)
-        {
-            return null;
-        }
-
-        Token comma;
-        comma = this.TokenForward(this.TokenA, this.Limit.PauseSign.Text, this.Range(this.RangeA, braceLite.Range.End, braceRite.Range.Start));
-        if (comma == null)
-        {
-            return null;
-        }
-
-        if (!(braceRite.Range.End == end))
+        Token signToken;
+        signToken = this.TokenFrontSkip(this.TokenA, limit.Text, this.Range(this.RangeA, start, end));
+        if (signToken == null)
         {
             return null;
         }
 
         long liteStart;
         long liteEnd;
-        liteStart = braceLite.Range.End;
-        liteEnd = comma.Range.Start;
+        liteStart = start;
+        liteEnd = signToken.Range.Start;
+
         long riteStart;
         long riteEnd;
-        riteStart = comma.Range.End;
-        riteEnd = braceRite.Range.Start;
+        riteStart = signToken.Range.End;
+        riteEnd = end;
 
         Node lite;
         lite = this.ExecuteOperate(this.Range(this.RangeA, liteStart, liteEnd));
@@ -2919,16 +2667,16 @@ public class Create : ClassCreate
         }
 
         this.SetArg.Kind = kind;
-        this.SetArg.Start = start;
-        this.SetArg.End = end;
+        this.SetArg.Range.Start = start;
+        this.SetArg.Range.End = end;
         this.SetArg.Field00 = lite;
         this.SetArg.Field01 = rite;
         Node ret;
-        ret = this.ExecuteCreateOperate();
+        ret = this.Operate.Execute();
         return ret;
     }
 
-    protected virtual Node ExecuteWordLimitOneOperand(NodeKind kind, Index word, Limit limit, Range range)
+    protected virtual Node ExecuteLimitOneOperand(NodeKind kind, Limit limit, Range range)
     {
         long start;
         long end;
@@ -2939,51 +2687,18 @@ public class Create : ClassCreate
         {
             return null;
         }
-        Token wordToken;
-        wordToken = this.Token(this.TokenA, word.Text, this.IndexRange(this.RangeA, start));
-        if (wordToken == null)
-        {
-            return null;
-        }
 
-        if (wordToken.Range.End == end)
-        {
-            return null;
-        }
-        Token op;
-        op = this.Token(this.TokenB, limit.Text, this.IndexRange(this.RangeA, wordToken.Range.End));
-        if (op == null)
-        {
-            return null;
-        }
-
-        if (op.Range.End == end)
-        {
-            return null;
-        }
-        Token leftBracket;
-        leftBracket = this.Token(this.TokenC, this.Limit.BraceRoundLite.Text, this.IndexRange(this.RangeA, op.Range.End));
-        if (leftBracket == null)
-        {
-            return null;
-        }
-
-        Token rightBracket;
-        rightBracket = this.TokenMatchBraceRoundLite(this.TokenD, this.Range(this.RangeA, leftBracket.Range.End, end));
-        if (rightBracket == null)
-        {
-            return null;
-        }
-
-        if (!(rightBracket.Range.End == end))
+        Token signToken;
+        signToken = this.Token(this.TokenA, limit.Text, this.IndexRange(this.RangeA, start));
+        if (signToken == null)
         {
             return null;
         }
 
         long valueStart;
         long valueEnd;
-        valueStart = leftBracket.Range.End;
-        valueEnd = rightBracket.Range.Start;
+        valueStart = signToken.Range.End;
+        valueEnd = end;
 
         Node value;
         value = this.ExecuteOperate(this.Range(this.RangeA, valueStart, valueEnd));
@@ -2993,15 +2708,15 @@ public class Create : ClassCreate
         }
 
         this.SetArg.Kind = kind;
-        this.SetArg.Start = start;
-        this.SetArg.End = end;
+        this.SetArg.Range.Start = start;
+        this.SetArg.Range.End = end;
         this.SetArg.Field00 = value;
         Node ret;
-        ret = this.ExecuteCreateOperate();
+        ret = this.Operate.Execute();
         return ret;
     }
 
-    protected virtual Node ExecuteWordTwoLimitTwoOperand(NodeKind kind, Index word, Limit limitA, Limit limitB, Range range)
+    protected virtual Node ExecuteIndexLimitTwoOperand(NodeKind kind, Index index, Limit limit, Range range)
     {
         long start;
         long end;
@@ -3012,95 +2727,272 @@ public class Create : ClassCreate
         {
             return null;
         }
-        Token wordToken;
-        wordToken = this.Token(this.TokenA, word.Text, this.IndexRange(this.RangeA, start));
-        if (wordToken == null)
+
+        Token indexToken;
+        indexToken = this.Token(this.TokenA, index.Text, this.IndexRange(this.RangeA, start));
+        if (indexToken == null)
         {
             return null;
         }
 
-        if (wordToken.Range.End == end)
-        {
-            return null;
-        }
-        Token opA;
-        opA = this.Token(this.TokenB, limitA.Text, this.IndexRange(this.RangeA, wordToken.Range.End));
-        if (opA == null)
+        if (indexToken.Range.End == end)
         {
             return null;
         }
 
-        if (opA.Range.End == end)
-        {
-            return null;
-        }
-        Token opB;
-        opB = this.Token(this.TokenC, limitB.Text, this.IndexRange(this.RangeA, opA.Range.End));
-        if (opB == null)
+        Token signToken;
+        signToken = this.Token(this.TokenB, limit.Text, this.IndexRange(this.RangeA, indexToken.Range.End));
+        if (signToken == null)
         {
             return null;
         }
 
-        if (opB.Range.End == end)
-        {
-            return null;
-        }
-        Token leftBracket;
-        leftBracket = this.Token(this.TokenA, this.Limit.BraceRoundLite.Text, this.IndexRange(this.RangeA, opB.Range.End));
-        if (leftBracket == null)
+        if (signToken.Range.End == end)
         {
             return null;
         }
 
-        Token rightBracket;
-        rightBracket = this.TokenMatchBraceRoundLite(this.TokenB, this.Range(this.RangeA, leftBracket.Range.End, end));
-        if (rightBracket == null)
+        Token braceRoundLite;
+        braceRoundLite = this.Token(this.TokenC, this.Limit.BraceRoundLite.Text, this.IndexRange(this.RangeA, signToken.Range.End));
+        if (braceRoundLite == null)
         {
             return null;
         }
 
-        Token comma;
-        comma = this.TokenForward(this.TokenC, this.Limit.PauseSign.Text, this.Range(this.RangeA, leftBracket.Range.End, rightBracket.Range.Start));
-        if (comma == null)
+        Token braceRoundRite;
+        braceRoundRite = this.TokenBraceRoundRite(this.TokenD, this.Range(this.RangeA, braceRoundLite.Range.End, end));
+        if (braceRoundRite == null)
         {
             return null;
         }
 
-        if (!(rightBracket.Range.End == end))
+        Token signPause;
+        signPause = this.TokenFrontSkip(this.TokenA, this.Limit.Pause.Text, this.Range(this.RangeA, braceRoundLite.Range.End, braceRoundRite.Range.Start));
+        if (signPause == null)
         {
             return null;
         }
 
-        long leftStart;
-        long leftEnd;
-        leftStart = leftBracket.Range.End;
-        leftEnd = comma.Range.Start;
-        long rightStart;
-        long rightEnd;
-        rightStart = comma.Range.End;
-        rightEnd = rightBracket.Range.Start;
-
-        Node left;
-        left = this.ExecuteOperate(this.Range(this.RangeA, leftStart, leftEnd));
-        if (left == null)
+        if (!(braceRoundRite.Range.End == end))
         {
-            this.Error(this.ErrorKind.OperandUnvalid, leftStart, leftEnd);
+            return null;
         }
 
-        Node right;
-        right = this.ExecuteOperate(this.Range(this.RangeA, rightStart, rightEnd));
-        if (right == null)
+        long liteStart;
+        long liteEnd;
+        liteStart = braceRoundLite.Range.End;
+        liteEnd = signPause.Range.Start;
+
+        long riteStart;
+        long riteEnd;
+        riteStart = signPause.Range.End;
+        riteEnd = braceRoundRite.Range.Start;
+
+        Node lite;
+        lite = this.ExecuteOperate(this.Range(this.RangeA, liteStart, liteEnd));
+        if (lite == null)
         {
-            this.Error(this.ErrorKind.OperandUnvalid, rightStart, rightEnd);
+            this.Error(this.ErrorKind.OperandUnvalid, liteStart, liteEnd);
+        }
+
+        Node rite;
+        rite = this.ExecuteOperate(this.Range(this.RangeA, riteStart, riteEnd));
+        if (rite == null)
+        {
+            this.Error(this.ErrorKind.OperandUnvalid, riteStart, riteEnd);
         }
 
         this.SetArg.Kind = kind;
-        this.SetArg.Start = start;
-        this.SetArg.End = end;
-        this.SetArg.Field00 = left;
-        this.SetArg.Field01 = right;
+        this.SetArg.Range.Start = start;
+        this.SetArg.Range.End = end;
+        this.SetArg.Field00 = lite;
+        this.SetArg.Field01 = rite;
         Node ret;
-        ret = this.ExecuteCreateOperate();
+        ret = this.Operate.Execute();
+        return ret;
+    }
+
+    protected virtual Node ExecuteIndexLimitOneOperand(NodeKind kind, Index index, Limit limit, Range range)
+    {
+        long start;
+        long end;
+        start = range.Start;
+        end = range.End;
+
+        if (start == end)
+        {
+            return null;
+        }
+
+        Token indexToken;
+        indexToken = this.Token(this.TokenA, index.Text, this.IndexRange(this.RangeA, start));
+        if (indexToken == null)
+        {
+            return null;
+        }
+
+        if (indexToken.Range.End == end)
+        {
+            return null;
+        }
+
+        Token signToken;
+        signToken = this.Token(this.TokenB, limit.Text, this.IndexRange(this.RangeA, indexToken.Range.End));
+        if (signToken == null)
+        {
+            return null;
+        }
+
+        if (signToken.Range.End == end)
+        {
+            return null;
+        }
+
+        Token braceRoundLite;
+        braceRoundLite = this.Token(this.TokenC, this.Limit.BraceRoundLite.Text, this.IndexRange(this.RangeA, signToken.Range.End));
+        if (braceRoundLite == null)
+        {
+            return null;
+        }
+
+        Token braceRoundRite;
+        braceRoundRite = this.TokenBraceRoundRite(this.TokenD, this.Range(this.RangeA, braceRoundLite.Range.End, end));
+        if (braceRoundRite == null)
+        {
+            return null;
+        }
+
+        if (!(braceRoundRite.Range.End == end))
+        {
+            return null;
+        }
+
+        long valueStart;
+        long valueEnd;
+        valueStart = braceRoundLite.Range.End;
+        valueEnd = braceRoundRite.Range.Start;
+
+        Node value;
+        value = this.ExecuteOperate(this.Range(this.RangeA, valueStart, valueEnd));
+        if (value == null)
+        {
+            this.Error(this.ErrorKind.OperandUnvalid, valueStart, valueEnd);
+        }
+
+        this.SetArg.Kind = kind;
+        this.SetArg.Range.Start = start;
+        this.SetArg.Range.End = end;
+        this.SetArg.Field00 = value;
+        Node ret;
+        ret = this.Operate.Execute();
+        return ret;
+    }
+
+    protected virtual Node ExecuteIndexTwoLimitTwoOperand(NodeKind kind, Index index, Limit limitA, Limit limitB, Range range)
+    {
+        long start;
+        long end;
+        start = range.Start;
+        end = range.End;
+
+        if (start == end)
+        {
+            return null;
+        }
+
+        Token indexToken;
+        indexToken = this.Token(this.TokenA, index.Text, this.IndexRange(this.RangeA, start));
+        if (indexToken == null)
+        {
+            return null;
+        }
+
+        if (indexToken.Range.End == end)
+        {
+            return null;
+        }
+
+        Token signTokenA;
+        signTokenA = this.Token(this.TokenB, limitA.Text, this.IndexRange(this.RangeA, indexToken.Range.End));
+        if (signTokenA == null)
+        {
+            return null;
+        }
+
+        if (signTokenA.Range.End == end)
+        {
+            return null;
+        }
+
+        Token signTokenB;
+        signTokenB = this.Token(this.TokenC, limitB.Text, this.IndexRange(this.RangeA, signTokenA.Range.End));
+        if (signTokenB == null)
+        {
+            return null;
+        }
+
+        if (signTokenB.Range.End == end)
+        {
+            return null;
+        }
+
+        Token braceRoundLite;
+        braceRoundLite = this.Token(this.TokenA, this.Limit.BraceRoundLite.Text, this.IndexRange(this.RangeA, signTokenB.Range.End));
+        if (braceRoundLite == null)
+        {
+            return null;
+        }
+
+        Token braceRoundRite;
+        braceRoundRite = this.TokenBraceRoundRite(this.TokenB, this.Range(this.RangeA, braceRoundLite.Range.End, end));
+        if (braceRoundRite == null)
+        {
+            return null;
+        }
+
+        Token signPause;
+        signPause = this.TokenFrontSkip(this.TokenC, this.Limit.Pause.Text, this.Range(this.RangeA, braceRoundLite.Range.End, braceRoundRite.Range.Start));
+        if (signPause == null)
+        {
+            return null;
+        }
+
+        if (!(braceRoundRite.Range.End == end))
+        {
+            return null;
+        }
+
+        long liteStart;
+        long liteEnd;
+        liteStart = braceRoundLite.Range.End;
+        liteEnd = signPause.Range.Start;
+
+        long riteStart;
+        long riteEnd;
+        riteStart = signPause.Range.End;
+        riteEnd = braceRoundRite.Range.Start;
+
+        Node lite;
+        lite = this.ExecuteOperate(this.Range(this.RangeA, liteStart, liteEnd));
+        if (lite == null)
+        {
+            this.Error(this.ErrorKind.OperandUnvalid, liteStart, liteEnd);
+        }
+
+        Node rite;
+        rite = this.ExecuteOperate(this.Range(this.RangeA, riteStart, riteEnd));
+        if (rite == null)
+        {
+            this.Error(this.ErrorKind.OperandUnvalid, riteStart, riteEnd);
+        }
+
+        this.SetArg.Kind = kind;
+        this.SetArg.Range.Start = start;
+        this.SetArg.Range.End = end;
+        this.SetArg.Field00 = lite;
+        this.SetArg.Field01 = rite;
+        Node ret;
+        ret = this.Operate.Execute();
         return ret;
     }
 
@@ -3119,15 +3011,15 @@ public class Create : ClassCreate
         }
 
         this.SetArg.Kind = kind;
-        this.SetArg.Start = start;
-        this.SetArg.End = end;
+        this.SetArg.Range.Start = start;
+        this.SetArg.Range.End = end;
         this.SetArg.Field00 = value;
         Node ret;
-        ret = this.ExecuteCreateOperate();
+        ret = this.Operate.Execute();
         return ret;
     }
 
-    protected virtual Node ExecuteListComma(NodeKind kind, RangeState rangeState, NodeState nodeState, Range range)
+    protected virtual Node ExecuteListPause(NodeKind kind, RangeState rangeState, NodeState nodeState, Range range)
     {
         long start;
         long end;
@@ -3135,18 +3027,18 @@ public class Create : ClassCreate
         end = range.End;
 
         Array value;
-        value = this.ExecuteListValueComma(rangeState, nodeState, this.Range(this.RangeA, start, end));
+        value = this.ExecuteListValuePause(rangeState, nodeState, this.Range(this.RangeA, start, end));
         if (value == null)
         {
             return null;
         }
 
         this.SetArg.Kind = kind;
-        this.SetArg.Start = start;
-        this.SetArg.End = end;
+        this.SetArg.Range.Start = start;
+        this.SetArg.Range.End = end;
         this.SetArg.Field00 = value;
         Node ret;
-        ret = this.ExecuteCreateOperate();
+        ret = this.Operate.Execute();
         return ret;
     }
 
@@ -3157,41 +3049,40 @@ public class Create : ClassCreate
         start = range.Start;
         end = range.End;
 
-        long listIndex;
-        listIndex = this.Operate.ExecuteListNew();
+        long list;
+        list = this.Operate.ExecuteListNew();
 
         long count;
         count = 0;
+
         long index;
         index = start;
+
         while (index < end)
         {
             RangeStateArg arg;
-            arg = (RangeStateArg)rangeState.Arg;
+            arg = rangeState.Arg as RangeStateArg;
 
             arg.Result = this.RangeB;
             arg.Range = this.Range(this.RangeA, index, end);
+
             rangeState.Execute();
 
             Range itemRange;
-            itemRange = (Range)rangeState.Result;
-            
+            itemRange = rangeState.Result as Range;
+
             rangeState.Result = null;
-            arg.Result = null;
             arg.Range = null;
+            arg.Result = null;
 
             bool b;
             b = (itemRange == null);
+
             if (b)
             {
-                long aStart;
-                long aEnd;
-                aStart = index;
-                aEnd = end;
-                this.Error(this.ErrorKind.ItemUnvalid, aStart, aEnd);
+                this.Error(this.ErrorKind.ItemUnvalid, index, end);
 
-                this.Operate.ExecuteListSetItem(listIndex, count, null);
-                count = count + 1;
+                this.Operate.ExecuteListItemSet(list, count, null);
 
                 index = end;
             }
@@ -3203,59 +3094,59 @@ public class Create : ClassCreate
                 itemStart = itemRange.Start;
                 itemEnd = itemRange.End;
 
-                index = itemEnd;
-
                 nodeState.Arg = this.Range(this.RangeA, itemStart, itemEnd);
+
                 nodeState.Execute();
 
                 Node item;
-                item = (Node)nodeState.Result;
+                item = nodeState.Result as Node;
 
-                nodeState.Arg = null;
                 nodeState.Result = null;
+                nodeState.Arg = null;
 
-                bool ba;
-                ba = (item == null);
-                if (ba)
+                if (item == null)
                 {
                     this.Error(this.ErrorKind.ItemUnvalid, itemStart, itemEnd);
                 }
 
-                this.Operate.ExecuteListSetItem(listIndex, count, item);
+                this.Operate.ExecuteListItemSet(list, count, item);
 
-                count = count + 1;
+                index = itemEnd;
             }
+
+            count = count + 1;
         }
 
-        this.Operate.ExecuteListCount(listIndex, count);
+        this.Operate.ExecuteListCount(list, count);
 
         Array array;
-        array = this.Operate.ExecuteListGet(listIndex);
+        array = this.Operate.ExecuteListGet(list);
         return array;
     }
 
-    protected virtual Array ExecuteListValueComma(RangeState rangeState, NodeState nodeState, Range range)
+    protected virtual Array ExecuteListValuePause(RangeState rangeState, NodeState nodeState, Range range)
     {
         long start;
         long end;
         start = range.Start;
         end = range.End;
 
-        long listIndex;
-        listIndex = this.Operate.ExecuteListNew();
+        long list;
+        list = this.Operate.ExecuteListNew();
 
         long count;
         count = 0;
 
-        bool hasNextItem;
-        hasNextItem = false;
+        bool hasNext;
+        hasNext = false;
 
         long index;
         index = start;
+
         while (index < end)
         {
             RangeStateArg arg;
-            arg = (RangeStateArg)rangeState.Arg;
+            arg = rangeState.Arg as RangeStateArg;
 
             arg.Result = this.RangeB;
             arg.Range = this.Range(this.RangeA, index, end);
@@ -3263,80 +3154,83 @@ public class Create : ClassCreate
             rangeState.Execute();
 
             Range itemRange;
-            itemRange = (Range)rangeState.Result;
+            itemRange = rangeState.Result as Range;
 
             rangeState.Result = null;
-            arg.Result = null;
             arg.Range = null;
+            arg.Result = null;
 
-            long aStart;
-            long aEnd;
-            aStart = 0;
-            aEnd = 0;
+            long itemStart;
+            long itemEnd;
+            itemStart = 0;
+            itemEnd = 0;
 
             bool b;
             b = (itemRange == null);
+
             if (b)
             {
-                aStart = index;
-                aEnd = end;
+                itemStart = index;
+                itemEnd = end;
 
-                index = aEnd;
+                index = itemEnd;
 
-                hasNextItem = false;
+                hasNext = false;
             }
 
             if (!b)
             {
-                aStart = itemRange.Start;
-                aEnd = itemRange.End;
+                itemStart = itemRange.Start;
+                itemEnd = itemRange.End;
 
-                index = aEnd + 1;
+                index = itemEnd + 1;
 
-                hasNextItem = true;
+                hasNext = true;
             }
 
-            nodeState.Arg = this.Range(this.RangeA, aStart, aEnd);
+            nodeState.Arg = this.Range(this.RangeA, itemStart, itemEnd);
 
             nodeState.Execute();
 
             Node item;
-            item = (Node)nodeState.Result;
+            item = nodeState.Result as Node;
 
-            nodeState.Arg = null;
             nodeState.Result = null;
+            nodeState.Arg = null;
 
-            bool ba;
-            ba = (item == null);
-
-            if (ba)
+            if (item == null)
             {
-                this.Error(this.ErrorKind.ItemUnvalid, aStart, aEnd);
+                this.Error(this.ErrorKind.ItemUnvalid, itemStart, itemEnd);
             }
 
-            this.Operate.ExecuteListSetItem(listIndex, count, item);
-
+            this.Operate.ExecuteListItemSet(list, count, item);
 
             count = count + 1;
         }
 
-        if (hasNextItem)
+        if (hasNext)
         {
             this.Error(this.ErrorKind.ItemUnvalid, index, index);
 
-            this.Operate.ExecuteListSetItem(listIndex, count, null);
+            this.Operate.ExecuteListItemSet(list, count, null);
 
             count = count + 1;
         }
 
-        this.Operate.ExecuteListCount(listIndex, count);
+        this.Operate.ExecuteListCount(list, count);
 
         Array array;
-        array = this.Operate.ExecuteListGet(listIndex);
+        array = this.Operate.ExecuteListGet(list);
         return array;
     }
 
-    protected virtual Range ExecuteNameRange(Range result, Range range)
+    protected virtual bool Error(ErrorKind kind, long start, long end)
+    {
+        this.Operate.ExecuteError(kind, start, end);
+        return true;
+    }
+
+    public virtual Range ExecuteNameRange(Range result, Range range)
     {
         long start;
         long end;
@@ -3348,11 +3242,147 @@ public class Create : ClassCreate
             return null;
         }
 
-        if (!this.IsName(this.TokenToken(start)))
+        if (!this.ValidName(start))
         {
             return null;
         }
+
         return this.IndexRange(result, start);
+    }
+
+    public virtual Range ExecutePartItemRange(Range result, Range range)
+    {
+        return this.ExecuteCompRange(result, range);
+    }
+
+    public virtual Range ExecuteStateItemRange(Range result, Range range)
+    {
+        return this.ExecuteExecuteRange(result, range);
+    }
+
+    public virtual Range ExecuteParamItemRange(Range result, Range range)
+    {
+        return this.ExecutePauseRange(result, range);
+    }
+
+    public virtual Range ExecuteArgueItemRange(Range result, Range range)
+    {
+        return this.ExecutePauseRange(result, range);
+    }
+
+    public virtual Range ExecuteCompRange(Range result, Range range)
+    {
+        long start;
+        long end;
+        start = range.Start;
+        end = range.End;
+
+        Range a;
+        a = null;
+
+        if (a == null)
+        {
+            a = this.ExecuteFieldRange(result, this.Range(this.RangeA, start, end));
+        }
+        if (a == null)
+        {
+            a = this.ExecuteMaideRange(result, this.Range(this.RangeA, start, end));
+        }
+
+        return a;
+    }
+
+    public virtual Range ExecuteFieldRange(Range result, Range range)
+    {
+        long start;
+        long end;
+        start = range.Start;
+        end = range.End;
+
+        if (start == end)
+        {
+            return null;
+        }
+
+        Token fieldToken;
+        fieldToken = this.Token(this.TokenA, this.Index.Field.Text, this.IndexRange(this.RangeA, start));
+        if (fieldToken == null)
+        {
+            return null;
+        }
+
+        Token braceCurveLite;
+        braceCurveLite = this.TokenFront(this.TokenB, this.Limit.BraceCurveLite.Text, this.Range(this.RangeA, fieldToken.Range.End, end));
+        if (braceCurveLite == null)
+        {
+            return null;
+        }
+
+        Token braceCurveRite;
+        braceCurveRite = this.TokenBraceCurveRite(this.TokenC, this.Range(this.RangeA, braceCurveLite.Range.End, end));
+        if (braceCurveRite == null)
+        {
+            return null;
+        }
+
+        this.Range(result, start, braceCurveRite.Range.End);
+        return result;
+    }
+
+    public virtual Range ExecuteMaideRange(Range result, Range range)
+    {
+        long start;
+        long end;
+        start = range.Start;
+        end = range.End;
+
+        if (start == end)
+        {
+            return null;
+        }
+
+        Token maideToken;
+        maideToken = this.Token(this.TokenA, this.Index.Maide.Text, this.IndexRange(this.RangeA, start));
+        if (maideToken == null)
+        {
+            return null;
+        }
+
+        Token braceRoundLite;
+        braceRoundLite = this.TokenFront(this.TokenB, this.Limit.BraceRoundLite.Text, this.Range(this.RangeA, maideToken.Range.End, end));
+        if (braceRoundLite == null)
+        {
+            return null;
+        }
+
+        Token braceRoundRite;
+        braceRoundRite = this.TokenBraceRoundRite(this.TokenC, this.Range(this.RangeA, braceRoundLite.Range.End, end));
+        if (braceRoundRite == null)
+        {
+            return null;
+        }
+
+        if (braceRoundRite.Range.End == end)
+        {
+            return null;
+        }
+
+        Token braceCurveLite;
+        braceCurveLite = this.Token(this.TokenD, this.Limit.BraceCurveLite.Text, this.IndexRange(this.RangeA, braceRoundRite.Range.End));
+        if (braceCurveLite == null)
+        {
+            return null;
+        }
+
+        Token braceCurveRite;
+        braceCurveRite = this.TokenBraceCurveRite(this.TokenE, this.Range(this.RangeA, braceCurveLite.Range.End, end));
+        if (braceCurveRite == null)
+        {
+            return null;
+        }
+
+        this.Range(result, start, braceCurveRite.Range.End);
+        return result;
     }
 
     public virtual Range ExecuteExecuteRange(Range result, Range range)
@@ -3364,6 +3394,7 @@ public class Create : ClassCreate
 
         Range a;
         a = null;
+
         if (a == null)
         {
             a = this.ExecuteReturnExecuteRange(result, this.Range(this.RangeA, start, end));
@@ -3388,10 +3419,11 @@ public class Create : ClassCreate
         {
             a = this.ExecuteOperateExecuteRange(result, this.Range(this.RangeA, start, end));
         }
+
         return a;
     }
 
-    protected virtual Range ExecuteReturnExecuteRange(Range result, Range range)
+    public virtual Range ExecuteReturnExecuteRange(Range result, Range range)
     {
         long start;
         long end;
@@ -3402,6 +3434,7 @@ public class Create : ClassCreate
         {
             return null;
         }
+
         Token returnToken;
         returnToken = this.Token(this.TokenA, this.Index.Return.Text, this.IndexRange(this.RangeA, start));
         if (returnToken == null)
@@ -3409,28 +3442,28 @@ public class Create : ClassCreate
             return null;
         }
 
-        Token semicolon;
-        semicolon = this.TokenForward(this.TokenB, this.Limit.ExecuteSign.Text, this.Range(this.RangeA, returnToken.Range.End, end));
-        if (semicolon == null)
+        Token signExecute;
+        signExecute = this.TokenFrontSkip(this.TokenB, this.Limit.Execute.Text, this.Range(this.RangeA, returnToken.Range.End, end));
+        if (signExecute == null)
         {
             return null;
         }
 
-        this.Range(result, start, semicolon.Range.End);
+        this.Range(result, start, signExecute.Range.End);
         return result;
     }
 
-    protected virtual Range ExecuteInfExecuteRange(Range result, Range range)
+    public virtual Range ExecuteInfExecuteRange(Range result, Range range)
     {
-        return this.ExecuteWordBracketRange(result, this.Index.Inf, range);
+        return this.ExecuteIndexBraceBodyRange(result, this.Index.Inf, range);
     }
 
-    protected virtual Range ExecuteWhileExecuteRange(Range result, Range range)
+    public virtual Range ExecuteWhileExecuteRange(Range result, Range range)
     {
-        return this.ExecuteWordBracketRange(result, this.Index.While, range);
+        return this.ExecuteIndexBraceBodyRange(result, this.Index.While, range);
     }
 
-    protected virtual Range ExecuteWordBracketRange(Range result, Index word, Range range)
+    protected virtual Range ExecuteIndexBraceBodyRange(Range result, Index index, Range range)
     {
         long start;
         long end;
@@ -3441,54 +3474,57 @@ public class Create : ClassCreate
         {
             return null;
         }
-        Token wordToken;
-        wordToken = this.Token(this.TokenA, word.Text, this.IndexRange(this.RangeA, start));
-        if (wordToken == null)
+
+        Token indexToken;
+        indexToken = this.Token(this.TokenA, index.Text, this.IndexRange(this.RangeA, start));
+        if (indexToken == null)
         {
             return null;
         }
 
-        if (wordToken.Range.End == end)
-        {
-            return null;
-        }
-        Token leftBracket;
-        leftBracket = this.Token(this.TokenB, this.Limit.BraceRoundLite.Text, this.IndexRange(this.RangeA, wordToken.Range.End));
-        if (leftBracket == null)
+        if (indexToken.Range.End == end)
         {
             return null;
         }
 
-        Token rightBracket;
-        rightBracket = this.TokenMatchBraceRoundLite(this.TokenC, this.Range(this.RangeA, leftBracket.Range.End, end));
-        if (rightBracket == null)
+        Token braceRoundLite;
+        braceRoundLite = this.Token(this.TokenB, this.Limit.BraceRoundLite.Text, this.IndexRange(this.RangeA, indexToken.Range.End));
+        if (braceRoundLite == null)
         {
             return null;
         }
 
-        if (rightBracket.Range.End == end)
-        {
-            return null;
-        }
-        Token leftBrace;
-        leftBrace = this.Token(this.TokenD, this.Limit.BraceCurveLite.Text, this.IndexRange(this.RangeA, rightBracket.Range.End));
-        if (leftBrace == null)
+        Token braceRoundRite;
+        braceRoundRite = this.TokenBraceRoundRite(this.TokenC, this.Range(this.RangeA, braceRoundLite.Range.End, end));
+        if (braceRoundRite == null)
         {
             return null;
         }
 
-        Token rightBrace;
-        rightBrace = this.TokenMatchBraceCurveLite(this.TokenA, this.Range(this.RangeA, leftBrace.Range.End, end));
-        if (rightBrace == null)
+        if (braceRoundRite.Range.End == end)
         {
             return null;
         }
 
-        this.Range(result, start, rightBrace.Range.End);
+        Token braceCurveLite;
+        braceCurveLite = this.Token(this.TokenD, this.Limit.BraceCurveLite.Text, this.IndexRange(this.RangeA, braceRoundRite.Range.End));
+        if (braceCurveLite == null)
+        {
+            return null;
+        }
+
+        Token braceCurveRite;
+        braceCurveRite = this.TokenBraceCurveRite(this.TokenA, this.Range(this.RangeA, braceCurveLite.Range.End, end));
+        if (braceCurveRite == null)
+        {
+            return null;
+        }
+
+        this.Range(result, start, braceCurveRite.Range.End);
         return result;
     }
 
-    protected virtual Range ExecuteReferExecuteRange(Range result, Range range)
+    public virtual Range ExecuteReferExecuteRange(Range result, Range range)
     {
         long start;
         long end;
@@ -3507,18 +3543,18 @@ public class Create : ClassCreate
             return null;
         }
 
-        Token semicolon;
-        semicolon = this.TokenForward(this.TokenB, this.Limit.ExecuteSign.Text, this.Range(this.RangeA, varToken.Range.End, end));
-        if (semicolon == null)
+        Token signExecute;
+        signExecute = this.TokenFrontSkip(this.TokenB, this.Limit.Execute.Text, this.Range(this.RangeA, varToken.Range.End, end));
+        if (signExecute == null)
         {
             return null;
         }
 
-        this.Range(result, start, semicolon.Range.End);
+        this.Range(result, start, signExecute.Range.End);
         return result;
     }
 
-    protected virtual Range ExecuteAreExecuteRange(Range result, Range range)
+    public virtual Range ExecuteAreExecuteRange(Range result, Range range)
     {
         long start;
         long end;
@@ -3530,466 +3566,58 @@ public class Create : ClassCreate
             return null;
         }
 
-        Token semicolon;
-        semicolon = this.TokenForward(this.TokenA, this.Limit.ExecuteSign.Text, this.Range(this.RangeA, start, end));
-        if (semicolon == null)
+        Token signExecute;
+        signExecute = this.TokenFrontSkip(this.TokenA, this.Limit.Execute.Text, this.Range(this.RangeA, start, end));
+        if (signExecute == null)
         {
             return null;
         }
 
-        Token colon;
-        colon = this.TokenForward(this.TokenB, this.Limit.AreSign.Text, this.Range(this.RangeA, start, semicolon.Range.Start));
-        if (colon == null)
+        Token signAre;
+        signAre = this.TokenFrontSkip(this.TokenB, this.Limit.Are.Text, this.Range(this.RangeA, start, signExecute.Range.Start));
+        if (signAre == null)
         {
             return null;
         }
 
-        this.Range(result, start, semicolon.Range.End);
+        this.Range(result, start, signExecute.Range.End);
         return result;
     }
 
-    protected virtual Range ExecuteOperateExecuteRange(Range result, Range range)
+    public virtual Range ExecuteOperateExecuteRange(Range result, Range range)
     {
         long start;
         long end;
         start = range.Start;
         end = range.End;
 
-        Token semicolon;
-        semicolon = this.TokenForward(this.TokenA, this.Limit.ExecuteSign.Text, this.Range(this.RangeA, start, end));
-        if (semicolon == null)
+        Token signExecute;
+        signExecute = this.TokenFrontSkip(this.TokenA, this.Limit.Execute.Text, this.Range(this.RangeA, start, end));
+        if (signExecute == null)
         {
             return null;
         }
 
-        this.Range(result, start, semicolon.Range.End);
+        this.Range(result, start, signExecute.Range.End);
         return result;
     }
 
-    public virtual Range ExecuteParamItemRange(Range result, Range range)
-    {
-        return this.ExecuteEndAtCommaRange(result, range);
-    }
-
-    public virtual Range ExecuteArgueItemRange(Range result, Range range)
-    {
-        return this.ExecuteEndAtCommaRange(result, range);
-    }
-
-    protected virtual Range ExecuteEndAtCommaRange(Range result, Range range)
+    protected virtual Range ExecutePauseRange(Range result, Range range)
     {
         long start;
         long end;
         start = range.Start;
         end = range.End;
 
-        Token comma;
-        comma = this.TokenForward(this.TokenA, this.Limit.PauseSign.Text, this.Range(this.RangeA, start, end));
-        if (comma == null)
+        Token signPause;
+        signPause = this.TokenFrontSkip(this.TokenA, this.Limit.Pause.Text, this.Range(this.RangeA, start, end));
+        if (signPause == null)
         {
             return null;
         }
-        this.Range(result, start, comma.Range.Start);
+
+        this.Range(result, start, signPause.Range.Start);
         return result;
-    }
-
-    public virtual Range ExecuteCompRange(Range result, Range range)
-    {
-        long start;
-        long end;
-        start = range.Start;
-        end = range.End;
-
-        Range a;
-        a = null;
-        if (a == null)
-        {
-            a = this.ExecuteFieldRange(result, this.Range(this.RangeA, start, end));
-        }
-        if (a == null)
-        {
-            a = this.ExecuteMaideRange(result, this.Range(this.RangeA, start, end));
-        }
-        return a;
-    }
-
-    protected virtual Range ExecuteFieldRange(Range result, Range range)
-    {
-        long start;
-        long end;
-        start = range.Start;
-        end = range.End;
-
-        if (start == end)
-        {
-            return null;
-        }
-
-        Token fieldToken;
-        fieldToken = this.Token(this.TokenA, this.Index.Field.Text, this.IndexRange(this.RangeA, start));
-        if (fieldToken == null)
-        {
-            return null;
-        }
-
-        Token leftBrace;
-        leftBrace = this.TokenForwardNoSkip(this.TokenB, this.Limit.BraceCurveLite.Text, this.Range(this.RangeA, fieldToken.Range.End, end));
-        if (leftBrace == null)
-        {
-            return null;
-        }
-
-        Token rightBrace;
-        rightBrace = this.TokenMatchBraceCurveLite(this.TokenC, this.Range(this.RangeA, leftBrace.Range.End, end));
-        if (rightBrace == null)
-        {
-            return null;
-        }
-
-        this.Range(result, start, rightBrace.Range.End);
-        return result;
-    }
-
-    protected virtual Range ExecuteMaideRange(Range result, Range range)
-    {
-        long start;
-        long end;
-        start = range.Start;
-        end = range.End;
-
-        if (start == end)
-        {
-            return null;
-        }
-
-        Token maideToken;
-        maideToken = this.Token(this.TokenA, this.Index.Maide.Text, this.IndexRange(this.RangeA, start));
-        if (maideToken == null)
-        {
-            return null;
-        }
-
-        Token leftBracket;
-        leftBracket = this.TokenForwardNoSkip(this.TokenB, this.Limit.BraceRoundLite.Text, this.Range(this.RangeA, maideToken.Range.End, end));
-        if (leftBracket == null)
-        {
-            return null;
-        }
-
-        Token rightBracket;
-        rightBracket = this.TokenMatchBraceRoundLite(this.TokenC, this.Range(this.RangeA, leftBracket.Range.End, end));
-        if (rightBracket == null)
-        {
-            return null;
-        }
-
-        if (rightBracket.Range.End == end)
-        {
-            return null;
-        }
-        Token leftBrace;
-        leftBrace = this.Token(this.TokenD, this.Limit.BraceCurveLite.Text, this.IndexRange(this.RangeA, rightBracket.Range.End));
-        if (leftBrace == null)
-        {
-            return null;
-        }
-
-        Token rightBrace;
-        rightBrace = this.TokenMatchBraceCurveLite(this.TokenE, this.Range(this.RangeA, leftBrace.Range.End, end));
-        if (rightBrace == null)
-        {
-            return null;
-        }
-
-        this.Range(result, start, rightBrace.Range.End);
-        return result;
-    }
-
-    protected virtual String ExecuteNameValue(Range range)
-    {
-        long start;
-        long end;
-        start = range.Start;
-        end = range.End;
-
-        if (!((start + 1) == end))
-        {
-            return null;
-        }
-
-        TokenToken token;
-        token = this.TokenToken(start);
-
-        Text text;
-        text = this.TAToken(token);
-
-        String a;
-        a = this.Operate.ExecuteNameValue(text);
-        return a;
-    }
-
-    protected virtual bool IsIntValue(TokenToken token)
-    {
-        if (!this.IsIntChar(this.TAToken(token)))
-        {
-            return false;
-        }
-        return true;
-    }
-
-    protected virtual bool IsIntHexValue(TokenToken aa)
-    {
-        long count;
-        count = aa.Range.Count;
-
-        if (count < 3)
-        {
-            return false;
-        }
-
-        Text line;
-        line = (Text)this.SourceText.GetAt(aa.Row);
-
-        Data data;
-        data = line.Data;
-        long start;
-        start = line.Range.Index + aa.Range.Index;
-
-        if (!(this.TextInfra.DataCharGet(data, start) == '0'))
-        {
-            return false;
-        }
-        if (!(this.TextInfra.DataCharGet(data, start + 1) == 'h'))
-        {
-            return false;
-        }
-
-        long startA;
-        startA = start + 2;
-        long countA;
-        countA = count - 2;
-        this.TextA.Data = data;
-        this.TextA.Range.Index = startA;
-        this.TextA.Range.Count = countA;
-        if (!this.IsIntHexChar(this.TextA))
-        {
-            return false;
-        }
-        return true;
-    }
-
-    protected virtual bool IsIntSignValue(TokenToken aa)
-    {
-        long count;
-        count = aa.Range.Count;
-
-        if (count < 4)
-        {
-            return false;
-        }
-
-        Text line;
-        line = (Text)this.SourceText.GetAt(aa.Row);
-
-        Data data;
-        data = line.Data;
-        long start;
-        start = line.Range.Index + aa.Range.Index;
-
-        if (!(this.TextInfra.DataCharGet(data, start) == '0'))
-        {
-            return false;
-        }
-        if (!(this.TextInfra.DataCharGet(data, start + 1) == 's'))
-        {
-            return false;
-        }
-
-        long oa;
-        oa = this.TextInfra.DataCharGet(data, start + 2);
-        if (!this.IsIntSignChar(oa))
-        {
-            return false;
-        }
-
-        long startA;
-        startA = start + 3;
-        long countA;
-        countA = count - 3;
-        this.TextA.Data = data;
-        this.TextA.Range.Index = startA;
-        this.TextA.Range.Count = countA;
-        if (!this.IsIntChar(this.TextA))
-        {
-            return false;
-        }
-        return true;
-    }
-
-    protected virtual bool IsIntHexSignValue(TokenToken aa)
-    {
-        long count;
-        count = aa.Range.Count;
-
-        if (count < 5)
-        {
-            return false;
-        }
-
-        Text line;
-        line = (Text)this.SourceText.GetAt(aa.Row);
-
-        Data data;
-        data = line.Data;
-        long start;
-        start = line.Range.Index + aa.Range.Index;
-
-        if (!(this.TextInfra.DataCharGet(data, start) == '0'))
-        {
-            return false;
-        }
-        if (!(this.TextInfra.DataCharGet(data, start + 1) == 'h'))
-        {
-            return false;
-        }
-        if (!(this.TextInfra.DataCharGet(data, start + 2) == 's'))
-        {
-            return false;
-        }
-
-        long oa;
-        oa = this.TextInfra.DataCharGet(data, start + 3);
-        if (!this.IsIntSignChar(oa))
-        {
-            return false;
-        }
-
-        long startA;
-        startA = start + 4;
-        long countA;
-        countA = count - 4;
-        this.TextA.Data = data;
-        this.TextA.Range.Index = startA;
-        this.TextA.Range.Count = countA;
-        if (!this.IsIntHexChar(this.TextA))
-        {
-            return false;
-        }
-        return true;
-    }
-
-    protected virtual bool IsIntChar(Text text)
-    {
-        TextInfra textInfra;
-        textInfra = this.TextInfra;
-
-        Data data;
-        data = text.Data;
-        long start;
-        start = text.Range.Index;
-        long count;
-        count = text.Range.Count;
-        int i;
-        i = 0;
-        while (i < count)
-        {
-            long index;
-            index = start + i;
-
-            long oc;
-            oc = textInfra.DataCharGet(data, index);
-
-            if (!(textInfra.Digit(oc)))
-            {
-                return false;
-            }
-            i = i + 1;
-        }
-        return true;
-    }
-
-    protected virtual bool IsIntHexChar(Text text)
-    {
-        TextInfra textInfra;
-        textInfra = this.TextInfra;
-
-        Data data;
-        data = text.Data;
-        long start;
-        start = text.Range.Index;
-        long count;
-        count = text.Range.Count;
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            long index;
-            index = start + i;
-
-            long oc;
-            oc = textInfra.DataCharGet(data, index);
-
-            if (!(textInfra.Digit(oc) | textInfra.HexAlpha(oc, false)))
-            {
-                return false;
-            }
-            i = i + 1;
-        }
-        return true;
-    }
-
-    protected virtual bool IsIntSignChar(long oc)
-    {
-        return (oc == 'p') | (oc == 'n');
-    }
-
-    protected virtual bool IsTokenSignNegate(TokenToken o, long index)
-    {
-        Text line;
-        line = this.SourceText.GetAt(o.Row) as Text;
-
-        Data data;
-        data = line.Data;
-        long start;
-        start = line.Range.Index + o.Range.Index;
-
-        long oa;
-        oa = this.TextInfra.DataCharGet(data, start + index);
-        bool a;
-        a = (oa == 'n');
-        return a;
-    }
-
-    protected virtual TokenToken TokenToken(long index)
-    {
-        TokenToken token;
-        token = (TokenToken)this.CodeItem.Token.GetAt(index);
-        return token;
-    }
-
-    protected virtual long Count(long start, long end)
-    {
-        return this.ClassInfra.Count(start, end);
-    }
-
-    protected virtual Text TAToken(TokenToken token)
-    {
-        Text line;
-        line = this.SourceText.GetAt(token.Row) as Text;
-        InfraRange range;
-        range = token.Range;
-
-        Text text;
-        text = this.TextA;
-        text.Data = line.Data;
-        text.Range.Index = line.Range.Index + range.Index;
-        text.Range.Count = range.Count;
-        return text;
-    }
-
-    protected virtual bool IsName(TokenToken token)
-    {
-        return this.NameValid.Name(this.TAToken(token));
     }
 
     public virtual bool NodeInfo(Node node, long start, long end)
@@ -3998,16 +3626,20 @@ public class Create : ClassCreate
         return true;
     }
 
-    protected virtual bool IsText(String value, long index)
+    protected virtual bool ValidName(long index)
     {
         TokenToken token;
         token = this.TokenToken(index);
 
-        bool b;
-        b = this.TextSame(this.TAToken(token), this.TB(value));
-        bool a;
-        a = b;
-        return a;
+        Text text;
+        text = this.TextToken(this.TextA, token);
+
+        return this.NameValid.Name(text);
+    }
+
+    protected virtual long Count(long start, long end)
+    {
+        return this.ClassInfra.Count(start, end);
     }
 
     protected virtual Range Range(Range range, long start, long end)
@@ -4023,10 +3655,58 @@ public class Create : ClassCreate
         return range;
     }
 
-    protected virtual bool Error(ErrorKind kind, long start, long end)
+    protected virtual bool TokenSame(long index, String value)
     {
-        this.Operate.ExecuteError(kind, start, end);
-        return true;
+        TokenToken token;
+        token = this.TokenToken(index);
+
+        Text text;
+        text = this.TextToken(this.TextA, token);
+
+        bool b;
+        b = this.TextSame(text, this.TB(value));
+
+        bool a;
+        a = b;
+        return a;
+    }
+
+    protected virtual TokenToken TokenToken(long index)
+    {
+        Code code;
+        code = this.Code.GetAt(this.SourceIndex) as Code;
+
+        TokenToken token;
+        token = code.Token.GetAt(index) as TokenToken;
+        return token;
+    }
+
+    protected virtual Text TextToken(Text text, TokenToken token)
+    {
+        Text line;
+        line = this.TextLineRow(token.Row);
+
+        text.Data = line.Data;
+        text.Range.Index = line.Range.Index + token.Range.Index;
+        text.Range.Count = token.Range.Count;
+        return text;
+    }
+
+    protected virtual Text TextLineRow(long row)
+    {
+        Source source;
+        source = this.SourceItem();
+
+        Text a;
+        a = source.Text.GetAt(row) as Text;
+        return a;
+    }
+
+    protected virtual Source SourceItem()
+    {
+        Source a;
+        a = this.Source.GetAt(this.SourceIndex) as Source;
+        return a;
     }
 
     protected virtual Token Token(Token result, String value, Range range)
@@ -4036,12 +3716,12 @@ public class Create : ClassCreate
         start = range.Start;
         end = range.End;
 
-        if (!(start + 1 == end))
+        if (!(this.Count(start, end) == 1))
         {
             return null;
         }
 
-        if (!this.IsText(value, start))
+        if (!this.TokenSame(start, value))
         {
             return null;
         }
@@ -4050,53 +3730,65 @@ public class Create : ClassCreate
         return result;
     }
 
-    protected virtual Token TokenForwardNoSkip(Token result, String value, Range range)
+    protected virtual Token TokenFront(Token result, String value, Range range)
     {
         long start;
         long end;
         start = range.Start;
         end = range.End;
-        String leftBracket;
-        String rightBracket;
-        leftBracket = this.Limit.BraceRoundLite.Text;
-        rightBracket = this.Limit.BraceRoundRite.Text;
-        String leftBrace;
-        String rightBrace;
-        leftBrace = this.Limit.BraceCurveLite.Text;
-        rightBrace = this.Limit.BraceCurveRite.Text;
-        long i;
-        i = start;
+
+        String braceRoundLite;
+        String braceRoundRite;
+        braceRoundLite = this.Limit.BraceRoundLite.Text;
+        braceRoundRite = this.Limit.BraceRoundRite.Text;
+
+        String braceCurveLite;
+        String braceCurveRite;
+        braceCurveLite = this.Limit.BraceCurveLite.Text;
+        braceCurveRite = this.Limit.BraceCurveRite.Text;
+
         long index;
         index = -1;
-        bool varContinue;
-        varContinue = (i < end);
-        while (varContinue)
+
+        long i;
+        i = start;
+
+        bool loop;
+        loop = (i < end);
+
+        while (loop)
         {
             bool b;
-            b = this.IsText(value, i);
+            b = this.TokenSame(i, value);
+
             if (b)
             {
                 index = i;
-                varContinue = false;
+                loop = false;
             }
+
             if (!b)
             {
                 bool ba;
-                ba = (this.IsText(leftBracket, i) | this.IsText(rightBracket, i) | this.IsText(leftBrace, i) | this.IsText(rightBrace, i));
+                ba = (this.TokenSame(i, braceRoundLite) | this.TokenSame(i, braceRoundRite) | this.TokenSame(i, braceCurveLite) | this.TokenSame(i, braceCurveRite));
+
                 if (ba)
                 {
-                    varContinue = false;
+                    loop = false;
                 }
+
                 if (!ba)
                 {
                     i = i + 1;
                 }
             }
+
             if (!(i < end))
             {
-                varContinue = false;
+                loop = false;
             }
         }
+
         if (index == -1)
         {
             return null;
@@ -4106,55 +3798,68 @@ public class Create : ClassCreate
         return result;
     }
 
-    protected virtual Token TokenBackwardNoSkip(Token result, String value, Range range)
+    protected virtual Token TokenBack(Token result, String value, Range range)
     {
         long start;
         long end;
         start = range.Start;
         end = range.End;
-        String leftBracket;
-        String rightBracket;
-        leftBracket = this.Limit.BraceRoundLite.Text;
-        rightBracket = this.Limit.BraceRoundRite.Text;
-        String leftBrace;
-        String rightBrace;
-        leftBrace = this.Limit.BraceCurveLite.Text;
-        rightBrace = this.Limit.BraceCurveRite.Text;
-        long i;
-        i = end;
+
+        String braceRoundLite;
+        String braceRoundRite;
+        braceRoundLite = this.Limit.BraceRoundLite.Text;
+        braceRoundRite = this.Limit.BraceRoundRite.Text;
+
+        String braceCurveLite;
+        String braceCurveRite;
+        braceCurveLite = this.Limit.BraceCurveLite.Text;
+        braceCurveRite = this.Limit.BraceCurveRite.Text;
+
         long index;
         index = -1;
-        bool varContinue;
-        varContinue = (start < i);
-        while (varContinue)
+
+        long i;
+        i = end;
+
+        bool loop;
+        loop = (start < i);
+
+        while (loop)
         {
             long j;
             j = i - 1;
+
             bool b;
-            b = this.IsText(value, j);
+            b = this.TokenSame(j, value);
+
             if (b)
             {
                 index = j;
-                varContinue = false;
+                loop = false;
             }
+
             if (!b)
             {
                 bool ba;
-                ba = (this.IsText(leftBracket, j) | this.IsText(rightBracket, j) | this.IsText(leftBrace, j) | this.IsText(rightBrace, j));
+                ba = (this.TokenSame(j, braceRoundLite) | this.TokenSame(j, braceRoundRite) | this.TokenSame(j, braceCurveLite) | this.TokenSame(j, braceCurveRite));
+
                 if (ba)
                 {
-                    varContinue = false;
+                    loop = false;
                 }
+
                 if (!ba)
                 {
                     i = i - 1;
                 }
             }
+
             if (!(start < i))
             {
-                varContinue = false;
+                loop = false;
             }
         }
+
         if (index == -1)
         {
             return null;
@@ -4164,48 +3869,58 @@ public class Create : ClassCreate
         return result;
     }
 
-    protected virtual Token TokenForward(Token result, String value, Range range)
+    protected virtual Token TokenFrontSkip(Token result, String value, Range range)
     {
         long start;
         long end;
         start = range.Start;
         end = range.End;
 
-        long i;
-        i = start;
         long index;
         index = -1;
-        bool varContinue;
-        varContinue = (i < end);
-        while (varContinue)
+
+        long i;
+        i = start;
+
+        bool loop;
+        loop = (i < end);
+
+        while (loop)
         {
             bool b;
-            b = this.IsText(value, i);
+            b = this.TokenSame(i, value);
+
             if (b)
             {
                 index = i;
-                varContinue = false;
+                loop = false;
             }
+
             if (!b)
             {
-                long skipBracketIndex;
-                skipBracketIndex = this.ForwardSkipBracket(i, end);
+                long skipIndex;
+                skipIndex = this.FrontSkipBrace(i, end);
+
                 bool ba;
-                ba = (skipBracketIndex == -1);
+                ba = (skipIndex == -1);
+
                 if (!ba)
                 {
-                    i = skipBracketIndex;
+                    i = skipIndex;
                 }
+
                 if (ba)
                 {
                     i = i + 1;
                 }
             }
+
             if (!(i < end))
             {
-                varContinue = false;
+                loop = false;
             }
         }
+
         if (index == -1)
         {
             return null;
@@ -4215,50 +3930,61 @@ public class Create : ClassCreate
         return result;
     }
 
-    protected virtual Token TokenBackward(Token result, String value, Range range)
+    protected virtual Token TokenBackSkip(Token result, String value, Range range)
     {
         long start;
         long end;
         start = range.Start;
         end = range.End;
 
-        long i;
-        i = end;
         long index;
         index = -1;
-        bool varContinue;
-        varContinue = (start < i);
-        while (varContinue)
+
+        long i;
+        i = end;
+
+        bool loop;
+        loop = (start < i);
+
+        while (loop)
         {
             long j;
             j = i - 1;
+
             bool b;
-            b = this.IsText(value, j);
+            b = this.TokenSame(j, value);
+
             if (b)
             {
                 index = j;
-                varContinue = false;
+                loop = false;
             }
+
             if (!b)
             {
-                long skipBracketIndex;
-                skipBracketIndex = this.BackwardSkipBracket(i, start);
+                long skipIndex;
+                skipIndex = this.BackSkipBrace(i, start);
+
                 bool ba;
-                ba = (skipBracketIndex == -1);
+                ba = (skipIndex == -1);
+
                 if (!ba)
                 {
-                    i = skipBracketIndex;
+                    i = skipIndex;
                 }
+
                 if (ba)
                 {
                     i = i - 1;
                 }
             }
+
             if (!(start < i))
             {
-                varContinue = false;
+                loop = false;
             }
         }
+
         if (index == -1)
         {
             return null;
@@ -4268,7 +3994,7 @@ public class Create : ClassCreate
         return result;
     }
 
-    protected virtual long ForwardSkipBracket(long index, long end)
+    protected virtual long FrontSkipBrace(long index, long end)
     {
         long ret;
         ret = -1;
@@ -4276,32 +4002,34 @@ public class Create : ClassCreate
         TokenToken token;
         token = this.TokenToken(index);
 
-        if (this.TextSame(this.TAToken(token), this.TB(this.Limit.BraceRoundLite.Text)))
+        if (this.TextSame(this.TextToken(this.TextA, token), this.TB(this.Limit.BraceRoundLite.Text)))
         {
-            Token rightBracket;
-            rightBracket = this.TokenMatchBraceRoundLite(this.TokenA, this.Range(this.RangeA, index + 1, end));
-            if (!(rightBracket == null))
+            Token braceRoundRite;
+            braceRoundRite = this.TokenBraceRoundRite(this.TokenA, this.Range(this.RangeA, index + 1, end));
+            if (!(braceRoundRite == null))
             {
-                ret = rightBracket.Range.End;
+                ret = braceRoundRite.Range.End;
             }
         }
 
-        if (this.TextSame(this.TAToken(token), this.TB(this.Limit.BraceCurveLite.Text)))
+        if (this.TextSame(this.TextToken(this.TextA, token), this.TB(this.Limit.BraceCurveLite.Text)))
         {
-            Token rightBrace;
-            rightBrace = this.TokenMatchBraceCurveLite(this.TokenA, this.Range(this.RangeA, index + 1, end));
-            if (!(rightBrace == null))
+            Token braceCurveRite;
+            braceCurveRite = this.TokenBraceCurveRite(this.TokenA, this.Range(this.RangeA, index + 1, end));
+            if (!(braceCurveRite == null))
             {
-                ret = rightBrace.Range.End;
+                ret = braceCurveRite.Range.End;
             }
         }
+
         return ret;
     }
 
-    protected virtual long BackwardSkipBracket(long index, long start)
+    protected virtual long BackSkipBrace(long index, long start)
     {
         long ret;
         ret = -1;
+
         long t;
         t = index - 1;
 
@@ -4310,80 +4038,86 @@ public class Create : ClassCreate
 
         if (this.TextSame(this.TAToken(token), this.TB(this.Limit.BraceRoundRite.Text)))
         {
-            Token leftBracket;
-            leftBracket = this.TokenMatchBraceRoundRite(this.TokenA, this.Range(this.RangeA, start, t));
-            if (!(leftBracket == null))
+            Token braceRoundLite;
+            braceRoundLite = this.TokenBraceRoundLite(this.TokenA, this.Range(this.RangeA, start, t));
+            if (!(braceRoundLite == null))
             {
-                ret = leftBracket.Range.Start;
+                ret = braceRoundLite.Range.Start;
             }
         }
 
         if (this.TextSame(this.TAToken(token), this.TB(this.Limit.BraceCurveRite.Text)))
         {
-            Token leftBrace;
-            leftBrace = this.TokenMatchBraceCurveRite(this.TokenA, this.Range(this.RangeA, start, t));
-            if (!(leftBrace == null))
+            Token braceCurveLite;
+            braceCurveLite = this.TokenBraceCurveLite(this.TokenA, this.Range(this.RangeA, start, t));
+            if (!(braceCurveLite == null))
             {
-                ret = leftBrace.Range.Start;
+                ret = braceCurveLite.Range.Start;
             }
         }
+
         return ret;
     }
 
-    protected virtual Token TokenMatchBraceCurveLite(Token result, Range range)
+    protected virtual Token TokenBraceRoundRite(Token result, Range range)
     {
-        return this.TokenMatchLiteToken(result, this.Limit.BraceCurveLite.Text, this.Limit.BraceCurveRite.Text, range);
+        return this.TokenRiteToken(result, this.Limit.BraceRoundLite.Text, this.Limit.BraceRoundRite.Text, range);
     }
 
-    protected virtual Token TokenMatchBraceCurveRite(Token result, Range range)
+    protected virtual Token TokenBraceRoundLite(Token result, Range range)
     {
-        return this.TokenMatchRiteToken(result, this.Limit.BraceCurveLite.Text, this.Limit.BraceCurveRite.Text, range);
+        return this.TokenLiteToken(result, this.Limit.BraceRoundLite.Text, this.Limit.BraceRoundRite.Text, range);
     }
 
-    protected virtual Token TokenMatchBraceRoundLite(Token result, Range range)
+    protected virtual Token TokenBraceCurveRite(Token result, Range range)
     {
-        return this.TokenMatchLiteToken(result, this.Limit.BraceRoundLite.Text, this.Limit.BraceRoundRite.Text, range);
+        return this.TokenRiteToken(result, this.Limit.BraceCurveLite.Text, this.Limit.BraceCurveRite.Text, range);
     }
 
-    protected virtual Token TokenMatchBraceRoundRite(Token result, Range range)
+    protected virtual Token TokenBraceCurveLite(Token result, Range range)
     {
-        return this.TokenMatchRiteToken(result, this.Limit.BraceRoundLite.Text, this.Limit.BraceRoundRite.Text, range);
+        return this.TokenLiteToken(result, this.Limit.BraceCurveLite.Text, this.Limit.BraceCurveRite.Text, range);
     }
 
-    protected virtual Token TokenMatchLiteToken(Token result, String liteToken, String riteToken, Range range)
+    protected virtual Token TokenRiteToken(Token result, String liteToken, String riteToken, Range range)
     {
         long start;
         long end;
         start = range.Start;
         end = range.End;
 
-        long openCount;
-        openCount = 1;
         long index;
         index = -1;
+
+        long openCount;
+        openCount = 1;
+
         long i;
         i = start;
-        bool varContinue;
-        varContinue = (i < end);
-        while (varContinue)
+
+        bool loop;
+        loop = (i < end);
+
+        while (loop)
         {
             TokenToken token;
             token = this.TokenToken(i);
 
-            Text ka;
-            ka = this.TAToken(token);
-            
-            if (this.TextSame(ka, this.TB(riteToken)))
+            Text text;
+            text = this.TextToken(this.TextA, token);
+
+            if (this.TextSame(text, this.TB(riteToken)))
             {
                 openCount = openCount - 1;
+
                 if (openCount == 0)
                 {
                     index = i;
-                    varContinue = false;
+                    loop = false;
                 }
             }
 
-            if (this.TextSame(ka, this.TB(liteToken)))
+            if (this.TextSame(text, this.TB(liteToken)))
             {
                 openCount = openCount + 1;
             }
@@ -4391,12 +4125,14 @@ public class Create : ClassCreate
             if (index == -1)
             {
                 i = i + 1;
+
                 if (!(i < end))
                 {
-                    varContinue = false;
+                    loop = false;
                 }
             }
         }
+
         if (index == -1)
         {
             return null;
@@ -4406,55 +4142,63 @@ public class Create : ClassCreate
         return result;
     }
 
-    protected virtual Token TokenMatchRiteToken(Token result, String liteToken, String riteToken, Range range)
+    protected virtual Token TokenLiteToken(Token result, String liteToken, String riteToken, Range range)
     {
         long start;
         long end;
         start = range.Start;
         end = range.End;
 
-        long openCount;
-        openCount = 1;
         long index;
         index = -1;
+
+        long openCount;
+        openCount = 1;
+
         long i;
         i = end;
-        bool varContinue;
-        varContinue = (i > start);
-        while (varContinue)
+
+        bool loop;
+        loop = (start < i);
+
+        while (loop)
         {
             long t;
             t = i - 1;
+
             TokenToken token;
             token = this.TokenToken(t);
 
-            Text ka;
-            ka = this.TAToken(token);
+            Text text;
+            text = this.TextToken(this.TextA, token);
 
-            if (this.TextSame(ka, this.TB(liteToken)))
+            if (this.TextSame(text, this.TB(liteToken)))
             {
                 openCount = openCount - 1;
+
                 if (openCount == 0)
                 {
                     index = t;
-                    varContinue = false;
+                    loop = false;
                 }
             }
 
-            if (this.TextSame(ka, this.TB(riteToken)))
+            if (this.TextSame(text, this.TB(riteToken)))
             {
                 openCount = openCount + 1;
             }
-            
+
             if (index == -1)
             {
                 i = i - 1;
-                if (!(i > start))
+
+                if (!(start < i))
                 {
-                    varContinue = false;
+                    loop = false;
                 }
             }
         }
+
         if (index == -1)
         {
             return null;
