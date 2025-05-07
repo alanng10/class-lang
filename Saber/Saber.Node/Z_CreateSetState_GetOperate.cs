@@ -7,7 +7,7 @@ public class GetOperateCreateSetState : CreateSetState
         CreateSetStateArg arg;
         arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
-        k = arg.SetArg;
+        k = arg.Arg;
 
         GetOperate node;
         node = arg.Node as GetOperate;

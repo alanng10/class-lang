@@ -7,7 +7,7 @@ public class OperateExecuteCreateSetState : CreateSetState
         CreateSetStateArg arg;
         arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
-        k = arg.SetArg;
+        k = arg.Arg;
 
         OperateExecute node;
         node = arg.Node as OperateExecute;

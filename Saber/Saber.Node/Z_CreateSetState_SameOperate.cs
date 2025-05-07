@@ -7,7 +7,7 @@ public class SameOperateCreateSetState : CreateSetState
         CreateSetStateArg arg;
         arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
-        k = arg.SetArg;
+        k = arg.Arg;
 
         SameOperate node;
         node = arg.Node as SameOperate;

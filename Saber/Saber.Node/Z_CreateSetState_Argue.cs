@@ -7,7 +7,7 @@ public class ArgueCreateSetState : CreateSetState
         CreateSetStateArg arg;
         arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
-        k = arg.SetArg;
+        k = arg.Arg;
 
         Argue node;
         node = arg.Node as Argue;

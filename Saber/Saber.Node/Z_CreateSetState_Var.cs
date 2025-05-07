@@ -7,7 +7,7 @@ public class VarCreateSetState : CreateSetState
         CreateSetStateArg arg;
         arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
-        k = arg.SetArg;
+        k = arg.Arg;
 
         Var node;
         node = arg.Node as Var;

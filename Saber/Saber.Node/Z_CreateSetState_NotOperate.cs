@@ -7,7 +7,7 @@ public class NotOperateCreateSetState : CreateSetState
         CreateSetStateArg arg;
         arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
-        k = arg.SetArg;
+        k = arg.Arg;
 
         NotOperate node;
         node = arg.Node as NotOperate;

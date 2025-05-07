@@ -7,7 +7,7 @@ public class BitLiteOperateCreateSetState : CreateSetState
         CreateSetStateArg arg;
         arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
-        k = arg.SetArg;
+        k = arg.Arg;
 
         BitLiteOperate node;
         node = arg.Node as BitLiteOperate;

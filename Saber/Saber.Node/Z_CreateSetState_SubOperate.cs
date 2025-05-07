@@ -7,7 +7,7 @@ public class SubOperateCreateSetState : CreateSetState
         CreateSetStateArg arg;
         arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
-        k = arg.SetArg;
+        k = arg.Arg;
 
         SubOperate node;
         node = arg.Node as SubOperate;

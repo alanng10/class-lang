@@ -7,7 +7,7 @@ public class BitNotOperateCreateSetState : CreateSetState
         CreateSetStateArg arg;
         arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
-        k = arg.SetArg;
+        k = arg.Arg;
 
         BitNotOperate node;
         node = arg.Node as BitNotOperate;

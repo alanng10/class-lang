@@ -7,7 +7,7 @@ public class SignDivOperateCreateSetState : CreateSetState
         CreateSetStateArg arg;
         arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
-        k = arg.SetArg;
+        k = arg.Arg;
 
         SignDivOperate node;
         node = arg.Node as SignDivOperate;

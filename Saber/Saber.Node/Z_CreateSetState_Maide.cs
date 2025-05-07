@@ -7,7 +7,7 @@ public class MaideCreateSetState : CreateSetState
         CreateSetStateArg arg;
         arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
-        k = arg.SetArg;
+        k = arg.Arg;
 
         Maide node;
         node = arg.Node as Maide;

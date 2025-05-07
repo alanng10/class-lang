@@ -7,7 +7,7 @@ public class LessOperateCreateSetState : CreateSetState
         CreateSetStateArg arg;
         arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
-        k = arg.SetArg;
+        k = arg.Arg;
 
         LessOperate node;
         node = arg.Node as LessOperate;

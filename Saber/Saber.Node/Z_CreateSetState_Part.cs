@@ -7,7 +7,7 @@ public class PartCreateSetState : CreateSetState
         CreateSetStateArg arg;
         arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
-        k = arg.SetArg;
+        k = arg.Arg;
 
         Part node;
         node = arg.Node as Part;

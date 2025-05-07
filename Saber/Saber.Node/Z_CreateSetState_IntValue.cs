@@ -7,7 +7,7 @@ public class IntValueCreateSetState : CreateSetState
         CreateSetStateArg arg;
         arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
-        k = arg.SetArg;
+        k = arg.Arg;
 
         IntValue node;
         node = arg.Node as IntValue;

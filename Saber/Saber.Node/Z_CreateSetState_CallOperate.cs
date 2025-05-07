@@ -7,7 +7,7 @@ public class CallOperateCreateSetState : CreateSetState
         CreateSetStateArg arg;
         arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
-        k = arg.SetArg;
+        k = arg.Arg;
 
         CallOperate node;
         node = arg.Node as CallOperate;

@@ -7,7 +7,7 @@ public class WhileExecuteCreateSetState : CreateSetState
         CreateSetStateArg arg;
         arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
-        k = arg.SetArg;
+        k = arg.Arg;
 
         WhileExecute node;
         node = arg.Node as WhileExecute;

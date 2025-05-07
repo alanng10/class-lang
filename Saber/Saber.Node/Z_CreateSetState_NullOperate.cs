@@ -7,7 +7,7 @@ public class NullOperateCreateSetState : CreateSetState
         CreateSetStateArg arg;
         arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
-        k = arg.SetArg;
+        k = arg.Arg;
 
         NullOperate node;
         node = arg.Node as NullOperate;

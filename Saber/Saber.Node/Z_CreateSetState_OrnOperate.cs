@@ -7,7 +7,7 @@ public class OrnOperateCreateSetState : CreateSetState
         CreateSetStateArg arg;
         arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
-        k = arg.SetArg;
+        k = arg.Arg;
 
         OrnOperate node;
         node = arg.Node as OrnOperate;

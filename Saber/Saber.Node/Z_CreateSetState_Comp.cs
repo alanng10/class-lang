@@ -7,7 +7,7 @@ public class CompCreateSetState : CreateSetState
         CreateSetStateArg arg;
         arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
-        k = arg.SetArg;
+        k = arg.Arg;
 
         Comp node;
         node = arg.Node as Comp;

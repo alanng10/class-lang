@@ -7,7 +7,7 @@ public class PrivateCountCreateSetState : CreateSetState
         CreateSetStateArg arg;
         arg = this.Arg as CreateSetStateArg;
         CreateSetArg k;
-        k = arg.SetArg;
+        k = arg.Arg;
 
         PrivateCount node;
         node = arg.Node as PrivateCount;
