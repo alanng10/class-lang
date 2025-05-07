@@ -52,7 +52,7 @@ public class ErrorString : TextAdd
         this.AddField(this.SKind, this.KindString(error));
 
         bool b;
-        b = (error.Source == null);
+        b = (error.Source == -1);
 
         if (b)
         {
@@ -131,7 +131,7 @@ public class ErrorString : TextAdd
         this.StringAdd = h;
 
         Code code;
-        code = (Code)this.CodeArray.GetAt(error.Source.Index);
+        code = this.CodeArray.GetAt(error.Source) as Code;
         Array tokenArray;
         tokenArray = code.Token;
 
