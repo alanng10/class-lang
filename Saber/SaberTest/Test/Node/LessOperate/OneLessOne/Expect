@@ -4,14 +4,14 @@ LessOperate
            {
                Value : IntValue
                        {
-                           Value : 1,
+                           Value : 0h000000000000001,
                        },
            },
     Rite : ValueOperate
            {
                Value : IntValue
                        {
-                           Value : 1,
+                           Value : 0h000000000000001,
                        },
            },
 },
