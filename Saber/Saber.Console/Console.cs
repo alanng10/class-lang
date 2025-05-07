@@ -339,6 +339,8 @@ public class Console : TextAdd
 
         this.ExecuteCreate();
 
+        this.ErrorString.SourceArray = this.Source;
+
         if (kind == kindList.Console)
         {
             if (this.CanGen())
