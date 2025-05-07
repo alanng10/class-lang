@@ -678,6 +678,8 @@ class Extern : Any
     maide prusate Int TimeEvent_Start(var Int o) { }
     maide prusate Int TimeEvent_Stop(var Int o) { }
 
+    maide prusate Int TimeEvent_Wait(var Int time) { }
+
     maide prusate Int Program_New() { }
     maide prusate Int Program_Delete(var Int o) { }
     maide prusate Int Program_Init(var Int o) { }
