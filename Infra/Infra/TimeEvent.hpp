@@ -1,6 +1,7 @@
 #pragma once
 
 #include "TimeEventIntern.hpp"
+#include <QThread>
 
 #include "Pronate.hpp"
 

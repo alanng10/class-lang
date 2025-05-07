@@ -310,15 +310,6 @@ Int Thread_IsMain(Int o)
     return a;
 }
 
-Int Thread_Sleep(Int time)
-{
-    unsigned long u;
-    u = time;
-
-    QThread::msleep(u);
-    return true;
-}
-
 Int Thread_ExecuteHandle(Int o)
 {
     Qt::HANDLE uu;

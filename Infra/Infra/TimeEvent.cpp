@@ -66,6 +66,15 @@ Int TimeEvent_Stop(Int o)
     return true;
 }
 
+Int TimeEvent_Wait(Int time)
+{
+    unsigned long u;
+    u = time;
+
+    QThread::msleep(u);
+    return true;
+}
+
 Int TimeEvent_Elapse(Int o)
 {
     TimeEvent* m;
