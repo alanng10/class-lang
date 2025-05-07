@@ -4,7 +4,7 @@ BitNotOperate
             {
                 Value : IntValue
                         {
-                            Value : 4,
+                            Value : 0h000000000000004,
                         },
             },
 },
