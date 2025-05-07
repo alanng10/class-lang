@@ -3620,9 +3620,9 @@ public class Create : ClassCreate
         return result;
     }
 
-    public virtual bool NodeInfo(Node node, long start, long end)
+    public virtual bool NodeInfo(Node node, Range range)
     {
-        this.Range(node.Range, start, end);
+        this.Range(node.Range, range.Start, range.End);
         return true;
     }
 
