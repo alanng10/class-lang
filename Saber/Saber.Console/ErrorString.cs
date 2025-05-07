@@ -28,6 +28,7 @@ public class ErrorString : TextAdd
 
     public virtual bool RangePos { get; set; }
     public virtual Array CodeArray { get; set; }
+    public virtual Array SourceArray { get; set; }
     protected virtual Pos StartPos { get; set; }
     protected virtual Pos EndPos { get; set; }
     protected virtual String BorderLine { get; set; }
@@ -301,11 +302,11 @@ public class ErrorString : TextAdd
 
     protected virtual String SourceString(Error error)
     {
-        Source aa;
-        aa = error.Source;
+        Source k;
+        k = this.SourceArray.GetAt(error.Source) as Source;
 
         String a;
-        a = aa.Name;
+        a = k.Name;
         return a;
     }
 }
