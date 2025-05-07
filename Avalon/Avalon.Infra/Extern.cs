@@ -698,6 +698,8 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong TimeEvent_Start(ulong o);
     [DllImport(InfraLib)] public extern static ulong TimeEvent_Stop(ulong o);
 
+    [DllImport(InfraLib)] public extern static ulong TimeEvent_Wait(ulong time);
+
     public delegate ulong TimeEvent_Elapse_Maide(ulong timeEvent, ulong arg);
 
     [DllImport(InfraLib)] public extern static ulong Program_New();
