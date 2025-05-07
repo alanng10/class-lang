@@ -952,6 +952,7 @@ public class PortLoad : TextAdd
         a.Init();
         a.Kind = kind;
         a.Name = name;
+        a.Source = -1;
 
         this.ErrorList.Add(a);
         return true;
