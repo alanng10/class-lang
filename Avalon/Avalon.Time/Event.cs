@@ -83,6 +83,15 @@ public class Event : Any
         return false;
     }
 
+    public virtual bool Wait(long time)
+    {
+        ulong k;
+        k = (ulong)time;
+
+        Extern.TimeEvent_Wait(k);
+        return true;
+    }
+
     internal static ulong InternElapse(ulong interval, ulong arg)
     {
         InternIntern internIntern;
