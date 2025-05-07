@@ -4,6 +4,7 @@ public class IntParse : TextAdd
 {
     public override bool Init()
     {
+        base.Init();
         this.ClassInfra = Infra.This;
         return true;
     }
