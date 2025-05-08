@@ -24,6 +24,8 @@ Int Draw_Init(Int o)
     p = Environ_New(count);
     m->TextData = p;
 
+    m->InternClearBrush = new QBrush(Qt::white);
+
     m->InternIdentityForm = new QTransform;
 
     QString* uu;
@@ -50,6 +52,7 @@ Int Draw_Final(Int o)
     delete m->InternDefaultFont;
     delete m->InternText;
     delete m->InternIdentityForm;
+    delete m->InternClearBrush;
 
     Environ_Delete(m->TextData);
     return true;
@@ -279,10 +282,28 @@ Int Draw_AreaThisSet(Int o)
     return true;
 }
 
-Int Draw_Clear(Int o, Int color)
+Int Draw_Clear(Int o)
 {
     Draw* m;
     m = CP(o);
+
+    Int comp;
+    Int fill;
+    comp = Draw_CompGet(o);
+    fill = Draw_FillGet(o);
+
+    Int share;
+    share = Infra_Share();
+
+    Int stat;
+    stat = Share_Stat(share);
+
+    Int compK;
+    compK = Stat_CompSourceOver(stat);
+    
+    QBrush* brush;
+    brush = m->InternClearBrush;
+
     Int size;
     size = m->Size;
     Int wed;
@@ -295,9 +316,15 @@ Int Draw_Clear(Int o, Int color)
     w = wed;
     h = het;
 
-    InternColor(color);
+    Draw_CompSet(o, compK);
 
-    m->Intern->fillRect(0, 0, w, h, colorU);
+    m->Intern->setBrush(*brush);
+
+    m->Intern->drawRect(0, 0, w, h);
+
+    Draw_FillSet(o, fill);
+
+    Draw_CompSet(o, comp);
     return true;
 }
 
