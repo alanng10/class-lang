@@ -1358,8 +1358,8 @@ class Demo : TextAdd
         hostThread = new ThreadThread();
         hostThread.Init();
 
-        ThreadNetworkHostState state;
-        state = new ThreadNetworkHostState();
+        NetworkHostState state;
+        state = new NetworkHostState();
         state.Demo = this;
         state.Init();
 
@@ -1399,8 +1399,8 @@ class Demo : TextAdd
         hostThread = new ThreadThread();
         hostThread.Init();
 
-        ThreadNetworkHostState state;
-        state = new ThreadNetworkHostState();
+        NetworkHostState state;
+        state = new NetworkHostState();
         state.Demo = this;
         state.Init();
 

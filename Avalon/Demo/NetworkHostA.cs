@@ -3,7 +3,7 @@ namespace Demo;
 class NetworkHostA : NetworkHost
 {
     public Demo Demo { get; set; }
-    public ThreadNetworkHostState ThreadState { get; set; }
+    public NetworkHostState ThreadState { get; set; }
 
     public override bool NewPeer()
     {

@@ -16,7 +16,7 @@ class NetworkB : NetworkNetwork
         return true;
     }
 
-    public ThreadNetworkHostState ThreadState { get; set; }
+    public NetworkHostState ThreadState { get; set; }
     protected virtual StringComp StringComp { get; set; }
     private Data Data { get; set; }
     private Range Range { get; set; }
