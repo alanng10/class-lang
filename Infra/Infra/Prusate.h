@@ -291,7 +291,7 @@ Infra_Api Int Draw_Start(Int o);
 Infra_Api Int Draw_End(Int o);
 Infra_Api Int Draw_FillPosThisSet(Int o);
 Infra_Api Int Draw_AreaThisSet(Int o);
-Infra_Api Int Draw_Clear(Int o, Int color);
+Infra_Api Int Draw_Clear(Int o);
 Infra_Api Int Draw_ExecuteRect(Int o, Int rect);
 Infra_Api Int Draw_ExecuteRectRound(Int o, Int rect, Int colRadius, Int rowRadius);
 Infra_Api Int Draw_ExecuteRound(Int o, Int rect);
