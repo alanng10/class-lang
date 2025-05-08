@@ -56,7 +56,7 @@ class Demo : TextAdd
         this.ExecuteFormat();
         this.ExecuteIntParse();
         this.ExecuteMemoryStream();
-        this.ExecuteDemoThread();
+        this.ExecuteThread();
         this.ExecuteTime();
         this.ExecuteTimeEventElapse();
         this.ExecuteTimeEventWait();
@@ -1435,7 +1435,7 @@ class Demo : TextAdd
         return true;
     }
 
-    private bool ExecuteDemoThread()
+    private bool ExecuteThread()
     {
         ThreadPhore phore;
         phore = new ThreadPhore();
