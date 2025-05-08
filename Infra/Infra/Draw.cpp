@@ -304,9 +304,13 @@ Int Draw_Clear(Int o)
     m = CP(o);
 
     Int comp;
+    Int form;
     Int fill;
+    Int line;
     comp = Draw_CompGet(o);
+    form = Draw_FormGet(o);
     fill = Draw_FillGet(o);
+    line = Draw_LineGet(o);
 
     Int size;
     size = m->Size;
@@ -321,13 +325,15 @@ Int Draw_Clear(Int o)
     h = het;
 
     Draw_CompSet(o, null);
-
+    Draw_FormSet(o, null);
     Draw_FillSet(o, m->ClearBrush);
+    Draw_LineSet(o, null);
 
     m->Intern->drawRect(0, 0, w, h);
 
+    Draw_LineSet(o, line);
     Draw_FillSet(o, fill);
-
+    Draw_FormSet(o, form);
     Draw_CompSet(o, comp);
     return true;
 }
