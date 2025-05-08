@@ -247,7 +247,7 @@ class Extern : Any
     maide prusate Int Draw_End(var Int o) { }
     maide prusate Int Draw_FillPosThisSet(var Int o) { }
     maide prusate Int Draw_AreaThisSet(var Int o) { }
-    maide prusate Int Draw_Clear(var Int o, var Int color) { }
+    maide prusate Int Draw_Clear(var Int o) { }
     maide prusate Int Draw_ExecuteRect(var Int o, var Int rect) { }
     maide prusate Int Draw_ExecuteRectRound(var Int o, var Int rect, var Int colRadius, var Int rowRadius) { }
     maide prusate Int Draw_ExecuteRound(var Int o, var Int rect) { }
