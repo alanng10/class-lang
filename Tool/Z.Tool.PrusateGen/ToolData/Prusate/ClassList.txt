@@ -119,7 +119,7 @@ Draw
     Comp
     FillPosThisSet()
     AreaThisSet()
-    Clear(color)
+    Clear()
     ExecuteRect(rect)
     ExecuteRectRound(rect, colRadius, rowRadius)
     ExecuteRound(rect)
