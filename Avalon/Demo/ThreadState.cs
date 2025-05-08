@@ -24,38 +24,67 @@ class ThreadState : State
     {
         Console console;
         console = Console.This;
-        console.Out.Write(this.S("ThreadState.Execute START\n"));
+
+        console.Out.Write(this.S("Thread Execute State\n"));
 
         StorageInfra infra;
         infra = StorageInfra.This;
 
-        String a;
-        a = this.StorageInfra.TextRead(this.S("DemoData/ThreadRead.txt"));
+        bool b;
+        b = false;
 
-        String ka;
+        long a;
+        a = 98572403;
 
-        ka = this.AddClear().AddS("ThreadRead.txt text: \n").Add(a).AddS("\n").AddResult();
+        if (!b)
+        {
+            String ka;
+            ka = this.StorageInfra.TextRead(this.S("DemoData/ThreadRead.txt"));
 
-        console.Out.Write(ka);
+            String kb;
+            kb = this.S("H n\n拉 a\nJ I 阿 着 的了@ 34 #F # S c");
+
+            if (!this.Demo.TextSame(this.Demo.TA(ka), this.Demo.TB(kb)))
+            {
+                a = 10;
+                b = true;
+            }
+        }
 
         string writeFilePath;
         writeFilePath = "DemoData/ThreadWrite.txt";
-        File.Delete(writeFilePath);
 
         String kkka;
         kkka = this.S(writeFilePath);
 
-        bool b;        
-        b = this.StorageInfra.TextWrite(kkka, this.S("阿 了 水 GR 8 &\nEu #@ ?\n卡"));
+        String kc;
+        kc = this.S("阿 了 水 GR 8 &\nEu #@ ?\n卡");
+
         if (!b)
         {
-            console.Out.Write(this.S("ThreadWrite.txt write error\n"));
-        }
-        if (b)
-        {
-            a = this.StorageInfra.TextRead(kkka);
+            File.Delete(writeFilePath);
 
-            ka = this.AddClear().AddS("ThreadWrite.txt text: \n").Add(a).AddS("\n").AddResult();
+
+            bool ba;
+            ba = this.StorageInfra.TextWrite(kkka, kc);
+            
+            if (!ba)
+            {
+                a = 20;
+                b = true;
+            }
+        }
+
+        if (!b)
+        {
+            String kd;
+            kd = this.StorageInfra.TextRead(kkka);
+
+            if (!this.Demo.TextSame(this.Demo.TA(kc), this.Demo.TB(kd)))
+            {
+                a = 30;
+                b = true;
+            }
         }
 
         this.Phore.Close();
@@ -63,25 +92,10 @@ class ThreadState : State
         Value aa;
         aa = new Value();
         aa.Init();
-        aa.Int = 0x10000;
+        aa.Int = a;
 
         this.Result = aa;
-
-        console.Out.Write(this.S("ThreadState.Execute END\n"));
         return true;
-    }
-
-    protected virtual long MathInt(long n)
-    {
-        MathInfra mathInfra;
-        mathInfra = this.MathInfra;
-
-        MathComp mathComp;
-        mathComp = this.MathComp;
-
-        long a;
-        a = mathInfra.Int(mathComp, n);
-        return a;
     }
 
     public virtual ThreadState Add(String a)
