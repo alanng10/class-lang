@@ -1371,8 +1371,8 @@ class Demo : TextAdd
         networkThread = new ThreadThread();
         networkThread.Init();
 
-        ThreadNetworkState aa;
-        aa = new ThreadNetworkState();
+        NetworkState aa;
+        aa = new NetworkState();
         aa.Init();
 
         networkThread.ExecuteState = aa;

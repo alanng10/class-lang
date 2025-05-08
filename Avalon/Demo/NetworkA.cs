@@ -21,7 +21,7 @@ public class NetworkA : NetworkNetwork
     public Data Data { get; set; }
     public Range Range { get; set; }
 
-    public virtual ThreadNetworkState ThreadState { get; set; }
+    public virtual NetworkState ThreadState { get; set; }
 
     public virtual long StatusCode { get; set; }
     public virtual long Stage { get; set; }

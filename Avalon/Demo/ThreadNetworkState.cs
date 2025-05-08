@@ -1,6 +1,6 @@
 namespace Demo;
 
-public class ThreadNetworkState : State
+public class NetworkState : State
 {
     public override bool Init()
     {
