@@ -23,8 +23,8 @@ struct Draw
     Int FillPos;
     Int Area;
     Int OutAlpha;
-    Int ClearBrush;
     Int TextData;
+    Int ClearBrush;
     QPainter* Intern;
     QFont* InternDefaultFont;
     QString* InternText;
