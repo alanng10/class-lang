@@ -63,7 +63,8 @@ class Demo : TextAdd
         this.ExecuteStorageComp();
 
         this.ExecuteDemoThread();
-        this.ExecuteTimeEvent();
+        this.ExecuteTimeEventElapse();
+        this.ExecuteTimeEventWait();
 
         this.ExecuteNetwork();
         this.ExecuteNetworkProgram();
@@ -1470,20 +1471,20 @@ class Demo : TextAdd
         return true;
     }
 
-    private bool ExecuteTimeEvent()
+    private bool ExecuteTimeEventElapse()
     {
         bool b;
         b = true;
 
-        b = b & this.ExecuteTimeEventOne(false, 4, 340, 0x4efd);
+        b = b & this.ExecuteTimeEventElapseOne(false, 4, 340, 0x4efd);
         
-        b = b & this.ExecuteTimeEventOne(true, 0, 610, 0xf06e);
+        b = b & this.ExecuteTimeEventElapseOne(true, 0, 610, 0xf06e);
 
-        this.Console.Out.Write(this.AddClear().AddS("TimeEvent elapse ").Add(this.StatusString(b)).AddLine().AddResult());
+        this.Console.Out.Write(this.AddClear().AddS("TimeEvent Elapse ").Add(this.StatusString(b)).AddLine().AddResult());
         return true;
     }
 
-    private bool ExecuteTimeEventOne(bool single, long elapseCount, long time, long exitCode)
+    private bool ExecuteTimeEventElapseOne(bool single, long elapseCount, long time, long exitCode)
     {
         ThreadThread thread;
         thread = new ThreadThread();
@@ -1511,6 +1512,21 @@ class Demo : TextAdd
         bool b;
         b = (o == exitCode);
         return b;
+    }
+
+    private bool ExecuteTimeEventWait()
+    {
+        TimeEvent timeEvent;
+        timeEvent = new TimeEvent();
+        timeEvent.Init();
+
+        timeEvent.Wait(1000);
+
+        timeEvent.Final();
+
+        this.Console.Out.Write(this.AddClear().AddS("TimeEvent Wait").AddLine().AddResult());
+
+        return true;
     }
 
     public virtual long MathInt(long n)
