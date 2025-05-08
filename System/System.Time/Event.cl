@@ -74,4 +74,10 @@ class Event : Any
     maide prusate Bool Elapse()
     {
     }
+
+    maide prusate Bool Wait(var Int time)
+    {
+        this.Extern.TimeEvent_Wait(time);
+        return true;
+    }
 }
