@@ -256,7 +256,7 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Draw_End(ulong o);
     [DllImport(InfraLib)] public extern static ulong Draw_FillPosThisSet(ulong o);
     [DllImport(InfraLib)] public extern static ulong Draw_AreaThisSet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Draw_Clear(ulong o, ulong color);
+    [DllImport(InfraLib)] public extern static ulong Draw_Clear(ulong o);
     [DllImport(InfraLib)] public extern static ulong Draw_ExecuteRect(ulong o, ulong rect);
     [DllImport(InfraLib)] public extern static ulong Draw_ExecuteRectRound(ulong o, ulong rect, ulong colRadius, ulong rowRadius);
     [DllImport(InfraLib)] public extern static ulong Draw_ExecuteRound(ulong o, ulong rect);
