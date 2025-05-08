@@ -1472,8 +1472,14 @@ class Demo : TextAdd
 
     private bool ExecuteTimeEvent()
     {
-        this.ExecuteTimeEventOne(false, 4, 340, 0x4efd);
-        this.ExecuteTimeEventOne(true, 0, 610, 0xf06e);
+        bool b;
+        b = true;
+
+        b = b & this.ExecuteTimeEventOne(false, 4, 340, 0x4efd);
+        
+        b = b & this.ExecuteTimeEventOne(true, 0, 610, 0xf06e);
+
+        this.Console.Out.Write(this.AddClear().AddS("TimeEvent elapse ").Add(this.StatusString(b)).AddLine().AddResult());
         return true;
     }
 
@@ -1502,8 +1508,9 @@ class Demo : TextAdd
 
         thread.Final();
 
-        this.Console.Out.Write(this.S("Demo.ExecuteTimeEventOne Thread Status: 0h" + o.ToString("x8") + "\n"));
-        return true;
+        bool b;
+        b = (o == exitCode);
+        return b;
     }
 
     public virtual long MathInt(long n)
