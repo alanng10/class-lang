@@ -303,6 +303,10 @@ Int Draw_Clear(Int o)
     Draw* m;
     m = CP(o);
 
+    Int aRect;
+    aRect = Draw_AreaGet(o);
+    RectValue(a);
+
     Int comp;
     Int form;
     Int fill;
@@ -318,6 +322,13 @@ Int Draw_Clear(Int o)
     Int het;
     wed = Size_WedGet(size);
     het = Size_HetGet(size);
+
+    Pos_ColSet(aPos, 0);
+    Pos_RowSet(aPos, 0);
+    Size_WedSet(aSize, wed);
+    Size_HetSet(aSize, het);
+
+    Draw_AreaThisSet(o);
 
     int w;
     int h;
@@ -335,6 +346,13 @@ Int Draw_Clear(Int o)
     Draw_FillSet(o, fill);
     Draw_FormSet(o, form);
     Draw_CompSet(o, comp);
+
+    Pos_ColSet(aPos, aCol);
+    Pos_RowSet(aPos, aRow);
+    Size_WedSet(aSize, aWed);
+    Size_HetSet(aSize, aHet);
+
+    Draw_AreaThisSet(o);
     return true;
 }
 
