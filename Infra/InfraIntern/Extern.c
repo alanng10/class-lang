@@ -2961,13 +2961,12 @@ Int Intern_Extern_Draw_AreaThisSet(Eval* eval, Int frame)
 Int Intern_Extern_Draw_Clear(Eval* eval, Int frame)
 {
     Int paramCount;
-    paramCount = 2;
+    paramCount = 1;
 
     Param(0);
-    Param(1);
 
     Int a;
-    a = Draw_Clear(a0, a1);
+    a = Draw_Clear(a0);
 
     Return;
 }
