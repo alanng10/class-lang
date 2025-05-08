@@ -27,9 +27,6 @@ class ThreadState : State
 
         console.Out.Write(this.S("Thread Execute State\n"));
 
-        StorageInfra infra;
-        infra = StorageInfra.This;
-
         bool b;
         b = false;
 
