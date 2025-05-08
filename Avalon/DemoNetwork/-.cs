@@ -4,4 +4,4 @@ global using StringValue = Avalon.Text.StringValue;
 global using Console = Avalon.Console.Console;
 global using EntryEntry = Avalon.Entry.Entry;
 global using STAThreadAttribute = System.STAThreadAttribute;
-global using ThreadNetworkState = Demo.NetworkState;
+global using NetworkState = Demo.NetworkState;
