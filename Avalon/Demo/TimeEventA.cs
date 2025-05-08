@@ -13,22 +13,19 @@ class TimeEventA : TimeEvent
     {
         Console console;
         console = Console.This;
-        console.Out.Write(this.S("ElapseState.Execute START\n"));
 
         this.Count = this.Count + 1;
 
-        console.Out.Write(this.S("Elapse Count: " + this.Count + "\n"));
+        console.Out.Write(this.S("TimeEvent Elapse Count: " + this.Count + "\n"));
          
         if (!(this.Count < this.ElapseCount))
         {
             this.Stop();
 
-            console.Out.Write(this.S("ElapseState.Execute Time Event Stop\n"));
+            console.Out.Write(this.S("TimeEvent Elapse Stop\n"));
 
             this.Thread.Exit(this.ExitCode);
         }
-
-        console.Out.Write(this.S("ElapseState.Execute END\n"));
 
         return true;
     }
