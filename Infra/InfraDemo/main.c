@@ -228,7 +228,7 @@ Int DrawHandle(Int frame, Int arg)
 {
     Draw_Start(Draw);
 
-    Draw_Clear(Draw, 0xffffffff);
+    Draw_Clear(Draw);
 
     Int area;
     area = Draw_AreaGet(Draw);
