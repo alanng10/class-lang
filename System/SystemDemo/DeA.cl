@@ -224,6 +224,8 @@ class DeA : Dem
 
         this.ExecuteTime();
 
+        this.ExecuteTimeEventWait();
+
         this.ExecuteStorage();
 
         this.ExecuteStorageStream();
@@ -927,16 +929,16 @@ class DeA : Dem
         time : new Time;
         time.Init();
         
-        this.ConsoleWriteTime("Demo time init : ", time);
+        this.ConsoleWriteTime("Time Init : ", time);
         
         time.This();
-        this.ConsoleWriteTime("Demo time current : ", time);
+        this.ConsoleWriteTime("Time This : ", time);
 
         time.ToPos(2 * 60 * 60);
-        this.ConsoleWriteTime("Demo time ToPos : ", time);
+        this.ConsoleWriteTime("Time ToPos : ", time);
 
         time.AddTick(200 * 1000);
-        this.ConsoleWriteTime("Demo time AddTick : ", time);
+        this.ConsoleWriteTime("Time AddTick : ", time);
 
         time.Final();
         return true;
@@ -961,6 +963,21 @@ class DeA : Dem
         k : this.AddResult();
 
         this.Console.Out.Write(k);
+
+        return true;
+    }
+
+    maide private Bool ExecuteTimeEventWait()
+    {
+        var TimeEvent k;
+        k : new TimeEvent;
+        k.Init();
+
+        k.Wait(1000);
+
+        k.Final();
+
+        this.Console.Out.Write("TimeEvent Wait\n");
 
         return true;
     }
