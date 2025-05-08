@@ -1457,17 +1457,20 @@ class Demo : TextAdd
 
         phore.Open();
 
-        this.Console.Out.Write(this.S("Demo.ExecuteDemoThread phore Open Success\n"));
-
         thread.Wait();
 
-        long aa;
-        aa = thread.Status;
-        this.Console.Out.Write(this.S("Demo.ExecuteDemoThread Thread Status: 0h" + aa.ToString("x8") + "\n"));
+        long a;
+        a = thread.Status;
 
         thread.Final();
 
         phore.Final();
+
+        bool b;
+        b = (a == 0x10000);
+
+        this.Console.Out.Write(this.AddClear().AddS("Thread ").Add(this.StatusString(b)).AddLine().AddResult());
+
         return true;
     }
 
@@ -1481,6 +1484,7 @@ class Demo : TextAdd
         b = b & this.ExecuteTimeEventElapseOne(true, 0, 610, 0xf06e);
 
         this.Console.Out.Write(this.AddClear().AddS("TimeEvent Elapse ").Add(this.StatusString(b)).AddLine().AddResult());
+
         return true;
     }
 
