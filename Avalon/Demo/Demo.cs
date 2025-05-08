@@ -1467,7 +1467,7 @@ class Demo : TextAdd
         phore.Final();
 
         bool b;
-        b = (a == 0x10000);
+        b = (a == 98572403);
 
         this.Console.Out.Write(this.AddClear().AddS("Thread ").Add(this.StatusString(b)).AddLine().AddResult());
 
