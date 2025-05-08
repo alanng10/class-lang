@@ -56,15 +56,15 @@ class Demo : TextAdd
         this.ExecuteFormat();
         this.ExecuteIntParse();
         this.ExecuteMemoryStream();
+        this.ExecuteDemoThread();
         this.ExecuteTime();
+        this.ExecuteTimeEventElapse();
+        this.ExecuteTimeEventWait();
+
         this.ExecuteStorage();
         this.ExecuteStoragePath();
         this.ExecuteStorageStream();
         this.ExecuteStorageComp();
-
-        this.ExecuteDemoThread();
-        this.ExecuteTimeEventElapse();
-        this.ExecuteTimeEventWait();
 
         this.ExecuteNetwork();
         this.ExecuteNetworkProgram();
