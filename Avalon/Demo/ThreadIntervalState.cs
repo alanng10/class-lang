@@ -1,6 +1,6 @@
 namespace Demo;
 
-class ThreadIntervalState : State
+class TimeEventState : State
 {
     public virtual Demo Demo { get; set; }
     public long ElapseCount { get; set; }

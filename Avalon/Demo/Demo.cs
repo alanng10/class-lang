@@ -1489,8 +1489,8 @@ class Demo : TextAdd
         thread = new ThreadThread();
         thread.Init();
 
-        ThreadIntervalState state;
-        state = new ThreadIntervalState();
+        TimeEventState state;
+        state = new TimeEventState();
         state.Init();
         state.Demo = this;
         state.ElapseCount = elapseCount;
