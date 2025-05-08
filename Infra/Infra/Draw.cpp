@@ -292,15 +292,6 @@ Int Draw_Clear(Int o)
     comp = Draw_CompGet(o);
     fill = Draw_FillGet(o);
 
-    Int share;
-    share = Infra_Share();
-
-    Int stat;
-    stat = Share_Stat(share);
-
-    Int compK;
-    compK = Stat_CompSourceOver(stat);
-    
     QBrush* brush;
     brush = m->InternClearBrush;
 
@@ -316,7 +307,7 @@ Int Draw_Clear(Int o)
     w = wed;
     h = het;
 
-    Draw_CompSet(o, compK);
+    Draw_CompSet(o, null);
 
     m->Intern->setBrush(*brush);
 
