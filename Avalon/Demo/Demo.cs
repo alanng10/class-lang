@@ -772,16 +772,16 @@ class Demo : TextAdd
         time = new Time();
         time.Init();
         
-        this.ConsoleWriteTime("Demo.ExecuteTime time init : ", time);
+        this.ConsoleWriteTime("Time Init : ", time);
         
         time.This();
-        this.ConsoleWriteTime("Demo.ExecuteTime time current : ", time);
+        this.ConsoleWriteTime("Time This : ", time);
 
         time.ToPos(2 * 60 * 60);
-        this.ConsoleWriteTime("Demo.ExecuteTime time ToPos : ", time);
+        this.ConsoleWriteTime("Time ToPos : ", time);
 
         time.AddTick(200 * 1000);
-        this.ConsoleWriteTime("Demo.ExecuteTime time AddTick : ", time);
+        this.ConsoleWriteTime("Time AddTick : ", time);
 
         time.Final();
         return true;
