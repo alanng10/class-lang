@@ -25,6 +25,7 @@ struct Draw
     Int OutAlpha;
     Int TextData;
     QPainter* Intern;
+    QBrush* InternClearBrush;
     QFont* InternDefaultFont;
     QString* InternText;
     QTransform* InternIdentityForm;
