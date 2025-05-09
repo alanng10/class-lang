@@ -365,19 +365,8 @@ class Demo : TextAdd
         ka = new MathComp();
         ka.Init();
 
-        bool ba;
-        bool bb;
-        bool bc;
-        bool bd;
-        bool be;
-        bool bf;
-        bool bg;
-        bool bh;
-        bool bi;
-        bool bj;
-        bool bk;
-        bool bl;
-        bool bm;
+        bool b;
+        b = true;
 
         ka.Cand = 3;
         ka.Expo = 2;
@@ -385,62 +374,57 @@ class Demo : TextAdd
         long value;
 
         value = this.Math.ValueTen(ka);
-        ba = this.MathValid(value, 0x12c0000000000, -40);
+        b = b & this.MathValid(value, 0x12c0000000000, -40);
 
         ka.Cand = 5;
         ka.Expo = -1;
 
         value = this.Math.ValueTen(ka);
-        bb = this.MathValid(value, 0x1000000000000, -49);
+        b = b & this.MathValid(value, 0x1000000000000, -49);
 
         value = this.Math.Sin(0);
-        bc = this.MathValid(value, 0, -49);
+        b = b & this.MathValid(value, 0, -49);
 
         value = this.Math.Cos(0);
-        bd = this.MathValid(value, 0x1000000000000, -48);
+        b = b & this.MathValid(value, 0x1000000000000, -48);
 
         ka.Cand = 0x3243F6A8885;
         ka.Expo = -40;
 
         value = this.Math.Value(ka);
-        be = this.MathValid(value, 0x1921fb5444280, -47);
+        b = b & this.MathValid(value, 0x1921fb5444280, -47);
 
         value = this.Math.Sin(value);
-        bf = this.MathValid(value, 0x14611a6263314, -89);
+        b = b & this.MathValid(value, 0x14611a6263314, -89);
 
         ka.Expo = -41;
 
         value = this.Math.Value(ka);
-        bg = this.MathValid(value, 0x1921fb5444280, -48);
+        b = b & this.MathValid(value, 0x1921fb5444280, -48);
 
         value = this.Math.Sin(value);
-        bh = this.MathValid(value, 0x1000000000000, -48);
+        b = b & this.MathValid(value, 0x1000000000000, -48);
 
         value = this.Math.Tan(0);
-        bi = this.MathValid(value, 0, -49);
+        b = b & this.MathValid(value, 0, -49);
 
         ka.Expo = -42;
 
         value = this.Math.Value(ka);
-        bj = this.MathValid(value, 0x1921fb5444280, -49);
+        b = b & this.MathValid(value, 0x1921fb5444280, -49);
 
         value = this.Math.Tan(value);
-        bk = this.MathValid(value, 0x1ffffffffff5c, -49);
+        b = b & this.MathValid(value, 0x1ffffffffff5c, -49);
 
         value = this.Math.ASin(0);
-        bl = this.MathValid(value, 0, -49);
+        b = b & this.MathValid(value, 0, -49);
 
         long one;
         one = this.MathInt(1);
 
         value = this.Math.ASin(one);
-        bm = this.MathValid(value, 0x1921fb54442d1, -48);
+        b = b & this.MathValid(value, 0x1921fb54442d1, -48);
 
-        bool b;
-        b = ba & bb & bc & bd
-             & be & bf & bg & bh
-             & bi & bj & bk & bl
-             & bm;
         this.Console.Out.Write(this.AddClear().AddS("Math ").Add(this.StatusString(b)).AddLine().AddResult());
         return true;
     }
