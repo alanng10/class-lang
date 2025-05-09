@@ -729,7 +729,7 @@ class Demo : Add
         argD.Init();
         argD.Pos : 7;
         argD.Kind : 1;
-        argD.Value.Int : 0x5bd9ea;
+        argD.Value.Int : 0h5bd9ea;
         argD.AlignLeft : false;
         argD.FieldWidth : 8;
         argD.MaxWidth : 6;
