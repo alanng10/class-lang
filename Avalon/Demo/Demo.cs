@@ -711,26 +711,20 @@ class Demo : TextAdd
 
         stream.Read(data, range);
 
+        memory.Close();
+
+        memory.Final();
+
         String kaa;
         kaa = this.StringComp.CreateData(data, null);
-
-        StringLess less;
-        less = this.TextInfra.StringLessCreate();
 
         String kb;
         kb = this.S(" e f* [ 19");
 
-        long na;
-        na = less.Execute(kaa, kb);
+        bool b;
+        b = this.TextSame(this.TA(kaa), this.TB(kb));
 
-        bool ba;
-        ba = (na == 0);
-        
-        this.Console.Out.Write(this.AddClear().AddS("Memory Stream read write ").Add(this.StatusString(ba)).AddLine().AddResult());
-
-        memory.Close();
-
-        memory.Final();
+        this.Console.Out.Write(this.AddClear().AddS("Memory Stream ").Add(this.StatusString(b)).AddLine().AddResult());
 
         return true;
     }
