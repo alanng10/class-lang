@@ -521,11 +521,15 @@ class Demo : Add
         ka : new MathComp;
         ka.Init();
 
+        var Bool b;
+        b : true;
+
         ka.Cand : 3;
         ka.Expo : 2;
 
-        var Int aa;
-        aa : this.Math.ValueTen(ka);
+        var Int value;
+
+        value : this.Math.ValueTen(ka);
         this.ConsoleWriteMathValue("Demo Math ValueTen: ", aa);
 
         ka.Cand : 5;
@@ -546,6 +550,21 @@ class Demo : Add
         aa : this.Math.Cos(0);
         this.ConsoleWriteMathValue("Demo Math Cos(0): ", aa);
         return true;
+    }
+
+    maide private Bool MathValid(var Int value, var Int cand, var Int expo)
+    {
+        this.Math.Comp(this.MathComp, value);
+
+        var Bool ba;
+        ba : this.MathComp.Cand = cand;
+
+        var Bool bb;
+        bb : this.MathComp.Expo = expo;
+
+        var Bool a;
+        a : ba & bb;
+        return a;
     }
 
     maide private Bool ConsoleWriteMathValue(var String prefix, var Int value)
