@@ -689,24 +689,130 @@ class Demo : Add
     
     maide private Bool ExecuteFormat()
     {
+        var FormatArg argA;
+        argA = new FormatArg();
+        argA.Init();
+        argA.Pos = 3;
+        argA.Kind = 0;
+        argA.Value.Bool = true;
+        argA.FieldWidth = 6;
+        argA.MaxWidth = -1;
+        argA.FillChar = this.Char(this.SSpace);
+        argA.Form = this.TextInfra.AlphaNiteForm;
+
+        var FormatArg argB;
+        argB = new FormatArg();
+        argB.Init();
+        argB.Pos = 3;
+        argB.Kind = 1;
+        argB.Value.Int = 56712;
+        argB.AlignLeft = true;
+        argB.FieldWidth = 8;
+        argB.MaxWidth = 6;
+        argB.Base = 10;
+        argB.FillChar = this.Char(this.SSpace);
+
+        var FormatArg argC;
+        argC = new FormatArg();
+        argC.Init();
+        argC.Pos = 6;
+        argC.Kind = 1;
+        argC.Value.Int = 46842;
+        argC.AlignLeft = false;
+        argC.FieldWidth = 8;
+        argC.MaxWidth = 6;
+        argC.Base = 10;
+        argC.FillChar = this.Char(this.SSpace);
+
+        var FormatArg argD;
+        argD = new FormatArg();
+        argD.Init();
+        argD.Pos = 7;
+        argD.Kind = 1;
+        argD.Value.Int = 0x5bd9ea;
+        argD.AlignLeft = false;
+        argD.FieldWidth = 8;
+        argD.MaxWidth = 6;
+        argD.Base = 16;
+        argD.FillChar = this.Char(this.SSpace);
+        argD.Form = this.TextInfra.AlphaNiteForm;
+
+        var FormatArg argE;
+        argE = new FormatArg();
+        argE.Init();
+        argE.Pos = 7;
+        argE.Kind = 1;
+        argE.Value.Int = 100;
+        argE.AlignLeft = false;
+        argE.FieldWidth = 4;
+        argE.MaxWidth = -1;
+        argE.Base = 10;
+        argE.FillChar = '-';
+
+        var FormatArg argF;
+        argF = new FormatArg();
+        argF.Init();
+        argF.Pos = 8;
+        argF.Kind = 1;
+        argF.Value.Int = 0;
+        argF.AlignLeft = false;
+        argF.FieldWidth = 3;
+        argF.MaxWidth = -1;
+        argF.Base = 10;
+        argF.FillChar = ':';
+
+        var FormatArg argG;
+        argG = new FormatArg();
+        argG.Init();
+        argG.Pos = 10;
+        argG.Kind = 2;
+        argG.Value.Any = this.TextCreate(this.S("F Hre a"));
+        argG.AlignLeft = true;
+        argG.FieldWidth = 11;
+        argG.MaxWidth = 10;
+        argG.FillChar = '=';
+        argG.Form = this.TextInfra.AlphaNiteForm;
+
+        var FormatArg argH;
+        argH = new FormatArg();
+        argH.Init();
+        argH.Pos = 10;
+        argH.Kind = 2;
+        argH.Value.Any = this.TextCreate(this.StringComp.CreateChar('H', 1));
+        argH.AlignLeft = false;
+        argH.FieldWidth = 10;
+        argH.MaxWidth = -1;
+        argH.FillChar = 'O';
+
+        var Array argList;
+        argList = this.ListInfra.ArrayCreate(8);
+        argList.SetAt(0, argA);
+        argList.SetAt(1, argB);
+        argList.SetAt(2, argC);
+        argList.SetAt(3, argD);
+        argList.SetAt(4, argE);
+        argList.SetAt(5, argF);
+        argList.SetAt(6, argG);
+        argList.SetAt(7, argH);
+
+        var Text varBase;
+        varBase = this.TextCreate(this.S("G H , j h\n\n"));
+
+        var long count;
+        count = this.Format.ExecuteCount(varBase, argList);
+
         var Text text;
-        text : this.TextCreate("L o(");
+        text = this.TextInfra.TextCreate(count);
 
-        var String k;
-        k : this.StringBoolFormat(true, true, 8, 8, this.Char("="));
+        this.Format.ExecuteResult(varBase, argList, text);
 
-        this.Console.Out.Write(this.AddClear().Add(k).AddLine().AddResult());
+        var String a;
+        a = this.StringCreate(text);
 
-        k : this.StringTextFormat(text, true, 6, 6, this.Char("#"));
+        var bool b;
+        b = this.TextSame(this.TA(a), this.TB(this.S("G H  TRUE56712  ,  46842j5BD9EA-100 ::0h\nF HRE A===OOOOOOOOOH\n")));
 
-        this.Console.Out.Write(this.AddClear().Add(k).AddLine().AddResult());
-
-        k : this.StringIntFormat(0h1e4fd8, 16, true, 10, null, this.Char("="));
-
-        this.Console.Out.Write(this.AddClear().Add(k).AddLine().AddResult());
-
-        this.Console.Out.Write(this.AddClear().Add(this.StringInt(89542)).AddLine().AddResult());
-
+        this.Console.Out.Write(this.AddClear().AddS("Format ").Add(this.StatusString(b)).AddLine().AddResult());
         return true;
     }
 
