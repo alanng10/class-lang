@@ -569,7 +569,7 @@ class Demo : Add
         value : this.Math.Value(ka);
         b : b & this.MathValid(value, 0h1921fb5444280, 0sn49);
 
-        value : this.Math.Tan(0);
+        value : this.Math.Tan(value);
         b : b & this.MathValid(value, 0h1ffffffffff5c, 0sn49);
 
         value : this.Math.ASin(0);
