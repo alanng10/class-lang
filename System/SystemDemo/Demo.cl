@@ -766,7 +766,7 @@ class Demo : Add
         argG.Init();
         argG.Pos : 10;
         argG.Kind : 2;
-        argG.Value.Any : this.TextCreate(this.S("F Hre a"));
+        argG.Value.Any : this.TextCreate("F Hre a");
         argG.AlignLeft : true;
         argG.FieldWidth : 11;
         argG.MaxWidth : 10;
@@ -778,7 +778,7 @@ class Demo : Add
         argH.Init();
         argH.Pos : 10;
         argH.Kind : 2;
-        argH.Value.Any : this.TextCreate(this.StringComp.CreateChar('H', 1));
+        argH.Value.Any : this.TextCreate(this.StringComp.CreateChar(this.Char("H"), 1));
         argH.AlignLeft : false;
         argH.FieldWidth : 10;
         argH.MaxWidth : -1;
