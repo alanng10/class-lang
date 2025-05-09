@@ -22,6 +22,7 @@ System.Math
     Math Math
     MathComp Comp
     Rand Rand
+    MathInfra Infra
 System.Text
     Text Text
     TextForm Form
