@@ -1,5 +1,8 @@
-class DemoA : Any
+class DemoA : Add
 {
+    field precate Int Aa { get { share Console.Out.Write("DemoA Field Get\n"); } set { share Console.Out.Write("DemoA Field Set\n"); } }
+    field precate String Ake { get { return data; } set { data : value; } }
+
     maide prusate Bool Execute()
     {
         var Console console;
@@ -15,6 +18,14 @@ class DemoA : Any
         return true;
     }
 
-    field precate Int Aa { get { share Console.Out.Write("DemoA Field Get\n"); } set { share Console.Out.Write("DemoA Field Set\n"); } }
-    field precate String Ake { get { return data; } set { data : value; } }
+    maide prusate String StatusString(var Bool b)
+    {
+        var String k;
+        k : "Success";
+        inf (~b)
+        {
+            k : "Error";
+        }
+        return k;
+    }
 }
