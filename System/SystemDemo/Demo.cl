@@ -581,19 +581,13 @@ class Demo : Add
         value : this.Math.ASin(one);
         b : b & this.MathValid(value, 0h1921fb54442d1, 0sn48);
 
-        
+        this.Console.Out.Write(this.AddClear().Add("Math ").Add(this.StatusString(b)).AddLine().AddResult());
 
         # ka.Cand : 0sn1;
         # ka.Expo : 0sn2;
 
         # aa : this.Math.Value(ka);
         # this.ConsoleWriteMathValue("Demo Math Value: ", aa);
-
-        aa : this.Math.Sin(0);
-        this.ConsoleWriteMathValue("Demo Math Sin(0): ", aa);
-
-        aa : this.Math.Cos(0);
-        this.ConsoleWriteMathValue("Demo Math Cos(0): ", aa);
         return true;
     }
 
