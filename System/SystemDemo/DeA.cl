@@ -1,135 +1,29 @@
-class DeA : Dem
+class DeA : Add
 {
     maide prusate Bool Init()
     {
         base.Init();
         this.ListInfra : share ListInfra;
-        this.TextInfra : share TextInfra;
         this.Math : share Math;
         this.StorageInfra : share StorageInfra;
-        this.StringComp : share StringComp;
         this.StorageComp : share StorageComp;
         this.Console : share Console;
 
         this.MathComp : new MathComp;
         this.MathComp.Init();
-
-        this.Format : this.CreateFormat();
-        this.FormatArg : this.CreateFormatArg();
-        this.IntParse : this.CreateIntParse();
-        this.StringAdd : this.CreateStringAdd();
-
-        this.CharLess : this.CreateCharLess();
-        this.TForm : this.CreateTextForm();
-        this.TLess : this.CreateTextLess();
-
-        this.TextA : this.CreateText();
-        this.TextB : this.CreateText();
-        this.StringDataA : this.CreateStringData();
-        this.StringDataB : this.CreateStringData();
         return true;
     }
 
     field precate ListInfra ListInfra { get { return data; } set { data : value; } }
-    field precate TextInfra TextInfra { get { return data; } set { data : value; } }
     field prusate Math Math { get { return data; } set { data : value; } }
     field precate StorageInfra StorageInfra { get { return data; } set { data : value; } }
-    field precate StringComp StringComp { get { return data; } set { data : value; } }
     field precate StorageComp StorageComp { get { return data; } set { data : value; } }
     field prusate Console Console { get { return data; } set { data : value; } }
     field precate MathComp MathComp { get { return data; } set { data : value; } }
-    field precate Format Format { get { return data; } set { data : value; } }
-    field precate FormatArg FormatArg { get { return data; } set { data : value; } }
-    field precate IntParse IntParse { get { return data; } set { data : value; } }
-    field precate StringAdd StringAdd { get { return data; } set { data : value; } }
-    field precate TextLess TLess { get { return data; } set { data : value; } }
-    field precate IntLess CharLess { get { return data; } set { data : value; } }
-    field precate TextForm TForm { get { return data; } set { data : value; } }
-    field precate Text TextA { get { return data; } set { data : value; } }
-    field precate Text TextB { get { return data; } set { data : value; } }
-    field precate StringData StringDataA { get { return data; } set { data : value; } }
-    field precate StringData StringDataB { get { return data; } set { data : value; } }
     field precate Int ArrayIndex { get { return data; } set { data : value; } }
     field precate Int Aa { get { base.Aa; share Console.Out.Write("DeA Field Get\n"); } set { base.Aa : null; share Console.Out.Write("DeA Field Set\n"); } }
     field precate String Ake { get { return data; } set { base.Ake : value; } }
     field private Int Aaa { get { return data; } set { } }
-
-    maide precate Format CreateFormat()
-    {
-        var Format a;
-        a : new Format;
-        a.Init();
-        return a;
-    }
-
-    maide precate FormatArg CreateFormatArg()
-    {
-        var FormatArg a;
-        a : new FormatArg;
-        a.Init();
-        return a;
-    }
-
-    maide precate IntParse CreateIntParse()
-    {
-        var IntParse a;
-        a : new IntParse;
-        a.Init();
-        return a;
-    }
-
-    maide precate StringAdd CreateStringAdd()
-    {
-        var StringAdd a;
-        a : new StringAdd;
-        a.Init();
-        return a;
-    }
-
-    maide precate IntLess CreateCharLess()
-    {
-        var IntLess a;
-        a : new IntLess;
-        a.Init();
-        return a;
-    }
-
-    maide precate TextForm CreateTextForm()
-    {
-        var TextForm a;
-        a : new TextForm;
-        a.Init();
-        return a;
-    }
-
-    maide precate TextLess CreateTextLess()
-    {
-        var TextLess a;
-        a : new TextLess;
-        a.CharLess : this.CharLess;
-        a.LiteForm : this.TForm;
-        a.RiteForm : this.TForm;
-        a.Init();
-        return a;
-    }
-
-    maide precate Text CreateText()
-    {
-        var Text a;
-        a : new Text;
-        a.Init();
-        a.Range : new Range;
-        a.Range.Init();
-        return a;
-    }
-
-    maide precate StringData CreateStringData()
-    {
-        var StringData a;
-        a : new StringData;
-        a.Init();
-        return a;
-    }
 
     maide prusate Bool Execute()
     {
