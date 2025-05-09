@@ -544,6 +544,12 @@ class Demo : Add
         value : this.Math.Cos(0);
         b : b & this.MathValid(value, 0h1000000000000, 0sn48);
 
+        ka.Cand : 0h3243f6a8885;
+        ka.Expo : 0sn40;
+
+        value : this.Math.Value(ka);
+        b : b & this.MathValid(value, 0h1921fb5444280, 0sn47);
+
 
         # ka.Cand : 0sn1;
         # ka.Expo : 0sn2;
