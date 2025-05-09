@@ -696,7 +696,7 @@ class Demo : Add
         argA.Kind : 0;
         argA.Value.Bool : true;
         argA.FieldWidth : 6;
-        argA.MaxWidth : -1;
+        argA.MaxWidth : null;
         argA.FillChar : this.Char(this.SSpace);
         argA.Form : this.TextInfra.AlphaNiteForm;
 
@@ -745,7 +745,7 @@ class Demo : Add
         argE.Value.Int : 100;
         argE.AlignLeft : false;
         argE.FieldWidth : 4;
-        argE.MaxWidth : -1;
+        argE.MaxWidth : null;
         argE.Base : 10;
         argE.FillChar : '-';
 
@@ -757,7 +757,7 @@ class Demo : Add
         argF.Value.Int : 0;
         argF.AlignLeft : false;
         argF.FieldWidth : 3;
-        argF.MaxWidth : -1;
+        argF.MaxWidth : null;
         argF.Base : 10;
         argF.FillChar : ':';
 
@@ -781,7 +781,7 @@ class Demo : Add
         argH.Value.Any : this.TextCreate(this.StringComp.CreateChar(this.Char("H"), 1));
         argH.AlignLeft : false;
         argH.FieldWidth : 10;
-        argH.MaxWidth : -1;
+        argH.MaxWidth : null;
         argH.FillChar : 'O';
 
         var Array argList;
