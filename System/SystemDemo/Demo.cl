@@ -54,17 +54,16 @@ class Demo : Add
         this.Console.Out.Write(this.AddClear().Add("Demo While Loop Local Var ").Add(this.StatusString(ba)).AddLine().AddResult());
 
 
-        var String k;
+        # var String k;
         #k : console.Inn.Read();
-        k : "k l o";
 
-        var String a;
+        # var String a;
         
-        a : this.AddClear().Add("k: ").AddLine()
-            .Add(k)
-            .AddLine().AddResult();
+        # a : this.AddClear().Add("k: ").AddLine()
+            # .Add(k)
+            # .AddLine().AddResult();
 
-        this.Console.Out.Write(a);
+        # this.Console.Out.Write(a);
 
         this.ExecuteValueCast();
 
