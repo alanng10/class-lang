@@ -74,7 +74,7 @@ class Demo : Add
 
         this.ExecuteList();
 
-        this.ExecuteTextIntParse();
+        this.ExecuteIntParse();
 
         this.ExecuteFormat();
 
@@ -672,7 +672,7 @@ class Demo : Add
         return true;
     }
 
-    maide private Bool ExecuteTextIntParse()
+    maide private Bool ExecuteIntParse()
     {
         var Bool b;
         b : true;
