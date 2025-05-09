@@ -613,7 +613,7 @@ class Demo : Add
         var Bool b;
         b : ba & bb;
 
-        this.Console.Out.Write(this.AddClear().Add("Demo Rand ").Add(this.StatusString(b)).AddLine().AddResult());
+        this.Console.Out.Write(this.AddClear().Add("Rand ").Add(this.StatusString(b)).AddLine().AddResult());
 
         rand.Final();
         return true;
