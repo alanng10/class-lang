@@ -677,58 +677,50 @@ class Demo : Add
         b : true;
 
         var Text text;
-        text : this.TextCreate("fffffffffffffff");
-
-        var Int nn;
-        nn : this.Char("9");
-
-        var Int kkk;
-        kkk : this.TextInfra.DigitValue(nn, 10);
-
-        b : b & (kkk = 9);
+        text : this.TA("fffffffffffffff");
 
         var Int na;
-        na : this.IntText(text, 16, null);
+        na : this.IntText(text, 16);
 
         b : b & (na = 0hfffffffffffffff);
 
-        text : this.TextCreate("ffffffffffffffff");
+        text : this.TA("ffffffffffffffff");
 
-        na : this.IntText(text, 16, null);
-
-        b : b & (na = null);
-
-        text : this.TextCreate("0000000000000000");
-
-        na : this.IntText(text, 16, null);
+        na : this.IntText(text, 16);
 
         b : b & (na = null);
 
-        text : this.TextCreate("1000000000000000");
+        text : this.TA("0000000000000000");
 
-        na : this.IntText(text, 16, null);
+        na : this.IntText(text, 16);
 
         b : b & (na = null);
 
-        text : this.TextCreate("000000000000000");
+        text : this.TA("1000000000000000");
 
-        na : this.IntText(text, 16, null);
+        na : this.IntText(text, 16);
+
+        b : b & (na = null);
+
+        text : this.TA("000000000000000");
+
+        na : this.IntText(text, 16);
 
         b : b & (na = 0);
 
-        text : this.TextCreate("800000000000000");
+        text : this.TA("800000000000000");
 
-        na : this.IntText(text, 16, null);
+        na : this.IntText(text, 16);
 
         b : b & (na = 0h800000000000000);
 
-        text : this.TextCreate("900760a0803d002");
+        text : this.TA("900760a0803d002");
 
-        na : this.IntText(text, 16, null);
+        na : this.IntText(text, 16);
 
         b : b & (na = 0h900760a0803d002);
 
-        text : this.TextCreate("900760A0803D002");
+        text : this.TA("900760A0803D002");
 
         na : this.IntParse.Execute(text, 16, this.TextInfra.AlphaSiteForm);
 
