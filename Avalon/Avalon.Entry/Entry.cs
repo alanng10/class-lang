@@ -56,7 +56,7 @@ public class Entry : Any
         ulong ua;
         ua = 1;
         Extern.Main_IsCSharpSet(ua);
-        Extern.Main_Init(0, 0);
+        Extern.Main_Init(1, 0);
 
         ThreadThread o;
         o = new ThreadThread();
