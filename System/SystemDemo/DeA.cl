@@ -825,7 +825,7 @@ class DeA : Add
 
         memory.Final();
 
-        this.Console.Out.Write(this.AddClear().Add("Memory Stream read write ").Add(this.StatusString(b)).AddLine().AddResult());
+        this.Console.Out.Write(this.AddClear().Add("MemoryStream ").Add(this.StatusString(b)).AddLine().AddResult());
         return true;
     }
 
