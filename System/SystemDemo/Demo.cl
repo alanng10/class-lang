@@ -680,7 +680,7 @@ class Demo : Add
         text : this.TextCreate("fffffffffffffff");
 
         var Int nn;
-        nn : this.TextInfra.Char("9");
+        nn : this.Char("9");
 
         var Int kkk;
         kkk : this.TextInfra.DigitValue(nn, 10);
