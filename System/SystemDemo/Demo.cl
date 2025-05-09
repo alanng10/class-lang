@@ -786,14 +786,14 @@ class Demo : Add
 
         var Array argList;
         argList : this.ListInfra.ArrayCreate(8);
-        argList.SetAt(0, argA);
-        argList.SetAt(1, argB);
-        argList.SetAt(2, argC);
-        argList.SetAt(3, argD);
-        argList.SetAt(4, argE);
-        argList.SetAt(5, argF);
-        argList.SetAt(6, argG);
-        argList.SetAt(7, argH);
+        argList.Set(0, argA);
+        argList.Set(1, argB);
+        argList.Set(2, argC);
+        argList.Set(3, argD);
+        argList.Set(4, argE);
+        argList.Set(5, argF);
+        argList.Set(6, argG);
+        argList.Set(7, argH);
 
         var Text varBase;
         varBase : this.TextCreate("G H , j h\n\n");
