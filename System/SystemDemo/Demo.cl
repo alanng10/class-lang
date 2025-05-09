@@ -530,19 +530,26 @@ class Demo : Add
         var Int value;
 
         value : this.Math.ValueTen(ka);
-        this.ConsoleWriteMathValue("Demo Math ValueTen: ", aa);
+        b : b & this.MathValid(value, 0h12c0000000000, 0sn40);
 
         ka.Cand : 5;
         ka.Expo : 0sn1;
 
-        aa : this.Math.ValueTen(ka);
-        this.ConsoleWriteMathValue("Demo Math ValueTen 2: ", aa);
+        value : this.Math.ValueTen(ka);
+        b : b & this.MathValid(value, 0h1000000000000, 0sn49);
 
-        ka.Cand : 0sn1;
-        ka.Expo : 0sn2;
+        value : this.Math.Sin(0);
+        b : b & this.MathValid(value, 0, 0sn49);
 
-        aa : this.Math.Value(ka);
-        this.ConsoleWriteMathValue("Demo Math Value: ", aa);
+        value : this.Math.Cos(0);
+        b : b & this.MathValid(value, 0h1000000000000, 0sn48);
+
+
+        # ka.Cand : 0sn1;
+        # ka.Expo : 0sn2;
+
+        # aa : this.Math.Value(ka);
+        # this.ConsoleWriteMathValue("Demo Math Value: ", aa);
 
         aa : this.Math.Sin(0);
         this.ConsoleWriteMathValue("Demo Math Sin(0): ", aa);
