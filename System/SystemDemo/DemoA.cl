@@ -1,4 +1,4 @@
-class Demo : Any
+class DemoA : Any
 {
     maide prusate Bool Execute()
     {
