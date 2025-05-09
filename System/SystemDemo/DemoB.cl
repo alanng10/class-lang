@@ -1,4 +1,4 @@
-class Dem : DemoA
+class DemoB : DemoA
 {
     maide prusate Bool Execute()
     {
