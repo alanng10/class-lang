@@ -909,7 +909,7 @@ class Demo : Add
 
         memory.Final();
 
-        this.Console.Out.Write(this.AddClear().Add("MemoryStream ").Add(this.StatusString(b)).AddLine().AddResult());
+        this.Console.Out.Write(this.AddClear().Add("Memory Stream ").Add(this.StatusString(b)).AddLine().AddResult());
         return true;
     }
 
@@ -1054,7 +1054,7 @@ class Demo : Add
         var Bool b;
         b : this.TextSame(this.TA(kaa), this.TB(kb));
 
-        this.Console.Out.Write(this.AddClear().Add("Storage Stream read write ").Add(this.StatusString(b)).AddLine().AddResult());
+        this.Console.Out.Write(this.AddClear().Add("Storage Stream ").Add(this.StatusString(b)).AddLine().AddResult());
 
         storage.Close();
 
