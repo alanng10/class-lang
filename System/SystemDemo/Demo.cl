@@ -747,7 +747,7 @@ class Demo : Add
         argE.FieldWidth : 4;
         argE.MaxWidth : null;
         argE.Base : 10;
-        argE.FillChar : '-';
+        argE.FillChar : this.Char("-");
 
         var FormatArg argF;
         argF : new FormatArg;
@@ -759,7 +759,7 @@ class Demo : Add
         argF.FieldWidth : 3;
         argF.MaxWidth : null;
         argF.Base : 10;
-        argF.FillChar : ':';
+        argF.FillChar : this.Char(":");
 
         var FormatArg argG;
         argG : new FormatArg;
@@ -770,7 +770,7 @@ class Demo : Add
         argG.AlignLeft : true;
         argG.FieldWidth : 11;
         argG.MaxWidth : 10;
-        argG.FillChar : '=';
+        argG.FillChar : this.Char("=");
         argG.Form : this.TextInfra.AlphaNiteForm;
 
         var FormatArg argH;
@@ -782,7 +782,7 @@ class Demo : Add
         argH.AlignLeft : false;
         argH.FieldWidth : 10;
         argH.MaxWidth : null;
-        argH.FillChar : 'O';
+        argH.FillChar : this.Char("O");
 
         var Array argList;
         argList : this.ListInfra.ArrayCreate(8);
