@@ -754,7 +754,7 @@ class DeA : Add
 
         phore.Open();
 
-        this.Console.Out.Write("Demo Phore Open After 1111\n");
+        this.Console.Out.Write("Phore Open\n");
 
         thread.Wait();
 
