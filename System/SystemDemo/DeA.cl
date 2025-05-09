@@ -798,6 +798,18 @@ class DeA : Dem
 
         b : b & (na = 0h800000000000000);
 
+        text : this.TextCreate("900760a0803d002");
+
+        na : this.IntParse.Execute(text, 16, null);
+
+        b : b & (na = 0h900760a0803d002);
+
+        text : this.TextCreate("900760A0803D002");
+
+        na : this.IntParse.Execute(text, 16, this.TextInfra.AlphaSiteForm);
+
+        b : b & (na = 0h900760a0803d002);
+
         this.Console.Out.Write(this.AddClear().Add("Demo Int Parse ").Add(this.StatusString(b)).AddLine().AddResult());
 
         return true;
