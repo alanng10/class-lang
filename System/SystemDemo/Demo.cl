@@ -73,13 +73,6 @@ class Demo : Add
         this.ExecuteIntOperate();
 
         this.ExecuteList();
-        
-        var Text text;
-        text : this.TextCreate("h j\n");
-
-        k : this.StringCreate(text);
-
-        this.Console.Out.Write(k);
 
         this.ExecuteTextIntParse();
 
