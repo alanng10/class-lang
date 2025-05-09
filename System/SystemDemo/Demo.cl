@@ -677,7 +677,7 @@ class Demo : Add
         b : true;
 
         var Text text;
-        text : this.TextInfra.TextCreateStringData("fffffffffffffff", null);
+        text : this.TextCreate("fffffffffffffff");
 
         var Int nn;
         nn : this.TextInfra.Char("9");
@@ -688,43 +688,43 @@ class Demo : Add
         b : b & (kkk = 9);
 
         var Int na;
-        na : this.IntParse.Execute(text, 16, null);
+        na : this.IntText(text, 16, null);
 
         b : b & (na = 0hfffffffffffffff);
 
         text : this.TextCreate("ffffffffffffffff");
 
-        na : this.IntParse.Execute(text, 16, null);
+        na : this.IntText(text, 16, null);
 
         b : b & (na = null);
 
         text : this.TextCreate("0000000000000000");
 
-        na : this.IntParse.Execute(text, 16, null);
+        na : this.IntText(text, 16, null);
 
         b : b & (na = null);
 
         text : this.TextCreate("1000000000000000");
 
-        na : this.IntParse.Execute(text, 16, null);
+        na : this.IntText(text, 16, null);
 
         b : b & (na = null);
 
         text : this.TextCreate("000000000000000");
 
-        na : this.IntParse.Execute(text, 16, null);
+        na : this.IntText(text, 16, null);
 
         b : b & (na = 0);
 
         text : this.TextCreate("800000000000000");
 
-        na : this.IntParse.Execute(text, 16, null);
+        na : this.IntText(text, 16, null);
 
         b : b & (na = 0h800000000000000);
 
         text : this.TextCreate("900760a0803d002");
 
-        na : this.IntParse.Execute(text, 16, null);
+        na : this.IntText(text, 16, null);
 
         b : b & (na = 0h900760a0803d002);
 
