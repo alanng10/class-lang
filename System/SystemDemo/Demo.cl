@@ -550,6 +550,14 @@ class Demo : Add
         value : this.Math.Value(ka);
         b : b & this.MathValid(value, 0h1921fb5444280, 0sn47);
 
+        value : this.Math.Sin(ka);
+        b : b & this.MathValid(value, 0h14611a6263314, 0sn89);
+
+        ka.Expo : 0sn41;
+
+        value : this.Math.Value(ka);
+        b : b & this.MathValid(value, 0h1921fb5444280, 0sn48);
+
 
         # ka.Cand : 0sn1;
         # ka.Expo : 0sn2;
