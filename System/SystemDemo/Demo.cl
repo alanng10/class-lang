@@ -810,7 +810,7 @@ class Demo : Add
         a : this.StringCreate(text);
 
         var Bool b;
-        b : this.TextSame(this.TA(a), this.TB(this.S("G H  TRUE56712  ,  46842j5BD9EA-100 ::0h\nF HRE A===OOOOOOOOOH\n")));
+        b : this.TextSame(this.TA(a), this.TB("G H  TRUE56712  ,  46842j5BD9EA-100 ::0h\nF HRE A===OOOOOOOOOH\n"));
 
         this.Console.Out.Write(this.AddClear().AddS("Format ").Add(this.StatusString(b)).AddLine().AddResult());
         return true;
