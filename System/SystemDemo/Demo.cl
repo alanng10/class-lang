@@ -128,6 +128,7 @@ class Demo : Add
         k : true;
 
         var Bool ba;
+
         ba : cast Bool(k);
 
         b : b & ba;
@@ -141,6 +142,7 @@ class Demo : Add
         k : 7392641;
 
         var Int na;
+
         na : cast Int(k);
 
         b : b & (na = 7392641);
@@ -154,6 +156,7 @@ class Demo : Add
         k : "LKs s9 &";
 
         var String ka;
+
         ka : cast String(k);
 
         b : b & this.TextSame(this.TA(ka), this.TB("LKs s9 &"));
@@ -163,7 +166,7 @@ class Demo : Add
         ka : cast String(k);
 
         b : b & (ka = null);
-        
+
         this.Console.Out.Write(this.AddClear().Add("Demo Value Cast ").Add(this.StatusString(b)).AddLine().AddResult());
 
         return true;
