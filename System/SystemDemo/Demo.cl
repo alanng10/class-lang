@@ -171,8 +171,8 @@ class Demo : Add
 
     maide private Bool ExecuteCast()
     {
-        var DeA ka;
-        ka : new DeA;
+        var DemoC ka;
+        ka : new DemoC;
         
         var Any kk;
         kk : ka;
@@ -185,17 +185,17 @@ class Demo : Add
 
         b : b & (kaa = null);
 
-        var DeA kab;
-        kab : cast DeA(kk);
+        var DemoC kab;
+        kab : cast DemoC(kk);
 
         b : b & (kab = ka);
 
-        var Dem kac;
-        kac : cast Dem(kk);
+        var DemoB kac;
+        kac : cast DemoB(kk);
 
         b : b & (kac = ka);
 
-        this.Console.Out.Write(this.AddClear().Add("Demo Cast ").Add(this.StatusString(b)).AddLine().AddResult());
+        this.Console.Out.Write(this.AddClear().Add("Cast ").Add(this.StatusString(b)).AddLine().AddResult());
 
         return true;
     }
