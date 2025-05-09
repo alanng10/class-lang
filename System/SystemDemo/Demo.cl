@@ -796,7 +796,7 @@ class Demo : Add
         argList.SetAt(7, argH);
 
         var Text varBase;
-        varBase : this.TextCreate(this.S("G H , j h\n\n"));
+        varBase : this.TextCreate("G H , j h\n\n");
 
         var Int count;
         count : this.Format.ExecuteCount(varBase, argList);
