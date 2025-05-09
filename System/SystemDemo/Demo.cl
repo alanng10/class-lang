@@ -4,6 +4,7 @@ class Demo : Add
     {
         base.Init();
         this.ListInfra : share ListInfra;
+        this.MathInfra : share MathInfra;
         this.Math : share Math;
         this.StorageInfra : share StorageInfra;
         this.StorageComp : share StorageComp;
@@ -15,6 +16,7 @@ class Demo : Add
     }
 
     field precate ListInfra ListInfra { get { return data; } set { data : value; } }
+    field precate MathInfra MathInfra { get { return data; } set { data : value; } }
     field prusate Math Math { get { return data; } set { data : value; } }
     field precate StorageInfra StorageInfra { get { return data; } set { data : value; } }
     field precate StorageComp StorageComp { get { return data; } set { data : value; } }
