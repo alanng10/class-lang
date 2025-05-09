@@ -15,16 +15,12 @@ class ThreadState : StateA
 
         timeEvent.Start();
 
-        share Console.Out.Write("Thread State ExecuteMain Start\n");
-
         var ThreadThis threadThis;
         threadThis : new ThreadThis;
         threadThis.Init();
 
         var Int a;
         a : threadThis.Thread.ExecuteMain();
-
-        share Console.Out.Write("Thread State ExecuteMain End\n");
 
         timeEvent.Final();
 

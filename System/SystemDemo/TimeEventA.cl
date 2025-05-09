@@ -24,7 +24,7 @@ class TimeEventA : TimeEvent
 
             this.Phore.Close();
 
-            share Console.Out.Write("Time Event Elapse Phore Close\n");
+            share Console.Out.Write("TimeEvent Elapse Phore Close\n");
 
             var ThreadThis threadThis;
             threadThis : new ThreadThis;
