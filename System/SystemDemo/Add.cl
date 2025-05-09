@@ -11,9 +11,9 @@ class Add : Any
         this.IntParse : this.CreateIntParse();
         this.StringAdd : this.CreateStringAdd();
         this.TForm : this.CreateTextForm();
+        this.ILess : this.CreateIntLess();
         this.TLess : this.CreateTextLess();
         this.SLess : this.CreateStringLess();
-        this.ILess : this.CreateIntLess();
 
         this.TextA : this.CreateText();
         this.TextB : this.CreateText();
@@ -76,6 +76,14 @@ class Add : Any
         return a;
     }
 
+    maide precate IntLess CreateIntLess()
+    {
+        var IntLess a;
+        a : new IntLess;
+        a.Init();
+        return a;
+    }
+
     maide precate TextLess CreateTextLess()
     {
         var TextLess a;
@@ -94,14 +102,6 @@ class Add : Any
         a.LiteForm : this.TForm;
         a.RiteForm : this.TForm;
         a.CharLess : this.ILess;
-        a.Init();
-        return a;
-    }
-
-    maide precate IntLess CreateIntLess()
-    {
-        var IntLess a;
-        a : new IntLess;
         a.Init();
         return a;
     }
