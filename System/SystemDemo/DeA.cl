@@ -21,40 +21,15 @@ class DeA : Add
     field prusate Console Console { get { return data; } set { data : value; } }
     field precate MathComp MathComp { get { return data; } set { data : value; } }
     field precate Int ArrayIndex { get { return data; } set { data : value; } }
-    field precate Int Aa { get { base.Aa; share Console.Out.Write("DeA Field Get\n"); } set { base.Aa : null; share Console.Out.Write("DeA Field Set\n"); } }
-    field precate String Ake { get { return data; } set { base.Ake : value; } }
-    field private Int Aaa { get { return data; } set { } }
 
     maide prusate Bool Execute()
     {
-        base.Execute();
-
         this.Console.Out.Write("Demo ABCD AAAA BBBB\n");
 
-        var Demo demo;
-        demo : new Demo;
-        demo.Init();
-        demo.ExecuteA();
-
-        this.Aa;
-        this.Aa : null;
-
-        var Bool baaa;
-        baaa : (this.Aaa = null);
-        this.Console.Out.Write(this.AddClear().Add("Demo Field Data Default ").Add(this.StatusString(baaa)).AddLine().AddResult());
-
-        var String kaaa;
-        kaaa : "Ke ad";
-
-        this.Ake : kaaa;
-
-        var String kkk;
-        kkk : this.Ake;
-
-        var Bool baab;
-        baab : kkk = kaaa;
-
-        this.Console.Out.Write(this.AddClear().Add("Demo Base Field Data ").Add(this.StatusString(baab)).AddLine().AddResult());
+        var DemoC demoC;
+        demoC : new DemoC;
+        demoC.Init();
+        demoC.Execute();
 
         var Bool ba;
         ba : true;
