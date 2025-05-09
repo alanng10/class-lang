@@ -63,10 +63,11 @@ System.Entry
     ModuleEntry Entry
 
 [Export]
-DeA
-Add
-Dem
 Demo
+DemoA
+DemoB
+DemoC
+Add
 StateA
 ThreadNetworkState
 
