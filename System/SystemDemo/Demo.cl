@@ -694,7 +694,7 @@ class Demo : Add
         argA.Init();
         argA.Pos : 3;
         argA.Kind : 0;
-        argA.Value.Bool : true;
+        argA.Value : true;
         argA.FieldWidth : 6;
         argA.MaxWidth : null;
         argA.FillChar : this.Char(this.SSpace);
@@ -705,7 +705,7 @@ class Demo : Add
         argB.Init();
         argB.Pos : 3;
         argB.Kind : 1;
-        argB.Value.Int : 56712;
+        argB.Value : 56712;
         argB.AlignLeft : true;
         argB.FieldWidth : 8;
         argB.MaxWidth : 6;
@@ -717,7 +717,7 @@ class Demo : Add
         argC.Init();
         argC.Pos : 6;
         argC.Kind : 1;
-        argC.Value.Int : 46842;
+        argC.Value : 46842;
         argC.AlignLeft : false;
         argC.FieldWidth : 8;
         argC.MaxWidth : 6;
@@ -729,7 +729,7 @@ class Demo : Add
         argD.Init();
         argD.Pos : 7;
         argD.Kind : 1;
-        argD.Value.Int : 0h5bd9ea;
+        argD.Value : 0h5bd9ea;
         argD.AlignLeft : false;
         argD.FieldWidth : 8;
         argD.MaxWidth : 6;
@@ -742,7 +742,7 @@ class Demo : Add
         argE.Init();
         argE.Pos : 7;
         argE.Kind : 1;
-        argE.Value.Int : 100;
+        argE.Value : 100;
         argE.AlignLeft : false;
         argE.FieldWidth : 4;
         argE.MaxWidth : null;
@@ -754,7 +754,7 @@ class Demo : Add
         argF.Init();
         argF.Pos : 8;
         argF.Kind : 1;
-        argF.Value.Int : 0;
+        argF.Value : 0;
         argF.AlignLeft : false;
         argF.FieldWidth : 3;
         argF.MaxWidth : null;
@@ -766,7 +766,7 @@ class Demo : Add
         argG.Init();
         argG.Pos : 10;
         argG.Kind : 2;
-        argG.Value.Any : this.TextCreate("F Hre a");
+        argG.Value : this.TextCreate("F Hre a");
         argG.AlignLeft : true;
         argG.FieldWidth : 11;
         argG.MaxWidth : 10;
@@ -778,7 +778,7 @@ class Demo : Add
         argH.Init();
         argH.Pos : 10;
         argH.Kind : 2;
-        argH.Value.Any : this.TextCreate(this.StringComp.CreateChar(this.Char("H"), 1));
+        argH.Value : this.TextCreate(this.StringComp.CreateChar(this.Char("H"), 1));
         argH.AlignLeft : false;
         argH.FieldWidth : 10;
         argH.MaxWidth : null;
