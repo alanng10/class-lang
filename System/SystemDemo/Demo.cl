@@ -798,7 +798,7 @@ class Demo : Add
         var Text varBase;
         varBase : this.TextCreate(this.S("G H , j h\n\n"));
 
-        var long count;
+        var Int count;
         count : this.Format.ExecuteCount(varBase, argList);
 
         var Text text;
@@ -809,7 +809,7 @@ class Demo : Add
         var String a;
         a : this.StringCreate(text);
 
-        var bool b;
+        var Bool b;
         b : this.TextSame(this.TA(a), this.TB(this.S("G H  TRUE56712  ,  46842j5BD9EA-100 ::0h\nF HRE A===OOOOOOOOOH\n")));
 
         this.Console.Out.Write(this.AddClear().AddS("Format ").Add(this.StatusString(b)).AddLine().AddResult());
