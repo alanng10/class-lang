@@ -1,12 +1,14 @@
 class DemoC : DemoB
 {
-    field precate Int Aa { get { base.Aa; share Console.Out.Write("DeA Field Get\n"); } set { base.Aa : null; share Console.Out.Write("DeA Field Set\n"); } }
+    field precate Int Aa { get { base.Aa; share Console.Out.Write("DemoC Field Get\n"); } set { base.Aa : null; share Console.Out.Write("DemoC Field Set\n"); } }
     field precate String Ake { get { return data; } set { base.Ake : value; } }
     field private Int Aaa { get { return data; } set { } }
 
     maide prusate Bool Execute()
     {
         base.Execute();
+
+        this.Console.Out.Write("DemoC Execute\n");
 
         this.ExecuteA();
 

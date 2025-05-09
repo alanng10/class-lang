@@ -5,7 +5,7 @@ class DemoA : Any
         var Console console;
         console : share Console;
         
-        console.Out.Write("Demo ABCD 11112222\n");
+        console.Out.Write("DemoA Execute\n");
         return true;
     }
 
