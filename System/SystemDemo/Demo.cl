@@ -1,4 +1,4 @@
-class DeA : Add
+class Demo : Add
 {
     maide prusate Bool Init()
     {
