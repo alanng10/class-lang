@@ -8,7 +8,7 @@ class DemoC : DemoB
     {
         base.Execute();
 
-        this.Console.Out.Write("DemoC Execute\n");
+        share Console.Out.Write("DemoC Execute\n");
 
         this.ExecuteA();
 
@@ -17,7 +17,7 @@ class DemoC : DemoB
 
         var Bool baaa;
         baaa : (this.Aaa = null);
-        this.Console.Out.Write(this.AddClear().Add("Demo Field Data Default ").Add(this.StatusString(baaa)).AddLine().AddResult());
+        share Console.Out.Write(this.AddClear().Add("Demo Field Data Default ").Add(this.StatusString(baaa)).AddLine().AddResult());
 
         var String kaaa;
         kaaa : "Ke ad";
@@ -30,7 +30,7 @@ class DemoC : DemoB
         var Bool baab;
         baab : kkk = kaaa;
 
-        this.Console.Out.Write(this.AddClear().Add("Demo Base Field Data ").Add(this.StatusString(baab)).AddLine().AddResult());
+        share Console.Out.Write(this.AddClear().Add("Demo Base Field Data ").Add(this.StatusString(baab)).AddLine().AddResult());
 
         return true;
     }
