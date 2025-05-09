@@ -566,6 +566,20 @@ class Demo : Add
 
         ka.Expo : 0sn42;
 
+        value : this.Math.Value(ka);
+        b : b & this.MathValid(value, 0h1921fb5444280, 0sn49);
+
+        value : this.Math.Tan(0);
+        b : b & this.MathValid(value, 0h1ffffffffff5c, 0sn49);
+
+        value : this.Math.ASin(0);
+        b : b & this.MathValid(value, 0, 0sn49);
+
+        var Int one;
+        one : this.MathInt(1);
+
+        value : this.Math.ASin(0);
+
         # ka.Cand : 0sn1;
         # ka.Expo : 0sn2;
 
