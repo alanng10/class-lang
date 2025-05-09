@@ -578,7 +578,10 @@ class Demo : Add
         var Int one;
         one : this.MathInt(1);
 
-        value : this.Math.ASin(0);
+        value : this.Math.ASin(one);
+        b : b & this.MathValid(value, 0h1921fb54442d1, 0sn48);
+
+        
 
         # ka.Cand : 0sn1;
         # ka.Expo : 0sn2;
