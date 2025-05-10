@@ -111,6 +111,13 @@ Int Environ_Exit(Int code)
     return true;
 }
 
+Int Environ_BinarySystem()
+{
+    Int a;
+    a = Environ_OS_BinarySystem();
+    return a;
+}
+
 Int Environ_HasFlag(Int value, Int flag)
 {
     Bool a;

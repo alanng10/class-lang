@@ -81,6 +81,8 @@ Int Main_CurrentThreadSignalHandleSet();
 
 Int Console_OS_Init();
 
+Int Environ_OS_BinarySystem();
+
 Int Main_OS_Arg(Int argc, Int argv);
 
 Int Environ_HasFlag(Int value, Int flag);
