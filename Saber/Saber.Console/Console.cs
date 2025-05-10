@@ -38,6 +38,8 @@ public class Console : TextAdd
         this.ModuleRefLess = new ModuleRefLess();
         this.ModuleRefLess.Init();
 
+        this.StorageTextLess = this.CreateStorageTextLess();
+
         this.SClass = this.S("Class");
         this.SDocue = this.S("docue");
         this.SMake = this.S("make");
@@ -81,6 +83,7 @@ public class Console : TextAdd
     protected virtual Array PortError { get; set; }
     protected virtual bool MakeSystemModule { get; set; }
     protected virtual ModuleRefLess ModuleRefLess { get; set; }
+    protected virtual TextLess StorageTextLess { get; set; }
     protected virtual String SClass { get; set; }
     protected virtual String SDocue { get; set; }
     protected virtual String SMake { get; set; }
@@ -169,6 +172,21 @@ public class Console : TextAdd
     {
         StorageGen a;
         a = new StorageGen();
+        a.Init();
+        return a;
+    }
+
+    protected virtual TextLess CreateStorageTextLess()
+    {
+        LessInt charLess;
+        charLess = new LessInt();
+        charLess.Init();
+
+        TextLess a;
+        a = new TextLess();
+        a.CharLess = charLess;
+        a.LiteForm = this.StorageInfra.NameForm;
+        a.RiteForm = this.StorageInfra.NameForm;
         a.Init();
         return a;
     }
