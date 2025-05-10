@@ -28,7 +28,7 @@ public class LibraryGen : TextAdd
 
         this.ProjectGen = this.CreateProjectGen();
 
-        this.ModuleRef = this.ClassInfra.ModuleRefCreate(null, 0);
+        this.ModuleRef = this.CreateModuleRef();
 
         this.SSystemDotInfra = this.S("System.Infra");
         this.SIntern = this.S("Intern");
@@ -149,6 +149,11 @@ public class LibraryGen : TextAdd
         a = new ProjectGen();
         a.Init();
         return a;
+    }
+
+    protected virtual ModuleRef CreateModuleRef()
+    {
+        return this.ClassInfra.ModuleRefCreate(null, 0);
     }
 
     public virtual bool Load()
