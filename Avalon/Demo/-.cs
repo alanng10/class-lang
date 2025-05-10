@@ -7,6 +7,7 @@ global using Less = Avalon.Infra.Less;
 global using LessInt = Avalon.Infra.LessInt;
 global using RefLess = Avalon.Infra.RefLess;
 global using Value = Avalon.Infra.Value;
+global using Extern = Avalon.Infra.Extern;
 global using InfraInfra = Avalon.Infra.Infra;
 global using List = Avalon.List.List;
 global using Array = Avalon.List.Array;

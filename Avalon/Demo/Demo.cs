@@ -50,6 +50,7 @@ class Demo : TextAdd
     public bool Execute()
     {
         this.ExecuteConsole();
+        this.ExecuteEnviron();
         this.ExecuteList();
         this.ExecuteMath();
         this.ExecuteRand();
@@ -93,6 +94,17 @@ class Demo : TextAdd
         ka = this.AddClear().AddS("aa: ").Add(aa).AddLine().AddResult();
         
         this.Console.Out.Write(ka);
+        return true;
+    }
+
+    private bool ExecuteEnviron()
+    {
+        ulong ka;
+        ka = Extern.Environ_BinarySystem();
+        long k;
+        k = (long)ka;
+
+        this.Console.Out.Write(this.AddClear().AddS("Binary System: ").AddInt(k).AddLine().AddResult());
         return true;
     }
 
