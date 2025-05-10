@@ -810,7 +810,7 @@ public class Console : TextAdd
                 ke = this.StringCount(fileName) - this.StringCount(ka);
 
                 String name;
-                name = this.StringCreateTextRange(this.TA(fileName), 0, ke);
+                name = this.StringCreateRange(fileName, 0, ke);
 
                 list.Add(name);
             }
