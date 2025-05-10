@@ -1,6 +1,6 @@
 namespace Avalon.Storage;
 
-public class NameForm : Any
+public class NameForm : TextForm
 {
     public override bool Init()
     {
@@ -33,7 +33,7 @@ public class NameForm : Any
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual TextForm Form { get; set; }
 
-    public virtual long Execute(long n)
+    public override long Execute(long n)
     {
         return this.Form.Execute(n);
     }

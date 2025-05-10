@@ -23,6 +23,9 @@ public class Infra : Any
         this.TextCodeKindList = TextCodeKindList.This;
         this.StorageStatusList = StatusList.This;
 
+        this.NameForm = new NameForm();
+        this.NameForm.Init();
+
         this.SSlash = this.TextInfra.S("/");
         this.SDot = this.TextInfra.S(".");
         this.SColon = this.TextInfra.S(":");
@@ -32,6 +35,7 @@ public class Infra : Any
         return true;
     }
 
+    public virtual TextForm NameForm { get; set; }    
     public virtual TextText TextSlash { get; set; }
     public virtual TextText TextDot { get; set; }
     public virtual TextText TextColon { get; set; }
