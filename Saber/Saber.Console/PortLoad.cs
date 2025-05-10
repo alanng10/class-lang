@@ -563,8 +563,8 @@ public class PortLoad : TextAdd
         StringLess a;
         a = new StringLess();
         a.CharLess = charLess;
-        a.LiteForm = this.TextInfra.AlphaSiteForm;
-        a.RiteForm = this.TextInfra.AlphaSiteForm;
+        a.LiteForm = this.StorageInfra.NameForm;
+        a.RiteForm = this.StorageInfra.NameForm;
         a.Init();
         return a;
     }
