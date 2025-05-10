@@ -599,7 +599,7 @@ public class PortLoad : TextAdd
             listInfra.TableAdd(this.Module.Import, kk, a);
 
             PortImport kkk;
-            kkk = (PortImport)array.GetAt(i);
+            kkk = array.GetAt(i) as PortImport;
 
             Array importClassArray;
             importClassArray = kkk.Class;
