@@ -664,7 +664,7 @@ public class LibraryGen : TextAdd
     {
         Program program;
         program = null;
-        
+
         ulong ka;
         ka = Extern.Environ_BinarySystem();
 
