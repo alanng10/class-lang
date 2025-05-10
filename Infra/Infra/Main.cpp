@@ -148,7 +148,6 @@ Int Main_Compute()
 {
     Main* m;
     m = &D_Var;
-
     return m->Compute;
 }
 
