@@ -8,6 +8,8 @@
 #define ExportApi __declspec(dllexport)
 #define ImportApi __declspec(dllimport)
 #else
+#define ExportApi __attribute__((__visibility__("default")))
+#define ImportApi
 #endif
 
 #ifdef Infra_Module
@@ -94,6 +96,7 @@ Infra_Api Int Environ_New(Int count);
 Infra_Api Int Environ_Delete(Int any);
 Infra_Api Int Environ_Copy(Int dest, Int source, Int count);
 Infra_Api Int Environ_Exit(Int status);
+Infra_Api Int Environ_BinarySystem();
 
 InfraApiNew(String)
 Infra_Api Int String_ValueGet(Int o);
