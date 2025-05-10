@@ -11,6 +11,7 @@ global using InfraInfra = Avalon.Infra.Infra;
 global using Array = Avalon.List.Array;
 global using ListInfra = Avalon.List.Infra;
 global using TextText = Avalon.Text.Text;
+global using TextForm = Avalon.Text.Form;
 global using StringComp = Avalon.Text.StringComp;
 global using TextCodeKind = Avalon.Text.CodeKind;
 global using TextCodeKindList = Avalon.Text.CodeKindList;
