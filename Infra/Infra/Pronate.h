@@ -83,7 +83,7 @@ Int Main_Compute();
 
 Int Console_OS_Init();
 
-Int Environ_OS_BinarySystem();
+Int Environ_OS_BinarySystem(Int compute);
 
 Int Main_OS_Arg(Int argc, Int argv);
 
