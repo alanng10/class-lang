@@ -324,14 +324,14 @@ public class PortLoad : TextAdd
             return false;
         }
 
-        bool isBuiltin;
-        isBuiltin = this.BuiltModuleRef(moduleRef);
+        bool built;
+        built = this.BuiltModuleRef(moduleRef);
 
         bool b;
         b = (ver == -1);
 
         bool a;
-        a = (isBuiltin == b);
+        a = (built == b);
         return a;
     }
 
