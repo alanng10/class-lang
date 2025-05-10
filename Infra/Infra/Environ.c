@@ -113,8 +113,11 @@ Int Environ_Exit(Int code)
 
 Int Environ_BinarySystem()
 {
+    Bool compute;
+    compute = Main_Compute();
+
     Int a;
-    a = Environ_OS_BinarySystem();
+    a = Environ_OS_BinarySystem(compute);
     return a;
 }
 
