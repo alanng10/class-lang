@@ -301,7 +301,7 @@ public class PortLoad : TextAdd
             PortImport a;
             a = array.GetAt(i) as PortImport;
 
-            if (!this.CheckImportModuleRef(a.Module))
+            if (!this.ValidImportModuleRef(a.Module))
             {
                 this.Status = 10;
                 return false;
@@ -312,15 +312,12 @@ public class PortLoad : TextAdd
         return true;
     }
 
-    protected virtual bool CheckImportModuleRef(ModuleRef moduleRef)
+    protected virtual bool ValidImportModuleRef(ModuleRef moduleRef)
     {
-        ClassInfra classInfra;
-        classInfra = this.ClassInfra;
-
         String name;
         name = moduleRef.Name;
-        long version;
-        version = moduleRef.Ver;
+        long ver;
+        ver = moduleRef.Ver;
 
         if (!(this.NameValid.ModuleName(this.TA(name))))
         {
@@ -331,7 +328,7 @@ public class PortLoad : TextAdd
         isBuiltin = this.BuiltModuleRef(moduleRef);
 
         bool b;
-        b = (version == -1);
+        b = (ver == -1);
 
         bool a;
         a = (isBuiltin == b);
