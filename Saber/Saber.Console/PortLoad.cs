@@ -556,13 +556,9 @@ public class PortLoad : TextAdd
 
     public virtual StringLess StorageStringLessCreate()
     {
-        LessInt charLess;
-        charLess = new LessInt();
-        charLess.Init();
-
         StringLess a;
         a = new StringLess();
-        a.CharLess = charLess;
+        a.CharLess = this.ILess;
         a.LiteForm = this.StorageInfra.NameForm;
         a.RiteForm = this.StorageInfra.NameForm;
         a.Init();
