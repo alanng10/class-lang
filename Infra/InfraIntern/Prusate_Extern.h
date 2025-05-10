@@ -6,6 +6,7 @@ Intern_Api Int Intern_Extern_Environ_New(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Environ_Delete(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Environ_Copy(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Environ_Exit(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Environ_BinarySystem(Eval* e, Int f);
 
 Intern_Api Int Intern_Extern_String_New(Eval* e, Int f);
 Intern_Api Int Intern_Extern_String_Delete(Eval* e, Int f);
