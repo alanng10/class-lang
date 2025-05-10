@@ -27,6 +27,15 @@ Int Main_Init(Int argc, Int argv)
     Thread_InitMainThread(m->MainThread);
 
     Console_OS_Init();
+
+    bool ba;
+    ba = (QSysInfo::buildCpuArchitecture() == QString("x86_64"));
+
+    Bool b;
+    b = ba;
+
+    m->Compute = b;
+
     return true;
 }
 
@@ -133,6 +142,14 @@ Int Main_Exit(Int status)
     u = status;
     QApplication::exit(u);
     return true;
+}
+
+Int Main_Compute()
+{
+    Main* m;
+    m = &D_Var;
+
+    return m->Compute;
 }
 
 Int Main_TerminateStateGet()

@@ -3,6 +3,7 @@
 #include <signal.h>
 
 #include <QApplication>
+#include <QSysInfo>
 
 #include "Pronate.hpp"
 
@@ -13,6 +14,7 @@ struct Main
     Int Arg;
     Int ArgC;
     Int ArgV;
+    Int Compute;
     int Argc;
     char* Argv[2];
     Int TerminateState;
