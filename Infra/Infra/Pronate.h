@@ -79,6 +79,8 @@ Int Program_Finish(Int o);
 
 Int Main_CurrentThreadSignalHandleSet();
 
+Int Main_Compute();
+
 Int Console_OS_Init();
 
 Int Environ_OS_BinarySystem();
