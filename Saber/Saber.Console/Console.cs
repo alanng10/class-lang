@@ -788,7 +788,7 @@ public class Console : TextAdd
         while (i < count)
         {
             String fileName;
-            fileName = (String)fileArray.GetAt(i);
+            fileName = fileArray.GetAt(i) as String;
 
             Text k;
             k = this.TextAlphaSite(this.TA(fileName));
