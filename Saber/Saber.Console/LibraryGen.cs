@@ -663,7 +663,26 @@ public class LibraryGen : TextAdd
     protected virtual bool ExecuteGenMake()
     {
         Program program;
-        program = this.CreateMakeProgramWindows();
+        program = null;
+        
+        ulong ka;
+        ka = Extern.Environ_BinarySystem();
+
+        long kb;
+        kb = (long)ka;
+
+        bool b;
+        b = (2 < kb & kb < 5);
+
+        if (b)
+        {
+            program = this.CreateMakeProgramWindows();
+        }
+
+        if (!b)
+        {
+            program = this.CreateMakeProgramLinux();
+        }
 
         program.Execute();
 
