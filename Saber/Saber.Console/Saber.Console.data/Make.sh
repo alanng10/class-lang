@@ -2,8 +2,8 @@
 
 Module=$1
 
-./DeleteLib.sh %Module%
+./DeleteLib.sh $Module
 
-./MakeLib.sh %Module%
+./MakeLib.sh $Module
 
-./MoveLib.sh %Module%
+./MoveLib.sh $Module
