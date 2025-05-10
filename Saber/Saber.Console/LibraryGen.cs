@@ -663,7 +663,7 @@ public class LibraryGen : TextAdd
     protected virtual bool ExecuteGenMake()
     {
         Program program;
-        program = this.CreateGenMakeProgramWindows();
+        program = this.CreateMakeProgramWindows();
 
         program.Execute();
 
@@ -683,7 +683,25 @@ public class LibraryGen : TextAdd
         return true;
     }
 
-    protected virtual Program CreateGenMakeProgramWindows()
+    protected virtual Program CreateMakeProgramLinux()
+    {
+        List list;
+        list = new List();
+        list.Init();
+        list.Add(this.AddClear().AddS("./Make.sh ").Add(this.ModuleRefString).AddResult());
+
+        Program program;
+        program = new Program();
+        program.Init();
+        program.Name = this.S("bash");
+        program.Argue = list;
+        program.WorkFold = this.S("Saber.Console.data");
+        program.Environ = null;
+
+        return program;
+    }
+
+    protected virtual Program CreateMakeProgramWindows()
     {
         List list;
         list = new List();
