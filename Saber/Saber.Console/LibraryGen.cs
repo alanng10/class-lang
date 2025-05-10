@@ -691,7 +691,7 @@ public class LibraryGen : TextAdd
         long k;
         k = program.Status;
 
-        program.Final();
+        this.FinalMakeProgram(program);
 
         if (!(k == 0))
         {
@@ -737,5 +737,11 @@ public class LibraryGen : TextAdd
         program.Environ = null;
 
         return program;
+    }
+
+    protected virtual bool FinalMakeProgram(Program a)
+    {
+        a.Final();
+        return true;
     }
 }
