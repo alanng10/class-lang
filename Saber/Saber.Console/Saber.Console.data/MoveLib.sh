@@ -6,4 +6,4 @@ ClassPath=`cat ClassPath.txt`
 
 SourceFold=./Gen/$ModuleRef
 
-mv $SourceFold/$ModuleRef.dll "../$ClassPath/Module/$ModuleRef.dll" >NUL
+mv $SourceFold/lib$ModuleRef.so "../$ClassPath/Module/lib$ModuleRef.so" >/dev/null
