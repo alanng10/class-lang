@@ -662,19 +662,8 @@ public class LibraryGen : TextAdd
 
     protected virtual bool ExecuteGenMake()
     {
-        List list;
-        list = new List();
-        list.Init();
-        list.Add(this.S("/c"));
-        list.Add(this.AddClear().AddS("Make.cmd ").Add(this.ModuleRefString).AddResult());
-
         Program program;
-        program = new Program();
-        program.Init();
-        program.Name = this.S("cmd.exe");
-        program.Argue = list;
-        program.WorkFold = this.S("Saber.Console.data");
-        program.Environ = null;
+        program = this.CreateGenMakeProgramWindows();
 
         program.Execute();
 
@@ -692,5 +681,24 @@ public class LibraryGen : TextAdd
         }
 
         return true;
+    }
+
+    protected virtual Program CreateGenMakeProgramWindows()
+    {
+        List list;
+        list = new List();
+        list.Init();
+        list.Add(this.S("/c"));
+        list.Add(this.AddClear().AddS("Make.cmd ").Add(this.ModuleRefString).AddResult());
+
+        Program program;
+        program = new Program();
+        program.Init();
+        program.Name = this.S("cmd.exe");
+        program.Argue = list;
+        program.WorkFold = this.S("Saber.Console.data");
+        program.Environ = null;
+
+        return program;
     }
 }
