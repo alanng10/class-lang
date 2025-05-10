@@ -804,13 +804,10 @@ public class Console : TextAdd
             String fileName;
             fileName = fileArray.GetAt(i) as String;
 
-            Text k;
-            k = this.TextAlphaSite(this.TA(fileName));
-
-            if (this.TextEnd(k, this.TB(ka)))
+            if (this.TextInfra.End(this.TA(fileName), this.TB(ka), this.StorageTextLess))
             {
                 long ke;
-                ke = k.Range.Count - this.StringCount(ka);
+                ke = this.StringCount(fileName) - this.StringCount(ka);
 
                 String name;
                 name = this.StringCreateTextRange(this.TA(fileName), 0, ke);
