@@ -558,9 +558,9 @@ public class PortLoad : TextAdd
     {
         StringLess a;
         a = new StringLess();
-        a.CharLess = this.ILess;
         a.LiteForm = this.StorageInfra.NameForm;
         a.RiteForm = this.StorageInfra.NameForm;
+        a.CharLess = this.ILess;
         a.Init();
         return a;
     }

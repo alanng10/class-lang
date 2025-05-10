@@ -180,9 +180,9 @@ public class Console : TextAdd
     {
         TextLess a;
         a = new TextLess();
-        a.CharLess = this.ILess;
         a.LiteForm = this.StorageInfra.NameForm;
         a.RiteForm = this.StorageInfra.NameForm;
+        a.CharLess = this.ILess;
         a.Init();
         return a;
     }
