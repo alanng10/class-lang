@@ -6,7 +6,7 @@ set Module=%~1
 
 set /p ClassPath=<ClassPath.txt
 
-call DeleteBinary %Module%
+call DeleteLib %Module%
 rem call DeleteOutFold %Module%
 call MakeLib %Module%
 call MoveLib %Module%
