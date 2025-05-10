@@ -55,6 +55,17 @@ Int Intern_Extern_Environ_Exit(Eval* eval, Int frame)
     Return;
 }
 
+Int Intern_Extern_Environ_BinarySystem(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 0;
+
+    Int a;
+    a = Environ_BinarySystem();
+
+    Return;
+}
+
 Int Intern_Extern_String_New(Eval* eval, Int frame)
 {
     Int paramCount;
