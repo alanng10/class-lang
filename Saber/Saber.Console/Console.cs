@@ -178,13 +178,9 @@ public class Console : TextAdd
 
     protected virtual TextLess CreateStorageTextLess()
     {
-        LessInt charLess;
-        charLess = new LessInt();
-        charLess.Init();
-
         TextLess a;
         a = new TextLess();
-        a.CharLess = charLess;
+        a.CharLess = this.ILess;
         a.LiteForm = this.StorageInfra.NameForm;
         a.RiteForm = this.StorageInfra.NameForm;
         a.Init();
