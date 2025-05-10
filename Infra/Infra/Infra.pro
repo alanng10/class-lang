@@ -144,11 +144,13 @@ unix {
 
 HEADERS += \
     Main_Linux.h \
+    Environ_Linux.h \
     Thread_Linux.h \
     Console_Linux.h
 
 SOURCES += \
     Main_Linux.c \
+    Environ_Linux.c \
     Thread_Linux.c \
     Console_Linux.c
 
@@ -158,11 +160,13 @@ win32 {
 
 HEADERS += \
     Main_Windows.h \
+    Environ_Windows.h \
     Thread_Windows.h \
     Console_Windows.h
 
 SOURCES += \
     Main_Windows.c \
+    Environ_Windows.c \
     Thread_Windows.c \
     Console_Windows.c
 
