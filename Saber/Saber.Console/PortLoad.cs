@@ -586,7 +586,7 @@ public class PortLoad : TextAdd
             kk = importModuleRef.GetAt(i) as ModuleRef;
 
             ClassModule k;
-            k = (ClassModule)moduleTable.Get(kk);
+            k = moduleTable.Get(kk) as ClassModule;
 
             Table a;
             a = classInfra.TableCreateRefLess();
