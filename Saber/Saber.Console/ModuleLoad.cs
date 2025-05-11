@@ -69,7 +69,7 @@ public class ModuleLoad : TextAdd
         this.Module = a;
 
         BinaryBinary binary;
-        binary = (BinaryBinary)this.BinaryTable.Get(this.Module.Ref);
+        binary = this.BinaryTable.Get(this.Module.Ref) as BinaryBinary;
         this.Binary = binary;
 
         bool b;
