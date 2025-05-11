@@ -267,7 +267,7 @@ public class ModuleLoad : TextAdd
                 oe = (InfraValue)oa.GetAt(iA);
 
                 BinaryClass of;
-                of = (BinaryClass)oo.Class.GetAt(oe.Int);
+                of = oo.Class.GetAt(oe.Int) as BinaryClass;
                 if (of == null)
                 {
                     this.Status = 23;
