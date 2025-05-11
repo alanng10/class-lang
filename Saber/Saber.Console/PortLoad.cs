@@ -718,7 +718,7 @@ public class PortLoad : TextAdd
         while (i < count)
         {
             PortExport a;
-            a = (PortExport)array.GetAt(i);
+            a = array.GetAt(i) as PortExport;
 
             String name;
             name = a.Class;
