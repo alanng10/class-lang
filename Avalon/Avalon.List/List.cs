@@ -47,7 +47,7 @@ public class List : Any
 
         if (!(this.LastNode == null))
         {
-            node.Previous = this.LastNode;
+            node.Prev = this.LastNode;
             this.LastNode.Next = node;
         }
 
@@ -90,14 +90,14 @@ public class List : Any
             this.FirstNode = node;
         }
 
-        if (!(t.Previous == null))
+        if (!(t.Prev == null))
         {
-            t.Previous.Next = node;
-            node.Previous = t.Previous;
+            t.Prev.Next = node;
+            node.Prev = t.Prev;
         }
 
         node.Next = t;
-        t.Previous = node;
+        t.Prev = node;
 
         this.Count = this.Count + 1;
 
@@ -126,17 +126,17 @@ public class List : Any
 
         if (this.LastNode == node)
         {
-            this.LastNode = node.Previous;
+            this.LastNode = node.Prev;
         }
 
         if (!(node.Next == null))
         {
-            node.Next.Previous = node.Previous;
+            node.Next.Prev = node.Prev;
         }
 
-        if (!(node.Previous == null))
+        if (!(node.Prev == null))
         {
-            node.Previous.Next = node.Next;
+            node.Prev.Next = node.Next;
         }
 
         node.Ref = null;
