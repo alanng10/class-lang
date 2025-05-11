@@ -65,6 +65,8 @@ public class PortLoad : TextAdd
         this.ModuleLoad.ModuleTable = null;
         this.ErrorList = null;
         this.ModuleRef = null;
+
+        this.ClearData();
         return b;
     }
 
