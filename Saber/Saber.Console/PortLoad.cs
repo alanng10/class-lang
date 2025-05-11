@@ -86,7 +86,7 @@ public class PortLoad : TextAdd
             return false;
         }
 
-        b = this.CheckImportArrayModuleRef(port.Import);
+        b = this.ValidImportArrayModuleRef(port.Import);
         if (!b)
         {
             return false;
@@ -285,7 +285,7 @@ public class PortLoad : TextAdd
         return true;
     }
 
-    protected virtual bool CheckImportArrayModuleRef(Array array)
+    protected virtual bool ValidImportArrayModuleRef(Array array)
     {
         long count;
         count = array.Count;
