@@ -3,10 +3,11 @@ class Demo : Add
     maide prusate Bool Init()
     {
         base.Init();
+        this.Extern : share Extern;
         this.ListInfra : share ListInfra;
         this.MathInfra : share MathInfra;
-        this.Math : share Math;
         this.StorageInfra : share StorageInfra;
+        this.Math : share Math;
         this.StorageComp : share StorageComp;
         this.Console : share Console;
 
@@ -15,10 +16,11 @@ class Demo : Add
         return true;
     }
 
+    field private Extern Extern { get { return data; } set { data : value; } }
     field precate ListInfra ListInfra { get { return data; } set { data : value; } }
     field precate MathInfra MathInfra { get { return data; } set { data : value; } }
-    field prusate Math Math { get { return data; } set { data : value; } }
     field precate StorageInfra StorageInfra { get { return data; } set { data : value; } }
+    field prusate Math Math { get { return data; } set { data : value; } }
     field precate StorageComp StorageComp { get { return data; } set { data : value; } }
     field prusate Console Console { get { return data; } set { data : value; } }
     field precate MathComp MathComp { get { return data; } set { data : value; } }
