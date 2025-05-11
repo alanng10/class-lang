@@ -583,7 +583,7 @@ public class PortLoad : TextAdd
         while (i < count)
         {
             ModuleRef kk;
-            kk = (ModuleRef)importModuleRef.GetAt(i);
+            kk = importModuleRef.GetAt(i) as ModuleRef;
 
             ClassModule k;
             k = (ClassModule)moduleTable.Get(kk);
