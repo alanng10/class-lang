@@ -320,7 +320,7 @@ public class ModuleLoad : TextAdd
             while(iterA.Next())
             {
                 ClassClass ooa;
-                ooa = (ClassClass)iterA.Value;
+                ooa = iterA.Value as ClassClass;
 
                 importArray.SetAt(oi, ooa);
 
