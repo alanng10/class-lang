@@ -43,7 +43,7 @@ class List : Any
 
         inf (~(this.LastNode = null))
         {
-            node.Previous : this.LastNode;
+            node.Prev : this.LastNode;
             this.LastNode.Next : node;
         }
 
@@ -86,14 +86,14 @@ class List : Any
             this.FirstNode : node;
         }
 
-        inf (~(t.Previous = null))
+        inf (~(t.Prev = null))
         {
-            t.Previous.Next : node;
-            node.Previous : t.Previous;
+            t.Prev.Next : node;
+            node.Prev : t.Prev;
         }
 
         node.Next : t;
-        t.Previous : node;
+        t.Prev : node;
 
         this.Count : this.Count + 1;
 
@@ -122,17 +122,17 @@ class List : Any
 
         inf (this.LastNode = node)
         {
-            this.LastNode : node.Previous;
+            this.LastNode : node.Prev;
         }
 
         inf (~(node.Next = null))
         {
-            node.Next.Previous : node.Previous;
+            node.Next.Prev : node.Prev;
         }
 
-        inf (~(node.Previous = null))
+        inf (~(node.Prev = null))
         {
-            node.Previous.Next : node.Next;
+            node.Prev.Next : node.Next;
         }
 
         node.Ref : null;
