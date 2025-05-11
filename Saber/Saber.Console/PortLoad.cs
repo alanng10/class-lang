@@ -80,7 +80,7 @@ public class PortLoad : TextAdd
 
         bool b;
 
-        b = this.CheckModuleRef(port.Module);
+        b = this.ValidModuleRef(port.Module);
         if (!b)
         {
             return false;
@@ -254,17 +254,12 @@ public class PortLoad : TextAdd
         return true;
     }
 
-    protected virtual bool CheckModuleRef(ModuleRef module)
+    protected virtual bool ValidModuleRef(ModuleRef module)
     {
-        TextInfra textInfra;
-        textInfra = this.TextInfra;
-        ClassInfra classInfra;
-        classInfra = this.ClassInfra;
-
         String name;
         name = module.Name;
-        long version;
-        version = module.Ver;
+        long ver;
+        ver = module.Ver;
 
         if (!(this.NameValid.ModuleName(this.TA(name))))
         {
@@ -274,7 +269,7 @@ public class PortLoad : TextAdd
 
         if (!this.SystemModule)
         {
-            if (version == -1)
+            if (ver == -1)
             {
                 this.Status = 2;
                 return false;
