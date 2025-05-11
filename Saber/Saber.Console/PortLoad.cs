@@ -488,7 +488,7 @@ public class PortLoad : TextAdd
         while (iter.Next())
         {
             ModuleRef moduleRef;
-            moduleRef = (ModuleRef)iter.Index;
+            moduleRef = iter.Index as ModuleRef;
 
             moduleLoad.ModuleRef = moduleRef;
 
