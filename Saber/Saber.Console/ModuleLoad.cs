@@ -248,7 +248,7 @@ public class ModuleLoad : TextAdd
             }
 
             BinaryBinary oo;
-            oo = (BinaryBinary)binaryTable.Get(moduleRef);
+            oo = binaryTable.Get(moduleRef) as BinaryBinary;
             if (oo == null)
             {
                 this.Status = 22;
