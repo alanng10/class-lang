@@ -71,6 +71,8 @@ class Demo : Add
 
         this.ExecuteIntOperate();
 
+        this.ExecuteEnviron();
+
         this.ExecuteList();
 
         this.ExecuteIntParse();
@@ -262,6 +264,15 @@ class Demo : Add
 
         this.Console.Out.Write(this.AddClear().Add("Demo Int Operate ").Add(this.StatusString(b)).AddLine().AddResult());
 
+        return true;
+    }
+
+    maide private Bool ExecuteEnviron()
+    {
+        var Int k;
+        k : this.Extern.Environ_BinarySystem();
+
+        this.Console.Out.Write(this.AddClear().Add("Binary System: ").AddInt(k).AddLine().AddResult());
         return true;
     }
 
