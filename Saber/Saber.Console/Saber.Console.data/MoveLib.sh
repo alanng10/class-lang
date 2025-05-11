@@ -2,7 +2,7 @@
 
 ModuleRef=$1
 
-ClassPath=`cat ClassPath.txt`
+ClassPath=$(< ClassPath.txt)
 
 SourceFold=./Gen/$ModuleRef
 
