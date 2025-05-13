@@ -408,12 +408,7 @@ public class Infra : Any
 
     public virtual String ClassModulePath(String classPath)
     {
-        StringAdd k;
-        k = new StringAdd();
-        k.Init();
-
-        return this.AddClear(k).Add(k, classPath).Add(k, this.TextInfra.PathCombine)
-            .Add(k, this.TextModule).AddResult(k);
+        return classPath;
     }
 
     private String S(string o)
