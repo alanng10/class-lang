@@ -46,49 +46,6 @@ public class LibraryGen : TextAdd
         return true;
     }
 
-    public virtual ClassModule Module { get; set; }
-    public virtual String ModuleRefString { get; set; }
-    public virtual Table ModuleTable { get; set; }
-    public virtual Table ImportClass { get; set; }
-    public virtual SystemClass SystemClass { get; set; }
-    public virtual String ClassPath { get; set; }
-    public virtual long Status { get; set; }
-    protected virtual ListInfra ListInfra { get; set; }
-    protected virtual StorageInfra StorageInfra { get; set; }
-    protected virtual ClassInfra ClassInfra { get; set; }
-    protected virtual StorageComp StorageComp { get; set; }
-    protected virtual ClassInitGen ClassInitGen { get; set; }
-    protected virtual ClassBaseGen ClassBaseGen { get; set; }
-    protected virtual ClassCompGen ClassCompGen { get; set; }
-    protected virtual ClassGen ClassGen { get; set; }
-    protected virtual StringValueTravel StringValueTravel { get; set; }
-    protected virtual ModuleGen ModuleGen { get; set; }
-    protected virtual ModuleHeaderGen ModuleHeaderGen { get; set; }
-    protected virtual ImportArgGen ImportArgGen { get; set; }
-    protected virtual ProjectGen ProjectGen { get; set; }
-    protected virtual ModuleRefStringGen ModuleRefStringGen { get; set; }
-    protected virtual Array ClassInitArray { get; set; }
-    protected virtual Array ClassBaseArray { get; set; }
-    protected virtual Array ClassCompArray { get; set; }
-    protected virtual String ModuleProjectText { get; set; }
-    protected virtual String ModuleExeText { get; set; }
-    protected virtual String GenModuleFoldPath { get; set; }
-    protected virtual String GenModuleExeFoldPath { get; set; }
-    protected virtual String ImportArg { get; set; }
-    protected virtual ModuleRef ModuleRef { get; set; }
-    protected virtual String ModuleRefGenString { get; set; }
-    protected virtual String SSystemDotInfra { get; set; }
-    protected virtual String SIntern { get; set; }
-    protected virtual String SExtern { get; set; }
-    protected virtual String SC { get; set; }
-    protected virtual String SH { get; set; }
-    protected virtual String SPro { get; set; }
-    protected virtual String STxt { get; set; }
-    protected virtual String SModule { get; set; }
-    protected virtual String SImport { get; set; }
-    protected virtual String SExe { get; set; }
-    protected virtual String SMain { get; set; }
-
     protected virtual ClassInitGen CreateClassInitGen()
     {
         ClassInitGen a;
@@ -173,6 +130,49 @@ public class LibraryGen : TextAdd
     {
         return this.ClassInfra.ModuleRefCreate(null, 0);
     }
+
+    public virtual ClassModule Module { get; set; }
+    public virtual String ModuleRefString { get; set; }
+    public virtual Table ModuleTable { get; set; }
+    public virtual Table ImportClass { get; set; }
+    public virtual SystemClass SystemClass { get; set; }
+    public virtual String ClassPath { get; set; }
+    public virtual long Status { get; set; }
+    protected virtual ListInfra ListInfra { get; set; }
+    protected virtual StorageInfra StorageInfra { get; set; }
+    protected virtual ClassInfra ClassInfra { get; set; }
+    protected virtual StorageComp StorageComp { get; set; }
+    protected virtual ClassInitGen ClassInitGen { get; set; }
+    protected virtual ClassBaseGen ClassBaseGen { get; set; }
+    protected virtual ClassCompGen ClassCompGen { get; set; }
+    protected virtual ClassGen ClassGen { get; set; }
+    protected virtual StringValueTravel StringValueTravel { get; set; }
+    protected virtual ModuleGen ModuleGen { get; set; }
+    protected virtual ModuleHeaderGen ModuleHeaderGen { get; set; }
+    protected virtual ImportArgGen ImportArgGen { get; set; }
+    protected virtual ProjectGen ProjectGen { get; set; }
+    protected virtual ModuleRefStringGen ModuleRefStringGen { get; set; }
+    protected virtual Array ClassInitArray { get; set; }
+    protected virtual Array ClassBaseArray { get; set; }
+    protected virtual Array ClassCompArray { get; set; }
+    protected virtual String ModuleProjectText { get; set; }
+    protected virtual String ModuleExeText { get; set; }
+    protected virtual String GenModuleFoldPath { get; set; }
+    protected virtual String GenModuleExeFoldPath { get; set; }
+    protected virtual String ImportArg { get; set; }
+    protected virtual ModuleRef ModuleRef { get; set; }
+    protected virtual String ModuleRefGenString { get; set; }
+    protected virtual String SSystemDotInfra { get; set; }
+    protected virtual String SIntern { get; set; }
+    protected virtual String SExtern { get; set; }
+    protected virtual String SC { get; set; }
+    protected virtual String SH { get; set; }
+    protected virtual String SPro { get; set; }
+    protected virtual String STxt { get; set; }
+    protected virtual String SModule { get; set; }
+    protected virtual String SImport { get; set; }
+    protected virtual String SExe { get; set; }
+    protected virtual String SMain { get; set; }
 
     public virtual bool Load()
     {
