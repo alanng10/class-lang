@@ -29,19 +29,4 @@ Int Format_ResultString(Int o, Int result, Int value, Int varCase, Int valueWrit
 
 Int Format_ResultFill(dest, fillIndex, fillCount, fillChar);
 
-#define Format_IntDigit(digitValue) \
-{\
-    Bool b;\
-    b = (digitValue < 10);\
-    if (b)\
-    {\
-        c = '0' + digitValue;\
-    }\
-    if (!b)\
-    {\
-        Int n;\
-        n = digitValue - 10;\
-        c = letterDigitStart + n;\
-    }\
-}\
-
+Int Format_IntDigit(Int digit, Int letterStart);

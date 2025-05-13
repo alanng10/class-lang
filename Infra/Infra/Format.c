@@ -439,11 +439,12 @@ Int Format_ResultInt(Int o, Int result, Int value, Int varBase, Int varCase, Int
     c = 0;
     Bool upperCase;
     upperCase = varCase;
-    Char letterDigitStart;
-    letterDigitStart = 'a';
+
+    Char letterStart;
+    letterStart = 'a';
     if (upperCase)
     {
-        letterDigitStart = 'A';
+        letterStart = 'A';
     }
 
     Int index;
@@ -462,7 +463,7 @@ Int Format_ResultInt(Int o, Int result, Int value, Int varBase, Int varCase, Int
 
         if ((!(index < valueIndex)) & (index < end))
         {
-            Format_IntDigit(digit);
+            Format_IntDigit(digit, letterStart);
 
             oa = index - valueIndex;
 
@@ -678,3 +679,28 @@ Int Format_ResultFill(Int dest, Int fillIndex, Int fillCount, Int fillChar)
 
     return true;
 }
+
+Int Format_IntDigit(Int digitValue, Int letterStart)
+{
+    Int k;
+    k = 0;
+
+    Bool b;
+    b = (digitValue < 10);
+
+    if (b)
+    {
+        k = '0' + digitValue;
+    }
+
+    if (!b)
+    {
+        Int n;
+        n = digitValue - 10;
+
+        k = letterStart + n;
+    }
+
+    return k;
+}
+
