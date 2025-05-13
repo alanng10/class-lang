@@ -39,6 +39,7 @@ public class LibraryGen : TextAdd
         this.STxt = this.S("txt");
         this.SModule = this.S("Module");
         this.SImport = this.S("Import");
+        this.SExeHyphen = this.S("Exe-");
         return true;
     }
 
@@ -68,6 +69,7 @@ public class LibraryGen : TextAdd
     protected virtual String ModuleProjectText { get; set; }
     protected virtual String ModuleExeText { get; set; }
     protected virtual String GenModuleFoldPath { get; set; }
+    protected virtual String GenModuleExeFoldPath { get; set; }
     protected virtual String ImportArg { get; set; }
     protected virtual ModuleRef ModuleRef { get; set; }
     protected virtual String SSystemDotInfra { get; set; }
@@ -79,6 +81,7 @@ public class LibraryGen : TextAdd
     protected virtual String STxt { get; set; }
     protected virtual String SModule { get; set; }
     protected virtual String SImport { get; set; }
+    protected virtual String SExeHyphen { get; set; }
 
     protected virtual ClassInitGen CreateClassInitGen()
     {
@@ -184,6 +187,7 @@ public class LibraryGen : TextAdd
         this.ClassInitArray = null;
         this.ClassBaseArray = null;
         this.ClassCompArray = null;
+        this.GenModuleExeFoldPath = null;
         this.GenModuleFoldPath = null;
         this.ImportArg = null;
         this.ModuleRef.Name = null;
@@ -209,39 +213,35 @@ public class LibraryGen : TextAdd
 
         this.ExecuteClassComp();
 
-        bool baa;
-        baa = this.StorageComp.FoldCreate(this.GenModuleFoldPath);
+        bool b;
+        b = this.StorageComp.FoldCreate(this.GenModuleFoldPath);
 
-        if (!baa)
+        if (!b)
         {
             this.Status = 10;
             return false;
         }
 
-        bool ba;
-        ba = this.ExecuteGenClassSource();
-        if (!ba)
+        b = this.ExecuteGenClassSource();
+        if (!b)
         {
             return false;
         }
 
-        bool bb;
-        bb = this.ExecuteGenModuleSource();
-        if (!bb)
+        b = this.ExecuteGenModuleSource();
+        if (!b)
         {
             return false;
         }
 
-        bool bc;
-        bc = this.ExecuteGenModuleHeaderSource();
-        if (!bc)
+        b = this.ExecuteGenModuleHeaderSource();
+        if (!b)
         {
             return false;
         }
 
-        bool bd;
-        bd = this.ExecuteGenImportArg();
-        if (!bd)
+        b = this.ExecuteGenImportArg();
+        if (!b)
         {
             return false;
         }
@@ -253,19 +253,31 @@ public class LibraryGen : TextAdd
         //     return false;
         // }
 
-        bool be;
-        be = this.ExecuteGenMake();
-        if (!be)
+        b = this.ExecuteGenMake();
+        if (!b)
         {
             return false;
         }
 
-        baa = this.StorageComp.FoldDelete(this.GenModuleFoldPath);
+        b = this.StorageComp.FoldDelete(this.GenModuleFoldPath);
 
-        if (!baa)
+        if (!b)
         {
             this.Status = 70;
             return false;
+        }
+
+        if (!(this.Module.Entry == null))
+        {
+            this.GenModuleExeFoldPath = this.AddClear().Add(genFoldPath).Add(combine).Add(this.SExeHyphen).Add(this.ModuleRefString).AddResult();
+
+            b = this.StorageComp.FoldCreate(this.GenModuleExeFoldPath);
+
+            if (!b)
+            {
+                this.Status = 80;
+                return false;
+            }
         }
 
         return true;
