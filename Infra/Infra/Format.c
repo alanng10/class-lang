@@ -614,18 +614,10 @@ Int Format_ExecuteResult(Int o, Int varBase, Int argList, Int result)
     arg = null;
     Int argIndex;
     argIndex = 0;
-    FormatArg* oo;
-    oo = null;
-    Bool b;
-    b = false;
     Int k;
     k = 0;
     Bool ba;
     ba = false;
-    Int kind;
-    kind = 0;
-    Int countA;
-    countA = 0;
     Char* ua;
     ua = null;
     Int oa;
@@ -636,22 +628,26 @@ Int Format_ExecuteResult(Int o, Int varBase, Int argList, Int result)
     i = 0;
     while (i < count)
     {
+        Bool b;
         b = false;
 
         while ((!b) & (argIndex < argCount))
         {
             arg = Array_ItemGet(argList, argIndex);
 
-            oo = CastPointer(arg);
+            FormatArg* argK;
+            argK = CastPointer(arg);
 
-            k = oo->Pos;
+            k = argK->Pos;
 
             ba = (i == k);
 
             if (ba)
             {
-                kind = oo->Kind;
-                countA = oo->Count;
+                Int kind;
+                kind = argK->Kind;
+                Int countA;
+                countA = argK->Count;
 
                 ua = resultU + resultIndex;
                 oa = CastInt(ua);
