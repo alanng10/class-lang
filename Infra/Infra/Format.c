@@ -555,27 +555,24 @@ Int Format_ExecuteCount(Int o, Int varBase, Int argList)
 {
     Int count;
     count = Array_CountGet(argList);
-    Int arg;
-    arg = null;
-    FormatArg* oa;
-    oa = null;
-    Int ka;
-    ka = 0;
+
     Int k;
     k = 0;
-    Bool b;
-    b = false;
+
     Int i;
     i = 0;
     while (i < count)
     {
+        Int arg;
         arg = Array_ItemGet(argList, i);
 
-        oa = CastPointer(arg);
+        FormatArg* argK;
+        argK = CastPointer(arg);
 
         Format_ExecuteArgCount(o, arg);
 
-        ka = oa->Count;
+        Int ka;
+        ka = argK->Count;
 
         k = k + ka;
 
