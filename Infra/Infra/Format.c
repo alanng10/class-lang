@@ -573,12 +573,7 @@ Int Format_ExecuteCount(Int o, Int varBase, Int argList)
 
         oa = CastPointer(arg);
 
-        b = oa->HasCount;
-
-        if (!b)
-        {
-            Format_ExecuteArgCount(o, arg);
-        }
+        Format_ExecuteArgCount(o, arg);
 
         ka = oa->Count;
 
