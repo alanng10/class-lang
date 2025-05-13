@@ -75,20 +75,16 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong FormatArg_FieldWidthSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong FormatArg_MaxWidthGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong FormatArg_MaxWidthSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong FormatArg_CaseGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong FormatArg_CaseSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong FormatArg_BaseGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong FormatArg_BaseSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong FormatArg_SignGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong FormatArg_SignSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong FormatArg_FillCharGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong FormatArg_FillCharSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong FormatArg_HasCountGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong FormatArg_HasCountSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong FormatArg_ValueCountGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong FormatArg_ValueCountSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong FormatArg_CountGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong FormatArg_CountSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong FormatArg_FormGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong FormatArg_FormSet(ulong o, ulong value);
 
     [DllImport(InfraLib)] public extern static ulong Math_New();
     [DllImport(InfraLib)] public extern static ulong Math_Delete(ulong o);
