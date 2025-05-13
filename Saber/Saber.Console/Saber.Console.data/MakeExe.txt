@@ -1,7 +1,52 @@
 #include <Infra/Prusate.h>
 #include <InfraIntern/Prusate.h>
 
+ImportApi Int #ModuleString#_Init();
+ImportApi Int #ModuleString#_Var();
+ImportApi Int #ModuleString#_Entry();
+ImportApi Int #ModuleString#_Count();
+
+Int Execute(Int argc, Int argv)
+{
+    Int entryModule;
+    entryModule = #ModuleString#_Var();
+
+    Int entryClassIndex;
+    entryClassIndex = #ModuleString#_Entry();
+
+    Int moduleCount;
+    moduleCount = #ModuleString#_Count();
+
+    Int entryModuleInit;
+    entryModuleInit = CastInt(#ModuleString#_Init);
+
+    Int eval;
+
+    eval = Intern_Init(entryModule, entryClassIndex, entryModuleInit, moduleCount);
+
+    Int a;
+    a = Intern_Execute(eval);
+
+    Intern_Final(eval);
+
+    a = Intern_StatusWrite(a);
+
+    Main_Final();
+
+    return a;
+}
+
 int main(int argc, char** argv)
 {
-    
+    Int ka;
+    Int kb;
+    ka = argc;
+    kb = CastInt(argv);
+
+    Int k;
+    k = Execute(ka, kb);
+
+    int a;
+    a = k;
+    return a;
 }
