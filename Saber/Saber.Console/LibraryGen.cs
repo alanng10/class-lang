@@ -283,6 +283,12 @@ public class LibraryGen : TextAdd
                 return false;
             }
 
+            b = this.ExecuteModuleRefString();
+            if (!b)
+            {
+                return false;
+            }
+
             b = this.ExecuteModuleExeSource();
             if (!b)
             {
@@ -716,7 +722,7 @@ public class LibraryGen : TextAdd
 
     protected virtual bool ExecuteMakeExe()
     {
-        return this.ExecuteMake(true, 100);
+        return this.ExecuteMake(true, 110);
     }
 
     protected virtual bool ExecuteMake(bool exe, long status)
@@ -761,6 +767,22 @@ public class LibraryGen : TextAdd
         return true;
     }
 
+    protected virtual bool ExecuteModuleRefString()
+    {
+        this.ModuleGen.Gen = this.ClassGen;
+        this.ModuleGen.Module = this.Module;
+
+        this.ModuleGen.Execute();
+
+        this.ModuleRefGenString = this.ModuleGen.Result;
+
+        this.ModuleGen.Result = null;
+        this.ModuleGen.Module = null;
+        this.ModuleGen.Gen = null;
+
+        return true;
+    }
+
     protected virtual bool ExecuteModuleExeSource()
     {
         Text ka;
@@ -781,25 +803,9 @@ public class LibraryGen : TextAdd
 
         if (!b)
         {
-            this.Status = 90;
+            this.Status = 100;
             return false;
         }
-
-        return true;
-    }
-
-    protected virtual bool ExecuteModuleString()
-    {
-        this.ModuleGen.Gen = this.ClassGen;
-        this.ModuleGen.Module = this.Module;
-
-        this.ModuleGen.Execute();
-
-        this.ModuleRefGenString = this.ModuleGen.Result;
-
-        this.ModuleGen.Result = null;
-        this.ModuleGen.Module = null;
-        this.ModuleGen.Gen = null;
 
         return true;
     }
