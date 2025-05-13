@@ -255,7 +255,7 @@ public class LibraryGen : TextAdd
         //     return false;
         // }
 
-        b = this.ExecuteGenMakeLib();
+        b = this.ExecuteMakeLib();
         if (!b)
         {
             return false;
@@ -287,7 +287,7 @@ public class LibraryGen : TextAdd
                 return false;
             }
 
-            b = this.ExecuteGenMakeExe();
+            b = this.ExecuteMakeExe();
             if (!b)
             {
                 return false;
@@ -699,12 +699,12 @@ public class LibraryGen : TextAdd
         return array;
     }
 
-    protected virtual bool ExecuteGenMakeLib()
+    protected virtual bool ExecuteMakeLib()
     {
         return this.ExecuteMake(false, 60);
     }
 
-    protected virtual bool ExecuteGenMakeExe()
+    protected virtual bool ExecuteMakeExe()
     {
         return this.ExecuteMake(true, 100);
     }
