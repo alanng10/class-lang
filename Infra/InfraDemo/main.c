@@ -432,6 +432,20 @@ int main(int argc, char* argv[])
     FormatArg_AlignLeftSet(formatArg, false);
     FormatArg_FieldWidthSet(formatArg, 0);
     FormatArg_MaxWidthSet(formatArg, -1);
+    FormatArg_BaseSet(formatArg, 16);
+    FormatArg_FillCharSet(formatArg, 0);
+    FormatArg_FormSet(formatArg, null);
+
+    Array_ItemSet(formatArgList, 0, formatArg);
+
+    Int format;
+    format = Format_New();
+    Format_Init(format);
+
+    Format_ExecuteCount(format, formatBase, formatArgList);
+
+    Format_Final(format);
+    Format_Delete(format);
 
     FormatArg_Final(formatArg);
     FormatArg_Delete(formatArg);
