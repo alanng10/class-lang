@@ -828,33 +828,6 @@ Int Intern_Extern_FormatArg_MaxWidthSet(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_FormatArg_CaseGet(Eval* eval, Int frame)
-{
-    Int paramCount;
-    paramCount = 1;
-
-    Param(0);
-
-    Int a;
-    a = FormatArg_CaseGet(a0);
-
-    Return;
-}
-
-Int Intern_Extern_FormatArg_CaseSet(Eval* eval, Int frame)
-{
-    Int paramCount;
-    paramCount = 2;
-
-    Param(0);
-    Param(1);
-
-    Int a;
-    a = FormatArg_CaseSet(a0, a1);
-
-    Return;
-}
-
 Int Intern_Extern_FormatArg_BaseGet(Eval* eval, Int frame)
 {
     Int paramCount;
@@ -882,33 +855,6 @@ Int Intern_Extern_FormatArg_BaseSet(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_FormatArg_SignGet(Eval* eval, Int frame)
-{
-    Int paramCount;
-    paramCount = 1;
-
-    Param(0);
-
-    Int a;
-    a = FormatArg_SignGet(a0);
-
-    Return;
-}
-
-Int Intern_Extern_FormatArg_SignSet(Eval* eval, Int frame)
-{
-    Int paramCount;
-    paramCount = 2;
-
-    Param(0);
-    Param(1);
-
-    Int a;
-    a = FormatArg_SignSet(a0, a1);
-
-    Return;
-}
-
 Int Intern_Extern_FormatArg_FillCharGet(Eval* eval, Int frame)
 {
     Int paramCount;
@@ -932,33 +878,6 @@ Int Intern_Extern_FormatArg_FillCharSet(Eval* eval, Int frame)
 
     Int a;
     a = FormatArg_FillCharSet(a0, a1);
-
-    Return;
-}
-
-Int Intern_Extern_FormatArg_HasCountGet(Eval* eval, Int frame)
-{
-    Int paramCount;
-    paramCount = 1;
-
-    Param(0);
-
-    Int a;
-    a = FormatArg_HasCountGet(a0);
-
-    Return;
-}
-
-Int Intern_Extern_FormatArg_HasCountSet(Eval* eval, Int frame)
-{
-    Int paramCount;
-    paramCount = 2;
-
-    Param(0);
-    Param(1);
-
-    Int a;
-    a = FormatArg_HasCountSet(a0, a1);
 
     Return;
 }
@@ -1013,6 +932,33 @@ Int Intern_Extern_FormatArg_CountSet(Eval* eval, Int frame)
 
     Int a;
     a = FormatArg_CountSet(a0, a1);
+
+    Return;
+}
+
+Int Intern_Extern_FormatArg_FormGet(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 1;
+
+    Param(0);
+
+    Int a;
+    a = FormatArg_FormGet(a0);
+
+    Return;
+}
+
+Int Intern_Extern_FormatArg_FormSet(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 2;
+
+    Param(0);
+    Param(1);
+
+    Int a;
+    a = FormatArg_FormSet(a0, a1);
 
     Return;
 }
