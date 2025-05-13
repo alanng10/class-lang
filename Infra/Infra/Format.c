@@ -423,10 +423,14 @@ Int Format_ResultInt(Int o, Int result, Int form, Int value, Int varBase, Int va
     formMaide = null;
     formArg = null;
 
+    Format_FormMaide maideA;
+    maideA = null;
+
     if (!baa)
     {
         formMaide = State_MaideGet(form);
         formArg = State_ArgGet(form);
+        maideA = (Format_FormMaide)formMaide;
     }
 
     if (value == 0)
@@ -438,10 +442,7 @@ Int Format_ResultInt(Int o, Int result, Int form, Int value, Int varBase, Int va
 
             if (!baa)
             {
-                Format_FormMaide maideAa;
-                maideAa = (Format_FormMaide)formMaide;
-
-                na = maideAa(formArg, na);
+                na = maideA(formArg, na);
             }
             dest[valueStart] = na;
         }
@@ -486,6 +487,11 @@ Int Format_ResultInt(Int o, Int result, Int form, Int value, Int varBase, Int va
 
             Int kd;
             kd = index - valueIndex;
+
+            if (!baa)
+            {
+                n = maideA(formArg, n);
+            }
 
             dest[valueStart + kd] = n;
         }
