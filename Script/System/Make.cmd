@@ -4,7 +4,6 @@ call Script\System\Clean
 
 call Script\System\DeployInfra
 call Script\System\DeployIntern
-call Script\System\DeployExecute
 
 call Script\System\MakeModule Infra
 call Script\System\MakeModule List
