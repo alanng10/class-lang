@@ -323,7 +323,9 @@ Int Format_ArgResultString(Int o, Int arg, Int result)
     }
 
     Int fillChar;
-    fillChar = oo->FillChar;
+    fillChar = argK->FillChar;
+    Int form;
+    form = argK->Form;
 
     Int fillStart;
     Int valueStart;
