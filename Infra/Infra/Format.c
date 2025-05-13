@@ -642,10 +642,10 @@ Int Format_ExecuteResult(Int o, Int varBase, Int argList, Int result)
                 Int countA;
                 countA = argK->Count;
 
-                Char* ua;
-                ua = resultU + resultIndex;
+                Char* kaa;
+                kaa = resultU + resultIndex;
                 Int ka;
-                ka = CastInt(ua);
+                ka = CastInt(kaa);
 
                 Format_ArgResultMaide maide;
                 maide = Format_Var_ArgResultMaideList[kind];
