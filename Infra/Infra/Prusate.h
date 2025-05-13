@@ -145,20 +145,16 @@ Infra_Api Int FormatArg_FieldWidthGet(Int o);
 Infra_Api Int FormatArg_FieldWidthSet(Int o, Int value);
 Infra_Api Int FormatArg_MaxWidthGet(Int o);
 Infra_Api Int FormatArg_MaxWidthSet(Int o, Int value);
-Infra_Api Int FormatArg_CaseGet(Int o);
-Infra_Api Int FormatArg_CaseSet(Int o, Int value);
 Infra_Api Int FormatArg_BaseGet(Int o);
 Infra_Api Int FormatArg_BaseSet(Int o, Int value);
-Infra_Api Int FormatArg_SignGet(Int o);
-Infra_Api Int FormatArg_SignSet(Int o, Int value);
 Infra_Api Int FormatArg_FillCharGet(Int o);
 Infra_Api Int FormatArg_FillCharSet(Int o, Int value);
-Infra_Api Int FormatArg_HasCountGet(Int o);
-Infra_Api Int FormatArg_HasCountSet(Int o, Int value);
 Infra_Api Int FormatArg_ValueCountGet(Int o);
 Infra_Api Int FormatArg_ValueCountSet(Int o, Int value);
 Infra_Api Int FormatArg_CountGet(Int o);
 Infra_Api Int FormatArg_CountSet(Int o, Int value);
+Infra_Api Int FormatArg_FormGet(Int o);
+Infra_Api Int FormatArg_FormSet(Int o, Int value);
 
 InfraApiNew(Math)
 Infra_Api Int Math_Value(Int o, Int cand, Int expo);
