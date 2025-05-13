@@ -451,47 +451,43 @@ Int Format_ResultInt(Int o, Int result, Int form, Int value, Int varBase, Int va
     Int end;
     end = valueIndex + valueWriteCount;
 
-    Int k;
-    k = value;
-    Int j;
-    j = 0;
-    Int digit;
-    digit = 0;
-    Int oa;
-    oa = 0;
-    Char c;
-    c = 0;
-    Bool upperCase;
-    upperCase = varCase;
-
     Char letterStart;
     letterStart = 'a';
-    if (upperCase)
-    {
-        letterStart = 'A';
-    }
+
+    Int k;
+    k = value;
 
     Int index;
     index = 0;
+
     Int count;
     count = valueCount;
+
     Int i;
     i = 0;
+
     while (i < count)
     {
+        Int j;
         j = k / varBase;
-
-        digit = k - j * varBase;
 
         index = count - 1 - i;
 
         if ((!(index < valueIndex)) & (index < end))
         {
-            Format_IntDigit(digit, letterStart);
+            Int ka;
+            ka = k - j * varBase;
 
-            oa = index - valueIndex;
+            Int digit;
+            digit = ka;
 
-            dest[valueStart + oa] = c;
+            Int n;        
+            n = Format_IntDigit(digit, letterStart);
+
+            Int kd;
+            kd = index - valueIndex;
+
+            dest[valueStart + kd] = n;
         }
 
         k = j;
