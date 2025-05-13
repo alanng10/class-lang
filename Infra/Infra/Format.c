@@ -503,43 +503,46 @@ Int Format_ResultInt(Int o, Int result, Int form, Int value, Int varBase, Int va
     return true;
 }
 
-Int Format_ResultString(Int o, Int result, Int value, Int varCase, Int valueWriteCount, Int valueStart, Int valueIndex)
+Int Format_ResultString(Int o, Int result, Int form, Int value, Int valueWriteCount, Int valueStart, Int valueIndex)
 {
     Char* source;
     source = CastPointer(value);
     Char* dest;
     dest = CastPointer(result);
 
-    Char ouc;
-    ouc = 0;
-    Char oc;
-    oc = 0;
+    Bool baa;
+    baa = (form == null);
+
+    Int formMaide;
+    Int formArg;
+    formMaide = null;
+    formArg = null;
+
+    Format_FormMaide maideA;
+    maideA = null;
+
+    if (!baa)
+    {
+        formMaide = State_MaideGet(form);
+        formArg = State_ArgGet(form);
+        maideA = (Format_FormMaide)formMaide;
+    }
+
     Int count;
     count = valueWriteCount;
     Int i;
     i = 0;
     while (i < count)
     {
-        ouc = source[i + valueIndex];
+        Int n;
+        n = source[i + valueIndex];
 
-        oc = ouc;
-
-        if (varCase == 1)
+        if (!baa)
         {
-            if (!((ouc < 'A') | ('Z' < ouc)))
-            {
-                oc = ouc - 'A' + 'a';
-            }
-        }
-        if (varCase == 2)
-        {
-            if (!((ouc < 'a') | ('z' < ouc)))
-            {
-                oc = ouc - 'a' + 'A';
-            }
+            n = maideA(formArg, n);
         }
 
-        dest[i + valueStart] = oc;
+        dest[i + valueStart] = n;
 
         i = i + 1;
     }
