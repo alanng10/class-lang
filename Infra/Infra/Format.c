@@ -53,8 +53,6 @@ Int Format_ExecuteArgCount(Int o, Int arg)
 
     SInt u;
     u = maxWidth;
-    u = u << 4;
-    u = u >> 4;
 
     Int count;
     count = valueCount;
