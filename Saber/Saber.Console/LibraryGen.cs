@@ -687,7 +687,12 @@ public class LibraryGen : TextAdd
         return array;
     }
 
-    protected virtual bool ExecuteGenMake()
+    protected virtual bool ExecuteGenMakeLib()
+    {
+        return this.ExecuteGenMake(false, 60);
+    }
+
+    protected virtual bool ExecuteGenMake(bool exe, long status)
     {
         Program program;
         program = null;
@@ -703,12 +708,12 @@ public class LibraryGen : TextAdd
 
         if (b)
         {
-            program = this.CreateMakeProgramWindows();
+            program = this.CreateMakeProgramWindows(exe);
         }
 
         if (!b)
         {
-            program = this.CreateMakeProgramLinux();
+            program = this.CreateMakeProgramLinux(exe);
         }
 
         program.Execute();
@@ -722,7 +727,7 @@ public class LibraryGen : TextAdd
 
         if (!(k == 0))
         {
-            this.Status = 60;
+            this.Status = status;
             return false;
         }
 
