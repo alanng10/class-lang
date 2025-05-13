@@ -8,18 +8,14 @@ Format_ArgValueCountMaide Format_Var_ArgValueCountMaideList[KindCount] =
 {
     &Format_ArgValueCountBool,
     &Format_ArgValueCountInt,
-    &Format_ArgValueCountSInt,
     &Format_ArgValueCountString,
-    &Format_ArgValueCountChar,
 };
 
 Format_ArgResultMaide Format_Var_ArgResultMaideList[KindCount] =
 {
     &Format_ArgResultBool,
     &Format_ArgResultInt,
-    &Format_ArgResultSInt,
     &Format_ArgResultString,
-    &Format_ArgResultChar,
 };
 
 const char* Format_Var_TrueString = "true";
@@ -120,82 +116,12 @@ Int Format_ArgValueCountInt(Int o, Int arg)
     return a;
 }
 
-Int Format_ArgValueCountSInt(Int o, Int arg)
-{
-    FormatArg* oo;
-    oo = CastPointer(arg);
-
-    Int value;
-    value = oo->Value;
-    Int base;
-    base = oo->Base;
-    Int sign;
-    sign = oo->Sign;
-
-    SInt valueA;
-    valueA = value;
-    valueA = valueA << 4;
-    valueA = valueA >> 4;
-
-    SInt oa;
-    oa = valueA;
-
-    Bool b;
-    b = (oa < 0);
-
-    Bool hasSign;
-    hasSign = false;
-
-    if (!b)
-    {
-        if (sign == 1)
-        {
-            hasSign = true;
-        }
-        if ((!(oa == 0)) & (sign == 2))
-        {
-            hasSign = true;
-        }
-    }
-    if (b)
-    {
-        hasSign = true;
-    }
-
-    if (b)
-    {
-        oa = -oa;
-    }
-
-    Int ua;
-    ua = oa;
-
-    Int count;
-    count = Format_IntDigitCount(o, ua, base);
-
-    if (hasSign)
-    {
-        count = count + 1;
-    }
-
-    Int a;
-    a = count;
-    return a;
-}
-
 Int Format_ArgValueCountString(Int o, Int arg)
 {
     FormatArg* oo;
     oo = CastPointer(arg);
     Int a;
     a = String_CountGet(oo->Value);
-    return a;
-}
-
-Int Format_ArgValueCountChar(Int o, Int arg)
-{
-    Int a;
-    a = 1;
     return a;
 }
 
