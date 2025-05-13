@@ -195,12 +195,6 @@ Int Format_ArgResultBool(Int o, Int arg, Int result)
     Int fillChar;
     fillChar = oo->FillChar;
 
-    Char fillCharU;
-    fillCharU = fillChar;
-
-    Char* dest;
-    dest = CastPointer(result);
-
     Int fillStart;
     fillStart = 0;
     Int valueStart;
@@ -227,7 +221,7 @@ Int Format_ArgResultBool(Int o, Int arg, Int result)
 
     Format_ResultBool(o, result, value, varCase, valueWriteCount, valueStart, valueIndex);
 
-    Format_ResultFill(dest, fillStart, fillCount, fillCharU);
+    Format_ResultFill(result, fillStart, fillCount, fillChar);
     return true;
 }
 
@@ -260,18 +254,12 @@ Int Format_ArgResultInt(Int o, Int arg, Int result)
         clampCount = valueCount - count;
     }
 
-    Char* dest;
-    dest = CastPointer(result);
-
     Int varBase;
     varBase = oo->Base;
     Int varCase;
     varCase = oo->Case;
     Int fillChar;
     fillChar = oo->FillChar;
-
-    Char fillCharU;
-    fillCharU = fillChar;
 
     Int fillStart;
     fillStart = 0;
@@ -299,7 +287,7 @@ Int Format_ArgResultInt(Int o, Int arg, Int result)
 
     Format_ResultInt(o, result, value, varBase, varCase, valueCount, valueWriteCount, valueStart, valueIndex);
 
-    Format_ResultFill(dest, fillStart, fillCount, fillCharU);
+    Format_ResultFill(result, fillStart, fillCount, fillChar);
     return true;
 }
 
@@ -340,12 +328,6 @@ Int Format_ArgResultString(Int o, Int arg, Int result)
     Int fillChar;
     fillChar = oo->FillChar;
 
-    Char fillCharU;
-    fillCharU = fillChar;
-
-    Char* dest;
-    dest = CastPointer(result);
-
     Int fillStart;
     fillStart = 0;
     Int valueStart;
@@ -372,7 +354,7 @@ Int Format_ArgResultString(Int o, Int arg, Int result)
 
     Format_ResultString(o, result, valueData, varCase, valueWriteCount, valueStart, valueIndex);
 
-    Format_ResultFill(dest, fillStart, fillCount, fillCharU);
+    Format_ResultFill(result, fillStart, fillCount, fillChar);
     return true;
 }
 
