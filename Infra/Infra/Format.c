@@ -410,16 +410,40 @@ Int Format_ResultBool(Int o, Int result, Int value, Int varCase, Int valueWriteC
     return true;
 }
 
-Int Format_ResultInt(Int o, Int result, Int value, Int varBase, Int varCase, Int valueCount, Int valueWriteCount, Int valueStart, Int valueIndex)
+Int Format_ResultInt(Int o, Int result, Int form, Int value, Int varBase, Int valueCount, Int valueWriteCount, Int valueStart, Int valueIndex)
 {
     Char* dest;
     dest = CastPointer(result);
+
+    Bool baa;
+    baa = (form == null);
+
+    Int formMaide;
+    Int formArg;
+    formMaide = null;
+    formArg = null;
+
+    if (!baa)
+    {
+        formMaide = State_MaideGet(form);
+        formArg = State_ArgGet(form);
+    }
 
     if (value == 0)
     {
         if (!(valueWriteCount == 0))
         {
-            dest[valueStart] = '0';
+            Int na;
+            na = '0';
+
+            if (!baa)
+            {
+                Format_FormMaide maideAa;
+                maideAa = (Format_FormMaide)formMaide;
+
+                na = maideAa(formArg, na);
+            }
+            dest[valueStart] = na;
         }
         return true;
     }

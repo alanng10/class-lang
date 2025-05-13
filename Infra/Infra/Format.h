@@ -30,3 +30,5 @@ Int Format_ResultString(Int o, Int result, Int value, Int varCase, Int valueWrit
 Int Format_ResultFill(dest, fillIndex, fillCount, fillChar);
 
 Int Format_IntDigit(Int digit, Int letterStart);
+
+typedef Int (*Format_FormMaide)(Int arg, Int value);
