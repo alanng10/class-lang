@@ -761,7 +761,8 @@ public class LibraryGen : TextAdd
         List list;
         list = new List();
         list.Init();
-        list.Add(this.AddClear().AddS("./Make.sh ").Add(this.ModuleRefString).AddResult());
+        list.Add(this.S("./Make.sh"));
+        list.Add(this.ModuleRefString);
 
         Program program;
         program = new Program();
