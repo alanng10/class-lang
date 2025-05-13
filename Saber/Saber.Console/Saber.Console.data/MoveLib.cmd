@@ -4,4 +4,4 @@ set ModuleRef=%~1
 
 set SourceFold=.\Gen\%ModuleRef%
 
-move %SourceFold%\%ModuleRef%.dll "..\%ClassPath%\Module\%ModuleRef%.dll" >NUL
+move %SourceFold%\%ModuleRef%.dll "..\%ClassPath%\%ModuleRef%.dll" >NUL
