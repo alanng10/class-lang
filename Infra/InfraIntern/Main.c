@@ -169,8 +169,6 @@ Bool Intern_ArgInit()
     Int count;
     count = Array_CountGet(array);
 
-    count = count - 1;
-
     Int intCount;
     intCount = count * 2;
 
@@ -188,7 +186,7 @@ Bool Intern_ArgInit()
     while (i < count)
     {
         Int index;
-        index = i + 1;
+        index = i;
 
         Int a;
         a = Array_ItemGet(array, index);
@@ -196,20 +194,20 @@ Bool Intern_ArgInit()
         Int value;
         value = String_ValueGet(a);
 
-        Int count;
-        count = String_CountGet(a);
+        Int countK;
+        countK = String_CountGet(a);
 
         RefKindSet(value, RefKindStringValueData);
 
-        RefKindClear(count);
-        RefKindSet(count, RefKindInt);
+        RefKindClear(countK);
+        RefKindSet(countK, RefKindInt);
 
         Int kaa;
         kaa = i * 2;
 
         p[kaa] = value;
 
-        p[kaa + 1] = count;
+        p[kaa + 1] = countK;
 
         i = i + 1;
     }
