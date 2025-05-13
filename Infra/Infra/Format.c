@@ -614,16 +614,6 @@ Int Format_ExecuteResult(Int o, Int varBase, Int argList, Int result)
     arg = null;
     Int argIndex;
     argIndex = 0;
-    Int k;
-    k = 0;
-    Bool ba;
-    ba = false;
-    Char* ua;
-    ua = null;
-    Int oa;
-    oa = null;
-    Format_ArgResultMaide maide;
-    maide = null;
     Int i;
     i = 0;
     while (i < count)
@@ -638,8 +628,10 @@ Int Format_ExecuteResult(Int o, Int varBase, Int argList, Int result)
             FormatArg* argK;
             argK = CastPointer(arg);
 
+            Int k;
             k = argK->Pos;
 
+            Bool ba;
             ba = (i == k);
 
             if (ba)
@@ -649,9 +641,12 @@ Int Format_ExecuteResult(Int o, Int varBase, Int argList, Int result)
                 Int countA;
                 countA = argK->Count;
 
+                Char* ua;
                 ua = resultU + resultIndex;
+                Int oa;
                 oa = CastInt(ua);
 
+                Format_ArgResultMaide maide;
                 maide = Format_Var_ArgResultMaideList[kind];
                 maide(o, arg, oa);
 
