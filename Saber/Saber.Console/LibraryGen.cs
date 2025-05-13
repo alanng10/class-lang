@@ -73,6 +73,7 @@ public class LibraryGen : TextAdd
     protected virtual String GenModuleExeFoldPath { get; set; }
     protected virtual String ImportArg { get; set; }
     protected virtual ModuleRef ModuleRef { get; set; }
+    protected virtual String ModuleRefGenString { get; set; }
     protected virtual String SSystemDotInfra { get; set; }
     protected virtual String SIntern { get; set; }
     protected virtual String SExtern { get; set; }
@@ -189,6 +190,7 @@ public class LibraryGen : TextAdd
         this.ClassInitArray = null;
         this.ClassBaseArray = null;
         this.ClassCompArray = null;
+        this.ModuleRefGenString = null;
         this.GenModuleExeFoldPath = null;
         this.GenModuleFoldPath = null;
         this.ImportArg = null;
@@ -297,7 +299,7 @@ public class LibraryGen : TextAdd
 
             if (!b)
             {
-                this.Status = 110;
+                this.Status = 120;
                 return false;
             }
         }
@@ -763,7 +765,7 @@ public class LibraryGen : TextAdd
     {
         Text ka;
         ka = this.TextCreate(this.ModuleExeText);
-        ka = this.TextPlace(ka, this.TA(this.S("#Module#")), this.TB(this.ModuleRefString));
+        ka = this.TextPlace(ka, this.TA(this.S("#ModuleString#")), this.TB(this.ModuleRefGenString));
 
         String k;
         k = this.StringCreate(ka);
@@ -782,6 +784,22 @@ public class LibraryGen : TextAdd
             this.Status = 90;
             return false;
         }
+
+        return true;
+    }
+
+    protected virtual bool ExecuteModuleString()
+    {
+        this.ModuleGen.Gen = this.ClassGen;
+        this.ModuleGen.Module = this.Module;
+
+        this.ModuleGen.Execute();
+
+        this.ModuleRefGenString = this.ModuleGen.Result;
+
+        this.ModuleGen.Result = null;
+        this.ModuleGen.Module = null;
+        this.ModuleGen.Gen = null;
 
         return true;
     }
