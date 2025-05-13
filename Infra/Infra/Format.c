@@ -686,8 +686,8 @@ Int Format_ExecuteResult(Int o, Int varBase, Int argList, Int result)
 
 Int Format_ResultFill(Int dest, Int fillIndex, Int fillCount, Int fillChar)
 {
-    Char fillCharU;
-    fillCharU = fillChar;
+    Char fillCharK;
+    fillCharK = fillChar;
 
     Char* destK;
     destK = CastPointer(dest);
@@ -699,7 +699,7 @@ Int Format_ResultFill(Int dest, Int fillIndex, Int fillCount, Int fillChar)
     i = 0;
     while (i < count)
     {
-        destK[fillIndex + i] = fillCharU;
+        destK[fillIndex + i] = fillCharK;
         i = i + 1;
     }
 
