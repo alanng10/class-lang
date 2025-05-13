@@ -40,13 +40,11 @@ FormatArg
     AlignLeft
     FieldWidth
     MaxWidth
-    Case
     Base
-    Sign
     FillChar
-    HasCount
     ValueCount
     Count
+    Form
 
 Math
     Value(cand, expo)
