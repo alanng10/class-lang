@@ -102,11 +102,11 @@ Int Format_ArgValueCountInt(Int o, Int arg)
     argK = CastPointer(arg);
     Int value;
     value = argK->Value;
-    Int base;
-    base = argK->Base;
+    Int varBase;
+    varBase = argK->Base;
 
     Int count;
-    count = Format_IntDigitCount(o, value, base);
+    count = Format_IntDigitCount(o, value, varBase);
 
     Int a;
     a = count;
