@@ -414,6 +414,33 @@ int main(int argc, char* argv[])
 
     ConsoleWriteConstant("DEMO 的 阿卡 HELLO\n");
 
+    Int formatBase;
+    formatBase = String_ConstantCreate(CastInt("Format Int: \n"));
+
+    Int formatArgList;
+    formatArgList = Array_New();
+    Array_CountSet(formatArgList, 1);
+    Array_Init(formatArgList);
+
+    Int formatArg;
+    formatArg = FormatArg_New();
+    FormatArg_Init(formatArg);
+
+    FormatArg_PosSet(formatArg, 12);
+    FormatArg_KindSet(formatArg, 1);
+    FormatArg_ValueSet(formatArg, 0xf9e74a2);
+    FormatArg_AlignLeftSet(formatArg, false);
+    FormatArg_FieldWidthSet(formatArg, 0);
+    FormatArg_MaxWidthSet(formatArg, -1);
+
+    FormatArg_Final(formatArg);
+    FormatArg_Delete(formatArg);
+
+    Array_Final(formatArgList);
+    Array_Delete(formatArgList);
+
+    String_ConstantDelete(formatBase);
+
     Int stringAa;
     Int stringAb;
     stringAa = String_ConstantCreate(CastInt("Phore Init Count Success\n"));
