@@ -27,6 +27,8 @@ Int Format_ResultBool(Int o, Int result, Int value, Int varCase, Int valueWriteC
 Int Format_ResultInt(Int o, Int result, Int value, Int varBase, Int varCase, Int valueCount, Int valueWriteCount, Int valueStart, Int valueIndex);
 Int Format_ResultString(Int o, Int result, Int value, Int varCase, Int valueWriteCount, Int valueStart, Int valueIndex);
 
+Int Format_ResultFill(dest, fillIndex, fillCount, fillChar);
+
 #define Format_IntDigit(digitValue) \
 {\
     Bool b;\
@@ -40,20 +42,6 @@ Int Format_ResultString(Int o, Int result, Int value, Int varCase, Int valueWrit
         Int n;\
         n = digitValue - 10;\
         c = letterDigitStart + n;\
-    }\
-}\
-
-
-#define Format_ResultFill(dest, fillIndex, fillCount, fillCharU) \
-{\
-    Int countOA;\
-    countOA = fillCount;\
-    Int iu;\
-    iu = 0;\
-    while (iu < countOA)\
-    {\
-        dest[fillIndex + iu] = fillCharU;\
-        iu = iu + 1;\
     }\
 }\
 

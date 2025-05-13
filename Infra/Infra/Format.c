@@ -674,3 +674,26 @@ Int Format_ExecuteResult(Int o, Int varBase, Int argList, Int result)
     }
     return true;
 }
+
+Int Format_ResultFill(Int dest, Int fillIndex, Int fillCount, Int fillChar)
+{
+    Char fillCharU;
+    fillCharU = fillChar;
+
+    Char* destK;
+    destK = CastPointer(dest);
+
+    Int count;
+    count = fillCount;
+
+    Int i;
+    i = 0;
+    while (i < count)
+    {
+        destK[fillIndex + i] = fillCharU;
+        i = i + 1;
+    }
+
+    return true;
+}
+
