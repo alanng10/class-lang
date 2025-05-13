@@ -292,20 +292,20 @@ Int Format_ArgResultInt(Int o, Int arg, Int result)
 
 Int Format_ArgResultString(Int o, Int arg, Int result)
 {
-    FormatArg* oo;
-    oo = CastPointer(arg);
+    FormatArg* argK;
+    argK = CastPointer(arg);
     Int valueCount;
-    valueCount = oo->ValueCount;
+    valueCount = argK->ValueCount;
     Int count;
-    count = oo->Count;
+    count = argK->Count;
     Int value;
-    value = oo->Value;
+    value = argK->Value;
 
     Int valueData;
     valueData = String_ValueGet(value);
 
     Bool alignLeft;
-    alignLeft = oo->AlignLeft;
+    alignLeft = argK->AlignLeft;
 
     Int fillCount;
     fillCount = 0;
@@ -322,16 +322,14 @@ Int Format_ArgResultString(Int o, Int arg, Int result)
         clampCount = valueCount - count;
     }
 
-    Int varCase;
-    varCase = oo->Case;
     Int fillChar;
     fillChar = oo->FillChar;
 
     Int fillStart;
-    fillStart = 0;
     Int valueStart;
-    valueStart = 0;
     Int valueIndex;
+    fillStart = 0;
+    valueStart = 0;
     valueIndex = 0;
 
     Int valueWriteCount;
@@ -351,7 +349,7 @@ Int Format_ArgResultString(Int o, Int arg, Int result)
         valueIndex = clampCount;
     }
 
-    Format_ResultString(o, result, valueData, varCase, valueWriteCount, valueStart, valueIndex);
+    Format_ResultString(o, result, form, valueData, valueWriteCount, valueStart, valueIndex);
 
     Format_ResultFill(result, fillStart, fillCount, fillChar);
     return true;
