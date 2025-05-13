@@ -780,16 +780,16 @@ public class LibraryGen : TextAdd
 
     protected virtual bool ExecuteModuleRefString()
     {
-        this.ModuleGen.Gen = this.ClassGen;
-        this.ModuleGen.Module = this.Module;
+        this.ModuleRefStringGen.Gen = this.ClassGen;
+        this.ModuleRefStringGen.Module = this.Module;
 
-        this.ModuleGen.Execute();
+        this.ModuleRefStringGen.Execute();
 
-        this.ModuleRefGenString = this.ModuleGen.Result;
+        this.ModuleRefGenString = this.ModuleRefStringGen.Result;
 
-        this.ModuleGen.Result = null;
-        this.ModuleGen.Module = null;
-        this.ModuleGen.Gen = null;
+        this.ModuleRefStringGen.Result = null;
+        this.ModuleRefStringGen.Module = null;
+        this.ModuleRefStringGen.Gen = null;
 
         return true;
     }
