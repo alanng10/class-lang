@@ -783,13 +783,21 @@ public class LibraryGen : TextAdd
         return program;
     }
 
-    protected virtual Program CreateMakeProgramWindows()
+    protected virtual Program CreateMakeProgramWindows(bool exe)
     {
+        String ka;
+        ka = this.TextInfra.Zero;
+
+        if (exe)
+        {
+            ka = this.SExe;
+        }
+
         List list;
         list = new List();
         list.Init();
         list.Add(this.S("/c"));
-        list.Add(this.AddClear().AddS("Make.cmd ").Add(this.ModuleRefString).AddResult());
+        list.Add(this.AddClear().AddS("Make").Add(ka).AddS(".cmd ").Add(this.ModuleRefString).AddResult());
 
         Program program;
         program = new Program();
