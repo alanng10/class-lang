@@ -608,12 +608,12 @@ Int Format_ExecuteResult(Int o, Int varBase, Int argList, Int result)
 
     Int count;
     count = baseCount + 1;
+
     Int resultIndex;
     resultIndex = 0;
-    Int arg;
-    arg = null;
     Int argIndex;
     argIndex = 0;
+
     Int i;
     i = 0;
     while (i < count)
@@ -623,6 +623,7 @@ Int Format_ExecuteResult(Int o, Int varBase, Int argList, Int result)
 
         while ((!b) & (argIndex < argCount))
         {
+            Int arg;
             arg = Array_ItemGet(argList, argIndex);
 
             FormatArg* argK;
