@@ -255,7 +255,7 @@ public class LibraryGen : TextAdd
         //     return false;
         // }
 
-        b = this.ExecuteGenMake();
+        b = this.ExecuteGenMakeLib();
         if (!b)
         {
             return false;
@@ -278,6 +278,18 @@ public class LibraryGen : TextAdd
             if (!b)
             {
                 this.Status = 80;
+                return false;
+            }
+
+            b = this.ExecuteGenModuleExeSource();
+            if (!b)
+            {
+                return false;
+            }
+
+            b = this.ExecuteGenMakeExe();
+            if (!b)
+            {
                 return false;
             }
         }
@@ -692,6 +704,11 @@ public class LibraryGen : TextAdd
         return this.ExecuteGenMake(false, 60);
     }
 
+    protected virtual bool ExecuteGenMakeExe()
+    {
+        return this.ExecuteGenMake(true, 100);
+    }
+
     protected virtual bool ExecuteGenMake(bool exe, long status)
     {
         Program program;
@@ -734,7 +751,7 @@ public class LibraryGen : TextAdd
         return true;
     }
 
-    protected virtual bool ExecuteGenExe()
+    protected virtual bool ExecuteGenModuleExeSource()
     {
         Text ka;
         ka = this.TextCreate(this.ModuleExeText);
