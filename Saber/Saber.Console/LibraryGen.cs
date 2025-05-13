@@ -28,6 +28,8 @@ public class LibraryGen : TextAdd
 
         this.ProjectGen = this.CreateProjectGen();
 
+        this.ModuleRefStringGen = this.CreateModuleRefStringGen();
+
         this.ModuleRef = this.CreateModuleRef();
 
         this.SSystemDotInfra = this.S("System.Infra");
@@ -64,6 +66,7 @@ public class LibraryGen : TextAdd
     protected virtual ModuleHeaderGen ModuleHeaderGen { get; set; }
     protected virtual ImportArgGen ImportArgGen { get; set; }
     protected virtual ProjectGen ProjectGen { get; set; }
+    protected virtual ModuleRefStringGen ModuleRefStringGen { get; set; }
     protected virtual Array ClassInitArray { get; set; }
     protected virtual Array ClassBaseArray { get; set; }
     protected virtual Array ClassCompArray { get; set; }
@@ -154,6 +157,14 @@ public class LibraryGen : TextAdd
     {
         ProjectGen a;
         a = new ProjectGen();
+        a.Init();
+        return a;
+    }
+
+    protected virtual ModuleRefStringGen CreateModuleRefStringGen()
+    {
+        ModuleRefStringGen a;
+        a = new ModuleRefStringGen();
         a.Init();
         return a;
     }
