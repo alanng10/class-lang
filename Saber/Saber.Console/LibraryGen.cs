@@ -40,6 +40,7 @@ public class LibraryGen : TextAdd
         this.SModule = this.S("Module");
         this.SImport = this.S("Import");
         this.SExeHyphen = this.S("Exe-");
+        this.SMain = this.S("Main");
         return true;
     }
 
@@ -82,6 +83,7 @@ public class LibraryGen : TextAdd
     protected virtual String SModule { get; set; }
     protected virtual String SImport { get; set; }
     protected virtual String SExeHyphen { get; set; }
+    protected virtual String SMain { get; set; }
 
     protected virtual ClassInitGen CreateClassInitGen()
     {
@@ -721,6 +723,33 @@ public class LibraryGen : TextAdd
         if (!(k == 0))
         {
             this.Status = 60;
+            return false;
+        }
+
+        return true;
+    }
+
+    protected virtual bool ExecuteGenExe()
+    {
+        Text ka;
+        ka = this.TextCreate(this.ModuleExeText);
+        ka = this.TextPlace(ka, this.TA(this.S("#Module#")), this.TB(this.ModuleRefString));
+
+        String k;
+        k = this.StringCreate(ka);
+
+        String fileName;
+        fileName = this.AddClear().Add(this.SMain).Add(this.ClassInfra.TextDot).Add(this.SC).AddResult();
+
+        String filePath;
+        filePath = this.AddClear().Add(this.GenModuleExeFoldPath).Add(this.TextInfra.PathCombine).Add(fileName).AddResult();
+
+        bool b;
+        b = this.StorageInfra.TextWrite(filePath, k);
+
+        if (!b)
+        {
+            this.Status = 90;
             return false;
         }
 
