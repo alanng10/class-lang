@@ -71,20 +71,16 @@ class Extern : Any
     maide prusate Int FormatArg_FieldWidthSet(var Int o, var Int value) { }
     maide prusate Int FormatArg_MaxWidthGet(var Int o) { }
     maide prusate Int FormatArg_MaxWidthSet(var Int o, var Int value) { }
-    maide prusate Int FormatArg_CaseGet(var Int o) { }
-    maide prusate Int FormatArg_CaseSet(var Int o, var Int value) { }
     maide prusate Int FormatArg_BaseGet(var Int o) { }
     maide prusate Int FormatArg_BaseSet(var Int o, var Int value) { }
-    maide prusate Int FormatArg_SignGet(var Int o) { }
-    maide prusate Int FormatArg_SignSet(var Int o, var Int value) { }
     maide prusate Int FormatArg_FillCharGet(var Int o) { }
     maide prusate Int FormatArg_FillCharSet(var Int o, var Int value) { }
-    maide prusate Int FormatArg_HasCountGet(var Int o) { }
-    maide prusate Int FormatArg_HasCountSet(var Int o, var Int value) { }
     maide prusate Int FormatArg_ValueCountGet(var Int o) { }
     maide prusate Int FormatArg_ValueCountSet(var Int o, var Int value) { }
     maide prusate Int FormatArg_CountGet(var Int o) { }
     maide prusate Int FormatArg_CountSet(var Int o, var Int value) { }
+    maide prusate Int FormatArg_FormGet(var Int o) { }
+    maide prusate Int FormatArg_FormSet(var Int o, var Int value) { }
 
     maide prusate Int Math_New() { }
     maide prusate Int Math_Delete(var Int o) { }
