@@ -254,3 +254,77 @@ Int Intern_Module_Set(Intern_Module* module)
 
     return 0;
 }
+
+Int Intern_StatusWrite(Int status)
+{
+    if (status == 0)
+    {
+        return status;
+    }
+
+    Int formatBase;
+    formatBase = String_ConstantCreate(CastInt("Status: \n"));
+    
+    Int formatArg;
+    formatArg = FormatArg_New();
+    FormatArg_Init(formatArg);
+
+    FormatArg_PosSet(formatArg, 8);
+    FormatArg_KindSet(formatArg, 1);
+    FormatArg_ValueSet(formatArg, status);
+    FormatArg_AlignLeftSet(formatArg, false);
+    FormatArg_FieldWidthSet(formatArg, 0);
+    FormatArg_MaxWidthSet(formatArg, -1);
+    FormatArg_BaseSet(formatArg, 10);
+    FormatArg_FillCharSet(formatArg, 0);
+    FormatArg_FormSet(formatArg, null);
+
+    Int formatArgList;
+    formatArgList = Array_New();
+    Array_CountSet(formatArgList, 1);
+    Array_Init(formatArgList);
+
+    Array_ItemSet(formatArgList, 0, formatArg);
+
+    Int format;
+    format = Format_New();
+    Format_Init(format);
+
+    Int formatCount;
+    formatCount = Format_ExecuteCount(format, formatBase, formatArgList);
+
+    Int formatByteCount;
+    formatByteCount = formatCount * Constant_CharByteCount();
+
+    Int formatResultValue;
+    formatResultValue = Environ_New(formatByteCount);
+
+    Int formatResult;
+    formatResult = String_New();
+    String_Init(formatResult);
+
+    String_ValueSet(formatResult, formatResultValue);
+    String_CountSet(formatResult, formatCount);
+
+    Format_ExecuteResult(format, formatBase, formatArgList, formatResult);
+
+    Console_ErrWrite(0, formatResult);
+
+    String_Final(formatResult);
+    String_Delete(formatResult);
+
+    Environ_Delete(formatResultValue);
+
+    Format_Final(format);
+    Format_Delete(format);
+
+    Array_Final(formatArgList);
+    Array_Delete(formatArgList);
+
+    FormatArg_Final(formatArg);
+    FormatArg_Delete(formatArg);
+
+    String_ConstantDelete(formatBase);
+
+    return 1;
+}
