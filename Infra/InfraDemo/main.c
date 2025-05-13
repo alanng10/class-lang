@@ -416,12 +416,7 @@ int main(int argc, char* argv[])
 
     Int formatBase;
     formatBase = String_ConstantCreate(CastInt("Format Int: \n"));
-
-    Int formatArgList;
-    formatArgList = Array_New();
-    Array_CountSet(formatArgList, 1);
-    Array_Init(formatArgList);
-
+    
     Int formatArg;
     formatArg = FormatArg_New();
     FormatArg_Init(formatArg);
@@ -436,22 +431,50 @@ int main(int argc, char* argv[])
     FormatArg_FillCharSet(formatArg, 0);
     FormatArg_FormSet(formatArg, null);
 
+    Int formatArgList;
+    formatArgList = Array_New();
+    Array_CountSet(formatArgList, 1);
+    Array_Init(formatArgList);
+
     Array_ItemSet(formatArgList, 0, formatArg);
 
     Int format;
     format = Format_New();
     Format_Init(format);
 
-    Format_ExecuteCount(format, formatBase, formatArgList);
+    Int formatCount;
+    formatCount = Format_ExecuteCount(format, formatBase, formatArgList);
+
+    Int formatByteCount;
+    formatByteCount = formatCount * Constant_CharByteCount();
+
+    Int formatResultValue;
+    formatResultValue = Environ_New(formatByteCount);
+
+    Int formatResult;
+    formatResult = String_New();
+    String_Init(formatResult);
+
+    String_ValueSet(formatResult, formatResultValue);
+    String_CountSet(formatResult, formatCount);
+
+    Format_ExecuteResult(format, formatBase, formatArgList, formatResult);
+
+    Console_OutWrite(0, formatResult);
+
+    String_Final(formatResult);
+    String_Delete(formatResult);
+
+    Environ_Delete(formatResultValue);
 
     Format_Final(format);
     Format_Delete(format);
 
-    FormatArg_Final(formatArg);
-    FormatArg_Delete(formatArg);
-
     Array_Final(formatArgList);
     Array_Delete(formatArgList);
+
+    FormatArg_Final(formatArg);
+    FormatArg_Delete(formatArg);
 
     String_ConstantDelete(formatBase);
 
