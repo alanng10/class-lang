@@ -264,7 +264,7 @@ Int Intern_StatusWrite(Int status)
 
     Int formatBase;
     formatBase = String_ConstantCreate(CastInt("Status: \n"));
-    
+
     Int formatArg;
     formatArg = FormatArg_New();
     FormatArg_Init(formatArg);
