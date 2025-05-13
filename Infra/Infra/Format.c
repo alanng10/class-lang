@@ -696,4 +696,3 @@ Int Format_ResultFill(Int dest, Int fillIndex, Int fillCount, Int fillChar)
 
     return true;
 }
-
