@@ -78,11 +78,11 @@ Int Format_ExecuteArgCount(Int o, Int arg)
 
 Int Format_ArgValueCountBool(Int o, Int arg)
 {
-    FormatArg* oo;
-    oo = CastPointer(arg);
+    FormatArg* argK;
+    argK = CastPointer(arg);
 
     Bool b;
-    b = oo->Value;
+    b = argK->Value;
 
     Int count;
     count = 5;
@@ -98,12 +98,12 @@ Int Format_ArgValueCountBool(Int o, Int arg)
 
 Int Format_ArgValueCountInt(Int o, Int arg)
 {
-    FormatArg* oo;
-    oo = CastPointer(arg);
+    FormatArg* argK;
+    argK = CastPointer(arg);
     Int value;
-    value = oo->Value;
+    value = argK->Value;
     Int base;
-    base = oo->Base;
+    base = argK->Base;
 
     Int count;
     count = Format_IntDigitCount(o, value, base);
@@ -115,10 +115,10 @@ Int Format_ArgValueCountInt(Int o, Int arg)
 
 Int Format_ArgValueCountString(Int o, Int arg)
 {
-    FormatArg* oo;
-    oo = CastPointer(arg);
+    FormatArg* argK;
+    argK = CastPointer(arg);
     Int a;
-    a = String_CountGet(oo->Value);
+    a = String_CountGet(argK->Value);
     return a;
 }
 
