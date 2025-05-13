@@ -27,7 +27,7 @@ Int Format_ResultBool(Int o, Int result, Int value, Int varCase, Int valueWriteC
 Int Format_ResultInt(Int o, Int result, Int value, Int varBase, Int varCase, Int valueCount, Int valueWriteCount, Int valueStart, Int valueIndex);
 Int Format_ResultString(Int o, Int result, Int value, Int varCase, Int valueWriteCount, Int valueStart, Int valueIndex);
 
-Int Format_ResultFill(dest, fillIndex, fillCount, fillChar);
+Int Format_ResultFill(Int dest, Int fillIndex, Int fillCount, Int fillChar);
 
 Int Format_IntDigit(Int digit, Int letterStart);
 
