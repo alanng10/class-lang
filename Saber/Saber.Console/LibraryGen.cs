@@ -281,7 +281,7 @@ public class LibraryGen : TextAdd
                 return false;
             }
 
-            b = this.ExecuteGenModuleExeSource();
+            b = this.ExecuteModuleExeSource();
             if (!b)
             {
                 return false;
@@ -751,7 +751,7 @@ public class LibraryGen : TextAdd
         return true;
     }
 
-    protected virtual bool ExecuteGenModuleExeSource()
+    protected virtual bool ExecuteModuleExeSource()
     {
         Text ka;
         ka = this.TextCreate(this.ModuleExeText);
