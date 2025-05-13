@@ -358,11 +358,8 @@ Int Format_ArgResultString(Int o, Int arg, Int result)
     return true;
 }
 
-Int Format_ResultBool(Int o, Int result, Int value, Int varCase, Int valueWriteCount, Int valueStart, Int valueIndex)
+Int Format_ResultBool(Int o, Int result, Int form, Int value, Int valueWriteCount, Int valueStart, Int valueIndex)
 {
-    Char* dest;
-    dest = CastPointer(result);
-
     Bool valueBool;
     valueBool = value;
 
@@ -374,36 +371,42 @@ Int Format_ResultBool(Int o, Int result, Int value, Int varCase, Int valueWriteC
         source = Format_Var_TrueString;
     }
 
-    char ouc;
-    ouc = 0;
-    Char oc;
-    oc = 0;
-    Int index;
-    index = 0;
+    Char* dest;
+    dest = CastPointer(result);
+
+    Bool baa;
+    baa = (form == null);
+
+    Int formMaide;
+    Int formArg;
+    formMaide = null;
+    formArg = null;
+
+    Format_FormMaide maideA;
+    maideA = null;
+
+    if (!baa)
+    {
+        formMaide = State_MaideGet(form);
+        formArg = State_ArgGet(form);
+        maideA = (Format_FormMaide)formMaide;
+    }
+
     Int count;
     count = valueWriteCount;
     Int i;
     i = 0;
     while (i < count)
     {
-        index = i + valueIndex;
+        Int n;
+        n = source[i + valueIndex];
 
-        ouc = source[index];
-        oc = ouc;
-
-        if (varCase == 1)
+        if (!baa)
         {
-            if (index == 0)
-            {
-                oc = ouc - 'a' + 'A';
-            }
-        }
-        if (varCase == 2)
-        {
-            oc = ouc - 'a' + 'A';
+            n = maideA(formArg, n);
         }
 
-        dest[i + valueStart] = oc;
+        dest[i + valueStart] = n;
 
         i = i + 1;
     }
