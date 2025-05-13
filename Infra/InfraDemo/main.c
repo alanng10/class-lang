@@ -425,10 +425,10 @@ int main(int argc, char* argv[])
     FormatArg_KindSet(formatArg, 1);
     FormatArg_ValueSet(formatArg, 0xf9e74a2);
     FormatArg_AlignLeftSet(formatArg, false);
-    FormatArg_FieldWidthSet(formatArg, 0);
-    FormatArg_MaxWidthSet(formatArg, -1);
+    FormatArg_FieldWidthSet(formatArg, 15);
+    FormatArg_MaxWidthSet(formatArg, 15);
     FormatArg_BaseSet(formatArg, 16);
-    FormatArg_FillCharSet(formatArg, 0);
+    FormatArg_FillCharSet(formatArg, '0');
     FormatArg_FormSet(formatArg, null);
 
     Int formatArgList;
