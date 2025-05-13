@@ -227,17 +227,17 @@ Int Format_ArgResultBool(Int o, Int arg, Int result)
 
 Int Format_ArgResultInt(Int o, Int arg, Int result)
 {
-    FormatArg* oo;
-    oo = CastPointer(arg);
+    FormatArg* argK;
+    argK = CastPointer(arg);
     Int valueCount;
-    valueCount = oo->ValueCount;
+    valueCount = argK->ValueCount;
     Int count;
-    count = oo->Count;
+    count = argK->Count;
     Int value;
-    value = oo->Value;
+    value = argK->Value;
 
     Bool alignLeft;
-    alignLeft = oo->AlignLeft;
+    alignLeft = argK->AlignLeft;
 
     Int fillCount;
     fillCount = 0;
@@ -255,17 +255,17 @@ Int Format_ArgResultInt(Int o, Int arg, Int result)
     }
 
     Int varBase;
-    varBase = oo->Base;
-    Int varCase;
-    varCase = oo->Case;
+    varBase = argK->Base;
     Int fillChar;
-    fillChar = oo->FillChar;
+    fillChar = argK->FillChar;
+    Int form;
+    form = argK->Form;
 
     Int fillStart;
-    fillStart = 0;
     Int valueStart;
-    valueStart = 0;
     Int valueIndex;
+    fillStart = 0;
+    valueStart = 0;
     valueIndex = 0;
 
     Int valueWriteCount;
@@ -285,7 +285,7 @@ Int Format_ArgResultInt(Int o, Int arg, Int result)
         valueIndex = clampCount;
     }
 
-    Format_ResultInt(o, result, value, varBase, varCase, valueCount, valueWriteCount, valueStart, valueIndex);
+    Format_ResultInt(o, result, form, value, varBase, valueCount, valueWriteCount, valueStart, valueIndex);
 
     Format_ResultFill(result, fillStart, fillCount, fillChar);
     return true;
