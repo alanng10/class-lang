@@ -1,6 +1,5 @@
 @echo off
 
-pushd Out\Class
-class SystemDemo-96207.08.47
-echo Status: %errorlevel%
+pushd Out\Class\Module
+SystemDemo-96207.08.47.exe
 popd
