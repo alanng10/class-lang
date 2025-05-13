@@ -644,12 +644,12 @@ Int Format_ExecuteResult(Int o, Int varBase, Int argList, Int result)
 
                 Char* ua;
                 ua = resultU + resultIndex;
-                Int oa;
-                oa = CastInt(ua);
+                Int ka;
+                ka = CastInt(ua);
 
                 Format_ArgResultMaide maide;
                 maide = Format_Var_ArgResultMaideList[kind];
-                maide(o, arg, oa);
+                maide(o, arg, ka);
 
                 resultIndex = resultIndex + countA;
 
