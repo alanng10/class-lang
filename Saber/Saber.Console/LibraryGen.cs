@@ -39,7 +39,7 @@ public class LibraryGen : TextAdd
         this.STxt = this.S("txt");
         this.SModule = this.S("Module");
         this.SImport = this.S("Import");
-        this.SExeHyphen = this.S("Exe-");
+        this.SExe = this.S("Exe");
         this.SMain = this.S("Main");
         return true;
     }
@@ -82,7 +82,7 @@ public class LibraryGen : TextAdd
     protected virtual String STxt { get; set; }
     protected virtual String SModule { get; set; }
     protected virtual String SImport { get; set; }
-    protected virtual String SExeHyphen { get; set; }
+    protected virtual String SExe { get; set; }
     protected virtual String SMain { get; set; }
 
     protected virtual ClassInitGen CreateClassInitGen()
@@ -271,7 +271,7 @@ public class LibraryGen : TextAdd
 
         if (!(this.Module.Entry == null))
         {
-            this.GenModuleExeFoldPath = this.AddClear().Add(genFoldPath).Add(combine).Add(this.SExeHyphen).Add(this.ModuleRefString).AddResult();
+            this.GenModuleExeFoldPath = this.AddClear().Add(genFoldPath).Add(combine).Add(this.SExe).Add(this.ClassInfra.TextHyphen).Add(this.ModuleRefString).AddResult();
 
             b = this.StorageComp.FoldCreate(this.GenModuleExeFoldPath);
 
@@ -756,12 +756,20 @@ public class LibraryGen : TextAdd
         return true;
     }
 
-    protected virtual Program CreateMakeProgramLinux()
+    protected virtual Program CreateMakeProgramLinux(bool exe)
     {
+        String ka;
+        ka = this.TextInfra.Zero;
+
+        if (exe)
+        {
+            ka = this.SExe;
+        }
+
         List list;
         list = new List();
         list.Init();
-        list.Add(this.S("./Make.sh"));
+        list.Add(this.AddClear().AddS("./Make").Add(ka).AddS(".sh"));
         list.Add(this.ModuleRefString);
 
         Program program;
