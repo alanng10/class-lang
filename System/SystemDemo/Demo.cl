@@ -1180,14 +1180,13 @@ class Demo : Add
         var List list;
         list : new List;
         list.Init();
-        list.Add("SystemDemoNetwork-0.00.00");
 
         var Program program;
         program : new Program;
         program.Init();
-        program.Name : "../class.exe";
+        program.Name : "./SystemDemoNetwork-0.00.00.exe";
         program.Argue : list;
-        program.WorkFold : "..";
+        program.WorkFold : null;
         program.Environ : null;
 
         program.Execute();
