@@ -70,7 +70,6 @@ Int Format_ExecuteArgCount(Int o, Int arg)
         }
     }
 
-    oo->HasCount = true;
     oo->ValueCount = valueCount;
     oo->Count = count;
 
