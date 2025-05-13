@@ -701,15 +701,15 @@ public class LibraryGen : TextAdd
 
     protected virtual bool ExecuteGenMakeLib()
     {
-        return this.ExecuteGenMake(false, 60);
+        return this.ExecuteMake(false, 60);
     }
 
     protected virtual bool ExecuteGenMakeExe()
     {
-        return this.ExecuteGenMake(true, 100);
+        return this.ExecuteMake(true, 100);
     }
 
-    protected virtual bool ExecuteGenMake(bool exe, long status)
+    protected virtual bool ExecuteMake(bool exe, long status)
     {
         Program program;
         program = null;
