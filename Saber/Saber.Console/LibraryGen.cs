@@ -66,6 +66,7 @@ public class LibraryGen : TextAdd
     protected virtual Array ClassBaseArray { get; set; }
     protected virtual Array ClassCompArray { get; set; }
     protected virtual String ModuleProjectText { get; set; }
+    protected virtual String ModuleExeText { get; set; }
     protected virtual String GenModuleFoldPath { get; set; }
     protected virtual String ImportArg { get; set; }
     protected virtual ModuleRef ModuleRef { get; set; }
@@ -165,6 +166,13 @@ public class LibraryGen : TextAdd
             return false;
         }
 
+        this.ModuleExeText = this.StorageInfra.TextRead(this.S("Saber.Console.data/ModuleExe.txt"));
+
+        if (this.ModuleExeText == null)
+        {
+            return false;
+        }
+
         return true;
     }
 
@@ -188,7 +196,7 @@ public class LibraryGen : TextAdd
         this.Status = 0;
 
         String genFoldPath;
-        genFoldPath = this.S("Saber.Console.Data/Gen");
+        genFoldPath = this.S("Saber.Console.data/Gen");
 
         String combine;
         combine = this.TextInfra.PathCombine;
