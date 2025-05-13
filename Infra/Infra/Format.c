@@ -147,10 +147,10 @@ Int Format_IntDigitCount(Int o, Int value, Int varBase)
 
 Int Format_ExecuteArgResult(Int o, Int arg, Int result)
 {
-    FormatArg* oo;
-    oo = CastPointer(arg);
+    FormatArg* argK;
+    argK = CastPointer(arg);
     Int kind;
-    kind = oo->Kind;
+    kind = argK->Kind;
     Int resultData;
     resultData = String_ValueGet(result);
 
