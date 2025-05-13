@@ -8,6 +8,8 @@ ImportApi Int #ModuleString#_Count();
 
 Int Execute(Int argc, Int argv)
 {
+    Main_Init(argc, argv);
+
     Int entryModule;
     entryModule = #ModuleString#_Var();
 
