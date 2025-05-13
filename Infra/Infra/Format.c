@@ -2,7 +2,7 @@
 
 InfraClassNew(Format)
 
-#define KindCount 5
+#define KindCount 3
 
 Format_ArgValueCountMaide Format_Var_ArgValueCountMaideList[KindCount] =
 {
