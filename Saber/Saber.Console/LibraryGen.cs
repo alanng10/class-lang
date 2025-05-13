@@ -292,6 +292,14 @@ public class LibraryGen : TextAdd
             {
                 return false;
             }
+
+            b = this.StorageComp.FoldDelete(this.GenModuleExeFoldPath);
+
+            if (!b)
+            {
+                this.Status = 110;
+                return false;
+            }
         }
 
         return true;
