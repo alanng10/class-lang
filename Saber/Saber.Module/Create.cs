@@ -62,7 +62,7 @@ public class Create : ClassCreate
     protected virtual Table RangeTable { get; set; }
     protected virtual Table ClassVirtualTable { get; set; }
     protected virtual ModuleRef ModuleRef { get; set; }
-    protected virtual bool SystemInfraModule { get; set; }
+    protected virtual bool SystemInfra { get; set; }
     protected virtual String SSystemInfra { get; set; }
     protected virtual String SAny { get; set; }
     protected virtual String SBool { get; set; }
@@ -77,7 +77,7 @@ public class Create : ClassCreate
         this.ErrorList = new List();
         this.ErrorList.Init();
 
-        this.SystemInfraModule = this.IsSystemInfraModule();
+        this.SystemInfra = this.IsSystemInfraModule();
 
         this.ExecuteInit();
         this.ExecuteClass();
@@ -99,11 +99,11 @@ public class Create : ClassCreate
         ClassModule k;
         k = null;
 
-        if (this.SystemInfraModule)
+        if (this.SystemInfra)
         {
             k = this.Module;
         }
-        if (!this.SystemInfraModule)
+        if (!this.SystemInfra)
         {
             k = this.ModuleGet(this.SSystemInfra);
         }
