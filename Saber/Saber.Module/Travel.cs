@@ -29,14 +29,16 @@ public class Travel : NodeTravel
         return a;
     }
 
-    protected virtual bool UniqueError(ErrorKind kind, NodeNode node, bool hasAdded)
+    protected virtual bool UniqueError(ErrorKind kind, NodeNode node, bool did)
     {
-        if (!hasAdded)
+        if (!did)
         {
             this.Error(kind, node);
-            hasAdded = true;
+
+            did = true;
         }
-        return hasAdded;
+
+        return did;
     }
 
     protected virtual bool Error(ErrorKind kind, NodeNode node)
