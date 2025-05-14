@@ -18,14 +18,28 @@ public class StateTravel : Travel
 
         this.VarStackIter = new Iter();
         this.VarStackIter.Init();
-        this.ParamIter = new TableIter();
-        this.ParamIter.Init();
-        this.ArgueIter = new ArrayIter();
-        this.ArgueIter.Init();
+        this.ParamIter = this.CreateParamIter();
+        this.ArgueIter = this.CreateArgueIter();
 
         this.SData = this.S("data");
         this.SValue = this.S("value");
         return true;
+    }
+
+    protected virtual TableIter CreateParamIter()
+    {
+        TableIter a;
+        a = new TableIter();
+        a.Init();
+        return a;
+    }
+
+    protected virtual ArrayIter CreateArgueIter()
+    {
+        ArrayIter a;
+        a = new ArrayIter();
+        a.Init();
+        return a;
     }
 
     protected virtual ListInfra ListInfra { get; set; }
