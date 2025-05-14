@@ -7,6 +7,8 @@ class Table : List
         this.Tree.Init();
         this.List : new List;
         this.List.Init();
+
+        this.Count : 0;
         return true;
     }
 
