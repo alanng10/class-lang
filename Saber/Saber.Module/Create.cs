@@ -77,7 +77,7 @@ public class Create : ClassCreate
         this.ErrorList = new List();
         this.ErrorList.Init();
 
-        this.SystemInfra = this.IsSystemInfraModule();
+        this.SystemInfra = this.ModuleSystemInfra();
 
         this.ExecuteInit();
         this.ExecuteClass();
@@ -128,7 +128,7 @@ public class Create : ClassCreate
         return (ClassClass)module.Class.Get(className);
     }
 
-    protected virtual bool IsSystemInfraModule()
+    protected virtual bool ModuleSystemInfra()
     {
         return this.TextSame(this.TA(this.Module.Ref.Name), this.TB(this.SSystemInfra));
     }
