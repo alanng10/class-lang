@@ -62,6 +62,6 @@ public class CountList : Any
 
     public virtual Count Get(long index)
     {
-        return (Count)this.Array.GetAt(index);
+        return this.Array.GetAt(index) as Count;
     }
 }

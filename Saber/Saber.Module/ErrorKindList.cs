@@ -131,6 +131,6 @@ public class ErrorKindList : Any
 
     public virtual ErrorKind Get(long index)
     {
-        return (ErrorKind)this.Array.GetAt(index);
+        return this.Array.GetAt(index) as ErrorKind;
     }
 }

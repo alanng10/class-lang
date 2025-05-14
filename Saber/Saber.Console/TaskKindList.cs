@@ -64,6 +64,6 @@ public class TaskKindList : Any
 
     public virtual TaskKind Get(long index)
     {
-        return (TaskKind)this.Array.GetAt(index);
+        return this.Array.GetAt(index) as TaskKind;
     }
 }

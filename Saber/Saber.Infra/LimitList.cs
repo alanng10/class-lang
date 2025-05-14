@@ -97,6 +97,6 @@ public class LimitList : Any
 
     public virtual Limit Get(long index)
     {
-        return (Limit)this.Array.GetAt(index);
+        return this.Array.GetAt(index) as Limit;
     }
 }

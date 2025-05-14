@@ -107,6 +107,6 @@ public class IndexList : Any
 
     public virtual Index Get(long index)
     {
-        return (Index)this.Array.GetAt(index);
+        return this.Array.GetAt(index) as Index;
     }
 }
