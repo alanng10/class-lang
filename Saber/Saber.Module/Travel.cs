@@ -5,8 +5,8 @@ public class Travel : NodeTravel
     public override bool Init()
     {
         base.Init();
-        this.Count = this.Create.Count;
-        this.ErrorKind = this.Create.ErrorKind;
+        this.Count = CountList.This;
+        this.ErrorKind = ErrorKindList.This;
         this.Module = this.Create.Module;
         return true;
     }
