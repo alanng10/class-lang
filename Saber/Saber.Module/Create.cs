@@ -134,14 +134,6 @@ public class Create : ClassCreate
         return this.TextSame(this.TA(this.Module.Ref.Name), this.TB(this.SSystemInfra));
     }
 
-    public virtual Info CreateInfo()
-    {
-        Info a;
-        a = new Info();
-        a.Init();
-        return a;
-    }
-
     protected virtual bool ExecuteInit()
     {
         Travel travel;
