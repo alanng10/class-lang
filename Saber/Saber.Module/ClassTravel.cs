@@ -51,7 +51,7 @@ public class ClassTravel : Travel
         a.Field = this.ClassInfra.TableCreateStringLess();
         a.Maide = this.ClassInfra.TableCreateStringLess();
         a.Module = this.Module;
-        a.Index = this.Source.Index;
+        a.Index = this.Create.SourceIndex;
         a.Any = nodeClass;
         
         this.ListInfra.TableAdd(this.Module.Class, a.Name, a);
