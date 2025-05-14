@@ -237,7 +237,7 @@ public class LibraryGen : TextAdd
             return false;
         }
 
-        b = this.ExecuteGenClassSource();
+        b = this.ExecuteClassSource();
         if (!b)
         {
             return false;
@@ -428,7 +428,7 @@ public class LibraryGen : TextAdd
         return true;
     }
 
-    protected virtual bool ExecuteGenClassSource()
+    protected virtual bool ExecuteClassSource()
     {
         ClassModule systemInfraModule;
         systemInfraModule = null;
