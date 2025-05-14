@@ -118,14 +118,15 @@ public class Create : ClassCreate
     protected virtual ClassModule ModuleGet(String moduleName)
     {
         this.ModuleRef.Name = moduleName;
+
         ClassModule a;
-        a = (ClassModule)this.ModuleTable.Get(this.ModuleRef);
+        a = this.ModuleTable.Get(this.ModuleRef) as ClassModule;
         return a;
     }
 
     protected virtual ClassClass ModuleClassGet(ClassModule module, String className)
     {
-        return (ClassClass)module.Class.Get(className);
+        return module.Class.Get(className) as ClassClass;
     }
 
     protected virtual bool ModuleSystemInfra()
