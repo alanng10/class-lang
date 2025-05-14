@@ -5,6 +5,8 @@ class List : Any
         base.Init();
         this.NodeRef : new ListNodeRef;
         this.NodeRef.Init();
+
+        this.Count : 0;
         return true;
     }
 
