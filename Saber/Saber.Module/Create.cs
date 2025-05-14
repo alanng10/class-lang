@@ -30,11 +30,11 @@ public class Create : ClassCreate
     public virtual Result Result { get; set; }
     public virtual long SourceIndex { get; set; }
     public virtual System System { get; set; }
-    public virtual ErrorKindList ErrorKind { get; set; }
-    public virtual CountList Count { get; set; }
     public virtual ClassClass NullClass { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
+    protected virtual CountList Count { get; set; }
+    protected virtual ErrorKindList ErrorKind { get; set; }
     protected virtual List ErrorList { get; set; }
     protected virtual Table BaseTable { get; set; }
     protected virtual Table RangeTable { get; set; }
