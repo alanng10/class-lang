@@ -5,10 +5,10 @@ public class ClassGen : TextAdd
     public override bool Init()
     {
         base.Init();
-        this.CountOperate = new CountClassGenOperate();
+        this.CountOperate = new ClassGenCountOperate();
         this.CountOperate.Gen = this;
         this.CountOperate.Init();
-        this.SetOperate = new SetClassGenOperate();
+        this.SetOperate = new ClassGenSetOperate();
         this.SetOperate.Gen = this;
         this.SetOperate.Init();
 
@@ -153,8 +153,8 @@ public class ClassGen : TextAdd
     public virtual GenArg Arg { get; set; }
     public virtual ClassGenOperate Operate { get; set; }
     public virtual String Result { get; set; }
-    public virtual CountClassGenOperate CountOperate { get; set; }
-    public virtual SetClassGenOperate SetOperate { get; set; }
+    public virtual ClassGenCountOperate CountOperate { get; set; }
+    public virtual ClassGenSetOperate SetOperate { get; set; }
     public virtual ClassGenTravel Travel { get; set; }
     public virtual Array StringValue { get; set; }
     public virtual long StringValueIndex { get; set; }
