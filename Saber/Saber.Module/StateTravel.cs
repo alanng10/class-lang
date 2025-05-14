@@ -16,14 +16,21 @@ public class StateTravel : Travel
         this.VarStack = new Stack();
         this.VarStack.Init();
 
-        this.VarStackIter = new Iter();
-        this.VarStackIter.Init();
+        this.VarStackIter = this.CreateVarStackIter();
         this.ParamIter = this.CreateParamIter();
         this.ArgueIter = this.CreateArgueIter();
 
         this.SData = this.S("data");
         this.SValue = this.S("value");
         return true;
+    }
+
+    protected virtual Iter CreateVarStackIter()
+    {
+        Iter a;
+        a = new Iter();
+        a.Init();
+        return a;
     }
 
     protected virtual TableIter CreateParamIter()
