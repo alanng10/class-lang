@@ -11,10 +11,9 @@ public class Create : ClassCreate
         this.ErrorKind = ErrorKindList.This;
 
         this.System = this.CreateSystem();
+        this.NullClass = this.CreateNullClass();
 
         this.ModuleRef = this.ClassInfra.ModuleRefCreate(null, 0);
-
-        this.InitNullClass();
 
         this.SSystemInfra = this.S("System.Infra");
         return true;
@@ -25,6 +24,15 @@ public class Create : ClassCreate
         System a;
         a = new System();
         a.Init();
+        return a;
+    }
+
+    protected virtual ClassClass CreateNullClass()
+    {
+        ClassClass a;
+        a = new ClassClass();
+        a.Init();
+        a.Name = this.S("_");
         return a;
     }
 
@@ -48,16 +56,6 @@ public class Create : ClassCreate
     protected virtual ModuleRef ModuleRef { get; set; }
     protected virtual bool SystemInfraModule { get; set; }
     protected virtual String SSystemInfra { get; set; }
-
-    protected virtual bool InitNullClass()
-    {
-        ClassClass a;
-        a = new ClassClass();
-        a.Init();
-        a.Name = this.S("_");
-        this.NullClass = a;
-        return true;
-    }
 
     public override bool Execute()
     {
