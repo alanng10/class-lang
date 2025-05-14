@@ -6,7 +6,6 @@ public class StateTravel : Travel
     {
         base.Init();
         this.ListInfra = ListInfra.This;
-        this.TextInfra = TextInfra.This;
         this.ClassInfra = ClassInfra.This;
 
         this.System = this.Create.System;
