@@ -27,15 +27,15 @@ public class Stack : List
     {
         get
         {
-            object e;
-            e = this.End;
+            object k;
+            k = this.End;
 
-            if (e == null)
+            if (k == null)
             {
                 return null;
             }
 
-            return this.Get(e);
+            return this.Get(k);
         }
         set
         {
