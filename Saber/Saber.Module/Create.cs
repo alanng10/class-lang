@@ -12,6 +12,7 @@ public class Create : ClassCreate
 
         this.System = this.CreateSystem();
         this.NullClass = this.CreateNullClass();
+        this.ClassTravel = this.CreateClassTravel();
         this.ModuleRef = this.CreateModuleRef();
 
         this.SSystemInfra = this.S("System.Infra");
@@ -39,6 +40,15 @@ public class Create : ClassCreate
         return a;
     }
 
+    protected virtual ClassTravel CreateClassTravel()
+    {
+        ClassTravel a;
+        a = new ClassTravel();
+        a.Create = this;
+        a.Init();
+        return a;
+    }
+
     protected virtual ModuleRef CreateModuleRef()
     {
         return this.ClassInfra.ModuleRefCreate(null, 0);
@@ -57,6 +67,7 @@ public class Create : ClassCreate
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual CountList Count { get; set; }
     protected virtual ErrorKindList ErrorKind { get; set; }
+    protected virtual ClassTravel ClassTravel { get; set; }
     protected virtual List ErrorList { get; set; }
     protected virtual Table BaseTable { get; set; }
     protected virtual Table RangeTable { get; set; }
@@ -153,21 +164,10 @@ public class Create : ClassCreate
 
     protected virtual bool ExecuteClass()
     {
-        Travel travel;
-        travel = this.ClassTravel();
-        this.ExecuteTravel(travel);
+        this.ExecuteTravel(this.ClassTravel);
 
         this.SystemSet();
         return true;
-    }
-
-    protected virtual Travel ClassTravel()
-    {
-        ClassTravel a;
-        a = new ClassTravel();
-        a.Create = this;
-        a.Init();
-        return a;
     }
 
     protected virtual bool ExecuteBase()
