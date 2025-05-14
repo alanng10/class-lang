@@ -8,7 +8,6 @@ public class StateTravel : Travel
         this.ListInfra = ListInfra.This;
         this.TextInfra = TextInfra.This;
         this.ClassInfra = ClassInfra.This;
-        this.TextStringValue = TextStringValue.This;
 
         this.System = this.Create.System;
         this.NullClass = this.Create.NullClass;
@@ -57,7 +56,6 @@ public class StateTravel : Travel
 
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
-    protected virtual TextStringValue TextStringValue { get; set; }
     protected virtual System System { get; set; }
     protected virtual ClassClass NullClass { get; set; }
     protected virtual ClassClass ThisClass { get; set; }
