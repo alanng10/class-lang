@@ -1,6 +1,6 @@
 namespace Saber.Console;
 
-public class SetClassGenOperate : ClassGenOperate
+public class ClassGenSetOperate : ClassGenOperate
 {
     public override bool Init()
     {
