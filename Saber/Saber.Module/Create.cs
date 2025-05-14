@@ -15,6 +15,10 @@ public class Create : ClassCreate
         this.ModuleRef = this.CreateModuleRef();
 
         this.SSystemInfra = this.S("System.Infra");
+        this.SAny = this.S("Any");
+        this.SBool = this.S("Bool");
+        this.SInt = this.S("Int");
+        this.SString = this.S("String");
         return true;
     }
 
@@ -60,6 +64,10 @@ public class Create : ClassCreate
     protected virtual ModuleRef ModuleRef { get; set; }
     protected virtual bool SystemInfraModule { get; set; }
     protected virtual String SSystemInfra { get; set; }
+    protected virtual String SAny { get; set; }
+    protected virtual String SBool { get; set; }
+    protected virtual String SInt { get; set; }
+    protected virtual String SString { get; set; }
 
     public override bool Execute()
     {
@@ -86,24 +94,24 @@ public class Create : ClassCreate
         return true;
     }
 
-    protected virtual bool SystemClassSet()
+    protected virtual bool SystemSet()
     {
-        ClassModule d;
-        d = null;
+        ClassModule k;
+        k = null;
 
         if (this.SystemInfraModule)
         {
-            d = this.Module;
+            k = this.Module;
         }
         if (!this.SystemInfraModule)
         {
-            d = this.ModuleGet(this.SSystemInfra);
+            k = this.ModuleGet(this.SSystemInfra);
         }
 
-        this.System.Any = this.ModuleClassGet(d, this.S("Any"));
-        this.System.Bool = this.ModuleClassGet(d, this.S("Bool"));
-        this.System.Int = this.ModuleClassGet(d, this.S("Int"));
-        this.System.String = this.ModuleClassGet(d, this.S("String"));
+        this.System.Any = this.ModuleClassGet(k, this.SAny);
+        this.System.Bool = this.ModuleClassGet(k, this.SBool);
+        this.System.Int = this.ModuleClassGet(k, this.SInt);
+        this.System.String = this.ModuleClassGet(k, this.SString);
         return true;
     }
 
@@ -156,7 +164,7 @@ public class Create : ClassCreate
         travel = this.ClassTravel();
         this.ExecuteTravel(travel);
 
-        this.SystemClassSet();
+        this.SystemSet();
         return true;
     }
 
