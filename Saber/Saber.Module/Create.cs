@@ -11,8 +11,8 @@ public class Create : ClassCreate
         this.ErrorKind = this.CreateErrorKindList();
         this.Count = this.CreateCountList();
 
-        this.SystemClass = new SystemClass();
-        this.SystemClass.Init();
+        this.System = new System();
+        this.System.Init();
 
         this.ModuleRef = this.ClassInfra.ModuleRefCreate(null, 0);
 
@@ -28,7 +28,7 @@ public class Create : ClassCreate
     public virtual Table ModuleTable { get; set; }
     public virtual Table ImportClass { get; set; }
     public virtual Result Result { get; set; }
-    public virtual SystemClass SystemClass { get; set; }
+    public virtual System System { get; set; }
     public virtual ErrorKindList ErrorKind { get; set; }
     public virtual CountList Count { get; set; }
     public virtual ClassClass NullClass { get; set; }
@@ -91,10 +91,10 @@ public class Create : ClassCreate
             d = this.ModuleGet(this.SSystemInfra);
         }
 
-        this.SystemClass.Any = this.ModuleClassGet(d, this.S("Any"));
-        this.SystemClass.Bool = this.ModuleClassGet(d, this.S("Bool"));
-        this.SystemClass.Int = this.ModuleClassGet(d, this.S("Int"));
-        this.SystemClass.String = this.ModuleClassGet(d, this.S("String"));
+        this.System.Any = this.ModuleClassGet(d, this.S("Any"));
+        this.System.Bool = this.ModuleClassGet(d, this.S("Bool"));
+        this.System.Int = this.ModuleClassGet(d, this.S("Int"));
+        this.System.String = this.ModuleClassGet(d, this.S("String"));
         return true;
     }
 
@@ -193,7 +193,7 @@ public class Create : ClassCreate
             ca = (ClassClass)iter.Value;
 
             long ka;
-            ka = this.ClassInfra.BaseCount(ca, this.SystemClass.Any);
+            ka = this.ClassInfra.BaseCount(ca, this.System.Any);
 
             ca.BaseCount = ka;
         }
@@ -264,7 +264,7 @@ public class Create : ClassCreate
 
         if (b)
         {
-            a = this.SystemClass.Any;
+            a = this.System.Any;
         }
 
         this.ListInfra.TableAdd(this.BaseTable, varClass, a);
@@ -273,8 +273,8 @@ public class Create : ClassCreate
 
     protected virtual bool ValidBase(ClassClass varClass)
     {
-        SystemClass d;
-        d = this.SystemClass;
+        System d;
+        d = this.System;
 
         if (varClass == d.Bool | varClass == d.Int | varClass == d.String)
         {
@@ -286,7 +286,7 @@ public class Create : ClassCreate
     protected virtual bool AddBaseList()
     {
         ClassClass anyClass;
-        anyClass = this.SystemClass.Any;
+        anyClass = this.System.Any;
 
         Iter iter;
         iter = this.BaseTable.IterCreate();
@@ -346,7 +346,7 @@ public class Create : ClassCreate
         baseTable = this.BaseTable;
 
         ClassClass anyClass;
-        anyClass = this.SystemClass.Any;
+        anyClass = this.System.Any;
 
         Table table;
         table = this.ClassInfra.TableCreateRefLess();
@@ -434,7 +434,7 @@ public class Create : ClassCreate
         }
 
         bool b;
-        b = (varClass == this.SystemClass.Any);
+        b = (varClass == this.System.Any);
 
         if (b)
         {
@@ -577,7 +577,7 @@ public class Create : ClassCreate
         }
 
         bool b;
-        b = (varClass == this.SystemClass.Any);
+        b = (varClass == this.System.Any);
 
         if (b)
         {
@@ -607,7 +607,7 @@ public class Create : ClassCreate
         ClassClass varClass;
         varClass = a.Parent;
 
-        if (varClass == this.SystemClass.Any)
+        if (varClass == this.System.Any)
         {
             return true;
         }
@@ -668,7 +668,7 @@ public class Create : ClassCreate
         ClassClass varClass;
         varClass = a.Parent;
 
-        if (varClass == this.SystemClass.Any)
+        if (varClass == this.System.Any)
         {
             return true;
         }
@@ -983,7 +983,7 @@ public class Create : ClassCreate
 
         if (!b)
         {
-            if (!(this.ClassInfra.ValidClass(varClass, entryClass, this.SystemClass.Any, this.NullClass)))
+            if (!(this.ClassInfra.ValidClass(varClass, entryClass, this.System.Any, this.NullClass)))
             {
                 b = true;
             }
@@ -1078,7 +1078,7 @@ public class Create : ClassCreate
 
     public virtual object CompDefined(ClassClass varClass, String name)
     {
-        return this.ClassInfra.CompDefine(varClass, name, this.Module, this.SystemClass.Any);
+        return this.ClassInfra.CompDefine(varClass, name, this.Module, this.System.Any);
     }
 
     protected virtual Source SourceGet(long index)
