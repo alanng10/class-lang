@@ -43,20 +43,20 @@ public class ClassTravel : Travel
             return true;
         }
 
-        ClassClass a;
-        a = new ClassClass();
-        a.Init();
-        a.Name = className;
-        a.Base = null;
-        a.Field = this.ClassInfra.TableCreateStringLess();
-        a.Maide = this.ClassInfra.TableCreateStringLess();
-        a.Module = this.Module;
-        a.Index = this.Create.SourceIndex;
-        a.Any = nodeClass;
+        ClassClass k;
+        k = new ClassClass();
+        k.Init();
+        k.Name = className;
+        k.Base = null;
+        k.Field = this.ClassInfra.TableCreateStringLess();
+        k.Maide = this.ClassInfra.TableCreateStringLess();
+        k.Module = this.Module;
+        k.Index = this.Create.SourceIndex;
+        k.Any = nodeClass;
         
-        this.ListInfra.TableAdd(this.Module.Class, a.Name, a);
+        this.ListInfra.TableAdd(this.Module.Class, k.Name, k);
 
-        this.Info(nodeClass).Class = a;
+        this.Info(nodeClass).Class = k;
         return true;
     }
 }
