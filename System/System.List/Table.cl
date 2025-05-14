@@ -8,7 +8,7 @@ class Table : List
         this.List : new List;
         this.List.Init();
 
-        this.Count : 0;
+        this.Count : this.List.Count;
         return true;
     }
 
