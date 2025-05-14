@@ -254,30 +254,37 @@ public class CompTravel : Travel
         Count a;
         a = null;
 
+        NodeCount k;
+        k = null;
+
         if (a == null)
         {
-            if (nodeCount is PrusateCount)
+            k = nodeCount as PrusateCount;
+            if (!(k == null))
             {
                 a = this.Count.Prusate;
             }
         }
         if (a == null)
         {
-            if (nodeCount is PrecateCount)
+            k = nodeCount as PrecateCount;
+            if (!(k == null))
             {
                 a = this.Count.Precate;
             }
         }
         if (a == null)
         {
-            if (nodeCount is PronateCount)
+            k = nodeCount as PronateCount;
+            if (!(k == null))
             {
                 a = this.Count.Pronate;
             }
         }
         if (a == null)
         {
-            if (nodeCount is PrivateCount)
+            k = nodeCount as PrivateCount;
+            if (!(k == null))
             {
                 a = this.Count.Private;
             }
