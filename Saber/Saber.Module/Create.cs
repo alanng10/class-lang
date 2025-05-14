@@ -12,8 +12,7 @@ public class Create : ClassCreate
 
         this.System = this.CreateSystem();
         this.NullClass = this.CreateNullClass();
-
-        this.ModuleRef = this.ClassInfra.ModuleRefCreate(null, 0);
+        this.ModuleRef = this.CreateModuleRef();
 
         this.SSystemInfra = this.S("System.Infra");
         return true;
@@ -34,6 +33,11 @@ public class Create : ClassCreate
         a.Init();
         a.Name = this.S("_");
         return a;
+    }
+
+    protected virtual ModuleRef CreateModuleRef()
+    {
+        return this.ClassInfra.ModuleRefCreate(null, 0);
     }
 
     public virtual Array Source { get; set; }
