@@ -249,7 +249,7 @@ public class LibraryGen : TextAdd
             return false;
         }
 
-        b = this.ExecuteGenModuleHeaderSource();
+        b = this.ExecuteModuleHeaderSource();
         if (!b)
         {
             return false;
@@ -577,7 +577,7 @@ public class LibraryGen : TextAdd
         return true;
     }
 
-    protected virtual bool ExecuteGenModuleHeaderSource()
+    protected virtual bool ExecuteModuleHeaderSource()
     {
         this.ModuleHeaderGen.Gen = this.ClassGen;
         this.ModuleHeaderGen.Module = this.Module;
