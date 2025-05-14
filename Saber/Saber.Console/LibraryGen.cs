@@ -243,7 +243,7 @@ public class LibraryGen : TextAdd
             return false;
         }
 
-        b = this.ExecuteGenModuleSource();
+        b = this.ExecuteModuleSource();
         if (!b)
         {
             return false;
@@ -542,7 +542,7 @@ public class LibraryGen : TextAdd
         return true;
     }
 
-    protected virtual bool ExecuteGenModuleSource()
+    protected virtual bool ExecuteModuleSource()
     {
         this.ModuleGen.Gen = this.ClassGen;
         this.ModuleGen.Module = this.Module;
