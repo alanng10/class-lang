@@ -841,14 +841,11 @@ public class Create : ClassCreate
 
     protected virtual bool ValidExport(ClassClass varClass)
     {
-        Source source;
-        source = this.SourceGet(varClass.Index);
-
         if (!this.ValidIsExport(varClass.Base))
         {
             NodeClass aa;
             aa = varClass.Any as NodeClass;
-            this.Error(this.ErrorKind.ClassUnexport, aa, source);
+            this.Error(this.ErrorKind.ClassUnexport, aa, varClass.Index);
         }
 
         Iter iter;
@@ -864,7 +861,7 @@ public class Create : ClassCreate
                 {
                     NodeField ab;
                     ab = field.Any as NodeField;
-                    this.Error(this.ErrorKind.FieldUnexport, ab, source);
+                    this.Error(this.ErrorKind.FieldUnexport, ab, varClass.Index);
                 }
             }
         }
@@ -902,7 +899,7 @@ public class Create : ClassCreate
                 {
                     NodeMaide ac;
                     ac = maide.Any as NodeMaide;
-                    this.Error(this.ErrorKind.MaideUnexport, ac, source);
+                    this.Error(this.ErrorKind.MaideUnexport, ac, varClass.Index);
                 }
             }
         }
@@ -994,7 +991,7 @@ public class Create : ClassCreate
         {
             NodeClass k;
             k = varClass.Any as NodeClass;
-            this.Error(this.ErrorKind.EntryUnachieve, k, this.SourceGet(varClass.Index));
+            this.Error(this.ErrorKind.EntryUnachieve, k, varClass.Index);
         }
         return true;
     }
@@ -1010,18 +1007,13 @@ public class Create : ClassCreate
             NodeNode root;
             root = this.RootNode.GetAt(i) as NodeNode;
 
-            Source source;
-            source = this.SourceGet(i);
+            NodeClass nodeClass;
+            nodeClass = root as NodeClass;
 
-            if (!(root == null))
-            {
-                NodeClass nodeClass;
-                nodeClass = root as NodeClass;
+            this.SourceIndex = i;
 
-                this.SourceIndex = i;
+            travel.ExecuteClass(nodeClass);
 
-                travel.ExecuteClass(nodeClass);
-            }
             i = i + 1;
         }
         return true;
@@ -1055,11 +1047,6 @@ public class Create : ClassCreate
     public virtual object CompDefined(ClassClass varClass, String name)
     {
         return this.ClassInfra.CompDefine(varClass, name, this.Module, this.System.Any);
-    }
-
-    protected virtual Source SourceGet(long index)
-    {
-        return this.Source.GetAt(index) as Source;
     }
 
     public virtual bool Error(ErrorKind kind, NodeNode node, long source)
