@@ -5,7 +5,8 @@ public class InitTravel : Travel
     protected override bool ExecuteNode(NodeNode node)
     {
         Info info;
-        info = this.Create.CreateInfo();
+        info = new Info();
+        info.Init();
 
         node.NodeAny = info;
         return true;
