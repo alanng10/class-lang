@@ -7,9 +7,8 @@ public class Create : ClassCreate
         base.Init();
         this.ListInfra = ListInfra.This;
         this.ClassInfra = ClassInfra.This;
-
-        this.ErrorKind = this.CreateErrorKindList();
-        this.Count = this.CreateCountList();
+        this.Count = CountList.This;
+        this.ErrorKind = ErrorKindList.This;
 
         this.System = new System();
         this.System.Init();
@@ -115,16 +114,6 @@ public class Create : ClassCreate
     protected virtual bool IsSystemInfraModule()
     {
         return this.TextSame(this.TA(this.Module.Ref.Name), this.TB(this.SSystemInfra));
-    }
-
-    protected virtual ErrorKindList CreateErrorKindList()
-    {
-        return ErrorKindList.This;
-    }
-
-    protected virtual CountList CreateCountList()
-    {
-        return CountList.This;
     }
 
     public virtual Info CreateInfo()
