@@ -12,7 +12,6 @@ public class Travel : NodeTravel
     }
 
     public virtual Create Create { get; set; }
-    public virtual Source Source { get; set; }
     protected virtual CountList Count { get; set; }
     protected virtual ErrorKindList ErrorKind { get; set; }
     protected virtual ClassModule Module { get; set; }
@@ -43,7 +42,7 @@ public class Travel : NodeTravel
 
     protected virtual bool Error(ErrorKind kind, NodeNode node)
     {
-        this.Create.Error(kind, node, this.Source);
+        this.Create.Error(kind, node, this.Create.SourceIndex);
         return true;
     }
 }

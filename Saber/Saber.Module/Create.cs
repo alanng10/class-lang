@@ -28,6 +28,7 @@ public class Create : ClassCreate
     public virtual Table ModuleTable { get; set; }
     public virtual Table ImportClass { get; set; }
     public virtual Result Result { get; set; }
+    public virtual long SourceIndex { get; set; }
     public virtual System System { get; set; }
     public virtual ErrorKindList ErrorKind { get; set; }
     public virtual CountList Count { get; set; }
@@ -138,7 +139,7 @@ public class Create : ClassCreate
     {
         Travel travel;
         travel = this.InitTravel();
-        this.ExecuteRootTravel(travel);
+        this.ExecuteTravel(travel);
         return true;
     }
 
@@ -155,7 +156,7 @@ public class Create : ClassCreate
     {
         Travel travel;
         travel = this.ClassTravel();
-        this.ExecuteRootTravel(travel);
+        this.ExecuteTravel(travel);
 
         this.SystemClassSet();
         return true;
@@ -246,7 +247,7 @@ public class Create : ClassCreate
         ba = (varBase == null);
         if (ba)
         {
-            this.Error(this.ErrorKind.BaseUndefine, nodeClass, this.SourceGet(varClass.Index));
+            this.Error(this.ErrorKind.BaseUndefine, nodeClass, varClass.Index);
             b = true;
         }
 
@@ -254,7 +255,7 @@ public class Create : ClassCreate
         {
             if (!this.ValidBase(varBase))
             {
-                this.Error(this.ErrorKind.BaseUndefine, nodeClass, this.SourceGet(varClass.Index));
+                this.Error(this.ErrorKind.BaseUndefine, nodeClass, varClass.Index);
                 b = true;
             }
         }
@@ -321,7 +322,7 @@ public class Create : ClassCreate
                 NodeClass nodeClass;
                 nodeClass = varClass.Any as NodeClass;
 
-                this.Error(this.ErrorKind.BaseUndefine, nodeClass, this.SourceGet(varClass.Index));
+                this.Error(this.ErrorKind.BaseUndefine, nodeClass, varClass.Index);
 
                 a = anyClass;
             }
@@ -383,7 +384,7 @@ public class Create : ClassCreate
     {
         Travel travel;
         travel = this.CompTravel();
-        this.ExecuteClassTravel(travel);
+        this.ExecuteTravel(travel);
         return true;
     }
 
@@ -479,7 +480,7 @@ public class Create : ClassCreate
 
             if (!ba)
             {
-                this.Error(this.ErrorKind.FieldUndefine, node, this.SourceGet(varClass.Index));
+                this.Error(this.ErrorKind.FieldUndefine, node, varClass.Index);
             }
 
             if (ba)
@@ -507,7 +508,7 @@ public class Create : ClassCreate
 
             if (!bb)
             {
-                this.Error(this.ErrorKind.MaideUndefine, node, this.SourceGet(varClass.Index));
+                this.Error(this.ErrorKind.MaideUndefine, node, varClass.Index);
             }
 
             if (bb)
@@ -778,7 +779,7 @@ public class Create : ClassCreate
     {
         Travel travel;
         travel = this.StateTravel();
-        this.ExecuteClassTravel(travel);
+        this.ExecuteTravel(travel);
         return true;
     }
 
@@ -998,7 +999,7 @@ public class Create : ClassCreate
         return true;
     }
 
-    protected virtual bool ExecuteRootTravel(Travel travel)
+    protected virtual bool ExecuteTravel(Travel travel)
     {
         long count;
         count = this.Source.Count;
@@ -1016,38 +1017,13 @@ public class Create : ClassCreate
             {
                 NodeClass nodeClass;
                 nodeClass = root as NodeClass;
-                this.ExecuteTravel(travel, nodeClass, source);
+
+                this.SourceIndex = i;
+
+                travel.ExecuteClass(nodeClass);
             }
             i = i + 1;
         }
-        return true;
-    }
-
-    protected virtual bool ExecuteClassTravel(Travel travel)
-    {
-        Table table;
-        table = this.Module.Class;
-        Iter iter;
-        iter = table.IterCreate();
-        table.IterSet(iter);
-        while (iter.Next())
-        {
-            ClassClass varClass;
-            varClass = iter.Value as ClassClass;
-            Source source;
-            source = this.SourceGet(varClass.Index);
-            NodeClass nodeClass;
-            nodeClass = varClass.Any as NodeClass;
-
-            this.ExecuteTravel(travel, nodeClass, source);
-        }
-        return true;
-    }
-
-    protected virtual bool ExecuteTravel(Travel travel, NodeClass nodeClass, Source source)
-    {
-        travel.Source = source;
-        travel.ExecuteClass(nodeClass);
         return true;
     }
 
@@ -1086,7 +1062,7 @@ public class Create : ClassCreate
         return this.Source.GetAt(index) as Source;
     }
 
-    public virtual bool Error(ErrorKind kind, NodeNode node, Source source)
+    public virtual bool Error(ErrorKind kind, NodeNode node, long source)
     {
         Error a;
         a = new Error();
@@ -1094,7 +1070,7 @@ public class Create : ClassCreate
         a.Stage = this.Stage;
         a.Kind = kind;
         a.Range = node.Range;
-        a.Source = source.Index;
+        a.Source = source;
 
         this.ErrorList.Add(a);
         return true;
