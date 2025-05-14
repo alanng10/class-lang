@@ -10,8 +10,7 @@ public class Create : ClassCreate
         this.Count = CountList.This;
         this.ErrorKind = ErrorKindList.This;
 
-        this.System = new System();
-        this.System.Init();
+        this.System = this.CreateSystem();
 
         this.ModuleRef = this.ClassInfra.ModuleRefCreate(null, 0);
 
@@ -19,6 +18,14 @@ public class Create : ClassCreate
 
         this.SSystemInfra = this.S("System.Infra");
         return true;
+    }
+
+    protected virtual System CreateSystem()
+    {
+        System a;
+        a = new System();
+        a.Init();
+        return a;
     }
 
     public virtual Array Source { get; set; }
