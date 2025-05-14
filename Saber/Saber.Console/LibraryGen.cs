@@ -255,7 +255,7 @@ public class LibraryGen : TextAdd
             return false;
         }
 
-        b = this.ExecuteGenImportArg();
+        b = this.ExecuteImportArg();
         if (!b)
         {
             return false;
@@ -612,7 +612,7 @@ public class LibraryGen : TextAdd
         return true;
     }
 
-    protected virtual bool ExecuteGenImportArg()
+    protected virtual bool ExecuteImportArg()
     {
         Array moduleRefStringArray;
         moduleRefStringArray = this.ModuleRefStringArray();
