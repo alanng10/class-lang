@@ -4,4 +4,4 @@ ModuleRef=$1
 
 ClassPath=$(< ClassPath.txt)
 
-rm -f "../$ClassPath/Module/lib$ModuleRef.so" 2>/dev/null
+rm -f "../$ClassPath/lib$ModuleRef.so" 2>/dev/null
