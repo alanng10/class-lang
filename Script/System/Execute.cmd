@@ -1,5 +1,5 @@
 @echo off
 
-pushd Out\Class\Module
+pushd Out\Class
 SystemDemo-96207.08.47.exe
 popd
