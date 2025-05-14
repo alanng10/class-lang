@@ -13,9 +13,7 @@ public class StateTravel : Travel
         this.System = this.Create.System;
         this.NullClass = this.Create.NullClass;
 
-        this.VarStack = new Stack();
-        this.VarStack.Init();
-
+        this.VarStack = this.CreateVarStack();
         this.VarStackIter = this.CreateVarStackIter();
         this.ParamIter = this.CreateParamIter();
         this.ArgueIter = this.CreateArgueIter();
@@ -23,6 +21,14 @@ public class StateTravel : Travel
         this.SData = this.S("data");
         this.SValue = this.S("value");
         return true;
+    }
+
+    protected virtual Stack CreateVarStack()
+    {
+        Stack a;
+        a = new Stack();
+        a.Init();
+        return a;
     }
 
     protected virtual Iter CreateVarStackIter()
