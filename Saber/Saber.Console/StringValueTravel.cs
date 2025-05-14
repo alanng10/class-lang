@@ -7,11 +7,11 @@ public class StringValueTravel : Travel
         base.Init();
         this.ListInfra = ListInfra.This;
 
-        this.CountOperate = new CountStringValueOperate();
+        this.CountOperate = new StringValueCountOperate();
         this.CountOperate.Travel = this;
         this.CountOperate.Init();
 
-        this.SetOperate = new SetStringValueOperate();
+        this.SetOperate = new StringValueSetOperate();
         this.SetOperate.Travel = this;
         this.SetOperate.Init();
         return true;
@@ -23,8 +23,8 @@ public class StringValueTravel : Travel
 
     public virtual Array Array { get; set; }
 
-    public virtual CountStringValueOperate CountOperate { get; set; }
-    public virtual SetStringValueOperate SetOperate { get; set; }
+    public virtual StringValueCountOperate CountOperate { get; set; }
+    public virtual StringValueSetOperate SetOperate { get; set; }
     public virtual StringValueOperate Operate { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
 
