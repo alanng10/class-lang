@@ -19,7 +19,7 @@ public class ClassTravel : Travel
         {
             return true;
         }
-        
+
         ClassName name;
         name = nodeClass.Name;
 
@@ -29,7 +29,7 @@ public class ClassTravel : Travel
         {
             className = name.Value;
         }
-        
+
         if (className == null)
         {
             return true;
