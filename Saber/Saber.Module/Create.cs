@@ -1047,7 +1047,7 @@ public class Create : ClassCreate
         return a;
     }
 
-    public virtual object CompDefine(ClassClass varClass, String name)
+    protected virtual object CompDefine(ClassClass varClass, String name)
     {
         return this.ClassInfra.CompDefine(varClass, name, this.Module, this.System.Any);
     }
