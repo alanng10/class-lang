@@ -771,13 +771,13 @@ public class Create : ClassCreate
             iterA.Next();
             iterB.Next();
 
-            Var aa;
-            Var ab;
-            aa = iterA.Value as Var;
-            ab = iterB.Value as Var;
+            Var ka;
+            Var kb;
+            ka = iterA.Value as Var;
+            kb = iterB.Value as Var;
 
             bool b;
-            b = (aa.Class == ab.Class);
+            b = (ka.Class == kb.Class);
             if (!b)
             {
                 return false;
