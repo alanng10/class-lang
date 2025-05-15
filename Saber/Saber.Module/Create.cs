@@ -517,13 +517,13 @@ public class Create : ClassCreate
         while (iter.Next())
         {
             Maide maide;
-            maide = (Maide)iter.Value;
+            maide = iter.Value as Maide;
 
             bool bb;
             bb = this.ClassInfra.VirtualMaide(maide, this.Module, this.System.Any);
 
             NodeMaide node;
-            node = (NodeMaide)maide.Any;
+            node = maide.Any as NodeMaide;
 
             if (!bb)
             {
