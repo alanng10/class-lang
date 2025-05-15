@@ -494,7 +494,7 @@ public class Create : ClassCreate
             field = iter.Value as Field;
 
             bool ba;
-            ba = this.ClassInfra.VirtualField(field, this.Module, this.System.Any);
+            ba = this.ClassInfra.VirtualField(field, this.System.Any);
 
             NodeField node;
             node = field.Any as NodeField;
@@ -522,7 +522,7 @@ public class Create : ClassCreate
             maide = iter.Value as Maide;
 
             bool bb;
-            bb = this.ClassInfra.VirtualMaide(maide, this.Module, this.System.Any);
+            bb = this.ClassInfra.VirtualMaide(maide, this.System.Any);
 
             NodeMaide node;
             node = maide.Any as NodeMaide;
