@@ -624,7 +624,7 @@ public class Create : ClassCreate
         }
 
         object ka;
-        ka = this.VirtualDefine(varClass.Base, a.Name);
+        ka = this.PrivateVirtualDefine(varClass.Base, a.Name);
 
         if (ka == null)
         {
@@ -687,7 +687,7 @@ public class Create : ClassCreate
         }
 
         object ka;
-        ka = this.VirtualDefine(varClass.Base, a.Name);
+        ka = this.PrivateVirtualDefine(varClass.Base, a.Name);
 
         if (ka == null)
         {
@@ -1035,7 +1035,7 @@ public class Create : ClassCreate
         return a;
     }
 
-    protected virtual object VirtualDefine(ClassClass varClass, String name)
+    private object PrivateVirtualDefine(ClassClass varClass, String name)
     {
         return this.ClassInfra.VirtualDefine(varClass, name, this.Module, this.System.Any);
     }
