@@ -687,12 +687,6 @@ public class ModuleLoad : TextAdd
 
     protected virtual bool VirtualClassFieldSet(ClassClass varClass)
     {
-        ClassInfra classInfra;
-        classInfra = this.ClassInfra;
-
-        ClassClass anyClass;
-        anyClass = this.AnyClass;
-
         Iter iter;
         iter = varClass.Field.IterCreate();
         varClass.Field.IterSet(iter);
@@ -702,58 +696,13 @@ public class ModuleLoad : TextAdd
             Field a;
             a = iter.Value as Field;
 
-            Field k;
-            k = null;
-
-            object kk;
-            kk = classInfra.VirtualDefine(varClass.Base, a.Name, this.Module, anyClass);
-            if (!(kk == null))
-            {
-                if (!(kk is Field))
-                {
-                    return false;
-                }
-
-                k = kk as Field;
-            }
-
-            bool ba;
-            ba = (k == null);
-
-            if (!ba)
-            {
-                if (!(a.Count == k.Count))
-                {
-                    return false;
-                }
-
-                if (!(a.Class == k.Class))
-                {
-                    return false;
-                }
-            }
-
-            if (!ba)
-            {
-                if (!(k.Virtual == null))
-                {
-                    k = k.Virtual;
-                }
-            }
-
-            a.Virtual = k;
+            this.ClassInfra.VirtualField(a, this.AnyClass);
         }
         return true;
     }
 
     protected virtual bool VirtualClassMaideSet(ClassClass varClass)
     {
-        ClassInfra classInfra;
-        classInfra = this.ClassInfra;
-
-        ClassClass anyClass;
-        anyClass = this.AnyClass;
-
         Iter iter;
         iter = varClass.Maide.IterCreate();
         varClass.Maide.IterSet(iter);
@@ -763,51 +712,7 @@ public class ModuleLoad : TextAdd
             Maide a;
             a = iter.Value as Maide;
 
-            Maide k;
-            k = null;
-
-            object kk;
-            kk = classInfra.VirtualDefine(varClass.Base, a.Name, this.Module, anyClass);
-            if (!(kk == null))
-            {
-                if (!(kk is Maide))
-                {
-                    return false;
-                }
-
-                k = kk as Maide;
-            }
-
-            bool ba;
-            ba = (k == null);
-
-            if (!ba)
-            {
-                if (!(a.Count == k.Count))
-                {
-                    return false;
-                }
-
-                if (!(a.Class == k.Class))
-                {
-                    return false;
-                }
-
-                if (!this.ValidVirtualMaideParam(a.Param, k.Param))
-                {
-                    return false;
-                }
-            }
-
-            if (!ba)
-            {
-                if (!(k.Virtual == null))
-                {
-                    k = k.Virtual;
-                }
-            }
-
-            a.Virtual = k;
+            this.ClassInfra.VirtualMaide(a, this.AnyClass);
         }
         return true;
     }
