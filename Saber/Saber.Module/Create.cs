@@ -689,7 +689,7 @@ public class Create : ClassCreate
         }
 
         Maide k;
-        k = (Maide)ka;
+        k = ka as Maide;
 
         bool b;
         b = false;
