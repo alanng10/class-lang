@@ -340,7 +340,7 @@ public class Infra : Any
         }
 
         object ka;
-        ka = this.ClassInfra.VirtualDefine(varClass.Base, a.Name, this.Module, this.System.Any);
+        ka = this.VirtualDefine(varClass.Base, a.Name, this.Module, this.System.Any);
 
         if (ka == null)
         {
@@ -401,7 +401,7 @@ public class Infra : Any
         }
 
         object ka;
-        ka = this.ClassInfra.VirtualDefine(varClass.Base, a.Name, this.Module, this.System.Any);
+        ka = this.VirtualDefine(varClass.Base, a.Name, this.Module, this.System.Any);
 
         if (ka == null)
         {
