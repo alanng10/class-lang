@@ -1267,6 +1267,11 @@ public class StateTravel : Travel
 
     protected virtual Field Field(ClassClass varClass, String name)
     {
+        if (varClass == this.NullClass)
+        {
+            return null;
+        }
+
         Field field;
         field = this.ClassInfra.Field(varClass, name, this.System.Any);
 
@@ -1280,6 +1285,11 @@ public class StateTravel : Travel
 
     protected virtual Maide Maide(ClassClass varClass, String name)
     {
+        if (varClass == this.NullClass)
+        {
+            return null;
+        }
+
         Maide maide;
         maide = this.ClassInfra.Maide(varClass, name, this.System.Any);
 
