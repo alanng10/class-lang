@@ -390,7 +390,7 @@ public class Infra : Any
         return true;
     }
 
-    public virtual bool VirtualMaide(Maide a, Module module, Class anyClass)
+    public virtual bool VirtualMaide(Maide a, Class anyClass)
     {
         Class varClass;
         varClass = a.Parent;
@@ -401,7 +401,7 @@ public class Infra : Any
         }
 
         object ka;
-        ka = this.VirtualDefine(varClass.Base, a.Name, module, anyClass);
+        ka = this.Comp(varClass.Base, a.Name, anyClass);
 
         if (ka == null)
         {
@@ -412,6 +412,19 @@ public class Infra : Any
         k = ka as Maide;
 
         if (k == null)
+        {
+            return false;
+        }
+
+        if (k.Count == this.CountList.Pronate)
+        {
+            if (!(varClass.Module == k.Parent.Module))
+            {
+                return false;
+            }
+        }
+
+        if (k.Count == this.CountList.Private)
         {
             return false;
         }
