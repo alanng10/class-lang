@@ -329,7 +329,7 @@ public class Infra : Any
         return true;
     }
 
-    public virtual object CompDefine(Class varClass, String name, Module module, Class anyClass)
+    public virtual object VirtualDefine(Class varClass, String name, Module module, Class anyClass)
     {
         Count prusateCount;
         Count precateCount;

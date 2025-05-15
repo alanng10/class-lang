@@ -706,7 +706,7 @@ public class ModuleLoad : TextAdd
             k = null;
 
             object kk;
-            kk = classInfra.CompDefine(varClass.Base, a.Name, this.Module, anyClass);
+            kk = classInfra.VirtualDefine(varClass.Base, a.Name, this.Module, anyClass);
             if (!(kk == null))
             {
                 if (!(kk is Field))
@@ -767,7 +767,7 @@ public class ModuleLoad : TextAdd
             k = null;
 
             object kk;
-            kk = classInfra.CompDefine(varClass.Base, a.Name, this.Module, anyClass);
+            kk = classInfra.VirtualDefine(varClass.Base, a.Name, this.Module, anyClass);
             if (!(kk == null))
             {
                 if (!(kk is Maide))

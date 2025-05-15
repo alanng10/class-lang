@@ -1037,7 +1037,7 @@ public class Create : ClassCreate
 
     protected virtual object CompDefine(ClassClass varClass, String name)
     {
-        return this.ClassInfra.CompDefine(varClass, name, this.Module, this.System.Any);
+        return this.ClassInfra.VirtualDefine(varClass, name, this.Module, this.System.Any);
     }
 
     public virtual bool Error(ErrorKind kind, NodeNode node, long source)
