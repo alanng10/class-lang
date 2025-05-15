@@ -242,16 +242,25 @@ public class Infra : Any
         return k;
     }
 
-    public virtual bool CompDefine(Class varClass, String name)
+    public virtual object CompDefine(Class varClass, String name)
     {
-        bool ba;
-        ba = varClass.Field.Valid(name);
-        bool bb;
-        bb = varClass.Maide.Valid(name);
+        Field field;
+        field = varClass.Field.Get(name) as Field;
 
-        bool a;
-        a = ba | bb;
-        return a;
+        Maide maide;
+        maide = varClass.Maide.Get(name) as Maide;
+
+        if (!(field == null))
+        {
+            return field;
+        }
+
+        if (!(maide == null))
+        {
+            return maide;
+        }
+
+        return null;
     }
 
     public virtual bool ValidClass(Class varClass, Class requireClass, Class anyClass, Class nullClass)
