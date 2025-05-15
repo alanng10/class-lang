@@ -273,10 +273,10 @@ public class Create : ClassCreate
 
     protected virtual bool ValidBase(ClassClass varClass)
     {
-        System d;
-        d = this.System;
+        System k;
+        k = this.System;
 
-        if (varClass == d.Bool | varClass == d.Int | varClass == d.String)
+        if (varClass == k.Bool | varClass == k.Int | varClass == k.String)
         {
             return false;
         }
