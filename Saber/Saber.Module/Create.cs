@@ -1035,7 +1035,7 @@ public class Create : ClassCreate
         return a;
     }
 
-    public virtual bool MemberNameDefined(ClassClass varClass, String name)
+    public virtual bool MemberNameDefine(ClassClass varClass, String name)
     {
         bool ba;
         ba = varClass.Field.Valid(name);
