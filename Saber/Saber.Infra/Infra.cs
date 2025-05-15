@@ -320,7 +320,7 @@ public class Infra : Any
 
         if (count == countList.Private)
         {
-            if (thisClass == triggClass)
+            if (thisClass == triggClass & triggClass == varClass)
             {
                 return true;
             }
