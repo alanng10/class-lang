@@ -631,15 +631,13 @@ public class Create : ClassCreate
             return true;
         }
 
-        Maide kb;
-        kb = ka as Maide;
-        if (!(kb == null))
+        Field k;
+        k = ka as Field;
+
+        if (k == null)
         {
             return false;
         }
-
-        Field k;
-        k = ka as Field;
 
         bool b;
         b = false;
