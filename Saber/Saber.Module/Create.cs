@@ -189,13 +189,13 @@ public class Create : ClassCreate
         this.Module.Class.IterSet(iter);
         while (iter.Next())
         {
-            ClassClass ca;
-            ca = (ClassClass)iter.Value;
+            ClassClass k;
+            k = iter.Value as ClassClass;
 
             long ka;
-            ka = this.ClassInfra.BaseCount(ca, this.System.Any);
+            ka = this.ClassInfra.BaseCount(k, this.System.Any);
 
-            ca.BaseCount = ka;
+            k.BaseCount = ka;
         }
 
         return true;
