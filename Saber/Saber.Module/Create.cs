@@ -626,7 +626,7 @@ public class Create : ClassCreate
         }
 
         Field k;
-        k = (Field)ka;
+        k = ka as Field;
 
         bool b;
         b = false;
