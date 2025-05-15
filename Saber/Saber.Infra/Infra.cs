@@ -501,6 +501,28 @@ public class Infra : Any
         return true;
     }
 
+    public virtual Field Field(Class varClass, String name, Class anyClass)
+    {
+        object kk;
+        kk = this.Comp(varClass, name, anyClass);
+
+        Field k;
+        k = kk as Field;
+
+        return k;
+    }
+
+    public virtual Maide Maide(Class varClass, String name, Class anyClass)
+    {
+        object kk;
+        kk = this.Comp(varClass, name, anyClass);
+
+        Maide k;
+        k = kk as Maide;
+
+        return k;
+    }
+
     public virtual object Comp(Class varClass, String name, Class anyClass)
     {
         Class k;
