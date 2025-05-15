@@ -620,7 +620,9 @@ public class Create : ClassCreate
             return true;
         }
 
-        if (ka is Maide)
+        Maide kb;
+        kb = ka as Maide;
+        if (!(kb == null))
         {
             return false;
         }
