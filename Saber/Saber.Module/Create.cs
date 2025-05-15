@@ -683,7 +683,9 @@ public class Create : ClassCreate
             return true;
         }
 
-        if (ka is Field)
+        Field kb;
+        kb = ka as Field;
+        if (!(kb == null))
         {
             return false;
         }
