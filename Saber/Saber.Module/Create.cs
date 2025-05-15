@@ -1035,11 +1035,6 @@ public class Create : ClassCreate
         return a;
     }
 
-    private object PrivateVirtualDefine(ClassClass varClass, String name)
-    {
-        return this.ClassInfra.VirtualDefine(varClass, name, this.Module, this.System.Any);
-    }
-
     public virtual bool Error(ErrorKind kind, NodeNode node, long source)
     {
         Error a;
