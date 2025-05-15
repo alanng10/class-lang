@@ -751,7 +751,7 @@ public class ModuleLoad : TextAdd
         b = (classArray.ValidAt(index));
         if (b)
         {
-            a = (ClassClass)classArray.GetAt(index);
+            a = classArray.GetAt(index) as ClassClass;
         }
         if (!b)
         {
@@ -761,7 +761,7 @@ public class ModuleLoad : TextAdd
             {
                 return null;
             }
-            a = (ClassClass)this.ImportArray.GetAt(oa);
+            a = this.ImportArray.GetAt(oa) as ClassClass;
         }
         return a;
     }
