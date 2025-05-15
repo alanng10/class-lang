@@ -567,20 +567,12 @@ public class Infra : Any
 
         while (!(k == null))
         {
-            Field field;
-            field = k.Field.Get(name) as Field;
+            object kk;
+            kk = this.CompDefine(k, name);
 
-            Maide maide;
-            maide = k.Maide.Get(name) as Maide;
-
-            if (!(field == null))
+            if (!(kk == null))
             {
-                return field;
-            }
-
-            if (!(maide == null))
-            {
-                return maide;
+                return kk;
             }
 
             Class kd;
