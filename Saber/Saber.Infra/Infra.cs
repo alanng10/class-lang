@@ -447,7 +447,7 @@ public class Infra : Any
 
         if (!b)
         {
-            if (!this.VarSameClass(a.Param, k.Param))
+            if (!this.VirtualParam(a.Param, k.Param))
             {
                 b = true;
             }
@@ -487,7 +487,7 @@ public class Infra : Any
         return true;
     }
 
-    public virtual bool VarSameClass(Table varA, Table varB)
+    public virtual bool VirtualParam(Table varA, Table varB)
     {
         if (!(varA.Count == varB.Count))
         {
