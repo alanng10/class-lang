@@ -489,13 +489,13 @@ public class Create : ClassCreate
         while (iter.Next())
         {
             Field field;
-            field = (Field)iter.Value;
+            field = iter.Value as Field;
 
             bool ba;
             ba = this.ClassInfra.VirtualField(field, this.Module, this.System.Any);
 
             NodeField node;
-            node = (NodeField)field.Any;
+            node = field.Any as NodeField;
 
             if (!ba)
             {
