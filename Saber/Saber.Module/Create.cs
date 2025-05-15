@@ -14,6 +14,7 @@ public class Create : ClassCreate
         this.NullClass = this.CreateNullClass();
         this.InitTravel = this.CreateInitTravel();
         this.ClassTravel = this.CreateClassTravel();
+        this.CompTravel = this.CreateCompTravel();
         this.ModuleRef = this.CreateModuleRef();
 
         this.SSystemInfra = this.S("System.Infra");
@@ -59,6 +60,15 @@ public class Create : ClassCreate
         return a;
     }
 
+    protected virtual CompTravel CreateCompTravel()
+    {
+        CompTravel a;
+        a = new CompTravel();
+        a.Create = this;
+        a.Init();
+        return a;
+    }
+
     protected virtual ModuleRef CreateModuleRef()
     {
         return this.ClassInfra.ModuleRefCreate(null, 0);
@@ -79,6 +89,7 @@ public class Create : ClassCreate
     protected virtual ErrorKindList ErrorKind { get; set; }
     protected virtual InitTravel InitTravel { get; set; }
     protected virtual ClassTravel ClassTravel { get; set; }
+    protected virtual CompTravel CompTravel { get; set; }
     protected virtual List ErrorList { get; set; }
     protected virtual Table BaseTable { get; set; }
     protected virtual Table RangeTable { get; set; }
@@ -381,9 +392,7 @@ public class Create : ClassCreate
 
     protected virtual bool ExecuteComp()
     {
-        Travel travel;
-        travel = this.CompTravel();
-        this.ExecuteTravel(travel);
+        this.ExecuteTravel(this.CompTravel);
         return true;
     }
 
@@ -528,15 +537,6 @@ public class Create : ClassCreate
     public virtual Info Info(NodeNode node)
     {
         return (Info)node.NodeAny;
-    }
-
-    protected virtual Travel CompTravel()
-    {
-        CompTravel a;
-        a = new CompTravel();
-        a.Create = this;
-        a.Init();
-        return a;
     }
 
     protected virtual bool ClassRangeSet()
