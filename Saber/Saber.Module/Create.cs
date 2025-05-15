@@ -514,6 +514,14 @@ public class Create : ClassCreate
             }
         }
 
+        Iter iterA;
+        iterA = new TableIter();
+        iterA.Init();
+
+        Iter iterB;
+        iterB = new TableIter();
+        iterB.Init();
+
         iter = varClass.Maide.IterCreate();
         varClass.Maide.IterSet(iter);
         while (iter.Next())
@@ -522,7 +530,7 @@ public class Create : ClassCreate
             maide = iter.Value as Maide;
 
             bool bb;
-            bb = this.ClassInfra.VirtualMaide(maide, this.System.Any);
+            bb = this.ClassInfra.VirtualMaide(maide, this.System.Any, iterA, iterB);
 
             NodeMaide node;
             node = maide.Any as NodeMaide;
