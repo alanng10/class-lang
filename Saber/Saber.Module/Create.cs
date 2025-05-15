@@ -536,7 +536,7 @@ public class Create : ClassCreate
 
     public virtual Info Info(NodeNode node)
     {
-        return (Info)node.NodeAny;
+        return node.NodeAny as Info;
     }
 
     protected virtual bool ClassRangeSet()
