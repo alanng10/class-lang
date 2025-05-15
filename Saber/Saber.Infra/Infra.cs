@@ -242,7 +242,7 @@ public class Infra : Any
         return k;
     }
 
-    public virtual bool MemberNameDefine(Class varClass, String name)
+    public virtual bool CompDefine(Class varClass, String name)
     {
         bool ba;
         ba = varClass.Field.Valid(name);
