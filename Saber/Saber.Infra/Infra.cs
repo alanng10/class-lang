@@ -604,6 +604,24 @@ public class Infra : Any
         return field;
     }
 
+    public virtual Maide MaideTrigg(Class varClass, String name, Class thisClass, Class anyClass, Class nullClass)
+    {
+        if (varClass == nullClass)
+        {
+            return null;
+        }
+
+        Maide maide;
+        maide = this.Maide(varClass, name, anyClass);
+
+        if (!this.ValidCount(thisClass, varClass, maide.Parent, maide.Count, anyClass, nullClass))
+        {
+            return null;
+        }
+
+        return maide;
+    }
+
     public virtual String ClassModulePath(String classPath)
     {
         return classPath;
