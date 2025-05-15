@@ -536,7 +536,7 @@ public class Console : TextAdd
         this.LibraryGen.ModuleRefString = moduleRefString;
         this.LibraryGen.ModuleTable = this.ModuleTable;
         this.LibraryGen.ImportClass = this.ImportClass;
-        this.LibraryGen.SystemClass = this.Create.Module.SystemClass;
+        this.LibraryGen.SystemClass = this.Create.Module.System;
         this.LibraryGen.ClassPath = this.ClassPath;
 
         bool bb;
