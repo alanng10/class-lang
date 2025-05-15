@@ -776,7 +776,7 @@ public class ModuleLoad : TextAdd
     protected virtual ClassClass ModuleClassGet(ClassModule module, String className)
     {
         ClassClass a;
-        a = (ClassClass)module.Class.Get(className);
+        a = module.Class.Get(className) as ClassClass;
         return a;
     }
 
