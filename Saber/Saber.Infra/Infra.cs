@@ -416,15 +416,7 @@ public class Infra : Any
             return false;
         }
 
-        if (k.Count == this.CountList.Pronate)
-        {
-            if (!(varClass.Module == k.Parent.Module))
-            {
-                return false;
-            }
-        }
-
-        if (k.Count == this.CountList.Private)
+        if (!this.VirtualCount(varClass.Module, k.Count, k.Parent.Module))
         {
             return false;
         }
@@ -469,6 +461,24 @@ public class Infra : Any
         }
 
         a.Virtual = h;
+        return true;
+    }
+
+    public virtual bool VirtualCount(Module thisModule, Count count, Module module)
+    {
+        if (count == this.CountList.Pronate)
+        {
+            if (!(thisModule == module))
+            {
+                return false;
+            }
+        }
+
+        if (count == this.CountList.Private)
+        {
+            return false;
+        }
+
         return true;
     }
 
