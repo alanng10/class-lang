@@ -242,6 +242,18 @@ public class Infra : Any
         return k;
     }
 
+    public virtual bool MemberNameDefine(Class varClass, String name)
+    {
+        bool ba;
+        ba = varClass.Field.Valid(name);
+        bool bb;
+        bb = varClass.Maide.Valid(name);
+
+        bool a;
+        a = ba | bb;
+        return a;
+    }
+
     public virtual bool ValidClass(Class varClass, Class requireClass, Class anyClass, Class nullClass)
     {
         Class k;
