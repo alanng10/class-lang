@@ -7,14 +7,12 @@ public class Travel : NodeTravel
         base.Init();
         this.Count = CountList.This;
         this.ErrorKind = ErrorKindList.This;
-        this.Module = this.Create.Module;
         return true;
     }
 
     public virtual Create Create { get; set; }
     protected virtual CountList Count { get; set; }
     protected virtual ErrorKindList ErrorKind { get; set; }
-    protected virtual ClassModule Module { get; set; }
 
     protected virtual Info Info(NodeNode node)
     {
