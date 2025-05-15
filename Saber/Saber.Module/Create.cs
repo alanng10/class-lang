@@ -624,7 +624,7 @@ public class Create : ClassCreate
         }
 
         object ka;
-        ka = this.CompDefined(varClass.Base, a.Name);
+        ka = this.CompDefine(varClass.Base, a.Name);
 
         if (ka == null)
         {
@@ -687,7 +687,7 @@ public class Create : ClassCreate
         }
 
         object ka;
-        ka = this.CompDefined(varClass.Base, a.Name);
+        ka = this.CompDefine(varClass.Base, a.Name);
 
         if (ka == null)
         {
@@ -1047,7 +1047,7 @@ public class Create : ClassCreate
         return a;
     }
 
-    public virtual object CompDefined(ClassClass varClass, String name)
+    public virtual object CompDefine(ClassClass varClass, String name)
     {
         return this.ClassInfra.CompDefine(varClass, name, this.Module, this.System.Any);
     }
