@@ -586,6 +586,24 @@ public class Infra : Any
         return null;
     }
 
+    public virtual Field FieldTrigg(Class varClass, String name, Class thisClass, Class anyClass, Class nullClass)
+    {
+        if (varClass == nullClass)
+        {
+            return null;
+        }
+
+        Field field;
+        field = this.Field(varClass, name, anyClass);
+
+        if (!this.ValidCount(thisClass, varClass, field.Parent, field.Count, anyClass, nullClass))
+        {
+            return null;
+        }
+
+        return field;
+    }
+
     public virtual String ClassModulePath(String classPath)
     {
         return classPath;
