@@ -393,14 +393,14 @@ public class Infra : Any
             return false;
         }
 
-        Field h;
-        h = k;
+        Field kd;
+        kd = k;
         if (!(k.Virtual == null))
         {
-            h = k.Virtual;
+            kd = k.Virtual;
         }
 
-        a.Virtual = h;
+        a.Virtual = kd;
         return true;
     }
 
