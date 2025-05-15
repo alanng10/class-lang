@@ -329,7 +329,7 @@ public class Infra : Any
         return true;
     }
 
-    public virtual bool VirtualField(Field a, Module module, Class anyClass)
+    public virtual bool VirtualField(Field a, Class anyClass)
     {
         Class varClass;
         varClass = a.Parent;
@@ -340,7 +340,7 @@ public class Infra : Any
         }
 
         object ka;
-        ka = this.VirtualDefine(varClass.Base, a.Name, module, anyClass);
+        ka = this.Comp(varClass.Base, a.Name, anyClass);
 
         if (ka == null)
         {
@@ -351,6 +351,11 @@ public class Infra : Any
         k = ka as Field;
 
         if (k == null)
+        {
+            return false;
+        }
+
+        if (!this.VirtualCount(varClass.Module, k.Count, k.Parent.Module))
         {
             return false;
         }
