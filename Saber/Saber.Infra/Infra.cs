@@ -390,18 +390,18 @@ public class Infra : Any
         return true;
     }
 
-    public virtual bool VirtualMaide(Maide a)
+    public virtual bool VirtualMaide(Maide a, Module module, Class anyClass)
     {
         Class varClass;
         varClass = a.Parent;
 
-        if (varClass == this.System.Any)
+        if (varClass == anyClass)
         {
             return true;
         }
 
         object ka;
-        ka = this.VirtualDefine(varClass.Base, a.Name, this.Module, this.System.Any);
+        ka = this.VirtualDefine(varClass.Base, a.Name, module, anyClass);
 
         if (ka == null)
         {
