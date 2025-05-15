@@ -520,7 +520,7 @@ public class Create : ClassCreate
             maide = (Maide)iter.Value;
 
             bool bb;
-            bb = this.VirtualMaide(maide);
+            bb = this.ClassInfra.VirtualMaide(maide, this.Module, this.System.Any);
 
             NodeMaide node;
             node = (NodeMaide)maide.Any;
