@@ -703,6 +703,14 @@ public class ModuleLoad : TextAdd
 
     protected virtual bool VirtualClassMaideSet(ClassClass varClass)
     {
+        Iter iterA;
+        iterA = new TableIter();
+        iterA.Init();
+
+        Iter iterB;
+        iterB = new TableIter();
+        iterB.Init();
+
         Iter iter;
         iter = varClass.Maide.IterCreate();
         varClass.Maide.IterSet(iter);
@@ -712,7 +720,7 @@ public class ModuleLoad : TextAdd
             Maide a;
             a = iter.Value as Maide;
 
-            this.ClassInfra.VirtualMaide(a, this.AnyClass);
+            this.ClassInfra.VirtualMaide(a, this.AnyClass, iterA, iterB);
         }
         return true;
     }
