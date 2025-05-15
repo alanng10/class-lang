@@ -1267,20 +1267,7 @@ public class StateTravel : Travel
 
     protected virtual Field Field(ClassClass varClass, String name)
     {
-        if (varClass == this.NullClass)
-        {
-            return null;
-        }
-
-        Field field;
-        field = this.ClassInfra.Field(varClass, name, this.System.Any);
-
-        if (!this.ClassInfra.ValidCount(this.ThisClass, varClass, field.Parent, field.Count, this.System.Any, this.NullClass))
-        {
-            return null;
-        }
-
-        return field;
+        return this.ClassInfra.FieldTrigg(varClass, name, this.ThisClass, this.System.Any, this.NullClass);
     }
 
     protected virtual Maide Maide(ClassClass varClass, String name)
