@@ -624,7 +624,7 @@ public class Create : ClassCreate
         }
 
         object ka;
-        ka = this.PrivateVirtualDefine(varClass.Base, a.Name);
+        ka = this.ClassInfra.VirtualDefine(varClass.Base, a.Name, this.Module, this.System.Any);
 
         if (ka == null)
         {
