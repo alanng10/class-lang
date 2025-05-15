@@ -404,7 +404,7 @@ public class Infra : Any
         return true;
     }
 
-    public virtual bool VirtualMaide(Maide a, Class anyClass)
+    public virtual bool VirtualMaide(Maide a, Class anyClass, Iter iterA, Iter iterB)
     {
         Class varClass;
         varClass = a.Parent;
@@ -456,7 +456,7 @@ public class Infra : Any
 
         if (!b)
         {
-            if (!this.VirtualParam(a.Param, k.Param))
+            if (!this.VirtualParam(a.Param, k.Param, iterA, iterB))
             {
                 b = true;
             }
@@ -496,19 +496,15 @@ public class Infra : Any
         return true;
     }
 
-    public virtual bool VirtualParam(Table varA, Table varB)
+    public virtual bool VirtualParam(Table varA, Table varB, Iter iterA, Iter iterB)
     {
         if (!(varA.Count == varB.Count))
         {
             return false;
         }
 
-        Iter iterA;
-        iterA = varA.IterCreate();
         varA.IterSet(iterA);
 
-        Iter iterB;
-        iterB = varB.IterCreate();
         varB.IterSet(iterB);
 
         long count;
@@ -534,6 +530,9 @@ public class Infra : Any
 
             i = i + 1;
         }
+
+        iterA.Clear();
+        iterB.Clear();
 
         return true;
     }
