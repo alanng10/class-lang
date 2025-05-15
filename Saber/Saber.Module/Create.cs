@@ -18,6 +18,8 @@ public class Create : ClassCreate
         this.StateTravel = this.CreateStateTravel();
         this.ModuleRef = this.CreateModuleRef();
 
+        this.SourceIndex = -1;
+
         this.SSystemInfra = this.S("System.Infra");
         this.SAny = this.S("Any");
         this.SBool = this.S("Bool");
@@ -840,6 +842,8 @@ public class Create : ClassCreate
             this.SourceIndex = i;
 
             travel.ExecuteClass(nodeClass);
+
+            this.SourceIndex = -1;
 
             i = i + 1;
         }
