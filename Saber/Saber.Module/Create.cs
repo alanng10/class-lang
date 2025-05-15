@@ -492,7 +492,7 @@ public class Create : ClassCreate
             field = (Field)iter.Value;
 
             bool ba;
-            ba = this.VirtualField(field);
+            ba = this.ClassInfra.VirtualField(field, this.Module, this.System.Any);
 
             NodeField node;
             node = (NodeField)field.Any;
