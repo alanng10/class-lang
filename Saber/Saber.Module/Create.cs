@@ -211,7 +211,7 @@ public class Create : ClassCreate
         while (iter.Next())
         {
             ClassClass varClass;
-            varClass = (ClassClass)iter.Value;
+            varClass = iter.Value as ClassClass;
             this.BaseMapAdd(varClass);
         }
         return true;
