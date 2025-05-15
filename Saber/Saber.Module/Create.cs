@@ -1035,18 +1035,6 @@ public class Create : ClassCreate
         return a;
     }
 
-    public virtual bool MemberNameDefine(ClassClass varClass, String name)
-    {
-        bool ba;
-        ba = varClass.Field.Valid(name);
-        bool bb;
-        bb = varClass.Maide.Valid(name);
-
-        bool a;
-        a = ba | bb;
-        return a;
-    }
-
     protected virtual object CompDefine(ClassClass varClass, String name)
     {
         return this.ClassInfra.CompDefine(varClass, name, this.Module, this.System.Any);
