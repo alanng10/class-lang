@@ -740,47 +740,6 @@ public class ModuleLoad : TextAdd
         return true;
     }
 
-    protected virtual bool ValidVirtualMaideParam(Table param, Table virtualParam)
-    {
-        long count;
-        count = param.Count;
-
-        if (!(count == virtualParam.Count))
-        {
-            return false;
-        }
-
-        Iter iter;
-        iter = param.IterCreate();
-        param.IterSet(iter);
-
-        Iter iterA;
-        iterA = virtualParam.IterCreate();
-        virtualParam.IterSet(iterA);
-
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            iter.Next();
-            iterA.Next();
-
-            Var varVar;
-            varVar = (Var)iter.Value;
-
-            Var varA;
-            varA = (Var)iterA.Value;
-
-            if (!(varVar.Class == varA.Class))
-            {
-                return false;
-            }
-
-            i = i + 1;
-        }
-        return true;
-    }
-
     protected virtual ClassClass ClassGetIndex(long index)
     {
         Array classArray;
