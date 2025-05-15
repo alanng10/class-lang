@@ -62,7 +62,7 @@ public class CompTravel : Travel
 
         if (!(fieldName == null))
         {
-            if (this.Create.MemberNameDefined(this.ThisClass, fieldName))
+            if (this.Create.MemberNameDefine(this.ThisClass, fieldName))
             {
                 this.Error(this.ErrorKind.NameUnavail, nodeField);
                 return true;
@@ -140,7 +140,7 @@ public class CompTravel : Travel
 
         if (!(maideName == null))
         {
-            if (this.Create.MemberNameDefined(this.ThisClass, maideName))
+            if (this.Create.MemberNameDefine(this.ThisClass, maideName))
             {
                 this.Error(this.ErrorKind.NameUnavail, nodeMaide);
                 return true;
