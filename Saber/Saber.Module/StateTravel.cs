@@ -1272,20 +1272,7 @@ public class StateTravel : Travel
 
     protected virtual Maide Maide(ClassClass varClass, String name)
     {
-        if (varClass == this.NullClass)
-        {
-            return null;
-        }
-
-        Maide maide;
-        maide = this.ClassInfra.Maide(varClass, name, this.System.Any);
-
-        if (!this.ClassInfra.ValidCount(this.ThisClass, varClass, maide.Parent, maide.Count, this.System.Any, this.NullClass))
-        {
-            return null;
-        }
-
-        return maide;
+        return this.ClassInfra.MaideTrigg(varClass, name, this.ThisClass, this.System.Any, this.NullClass);
     }
 
     protected virtual bool ValidClass(ClassClass varClass, ClassClass requiredClass)
