@@ -762,8 +762,8 @@ public class Create : ClassCreate
 
             Var aa;
             Var ab;
-            aa = (Var)iterA.Value;
-            ab = (Var)iterB.Value;
+            aa = iterA.Value as Var;
+            ab = iterB.Value as Var;
 
             bool b;
             b = (aa.Class == ab.Class);
