@@ -769,7 +769,7 @@ public class ModuleLoad : TextAdd
     protected virtual ClassModule ModuleGet(ModuleRef moduleRef)
     {
         ClassModule a;
-        a = (ClassModule)this.ModuleTable.Get(moduleRef);
+        a = this.ModuleTable.Get(moduleRef) as ClassModule;
         return a;
     }
 
