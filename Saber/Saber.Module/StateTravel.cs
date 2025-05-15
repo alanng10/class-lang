@@ -1270,7 +1270,7 @@ public class StateTravel : Travel
         Field field;
         field = this.ClassInfra.Field(varClass, name, this.System.Any);
 
-        if (!this.ValidCount(varClass, field.Parent, field.Count))
+        if (!this.ClassInfra.ValidCount(this.ThisClass, varClass, field.Parent, field.Count, this.System.Any, this.NullClass))
         {
             return null;
         }
@@ -1283,7 +1283,7 @@ public class StateTravel : Travel
         Maide maide;
         maide = this.ClassInfra.Maide(varClass, name, this.System.Any);
 
-        if (!this.ValidCount(varClass, maide.Parent, maide.Count))
+        if (!this.ClassInfra.ValidCount(this.ThisClass, varClass, maide.Parent, maide.Count, this.System.Any, this.NullClass))
         {
             return null;
         }
@@ -1294,11 +1294,6 @@ public class StateTravel : Travel
     protected virtual bool ValidClass(ClassClass varClass, ClassClass requiredClass)
     {
         return this.ClassInfra.ValidClass(varClass, requiredClass, this.System.Any, this.NullClass);
-    }
-
-    protected virtual bool ValidCount(ClassClass triggClass, ClassClass varClass, Count count)
-    {
-        return this.ClassInfra.ValidCount(this.ThisClass, triggClass, varClass, count, this.System.Any, this.NullClass);
     }
 
     protected virtual bool ArgueMatch(Maide varMaide, Argue argue)
