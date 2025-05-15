@@ -1265,6 +1265,32 @@ public class StateTravel : Travel
         return field;
     }
 
+    protected virtual Field Field(ClassClass varClass, String name)
+    {
+        Field field;
+        field = this.ClassInfra.Field(varClass, name, this.System.Any);
+
+        if (!this.ValidCount(varClass, field.Parent, field.Count))
+        {
+            return null;
+        }
+
+        return field;
+    }
+
+    protected virtual Maide Maide(ClassClass varClass, String name)
+    {
+        Maide maide;
+        maide = this.ClassInfra.Maide(varClass, name, this.System.Any);
+
+        if (!this.ValidCount(varClass, maide.Parent, maide.Count))
+        {
+            return null;
+        }
+
+        return maide;
+    }
+
     protected virtual bool ValidClass(ClassClass varClass, ClassClass requiredClass)
     {
         return this.ClassInfra.ValidClass(varClass, requiredClass, this.System.Any, this.NullClass);
