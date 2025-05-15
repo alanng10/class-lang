@@ -331,7 +331,7 @@ public class Infra : Any
 
     public virtual bool VirtualField(Field a)
     {
-        ClassClass varClass;
+        Class varClass;
         varClass = a.Parent;
 
         if (varClass == this.System.Any)
@@ -392,7 +392,7 @@ public class Infra : Any
 
     public virtual bool VirtualMaide(Maide a)
     {
-        ClassClass varClass;
+        Class varClass;
         varClass = a.Parent;
 
         if (varClass == this.System.Any)
