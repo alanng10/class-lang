@@ -42,7 +42,7 @@ public class TableIter : Iter
     private Entry Entry()
     {
         Entry a;
-        a = (Entry)this.ListIter.Value;
+        a = this.ListIter.Value as Entry;
         return a;
     }
 
