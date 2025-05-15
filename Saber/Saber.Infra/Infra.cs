@@ -501,6 +501,41 @@ public class Infra : Any
         return true;
     }
 
+    public virtual object Comp(Class varClass, String name, Class anyClass)
+    {
+        Class k;
+        k = varClass;
+
+        while (!(k == null))
+        {
+            Field field;
+            field = k.Field.Get(name) as Field;
+
+            Maide maide;
+            maide = k.Maide.Get(name) as Maide;
+
+            if (!(field == null))
+            {
+                return field;
+            }
+
+            if (!(maide == null))
+            {
+                return maide;
+            }
+
+            Class kd;
+            kd = null;
+            if (!(k == anyClass))
+            {
+                kd = k.Base;
+            }
+            k = kd;
+        }
+
+        return null;
+    }
+
     public virtual object VirtualDefine(Class varClass, String name, Module module, Class anyClass)
     {
         Count prusateCount;
