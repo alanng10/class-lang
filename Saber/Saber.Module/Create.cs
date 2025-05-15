@@ -692,15 +692,13 @@ public class Create : ClassCreate
             return true;
         }
 
-        Field kb;
-        kb = ka as Field;
-        if (!(kb == null))
+        Maide k;
+        k = ka as Maide;
+
+        if (k == null)
         {
             return false;
         }
-
-        Maide k;
-        k = ka as Maide;
 
         bool b;
         b = false;
