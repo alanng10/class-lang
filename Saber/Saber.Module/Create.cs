@@ -198,7 +198,7 @@ public class Create : ClassCreate
     {
         this.BaseTableSet();
 
-        this.AddBaseList();
+        this.BaseListAdd();
 
         this.BaseTable = null;
 
@@ -307,7 +307,7 @@ public class Create : ClassCreate
         return true;
     }
 
-    protected virtual bool AddBaseList()
+    protected virtual bool BaseListAdd()
     {
         ClassClass anyClass;
         anyClass = this.System.Any;
