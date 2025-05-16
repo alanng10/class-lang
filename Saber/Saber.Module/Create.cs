@@ -236,12 +236,12 @@ public class Create : ClassCreate
         {
             ClassClass varClass;
             varClass = iter.Value as ClassClass;
-            this.BaseMapAdd(varClass);
+            this.BaseTableAdd(varClass);
         }
         return true;
     }
 
-    protected virtual bool BaseMapAdd(ClassClass varClass)
+    protected virtual bool BaseTableAdd(ClassClass varClass)
     {
         NodeClass nodeClass;
         nodeClass = (NodeClass)varClass.Any;
