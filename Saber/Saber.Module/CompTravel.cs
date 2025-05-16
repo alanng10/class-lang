@@ -85,7 +85,7 @@ public class CompTravel : Travel
         }
 
         Count count;
-        count = this.GetCount(nodeCount);
+        count = this.CountGet(nodeCount);
 
         Table varGet;
         varGet = this.ClassInfra.TableCreateStringLess();
@@ -163,7 +163,7 @@ public class CompTravel : Travel
         }
 
         Count count;
-        count = this.GetCount(nodeCount);
+        count = this.CountGet(nodeCount);
 
         this.ParamVar = this.ClassInfra.TableCreateStringLess();
 
@@ -251,7 +251,7 @@ public class CompTravel : Travel
         return true;
     }
 
-    protected virtual Count GetCount(NodeCount nodeCount)
+    protected virtual Count CountGet(NodeCount nodeCount)
     {
         Count a;
         a = null;
