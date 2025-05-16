@@ -196,7 +196,7 @@ public class Create : ClassCreate
 
     protected virtual bool ExecuteBase()
     {
-        this.SetBaseTable();
+        this.BaseTableSet();
 
         this.AddBaseList();
 
@@ -225,7 +225,7 @@ public class Create : ClassCreate
         return true;
     }
 
-    protected virtual bool SetBaseTable()
+    protected virtual bool BaseTableSet()
     {
         this.BaseTable = this.ClassInfra.TableCreateRefLess();
 
