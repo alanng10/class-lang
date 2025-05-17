@@ -322,6 +322,11 @@ public class Infra : Any
         Field field;
         field = this.Field(varClass, name, anyClass);
 
+        if (field == null)
+        {
+            return null;
+        }
+
         if (!this.ValidCount(thisClass, varClass, field.Parent, field.Count, anyClass, nullClass))
         {
             return null;
@@ -339,6 +344,11 @@ public class Infra : Any
 
         Maide maide;
         maide = this.Maide(varClass, name, anyClass);
+
+        if (maide == null)
+        {
+            return null;
+        }
 
         if (!this.ValidCount(thisClass, varClass, maide.Parent, maide.Count, anyClass, nullClass))
         {
