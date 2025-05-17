@@ -263,6 +263,91 @@ public class Infra : Any
         return null;
     }
 
+    public virtual object Comp(Class varClass, String name, Class anyClass)
+    {
+        Class k;
+        k = varClass;
+
+        while (!(k == null))
+        {
+            object kk;
+            kk = this.CompDefine(k, name);
+
+            if (!(kk == null))
+            {
+                return kk;
+            }
+
+            Class kd;
+            kd = null;
+            if (!(k == anyClass))
+            {
+                kd = k.Base;
+            }
+            k = kd;
+        }
+
+        return null;
+    }
+
+    public virtual Field Field(Class varClass, String name, Class anyClass)
+    {
+        object kk;
+        kk = this.Comp(varClass, name, anyClass);
+
+        Field k;
+        k = kk as Field;
+
+        return k;
+    }
+
+    public virtual Maide Maide(Class varClass, String name, Class anyClass)
+    {
+        object kk;
+        kk = this.Comp(varClass, name, anyClass);
+
+        Maide k;
+        k = kk as Maide;
+
+        return k;
+    }
+
+    public virtual Field FieldTrigg(Class varClass, String name, Class thisClass, Class anyClass, Class nullClass)
+    {
+        if (varClass == nullClass)
+        {
+            return null;
+        }
+
+        Field field;
+        field = this.Field(varClass, name, anyClass);
+
+        if (!this.ValidCount(thisClass, varClass, field.Parent, field.Count, anyClass, nullClass))
+        {
+            return null;
+        }
+
+        return field;
+    }
+
+    public virtual Maide MaideTrigg(Class varClass, String name, Class thisClass, Class anyClass, Class nullClass)
+    {
+        if (varClass == nullClass)
+        {
+            return null;
+        }
+
+        Maide maide;
+        maide = this.Maide(varClass, name, anyClass);
+
+        if (!this.ValidCount(thisClass, varClass, maide.Parent, maide.Count, anyClass, nullClass))
+        {
+            return null;
+        }
+
+        return maide;
+    }
+
     public virtual bool ValidClass(Class varClass, Class requireClass, Class anyClass, Class nullClass)
     {
         Class k;
@@ -535,91 +620,6 @@ public class Infra : Any
         iterB.Clear();
 
         return true;
-    }
-
-    public virtual Field Field(Class varClass, String name, Class anyClass)
-    {
-        object kk;
-        kk = this.Comp(varClass, name, anyClass);
-
-        Field k;
-        k = kk as Field;
-
-        return k;
-    }
-
-    public virtual Maide Maide(Class varClass, String name, Class anyClass)
-    {
-        object kk;
-        kk = this.Comp(varClass, name, anyClass);
-
-        Maide k;
-        k = kk as Maide;
-
-        return k;
-    }
-
-    public virtual object Comp(Class varClass, String name, Class anyClass)
-    {
-        Class k;
-        k = varClass;
-
-        while (!(k == null))
-        {
-            object kk;
-            kk = this.CompDefine(k, name);
-
-            if (!(kk == null))
-            {
-                return kk;
-            }
-
-            Class kd;
-            kd = null;
-            if (!(k == anyClass))
-            {
-                kd = k.Base;
-            }
-            k = kd;
-        }
-
-        return null;
-    }
-
-    public virtual Field FieldTrigg(Class varClass, String name, Class thisClass, Class anyClass, Class nullClass)
-    {
-        if (varClass == nullClass)
-        {
-            return null;
-        }
-
-        Field field;
-        field = this.Field(varClass, name, anyClass);
-
-        if (!this.ValidCount(thisClass, varClass, field.Parent, field.Count, anyClass, nullClass))
-        {
-            return null;
-        }
-
-        return field;
-    }
-
-    public virtual Maide MaideTrigg(Class varClass, String name, Class thisClass, Class anyClass, Class nullClass)
-    {
-        if (varClass == nullClass)
-        {
-            return null;
-        }
-
-        Maide maide;
-        maide = this.Maide(varClass, name, anyClass);
-
-        if (!this.ValidCount(thisClass, varClass, maide.Parent, maide.Count, anyClass, nullClass))
-        {
-            return null;
-        }
-
-        return maide;
     }
 
     public virtual String ClassModulePath(String classPath)
