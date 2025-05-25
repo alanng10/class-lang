@@ -261,7 +261,7 @@ public class Create : ClassCreate
 
         if (!ba)
         {
-            if (!this.BaseValid(varBase))
+            if (!this.BaseValidClass(varBase))
             {
                 this.Error(this.ErrorKind.BaseUndefine, nodeClass, varClass.Index);
                 b = true;
@@ -280,7 +280,7 @@ public class Create : ClassCreate
         return true;
     }
 
-    protected virtual bool BaseValid(ClassClass varClass)
+    protected virtual bool BaseValidClass(ClassClass varClass)
     {
         System k;
         k = this.System;
