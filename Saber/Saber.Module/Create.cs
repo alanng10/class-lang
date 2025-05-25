@@ -108,7 +108,7 @@ public class Create : ClassCreate
     protected virtual List ErrorList { get; set; }
     protected virtual Table BaseTable { get; set; }
     protected virtual Table RangeTable { get; set; }
-    protected virtual Table ClassVirtualTable { get; set; }
+    protected virtual Table VirtualTable { get; set; }
     protected virtual ModuleRef ModuleRef { get; set; }
     protected virtual bool SystemInfra { get; set; }
     protected virtual String SSystemInfra { get; set; }
@@ -418,7 +418,7 @@ public class Create : ClassCreate
         Table table;
         table = this.Module.Class;
 
-        this.ClassVirtualTable = this.ClassInfra.TableCreateRefLess();
+        this.VirtualTable = this.ClassInfra.TableCreateRefLess();
 
         Iter iter;
         iter = table.IterCreate();
@@ -431,14 +431,14 @@ public class Create : ClassCreate
             this.VirtualSetClass(a);
         }
 
-        this.ClassVirtualTable = null;
+        this.VirtualTable = null;
 
         return true;
     }
 
     protected virtual bool VirtualSetClass(ClassClass varClass)
     {
-        if (this.ClassVirtualTable.Valid(varClass))
+        if (this.VirtualTable.Valid(varClass))
         {
             return true;
         }
@@ -461,7 +461,7 @@ public class Create : ClassCreate
 
         this.VirtualSetClassComp(varClass);
 
-        this.ListInfra.TableAdd(this.ClassVirtualTable, varClass, varClass);
+        this.ListInfra.TableAdd(this.VirtualTable, varClass, varClass);
 
         return true;
     }
