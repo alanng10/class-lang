@@ -624,10 +624,8 @@ public class Create : ClassCreate
         list = new List();
         list.Init();
 
-        ClassModule module;
-        module = this.Module;
         Table table;
-        table = module.Export;
+        table = this.Module.Export;
 
         Iter iter;
         iter = table.IterCreate();
@@ -638,7 +636,7 @@ public class Create : ClassCreate
             name = iter.Index as String;
 
             ClassClass varClass;
-            varClass = this.ModuleClassGet(module, name);
+            varClass = this.ModuleClassGet(this.Module, name);
 
             bool b;
             b = (varClass == null);
@@ -658,9 +656,10 @@ public class Create : ClassCreate
         list.IterSet(iter);
         while (iter.Next())
         {
-            ClassClass d;
-            d = iter.Value as ClassClass;
-            table.Set(d.Name, d);
+            ClassClass kk;
+            kk = iter.Value as ClassClass;
+
+            table.Set(kk.Name, kk);
         }
         return true;
     }
