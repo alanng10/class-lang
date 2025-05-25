@@ -146,13 +146,15 @@ public class ClassGen : TextAdd
     }
 
     public virtual ClassModule Module { get; set; }
+    public virtual Array BaseArray { get; set; }
+    public virtual Array CompArray { get; set; }
     public virtual ClassClass Class { get; set; }
     public virtual SystemClass System { get; set; }
     public virtual Table ImportClass { get; set; }
     public virtual ClassClass InternClass { get; set; }
     public virtual ClassClass ExternClass { get; set; }
     public virtual ClassComp ClassComp { get; set; }
-    public virtual Array BaseArray { get; set; }
+    public virtual Array Base { get; set; }
     public virtual Maide InitMaide { get; set; }
     public virtual GenArg Arg { get; set; }
     public virtual ClassGenOperate Operate { get; set; }
@@ -448,7 +450,7 @@ public class ClassGen : TextAdd
     public virtual bool ExecuteBase()
     {
         long count;
-        count = this.BaseArray.Count;
+        count = this.Base.Count;
 
         this.Text(this.IndexStatic);
         this.Text(this.Space);
@@ -511,7 +513,7 @@ public class ClassGen : TextAdd
     public virtual bool ExecuteClassInit()
     {
         long baseIndex;
-        baseIndex = this.BaseArray.Count - 1;
+        baseIndex = this.Base.Count - 1;
 
         long baseMask;
         baseMask = baseIndex << 52;
@@ -652,7 +654,7 @@ public class ClassGen : TextAdd
     public virtual bool ExecuteBaseArraySet()
     {
         long count;
-        count = this.BaseArray.Count;
+        count = this.Base.Count;
         count = count - 1;
 
         this.TextIndent();
