@@ -153,8 +153,8 @@ public class ClassGen : TextAdd
     public virtual Table ImportClass { get; set; }
     public virtual ClassClass InternClass { get; set; }
     public virtual ClassClass ExternClass { get; set; }
-    public virtual ClassComp ClassComp { get; set; }
     public virtual Array Base { get; set; }
+    public virtual ClassComp Comp { get; set; }
     public virtual Maide InitMaide { get; set; }
     public virtual GenArg Arg { get; set; }
     public virtual ClassGenOperate Operate { get; set; }
@@ -369,11 +369,11 @@ public class ClassGen : TextAdd
             this.Class = k;
 
             this.Base = this.BaseArray.GetAt(i) as Array;
-            this.ClassComp = this.CompArray.GetAt(i) as ClassComp;
+            this.Comp = this.CompArray.GetAt(i) as ClassComp;
 
             this.ExecuteClass();
 
-            this.ClassComp = null;
+            this.Comp = null;
             this.Base = null;
 
             this.Class = null;
@@ -424,11 +424,11 @@ public class ClassGen : TextAdd
             this.Text(this.NewLine);
         }
 
-        this.ExecuteCompList(this.ClassComp.Field, this.StateGet);
+        this.ExecuteCompList(this.Comp.Field, this.StateGet);
         this.Text(this.NewLine);
-        this.ExecuteCompList(this.ClassComp.Field, this.StateSet);
+        this.ExecuteCompList(this.Comp.Field, this.StateSet);
         this.Text(this.NewLine);
-        this.ExecuteCompList(this.ClassComp.Maide, this.StateCall);
+        this.ExecuteCompList(this.Comp.Maide, this.StateCall);
         this.Text(this.NewLine);
 
         this.ExecuteBase();
@@ -764,9 +764,9 @@ public class ClassGen : TextAdd
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
 
-        this.ExecuteCompListSetKind(this.ClassComp.Field, this.StateKindGet);
-        this.ExecuteCompListSetKind(this.ClassComp.Field, this.StateKindSet);
-        this.ExecuteCompListSetKind(this.ClassComp.Maide, this.StateKindCall);
+        this.ExecuteCompListSetKind(this.Comp.Field, this.StateKindGet);
+        this.ExecuteCompListSetKind(this.Comp.Field, this.StateKindSet);
+        this.ExecuteCompListSetKind(this.Comp.Maide, this.StateKindCall);
         return true;
     }
 
