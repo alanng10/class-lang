@@ -19,9 +19,9 @@ public class Travel : NodeTravel
         return this.Create.Info(node);
     }
 
-    protected virtual ClassClass Class(String name)
+    protected virtual Class Class(String name)
     {
-        ClassClass a;
+        Class a;
         a = this.Create.Class(name);
         return a;
     }
