@@ -680,7 +680,7 @@ public class Create : ClassCreate
         {
             Field field;
             field = iter.Value as Field;
-            if (this.ValidExportCount(field.Count))
+            if (this.ExportValidCount(field.Count))
             {
                 if (!this.ValidClassExport(field.Class))
                 {
@@ -697,7 +697,7 @@ public class Create : ClassCreate
         {
             Maide maide;
             maide = iter.Value as Maide;
-            if (this.ValidExportCount(maide.Count))
+            if (this.ExportValidCount(maide.Count))
             {
                 bool b;
                 b = false;
@@ -731,7 +731,7 @@ public class Create : ClassCreate
         return true;
     }
 
-    protected virtual bool ValidExportCount(Count count)
+    protected virtual bool ExportValidCount(Count count)
     {
         if (count == this.Count.Prusate | count == this.Count.Precate)
         {
