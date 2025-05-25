@@ -459,6 +459,16 @@ public class LibraryGen : TextAdd
         this.ClassGen.System = this.SystemClass;
         this.ClassGen.ImportClass = this.ImportClass;
 
+        this.StringValueTravel.Module = this.Module;
+
+        this.StringValueTravel.Execute();
+
+        Array stringValueArray;
+        stringValueArray = this.StringValueTravel.Array;
+
+        this.StringValueTravel.Array = null;
+        this.StringValueTravel.Module = null;
+
         Iter iter;
         iter = this.Module.Class.IterCreate();
         this.Module.Class.IterSet(iter);
@@ -476,16 +486,6 @@ public class LibraryGen : TextAdd
 
             NodeClass nodeClass;
             nodeClass = varClass.Any as NodeClass;
-
-            this.StringValueTravel.Class = nodeClass;
-
-            this.StringValueTravel.Execute();
-
-            Array stringValueArray;
-            stringValueArray = this.StringValueTravel.Array;
-
-            this.StringValueTravel.Array = null;
-            this.StringValueTravel.Class = null;
 
             Array baseArray;
             baseArray = this.ClassBaseArray.GetAt(i) as Array;
