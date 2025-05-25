@@ -26,7 +26,7 @@ public class Travel : NodeTravel
         return a;
     }
 
-    protected virtual bool UniqueError(ErrorKind kind, NodeNode node, bool did)
+    protected virtual bool ErrorUnique(ErrorKind kind, NodeNode node, bool did)
     {
         if (!did)
         {
