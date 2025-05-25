@@ -776,20 +776,20 @@ public class Create : ClassCreate
             return true;
         }
 
-
         bool b;
         b = false;
 
-        ClassModule h;
-        h = null;
+        ClassModule ka;
+        ka = null;
+
         ClassClass entryClass;
         entryClass = null;
 
         if (!b)
         {
-            h = this.ModuleGet(this.SSystemEntry);
+            ka = this.ModuleGet(this.SSystemEntry);
 
-            if (h == null)
+            if (ka == null)
             {
                 b = true;
             }            
@@ -797,7 +797,7 @@ public class Create : ClassCreate
 
         if (!b)
         {
-            entryClass = this.ModuleClassGet(h, this.SEntry);
+            entryClass = this.ModuleClassGet(ka, this.SEntry);
 
             if (entryClass == null)
             {
@@ -817,8 +817,10 @@ public class Create : ClassCreate
         {
             NodeClass k;
             k = varClass.Any as NodeClass;
+
             this.Error(this.ErrorKind.EntryUnachieve, k, varClass.Index);
         }
+
         return true;
     }
 
