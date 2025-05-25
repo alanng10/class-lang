@@ -291,7 +291,7 @@ public class ClassGen : TextAdd
 
     public virtual bool Execute()
     {
-        this.InitMaide = (Maide)this.System.Any.Maide.Get(this.InitWord);
+        this.InitMaide = this.System.Any.Maide.Get(this.InitWord) as Maide;
         
         long k;
         k = this.Class.BaseCount - 1;
