@@ -35,16 +35,16 @@ public class ClassTravel : Travel
             return true;
         }
 
-        ClassClass ka;
-        ka = this.Create.Class(className);
+        Class ka;
+        ka = this.Class(className);
         if (!(ka == null))
         {
             this.Error(this.ErrorKind.NameUnavail, nodeClass);
             return true;
         }
 
-        ClassClass k;
-        k = new ClassClass();
+        Class k;
+        k = new Class();
         k.Init();
         k.Name = className;
         k.Base = null;
