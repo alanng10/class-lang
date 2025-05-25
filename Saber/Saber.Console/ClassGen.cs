@@ -407,12 +407,12 @@ public class ClassGen : TextAdd
 
         this.Text(this.ClassInt);
         this.Text(this.Space);
-        
+
         this.CompListName(this.Class, stateKind);
         this.Text(this.LimitBraceRightLite);
         this.TextInt(count);
         this.Text(this.LimitBraceRightRite);
-        
+
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
         return true;
