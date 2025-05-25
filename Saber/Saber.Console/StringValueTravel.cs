@@ -18,11 +18,8 @@ public class StringValueTravel : Travel
     }
 
     public virtual NodeClass Class { get; set; }
-
     public virtual long Index { get; set; }
-
     public virtual Array Array { get; set; }
-
     public virtual StringValueCountOperate CountOperate { get; set; }
     public virtual StringValueSetOperate SetOperate { get; set; }
     public virtual StringValueOperate Operate { get; set; }
@@ -32,19 +29,19 @@ public class StringValueTravel : Travel
     {
         this.Operate = this.CountOperate;
 
-        this.ResetStageIndex();
+        this.ResetStage();
         this.ExecuteStage();
 
         this.Array = this.ListInfra.ArrayCreate(this.Index);
 
         this.Operate = this.SetOperate;
 
-        this.ResetStageIndex();
+        this.ResetStage();
         this.ExecuteStage();
         return true;
     }
 
-    public virtual bool ResetStageIndex()
+    public virtual bool ResetStage()
     {
         this.Index = 0;
         return true;
