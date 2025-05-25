@@ -77,6 +77,9 @@ public class StateTravel : Travel
         this.ThisClass = this.Info(varClass).Class;
 
         base.ExecuteClass(varClass);
+
+        this.ThisClass = null;
+
         return true;
     }
 
