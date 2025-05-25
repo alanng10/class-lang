@@ -350,20 +350,35 @@ public class ClassGen : TextAdd
 
     public virtual bool ExecuteStage()
     {
+        long count;
+        count = this.Module.Class.Count;
+
         Iter iter;
         iter = this.ClassIter;
         this.Module.Class.IterSet(iter);
 
-        while (iter.Next())
+        long i;
+        i = 0;
+        while (i < count)
         {
+            iter.Next();
+
             ClassClass k;
             k = iter.Value as ClassClass;
 
             this.Class = k;
 
+            this.Base = this.BaseArray.GetAt(i) as Array;
+            this.ClassComp = this.CompArray.GetAt(i) as ClassComp;
+
             this.ExecuteClass();
 
+            this.ClassComp = null;
+            this.Base = null;
+
             this.Class = null;
+
+            i = i + 1;
         }
 
         iter.Clear();
