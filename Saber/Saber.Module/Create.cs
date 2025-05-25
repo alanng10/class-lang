@@ -459,14 +459,14 @@ public class Create : ClassCreate
             this.VirtualSetClass(baseClass);
         }
 
-        this.ClassVirtualSetClassComp(varClass);
+        this.VirtualSetClassComp(varClass);
 
         this.ListInfra.TableAdd(this.ClassVirtualTable, varClass, varClass);
 
         return true;
     }
 
-    protected virtual bool ClassVirtualSetClassComp(ClassClass varClass)
+    protected virtual bool VirtualSetClassComp(ClassClass varClass)
     {
         Table fieldTable;
         fieldTable = this.ClassInfra.TableCreateStringLess();
