@@ -572,10 +572,7 @@ public class Create : ClassCreate
 
     protected virtual bool ClassRangeSetClass(ClassClass varClass)
     {
-        Table k;
-        k = this.RangeTable;
-
-        if (k.Valid(varClass))
+        if (this.RangeTable.Valid(varClass))
         {
             return true;
         }
@@ -606,7 +603,7 @@ public class Create : ClassCreate
             varClass.MaideStart = baseClass.MaideStart + baseClass.Maide.Count;
         }
 
-        this.ListInfra.TableAdd(k, varClass, varClass);
+        this.ListInfra.TableAdd(this.RangeTable, varClass, varClass);
 
         return true;
     }
