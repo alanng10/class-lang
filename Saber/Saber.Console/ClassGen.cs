@@ -142,6 +142,7 @@ public class ClassGen : TextAdd
         return true;
     }
 
+    public virtual ClassModule Module { get; set; }
     public virtual ClassClass Class { get; set; }
     public virtual SystemClass System { get; set; }
     public virtual Table ImportClass { get; set; }
