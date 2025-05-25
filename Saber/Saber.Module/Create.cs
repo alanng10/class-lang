@@ -407,13 +407,13 @@ public class Create : ClassCreate
 
     protected virtual bool ExecuteVirtual()
     {
-        this.ClassVirtualSet();
+        this.VirtualClassSet();
 
         this.ClassRangeSet();
         return true;
     }
 
-    protected virtual bool ClassVirtualSet()
+    protected virtual bool VirtualClassSet()
     {
         Table table;
         table = this.Module.Class;
