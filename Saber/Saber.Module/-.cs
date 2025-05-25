@@ -1,7 +1,5 @@
 global using Any = Avalon.Infra.Any;
 global using String = Avalon.Infra.String;
-global using Range = Avalon.Infra.Range;
-global using RefLess = Avalon.Infra.RefLess;
 global using List = Avalon.List.List;
 global using Array = Avalon.List.Array;
 global using Table = Avalon.List.Table;
@@ -12,7 +10,6 @@ global using TableIter = Avalon.List.TableIter;
 global using ListInfra = Avalon.List.Infra;
 global using TextStringValue = Avalon.Text.StringValue;
 global using ClassCreate = Saber.Infra.Create;
-global using Source = Saber.Infra.Source;
 global using Class = Saber.Infra.Class;
 global using Field = Saber.Infra.Field;
 global using Maide = Saber.Infra.Maide;
