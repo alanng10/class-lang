@@ -668,9 +668,9 @@ public class Create : ClassCreate
     {
         if (!this.ValidClassExport(varClass.Base))
         {
-            NodeClass aa;
-            aa = varClass.Any as NodeClass;
-            this.Error(this.ErrorKind.ClassUnexport, aa, varClass.Index);
+            NodeClass ka;
+            ka = varClass.Any as NodeClass;
+            this.Error(this.ErrorKind.ClassUnexport, ka, varClass.Index);
         }
 
         Iter iter;
@@ -684,9 +684,9 @@ public class Create : ClassCreate
             {
                 if (!this.ValidClassExport(field.Class))
                 {
-                    NodeField ab;
-                    ab = field.Any as NodeField;
-                    this.Error(this.ErrorKind.FieldUnexport, ab, varClass.Index);
+                    NodeField kb;
+                    kb = field.Any as NodeField;
+                    this.Error(this.ErrorKind.FieldUnexport, kb, varClass.Index);
                 }
             }
         }
@@ -722,9 +722,9 @@ public class Create : ClassCreate
                 }
                 if (b)
                 {
-                    NodeMaide ac;
-                    ac = maide.Any as NodeMaide;
-                    this.Error(this.ErrorKind.MaideUnexport, ac, varClass.Index);
+                    NodeMaide kc;
+                    kc = maide.Any as NodeMaide;
+                    this.Error(this.ErrorKind.MaideUnexport, kc, varClass.Index);
                 }
             }
         }
