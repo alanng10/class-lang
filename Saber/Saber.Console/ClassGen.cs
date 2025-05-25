@@ -349,7 +349,7 @@ public class ClassGen : TextAdd
     public virtual bool ExecuteStage()
     {
         Iter iter;
-        iter = this.TableIter;
+        iter = this.ClassIter;
         this.Module.Class.IterSet(iter);
 
         while (iter.Next())
