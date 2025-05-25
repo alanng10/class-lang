@@ -742,16 +742,13 @@ public class Create : ClassCreate
 
     protected virtual bool ValidIsExport(ClassClass varClass)
     {
-        ClassModule module;
-        module = this.Module;
-
-        if (!(varClass.Module == module))
+        if (!(varClass.Module == this.Module))
         {
             return true;
         }
 
         bool a;
-        a = module.Export.Valid(varClass.Name);
+        a = this.Module.Export.Valid(varClass.Name);
         return a;
     }
 
