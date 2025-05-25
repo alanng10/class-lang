@@ -315,7 +315,7 @@ public class Create : ClassCreate
 
             if (!ba)
             {
-                b = this.ValidClassDepend(varClass);
+                b = this.ValidBaseDepend(varClass);
             }
 
             ClassClass a;
@@ -342,7 +342,7 @@ public class Create : ClassCreate
         return true;
     }
 
-    protected virtual bool ValidClassDepend(ClassClass varClass)
+    protected virtual bool ValidBaseDepend(ClassClass varClass)
     {
         Table table;
         table = this.ClassInfra.TableCreateRefLess();
