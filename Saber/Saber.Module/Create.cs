@@ -25,6 +25,7 @@ public class Create : ClassCreate
         this.SBool = this.S("Bool");
         this.SInt = this.S("Int");
         this.SString = this.S("String");
+        this.SSystemEntry = this.S("System.Entry");
         this.SEntry = this.S("Entry");
         return true;
     }
@@ -115,6 +116,7 @@ public class Create : ClassCreate
     protected virtual String SBool { get; set; }
     protected virtual String SInt { get; set; }
     protected virtual String SString { get; set; }
+    protected virtual String SSystemEntry { get; set; }
     protected virtual String SEntry { get; set; }
 
     public override bool Execute()
