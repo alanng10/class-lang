@@ -315,7 +315,7 @@ public class ClassGen : TextAdd
 
         this.Operate = this.CountOperate;
 
-        this.ResetStageIndex();
+        this.ResetStage();
         this.ExecuteStage();
 
         long nn;
@@ -329,7 +329,7 @@ public class ClassGen : TextAdd
 
         this.Operate = this.SetOperate;
 
-        this.ResetStageIndex();
+        this.ResetStage();
         this.ExecuteStage();
 
         this.Operate = null;
@@ -342,7 +342,7 @@ public class ClassGen : TextAdd
         return true;
     }
 
-    public virtual bool ResetStageIndex()
+    public virtual bool ResetStage()
     {
         this.Arg.Index = 0;
         return true;
