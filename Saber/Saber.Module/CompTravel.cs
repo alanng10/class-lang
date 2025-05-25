@@ -27,6 +27,7 @@ public class CompTravel : Travel
         base.ExecuteClass(nodeClass);
 
         this.ThisClass = null;
+
         return true;
     }
 
