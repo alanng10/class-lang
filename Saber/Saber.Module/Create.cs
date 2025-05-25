@@ -422,7 +422,7 @@ public class Create : ClassCreate
         while (iter.Next())
         {
             ClassClass a;
-            a = (ClassClass)iter.Value;
+            a = iter.Value as ClassClass;
 
             this.ClassVirtualSetClass(a);
         }
