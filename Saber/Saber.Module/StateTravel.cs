@@ -281,10 +281,10 @@ public class StateTravel : Travel
         a.Index = this.StateVar.Count;
         a.Any = nodeVar;
 
-        Table oo;
-        oo = (Table)this.VarStack.Top;
+        Table k;
+        k = this.VarStack.Top as Table;
 
-        this.ListInfra.TableAdd(oo, a.Name, a);
+        this.ListInfra.TableAdd(k, a.Name, a);
         this.ListInfra.TableAdd(this.StateVar, a.Name, a);
 
         this.Info(nodeVar).Var = a;
