@@ -16,6 +16,9 @@ public class ClassGen : TextAdd
         this.Travel.Gen = this;
         this.Travel.Init();
 
+        this.ClassIter = new TableIter();
+        this.ClassIter.Init();
+
         this.TableIter = new TableIter();
         this.TableIter.Init();
 
@@ -161,6 +164,7 @@ public class ClassGen : TextAdd
     public virtual long StringValueIndex { get; set; }
     public virtual String ClassBaseMask { get; set; }
     public virtual Field ThisField { get; set; }
+    public virtual Iter ClassIter { get; set; }
     public virtual Iter TableIter { get; set; }
     public virtual long CompStateKind { get; set; }
     public virtual long ParamCount { get; set; }
@@ -343,6 +347,28 @@ public class ClassGen : TextAdd
     }
 
     public virtual bool ExecuteStage()
+    {
+        Iter iter;
+        iter = this.TableIter;
+        this.Module.Class.IterSet(iter);
+
+        while (iter.Next())
+        {
+            ClassClass k;
+            k = iter.Value as ClassClass;
+
+            this.Class = k;
+
+            this.ExecuteClass();
+
+            this.Class = null;
+        }
+
+        iter.Clear();
+        return true;
+    }
+
+    public virtual bool ExecuteClass()
     {
         this.StringValueIndex = 0;
 
