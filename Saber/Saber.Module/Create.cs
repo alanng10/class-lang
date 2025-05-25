@@ -438,10 +438,7 @@ public class Create : ClassCreate
 
     protected virtual bool VirtualSetClass(ClassClass varClass)
     {
-        Table k;
-        k = this.ClassVirtualTable;
-
-        if (k.Valid(varClass))
+        if (this.ClassVirtualTable.Valid(varClass))
         {
             return true;
         }
@@ -464,7 +461,7 @@ public class Create : ClassCreate
 
         this.ClassVirtualSetClassComp(varClass);
 
-        this.ListInfra.TableAdd(k, varClass, varClass);
+        this.ListInfra.TableAdd(this.ClassVirtualTable, varClass, varClass);
 
         return true;
     }
