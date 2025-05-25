@@ -225,7 +225,7 @@ public class Create : ClassCreate
     protected virtual bool BaseTableAdd(ClassClass varClass)
     {
         NodeClass nodeClass;
-        nodeClass = (NodeClass)varClass.Any;
+        nodeClass = varClass.Any as NodeClass;
 
         ClassName nodeBase;
         nodeBase = nodeClass.Base;
