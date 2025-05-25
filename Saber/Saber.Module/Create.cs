@@ -206,25 +206,6 @@ public class Create : ClassCreate
         return true;
     }
 
-    protected virtual bool BaseCountSet()
-    {
-        Iter iter;
-        iter = this.Module.Class.IterCreate();
-        this.Module.Class.IterSet(iter);
-        while (iter.Next())
-        {
-            ClassClass k;
-            k = iter.Value as ClassClass;
-
-            long ka;
-            ka = this.ClassInfra.BaseCount(k, this.System.Any);
-
-            k.BaseCount = ka;
-        }
-
-        return true;
-    }
-
     protected virtual bool BaseTableSet()
     {
         this.BaseTable = this.ClassInfra.TableCreateRefLess();
@@ -400,6 +381,25 @@ public class Create : ClassCreate
             }
             a = ka;
         }
+        return true;
+    }
+
+    protected virtual bool BaseCountSet()
+    {
+        Iter iter;
+        iter = this.Module.Class.IterCreate();
+        this.Module.Class.IterSet(iter);
+        while (iter.Next())
+        {
+            ClassClass k;
+            k = iter.Value as ClassClass;
+
+            long ka;
+            ka = this.ClassInfra.BaseCount(k, this.System.Any);
+
+            k.BaseCount = ka;
+        }
+
         return true;
     }
 
