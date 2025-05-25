@@ -409,7 +409,7 @@ public class Create : ClassCreate
     {
         this.VirtualSet();
 
-        this.ClassRangeSet();
+        this.VirtualRange();
         return true;
     }
 
@@ -549,7 +549,7 @@ public class Create : ClassCreate
         return node.NodeAny as Info;
     }
 
-    protected virtual bool ClassRangeSet()
+    protected virtual bool VirtualRange()
     {
         Table table;
         table = this.Module.Class;
@@ -564,14 +564,14 @@ public class Create : ClassCreate
             ClassClass a;
             a = iter.Value as ClassClass;
 
-            this.ClassRangeSetClass(a);
+            this.VirtualRangeClass(a);
         }
 
         this.RangeTable = null;
         return true;
     }
 
-    protected virtual bool ClassRangeSetClass(ClassClass varClass)
+    protected virtual bool VirtualRangeClass(ClassClass varClass)
     {
         if (this.RangeTable.Valid(varClass))
         {
@@ -597,7 +597,7 @@ public class Create : ClassCreate
             ClassClass baseClass;
             baseClass = varClass.Base;
 
-            this.ClassRangeSetClass(baseClass);
+            this.VirtualRangeClass(baseClass);
 
             varClass.FieldStart = baseClass.FieldStart + baseClass.Field.Count;
 
