@@ -150,7 +150,6 @@ public class ClassGen : TextAdd
     public virtual Array CompArray { get; set; }
     public virtual ClassClass Class { get; set; }
     public virtual SystemClass System { get; set; }
-    public virtual Table ImportClass { get; set; }
     public virtual ClassClass InternClass { get; set; }
     public virtual ClassClass ExternClass { get; set; }
     public virtual Array Base { get; set; }

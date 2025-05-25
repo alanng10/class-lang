@@ -468,7 +468,6 @@ public class LibraryGen : TextAdd
         this.ClassGen.InternClass = internClass;
         this.ClassGen.ExternClass = externClass;
         this.ClassGen.System = this.SystemClass;
-        this.ClassGen.ImportClass = this.ImportClass;
 
         this.StringValueTravel.Module = this.Module;
 
