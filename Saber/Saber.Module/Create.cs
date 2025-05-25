@@ -38,10 +38,10 @@ public class Create : ClassCreate
         return a;
     }
 
-    protected virtual ClassClass CreateNullClass()
+    protected virtual Class CreateNullClass()
     {
-        ClassClass a;
-        a = new ClassClass();
+        Class a;
+        a = new Class();
         a.Init();
         a.Name = this.S("_");
         return a;
@@ -96,7 +96,7 @@ public class Create : ClassCreate
     public virtual Result Result { get; set; }
     public virtual long SourceIndex { get; set; }
     public virtual System System { get; set; }
-    public virtual ClassClass NullClass { get; set; }
+    public virtual Class NullClass { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual CountList Count { get; set; }
@@ -174,9 +174,9 @@ public class Create : ClassCreate
         return a;
     }
 
-    protected virtual ClassClass ModuleClassGet(ClassModule module, String className)
+    protected virtual Class ModuleClassGet(ClassModule module, String className)
     {
-        return module.Class.Get(className) as ClassClass;
+        return module.Class.Get(className) as Class;
     }
 
     protected virtual bool ModuleSystemInfra()
@@ -219,14 +219,14 @@ public class Create : ClassCreate
         this.Module.Class.IterSet(iter);
         while (iter.Next())
         {
-            ClassClass varClass;
-            varClass = iter.Value as ClassClass;
+            Class varClass;
+            varClass = iter.Value as Class;
             this.BaseTableAdd(varClass);
         }
         return true;
     }
 
-    protected virtual bool BaseTableAdd(ClassClass varClass)
+    protected virtual bool BaseTableAdd(Class varClass)
     {
         NodeClass nodeClass;
         nodeClass = varClass.Any as NodeClass;
@@ -241,7 +241,7 @@ public class Create : ClassCreate
             baseName = nodeBase.Value;
         }
 
-        ClassClass varBase;
+        Class varBase;
         varBase = null;
         if (!(baseName == null))
         {
@@ -268,7 +268,7 @@ public class Create : ClassCreate
             }
         }
 
-        ClassClass a;
+        Class a;
         a = varBase;
 
         if (b)
@@ -280,7 +280,7 @@ public class Create : ClassCreate
         return true;
     }
 
-    protected virtual bool BaseValidClass(ClassClass varClass)
+    protected virtual bool BaseValidClass(Class varClass)
     {
         System k;
         k = this.System;
@@ -294,7 +294,7 @@ public class Create : ClassCreate
 
     protected virtual bool BaseClassSet()
     {
-        ClassClass anyClass;
+        Class anyClass;
         anyClass = this.System.Any;
 
         Iter iter;
@@ -303,8 +303,8 @@ public class Create : ClassCreate
 
         while (iter.Next())
         {
-            ClassClass varClass;
-            varClass = iter.Index as ClassClass;
+            Class varClass;
+            varClass = iter.Index as Class;
 
             bool b;
             b = false;
@@ -322,7 +322,7 @@ public class Create : ClassCreate
                 b = this.BaseValidDepend(varClass);
             }
 
-            ClassClass a;
+            Class a;
             a = null;
 
             if (!b)
@@ -337,7 +337,7 @@ public class Create : ClassCreate
 
             if (b)
             {
-                a = iter.Value as ClassClass;
+                a = iter.Value as Class;
             }
 
             varClass.Base = a;
@@ -346,12 +346,12 @@ public class Create : ClassCreate
         return true;
     }
 
-    protected virtual bool BaseValidDepend(ClassClass varClass)
+    protected virtual bool BaseValidDepend(Class varClass)
     {
         Table table;
         table = this.ClassInfra.TableCreateRefLess();
 
-        ClassClass a;
+        Class a;
         a = varClass;
 
         while (!(a == null))
@@ -368,11 +368,11 @@ public class Create : ClassCreate
 
             this.ListInfra.TableAdd(table, a, a);
 
-            ClassClass ka;
+            Class ka;
             ka = null;
             if (!(a == this.System.Any))
             {
-                ka = this.BaseTable.Get(a) as ClassClass;
+                ka = this.BaseTable.Get(a) as Class;
             }
             a = ka;
         }
@@ -387,8 +387,8 @@ public class Create : ClassCreate
         this.Module.Class.IterSet(iter);
         while (iter.Next())
         {
-            ClassClass k;
-            k = iter.Value as ClassClass;
+            Class k;
+            k = iter.Value as Class;
 
             long ka;
             ka = this.ClassInfra.BaseCount(k, this.System.Any);
@@ -425,8 +425,8 @@ public class Create : ClassCreate
         table.IterSet(iter);
         while (iter.Next())
         {
-            ClassClass a;
-            a = iter.Value as ClassClass;
+            Class a;
+            a = iter.Value as Class;
 
             this.VirtualSetClass(a);
         }
@@ -436,7 +436,7 @@ public class Create : ClassCreate
         return true;
     }
 
-    protected virtual bool VirtualSetClass(ClassClass varClass)
+    protected virtual bool VirtualSetClass(Class varClass)
     {
         if (this.VirtualTable.Valid(varClass))
         {
@@ -453,7 +453,7 @@ public class Create : ClassCreate
 
         if (!b)
         {
-            ClassClass baseClass;
+            Class baseClass;
             baseClass = varClass.Base;
 
             this.VirtualSetClass(baseClass);
@@ -466,7 +466,7 @@ public class Create : ClassCreate
         return true;
     }
 
-    protected virtual bool VirtualSetClassComp(ClassClass varClass)
+    protected virtual bool VirtualSetClassComp(Class varClass)
     {
         Table fieldTable;
         fieldTable = this.ClassInfra.TableCreateStringLess();
@@ -561,8 +561,8 @@ public class Create : ClassCreate
         table.IterSet(iter);
         while (iter.Next())
         {
-            ClassClass a;
-            a = iter.Value as ClassClass;
+            Class a;
+            a = iter.Value as Class;
 
             this.VirtualRangeClass(a);
         }
@@ -571,7 +571,7 @@ public class Create : ClassCreate
         return true;
     }
 
-    protected virtual bool VirtualRangeClass(ClassClass varClass)
+    protected virtual bool VirtualRangeClass(Class varClass)
     {
         if (this.RangeTable.Valid(varClass))
         {
@@ -594,7 +594,7 @@ public class Create : ClassCreate
         }
         if (!b)
         {
-            ClassClass baseClass;
+            Class baseClass;
             baseClass = varClass.Base;
 
             this.VirtualRangeClass(baseClass);
@@ -632,7 +632,7 @@ public class Create : ClassCreate
             String name;
             name = iter.Index as String;
 
-            ClassClass varClass;
+            Class varClass;
             varClass = this.ModuleClassGet(this.Module, name);
 
             bool b;
@@ -653,15 +653,15 @@ public class Create : ClassCreate
         list.IterSet(iter);
         while (iter.Next())
         {
-            ClassClass kk;
-            kk = iter.Value as ClassClass;
+            Class kk;
+            kk = iter.Value as Class;
 
             table.Set(kk.Name, kk);
         }
         return true;
     }
 
-    protected virtual bool ExportValidSet(ClassClass varClass)
+    protected virtual bool ExportValidSet(Class varClass)
     {
         if (!this.ExportValidClass(varClass.Base))
         {
@@ -737,7 +737,7 @@ public class Create : ClassCreate
         return false;
     }
 
-    protected virtual bool ExportValidClass(ClassClass varClass)
+    protected virtual bool ExportValidClass(Class varClass)
     {
         if (!(varClass.Module == this.Module))
         {
@@ -761,7 +761,7 @@ public class Create : ClassCreate
             return true;
         }
 
-        ClassClass varClass;
+        Class varClass;
         varClass = this.ModuleClassGet(module, entry);
         if (varClass == null)
         {
@@ -775,7 +775,7 @@ public class Create : ClassCreate
         ClassModule ka;
         ka = null;
 
-        ClassClass entryClass;
+        Class entryClass;
         entryClass = null;
 
         if (!b)
@@ -842,16 +842,16 @@ public class Create : ClassCreate
         return true;
     }
 
-    public virtual ClassClass Class(String name)
+    public virtual Class Class(String name)
     {
-        ClassClass a;
-        a = this.ImportClass.Get(name) as ClassClass;
+        Class a;
+        a = this.ImportClass.Get(name) as Class;
         if (!(a == null))
         {
             return a;
         }
         
-        a = this.Module.Class.Get(name) as ClassClass;
+        a = this.Module.Class.Get(name) as Class;
         return a;
     }
 
