@@ -107,8 +107,8 @@ public class Create : ClassCreate
     protected virtual StateTravel StateTravel { get; set; }
     protected virtual List ErrorList { get; set; }
     protected virtual Table BaseTable { get; set; }
-    protected virtual Table RangeTable { get; set; }
     protected virtual Table VirtualTable { get; set; }
+    protected virtual Table RangeTable { get; set; }
     protected virtual ModuleRef ModuleRef { get; set; }
     protected virtual bool SystemInfra { get; set; }
     protected virtual String SSystemInfra { get; set; }
