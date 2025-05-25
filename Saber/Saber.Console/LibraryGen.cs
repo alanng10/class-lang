@@ -480,62 +480,38 @@ public class LibraryGen : TextAdd
         this.StringValueTravel.Array = null;
         this.StringValueTravel.Module = null;
 
-        Iter iter;
-        iter = this.Module.Class.IterCreate();
-        this.Module.Class.IterSet(iter);
+        this.ClassGen.Module = this.Module;
+        this.ClassGen.BaseArray = this.ClassBaseArray;
+        this.ClassGen.CompArray = this.ClassCompArray;
+        this.ClassGen.StringValue = stringValueArray;
 
-        long count;
-        count = this.Module.Class.Count;
-        long i;
-        i = 0;
-        while (i < count)
+        this.ClassGen.Execute();
+
+        String k;
+        k = this.ClassGen.Result;
+
+        this.ClassGen.Result = null;
+        this.ClassGen.StringValue = null;
+        this.ClassGen.CompArray = null;
+        this.ClassGen.BaseArray = null;
+        this.ClassGen.Module = null;
+
+        String combine;
+        combine = this.TextInfra.PathCombine;
+
+        String fileName;
+        fileName = this.AddClear().Add(this.SModule).Add(this.ClassInfra.TextDot).Add(this.SC).AddResult();
+
+        String filePath;
+        filePath = this.AddClear().Add(this.GenModuleFoldPath).Add(combine).Add(fileName).AddResult();
+
+        bool bab;
+        bab = this.StorageInfra.TextWrite(filePath, k);
+
+        if (!bab)
         {
-            iter.Next();
-
-            ClassClass varClass;
-            varClass = iter.Value as ClassClass;
-
-            NodeClass nodeClass;
-            nodeClass = varClass.Any as NodeClass;
-
-            this.ClassGen.Class = varClass;
-            this.ClassGen.BaseArray = this.ClassBaseArray;
-            this.ClassGen.CompArray = this.ClassCompArray;
-            this.ClassGen.StringValue = stringValueArray;
-
-            this.ClassGen.Execute();
-
-            String k;
-            k = this.ClassGen.Result;
-
-            this.ClassGen.Result = null;
-            this.ClassGen.StringValue = null;
-            this.ClassGen.CompArray = null;
-            this.ClassGen.BaseArray = null;
-            this.ClassGen.Class = null;
-
-            String ka;
-            ka = this.StringIntHex(i);
-
-            String combine;
-            combine = this.TextInfra.PathCombine;
-
-            String fileName;
-            fileName = this.AddClear().AddChar('C').Add(ka).Add(this.ClassInfra.TextDot).Add(this.SC).AddResult();
-
-            String filePath;
-            filePath = this.AddClear().Add(this.GenModuleFoldPath).Add(combine).Add(fileName).AddResult();
-
-            bool bab;
-            bab = this.StorageInfra.TextWrite(filePath, k);
-
-            if (!bab)
-            {
-                this.Status = 20;
-                return false;
-            }
-
-            i = i + 1;
+            this.Status = 20;
+            return false;
         }
 
         return true;
