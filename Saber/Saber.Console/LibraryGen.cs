@@ -224,16 +224,22 @@ public class LibraryGen : TextAdd
 
         this.ExecuteInit();
 
-        this.ExecuteBase();
+        bool b;
+
+        b = this.ExecuteBase();
+        if (!b)
+        {
+            this.Status = 10;
+            return false;
+        }
 
         this.ExecuteClassComp();
 
-        bool b;
         b = this.StorageComp.FoldCreate(this.GenModuleFoldPath);
 
         if (!b)
         {
-            this.Status = 10;
+            this.Status = 20;
             return false;
         }
 
@@ -370,6 +376,11 @@ public class LibraryGen : TextAdd
             Array a;
             a = this.ClassBaseGen.Result;
 
+            if (0x100 < a.Count)
+            {
+                return false;
+            }
+
             this.ClassBaseGen.Result = null;
             this.ClassBaseGen.Class = null;
 
@@ -489,12 +500,6 @@ public class LibraryGen : TextAdd
 
             Array baseArray;
             baseArray = this.ClassBaseArray.GetAt(i) as Array;
-
-            if (0x100 < baseArray.Count)
-            {
-                this.Status = 15;
-                return false;
-            }
 
             ClassComp classComp;
             classComp = this.ClassCompArray.GetAt(i) as ClassComp;
