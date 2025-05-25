@@ -10,7 +10,7 @@ public class CompTravel : Travel
         return true;
     }
 
-    public virtual ClassClass ThisClass { get; set; }
+    public virtual Class ThisClass { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual Table ParamVar { get; set; }
@@ -72,7 +72,7 @@ public class CompTravel : Travel
             }
         }
 
-        ClassClass varClass;
+        Class varClass;
         varClass = null;
 
         if (!(className == null))
@@ -150,7 +150,7 @@ public class CompTravel : Travel
             }
         }
 
-        ClassClass varClass;
+        Class varClass;
         varClass = null;
 
         if (!(className == null))
@@ -225,7 +225,7 @@ public class CompTravel : Travel
             }
         }
 
-        ClassClass varClass;
+        Class varClass;
         varClass = null;
 
         if (!(className == null))
