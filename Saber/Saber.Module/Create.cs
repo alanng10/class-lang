@@ -428,7 +428,7 @@ public class Create : ClassCreate
             ClassClass a;
             a = iter.Value as ClassClass;
 
-            this.VirtualClassSetClass(a);
+            this.VirtualSetClass(a);
         }
 
         this.ClassVirtualTable = null;
@@ -436,7 +436,7 @@ public class Create : ClassCreate
         return true;
     }
 
-    protected virtual bool VirtualClassSetClass(ClassClass varClass)
+    protected virtual bool VirtualSetClass(ClassClass varClass)
     {
         Table k;
         k = this.ClassVirtualTable;
@@ -459,7 +459,7 @@ public class Create : ClassCreate
             ClassClass baseClass;
             baseClass = varClass.Base;
 
-            this.VirtualClassSetClass(baseClass);
+            this.VirtualSetClass(baseClass);
         }
 
         this.ClassVirtualSetClassComp(varClass);
