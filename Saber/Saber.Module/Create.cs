@@ -787,7 +787,7 @@ public class Create : ClassCreate
 
         if (!b)
         {
-            h = this.ModuleGet(this.S("System.Entry"));
+            h = this.ModuleGet(this.SSystemEntry);
 
             if (h == null)
             {
