@@ -330,12 +330,15 @@ public class Create : ClassCreate
 
                 a = anyClass;
             }
+
             if (b)
             {
                 a = iter.Value as ClassClass;
             }
+
             varClass.Base = a;
         }
+
         return true;
     }
 
