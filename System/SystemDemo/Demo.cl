@@ -1034,14 +1034,16 @@ class Demo : Add
         var String k;
         k : this.StorageInfra.TextRead("SystemDemo-96207.08.47.data/A.txt");
 
-        this.Console.Out.Write(this.AddClear().Add("Storage Read: ").Add(k).AddLine().AddResult());
+        var Bool b;
+        b : this.TextSame(this.TA(k), this.TB("HH jj o i 可 的水 。，\n的d E 0 - +\n"));
+
+        this.Console.Out.Write(this.AddClear().Add("Storage Infra Read ").Add(this.StatusString(b)).AddLine().AddResult());
 
         this.StorageComp.ThisFoldSet("SystemDemo-96207.08.47.data");
 
         var String ka;
         ka : this.StorageInfra.TextRead("A.txt");
 
-        var Bool b;
         b : this.TextSame(this.TA(ka), this.TB(k));
 
         this.Console.Out.Write(this.AddClear().Add("StorageComp ThisFold Set Read ").Add(this.StatusString(b)).AddLine().AddResult());
