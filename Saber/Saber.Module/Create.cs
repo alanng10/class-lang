@@ -646,7 +646,7 @@ public class Create : ClassCreate
             }
             if (!b)
             {
-                this.ValidSetExport(varClass);
+                this.ExportValidSet(varClass);
 
                 list.Add(varClass);
             }
@@ -664,7 +664,7 @@ public class Create : ClassCreate
         return true;
     }
 
-    protected virtual bool ValidSetExport(ClassClass varClass)
+    protected virtual bool ExportValidSet(ClassClass varClass)
     {
         if (!this.ExportValidClass(varClass.Base))
         {
