@@ -666,7 +666,7 @@ public class Create : ClassCreate
 
     protected virtual bool ValidSetExport(ClassClass varClass)
     {
-        if (!this.ValidIsExport(varClass.Base))
+        if (!this.ValidClassExport(varClass.Base))
         {
             NodeClass aa;
             aa = varClass.Any as NodeClass;
@@ -682,7 +682,7 @@ public class Create : ClassCreate
             field = iter.Value as Field;
             if (this.CountExport(field.Count))
             {
-                if (!this.ValidIsExport(field.Class))
+                if (!this.ValidClassExport(field.Class))
                 {
                     NodeField ab;
                     ab = field.Any as NodeField;
@@ -701,7 +701,7 @@ public class Create : ClassCreate
             {
                 bool b;
                 b = false;
-                if (!this.ValidIsExport(maide.Class))
+                if (!this.ValidClassExport(maide.Class))
                 {
                     b = true;
                 }
@@ -714,7 +714,7 @@ public class Create : ClassCreate
                     {
                         Var varVar;
                         varVar = iterA.Value as Var;
-                        if (!this.ValidIsExport(varVar.Class))
+                        if (!this.ValidClassExport(varVar.Class))
                         {
                             b = true;
                         }
@@ -740,7 +740,7 @@ public class Create : ClassCreate
         return false;
     }
 
-    protected virtual bool ValidIsExport(ClassClass varClass)
+    protected virtual bool ValidClassExport(ClassClass varClass)
     {
         if (!(varClass.Module == this.Module))
         {
