@@ -450,19 +450,15 @@ public class Create : ClassCreate
         bool b;
         b = (varClass == this.System.Any);
 
-        if (b)
-        {
-            this.ClassVirtualSetClassComp(varClass);
-        }
         if (!b)
         {
             ClassClass baseClass;
             baseClass = varClass.Base;
 
             this.ClassVirtualSetClass(baseClass);
-
-            this.ClassVirtualSetClassComp(varClass);
         }
+
+        this.ClassVirtualSetClassComp(varClass);
 
         this.ListInfra.TableAdd(k, varClass, varClass);
 
