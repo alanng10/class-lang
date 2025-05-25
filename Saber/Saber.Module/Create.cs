@@ -344,18 +344,6 @@ public class Create : ClassCreate
 
     protected virtual bool ValidClassDepend(ClassClass varClass)
     {
-        ListInfra listInfra;
-        listInfra = this.ListInfra;
-
-        ClassModule module;
-        module = this.Module;
-
-        Table baseTable;
-        baseTable = this.BaseTable;
-
-        ClassClass anyClass;
-        anyClass = this.System.Any;
-
         Table table;
         table = this.ClassInfra.TableCreateRefLess();
 
@@ -364,7 +352,7 @@ public class Create : ClassCreate
 
         while (!(a == null))
         {
-            if (!(a.Module == module))
+            if (!(a.Module == this.Module))
             {
                 return true;
             }
@@ -374,13 +362,13 @@ public class Create : ClassCreate
                 return false;
             }
 
-            listInfra.TableAdd(table, a, a);
+            this.ListInfra.TableAdd(table, a, a);
 
             ClassClass ka;
             ka = null;
-            if (!(a == anyClass))
+            if (!(a == this.System.Any))
             {
-                ka = baseTable.Get(a) as ClassClass;
+                ka = this.BaseTable.Get(a) as ClassClass;
             }
             a = ka;
         }
