@@ -20,8 +20,6 @@ public class LibraryGen : TextAdd
 
         this.StringTravel = this.CreateStringTravel();
 
-        this.ModuleHeaderGen = this.CreateModuleHeaderGen();
-
         this.ImportArgGen = this.CreateImportArgGen();
 
         this.ProjectGen = this.CreateProjectGen();
@@ -84,14 +82,6 @@ public class LibraryGen : TextAdd
         return a;
     }
 
-    protected virtual ModuleHeaderGen CreateModuleHeaderGen()
-    {
-        ModuleHeaderGen a;
-        a = new ModuleHeaderGen();
-        a.Init();
-        return a;
-    }
-
     protected virtual ImportArgGen CreateImportArgGen()
     {
         ImportArgGen a;
@@ -137,7 +127,6 @@ public class LibraryGen : TextAdd
     protected virtual ClassCompGen ClassCompGen { get; set; }
     protected virtual ClassGen ClassGen { get; set; }
     protected virtual StringTravel StringTravel { get; set; }
-    protected virtual ModuleHeaderGen ModuleHeaderGen { get; set; }
     protected virtual ImportArgGen ImportArgGen { get; set; }
     protected virtual ProjectGen ProjectGen { get; set; }
     protected virtual ModuleRefStringGen ModuleRefStringGen { get; set; }
@@ -225,12 +214,6 @@ public class LibraryGen : TextAdd
         }
 
         b = this.ExecuteClassSource();
-        if (!b)
-        {
-            return false;
-        }
-
-        b = this.ExecuteModuleHeaderSource();
         if (!b)
         {
             return false;
