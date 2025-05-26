@@ -324,10 +324,10 @@ public class ClassGen : TextAdd
         this.Operate = null;
         this.Arg = null;
 
-        String o;
-        o = this.StringComp.CreateData(data, null);
+        String k;
+        k = this.StringComp.CreateData(data, null);
 
-        this.Result = o;
+        this.Result = k;
         return true;
     }
 
