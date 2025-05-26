@@ -410,6 +410,7 @@ public class LibraryGen : TextAdd
         internClass = systemInfraModule.Class.Get(this.SIntern) as ClassClass;
         externClass = systemInfraModule.Class.Get(this.SExtern) as ClassClass;
 
+        this.ClassGen.SystemInfraModule = b;
         this.ClassGen.InternClass = internClass;
         this.ClassGen.ExternClass = externClass;
         this.ClassGen.System = this.SystemClass;
