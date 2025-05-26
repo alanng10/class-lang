@@ -224,22 +224,16 @@ public class LibraryGen : TextAdd
 
         this.ExecuteInit();
 
+        this.ExecuteBase();
+
+        this.ExecuteComp();
+
         bool b;
-
-        b = this.ExecuteBase();
-        if (!b)
-        {
-            this.Status = 10;
-            return false;
-        }
-
-        this.ExecuteClassComp();
-
         b = this.StorageComp.FoldCreate(this.GenModuleFoldPath);
 
         if (!b)
         {
-            this.Status = 20;
+            this.Status = 10;
             return false;
         }
 
@@ -392,7 +386,7 @@ public class LibraryGen : TextAdd
         return true;
     }
 
-    protected virtual bool ExecuteClassComp()
+    protected virtual bool ExecuteComp()
     {
         long count;
         count = this.Module.Class.Count;
