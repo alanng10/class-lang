@@ -114,7 +114,6 @@ public class LibraryGen : TextAdd
     public virtual ClassModule Module { get; set; }
     public virtual String ModuleRefString { get; set; }
     public virtual Table ModuleTable { get; set; }
-    public virtual Table ImportClass { get; set; }
     public virtual SystemClass SystemClass { get; set; }
     public virtual String ClassPath { get; set; }
     public virtual long Status { get; set; }
