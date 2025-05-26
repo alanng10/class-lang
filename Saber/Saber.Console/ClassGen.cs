@@ -410,9 +410,9 @@ public class ClassGen : TextAdd
         ClassGen gen;
         gen = this.Gen;
 
-        gen.Include(gen.IncludeValueInfra);
-        gen.Include(gen.IncludeValueInfraIntern);
-        gen.Text(gen.NewLine);
+        this.Include(this.IncludeValueInfra);
+        this.Include(this.IncludeValueInfraIntern);
+        this.Text(this.NewLine);
 
         if (this.SystemInfraModule)
         {
@@ -422,25 +422,25 @@ public class ClassGen : TextAdd
         }
 
         this.ExecuteExternModuleStruct();
-        gen.Text(gen.NewLine);
+        this.Text(this.NewLine);
 
         this.ExecuteExternModuleInit();
-        gen.Text(gen.NewLine);
+        this.Text(this.NewLine);
 
         this.ExecuteExternModuleVar();
-        gen.Text(gen.NewLine);
+        this.Text(this.NewLine);
 
         this.ExecuteExternModuleEntry();
-        gen.Text(gen.NewLine);
+        this.Text(this.NewLine);
 
         this.ExecuteExternModuleCount();
-        gen.Text(gen.NewLine);
+        this.Text(this.NewLine);
 
         this.ExecuteExternImportModuleStruct();
-        gen.Text(gen.NewLine);
+        this.Text(this.NewLine);
 
         this.ExecuteExternImportModuleInit();
-        gen.Text(gen.NewLine);
+        this.Text(this.NewLine);
 
         this.ExecuteExternClassInit();
         return true;
@@ -451,20 +451,20 @@ public class ClassGen : TextAdd
         ClassGen gen;
         gen = this.Gen;
 
-        gen.Text(gen.ExportWord);
-        gen.Text(gen.ApiWord);
-        gen.Text(gen.Space);
+        this.Text(this.ExportWord);
+        this.Text(this.ApiWord);
+        this.Text(this.Space);
 
-        gen.Text(gen.IndexExtern);
-        gen.Text(gen.Space);
+        this.Text(this.IndexExtern);
+        this.Text(this.Space);
 
-        gen.Text(gen.InternModuleStruct);
-        gen.Text(gen.Space);
+        this.Text(this.InternModuleStruct);
+        this.Text(this.Space);
 
-        gen.ModuleStructName(this.Module.Ref);
+        this.ModuleStructName(this.Module.Ref);
 
-        gen.Text(gen.LimitSemicolon);
-        gen.Text(gen.NewLine);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
         return true;
     }
 
@@ -474,7 +474,7 @@ public class ClassGen : TextAdd
         gen = this.Gen;
 
         Iter iter;
-        iter = gen.TableIter;
+        iter = this.TableIter;
 
         this.Module.Import.IterSet(iter);
 
@@ -483,20 +483,20 @@ public class ClassGen : TextAdd
             ModuleRef module;
             module = iter.Index as ModuleRef;
 
-            gen.Text(gen.ImportWord);
-            gen.Text(gen.ApiWord);
-            gen.Text(gen.Space);
+            this.Text(this.ImportWord);
+            this.Text(this.ApiWord);
+            this.Text(this.Space);
 
-            gen.Text(gen.IndexExtern);
-            gen.Text(gen.Space);
+            this.Text(this.IndexExtern);
+            this.Text(this.Space);
 
-            gen.Text(gen.InternModuleStruct);
-            gen.Text(gen.Space);
+            this.Text(this.InternModuleStruct);
+            this.Text(this.Space);
 
-            gen.ModuleStructName(module);
+            this.ModuleStructName(module);
 
-            gen.Text(gen.LimitSemicolon);
-            gen.Text(gen.NewLine);
+            this.Text(this.LimitSemicolon);
+            this.Text(this.NewLine);
         }
 
         iter.Clear();
@@ -508,18 +508,18 @@ public class ClassGen : TextAdd
         ClassGen gen;
         gen = this.Gen;
 
-        gen.Text(gen.ExportWord);
-        gen.Text(gen.ApiWord);
-        gen.Text(gen.Space);
+        this.Text(this.ExportWord);
+        this.Text(this.ApiWord);
+        this.Text(this.Space);
 
-        gen.Text(gen.ClassInt);
-        gen.Text(gen.Space);
+        this.Text(this.ClassInt);
+        this.Text(this.Space);
 
-        gen.ModuleInitName(this.Module.Ref);
-        gen.Text(gen.LimitBraceRoundLite);
-        gen.Text(gen.LimitBraceRoundRite);
-        gen.Text(gen.LimitSemicolon);
-        gen.Text(gen.NewLine);
+        this.ModuleInitName(this.Module.Ref);
+        this.Text(this.LimitBraceRoundLite);
+        this.Text(this.LimitBraceRoundRite);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
         return true;
     }
 
@@ -528,18 +528,18 @@ public class ClassGen : TextAdd
         ClassGen gen;
         gen = this.Gen;
 
-        gen.Text(gen.ExportWord);
-        gen.Text(gen.ApiWord);
-        gen.Text(gen.Space);
+        this.Text(this.ExportWord);
+        this.Text(this.ApiWord);
+        this.Text(this.Space);
 
-        gen.Text(gen.ClassInt);
-        gen.Text(gen.Space);
+        this.Text(this.ClassInt);
+        this.Text(this.Space);
 
-        gen.ModuleVarName(this.Module.Ref);
-        gen.Text(gen.LimitBraceRoundLite);
-        gen.Text(gen.LimitBraceRoundRite);
-        gen.Text(gen.LimitSemicolon);
-        gen.Text(gen.NewLine);
+        this.ModuleVarName(this.Module.Ref);
+        this.Text(this.LimitBraceRoundLite);
+        this.Text(this.LimitBraceRoundRite);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
         return true;
     }
 
@@ -548,18 +548,18 @@ public class ClassGen : TextAdd
         ClassGen gen;
         gen = this.Gen;
 
-        gen.Text(gen.ExportWord);
-        gen.Text(gen.ApiWord);
-        gen.Text(gen.Space);
+        this.Text(this.ExportWord);
+        this.Text(this.ApiWord);
+        this.Text(this.Space);
 
-        gen.Text(gen.ClassInt);
-        gen.Text(gen.Space);
+        this.Text(this.ClassInt);
+        this.Text(this.Space);
 
-        gen.ModuleEntryName(this.Module.Ref);
-        gen.Text(gen.LimitBraceRoundLite);
-        gen.Text(gen.LimitBraceRoundRite);
-        gen.Text(gen.LimitSemicolon);
-        gen.Text(gen.NewLine);
+        this.ModuleEntryName(this.Module.Ref);
+        this.Text(this.LimitBraceRoundLite);
+        this.Text(this.LimitBraceRoundRite);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
         return true;
     }
 
@@ -568,18 +568,18 @@ public class ClassGen : TextAdd
         ClassGen gen;
         gen = this.Gen;
 
-        gen.Text(gen.ExportWord);
-        gen.Text(gen.ApiWord);
-        gen.Text(gen.Space);
+        this.Text(this.ExportWord);
+        this.Text(this.ApiWord);
+        this.Text(this.Space);
 
-        gen.Text(gen.ClassInt);
-        gen.Text(gen.Space);
+        this.Text(this.ClassInt);
+        this.Text(this.Space);
 
-        gen.ModuleCountName(this.Module.Ref);
-        gen.Text(gen.LimitBraceRoundLite);
-        gen.Text(gen.LimitBraceRoundRite);
-        gen.Text(gen.LimitSemicolon);
-        gen.Text(gen.NewLine);
+        this.ModuleCountName(this.Module.Ref);
+        this.Text(this.LimitBraceRoundLite);
+        this.Text(this.LimitBraceRoundRite);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
         return true;
     }
 
@@ -589,7 +589,7 @@ public class ClassGen : TextAdd
         gen = this.Gen;
 
         Iter iter;
-        iter = gen.TableIter;
+        iter = this.TableIter;
 
         this.Module.Import.IterSet(iter);
 
@@ -598,18 +598,18 @@ public class ClassGen : TextAdd
             ModuleRef module;
             module = iter.Index as ModuleRef;
 
-            gen.Text(gen.ImportWord);
-            gen.Text(gen.ApiWord);
-            gen.Text(gen.Space);
+            this.Text(this.ImportWord);
+            this.Text(this.ApiWord);
+            this.Text(this.Space);
 
-            gen.Text(gen.ClassInt);
-            gen.Text(gen.Space);
+            this.Text(this.ClassInt);
+            this.Text(this.Space);
 
-            gen.ModuleInitName(module);
-            gen.Text(gen.LimitBraceRoundLite);
-            gen.Text(gen.LimitBraceRoundRite);
-            gen.Text(gen.LimitSemicolon);
-            gen.Text(gen.NewLine);
+            this.ModuleInitName(module);
+            this.Text(this.LimitBraceRoundLite);
+            this.Text(this.LimitBraceRoundRite);
+            this.Text(this.LimitSemicolon);
+            this.Text(this.NewLine);
         }
 
         iter.Clear();
@@ -622,7 +622,7 @@ public class ClassGen : TextAdd
         gen = this.Gen;
 
         Iter iter;
-        iter = gen.TableIter;
+        iter = this.TableIter;
 
         this.Module.Class.IterSet(iter);
 
@@ -631,14 +631,14 @@ public class ClassGen : TextAdd
             ClassClass varClass;
             varClass = iter.Value as ClassClass;
 
-            gen.Text(gen.ClassInt);
-            gen.Text(gen.Space);
+            this.Text(this.ClassInt);
+            this.Text(this.Space);
 
-            gen.ClassInitName(varClass);
-            gen.Text(gen.LimitBraceRoundLite);
-            gen.Text(gen.LimitBraceRoundRite);
-            gen.Text(gen.LimitSemicolon);
-            gen.Text(gen.NewLine);
+            this.ClassInitName(varClass);
+            this.Text(this.LimitBraceRoundLite);
+            this.Text(this.LimitBraceRoundRite);
+            this.Text(this.LimitSemicolon);
+            this.Text(this.NewLine);
         }
 
         iter.Clear();
