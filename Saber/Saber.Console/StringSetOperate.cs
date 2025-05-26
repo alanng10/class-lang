@@ -4,14 +4,17 @@ public class StringSetOperate : StringOperate
 {
     public override bool Execute(String k)
     {
-        long index;
-        index = this.Travel.Index;
+        StringArg arg;
+        arg = this.Travel.Arg;
 
-        this.Travel.Array.SetAt(index, k);
+        long index;
+        index = arg.Index;
+
+        arg.Array.SetAt(index, k);
 
         index = index + 1;
 
-        this.Travel.Index = index;
+        arg.Index = index;
         return true;
     }
 }
