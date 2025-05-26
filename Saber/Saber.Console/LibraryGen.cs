@@ -153,8 +153,8 @@ public class LibraryGen : TextAdd
     protected virtual ProjectGen ProjectGen { get; set; }
     protected virtual ModuleRefStringGen ModuleRefStringGen { get; set; }
     protected virtual Array ClassInitArray { get; set; }
-    protected virtual Array ClassBaseArray { get; set; }
-    protected virtual Array ClassCompArray { get; set; }
+    protected virtual Array BaseArray { get; set; }
+    protected virtual Array CompArray { get; set; }
     protected virtual String ModuleProjectText { get; set; }
     protected virtual String ModuleExeText { get; set; }
     protected virtual String GenModuleFoldPath { get; set; }
@@ -199,8 +199,8 @@ public class LibraryGen : TextAdd
         b = this.ExecuteAll();
 
         this.ClassInitArray = null;
-        this.ClassBaseArray = null;
-        this.ClassCompArray = null;
+        this.BaseArray = null;
+        this.CompArray = null;
         this.ModuleExeString = null;
         this.GenModuleExeFoldPath = null;
         this.GenModuleFoldPath = null;
@@ -347,7 +347,7 @@ public class LibraryGen : TextAdd
         Array array;
         array = this.ListInfra.ArrayCreate(count);
 
-        this.ClassBaseArray = array;
+        this.BaseArray = array;
 
         Iter iter;
         iter = this.Module.Class.IterCreate();
@@ -389,7 +389,7 @@ public class LibraryGen : TextAdd
         Array array;
         array = this.ListInfra.ArrayCreate(count);
 
-        this.ClassCompArray = array;
+        this.CompArray = array;
 
         Iter iter;
         iter = this.Module.Class.IterCreate();
@@ -406,7 +406,7 @@ public class LibraryGen : TextAdd
             varClass = iter.Value as ClassClass;
         
             Array baseArray;
-            baseArray = this.ClassBaseArray.GetAt(i) as Array;
+            baseArray = this.BaseArray.GetAt(i) as Array;
 
             this.ClassCompGen.Class = varClass;
             this.ClassCompGen.BaseArray = baseArray;
@@ -459,13 +459,13 @@ public class LibraryGen : TextAdd
         this.ClassGen.System = this.SystemClass;
 
         long count;
-        count = this.ClassBaseArray.Count;
+        count = this.BaseArray.Count;
         long i;
         i = 0;
         while (i < count)
         {
             Array array;
-            array = this.ClassBaseArray.GetAt(i) as Array;
+            array = this.BaseArray.GetAt(i) as Array;
 
             if (0x100 < array.Count)
             {
@@ -487,8 +487,8 @@ public class LibraryGen : TextAdd
         this.StringTravel.Module = null;
 
         this.ClassGen.Module = this.Module;
-        this.ClassGen.BaseArray = this.ClassBaseArray;
-        this.ClassGen.CompArray = this.ClassCompArray;
+        this.ClassGen.BaseArray = this.BaseArray;
+        this.ClassGen.CompArray = this.CompArray;
         this.ClassGen.StringArray = stringArray;
 
         this.ClassGen.Execute();
@@ -563,7 +563,7 @@ public class LibraryGen : TextAdd
         this.ModuleHeaderGen.Gen = this.ClassGen;
         this.ModuleHeaderGen.Module = this.Module;
         this.ModuleHeaderGen.ImportClass = this.ImportClass;
-        this.ModuleHeaderGen.ClassCompArray = this.ClassCompArray;
+        this.ModuleHeaderGen.ClassCompArray = this.CompArray;
 
         this.ModuleHeaderGen.Execute();
         String k;
