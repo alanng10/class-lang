@@ -407,9 +407,6 @@ public class ClassGen : TextAdd
 
     public virtual bool ExecuteExtern()
     {
-        ClassGen gen;
-        gen = this.Gen;
-
         this.Include(this.IncludeValueInfra);
         this.Include(this.IncludeValueInfraIntern);
         this.Text(this.NewLine);
@@ -448,9 +445,6 @@ public class ClassGen : TextAdd
 
     public virtual bool ExecuteExternModuleStruct()
     {
-        ClassGen gen;
-        gen = this.Gen;
-
         this.Text(this.ExportWord);
         this.Text(this.ApiWord);
         this.Text(this.Space);
@@ -470,9 +464,6 @@ public class ClassGen : TextAdd
 
     public virtual bool ExecuteExternImportModuleStruct()
     {
-        ClassGen gen;
-        gen = this.Gen;
-
         Iter iter;
         iter = this.TableIter;
 
@@ -505,9 +496,6 @@ public class ClassGen : TextAdd
 
     public virtual bool ExecuteExternModuleInit()
     {
-        ClassGen gen;
-        gen = this.Gen;
-
         this.Text(this.ExportWord);
         this.Text(this.ApiWord);
         this.Text(this.Space);
@@ -525,9 +513,6 @@ public class ClassGen : TextAdd
 
     public virtual bool ExecuteExternModuleVar()
     {
-        ClassGen gen;
-        gen = this.Gen;
-
         this.Text(this.ExportWord);
         this.Text(this.ApiWord);
         this.Text(this.Space);
@@ -545,9 +530,6 @@ public class ClassGen : TextAdd
 
     public virtual bool ExecuteExternModuleEntry()
     {
-        ClassGen gen;
-        gen = this.Gen;
-
         this.Text(this.ExportWord);
         this.Text(this.ApiWord);
         this.Text(this.Space);
@@ -565,9 +547,6 @@ public class ClassGen : TextAdd
 
     public virtual bool ExecuteExternModuleCount()
     {
-        ClassGen gen;
-        gen = this.Gen;
-
         this.Text(this.ExportWord);
         this.Text(this.ApiWord);
         this.Text(this.Space);
@@ -585,9 +564,6 @@ public class ClassGen : TextAdd
 
     public virtual bool ExecuteExternImportModuleInit()
     {
-        ClassGen gen;
-        gen = this.Gen;
-
         Iter iter;
         iter = this.TableIter;
 
@@ -618,9 +594,6 @@ public class ClassGen : TextAdd
 
     public virtual bool ExecuteExternClassInit()
     {
-        ClassGen gen;
-        gen = this.Gen;
-
         Iter iter;
         iter = this.TableIter;
 
