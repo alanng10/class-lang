@@ -664,7 +664,7 @@ public class ClassGen : TextAdd
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
 
-        this.ExecuteClassInit();
+        this.ExecuteModuleInitClass();
 
         this.TextIndent();
         this.Text(this.IndexReturn);
@@ -704,7 +704,7 @@ public class ClassGen : TextAdd
         return true;
     }
 
-    public virtual bool ExecuteClassInit()
+    public virtual bool ExecuteModuleInitClass()
     {
         long count;
         count = this.InitArray.Count;
