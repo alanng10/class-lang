@@ -491,11 +491,14 @@ public class ClassGenTravel : Travel
         long k;
         k = gen.ParamCount;
 
+        long kk;
+        kk = gen.ClassBaseMask(gen.Class.BaseCount);
+
         gen.EvalFrameValueGet(-(k + 1), varA);
 
         gen.VarMaskClear(varA, gen.BaseClearMask);
 
-        gen.VarMaskSet(varA, gen.ClassBaseMask);
+        gen.VarMaskSetInt(varA, kk);
 
         gen.EvalValueSet(0, varA);
 

@@ -164,7 +164,6 @@ public class ClassGen : TextAdd
     public virtual ClassGenSetOperate SetOperate { get; set; }
     public virtual ClassGenTravel Travel { get; set; }
     public virtual long StringValueIndex { get; set; }
-    public virtual String ClassBaseMask { get; set; }
     public virtual Field ThisField { get; set; }
     public virtual Iter ClassIter { get; set; }
     public virtual Iter TableIter { get; set; }
@@ -299,16 +298,6 @@ public class ClassGen : TextAdd
     public virtual bool Execute()
     {
         this.InitMaide = this.System.Any.Maide.Get(this.InitWord) as Maide;
-        
-        long k;
-        k = this.Class.BaseCount - 1;
-
-        if (!this.ValidBaseIndex(k))
-        {
-            return false;
-        }
-
-        this.ClassBaseMask = this.ClassBaseMaskGet(k);
 
         this.Arg = new GenArg();
         this.Arg.Init();
@@ -2813,6 +2802,29 @@ public class ClassGen : TextAdd
         return true;
     }
 
+    public virtual bool VarMaskSetInt(String varVar, long mask)
+    {
+        this.TextIndent();
+
+        this.Text(varVar);
+
+        this.Text(this.Space);
+        this.Text(this.LimitAre);
+        this.Text(this.Space);
+
+        this.Text(varVar);
+
+        this.Text(this.Space);
+        this.Text(this.LimitOrn);
+        this.Text(this.Space);
+
+        this.TextIntHex(mask);
+
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
+        return true;
+    }
+
     public virtual bool EvalValueGet(long index, String varVar)
     {
         this.TextIndent();
@@ -3257,25 +3269,10 @@ public class ClassGen : TextAdd
         return this.Operate.ExecuteChar(n);
     }
 
-    public virtual bool ValidBaseIndex(long index)
-    {
-        if (index < 0)
-        {
-            return false;
-        }
-        
-        if (!(index < 0x100))
-        {
-            return false;
-        }
-
-        return true;
-    }
-
-    public virtual String ClassBaseMaskGet(long index)
+    public virtual long ClassBaseMask(long baseCount)
     {
         long ka;
-        ka = index;
+        ka = baseCount - 1;
 
         if (0 < ka)
         {
@@ -3286,11 +3283,7 @@ public class ClassGen : TextAdd
         k = ka;
         k = k & 0xff;
         k = k << 52;
-
-        String a;
-        a = this.AddClear().Add(this.IntValueHexPre).Add(this.StringIntHex(k)).AddResult();
-        
-        return a;
+        return k;
     }
 
     protected virtual String InitVar(String prefix, string name)
