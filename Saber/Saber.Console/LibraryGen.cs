@@ -244,13 +244,6 @@ public class LibraryGen : TextAdd
             return false;
         }
 
-        // bool bd;
-        // bd = this.ExecuteGenProject();
-        // if (!bd)
-        // {
-        //     return false;
-        // }
-
         b = this.ExecuteMakeLib();
         if (!b)
         {
