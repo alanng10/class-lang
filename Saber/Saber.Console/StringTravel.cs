@@ -31,23 +31,33 @@ public class StringTravel : Travel
 
     public virtual bool Execute()
     {
+        this.Arg = new StringArg();
+        this.Arg.Init();
+
+        this.Arg.ClassCountData = new Data();
+        this.Arg.ClassCountData.Count = this.Module.Class.Count * sizeof(long);
+        this.Arg.ClassCountData.Init();
+
         this.Operate = this.CountOperate;
 
         this.ResetStage();
         this.ExecuteStage();
 
-        this.Array = this.ListInfra.ArrayCreate(this.Index);
+        this.Arg.Array = this.ListInfra.ArrayCreate(this.Arg.Index);
 
         this.Operate = this.SetOperate;
 
         this.ResetStage();
         this.ExecuteStage();
+
+        this.Operate = null;
+        this.Arg = null;
         return true;
     }
 
     public virtual bool ResetStage()
     {
-        this.Index = 0;
+        this.Arg.Index = 0;
         return true;
     }
 
