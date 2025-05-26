@@ -147,10 +147,12 @@ public class ClassGen : TextAdd
 
     public virtual ClassModule Module { get; set; }
     public virtual long ModuleCount { get; set; }
+    public virtual Table ImportClass { get; set; }
     public virtual Array InitArray { get; set; }
     public virtual Array BaseArray { get; set; }
     public virtual Array CompArray { get; set; }
     public virtual Array StringArray { get; set; }
+    public virtual String Result { get; set; }
     public virtual ClassClass Class { get; set; }
     public virtual SystemClass System { get; set; }
     public virtual bool SystemInfraModule { get; set; }
@@ -162,7 +164,6 @@ public class ClassGen : TextAdd
     public virtual Maide InitMaide { get; set; }
     public virtual GenArg Arg { get; set; }
     public virtual ClassGenOperate Operate { get; set; }
-    public virtual String Result { get; set; }
     public virtual ClassGenCountOperate CountOperate { get; set; }
     public virtual ClassGenSetOperate SetOperate { get; set; }
     public virtual ClassGenTravel Travel { get; set; }

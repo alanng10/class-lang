@@ -484,41 +484,6 @@ public class LibraryGen : TextAdd
         return true;
     }
 
-    protected virtual bool ExecuteModuleHeaderSource()
-    {
-        this.ModuleHeaderGen.Gen = this.ClassGen;
-        this.ModuleHeaderGen.Module = this.Module;
-        this.ModuleHeaderGen.ImportClass = this.ImportClass;
-        this.ModuleHeaderGen.ClassCompArray = this.CompArray;
-
-        this.ModuleHeaderGen.Execute();
-        String k;
-        k = this.ModuleHeaderGen.Result;
-
-        this.ModuleHeaderGen.Result = null;
-        this.ModuleHeaderGen.ClassCompArray = null;
-        this.ModuleHeaderGen.ImportClass = null;
-        this.ModuleHeaderGen.Module = null;
-        this.ModuleHeaderGen.Gen = null;
-
-        String fileName;
-        fileName = this.AddClear().Add(this.SModule).Add(this.ClassInfra.TextDot).Add(this.SH).AddResult();
-
-        String filePath;
-        filePath = this.AddClear().Add(this.GenModuleFoldPath).Add(this.TextInfra.PathCombine).Add(fileName).AddResult();
-
-        bool b;
-        b = this.StorageInfra.TextWrite(filePath, k);
-
-        if (!b)
-        {
-            this.Status = 40;
-            return false;
-        }
-
-        return true;
-    }
-
     protected virtual bool ExecuteImportArg()
     {
         Array moduleRefStringArray;
