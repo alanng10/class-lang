@@ -155,7 +155,7 @@ public class ClassGen : TextAdd
     public virtual ClassClass ExternClass { get; set; }
     public virtual Array Base { get; set; }
     public virtual ClassComp Comp { get; set; }
-    public virtual Array StringValue { get; set; }
+    public virtual Array String { get; set; }
     public virtual Maide InitMaide { get; set; }
     public virtual GenArg Arg { get; set; }
     public virtual ClassGenOperate Operate { get; set; }
@@ -934,13 +934,13 @@ public class ClassGen : TextAdd
     public virtual bool ExecuteStringData()
     {
         long count;
-        count = this.StringValue.Count;
+        count = this.String.Count;
         long i;
         i = 0;
         while (i < count)
         {
             String a;
-            a = (String)this.StringValue.GetAt(i);
+            a = this.String.GetAt(i) as String;
 
             long countA;
             countA = this.StringCount(a);
@@ -1035,13 +1035,13 @@ public class ClassGen : TextAdd
     public virtual bool ExecuteStringAny()
     {
         long count;
-        count = this.StringValue.Count;
+        count = this.String.Count;
         long i;
         i = 0;
         while (i < count)
         {
             String a;
-            a = (String)this.StringValue.GetAt(i);
+            a = this.String.GetAt(i) as String;
 
             long ka;
             ka = this.StringCount(a);
@@ -1127,7 +1127,7 @@ public class ClassGen : TextAdd
     public virtual bool ExecuteStringList()
     {
         long count;
-        count = this.StringValue.Count;
+        count = this.String.Count;
 
         this.Text(this.IndexStatic);
         this.Text(this.Space);
