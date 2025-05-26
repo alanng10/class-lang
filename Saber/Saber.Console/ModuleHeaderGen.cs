@@ -18,7 +18,7 @@ public class ModuleHeaderGen : TextAdd
 
         gen.Operate = gen.CountOperate;
 
-        gen.ResetStageIndex();
+        gen.ResetStage();
         this.ExecuteStage();
 
         long nn;
@@ -32,7 +32,7 @@ public class ModuleHeaderGen : TextAdd
 
         gen.Operate = gen.SetOperate;
 
-        gen.ResetStageIndex();
+        gen.ResetStage();
         this.ExecuteStage();
 
         gen.Operate = null;
