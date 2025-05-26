@@ -8,17 +8,36 @@ public class StringTravel : Travel
         this.InfraInfra = InfraInfra.This;
         this.ListInfra = ListInfra.This;
 
-        this.CountOperate = new StringCountOperate();
-        this.CountOperate.Travel = this;
-        this.CountOperate.Init();
-
-        this.SetOperate = new StringSetOperate();
-        this.SetOperate.Travel = this;
-        this.SetOperate.Init();
-
-        this.TableIter = new TableIter();
-        this.TableIter.Init();
+        this.CountOperate = this.CreateCountOperate();
+        this.SetOperate = this.CreateSetOperate();
+        this.TableIter = this.CreateTableIter();
         return true;
+    }
+
+    protected virtual StringCountOperate CreateCountOperate()
+    {
+        StringCountOperate a;
+        a = new StringCountOperate();
+        a.Travel = this;
+        a.Init();
+        return a;
+    }
+
+    protected virtual StringSetOperate CreateSetOperate()
+    {
+        StringSetOperate a;
+        a = new StringSetOperate();
+        a.Travel = this;
+        a.Init();
+        return a;
+    }
+
+    protected virtual Iter CreateTableIter()
+    {
+        Iter a;
+        a = new TableIter();
+        a.Init();
+        return a;
     }
 
     public virtual ClassModule Module { get; set; }
