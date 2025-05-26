@@ -428,7 +428,6 @@ public class LibraryGen : TextAdd
 
         this.ClassGen.Module = this.Module;
         this.ClassGen.ModuleCount = this.ModuleTable.Count;
-        this.ClassGen.ImportClass = this.ImportClass;
         this.ClassGen.InitArray = this.InitArray;
         this.ClassGen.BaseArray = this.BaseArray;
         this.ClassGen.CompArray = this.CompArray;
@@ -444,7 +443,6 @@ public class LibraryGen : TextAdd
         this.ClassGen.CompArray = null;
         this.ClassGen.BaseArray = null;
         this.ClassGen.InitArray = null;
-        this.ClassGen.ImportClass = null;
         this.ClassGen.ModuleCount = 0;
         this.ClassGen.Module = null;
 

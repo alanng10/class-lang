@@ -147,7 +147,6 @@ public class ClassGen : TextAdd
 
     public virtual ClassModule Module { get; set; }
     public virtual long ModuleCount { get; set; }
-    public virtual Table ImportClass { get; set; }
     public virtual Array InitArray { get; set; }
     public virtual Array BaseArray { get; set; }
     public virtual Array CompArray { get; set; }
