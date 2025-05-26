@@ -469,20 +469,20 @@ public class LibraryGen : TextAdd
         this.ClassGen.ExternClass = externClass;
         this.ClassGen.System = this.SystemClass;
 
-        this.StringValueTravel.Module = this.Module;
+        this.StringTravel.Module = this.Module;
 
-        this.StringValueTravel.Execute();
+        this.StringTravel.Execute();
 
-        Array stringValueArray;
-        stringValueArray = this.StringValueTravel.Array;
+        Array stringArray;
+        stringArray = this.StringTravel.Result;
 
-        this.StringValueTravel.Array = null;
-        this.StringValueTravel.Module = null;
+        this.StringTravel.Result = null;
+        this.StringTravel.Module = null;
 
         this.ClassGen.Module = this.Module;
         this.ClassGen.BaseArray = this.ClassBaseArray;
         this.ClassGen.CompArray = this.ClassCompArray;
-        this.ClassGen.StringValue = stringValueArray;
+        this.ClassGen.StringArray = stringArray;
 
         this.ClassGen.Execute();
 
@@ -490,7 +490,7 @@ public class LibraryGen : TextAdd
         k = this.ClassGen.Result;
 
         this.ClassGen.Result = null;
-        this.ClassGen.StringValue = null;
+        this.ClassGen.StringArray = null;
         this.ClassGen.CompArray = null;
         this.ClassGen.BaseArray = null;
         this.ClassGen.Module = null;
