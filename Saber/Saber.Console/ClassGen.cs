@@ -405,9 +405,6 @@ public class ClassGen : TextAdd
 
     public virtual bool ExecuteModuleStruct()
     {
-        ClassGen gen;
-        gen = this.Gen;
-
         this.Text(this.InternModuleStruct);
         this.Text(this.Space);
 
@@ -420,9 +417,6 @@ public class ClassGen : TextAdd
 
     public virtual bool ExecuteModuleVar()
     {
-        ClassGen gen;
-        gen = this.Gen;
-
         this.Text(this.ClassInt);
         this.Text(this.Space);
 
@@ -458,9 +452,6 @@ public class ClassGen : TextAdd
 
     public virtual bool ExecuteModuleEntry()
     {
-        ClassGen gen;
-        gen = this.Gen;
-
         this.Text(this.ClassInt);
         this.Text(this.Space);
 
@@ -518,9 +509,6 @@ public class ClassGen : TextAdd
         long count;
         count = this.ModuleTableCount + 1;
 
-        ClassGen gen;
-        gen = this.Gen;
-
         this.Text(this.ClassInt);
         this.Text(this.Space);
 
@@ -552,9 +540,6 @@ public class ClassGen : TextAdd
 
     public virtual bool ExecuteClassList()
     {
-        ClassGen gen;
-        gen = this.Gen;
-
         this.Text(this.IndexStatic);
         this.Text(this.Space);
 
@@ -574,9 +559,6 @@ public class ClassGen : TextAdd
 
     public virtual bool ExecuteModuleInit()
     {
-        ClassGen gen;
-        gen = this.Gen;
-
         this.Text(this.ClassInt);
         this.Text(this.Space);
 
@@ -699,9 +681,6 @@ public class ClassGen : TextAdd
 
     public virtual bool ExecuteImportModuleInit()
     {
-        ClassGen gen;
-        gen = this.Gen;
-
         Iter iter;
         iter = this.TableIter;
 
@@ -726,9 +705,6 @@ public class ClassGen : TextAdd
 
     public virtual bool ExecuteClassInit()
     {
-        ClassGen gen;
-        gen = this.Gen;
-
         long count;
         count = this.InitArray.Count;
         long i;
