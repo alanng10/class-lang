@@ -21,8 +21,8 @@ public class StringTravel : Travel
     }
 
     public virtual ClassModule Module { get; set; }
-    public virtual long Index { get; set; }
-    public virtual Array Array { get; set; }
+    public virtual Array Result { get; set; }
+    public virtual StringArg Arg { get; set; }
     public virtual StringCountOperate CountOperate { get; set; }
     public virtual StringSetOperate SetOperate { get; set; }
     public virtual StringOperate Operate { get; set; }

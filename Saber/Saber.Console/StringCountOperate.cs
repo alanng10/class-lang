@@ -4,10 +4,13 @@ public class StringCountOperate : StringOperate
 {
     public override bool Execute(String k)
     {
+        StringArg arg;
+        arg = this.Travel.Arg;
+
         long index;
-        index = this.Travel.Index;
+        index = arg.Index;
         index = index + 1;
-        this.Travel.Index = index;
+        arg.Index = index;
         return true;
     }
 }
