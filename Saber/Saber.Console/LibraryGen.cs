@@ -370,11 +370,6 @@ public class LibraryGen : TextAdd
             Array a;
             a = this.ClassBaseGen.Result;
 
-            if (0x100 < a.Count)
-            {
-                return false;
-            }
-
             this.ClassBaseGen.Result = null;
             this.ClassBaseGen.Class = null;
 
@@ -462,6 +457,24 @@ public class LibraryGen : TextAdd
         this.ClassGen.InternClass = internClass;
         this.ClassGen.ExternClass = externClass;
         this.ClassGen.System = this.SystemClass;
+
+        long count;
+        count = this.ClassBaseArray.Count;
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            Array array;
+            array = this.ClassBaseArray.GetAt(i) as Array;
+
+            if (0x100 < array.Count)
+            {
+                this.Status = 15;
+                return false;
+            }
+
+            i = i + 1;
+        }
 
         this.StringTravel.Module = this.Module;
 
