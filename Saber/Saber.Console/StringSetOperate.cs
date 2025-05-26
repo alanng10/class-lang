@@ -1,6 +1,6 @@
 namespace Saber.Console;
 
-public class StringValueSetOperate : StringValueOperate
+public class StringSetOperate : StringOperate
 {
     public override bool Execute(String k)
     {
