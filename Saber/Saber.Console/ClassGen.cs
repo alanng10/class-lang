@@ -965,9 +965,6 @@ public class ClassGen : TextAdd
 
     public virtual bool ExecuteRefer()
     {
-        this.Include(this.IncludeValueModule);
-        this.Text(this.NewLine);
-
         this.ExecuteCompList(this.Comp.Field, this.StateGet);
         this.Text(this.NewLine);
         this.ExecuteCompList(this.Comp.Field, this.StateSet);
