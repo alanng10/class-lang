@@ -631,7 +631,7 @@ public class ClassGen : TextAdd
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
 
-        this.ExecuteImportModuleInit();
+        this.ExecuteModuleInitImport();
 
         this.TextIndent();
         this.Text(this.InternModuleSet);
@@ -680,7 +680,7 @@ public class ClassGen : TextAdd
         return true;
     }
 
-    public virtual bool ExecuteImportModuleInit()
+    public virtual bool ExecuteModuleInitImport()
     {
         Iter iter;
         iter = this.TableIter;
