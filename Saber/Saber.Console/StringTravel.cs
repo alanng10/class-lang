@@ -54,14 +54,14 @@ public class StringTravel : Travel
         this.ResetStage();
         this.ExecuteStage();
 
-        this.ExecuteClassArraySet();
+        this.ExecuteResultSet();
 
         this.Operate = null;
         this.Arg = null;
         return true;
     }
 
-    protected virtual bool ExecuteClassArraySet()
+    protected virtual bool ExecuteResultSet()
     {
         InfraInfra infraInfra;
         infraInfra = this.InfraInfra;
