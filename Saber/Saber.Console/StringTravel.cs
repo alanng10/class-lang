@@ -152,7 +152,7 @@ public class StringTravel : Travel
 
     public override bool ExecuteStringValue(StringValue stringValue)
     {
-        this.Operate.Execute(stringValue.Value);
+        this.Operate.ExecuteString(stringValue.Value);
         return true;
     }
 }

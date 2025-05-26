@@ -4,7 +4,7 @@ public class StringOperate : Any
 {
     public virtual StringTravel Travel { get; set; }
 
-    public virtual bool Execute(String k)
+    public virtual bool ExecuteString(String value)
     {
         return false;
     }

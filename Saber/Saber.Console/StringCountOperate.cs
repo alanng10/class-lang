@@ -12,7 +12,7 @@ public class StringCountOperate : StringOperate
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual long StringStart { get; set; }
 
-    public override bool Execute(String k)
+    public override bool ExecuteString(String value)
     {
         StringArg arg;
         arg = this.Travel.Arg;

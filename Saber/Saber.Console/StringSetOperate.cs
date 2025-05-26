@@ -2,7 +2,7 @@ namespace Saber.Console;
 
 public class StringSetOperate : StringOperate
 {
-    public override bool Execute(String k)
+    public override bool ExecuteString(String value)
     {
         StringArg arg;
         arg = this.Travel.Arg;
@@ -10,7 +10,7 @@ public class StringSetOperate : StringOperate
         long index;
         index = arg.Index;
 
-        arg.Array.SetAt(index, k);
+        arg.Array.SetAt(index, value);
 
         index = index + 1;
 
