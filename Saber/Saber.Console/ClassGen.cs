@@ -110,8 +110,6 @@ public class ClassGen : TextAdd
         this.IncludeValueInfraIntern = this.S("<InfraIntern/Prusate.h>");
         this.IncludeValueInfraInternIntern = this.S("<InfraIntern/Prusate_Intern.h>");
         this.IncludeValueInfraInternExtern = this.S("<InfraIntern/Prusate_Extern.h>");
-        this.IncludeValueModule = this.S("\"Module.h\"");
-        this.DirectivePragmaOnce = this.S("#pragma once");
         this.IndexExtern = this.S("extern");
         this.IndexStatic = this.S("static");
         this.IndexReturn = this.S("return");
@@ -260,8 +258,6 @@ public class ClassGen : TextAdd
     public virtual String IncludeValueInfraIntern { get; set; }
     public virtual String IncludeValueInfraInternIntern { get; set; }
     public virtual String IncludeValueInfraInternExtern { get; set; }
-    public virtual String IncludeValueModule { get; set; }
-    public virtual String DirectivePragmaOnce { get; set; }
     public virtual String IndexExtern { get; set; }
     public virtual String IndexStatic { get; set; }
     public virtual String IndexReturn { get; set; }
@@ -1852,13 +1848,6 @@ public class ClassGen : TextAdd
 
         this.Text(value);
 
-        this.Text(this.NewLine);
-        return true;
-    }
-
-    public virtual bool PragmaOnce()
-    {
-        this.Text(this.DirectivePragmaOnce);
         this.Text(this.NewLine);
         return true;
     }
