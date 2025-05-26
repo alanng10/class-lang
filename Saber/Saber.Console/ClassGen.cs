@@ -370,9 +370,11 @@ public class ClassGen : TextAdd
 
             this.Base = this.BaseArray.GetAt(i) as Array;
             this.Comp = this.CompArray.GetAt(i) as ClassComp;
+            this.String = this.StringArray.GetAt(i) as Array;
 
             this.ExecuteClass();
 
+            this.String = null;
             this.Comp = null;
             this.Base = null;
 
