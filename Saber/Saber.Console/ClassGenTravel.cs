@@ -821,6 +821,6 @@ public class ClassGenTravel : Travel
 
     protected virtual ModuleInfo Info(NodeNode node)
     {
-        return (ModuleInfo)node.NodeAny;
+        return node.NodeAny as ModuleInfo;
     }
 }
