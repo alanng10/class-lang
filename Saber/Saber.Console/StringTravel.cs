@@ -135,15 +135,29 @@ public class StringTravel : Travel
         iter = this.TableIter;
         this.Module.Class.IterSet(iter);
 
-        while (iter.Next())
+        long count;
+        count = this.Module.Class.Count;
+
+        long i;
+        i = 0;
+
+        while (i < count)
         {
+            iter.Next();
+
             ClassClass k;
             k = iter.Value as ClassClass;
 
             NodeClass nodeClass;
             nodeClass = k.Any as NodeClass;
 
+            this.Operate.ExecuteClassStart(i);
+
             this.ExecuteClass(nodeClass);
+
+            this.Operate.ExecuteClassEnd(i);
+
+            i = i + 1;
         }
 
         iter.Clear();
