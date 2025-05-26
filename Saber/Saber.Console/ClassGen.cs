@@ -386,6 +386,14 @@ public class ClassGen : TextAdd
         this.Include(this.IncludeValueModule);
         this.Text(this.NewLine);
 
+        if (this.SystemInfraModule)
+        {
+            this.Include(this.IncludeValueInfraInternIntern);
+            this.Text(this.NewLine);
+            this.Include(this.IncludeValueInfraInternExtern);
+            this.Text(this.NewLine);
+        }
+
         this.ExecuteModuleStruct();
         this.Text(this.NewLine);
 
@@ -755,18 +763,6 @@ public class ClassGen : TextAdd
     {
         this.Include(this.IncludeValueModule);
         this.Text(this.NewLine);
-
-        if (this.Class == this.InternClass)
-        {
-            this.Include(this.IncludeValueInfraInternIntern);
-            this.Text(this.NewLine);
-        }
-
-        if (this.Class == this.ExternClass)
-        {
-            this.Include(this.IncludeValueInfraInternExtern);
-            this.Text(this.NewLine);
-        }
 
         this.ExecuteCompList(this.Comp.Field, this.StateGet);
         this.Text(this.NewLine);
