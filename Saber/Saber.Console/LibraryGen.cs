@@ -250,26 +250,8 @@ public class LibraryGen : TextAdd
             return false;
         }
 
-        b = this.StorageComp.FoldDelete(this.GenModuleFoldPath);
-
-        if (!b)
-        {
-            this.Status = 70;
-            return false;
-        }
-
         if (!(this.Module.Entry == null))
         {
-            this.GenModuleExeFoldPath = this.AddClear().Add(genFoldPath).Add(combine).Add(this.SExe).Add(this.ClassInfra.TextHyphen).Add(this.ModuleRefString).AddResult();
-
-            b = this.StorageComp.FoldCreate(this.GenModuleExeFoldPath);
-
-            if (!b)
-            {
-                this.Status = 80;
-                return false;
-            }
-
             b = this.ExecuteModuleRefString();
             if (!b)
             {
@@ -287,14 +269,14 @@ public class LibraryGen : TextAdd
             {
                 return false;
             }
+        }
 
-            b = this.StorageComp.FoldDelete(this.GenModuleExeFoldPath);
+        b = this.StorageComp.FoldDelete(this.GenModuleFoldPath);
 
-            if (!b)
-            {
-                this.Status = 120;
-                return false;
-            }
+        if (!b)
+        {
+            this.Status = 70;
+            return false;
         }
 
         return true;
