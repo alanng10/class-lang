@@ -146,6 +146,7 @@ public class ClassGen : TextAdd
     }
 
     public virtual ClassModule Module { get; set; }
+    public virtual Array InitArray { get; set; }
     public virtual Array BaseArray { get; set; }
     public virtual Array CompArray { get; set; }
     public virtual Array StringArray { get; set; }
@@ -380,26 +381,23 @@ public class ClassGen : TextAdd
 
     public virtual bool ExecuteModule()
     {
-        ClassGen gen;
-        gen = this.Gen;
-
-        gen.Include(gen.IncludeValueModule);
-        gen.Text(gen.NewLine);
+        this.Include(this.IncludeValueModule);
+        this.Text(this.NewLine);
 
         this.ExecuteModuleStruct();
-        gen.Text(gen.NewLine);
+        this.Text(this.NewLine);
 
         this.ExecuteModuleVar();
-        gen.Text(gen.NewLine);
+        this.Text(this.NewLine);
 
         this.ExecuteModuleEntry();
-        gen.Text(gen.NewLine);
+        this.Text(this.NewLine);
 
         this.ExecuteModuleCount();
-        gen.Text(gen.NewLine);
+        this.Text(this.NewLine);
 
         this.ExecuteClassList();
-        gen.Text(gen.NewLine);
+        this.Text(this.NewLine);
 
         this.ExecuteModuleInit();
         return true;
@@ -410,13 +408,13 @@ public class ClassGen : TextAdd
         ClassGen gen;
         gen = this.Gen;
 
-        gen.Text(gen.InternModuleStruct);
-        gen.Text(gen.Space);
+        this.Text(this.InternModuleStruct);
+        this.Text(this.Space);
 
-        gen.ModuleStructName(this.Module.Ref);
+        this.ModuleStructName(this.Module.Ref);
 
-        gen.Text(gen.LimitSemicolon);
-        gen.Text(gen.NewLine);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
         return true;
     }
 
@@ -425,36 +423,36 @@ public class ClassGen : TextAdd
         ClassGen gen;
         gen = this.Gen;
 
-        gen.Text(gen.ClassInt);
-        gen.Text(gen.Space);
+        this.Text(this.ClassInt);
+        this.Text(this.Space);
 
-        gen.ModuleVarName(this.Module.Ref);
-        gen.Text(gen.LimitBraceRoundLite);
-        gen.Text(gen.LimitBraceRoundRite);
-        gen.Text(gen.NewLine);
+        this.ModuleVarName(this.Module.Ref);
+        this.Text(this.LimitBraceRoundLite);
+        this.Text(this.LimitBraceRoundRite);
+        this.Text(this.NewLine);
 
-        gen.Text(gen.LimitBraceCurveLite);
-        gen.Text(gen.NewLine);
+        this.Text(this.LimitBraceCurveLite);
+        this.Text(this.NewLine);
 
-        gen.IndentCount = gen.IndentCount + 1;
+        this.IndentCount = this.IndentCount + 1;
 
-        gen.TextIndent();
-        gen.Text(gen.IndexReturn);
-        gen.Text(gen.Space);
+        this.TextIndent();
+        this.Text(this.IndexReturn);
+        this.Text(this.Space);
 
-        gen.Text(gen.CastInt);
-        gen.Text(gen.LimitBraceRoundLite);
-        gen.Text(gen.LimitAnd);
-        gen.ModuleStructName(this.Module.Ref);
-        gen.Text(gen.LimitBraceRoundRite);
+        this.Text(this.CastInt);
+        this.Text(this.LimitBraceRoundLite);
+        this.Text(this.LimitAnd);
+        this.ModuleStructName(this.Module.Ref);
+        this.Text(this.LimitBraceRoundRite);
 
-        gen.Text(gen.LimitSemicolon);
-        gen.Text(gen.NewLine);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
 
-        gen.IndentCount = gen.IndentCount - 1;
+        this.IndentCount = this.IndentCount - 1;
 
-        gen.Text(gen.LimitBraceCurveRite);
-        gen.Text(gen.NewLine);
+        this.Text(this.LimitBraceCurveRite);
+        this.Text(this.NewLine);
         return true;
     }
 
@@ -463,55 +461,55 @@ public class ClassGen : TextAdd
         ClassGen gen;
         gen = this.Gen;
 
-        gen.Text(gen.ClassInt);
-        gen.Text(gen.Space);
+        this.Text(this.ClassInt);
+        this.Text(this.Space);
 
-        gen.ModuleEntryName(this.Module.Ref);
-        gen.Text(gen.LimitBraceRoundLite);
-        gen.Text(gen.LimitBraceRoundRite);
-        gen.Text(gen.NewLine);
+        this.ModuleEntryName(this.Module.Ref);
+        this.Text(this.LimitBraceRoundLite);
+        this.Text(this.LimitBraceRoundRite);
+        this.Text(this.NewLine);
 
-        gen.Text(gen.LimitBraceCurveLite);
-        gen.Text(gen.NewLine);
+        this.Text(this.LimitBraceCurveLite);
+        this.Text(this.NewLine);
 
-        gen.IndentCount = gen.IndentCount + 1;
+        this.IndentCount = this.IndentCount + 1;
 
-        gen.TextIndent();
-        gen.Text(gen.IndexReturn);
-        gen.Text(gen.Space);
+        this.TextIndent();
+        this.Text(this.IndexReturn);
+        this.Text(this.Space);
 
         bool b;
         b = (this.Module.Entry == null);
         if (b)
         {
-            gen.Text(gen.LimitBraceRoundLite);
-            gen.Text(gen.LimitBraceRoundLite);
-            gen.Text(gen.ClassInt);
-            gen.Text(gen.LimitBraceRoundRite);
-            gen.Text(gen.LimitBraceRoundLite);
-            gen.Text(gen.LimitBraceRoundLite);
-            gen.Text(gen.ClassSInt);
-            gen.Text(gen.LimitBraceRoundRite);
-            gen.Text(gen.LimitSub);
-            gen.Text(gen.One);
-            gen.Text(gen.LimitBraceRoundRite);
-            gen.Text(gen.LimitBraceRoundRite);
+            this.Text(this.LimitBraceRoundLite);
+            this.Text(this.LimitBraceRoundLite);
+            this.Text(this.ClassInt);
+            this.Text(this.LimitBraceRoundRite);
+            this.Text(this.LimitBraceRoundLite);
+            this.Text(this.LimitBraceRoundLite);
+            this.Text(this.ClassSInt);
+            this.Text(this.LimitBraceRoundRite);
+            this.Text(this.LimitSub);
+            this.Text(this.One);
+            this.Text(this.LimitBraceRoundRite);
+            this.Text(this.LimitBraceRoundRite);
         }
         if (!b)
         {
             ClassClass varClass;
             varClass = this.Module.Class.Get(this.Module.Entry) as ClassClass;
 
-            gen.TextInt(varClass.Index);
+            this.TextInt(varClass.Index);
         }
 
-        gen.Text(gen.LimitSemicolon);
-        gen.Text(gen.NewLine);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
 
-        gen.IndentCount = gen.IndentCount - 1;
+        this.IndentCount = this.IndentCount - 1;
 
-        gen.Text(gen.LimitBraceCurveRite);
-        gen.Text(gen.NewLine);
+        this.Text(this.LimitBraceCurveRite);
+        this.Text(this.NewLine);
         return true;
     }
 
@@ -523,32 +521,32 @@ public class ClassGen : TextAdd
         ClassGen gen;
         gen = this.Gen;
 
-        gen.Text(gen.ClassInt);
-        gen.Text(gen.Space);
+        this.Text(this.ClassInt);
+        this.Text(this.Space);
 
-        gen.ModuleCountName(this.Module.Ref);
-        gen.Text(gen.LimitBraceRoundLite);
-        gen.Text(gen.LimitBraceRoundRite);
-        gen.Text(gen.NewLine);
+        this.ModuleCountName(this.Module.Ref);
+        this.Text(this.LimitBraceRoundLite);
+        this.Text(this.LimitBraceRoundRite);
+        this.Text(this.NewLine);
 
-        gen.Text(gen.LimitBraceCurveLite);
-        gen.Text(gen.NewLine);
+        this.Text(this.LimitBraceCurveLite);
+        this.Text(this.NewLine);
 
-        gen.IndentCount = gen.IndentCount + 1;
+        this.IndentCount = this.IndentCount + 1;
 
-        gen.TextIndent();
-        gen.Text(gen.IndexReturn);
-        gen.Text(gen.Space);
+        this.TextIndent();
+        this.Text(this.IndexReturn);
+        this.Text(this.Space);
 
-        gen.TextInt(count);
+        this.TextInt(count);
 
-        gen.Text(gen.LimitSemicolon);
-        gen.Text(gen.NewLine);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
 
-        gen.IndentCount = gen.IndentCount - 1;
+        this.IndentCount = this.IndentCount - 1;
 
-        gen.Text(gen.LimitBraceCurveRite);
-        gen.Text(gen.NewLine);
+        this.Text(this.LimitBraceCurveRite);
+        this.Text(this.NewLine);
         return true;
     }
 
@@ -557,20 +555,20 @@ public class ClassGen : TextAdd
         ClassGen gen;
         gen = this.Gen;
 
-        gen.Text(gen.IndexStatic);
-        gen.Text(gen.Space);
+        this.Text(this.IndexStatic);
+        this.Text(this.Space);
 
-        gen.Text(gen.InternClassStruct);
-        gen.Text(gen.Space);
+        this.Text(this.InternClassStruct);
+        this.Text(this.Space);
 
-        gen.Text(gen.ClassWord);
-        gen.Text(gen.ListWord);
-        gen.Text(gen.LimitBraceRightLite);
-        gen.TextInt(this.Module.Class.Count);
-        gen.Text(gen.LimitBraceRightRite);
+        this.Text(this.ClassWord);
+        this.Text(this.ListWord);
+        this.Text(this.LimitBraceRightLite);
+        this.TextInt(this.Module.Class.Count);
+        this.Text(this.LimitBraceRightRite);
 
-        gen.Text(gen.LimitSemicolon);
-        gen.Text(gen.NewLine);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
         return true;
     }
 
@@ -579,123 +577,123 @@ public class ClassGen : TextAdd
         ClassGen gen;
         gen = this.Gen;
 
-        gen.Text(gen.ClassInt);
-        gen.Text(gen.Space);
+        this.Text(this.ClassInt);
+        this.Text(this.Space);
 
-        gen.ModuleInitName(this.Module.Ref);
-        gen.Text(gen.LimitBraceRoundLite);
-        gen.Text(gen.LimitBraceRoundRite);
-        gen.Text(gen.NewLine);
+        this.ModuleInitName(this.Module.Ref);
+        this.Text(this.LimitBraceRoundLite);
+        this.Text(this.LimitBraceRoundRite);
+        this.Text(this.NewLine);
 
-        gen.Text(gen.LimitBraceCurveLite);
-        gen.Text(gen.NewLine);
+        this.Text(this.LimitBraceCurveLite);
+        this.Text(this.NewLine);
 
-        gen.IndentCount = gen.IndentCount + 1;
+        this.IndentCount = this.IndentCount + 1;
 
-        gen.TextIndent();
-        gen.Text(gen.InternModuleStruct);
-        gen.Text(gen.LimitAsterisk);
-        gen.Text(gen.Space);
-        gen.Text(gen.VarOWord);
-        gen.Text(gen.LimitSemicolon);
-        gen.Text(gen.NewLine);
+        this.TextIndent();
+        this.Text(this.InternModuleStruct);
+        this.Text(this.LimitAsterisk);
+        this.Text(this.Space);
+        this.Text(this.VarOWord);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
 
-        gen.TextIndent();
-        gen.Text(gen.VarOWord);
-        gen.Text(gen.Space);
-        gen.Text(gen.LimitAre);
-        gen.Text(gen.Space);
-        gen.Text(gen.LimitAnd);
-        gen.ModuleStructName(this.Module.Ref);
-        gen.Text(gen.LimitSemicolon);
-        gen.Text(gen.NewLine);
+        this.TextIndent();
+        this.Text(this.VarOWord);
+        this.Text(this.Space);
+        this.Text(this.LimitAre);
+        this.Text(this.Space);
+        this.Text(this.LimitAnd);
+        this.ModuleStructName(this.Module.Ref);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
 
-        gen.TextIndent();
-        gen.Text(gen.IndexInf);
-        gen.Text(gen.Space);
-        gen.Text(gen.LimitBraceRoundLite);
-        gen.Text(gen.VarOWord);
-        gen.Text(gen.LimitDotPointer);
-        gen.Text(gen.InitWord);
-        gen.Text(gen.LimitBraceRoundRite);
-        gen.Text(gen.NewLine);
+        this.TextIndent();
+        this.Text(this.IndexInf);
+        this.Text(this.Space);
+        this.Text(this.LimitBraceRoundLite);
+        this.Text(this.VarOWord);
+        this.Text(this.LimitDotPointer);
+        this.Text(this.InitWord);
+        this.Text(this.LimitBraceRoundRite);
+        this.Text(this.NewLine);
 
-        gen.TextIndent();
-        gen.Text(gen.LimitBraceCurveLite);
-        gen.Text(gen.NewLine);
+        this.TextIndent();
+        this.Text(this.LimitBraceCurveLite);
+        this.Text(this.NewLine);
 
-        gen.IndentCount = gen.IndentCount + 1;
+        this.IndentCount = this.IndentCount + 1;
 
-        gen.TextIndent();
-        gen.Text(gen.IndexReturn);
-        gen.Text(gen.Space);
-        gen.Text(gen.Zero);
-        gen.Text(gen.LimitSemicolon);
-        gen.Text(gen.NewLine);
+        this.TextIndent();
+        this.Text(this.IndexReturn);
+        this.Text(this.Space);
+        this.Text(this.Zero);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
 
-        gen.IndentCount = gen.IndentCount - 1;
+        this.IndentCount = this.IndentCount - 1;
 
-        gen.TextIndent();
-        gen.Text(gen.LimitBraceCurveRite);
-        gen.Text(gen.NewLine);
+        this.TextIndent();
+        this.Text(this.LimitBraceCurveRite);
+        this.Text(this.NewLine);
 
-        gen.TextIndent();
-        gen.Text(gen.VarOWord);
-        gen.Text(gen.LimitDotPointer);
-        gen.Text(gen.InitWord);
-        gen.Text(gen.Space);
-        gen.Text(gen.LimitAre);
-        gen.Text(gen.Space);
-        gen.Text(gen.One);
-        gen.Text(gen.LimitSemicolon);
-        gen.Text(gen.NewLine);
+        this.TextIndent();
+        this.Text(this.VarOWord);
+        this.Text(this.LimitDotPointer);
+        this.Text(this.InitWord);
+        this.Text(this.Space);
+        this.Text(this.LimitAre);
+        this.Text(this.Space);
+        this.Text(this.One);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
 
         this.ExecuteImportModuleInit();
 
-        gen.TextIndent();
-        gen.Text(gen.InternModuleSet);
-        gen.Text(gen.LimitBraceRoundLite);
-        gen.Text(gen.VarOWord);
-        gen.Text(gen.LimitBraceRoundRite);
-        gen.Text(gen.LimitSemicolon);
-        gen.Text(gen.NewLine);
+        this.TextIndent();
+        this.Text(this.InternModuleSet);
+        this.Text(this.LimitBraceRoundLite);
+        this.Text(this.VarOWord);
+        this.Text(this.LimitBraceRoundRite);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
 
-        gen.TextIndent();
-        gen.Text(gen.VarOWord);
-        gen.Text(gen.LimitDotPointer);
-        gen.Text(gen.ClassWord);
-        gen.Text(gen.Space);
-        gen.Text(gen.LimitAre);
-        gen.Text(gen.Space);
-        gen.Text(gen.ClassWord);
-        gen.Text(gen.ListWord);
-        gen.Text(gen.LimitSemicolon);
-        gen.Text(gen.NewLine);
+        this.TextIndent();
+        this.Text(this.VarOWord);
+        this.Text(this.LimitDotPointer);
+        this.Text(this.ClassWord);
+        this.Text(this.Space);
+        this.Text(this.LimitAre);
+        this.Text(this.Space);
+        this.Text(this.ClassWord);
+        this.Text(this.ListWord);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
 
-        gen.TextIndent();
-        gen.Text(gen.VarOWord);
-        gen.Text(gen.LimitDotPointer);
-        gen.Text(gen.CountWord);
-        gen.Text(gen.Space);
-        gen.Text(gen.LimitAre);
-        gen.Text(gen.Space);
-        gen.TextInt(this.Module.Class.Count);
-        gen.Text(gen.LimitSemicolon);
-        gen.Text(gen.NewLine);
+        this.TextIndent();
+        this.Text(this.VarOWord);
+        this.Text(this.LimitDotPointer);
+        this.Text(this.CountWord);
+        this.Text(this.Space);
+        this.Text(this.LimitAre);
+        this.Text(this.Space);
+        this.TextInt(this.Module.Class.Count);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
 
         this.ExecuteClassInit();
 
-        gen.TextIndent();
-        gen.Text(gen.IndexReturn);
-        gen.Text(gen.Space);
-        gen.Text(gen.Zero);
-        gen.Text(gen.LimitSemicolon);
-        gen.Text(gen.NewLine);
+        this.TextIndent();
+        this.Text(this.IndexReturn);
+        this.Text(this.Space);
+        this.Text(this.Zero);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
 
-        gen.IndentCount = gen.IndentCount - 1;
+        this.IndentCount = this.IndentCount - 1;
 
-        gen.Text(gen.LimitBraceCurveRite);
-        gen.Text(gen.NewLine);
+        this.Text(this.LimitBraceCurveRite);
+        this.Text(this.NewLine);
         return true;
     }
 
@@ -705,7 +703,7 @@ public class ClassGen : TextAdd
         gen = this.Gen;
 
         Iter iter;
-        iter = gen.TableIter;
+        iter = this.TableIter;
 
         this.Module.Import.IterSet(iter);
 
@@ -714,12 +712,12 @@ public class ClassGen : TextAdd
             ModuleRef moduleRef;
             moduleRef = iter.Index as ModuleRef;
 
-            gen.TextIndent();
-            gen.ModuleInitName(moduleRef);
-            gen.Text(gen.LimitBraceRoundLite);
-            gen.Text(gen.LimitBraceRoundRite);
-            gen.Text(gen.LimitSemicolon);
-            gen.Text(gen.NewLine);
+            this.TextIndent();
+            this.ModuleInitName(moduleRef);
+            this.Text(this.LimitBraceRoundLite);
+            this.Text(this.LimitBraceRoundRite);
+            this.Text(this.LimitSemicolon);
+            this.Text(this.NewLine);
         }
 
         iter.Clear();
@@ -740,12 +738,12 @@ public class ClassGen : TextAdd
             ClassClass varClass;
             varClass = this.ClassInit.GetAt(i) as ClassClass;
 
-            gen.TextIndent();
-            gen.ClassInitName(varClass);
-            gen.Text(gen.LimitBraceRoundLite);
-            gen.Text(gen.LimitBraceRoundRite);
-            gen.Text(gen.LimitSemicolon);
-            gen.Text(gen.NewLine);
+            this.TextIndent();
+            this.ClassInitName(varClass);
+            this.Text(this.LimitBraceRoundLite);
+            this.Text(this.LimitBraceRoundRite);
+            this.Text(this.LimitSemicolon);
+            this.Text(this.NewLine);
 
             i = i + 1;
         }
