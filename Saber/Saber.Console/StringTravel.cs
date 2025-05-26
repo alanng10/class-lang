@@ -7,11 +7,11 @@ public class StringTravel : Travel
         base.Init();
         this.ListInfra = ListInfra.This;
 
-        this.CountOperate = new StringValueCountOperate();
+        this.CountOperate = new StringCountOperate();
         this.CountOperate.Travel = this;
         this.CountOperate.Init();
 
-        this.SetOperate = new StringValueSetOperate();
+        this.SetOperate = new StringSetOperate();
         this.SetOperate.Travel = this;
         this.SetOperate.Init();
 
@@ -23,9 +23,9 @@ public class StringTravel : Travel
     public virtual ClassModule Module { get; set; }
     public virtual long Index { get; set; }
     public virtual Array Array { get; set; }
-    public virtual StringValueCountOperate CountOperate { get; set; }
-    public virtual StringValueSetOperate SetOperate { get; set; }
-    public virtual StringValueOperate Operate { get; set; }
+    public virtual StringCountOperate CountOperate { get; set; }
+    public virtual StringSetOperate SetOperate { get; set; }
+    public virtual StringOperate Operate { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual Iter TableIter { get; set; }
 
