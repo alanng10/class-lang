@@ -215,18 +215,21 @@ public class LibraryGen : TextAdd
         b = this.ExecuteClassSource();
         if (!b)
         {
+            this.Status = 20;
             return false;
         }
 
         b = this.ExecuteImportArg();
         if (!b)
         {
+            this.Status = 30;
             return false;
         }
 
         b = this.ExecuteMakeLib();
         if (!b)
         {
+            this.Status = 40;
             return false;
         }
 
@@ -235,18 +238,21 @@ public class LibraryGen : TextAdd
             b = this.ExecuteModuleRefString();
             if (!b)
             {
+                this.Status = 50;
                 return false;
             }
 
             b = this.ExecuteModuleExeSource();
             if (!b)
             {
+                this.Status = 60;
                 return false;
             }
 
             b = this.ExecuteMakeExe();
             if (!b)
             {
+                this.Status = 70;
                 return false;
             }
         }
@@ -255,7 +261,7 @@ public class LibraryGen : TextAdd
 
         if (!b)
         {
-            this.Status = 70;
+            this.Status = 80;
             return false;
         }
 
@@ -408,7 +414,6 @@ public class LibraryGen : TextAdd
 
             if (0x100 < array.Count)
             {
-                this.Status = 15;
                 return false;
             }
 
@@ -459,7 +464,6 @@ public class LibraryGen : TextAdd
 
         if (!bab)
         {
-            this.Status = 20;
             return false;
         }
 
@@ -494,7 +498,6 @@ public class LibraryGen : TextAdd
 
         if (!b)
         {
-            this.Status = 50;
             return false;
         }
 
@@ -582,15 +585,15 @@ public class LibraryGen : TextAdd
 
     protected virtual bool ExecuteMakeLib()
     {
-        return this.ExecuteMake(false, 60);
+        return this.ExecuteMake(false);
     }
 
     protected virtual bool ExecuteMakeExe()
     {
-        return this.ExecuteMake(true, 110);
+        return this.ExecuteMake(true);
     }
 
-    protected virtual bool ExecuteMake(bool exe, long status)
+    protected virtual bool ExecuteMake(bool exe)
     {
         Program program;
         program = null;
@@ -625,7 +628,6 @@ public class LibraryGen : TextAdd
 
         if (!(k == 0))
         {
-            this.Status = status;
             return false;
         }
 
@@ -668,7 +670,6 @@ public class LibraryGen : TextAdd
 
         if (!b)
         {
-            this.Status = 100;
             return false;
         }
 
