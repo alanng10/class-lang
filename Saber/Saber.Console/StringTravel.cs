@@ -5,6 +5,7 @@ public class StringTravel : Travel
     public override bool Init()
     {
         base.Init();
+        this.InfraInfra = InfraInfra.This;
         this.ListInfra = ListInfra.This;
 
         this.CountOperate = new StringCountOperate();
@@ -26,11 +27,14 @@ public class StringTravel : Travel
     public virtual StringCountOperate CountOperate { get; set; }
     public virtual StringSetOperate SetOperate { get; set; }
     public virtual StringOperate Operate { get; set; }
+    protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual Iter TableIter { get; set; }
 
     public virtual bool Execute()
     {
+        this.Result = this.ListInfra.ArrayCreate(this.Module.Class.Count);
+
         this.Arg = new StringArg();
         this.Arg.Init();
 
@@ -50,8 +54,53 @@ public class StringTravel : Travel
         this.ResetStage();
         this.ExecuteStage();
 
+        this.ExecuteClassArraySet();
+
         this.Operate = null;
         this.Arg = null;
+        return true;
+    }
+
+    protected virtual bool ExecuteClassArraySet()
+    {
+        InfraInfra infraInfra;
+        infraInfra = this.InfraInfra;
+        ListInfra listInfra;
+        listInfra = this.ListInfra;
+
+        Data data;
+        data = this.Arg.ClassCountData;
+
+        Array stringArray;
+        stringArray = this.Arg.Array;
+
+        long totalString;
+        totalString = 0;
+
+        long count;
+        count = this.Module.Class.Count;
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            long ka;
+            ka = i * sizeof(long);
+
+            long stringCount;
+            stringCount = infraInfra.DataIntGet(data, ka);
+
+            Array array;
+            array = listInfra.ArrayCreate(stringCount);
+
+            listInfra.ArrayCopy(array, 0, stringArray, totalString, stringCount);
+
+            this.Result.SetAt(i, array);
+
+            totalString = totalString + stringCount;
+
+            i = i + 1;
+        }
+
         return true;
     }
 
