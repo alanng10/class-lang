@@ -141,7 +141,7 @@ public class LibraryGen : TextAdd
     protected virtual ImportArgGen ImportArgGen { get; set; }
     protected virtual ProjectGen ProjectGen { get; set; }
     protected virtual ModuleRefStringGen ModuleRefStringGen { get; set; }
-    protected virtual Array ClassInitArray { get; set; }
+    protected virtual Array InitArray { get; set; }
     protected virtual Array BaseArray { get; set; }
     protected virtual Array CompArray { get; set; }
     protected virtual String ModuleProjectText { get; set; }
@@ -187,7 +187,7 @@ public class LibraryGen : TextAdd
         bool b;
         b = this.ExecuteAll();
 
-        this.ClassInitArray = null;
+        this.InitArray = null;
         this.BaseArray = null;
         this.CompArray = null;
         this.ModuleExeString = null;
@@ -314,7 +314,7 @@ public class LibraryGen : TextAdd
 
         this.ClassInitGen.Execute();
 
-        this.ClassInitArray = this.ClassInitGen.Result;
+        this.InitArray = this.ClassInitGen.Result;
 
         this.ClassInitGen.Result = null;
         this.ClassInitGen.AnyClass = null;
@@ -471,7 +471,7 @@ public class LibraryGen : TextAdd
 
         this.ClassGen.Module = this.Module;
         this.ClassGen.ModuleCount = this.ModuleTable.Count;
-        this.ClassGen.InitArray = this.ClassInitArray;
+        this.ClassGen.InitArray = this.InitArray;
         this.ClassGen.BaseArray = this.BaseArray;
         this.ClassGen.CompArray = this.CompArray;
         this.ClassGen.StringArray = stringArray;
