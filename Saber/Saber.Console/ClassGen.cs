@@ -146,6 +146,7 @@ public class ClassGen : TextAdd
     }
 
     public virtual ClassModule Module { get; set; }
+    public virtual long ModuleCount { get; set; }
     public virtual Array InitArray { get; set; }
     public virtual Array BaseArray { get; set; }
     public virtual Array CompArray { get; set; }
@@ -507,7 +508,7 @@ public class ClassGen : TextAdd
     public virtual bool ExecuteModuleCount()
     {
         long count;
-        count = this.ModuleTableCount + 1;
+        count = this.ModuleCount + 1;
 
         this.Text(this.ClassInt);
         this.Text(this.Space);

@@ -4,7 +4,6 @@ public class ModuleGen : TextAdd
 {
     public virtual ClassGen Gen { get; set; }
     public virtual ClassModule Module { get; set; }
-    public virtual long ModuleTableCount { get; set; }
     public virtual Array ClassInit { get; set; }
     public virtual String Result { get; set; }
 

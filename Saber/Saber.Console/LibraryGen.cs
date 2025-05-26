@@ -487,6 +487,7 @@ public class LibraryGen : TextAdd
         this.StringTravel.Module = null;
 
         this.ClassGen.Module = this.Module;
+        this.ClassGen.ModuleCount = this.ModuleTable.Count;
         this.ClassGen.BaseArray = this.BaseArray;
         this.ClassGen.CompArray = this.CompArray;
         this.ClassGen.StringArray = stringArray;
@@ -500,6 +501,7 @@ public class LibraryGen : TextAdd
         this.ClassGen.StringArray = null;
         this.ClassGen.CompArray = null;
         this.ClassGen.BaseArray = null;
+        this.ClassGen.ModuleCount = 0;
         this.ClassGen.Module = null;
 
         String combine;
@@ -527,7 +529,6 @@ public class LibraryGen : TextAdd
     {
         this.ModuleGen.Gen = this.ClassGen;
         this.ModuleGen.Module = this.Module;
-        this.ModuleGen.ModuleTableCount = this.ModuleTable.Count;
         this.ModuleGen.ClassInit = this.ClassInitArray;
 
         this.ModuleGen.Execute();
@@ -536,7 +537,7 @@ public class LibraryGen : TextAdd
 
         this.ModuleGen.Result = null;
         this.ModuleGen.ClassInit = null;
-        this.ModuleGen.ModuleTableCount = 0;
+
         this.ModuleGen.Module = null;
         this.ModuleGen.Gen = null;
 
