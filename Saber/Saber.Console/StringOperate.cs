@@ -8,4 +8,14 @@ public class StringOperate : Any
     {
         return false;
     }
+
+    public virtual bool ExecuteClassStart(long index)
+    {
+        return false;
+    }
+
+    public virtual bool ExecuteClassEnd(long index)
+    {
+        return false;
+    }
 }
