@@ -1,6 +1,6 @@
 namespace Saber.Console;
 
-public class StringValueTravel : Travel
+public class StringTravel : Travel
 {
     public override bool Init()
     {
