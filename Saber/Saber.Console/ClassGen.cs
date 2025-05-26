@@ -730,13 +730,13 @@ public class ClassGen : TextAdd
         gen = this.Gen;
 
         long count;
-        count = this.ClassInit.Count;
+        count = this.InitArray.Count;
         long i;
         i = 0;
         while (i < count)
         {
             ClassClass varClass;
-            varClass = this.ClassInit.GetAt(i) as ClassClass;
+            varClass = this.InitArray.GetAt(i) as ClassClass;
 
             this.TextIndent();
             this.ClassInitName(varClass);
