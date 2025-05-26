@@ -715,7 +715,7 @@ public class LibraryGen : TextAdd
         fileName = this.AddClear().Add(this.SMain).Add(this.ClassInfra.TextDot).Add(this.SC).AddResult();
 
         String filePath;
-        filePath = this.AddClear().Add(this.GenModuleExeFoldPath).Add(this.TextInfra.PathCombine).Add(fileName).AddResult();
+        filePath = this.AddClear().Add(this.GenModuleFoldPath).Add(this.TextInfra.PathCombine).Add(fileName).AddResult();
 
         bool b;
         b = this.StorageInfra.TextWrite(filePath, k);
