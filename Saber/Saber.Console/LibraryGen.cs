@@ -243,12 +243,6 @@ public class LibraryGen : TextAdd
             return false;
         }
 
-        b = this.ExecuteModuleSource();
-        if (!b)
-        {
-            return false;
-        }
-
         b = this.ExecuteModuleHeaderSource();
         if (!b)
         {
@@ -488,6 +482,7 @@ public class LibraryGen : TextAdd
 
         this.ClassGen.Module = this.Module;
         this.ClassGen.ModuleCount = this.ModuleTable.Count;
+        this.ClassGen.InitArray = this.ClassInitArray;
         this.ClassGen.BaseArray = this.BaseArray;
         this.ClassGen.CompArray = this.CompArray;
         this.ClassGen.StringArray = stringArray;
@@ -501,6 +496,7 @@ public class LibraryGen : TextAdd
         this.ClassGen.StringArray = null;
         this.ClassGen.CompArray = null;
         this.ClassGen.BaseArray = null;
+        this.ClassGen.InitArray = null;
         this.ClassGen.ModuleCount = 0;
         this.ClassGen.Module = null;
 
@@ -519,40 +515,6 @@ public class LibraryGen : TextAdd
         if (!bab)
         {
             this.Status = 20;
-            return false;
-        }
-
-        return true;
-    }
-
-    protected virtual bool ExecuteModuleSource()
-    {
-        this.ModuleGen.Gen = this.ClassGen;
-        this.ModuleGen.Module = this.Module;
-        this.ModuleGen.ClassInit = this.ClassInitArray;
-
-        this.ModuleGen.Execute();
-        String k;
-        k = this.ModuleGen.Result;
-
-        this.ModuleGen.Result = null;
-        this.ModuleGen.ClassInit = null;
-
-        this.ModuleGen.Module = null;
-        this.ModuleGen.Gen = null;
-
-        String fileName;
-        fileName = this.AddClear().Add(this.SModule).Add(this.ClassInfra.TextDot).Add(this.SC).AddResult();
-
-        String filePath;
-        filePath = this.AddClear().Add(this.GenModuleFoldPath).Add(this.TextInfra.PathCombine).Add(fileName).AddResult();
-
-        bool b;
-        b = this.StorageInfra.TextWrite(filePath, k);
-
-        if (!b)
-        {
-            this.Status = 30;
             return false;
         }
 
