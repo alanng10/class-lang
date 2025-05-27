@@ -725,15 +725,15 @@ public class StateTravel : Travel
         Class valueClass;
         valueClass = null;
 
-        if (value is BoolValue)
+        if (!((value as BoolValue) == null))
         {
             valueClass = this.System.Bool;
         }
-        if (value is IntValue | value is IntHexValue | value is IntSignValue | value is IntHexSignValue)
+        if (!((value as IntValue) == null) | !((value as IntSignValue) == null) | !((value as IntHexValue) == null) | !((value as IntHexSignValue) == null))
         {
             valueClass = this.System.Int;
         }
-        if (value is StringValue)
+        if (!((value as StringValue) == null))
         {
             valueClass = this.System.String;
         }
