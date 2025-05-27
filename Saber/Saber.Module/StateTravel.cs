@@ -129,7 +129,7 @@ public class StateTravel : Travel
 
         Table k;
         k = this.ClassInfra.TableCreateStringLess();
-        
+
         this.ListInfra.TableAdd(k, dataVar.Name, dataVar);
 
         this.VarStack.Push(k);
@@ -174,7 +174,7 @@ public class StateTravel : Travel
 
         Table o;
         o = this.ClassInfra.TableCreateStringLess();
-        
+
         this.ListInfra.TableAdd(o, dataVar.Name, dataVar);
         this.ListInfra.TableAdd(o, valueVar.Name, valueVar);
 
@@ -1277,9 +1277,9 @@ public class StateTravel : Travel
         return this.ClassInfra.MaideTrigg(varClass, name, this.ThisClass, this.System.Any, this.NullClass);
     }
 
-    protected virtual bool ValidClass(Class varClass, Class requiredClass)
+    protected virtual bool ValidClass(Class varClass, Class requireClass)
     {
-        return this.ClassInfra.ValidClass(varClass, requiredClass, this.System.Any, this.NullClass);
+        return this.ClassInfra.ValidClass(varClass, requireClass, this.System.Any, this.NullClass);
     }
 
     protected virtual bool ArgueMatch(Maide varMaide, Argue argue)
