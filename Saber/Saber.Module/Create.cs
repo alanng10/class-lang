@@ -415,14 +415,11 @@ public class Create : ClassCreate
 
     protected virtual bool VirtualSet()
     {
-        Table table;
-        table = this.Module.Class;
-
         this.VirtualTable = this.ClassInfra.TableCreateRefLess();
 
         Iter iter;
-        iter = table.IterCreate();
-        table.IterSet(iter);
+        iter = this.Module.Class.IterCreate();
+        this.Module.Class.IterSet(iter);
         while (iter.Next())
         {
             Class a;
@@ -479,14 +476,14 @@ public class Create : ClassCreate
         varClass.Field.IterSet(iter);
         while (iter.Next())
         {
-            Field field;
-            field = iter.Value as Field;
+            Field varField;
+            varField = iter.Value as Field;
 
             bool ba;
-            ba = this.ClassInfra.VirtualField(field, this.System.Any);
+            ba = this.ClassInfra.VirtualField(varField, this.System.Any);
 
             NodeField node;
-            node = field.Any as NodeField;
+            node = varField.Any as NodeField;
 
             if (!ba)
             {
@@ -495,11 +492,11 @@ public class Create : ClassCreate
 
             if (ba)
             {
-                field.Index = fieldTable.Count;
+                varField.Index = fieldTable.Count;
 
-                this.Info(node).Field = field;
+                this.Info(node).Field = varField;
 
-                this.ListInfra.TableAdd(fieldTable, field.Name, field);
+                this.ListInfra.TableAdd(fieldTable, varField.Name, varField);
             }
         }
 
@@ -515,14 +512,14 @@ public class Create : ClassCreate
         varClass.Maide.IterSet(iter);
         while (iter.Next())
         {
-            Maide maide;
-            maide = iter.Value as Maide;
+            Maide varMaide;
+            varMaide = iter.Value as Maide;
 
             bool bb;
-            bb = this.ClassInfra.VirtualMaide(maide, this.System.Any, iterA, iterB);
+            bb = this.ClassInfra.VirtualMaide(varMaide, this.System.Any, iterA, iterB);
 
             NodeMaide node;
-            node = maide.Any as NodeMaide;
+            node = varMaide.Any as NodeMaide;
 
             if (!bb)
             {
@@ -531,11 +528,11 @@ public class Create : ClassCreate
 
             if (bb)
             {
-                maide.Index = maideTable.Count;
+                varMaide.Index = maideTable.Count;
 
-                this.Info(node).Maide = maide;
+                this.Info(node).Maide = varMaide;
 
-                this.ListInfra.TableAdd(maideTable, maide.Name, maide);
+                this.ListInfra.TableAdd(maideTable, varMaide.Name, varMaide);
             }
         }
 
@@ -551,14 +548,11 @@ public class Create : ClassCreate
 
     protected virtual bool VirtualRange()
     {
-        Table table;
-        table = this.Module.Class;
-
         this.RangeTable = this.ClassInfra.TableCreateRefLess();
 
         Iter iter;
-        iter = table.IterCreate();
-        table.IterSet(iter);
+        iter = this.Module.Class.IterCreate();
+        this.Module.Class.IterSet(iter);
         while (iter.Next())
         {
             Class a;
@@ -609,24 +603,15 @@ public class Create : ClassCreate
         return true;
     }
 
-    protected virtual bool ExecuteState()
-    {
-        this.ExecuteTravel(this.StateTravel);
-        return true;
-    }
-
     protected virtual bool ExecuteExport()
     {
         List list;
         list = new List();
         list.Init();
 
-        Table table;
-        table = this.Module.Export;
-
         Iter iter;
-        iter = table.IterCreate();
-        table.IterSet(iter);
+        iter = this.Module.Export.IterCreate();
+        this.Module.Export.IterSet(iter);
         while (iter.Next())
         {
             String name;
@@ -656,7 +641,7 @@ public class Create : ClassCreate
             Class kk;
             kk = iter.Value as Class;
 
-            table.Set(kk.Name, kk);
+            this.Module.Export.Set(kk.Name, kk);
         }
         return true;
     }
@@ -675,14 +660,14 @@ public class Create : ClassCreate
         varClass.Field.IterSet(iter);
         while (iter.Next())
         {
-            Field field;
-            field = iter.Value as Field;
-            if (this.ExportValidCount(field.Count))
+            Field varField;
+            varField = iter.Value as Field;
+            if (this.ExportValidCount(varField.Count))
             {
-                if (!this.ExportValidClass(field.Class))
+                if (!this.ExportValidClass(varField.Class))
                 {
                     NodeField kb;
-                    kb = field.Any as NodeField;
+                    kb = varField.Any as NodeField;
                     this.Error(this.ErrorKind.FieldUnexport, kb, varClass.Index);
                 }
             }
@@ -692,21 +677,21 @@ public class Create : ClassCreate
         varClass.Maide.IterSet(iter);
         while (iter.Next())
         {
-            Maide maide;
-            maide = iter.Value as Maide;
-            if (this.ExportValidCount(maide.Count))
+            Maide varMaide;
+            varMaide = iter.Value as Maide;
+            if (this.ExportValidCount(varMaide.Count))
             {
                 bool b;
                 b = false;
-                if (!this.ExportValidClass(maide.Class))
+                if (!this.ExportValidClass(varMaide.Class))
                 {
                     b = true;
                 }
                 if (!b)
                 {
                     Iter iterA;
-                    iterA = maide.Param.IterCreate();
-                    maide.Param.IterSet(iterA);
+                    iterA = varMaide.Param.IterCreate();
+                    varMaide.Param.IterSet(iterA);
                     while (!b & iterA.Next())
                     {
                         Var varVar;
@@ -720,7 +705,7 @@ public class Create : ClassCreate
                 if (b)
                 {
                     NodeMaide kc;
-                    kc = maide.Any as NodeMaide;
+                    kc = varMaide.Any as NodeMaide;
                     this.Error(this.ErrorKind.MaideUnexport, kc, varClass.Index);
                 }
             }
@@ -751,18 +736,15 @@ public class Create : ClassCreate
 
     protected virtual bool ExecuteEntry()
     {
-        ClassModule module;
-        module = this.Module;
-
         String entry;
-        entry = module.Entry;
+        entry = this.Module.Entry;
         if (entry == null)
         {
             return true;
         }
 
         Class varClass;
-        varClass = this.ModuleClassGet(module, entry);
+        varClass = this.ModuleClassGet(this.Module, entry);
         if (varClass == null)
         {
             this.ErrorModule(this.ErrorKind.EntryUndefine, null);
@@ -785,7 +767,7 @@ public class Create : ClassCreate
             if (ka == null)
             {
                 b = true;
-            }            
+            }
         }
 
         if (!b)
@@ -814,6 +796,12 @@ public class Create : ClassCreate
             this.Error(this.ErrorKind.EntryUnachieve, k, varClass.Index);
         }
 
+        return true;
+    }
+
+    protected virtual bool ExecuteState()
+    {
+        this.ExecuteTravel(this.StateTravel);
         return true;
     }
 
@@ -850,7 +838,7 @@ public class Create : ClassCreate
         {
             return a;
         }
-        
+
         a = this.Module.Class.Get(name) as Class;
         return a;
     }
