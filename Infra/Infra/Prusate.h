@@ -96,7 +96,7 @@ Infra_Api Int Environ_New(Int count);
 Infra_Api Int Environ_Delete(Int any);
 Infra_Api Int Environ_Copy(Int dest, Int source, Int count);
 Infra_Api Int Environ_Exit(Int status);
-Infra_Api Int Environ_BinarySystem();
+Infra_Api Int Environ_System();
 
 InfraApiNew(String)
 Infra_Api Int String_ValueGet(Int o);
