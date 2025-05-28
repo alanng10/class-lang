@@ -3,7 +3,7 @@ Environ -
     Delete(any) -
     Copy(dest, source, count) -
     Exit(status) -
-    BinarySystem() -
+    System() -
 
 String
     Value
