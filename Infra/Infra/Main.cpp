@@ -23,6 +23,8 @@ Int Main_Init(Int argc, Int argv)
 
     m->Intern = new QApplication(m->Argc, m->Argv);
 
+    m->Intern->setQuitOnLastWindowClosed(false);
+
     m->MainThread = Thread_New();
     Thread_InitMainThread(m->MainThread);
 
