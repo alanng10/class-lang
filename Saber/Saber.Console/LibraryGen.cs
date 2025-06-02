@@ -599,7 +599,7 @@ public class LibraryGen : TextAdd
         program = null;
 
         ulong ka;
-        ka = Extern.Environ_BinarySystem();
+        ka = Extern.Environ_System();
 
         long kb;
         kb = (long)ka;
