@@ -100,7 +100,7 @@ class Demo : TextAdd
     private bool ExecuteEnviron()
     {
         ulong ka;
-        ka = Extern.Environ_BinarySystem();
+        ka = Extern.Environ_System();
         long k;
         k = (long)ka;
 
