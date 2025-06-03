@@ -24,6 +24,8 @@ Int Screen_SizeGet(Int o)
     return a;
 }
 
+FieldDefaultSet(Screen, Size)
+
 Int Screen_DimendGet(Int o)
 {
     Int share;
@@ -35,3 +37,5 @@ Int Screen_DimendGet(Int o)
     a = Stat_ScreenDimend(stat);
     return a;
 }
+
+FieldDefaultSet(Screen, Dimend)
