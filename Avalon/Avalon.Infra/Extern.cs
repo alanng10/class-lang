@@ -203,6 +203,15 @@ public static class Extern
 
     public delegate ulong Main_Terminate_Maide(ulong arg);
 
+    [DllImport(InfraLib)] public extern static ulong Screen_New();
+    [DllImport(InfraLib)] public extern static ulong Screen_Delete(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Screen_Init(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Screen_Final(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Screen_SizeGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Screen_SizeSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Screen_DimendGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Screen_DimendSet(ulong o, ulong value);
+
     [DllImport(InfraLib)] public extern static ulong Frame_New();
     [DllImport(InfraLib)] public extern static ulong Frame_Delete(ulong o);
     [DllImport(InfraLib)] public extern static ulong Frame_Init(ulong o);
@@ -211,8 +220,6 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Frame_TitleSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Frame_ShownGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong Frame_ShownSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Frame_SizeGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Frame_SizeSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Frame_TypeStateGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong Frame_TypeStateSet(ulong o, ulong value);
     [DllImport(InfraLib)] public extern static ulong Frame_DrawStateGet(ulong o);
