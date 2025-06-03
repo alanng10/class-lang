@@ -51,10 +51,10 @@ Int Main_Final()
     Thread_FinalMainThread(m->MainThread);
     Thread_Delete(m->MainThread);
 
+    delete m->Intern;
+
     Share_Final(m->Share);
     Share_Delete(m->Share);
-
-    delete m->Intern;
 
     return true;
 }
