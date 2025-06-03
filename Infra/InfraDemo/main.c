@@ -160,6 +160,11 @@ Bool TypeHandle(Int frame, Int arg, Int index, Int value)
         if (index == 'B')
         {
             Frame_Close(Frame);
+
+            Int thread;
+            thread = Thread_This();
+
+            Thread_Exit(thread, 0);
         }
     }
 
