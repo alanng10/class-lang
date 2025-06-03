@@ -120,3 +120,17 @@ Int Stat_ConsolePhore(Int o)
     m = CP(o);
     return m->ConsolePhore;
 }
+
+Int Stat_ScreenSize(Int o)
+{
+    Stat* m;
+    m = CP(o);
+    return m->ScreenSize;
+}
+
+Int Stat_ScreenDimend(Int o)
+{
+    Stat* m;
+    m = CP(o);
+    return m->ScreenDimend;
+}

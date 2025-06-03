@@ -79,6 +79,8 @@ Int Program_Finish(Int o);
 
 Int Main_CurrentThreadSignalHandleSet();
 
+Int Main_Screen();
+
 Int Main_Compute();
 
 Int Console_OS_Init();
@@ -101,6 +103,8 @@ Int Stat_Init(Int o);
 Int Stat_Final(Int o);
 Int Stat_TimeInit(Int o);
 Int Stat_ConsolePhore(Int o);
+Int Stat_ScreenSize(Int o);
+Int Stat_ScreenDimend(Int o);
 
 #define FieldGet(varClass, name) \
 Int varClass##_##name##Get(Int o)\
