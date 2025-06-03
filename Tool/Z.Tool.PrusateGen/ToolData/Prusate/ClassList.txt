@@ -91,10 +91,13 @@ Main -
     TerminateState -
     Terminate(arg) --
 
+Screen -
+    Size -
+    Dimen -
+
 Frame
     Title
     Shown
-    Size
     TitleThisSet()
     Out()
     TypeState
