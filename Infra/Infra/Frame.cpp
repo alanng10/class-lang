@@ -7,11 +7,6 @@ Int Frame_Init(Int o)
     Frame* m;
     m = CP(o);
 
-    Int size;
-    size = Size_New();
-    Size_Init(size);
-    m->Size = size;
-
     FrameIntern* a;
     a = new FrameIntern;
     a->Frame = o;
@@ -20,23 +15,6 @@ Int Frame_Init(Int o)
     a->setCursor(Qt::BlankCursor);
     m->Intern = a;
 
-    QScreen* screen;
-    screen = m->Intern->screen();
-
-    QSize ua;
-    ua = screen->size();
-
-    int w;
-    int h;
-    w = ua.width();
-    h = ua.height();
-
-    Int wed;
-    Int het;
-    wed = w;
-    het = h;
-    Size_WedSet(m->Size, wed);
-    Size_HetSet(m->Size, het);
     return true;
 }
 
@@ -46,15 +24,8 @@ Int Frame_Final(Int o)
     m = CP(o);
 
     delete m->Intern;
-
-    Size_Final(m->Size);
-    Size_Delete(m->Size);
     return true;
 }
-
-CppFieldGet(Frame, Size)
-
-FieldDefaultSet(Frame, Size)
 
 CppField(Frame, Title)
 
