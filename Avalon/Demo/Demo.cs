@@ -104,7 +104,7 @@ class Demo : TextAdd
         long k;
         k = (long)ka;
 
-        this.Console.Out.Write(this.AddClear().AddS("Binary System: ").AddInt(k).AddLine().AddResult());
+        this.Console.Out.Write(this.AddClear().AddS("System: ").AddInt(k).AddLine().AddResult());
         return true;
     }
 
