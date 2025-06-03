@@ -20,6 +20,7 @@ struct Main
     char* Argv[2];
     Int TerminateState;
     Int IsCSharp;
+    Int ThreadStorage;
     QApplication* Intern;
 };
 

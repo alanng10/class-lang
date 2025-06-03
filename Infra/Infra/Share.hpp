@@ -7,7 +7,6 @@
 struct Share
 {
     Int Stat;
-    Int ThreadStorage;
 };
 
 #define CP(a) ((Share*)(a))

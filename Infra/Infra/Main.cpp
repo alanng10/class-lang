@@ -7,6 +7,8 @@ Int Main_Init(Int argc, Int argv)
     Main* m;
     m = &D_Var;
 
+    m->ThreadStorage = Thread_CreateStore();
+
     m->ArgC = argc;
     m->ArgV = argv;
 
@@ -51,10 +53,12 @@ Int Main_Final()
     Thread_FinalMainThread(m->MainThread);
     Thread_Delete(m->MainThread);
 
-    delete m->Intern;
-
     Share_Final(m->Share);
     Share_Delete(m->Share);
+
+    delete m->Intern;
+
+    Thread_DeleteStore(m->ThreadStorage);
 
     return true;
 }
@@ -145,6 +149,13 @@ Int Main_Exit(Int status)
     u = status;
     QApplication::exit(u);
     return true;
+}
+
+Int Main_ThreadStorage(Int o)
+{
+    Main* m;
+    m = &D_Var;
+    return m->ThreadStorage;
 }
 
 Int Main_Compute()
