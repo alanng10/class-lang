@@ -16,6 +16,8 @@ struct Stat
 {
     Int TimeInit;
     Int ConsolePhore;
+    Int ScreenSize;
+    Int ScreenDimend;
 };
 
 #define CP(a) ((Stat*)(a))
