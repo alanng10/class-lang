@@ -9,6 +9,7 @@
 #include <QPoint>
 #include <QAbstractSocket>
 #include <QHostAddress>
+#include <QScreen>
 
 #include "Pronate.hpp"
 

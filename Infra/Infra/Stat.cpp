@@ -13,6 +13,34 @@ Int Stat_Init(Int o)
     Phore_InitCountSet(aa, 1);
     Phore_Init(aa);
     m->ConsolePhore = aa;
+
+    Int screen;
+    screen = Main_Screen();
+
+    QScreen* k;
+    k = (QScreen*)screen;
+
+    QSize ka;
+    ka = k->size();
+
+    QSizeF kb;
+    kb = k->physicalSize();
+
+    int wedA;
+    int hetA;
+    wedA = ka.width();
+    hetA = ka.height();
+
+    Int wed;
+    Int het;
+    wed = wedA;
+    het = hetA;
+
+    m->ScreenSize = Size_New();
+    Size_Init(m->ScreenSize);
+    Size_WedSet(m->ScreenSize, wed);
+    Size_HetSet(m->ScreenSize, het);
+
     return true;
 }
 
@@ -20,6 +48,10 @@ Int Stat_Final(Int o)
 {
     Stat* m;
     m = CP(o);
+
+    Size_Final(m->ScreenSize);
+    Size_Delete(m->ScreenSize);
+
     Phore_Final(m->ConsolePhore);
     Phore_Delete(m->ConsolePhore);
 
