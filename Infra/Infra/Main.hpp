@@ -4,6 +4,7 @@
 
 #include <QApplication>
 #include <QSysInfo>
+#include <QScreen>
 
 #include "Pronate.hpp"
 
