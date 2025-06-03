@@ -91,9 +91,9 @@ Main -
     TerminateState -
     Terminate(arg) --
 
-Screen -
-    Size -
-    Dimen -
+Screen
+    Size
+    Dimen
 
 Frame
     Title
