@@ -93,7 +93,7 @@ Main -
 
 Screen
     Size
-    Dimen
+    Dimend
 
 Frame
     Title
