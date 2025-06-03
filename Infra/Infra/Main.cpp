@@ -151,7 +151,7 @@ Int Main_Exit(Int status)
     return true;
 }
 
-Int Main_ThreadStorage(Int o)
+Int Main_ThreadStorage()
 {
     Main* m;
     m = &D_Var;

@@ -81,7 +81,7 @@ Int Main_CurrentThreadSignalHandleSet();
 
 Int Main_Screen();
 Int Main_Compute();
-Int Main_ThreadStorage(Int o);
+Int Main_ThreadStorage();
 
 Int Console_OS_Init();
 
