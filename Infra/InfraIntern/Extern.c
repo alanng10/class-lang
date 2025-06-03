@@ -2332,6 +2332,110 @@ Int Intern_Extern_Main_Arg(Eval* eval, Int frame)
     Return;
 }
 
+Int Intern_Extern_Screen_New(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 0;
+
+    Int a;
+    a = Screen_New();
+
+    Return;
+}
+
+Int Intern_Extern_Screen_Delete(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 1;
+
+    Param(0);
+
+    Int a;
+    a = Screen_Delete(a0);
+
+    Return;
+}
+
+Int Intern_Extern_Screen_Init(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 1;
+
+    Param(0);
+
+    Int a;
+    a = Screen_Init(a0);
+
+    Return;
+}
+
+Int Intern_Extern_Screen_Final(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 1;
+
+    Param(0);
+
+    Int a;
+    a = Screen_Final(a0);
+
+    Return;
+}
+
+Int Intern_Extern_Screen_SizeGet(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 1;
+
+    Param(0);
+
+    Int a;
+    a = Screen_SizeGet(a0);
+
+    Return;
+}
+
+Int Intern_Extern_Screen_SizeSet(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 2;
+
+    Param(0);
+    Param(1);
+
+    Int a;
+    a = Screen_SizeSet(a0, a1);
+
+    Return;
+}
+
+Int Intern_Extern_Screen_DimendGet(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 1;
+
+    Param(0);
+
+    Int a;
+    a = Screen_DimendGet(a0);
+
+    Return;
+}
+
+Int Intern_Extern_Screen_DimendSet(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 2;
+
+    Param(0);
+    Param(1);
+
+    Int a;
+    a = Screen_DimendSet(a0, a1);
+
+    Return;
+}
+
 Int Intern_Extern_Frame_New(Eval* eval, Int frame)
 {
     Int paramCount;
@@ -2432,33 +2536,6 @@ Int Intern_Extern_Frame_ShownSet(Eval* eval, Int frame)
 
     Int a;
     a = Frame_ShownSet(a0, a1);
-
-    Return;
-}
-
-Int Intern_Extern_Frame_SizeGet(Eval* eval, Int frame)
-{
-    Int paramCount;
-    paramCount = 1;
-
-    Param(0);
-
-    Int a;
-    a = Frame_SizeGet(a0);
-
-    Return;
-}
-
-Int Intern_Extern_Frame_SizeSet(Eval* eval, Int frame)
-{
-    Int paramCount;
-    paramCount = 2;
-
-    Param(0);
-    Param(1);
-
-    Int a;
-    a = Frame_SizeSet(a0, a1);
 
     Return;
 }
