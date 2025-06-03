@@ -272,9 +272,9 @@ class Demo : Add
     maide private Bool ExecuteEnviron()
     {
         var Int k;
-        k : this.Extern.Environ_BinarySystem();
+        k : this.Extern.Environ_System();
 
-        this.Console.Out.Write(this.AddClear().Add("Binary System: ").AddInt(k).AddLine().AddResult());
+        this.Console.Out.Write(this.AddClear().Add("System: ").AddInt(k).AddLine().AddResult());
         return true;
     }
 
