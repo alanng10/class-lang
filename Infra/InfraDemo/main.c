@@ -1009,18 +1009,18 @@ int main(int argc, char* argv[])
     Frame_DrawStateSet(Frame, frameDrawState);
     Frame_TypeStateSet(Frame, frameTypeState);
 
-    Int frameSize;
-    frameSize = Frame_SizeGet(Frame);
+    Int screenSize;
+    screenSize = Screen_SizeGet(0);
 
     Int videoOut;
     videoOut = Frame_Out(Frame);
 
-    Draw_SizeSet(Draw, frameSize);
+    Draw_SizeSet(Draw, screenSize);
     Draw_OutSet(Draw, videoOut);
     Draw_AreaSet(Draw, area);
     Draw_FillPosSet(Draw, fillPos);
 
-    Rect_SizeSet(UpdateRect, frameSize);
+    Rect_SizeSet(UpdateRect, screenSize);
 
     Frame_TitleSet(Frame, frameTitle);
     Frame_TitleThisSet(Frame);
