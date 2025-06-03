@@ -199,6 +199,15 @@ Intern_Api Int Intern_Extern_Main_Final(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Main_IsCSharpSet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Main_Arg(Eval* e, Int f);
 
+Intern_Api Int Intern_Extern_Screen_New(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Screen_Delete(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Screen_Init(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Screen_Final(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Screen_SizeGet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Screen_SizeSet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Screen_DimendGet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Screen_DimendSet(Eval* e, Int f);
+
 Intern_Api Int Intern_Extern_Frame_New(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Frame_Delete(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Frame_Init(Eval* e, Int f);
@@ -207,8 +216,6 @@ Intern_Api Int Intern_Extern_Frame_TitleGet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Frame_TitleSet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Frame_ShownGet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Frame_ShownSet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Frame_SizeGet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Frame_SizeSet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Frame_TypeStateGet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Frame_TypeStateSet(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Frame_DrawStateGet(Eval* e, Int f);
