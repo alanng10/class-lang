@@ -246,13 +246,17 @@ Infra_Api Int Main_Arg();
 
 typedef Int (*Main_Terminate_Maide)(Int arg);
 
+InfraApiNew(Screen)
+Infra_Api Int Screen_SizeGet(Int o);
+Infra_Api Int Screen_SizeSet(Int o, Int value);
+Infra_Api Int Screen_DimendGet(Int o);
+Infra_Api Int Screen_DimendSet(Int o, Int value);
+
 InfraApiNew(Frame)
 Infra_Api Int Frame_TitleGet(Int o);
 Infra_Api Int Frame_TitleSet(Int o, Int value);
 Infra_Api Int Frame_ShownGet(Int o);
 Infra_Api Int Frame_ShownSet(Int o, Int value);
-Infra_Api Int Frame_SizeGet(Int o);
-Infra_Api Int Frame_SizeSet(Int o, Int value);
 Infra_Api Int Frame_TypeStateGet(Int o);
 Infra_Api Int Frame_TypeStateSet(Int o, Int value);
 Infra_Api Int Frame_DrawStateGet(Int o);
