@@ -23,9 +23,9 @@ public class Entry : Any
         long k;
         k = this.ExecuteMain();
 
-        this.MainAfter();
-
         k = this.StatusWrite(k);
+
+        this.MainAfter();
 
         int a;
         a = (int)k;
