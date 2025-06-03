@@ -197,6 +197,15 @@ class Extern : Any
     maide prusate Int Main_IsCSharpSet(var Int value) { }
     maide prusate Int Main_Arg() { }
 
+    maide prusate Int Screen_New() { }
+    maide prusate Int Screen_Delete(var Int o) { }
+    maide prusate Int Screen_Init(var Int o) { }
+    maide prusate Int Screen_Final(var Int o) { }
+    maide prusate Int Screen_SizeGet(var Int o) { }
+    maide prusate Int Screen_SizeSet(var Int o, var Int value) { }
+    maide prusate Int Screen_DimendGet(var Int o) { }
+    maide prusate Int Screen_DimendSet(var Int o, var Int value) { }
+
     maide prusate Int Frame_New() { }
     maide prusate Int Frame_Delete(var Int o) { }
     maide prusate Int Frame_Init(var Int o) { }
@@ -205,8 +214,6 @@ class Extern : Any
     maide prusate Int Frame_TitleSet(var Int o, var Int value) { }
     maide prusate Int Frame_ShownGet(var Int o) { }
     maide prusate Int Frame_ShownSet(var Int o, var Int value) { }
-    maide prusate Int Frame_SizeGet(var Int o) { }
-    maide prusate Int Frame_SizeSet(var Int o, var Int value) { }
     maide prusate Int Frame_TypeStateGet(var Int o) { }
     maide prusate Int Frame_TypeStateSet(var Int o, var Int value) { }
     maide prusate Int Frame_DrawStateGet(var Int o) { }
