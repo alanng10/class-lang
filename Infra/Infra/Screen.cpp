@@ -12,7 +12,7 @@ Int Screen_Final(Int o)
     return true;
 }
 
-Int Screen_Size(Int o)
+Int Screen_SizeGet(Int o)
 {
     Int share;
     share = Infra_Share();
@@ -24,7 +24,7 @@ Int Screen_Size(Int o)
     return a;
 }
 
-Int Screen_Dimend(Int o)
+Int Screen_DimendGet(Int o)
 {
     Int share;
     share = Infra_Share();
