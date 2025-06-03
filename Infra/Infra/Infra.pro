@@ -45,6 +45,7 @@ HEADERS += \
     Rand.hpp \
     Range.h \
     Rect.h \
+    Screen.hpp \
     Share.hpp \
     Size.h \
     Slash.hpp \
@@ -104,6 +105,7 @@ SOURCES += \
     Rand.cpp \
     Range.c \
     Rect.c \
+    Screen.cpp \
     Share.cpp \
     Size.c \
     Slash.cpp \
