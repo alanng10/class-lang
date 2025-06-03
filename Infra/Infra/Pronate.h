@@ -80,8 +80,8 @@ Int Program_Finish(Int o);
 Int Main_CurrentThreadSignalHandleSet();
 
 Int Main_Screen();
-
 Int Main_Compute();
+Int Main_ThreadStorage(Int o);
 
 Int Console_OS_Init();
 
@@ -95,7 +95,6 @@ Int Share_New();
 Int Share_Delete(Int o);
 Int Share_Init(Int o);
 Int Share_Final(Int o);
-Int Share_ThreadStorage(Int o);
 
 Int Stat_New();
 Int Stat_Delete(Int o);
