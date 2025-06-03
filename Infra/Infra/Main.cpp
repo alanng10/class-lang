@@ -154,6 +154,19 @@ Int Main_Compute()
     return m->Compute;
 }
 
+Int Main_Screen()
+{
+    Main* m;
+    m = &D_Var;
+
+    QScreen* k;
+    k = m->Intern->primaryScreen();
+
+    Int a;
+    a = CastInt(k);
+    return a;
+}
+
 Int Main_TerminateStateGet()
 {
     Main* m;
