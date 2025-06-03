@@ -7,7 +7,6 @@
 struct Frame
 {
     Int Title;
-    Int Size;
     Int TypeState;
     Int DrawState;
     FrameIntern* Intern;
