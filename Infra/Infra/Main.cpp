@@ -10,11 +10,6 @@ Int Main_Init(Int argc, Int argv)
     m->ArgC = argc;
     m->ArgV = argv;
 
-    m->Share = Share_New();
-    Share_Init(m->Share);
-
-    Main_InitArg();
-
     m->Argc = 1;
 
     m->Argv[0] = (char*)"Application";
@@ -24,6 +19,9 @@ Int Main_Init(Int argc, Int argv)
     m->Intern = new QApplication(m->Argc, m->Argv);
 
     m->Intern->setQuitOnLastWindowClosed(false);
+
+    m->Share = Share_New();
+    Share_Init(m->Share);
 
     m->MainThread = Thread_New();
     Thread_InitMainThread(m->MainThread);
@@ -38,6 +36,8 @@ Int Main_Init(Int argc, Int argv)
 
     m->Compute = b;
 
+    Main_InitArg();
+
     return true;
 }
 
@@ -46,15 +46,16 @@ Int Main_Final()
     Main* m;
     m = &D_Var;
 
+    Main_FinalArg();
+
     Thread_FinalMainThread(m->MainThread);
     Thread_Delete(m->MainThread);
 
-    delete m->Intern;
-
-    Main_FinalArg();
-
     Share_Final(m->Share);
     Share_Delete(m->Share);
+
+    delete m->Intern;
+
     return true;
 }
 
