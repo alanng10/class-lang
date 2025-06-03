@@ -413,10 +413,8 @@ Int Thread_StoreSetThread(Int thread)
     o = { };
     o.Thread = thread;
 
-    Int share;
-    share = Infra_Share();
     Int u;
-    u = Share_ThreadStorage(share);
+    u = Main_ThreadStorage();
 
     QThreadStorage<ThreadStoreValue>* threadStorage;
     threadStorage = (QThreadStorage<ThreadStoreValue>*)u;
@@ -426,11 +424,8 @@ Int Thread_StoreSetThread(Int thread)
 
 Int Thread_This()
 {
-    Int share;
-    share = Infra_Share();
-
     Int u;
-    u = Share_ThreadStorage(share);
+    u = Main_ThreadStorage();
 
     QThreadStorage<ThreadStoreValue>* threadStorage;
     threadStorage = (QThreadStorage<ThreadStoreValue>*)u;
