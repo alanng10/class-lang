@@ -33,6 +33,8 @@ public class Create : ClassCreate
         this.TokenG = this.CreateToken();
         this.TokenH = this.CreateToken();
         this.TokenI = this.CreateToken();
+        this.TokenJ = this.CreateToken();
+        this.TokenK = this.CreateToken();
 
         this.InitListItemState();
         this.InitNodeState();
@@ -164,6 +166,8 @@ public class Create : ClassCreate
     protected virtual Token TokenG { get; set; }
     protected virtual Token TokenH { get; set; }
     protected virtual Token TokenI { get; set; }
+    protected virtual Token TokenJ { get; set; }
+    protected virtual Token TokenK { get; set; }
 
     protected virtual bool InitListItemState()
     {
@@ -4046,7 +4050,7 @@ public class Create : ClassCreate
         if (this.TextSame(this.TextToken(this.TextA, token), this.TB(this.Limit.BraceRoundRite.Text)))
         {
             Token braceRoundLite;
-            braceRoundLite = this.TokenBraceRoundLite(this.TokenA, this.Range(this.RangeA, start, t));
+            braceRoundLite = this.TokenBraceRoundLite(this.TokenJ, this.Range(this.RangeA, start, t));
             if (!(braceRoundLite == null))
             {
                 ret = braceRoundLite.Range.Start;
@@ -4056,7 +4060,7 @@ public class Create : ClassCreate
         if (this.TextSame(this.TextToken(this.TextA, token), this.TB(this.Limit.BraceCurveRite.Text)))
         {
             Token braceCurveLite;
-            braceCurveLite = this.TokenBraceCurveLite(this.TokenA, this.Range(this.RangeA, start, t));
+            braceCurveLite = this.TokenBraceCurveLite(this.TokenK, this.Range(this.RangeA, start, t));
             if (!(braceCurveLite == null))
             {
                 ret = braceCurveLite.Range.Start;
