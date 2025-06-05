@@ -2405,7 +2405,7 @@ public class Create : ClassCreate
         end = range.End;
 
         Token signStop;
-        signStop = this.TokenBack(this.TokenA, this.Limit.Stop.Text, this.Range(this.RangeA, start, end));
+        signStop = this.TokenBackSkip(this.TokenA, this.Limit.Stop.Text, this.Range(this.RangeA, start, end));
         if (signStop == null)
         {
             return null;
@@ -2475,7 +2475,7 @@ public class Create : ClassCreate
         }
 
         Token signStop;
-        signStop = this.TokenBack(this.TokenC, this.Limit.Stop.Text, this.Range(this.RangeA, start, braceRoundLite.Range.Start));
+        signStop = this.TokenBackSkip(this.TokenC, this.Limit.Stop.Text, this.Range(this.RangeA, start, braceRoundLite.Range.Start));
         if (signStop == null)
         {
             return null;
