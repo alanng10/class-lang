@@ -7,9 +7,9 @@ AreExecute
                           This : VarOperate
                                  {
                                      Var : VarName
-                                     {
-                                         Value : "i",
-                                     },
+                                           {
+                                               Value : "i",
+                                           },
                                  },
                           Maide : MaideName
                                   {
@@ -21,11 +21,11 @@ AreExecute
                                               ],
                                   },
                       },
-                Field : FieldName
-                        {
-                            Value : "Kk",
-                        },
-            },
+               Field : FieldName
+                       {
+                           Value : "Kk",
+                       },
+           },
     Value : ValueOperate
             {
                 Value : BoolValue
