@@ -1,0 +1,36 @@
+AreExecute
+{
+    Mark : SetMark
+           {
+               This : CallOperate
+                      {
+                          This : VarOperate
+                                 {
+                                     Var : VarName
+                                     {
+                                         Value : "i",
+                                     },
+                                 },
+                          Maide : MaideName
+                                  {
+                                      Value : "H",
+                                  },
+                          Argue : Argue
+                                  {
+                                      Value : [
+                                              ],
+                                  },
+                      },
+                Field : FieldName
+                        {
+                            Value : "Kk",
+                        },
+            },
+    Value : ValueOperate
+            {
+                Value : BoolValue
+                        {
+                            Value : true,
+                        },
+            },
+},
