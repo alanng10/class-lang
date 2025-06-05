@@ -1,0 +1,21 @@
+SetMark
+{
+    This : CallOperate
+           {
+               This : VarOperate
+                      {
+                          Var : VarName
+                                {
+                                    Value : "i",
+                                },
+                      },
+               Maide : MaideName
+                       {
+                           Value : "H",
+                       }
+           },
+    Field : FieldName
+            {
+                Value : "Kk",
+            },
+},
