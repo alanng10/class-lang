@@ -95,15 +95,15 @@ public class StateTravel : Travel
         State nodeSet;
         nodeSet = nodeField.Set;
 
-        Field field;
-        field = this.Info(nodeField).Field;
-        if (field == null)
+        Field varField;
+        varField = this.Info(nodeField).Field;
+        if (varField == null)
         {
             return true;
         }
 
-        this.FieldGet(field, nodeGet);
-        this.FieldSet(field, nodeSet);
+        this.FieldGet(varField, nodeGet);
+        this.FieldSet(varField, nodeSet);
         return true;
     }
 
@@ -172,13 +172,13 @@ public class StateTravel : Travel
 
         this.ListInfra.TableAdd(this.StateVar, valueVar.Name, valueVar);
 
-        Table o;
-        o = this.ClassInfra.TableCreateStringLess();
+        Table k;
+        k = this.ClassInfra.TableCreateStringLess();
 
-        this.ListInfra.TableAdd(o, dataVar.Name, dataVar);
-        this.ListInfra.TableAdd(o, valueVar.Name, valueVar);
+        this.ListInfra.TableAdd(k, dataVar.Name, dataVar);
+        this.ListInfra.TableAdd(k, valueVar.Name, valueVar);
 
-        this.VarStack.Push(o);
+        this.VarStack.Push(k);
 
         this.ExecuteState(nodeSet);
 
@@ -201,20 +201,20 @@ public class StateTravel : Travel
         State call;
         call = nodeMaide.Call;
 
-        Maide maide;
-        maide = this.Info(nodeMaide).Maide;
-        if (maide == null)
+        Maide varMaide;
+        varMaide = this.Info(nodeMaide).Maide;
+        if (varMaide == null)
         {
             return true;
         }
 
-        this.ThisResultClass = maide.Class;
+        this.ThisResultClass = varMaide.Class;
 
-        this.StateVar = maide.Call;
+        this.StateVar = varMaide.Call;
 
-        this.VarTableAdd(this.StateVar, maide.Param);
+        this.VarTableAdd(this.StateVar, varMaide.Param);
 
-        this.VarStack.Push(maide.Param);
+        this.VarStack.Push(varMaide.Param);
 
         this.ExecuteState(call);
 
@@ -298,16 +298,17 @@ public class StateTravel : Travel
             return true;
         }
 
-        Table h;
-        h = this.ClassInfra.TableCreateStringLess();
+        Table k;
+        k = this.ClassInfra.TableCreateStringLess();
 
-        this.VarStack.Push(h);
+        this.VarStack.Push(k);
 
         base.ExecuteState(state);
 
-        this.Info(state).StateVar = h;
-
         this.VarStack.Pop();
+
+        this.Info(state).StateVar = k;
+
         return true;
     }
 
@@ -426,49 +427,49 @@ public class StateTravel : Travel
         return true;
     }
 
-    public override bool ExecuteVarMark(VarMark varTarget)
+    public override bool ExecuteVarMark(VarMark varMark)
     {
-        if (varTarget == null)
+        if (varMark == null)
         {
             return true;
         }
 
         VarName name;
-        name = varTarget.Var;
+        name = varMark.Var;
 
         Class varClass;
-        varClass = this.ExecuteVarNameNode(varTarget, name);
+        varClass = this.ExecuteVarNameNode(varMark, name);
 
-        this.Info(varTarget).MarkClass = varClass;
+        this.Info(varMark).MarkClass = varClass;
         return true;
     }
 
-    public override bool ExecuteSetMark(SetMark setTarget)
+    public override bool ExecuteSetMark(SetMark setMark)
     {
-        if (setTarget == null)
+        if (setMark == null)
         {
             return true;
         }
 
         Operate varThis;
-        varThis = setTarget.This;
+        varThis = setMark.This;
         FieldName nodeField;
-        nodeField = setTarget.Field;
+        nodeField = setMark.Field;
 
-        base.ExecuteSetMark(setTarget);
+        base.ExecuteSetMark(setMark);
 
-        Field field;
-        field = this.ExecuteThisFieldNode(setTarget, varThis, nodeField);
+        Field varField;
+        varField = this.ExecuteThisFieldNode(setMark, varThis, nodeField);
 
         Class fieldClass;
         fieldClass = null;
-        if (!(field == null))
+        if (!(varField == null))
         {
-            fieldClass = field.Class;
+            fieldClass = varField.Class;
         }
 
-        this.Info(setTarget).SetField = field;
-        this.Info(setTarget).MarkClass = fieldClass;
+        this.Info(setMark).SetField = varField;
+        this.Info(setMark).MarkClass = fieldClass;
         return true;
     }
 
@@ -486,17 +487,17 @@ public class StateTravel : Travel
 
         base.ExecuteGetOperate(getOperate);
 
-        Field field;
-        field = this.ExecuteThisFieldNode(getOperate, varThis, nodeField);
+        Field varField;
+        varField = this.ExecuteThisFieldNode(getOperate, varThis, nodeField);
 
         Class fieldClass;
         fieldClass = null;
-        if (!(field == null))
+        if (!(varField == null))
         {
-            fieldClass = field.Class;
+            fieldClass = varField.Class;
         }
 
-        this.Info(getOperate).GetField = field;
+        this.Info(getOperate).GetField = varField;
         this.Info(getOperate).OperateClass = fieldClass;
         return true;
     }
@@ -535,24 +536,24 @@ public class StateTravel : Travel
             maideName = nodeMaide.Value;
         }
 
-        Maide maide;
-        maide = null;
+        Maide varMaide;
+        varMaide = null;
 
         if (!(thisClass == null))
         {
             if (!(maideName == null))
             {
-                maide = this.Maide(thisClass, maideName);
-                if (maide == null)
+                varMaide = this.Maide(thisClass, maideName);
+                if (varMaide == null)
                 {
                     this.Error(this.ErrorKind.MaideUndefine, callOperate);
                 }
             }
         }
 
-        if (!(maide == null))
+        if (!(varMaide == null))
         {
-            if (!this.ArgueMatch(maide, argue))
+            if (!this.ValidArgue(varMaide, argue))
             {
                 this.Error(this.ErrorKind.ArgueUnassign, callOperate);
             }
@@ -560,12 +561,12 @@ public class StateTravel : Travel
 
         Class operateClass;
         operateClass = null;
-        if (!(maide == null))
+        if (!(varMaide == null))
         {
-            operateClass = maide.Class;
+            operateClass = varMaide.Class;
         }
 
-        this.Info(callOperate).CallMaide = maide;
+        this.Info(callOperate).CallMaide = varMaide;
         this.Info(callOperate).OperateClass = operateClass;
         return true;
     }
@@ -614,7 +615,7 @@ public class StateTravel : Travel
         ClassName nodeClass;
         nodeClass = newOperate.Class;
 
-        this.WordClassOperate(newOperate, nodeClass);
+        this.ExecuteWordClassOperate(newOperate, nodeClass);
         return true;
     }
 
@@ -628,7 +629,7 @@ public class StateTravel : Travel
         ClassName nodeClass;
         nodeClass = shareOperate.Class;
 
-        this.WordClassOperate(shareOperate, nodeClass);
+        this.ExecuteWordClassOperate(shareOperate, nodeClass);
         return true;
     }
 
@@ -1111,47 +1112,47 @@ public class StateTravel : Travel
 
     protected virtual bool ExecuteTwoOperandOperate(Operate operate, Operate lite, Operate rite, Class resultClass, Class operandClass)
     {
-        bool hasOperandUndefine;
-        hasOperandUndefine = false;
+        bool operandUndefine;
+        operandUndefine = false;
 
-        bool hasOperandUnassign;
-        hasOperandUnassign = false;
+        bool operandUnassign;
+        operandUnassign = false;
 
-        Class leftClass;
-        leftClass = null;
+        Class liteClass;
+        liteClass = null;
         if (!(lite == null))
         {
-            leftClass = this.Info(lite).OperateClass;
-            if (leftClass == null)
+            liteClass = this.Info(lite).OperateClass;
+            if (liteClass == null)
             {
-                hasOperandUndefine = this.ErrorUnique(this.ErrorKind.OperandUndefine, operate, hasOperandUndefine);
+                operandUndefine = this.ErrorUnique(this.ErrorKind.OperandUndefine, operate, operandUndefine);
             }
         }
 
-        if (!(leftClass == null))
+        if (!(liteClass == null))
         {
-            if (!this.ValidClass(leftClass, operandClass))
+            if (!this.ValidClass(liteClass, operandClass))
             {
-                hasOperandUnassign = this.ErrorUnique(this.ErrorKind.OperandUnassign, operate, hasOperandUnassign);
+                operandUnassign = this.ErrorUnique(this.ErrorKind.OperandUnassign, operate, operandUnassign);
             }
         }
 
-        Class rightClass;
-        rightClass = null;
+        Class riteClass;
+        riteClass = null;
         if (!(rite == null))
         {
-            rightClass = this.Info(rite).OperateClass;
-            if (rightClass == null)
+            riteClass = this.Info(rite).OperateClass;
+            if (riteClass == null)
             {
-                hasOperandUndefine = this.ErrorUnique(this.ErrorKind.OperandUndefine, operate, hasOperandUndefine);
+                operandUndefine = this.ErrorUnique(this.ErrorKind.OperandUndefine, operate, operandUndefine);
             }
         }
 
-        if (!(rightClass == null))
+        if (!(riteClass == null))
         {
-            if (!this.ValidClass(rightClass, operandClass))
+            if (!this.ValidClass(riteClass, operandClass))
             {
-                hasOperandUnassign = this.ErrorUnique(this.ErrorKind.OperandUnassign, operate, hasOperandUnassign);
+                operandUnassign = this.ErrorUnique(this.ErrorKind.OperandUnassign, operate, operandUnassign);
             }
         }
 
@@ -1163,7 +1164,6 @@ public class StateTravel : Travel
     {
         Class condClass;
         condClass = null;
-
         if (!(cond == null))
         {
             condClass = this.Info(cond).OperateClass;
@@ -1183,7 +1183,7 @@ public class StateTravel : Travel
         return true;
     }
 
-    protected virtual bool WordClassOperate(Operate operate, ClassName nodeClass)
+    protected virtual bool ExecuteWordClassOperate(Operate operate, ClassName nodeClass)
     {
         String className;
         className = null;
@@ -1251,20 +1251,20 @@ public class StateTravel : Travel
             fieldName = nodeField.Value;
         }
 
-        Field field;
-        field = null;
+        Field varField;
+        varField = null;
         if (!(thisClass == null))
         {
             if (!(fieldName == null))
             {
-                field = this.Field(thisClass, fieldName);
-                if (field == null)
+                varField = this.Field(thisClass, fieldName);
+                if (varField == null)
                 {
                     this.Error(this.ErrorKind.FieldUndefine, node);
                 }
             }
         }
-        return field;
+        return varField;
     }
 
     protected virtual Field Field(Class varClass, String name)
@@ -1282,14 +1282,14 @@ public class StateTravel : Travel
         return this.ClassInfra.ValidClass(varClass, requireClass, this.System.Any, this.NullClass);
     }
 
-    protected virtual bool ArgueMatch(Maide varMaide, Argue argue)
+    protected virtual bool ValidArgue(Maide varMaide, Argue argue)
     {
         long count;
         count = varMaide.Param.Count;
 
-        bool countEqual;
-        countEqual = (count == argue.Value.Count);
-        if (!countEqual)
+        bool countSame;
+        countSame = (count == argue.Value.Count);
+        if (!countSame)
         {
             return false;
         }
@@ -1302,36 +1302,54 @@ public class StateTravel : Travel
         argueIter = this.ArgueIter;
         argue.Value.IterSet(argueIter);
 
+        bool b;
+        b = false;
+
         long i;
         i = 0;
-        while (i < count)
+        while (!b & i < count)
         {
             paramIter.Next();
             argueIter.Next();
 
             Var varVar;
-            varVar = paramIter.Value as Var;
-
+            varVar = null;
             Operate operate;
-            operate = argueIter.Value as Operate;
-            if (operate == null)
+            operate = null;
+
+            if (!b)
             {
-                return false;
+                varVar = paramIter.Value as Var;
+
+                operate = argueIter.Value as Operate;
+                if (operate == null)
+                {
+                    b = true;
+                }
             }
 
             Class varClass;
-            varClass = varVar.Class;
-
+            varClass = null;
             Class operateClass;
-            operateClass = this.Info(operate).OperateClass;
-            if (operateClass == null)
+            operateClass = null;
+
+            if (!b)
             {
-                return false;
+                varClass = varVar.Class;
+
+                operateClass = this.Info(operate).OperateClass;
+                if (operateClass == null)
+                {
+                    b = true;
+                }
             }
 
-            if (!this.ValidClass(operateClass, varClass))
+            if (!b)
             {
-                return false;
+                if (!this.ValidClass(operateClass, varClass))
+                {
+                    b = true;
+                }
             }
             i = i + 1;
         }
@@ -1340,7 +1358,9 @@ public class StateTravel : Travel
 
         argueIter.Clear();
 
-        return true;
+        bool ret;
+        ret = !b;
+        return ret;
     }
 
     protected virtual bool VarTableAdd(Table varTable, Table other)
@@ -1364,7 +1384,13 @@ public class StateTravel : Travel
         iter = this.VarStackIter;
         this.VarStack.IterSet(iter);
 
-        while (iter.Next())
+        Var ret;
+        ret = null;
+
+        bool b;
+        b = false;
+
+        while (!b & iter.Next())
         {
             Table varTable;
             varTable = iter.Value as Table;
@@ -1373,12 +1399,13 @@ public class StateTravel : Travel
             varVar = varTable.Get(name) as Var;
             if (!(varVar == null))
             {
-                return varVar;
+                ret = varVar;
+                b = true;
             }
         }
 
         iter.Clear();
 
-        return null;
+        return ret;
     }
 }
