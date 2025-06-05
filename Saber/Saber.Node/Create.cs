@@ -4016,7 +4016,7 @@ public class Create : ClassCreate
         if (this.TextSame(this.TextToken(this.TextA, token), this.TB(this.Limit.BraceRoundLite.Text)))
         {
             Token braceRoundRite;
-            braceRoundRite = this.TokenBraceRoundRite(this.TokenA, this.Range(this.RangeA, index + 1, end));
+            braceRoundRite = this.TokenBraceRoundRite(this.TokenJ, this.Range(this.RangeA, index + 1, end));
             if (!(braceRoundRite == null))
             {
                 ret = braceRoundRite.Range.End;
@@ -4026,7 +4026,7 @@ public class Create : ClassCreate
         if (this.TextSame(this.TextToken(this.TextA, token), this.TB(this.Limit.BraceCurveLite.Text)))
         {
             Token braceCurveRite;
-            braceCurveRite = this.TokenBraceCurveRite(this.TokenA, this.Range(this.RangeA, index + 1, end));
+            braceCurveRite = this.TokenBraceCurveRite(this.TokenK, this.Range(this.RangeA, index + 1, end));
             if (!(braceCurveRite == null))
             {
                 ret = braceCurveRite.Range.End;
