@@ -482,19 +482,19 @@ public class Create : ClassCreate
             bool ba;
             ba = this.ClassInfra.VirtualField(varField, this.System.Any);
 
-            NodeField node;
-            node = varField.Any as NodeField;
+            NodeField nodeField;
+            nodeField = varField.Any as NodeField;
 
             if (!ba)
             {
-                this.Error(this.ErrorKind.FieldUndefine, node, varClass.Index);
+                this.Error(this.ErrorKind.FieldUndefine, nodeField, varClass.Index);
             }
 
             if (ba)
             {
                 varField.Index = fieldTable.Count;
 
-                this.Info(node).Field = varField;
+                this.Info(nodeField).Field = varField;
 
                 this.ListInfra.TableAdd(fieldTable, varField.Name, varField);
             }
@@ -518,19 +518,19 @@ public class Create : ClassCreate
             bool bb;
             bb = this.ClassInfra.VirtualMaide(varMaide, this.System.Any, iterA, iterB);
 
-            NodeMaide node;
-            node = varMaide.Any as NodeMaide;
+            NodeMaide nodeMaide;
+            nodeMaide = varMaide.Any as NodeMaide;
 
             if (!bb)
             {
-                this.Error(this.ErrorKind.MaideUndefine, node, varClass.Index);
+                this.Error(this.ErrorKind.MaideUndefine, nodeMaide, varClass.Index);
             }
 
             if (bb)
             {
                 varMaide.Index = maideTable.Count;
 
-                this.Info(node).Maide = varMaide;
+                this.Info(nodeMaide).Maide = varMaide;
 
                 this.ListInfra.TableAdd(maideTable, varMaide.Name, varMaide);
             }
