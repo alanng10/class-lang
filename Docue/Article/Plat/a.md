@@ -21,11 +21,9 @@ Type modules layer on top of System in the arch.
 
 Storey modules layer on top of System in the arch.
 
-Binary modules layer on top of System in the arch.
-
 View modules layer on top of Type modules in the arch.
 
-Class compiler modules layer on top of List modules, Text modules, Storage modules and Binary modules in the arch.
+Class compiler modules layer on top of List modules, Text modules, Storage modules in the arch.
 
 Page modules layer on top of Storey modules in the arch.
 
