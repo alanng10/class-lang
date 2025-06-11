@@ -250,6 +250,11 @@ Bool Intern_New_Traverse()
 
         m->QueueFirstNode = nextNode;
 
+        if (m->QueueLastNode == node)
+        {
+            m->QueueLastNode = null;
+        }
+
         Int flag;
         flag = NodeFieldFlag(node);
         
@@ -377,6 +382,8 @@ Int Intern_New_DeleteUnused()
             totalDataCount = totalDataCount + dataCount;
 
             NodeFieldFlag(node) = flag;
+
+            NodeFieldQueueNext(node) = null;
 
             previousNode = node;
         }
