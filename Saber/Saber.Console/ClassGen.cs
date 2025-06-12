@@ -1067,6 +1067,9 @@ public class ClassGen : TextAdd
         long baseIndex;
         baseIndex = this.Base.Count - 1;
 
+        long baseMask;
+        baseMask = baseIndex << 52;
+
         long fieldCount;
         fieldCount = this.Class.FieldStart + this.Class.Field.Count;
 
@@ -1162,7 +1165,7 @@ public class ClassGen : TextAdd
         this.Text(this.Space);
         this.Text(this.LimitAre);
         this.Text(this.Space);
-        this.TextIntHex(baseIndex);
+        this.TextIntHex(baseMask);
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
 
@@ -1408,7 +1411,7 @@ public class ClassGen : TextAdd
         }
         return true;
     }
-    
+
     public virtual bool ExecuteCompListSetStateThisClass(long index, object comp, long stateKind)
     {
         this.TextIndent();
@@ -1629,7 +1632,7 @@ public class ClassGen : TextAdd
             this.Text(this.NewLine);
 
             this.TextIndent();
-            
+
             this.TextInt(ka);
             this.Text(this.Space);
             this.Text(this.LimitAdd);
@@ -1689,7 +1692,7 @@ public class ClassGen : TextAdd
         while (i < count)
         {
             this.TextIndent();
-            
+
             this.Text(this.CastInt);
             this.Text(this.LimitBraceRoundLite);
             this.StringAnyName(this.Class, i);
@@ -1883,8 +1886,6 @@ public class ClassGen : TextAdd
         this.VarSetDeref(varC, varC, stateIndex);
 
         this.VarSetDeref(varD, varA, 1);
-
-        this.OperateLimit(varD, varD, this.BaseBitRiteCount, this.LimitBitLite);
 
         this.VarMaskClear(varB, this.BaseClearMask);
 
@@ -2559,7 +2560,7 @@ public class ClassGen : TextAdd
         this.TextIndent();
 
         this.Text(dest);
-        
+
         this.Text(space);
         this.Text(this.LimitAre);
         this.Text(space);
@@ -2702,7 +2703,7 @@ public class ClassGen : TextAdd
         this.Text(this.Space);
 
         this.EvalIndex();
-    
+
         this.Text(kb);
 
         this.Text(this.LimitSemicolon);
@@ -3370,15 +3371,15 @@ public class ClassGen : TextAdd
     public virtual bool EvalValueGet(long index, String varVar)
     {
         this.TextIndent();
-        
+
         this.Text(varVar);
 
         this.Text(this.Space);
         this.Text(this.LimitAre);
         this.Text(this.Space);
-        
+
         this.EvalValue(index);
-        
+
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
         return true;
@@ -3404,17 +3405,17 @@ public class ClassGen : TextAdd
     public virtual bool EvalValue(long index)
     {
         this.EvalStack();
-        
+
         this.Text(this.LimitBraceRightLite);
-        
+
         this.EvalIndex();
 
         this.Text(this.Space);
         this.Text(this.LimitSub);
         this.Text(this.Space);
-        
+
         this.TextInt(index);
-        
+
         this.Text(this.LimitBraceRightRite);
         return true;
     }
@@ -3645,7 +3646,7 @@ public class ClassGen : TextAdd
         this.Text(this.NameCombine);
 
         this.NameSymbolString(moduleRef.Name);
-        
+
         this.Text(this.NameCombine);
 
         this.ModuleVer(moduleRef.Ver);
@@ -3688,7 +3689,7 @@ public class ClassGen : TextAdd
 
         return true;
     }
-    
+
     public virtual bool ModuleVer(long ver)
     {
         this.Operate.ExecuteTextIntHex(ver);
@@ -3744,7 +3745,7 @@ public class ClassGen : TextAdd
 
         long k;
         k = n;
-        
+
         if (b)
         {
             k = -k;
@@ -3767,7 +3768,7 @@ public class ClassGen : TextAdd
     public virtual bool TextIntHex(long n)
     {
         this.Text(this.IntValueHexPre);
-        
+
         this.Operate.ExecuteTextIntHex(n);
         return true;
     }
