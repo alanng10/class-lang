@@ -212,11 +212,6 @@ public class IntParse : TextAdd
 
     protected virtual long Negate(bool negate, long value)
     {
-        if (value < 0)
-        {
-            return -1;
-        }
-
         long max;
         max = 0;
         if (!negate)
