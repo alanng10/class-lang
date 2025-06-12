@@ -18,10 +18,10 @@ public class Infra : Any
     {
         base.Init();
 
-        long o;
-        o = 1;
-        o = o << 60;
-        this.IntCapValue = o;
+        long k;
+        k = 1;
+        k = k << 60;
+        this.IntCapValue = k;
         return true;
     }
 

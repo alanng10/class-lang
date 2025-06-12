@@ -46,11 +46,6 @@ public class IntParse : Any
         i = 0;
         while (i < count)
         {
-            if (!(h < capValue))
-            {
-                return -1;
-            }
-
             long index;
             index = start + count - 1 - i;
 
@@ -77,15 +72,12 @@ public class IntParse : Any
 
             m = m + oo;
 
-            if (!(m < capValue))
-            {
-                return -1;
-            }
-
             h = h * oe;
 
             i = i + 1;
         }
+
+        m = m & (capValue - 1);
 
         long a;
         a = (long)m;
