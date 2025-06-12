@@ -1884,6 +1884,8 @@ public class ClassGen : TextAdd
 
         this.VarSetDeref(varD, varA, 1);
 
+        this.OperateLimit(varD, varD, this.BaseBitRiteCount, this.LimitBitLite);
+
         this.VarMaskClear(varB, this.BaseClearMask);
 
         this.VarMaskSet(varB, varD);
