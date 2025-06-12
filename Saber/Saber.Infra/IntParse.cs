@@ -25,6 +25,11 @@ public class IntParse : TextAdd
             return -1;
         }
 
+        if (19 < count)
+        {
+            return -1;
+        }
+
         Data data;
         data = text.Data;
 
@@ -83,6 +88,11 @@ public class IntParse : TextAdd
         count = text.Range.Count;
 
         if (count < 3)
+        {
+            return -1;
+        }
+
+        if (17 < count)
         {
             return -1;
         }
