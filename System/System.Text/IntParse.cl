@@ -42,11 +42,6 @@ class IntParse : Any
         i : 0;
         while (i < count)
         {
-            inf (hh < h)
-            {
-                return null;
-            }
-
             h : hh;
 
             var Int index;
@@ -72,11 +67,6 @@ class IntParse : Any
 
             var Int mm;
             mm : m + oo;
-
-            inf (mm < m)
-            {
-                return null;
-            }
 
             m : mm;
 
