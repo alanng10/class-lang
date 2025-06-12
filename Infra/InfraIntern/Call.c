@@ -35,6 +35,8 @@ Int Intern_Call(Eval* eval, Int thisEvalIndex, Int stateKind, Int stateIndex)
 
     VarSetDeref(varD, varA, 1);
 
+    varD = varD << 52;
+
     MaskClear(varB, RefMaskBaseClear);
 
     MaskSet(varB, varD);
