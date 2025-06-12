@@ -2880,6 +2880,8 @@ public class ClassGen : TextAdd
 
         this.VarSetDeref(varC, varC, 1);
 
+        this.OperateLimit(varC, varC, this.BaseBitRiteCount, this.LimitBitRite);
+
         this.VarSetPre(varD);
         this.TextIntHex(baseIndex);
         this.VarSetPost();
