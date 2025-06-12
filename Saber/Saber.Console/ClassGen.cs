@@ -1067,9 +1067,6 @@ public class ClassGen : TextAdd
         long baseIndex;
         baseIndex = this.Base.Count - 1;
 
-        long baseMask;
-        baseMask = baseIndex << 52;
-
         long fieldCount;
         fieldCount = this.Class.FieldStart + this.Class.Field.Count;
 
@@ -1165,7 +1162,7 @@ public class ClassGen : TextAdd
         this.Text(this.Space);
         this.Text(this.LimitAre);
         this.Text(this.Space);
-        this.TextIntHex(baseMask);
+        this.TextIntHex(baseIndex);
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
 
