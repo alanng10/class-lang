@@ -27,7 +27,7 @@ Eval;
 #define RefKindStringValueData (0x8ULL)
 #define RefKindValueAny (0x9ULL)
 
-#define EvalStackCount (512 * 1024)
+#define EvalStackCount (1024 * 1024)
 
 typedef struct
 {
