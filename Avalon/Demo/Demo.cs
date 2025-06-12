@@ -657,11 +657,15 @@ class Demo : TextAdd
 
         ka = this.TextCreate(this.S("0000000000009294ef0d"));
         kk = this.IntParse.Execute(ka, 16, null);
-        this.ConsoleWriteIntParse(kk);
+
+        b = b & (kk == 0x9294ef0d);
 
         ka = this.TextCreate(this.S("1000000000000000"));
         kk = this.IntParse.Execute(ka, 16, this.TextInfra.AlphaSiteForm);
-        this.ConsoleWriteIntParse(kk);
+
+        b = b & (kk == 0);
+
+        this.Console.Out.Write(this.AddClear().AddS("IntParse ").Add(this.StatusString(b)).AddLine().AddResult());
         return true;
     }
 
