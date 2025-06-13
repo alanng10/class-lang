@@ -701,19 +701,19 @@ class Demo : Add
 
         na : this.IntText(text, 16);
 
-        b : b & (na = null);
+        b : b & (na = 0hfffffffffffffff);
 
         text : this.TA("0000000000000000");
 
         na : this.IntText(text, 16);
 
-        b : b & (na = null);
+        b : b & (na = 0);
 
         text : this.TA("1000000000000000");
 
         na : this.IntText(text, 16);
 
-        b : b & (na = null);
+        b : b & (na = 0);
 
         text : this.TA("000000000000000");
 
