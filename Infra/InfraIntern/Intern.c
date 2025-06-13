@@ -8,6 +8,21 @@ Int Intern_Intern_Memory(Eval* eval, Int frame)
     Int ke;
     ke = ka;
 
+    RefMemory(ke);
+
+    RefKindSet(ke, RefKindInt);
+
+    Return(ke, 1);
+}
+
+Int Intern_Intern_StateArgMemory(Eval* eval, Int frame)
+{
+    Int ka;
+    ka = eval->S[frame - 1];
+
+    Int ke;
+    ke = ka;
+
     RefKindClear(ke);
     RefKindSet(ke, RefKindInt);
 
