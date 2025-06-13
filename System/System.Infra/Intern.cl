@@ -2,6 +2,8 @@ class Intern : Any
 {
     maide prusate Int Memory(var Any any) { }
 
+    maide prusate Int StateArgMemory(var Any any) { }
+
     maide prusate String StringNew() { }
 
     maide prusate Any StringValueGet(var String string) { }
