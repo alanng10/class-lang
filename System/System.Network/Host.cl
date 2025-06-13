@@ -16,7 +16,7 @@ class Host : Any
         var Int ka;
         ka : this.InternIntern.StateNetworkHostNewPeer();
         var Int arg;
-        arg : this.InternIntern.Memory(this);
+        arg : this.InternIntern.StateArgMemory(this);
         this.InternNewPeerState : this.InternInfra.StateCreate(ka, arg);
 
         var Extern extern;

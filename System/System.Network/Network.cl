@@ -40,7 +40,7 @@ class Network : Any
         kb : this.InternIntern.StateNetworkCaseEvent();
         kc : this.InternIntern.StateNetworkDataEvent();
         var Int arg;
-        arg : this.InternIntern.Memory(this);
+        arg : this.InternIntern.StateArgMemory(this);
         this.InternStatusEventState : this.InternInfra.StateCreate(ka, arg);
         this.InternCaseEventState : this.InternInfra.StateCreate(kb, arg);
         this.InternDataEventState : this.InternInfra.StateCreate(kc, arg);

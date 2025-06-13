@@ -16,7 +16,7 @@ class Event : Any
         var Int ka;
         ka : this.InternIntern.StateTimeEventElapse();
         var Int arg;
-        arg : this.InternIntern.Memory(this);
+        arg : this.InternIntern.StateArgMemory(this);
         this.InternElapseState : this.InternInfra.StateCreate(ka, arg);
         
         var Extern extern;

@@ -20,7 +20,7 @@ class Thread : Any
         var Int oa;
         oa : this.InternIntern.StateThreadExecute();
         var Int arg;
-        arg : this.InternIntern.Memory(this);
+        arg : this.InternIntern.StateArgMemory(this);
         this.InternExecuteState : this.InternInfra.StateCreate(oa, arg);
 
         var Extern extern;
