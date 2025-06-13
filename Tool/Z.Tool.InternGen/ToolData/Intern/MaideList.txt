@@ -1,4 +1,5 @@
 Int Memory|Any any
+Int StateArgMemory|Any any
 String StringNew|
 Any StringValueGet|String string
 Bool StringValueSet|String string, Any value
