@@ -3,6 +3,7 @@
 #include "Prusate.h"
 
 Intern_Api Int Intern_Intern_Memory(Eval* eval, Int frame);
+Intern_Api Int Intern_Intern_StateArgMemory(Eval* eval, Int frame);
 Intern_Api Int Intern_Intern_StringNew(Eval* eval, Int frame);
 Intern_Api Int Intern_Intern_StringValueGet(Eval* eval, Int frame);
 Intern_Api Int Intern_Intern_StringValueSet(Eval* eval, Int frame);
