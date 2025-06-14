@@ -86,6 +86,12 @@ public class ModuleLoad : TextAdd
             return false;
         }
 
+        b = this.SetExportList();
+        if (!b)
+        {
+            return false;
+        }
+
         b = this.SetBaseList();
         if (!b)
         {
@@ -332,6 +338,41 @@ public class ModuleLoad : TextAdd
         return true;
     }
 
+    protected virtual bool SetExportList()
+    {
+        this.Module.Export = this.ClassInfra.TableCreateStringLess();
+
+        Array array;
+        array = this.Binary.Export;
+
+        long count;
+        count = array.Count;
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            InfraValue ka;
+            ka = array.GetAt(i) as InfraValue;
+
+            long k;
+            k = ka.Int;
+
+            ClassClass varClass;
+            varClass = this.ClassGetIndex(k);
+
+            if (varClass == null)
+            {
+                this.Status = 30;
+                return false;
+            }
+
+            this.ListInfra.TableAdd(this.Module.Export, varClass.Name, varClass);
+
+            i = i + 1;
+        }
+        return true;
+    }
+
     protected virtual bool SetBaseList()
     {
         Array array;
@@ -344,7 +385,7 @@ public class ModuleLoad : TextAdd
         count = array.Count;
         if (!(count == classArray.Count))
         {
-            this.Status = 30;
+            this.Status = 40;
             return false;
         }
 
@@ -363,7 +404,7 @@ public class ModuleLoad : TextAdd
 
             if (baseClass == null)
             {
-                this.Status = 31;
+                this.Status = 41;
                 return false;
             }
 
@@ -409,7 +450,7 @@ public class ModuleLoad : TextAdd
         count = array.Count;
         if (!(count == classArray.Count))
         {
-            this.Status = 40;
+            this.Status = 50;
             return false;
         }
 
@@ -724,7 +765,7 @@ public class ModuleLoad : TextAdd
         }
         return true;
     }
-    
+
     protected virtual bool SetEntry()
     {
         String entry;
