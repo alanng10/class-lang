@@ -637,6 +637,14 @@ public class PortLoad : TextAdd
                     }
                 }
 
+                if (!ba)
+                {
+                    if (!k.Export.Valid(className))
+                    {
+                        ba = true;
+                    }
+                }
+
                 if (ba)
                 {
                     this.ErrorAdd(this.ErrorKind.ImportClassUndefine, className);
