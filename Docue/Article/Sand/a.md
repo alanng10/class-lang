@@ -1,31 +1,31 @@
-# Sande
+# Sand
 
-Sande is system program lang.
-Sande is system class.
-Sande is System Class.
-This programming language word "Sande" is a node name.
+Sand is system program lang.
+Sand is system class.
+Sand is System Class.
+This programming language word "Sand" is a node name.
 
-Sande is did.
+Sand is did.
 
-Sande is park system program lang.
+Sand is park system program lang.
 
-Sande is used to make system program.
-Sande is not used to make module that is executed on system program.
+Sand is used to make system program.
+Sand is not used to make module that is executed on system program.
 
-Sande is a plat.
+Sand is a plat.
 The plat layers below System in info tech stack arch.
 
-Sande is used to make system programming modules.
+Sand is used to make system programming modules.
 
-Sande modules sources has port.
-The port source file has file name "Sande.Port".
+Sand modules sources has port.
+The port source file has file name "Sand.Port".
 
-Sande port can import Sande modules.
-To import Sande modules, import the module classes with class names in the import section.
+Sand port can import Sand modules.
+To import Sand modules, import the module classes with class names in the import section.
 To export a class, write the class name in the export section.
-Sande Lang port syntax is same as Class Lang port.
+Sand Lang port syntax is same as Class Lang port.
 
-A Sande lang source has root node that is Class node.
+A Sand lang source has root node that is Class node.
 The Class node has no base.
 It has derived Comp classes nodes in Class node.
 
@@ -256,10 +256,10 @@ The values syntaxs valid ints are unsigned 64 bits or signed 64 bits.
 
 Node IntValue is base class.
 The node also has base class that is node Value.
-Sande compiler module arch does not need 1 base class node to base all derive nodes.
-Sande compiler classes derives from Class compiler classes.
-Sande compiler module arch derives from Class compiler module arch.
-Sande compiler is most general and most level, without doing 1 base class node to base all derive nodes in arch.
+Sand compiler module arch does not need 1 base class node to base all derive nodes.
+Sand compiler classes derives from Class compiler classes.
+Sand compiler module arch derives from Class compiler module arch.
+Sand compiler is most general and most level, without doing 1 base class node to base all derive nodes in arch.
 
 Calculate memory index with int operation operate lang elements is enough element to
 do any calculate of memory index.
@@ -388,19 +388,19 @@ The ValueOperate Type is string StructType.
 StringValue is not write able.
 This is enough element to do any system programming string operation.
 
-Sande does not need enum.
-Sande has StructType and glob var.
+Sand does not need enum.
+Sand has StructType and glob var.
 Shared list is made with glob var of StructType and init with maide.
 This is enough element to do any system programming shared list.
 
-Sande does not need glob var init at glob var declare.
-Sande has maide state to do any init.
+Sand does not need glob var init at glob var declare.
+Sand has maide state to do any init.
 This is enough element to do any system programming glob init.
 
-Sande Lang does not need lang element to interface to external.
-Sande compiler modules have infra to generate refer binary.
+Sand Lang does not need lang element to interface to external.
+Sand compiler modules have infra to generate refer binary.
 The refer binary can refer to custom made machine code binary.
 This is enough element to interface to external.
 
-Sande compiler does not optimize output.
+Sand compiler does not optimize output.
 This is enough element to do any system programming process module making.
