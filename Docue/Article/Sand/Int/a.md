@@ -1,6 +1,6 @@
-# Sande Int
+# Sand Int
 
-Sande Int is 64 bits.
+Sand Int is 64 bits.
 
 Int null is value 0.
 
