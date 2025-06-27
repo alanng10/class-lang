@@ -50,7 +50,7 @@ public class Write : Any
         this.ExecuteStage();
 
         long count;
-        count = this.Index;
+        count = this.Arg.Index;
         this.Arg.Data = new Data();
         this.Arg.Data.Count = count;
         this.Arg.Data.Init();
