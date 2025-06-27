@@ -5,49 +5,75 @@ public class Write : Any
     public override bool Init()
     {
         base.Init();
+        this.InfraInfra = InfraInfra.This;
         this.StringComp = StringComp.This;
-        this.CountOperate = new CountWriteOperate();
-        this.CountOperate.Write = this;
-        this.CountOperate.Init();
-        this.SetOperate = new SetWriteOperate();
-        this.SetOperate.Write = this;
-        this.SetOperate.Init();
+        this.CountOperate = this.CreateCountOperate();
+        this.SetOperate = this.CreateSetOperate();
         return true;
     }
 
+    protected virtual WriteCountOperate CreateCountOperate()
+    {
+        WriteCountOperate a;
+        a = new WriteCountOperate();
+        a.Write = this;
+        a.Init();
+        return a;
+    }
+
+    protected virtual WriteSetOperate CreateSetOperate()
+    {
+        WriteSetOperate a;
+        a = new WriteSetOperate();
+        a.Write = this;
+        a.Init();
+        return a;
+    }
+
     public virtual Binary Binary { get; set; }
-    public virtual Data Data { get; set; }
-    public virtual long Index { get; set; }
+    public virtual Data Result { get; set; }
+    public virtual WriteArg Arg { get; set; }
+    public virtual WriteOperate Operate { get; set; }
+    public virtual WriteCountOperate CountOperate { get; set; }
+    public virtual WriteSetOperate SetOperate { get; set; }
+    protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
-    protected virtual CountWriteOperate CountOperate { get; set; }
-    protected virtual SetWriteOperate SetOperate { get; set; }
-    protected virtual WriteOperate Operate { get; set; }
 
     public virtual bool Execute()
     {
-        this.Operate = this.CountOperate;
-        this.Index = 0;
+        this.Arg = new WriteArg();
+        this.Arg.Init();
 
+        this.Operate = this.CountOperate;
+
+        this.ResetStage();
         this.ExecuteStage();
 
         long count;
         count = this.Index;
-        this.Data = new Data();
-        this.Data.Count = count;
-        this.Data.Init();
+        this.Arg.Data = new Data();
+        this.Arg.Data.Count = count;
+        this.Arg.Data.Init();
 
         this.Operate = this.SetOperate;
-        this.Index = 0;
 
+        this.ResetStage();
         this.ExecuteStage();
 
-        this.Operate = null;
-        this.Index = 0;
+        this.Result = this.Arg.Data;
 
+        this.Operate = null;
+        this.Arg = null;
         return true;
     }
 
-    protected virtual bool ExecuteStage()
+    public virtual bool ResetStage()
+    {
+        this.Arg.Index = 0;
+        return true;
+    }
+
+    public virtual bool ExecuteStage()
     {
         this.ExecuteBinary(this.Binary);
         return true;
@@ -69,14 +95,18 @@ public class Write : Any
     {
         long count;
         count = array.Count;
+
         this.ExecuteCount(count);
+
         long i;
         i = 0;
         while (i < count)
         {
             Class varClass;
-            varClass = (Class)array.GetAt(i);
+            varClass = array.GetAt(i) as Class;
+
             this.ExecuteClass(varClass);
+
             i = i + 1;
         }
         return true;
@@ -92,14 +122,18 @@ public class Write : Any
     {
         long count;
         count = array.Count;
+
         this.ExecuteCount(count);
+
         long i;
         i = 0;
         while (i < count)
         {
             Import import;
-            import = (Import)array.GetAt(i);
+            import = array.GetAt(i) as Import;
+
             this.ExecuteImport(import);
+
             i = i + 1;
         }
         return true;
@@ -117,29 +151,6 @@ public class Write : Any
         return this.ExecuteClassIndexArray(array);
     }
 
-    protected virtual bool ExecuteClassIndexArray(Array array)
-    {
-        long count;
-        count = array.Count;
-        this.ExecuteCount(count);
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            Value classIndex;
-            classIndex = (Value)array.GetAt(i);
-            this.ExecuteClassIndex(classIndex);
-            i = i + 1;
-        }
-        return true;
-    }
-
-    protected virtual bool ExecuteClassIndex(Value classIndex)
-    {
-        this.ExecuteIndex(classIndex.Int);
-        return true;
-    }
-
     protected virtual bool ExecuteBaseArray(Array array)
     {
         return this.ExecuteClassIndexArray(array);
@@ -149,14 +160,18 @@ public class Write : Any
     {
         long count;
         count = array.Count;
+
         this.ExecuteCount(count);
+
         long i;
         i = 0;
         while (i < count)
         {
             Part part;
-            part = (Part)array.GetAt(i);
+            part = array.GetAt(i) as Part;
+
             this.ExecutePart(part);
+
             i = i + 1;
         }
         return true;
@@ -166,7 +181,7 @@ public class Write : Any
     {
         this.ExecuteIndex(part.FieldStart);
         this.ExecuteIndex(part.MaideStart);
-        
+
         this.ExecuteFieldArray(part.Field);
         this.ExecuteMaideArray(part.Maide);
         return true;
@@ -176,14 +191,18 @@ public class Write : Any
     {
         long count;
         count = array.Count;
+
         this.ExecuteCount(count);
+
         long i;
         i = 0;
         while (i < count)
         {
-            Field field;
-            field = (Field)array.GetAt(i);
-            this.ExecuteField(field);
+            Field varField;
+            varField = array.GetAt(i) as Field;
+
+            this.ExecuteField(varField);
+
             i = i + 1;
         }
         return true;
@@ -201,14 +220,18 @@ public class Write : Any
     {
         long count;
         count = array.Count;
+
         this.ExecuteCount(count);
+
         long i;
         i = 0;
         while (i < count)
         {
-            Maide maide;
-            maide = (Maide)array.GetAt(i);
-            this.ExecuteMaide(maide);
+            Maide varMaide;
+            varMaide = array.GetAt(i) as Maide;
+
+            this.ExecuteMaide(varMaide);
+
             i = i + 1;
         }
         return true;
@@ -227,14 +250,18 @@ public class Write : Any
     {
         long count;
         count = array.Count;
+
         this.ExecuteCount(count);
+
         long i;
         i = 0;
         while (i < count)
         {
             Var varVar;
-            varVar = (Var)array.GetAt(i);
+            varVar = array.GetAt(i) as Var;
+
             this.ExecuteVar(varVar);
+
             i = i + 1;
         }
         return true;
@@ -265,6 +292,33 @@ public class Write : Any
         return true;
     }
 
+    protected virtual bool ExecuteClassIndexArray(Array array)
+    {
+        long count;
+        count = array.Count;
+
+        this.ExecuteCount(count);
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            Value classIndex;
+            classIndex = array.GetAt(i) as Value;
+
+            this.ExecuteClassIndex(classIndex);
+
+            i = i + 1;
+        }
+        return true;
+    }
+
+    protected virtual bool ExecuteClassIndex(Value classIndex)
+    {
+        this.ExecuteIndex(classIndex.Int);
+        return true;
+    }
+
     protected virtual bool ExecuteName(String name)
     {
         return this.ExecuteString(name);
@@ -272,28 +326,23 @@ public class Write : Any
 
     protected virtual bool ExecuteString(String value)
     {
-        StringComp stringComp;
-        stringComp = this.StringComp;
-
         long count;
-        count = stringComp.Count(value);
+        count = this.StringComp.Count(value);
+
         this.ExecuteCount(count);
-        int i;
+
+        long i;
         i = 0;
         while (i < count)
         {
-            long oc;
-            oc = stringComp.Char(value, i);
+            long ka;
+            ka = this.StringComp.Char(value, i);
 
-            this.ExecuteByte(oc);
+            this.ExecuteByte(ka);
+
             i = i + 1;
         }
         return true;
-    }
-
-    protected virtual bool ExecuteCount(long value)
-    {
-        return this.ExecuteInt(value);
     }
 
     protected virtual bool ExecuteIndex(long value)
@@ -301,29 +350,31 @@ public class Write : Any
         return this.ExecuteInt(value);
     }
 
+    protected virtual bool ExecuteCount(long value)
+    {
+        return this.ExecuteInt(value);
+    }
+
     protected virtual bool ExecuteInt(long value)
     {
-        ulong k;
-        k = (ulong)value;
-        k = k << 4;
-        k = k >> 4;
+        long k;
+        k = value;
+        k = k & (this.InfraInfra.IntCapValue - 1);
 
         long count;
-        count = sizeof(ulong);
+        count = sizeof(long);
+
         long i;
         i = 0;
         while (i < count)
         {
-            int shiftCount;
-            shiftCount = (int)(i * 8);
+            int shift;
+            shift = (int)(i * 8);
 
-            ulong ka;
-            ka = (k >> shiftCount) & 0xff;
+            long ka;
+            ka = (k >> shift) & 0xff;
 
-            byte a;
-            a = (byte)ka;
-
-            this.ExecuteByte(a);
+            this.ExecuteByte(ka);
 
             i = i + 1;
         }
