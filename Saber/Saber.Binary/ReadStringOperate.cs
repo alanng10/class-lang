@@ -1,6 +1,6 @@
 namespace Saber.Binary;
 
-public class StringReadOperate : ReadOperate
+public class ReadStringOperate : ReadOperate
 {
     public override bool Init()
     {
@@ -8,33 +8,105 @@ public class StringReadOperate : ReadOperate
         this.InfraInfra = InfraInfra.This;
         this.ListInfra = ListInfra.This;
         this.TextInfra = TextInfra.This;
-        this.Binary = new Binary();
-        this.Binary.Init();
-        this.Class = new Class();
-        this.Class.Init();
-        this.Import = new Import();
-        this.Import.Init();
-        this.Part = new Part();
-        this.Part.Init();
-        this.Field = new Field();
-        this.Field.Init();
-        this.Maide = new Maide();
-        this.Maide.Init();
-        this.Var = new Var();
-        this.Var.Init();
-        this.ClassIndex = new Value();
-        this.ClassIndex.Init();
-        this.ModuleRef = new ModuleRef();
-        this.ModuleRef.Init();
-        this.String = this.TextInfra.Zero;
-        this.Array = this.ListInfra.ArrayCreate(0);
+        this.ClassInfra = ClassInfra.This;
+
+        this.Binary = this.CreateBinary();
+        this.Class = this.CreateClass();
+        this.Import = this.CreateImport();
+        this.Part = this.CreatePart();
+        this.Field = this.CreateField();
+        this.Maide = this.CreateMaide();
+        this.Var = this.CreateVar();
+        this.ClassIndex = this.CreateClassIndex();
+        this.ModuleRef = this.CreateModuleRef();
+        this.String = this.CreateString();
+        this.Array = this.CreateArray();
         return true;
     }
 
-    public virtual Read Read { get; set; }
+    protected virtual Binary CreateBinary()
+    {
+        Binary a;
+        a = new Binary();
+        a.Init();
+        return a;
+    }
+
+    protected virtual Class CreateClass()
+    {
+        Class a;
+        a = new Class();
+        a.Init();
+        return a;
+    }
+
+    protected virtual Import CreateImport()
+    {
+        Import a;
+        a = new Import();
+        a.Init();
+        return a;
+    }
+
+    protected virtual Part CreatePart()
+    {
+        Part a;
+        a = new Part();
+        a.Init();
+        return a;
+    }
+
+    protected virtual Field CreateField()
+    {
+        Field a;
+        a = new Field();
+        a.Init();
+        return a;
+    }
+
+    protected virtual Maide CreateMaide()
+    {
+        Maide a;
+        a = new Maide();
+        a.Init();
+        return a;
+    }
+
+    protected virtual Var CreateVar()
+    {
+        Var a;
+        a = new Var();
+        a.Init();
+        return a;
+    }
+
+    protected virtual Value CreateClassIndex()
+    {
+        Value a;
+        a = new Value();
+        a.Init();
+        return a;
+    }
+
+    protected virtual ModuleRef CreateModuleRef()
+    {
+        return this.ClassInfra.ModuleRefCreate(null, -1);
+    }
+
+    protected virtual String CreateString()
+    {
+        return this.TextInfra.Zero;
+    }
+
+    protected virtual Array CreateArray()
+    {
+        return this.ListInfra.ArrayCreate(0);
+    }
+
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
+    protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual Binary Binary { get; set; }
     protected virtual Class Class { get; set; }
     protected virtual Import Import { get; set; }
@@ -121,67 +193,43 @@ public class StringReadOperate : ReadOperate
 
     public override String ExecuteString(long count)
     {
-        Read read;
-        read = this.Read;
         ReadArg arg;
-        arg = read.Arg;
+        arg = this.Read.Arg;
 
-        TextInfra textInfra;
-        textInfra = this.TextInfra;
+        long kd;
+        kd = arg.StringIndex;
+        kd = kd * sizeof(long);
+        this.InfraInfra.DataIntSet(arg.StringCountData, kd, count);
 
-        long index;
-        index = arg.Index;
-        long stringIndex;
-        stringIndex = arg.StringIndex;
-
-        long nn;
-        nn = stringIndex;
-        nn = nn * sizeof(ulong);
-        this.InfraInfra.DataIntSet(arg.StringCountData, nn, count);
-
-        Data data;
-        data = read.Data;
-        Data stringTextData;
-        stringTextData = arg.StringTextData;
-
-        long oa;
-        oa = arg.StringTextIndex;
         long i;
         i = 0;
         while (i < count)
         {
-            long oo;
-            oo = data.Get(index + i);
-            byte ooa;
-            ooa = (byte)oo;
-            long oob;
-            oob = ooa;
-            textInfra.DataCharSet(stringTextData, oa + i, oob);
+            long ka;
+            ka = this.Read.Data.Get(arg.Index + i);
+
+            this.TextInfra.DataCharSet(arg.StringTextData, arg.StringTextIndex + i, ka);
+
             i = i + 1;
         }
-        
-        arg.Index = index + count;
-        arg.StringIndex = stringIndex + 1;
-        arg.StringTextIndex = oa + count;
+
+        arg.Index = arg.Index + count;
+        arg.StringIndex = arg.StringIndex + 1;
+        arg.StringTextIndex = arg.StringTextIndex + count;
         return this.String;
     }
 
     public override Array ExecuteArray(long count)
     {
-        Read read;
-        read = this.Read;
         ReadArg arg;
-        arg = read.Arg;
+        arg = this.Read.Arg;
 
-        long arrayIndex;
-        arrayIndex = arg.ArrayIndex;
+        long kd;
+        kd = arg.ArrayIndex;
+        kd = kd * sizeof(long);
+        this.InfraInfra.DataIntSet(arg.ArrayCountData, kd, count);
 
-        long nn;
-        nn = arrayIndex;
-        nn = nn * sizeof(ulong);
-        this.InfraInfra.DataIntSet(arg.ArrayCountData, nn, count);
-
-        arg.ArrayIndex = arrayIndex + 1;
+        arg.ArrayIndex = arg.ArrayIndex + 1;
         return this.Array;
     }
 

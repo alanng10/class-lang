@@ -1,9 +1,7 @@
 namespace Saber.Binary;
 
-public class SetReadOperate : ReadOperate
+public class ReadSetOperate : ReadOperate
 {
-    public virtual Read Read { get; set; }
-
     public override Binary ExecuteBinary()
     {
         ReadArg arg;
@@ -11,7 +9,7 @@ public class SetReadOperate : ReadOperate
         long index;
         index = arg.BinaryIndex;
         Binary a;
-        a = (Binary)arg.BinaryArray.GetAt(index);
+        a = arg.BinaryArray.GetAt(index) as Binary;
         arg.BinaryIndex = index + 1;
         return a;
     }
@@ -23,7 +21,7 @@ public class SetReadOperate : ReadOperate
         long index;
         index = arg.ClassIndex;
         Class a;
-        a = (Class)arg.ClassArray.GetAt(index);
+        a = arg.ClassArray.GetAt(index) as Class;
         arg.ClassIndex = index + 1;
         return a;
     }
@@ -35,7 +33,7 @@ public class SetReadOperate : ReadOperate
         long index;
         index = arg.ImportIndex;
         Import a;
-        a = (Import)arg.ImportArray.GetAt(index);
+        a = arg.ImportArray.GetAt(index) as Import;
         arg.ImportIndex = index + 1;
         return a;
     }
@@ -47,7 +45,7 @@ public class SetReadOperate : ReadOperate
         long index;
         index = arg.PartIndex;
         Part a;
-        a = (Part)arg.PartArray.GetAt(index);
+        a = arg.PartArray.GetAt(index) as Part;
         arg.PartIndex = index + 1;
         return a;
     }
@@ -59,7 +57,7 @@ public class SetReadOperate : ReadOperate
         long index;
         index = arg.FieldIndex;
         Field a;
-        a = (Field)arg.FieldArray.GetAt(index);
+        a = arg.FieldArray.GetAt(index) as Field;
         arg.FieldIndex = index + 1;
         return a;
     }
@@ -71,7 +69,7 @@ public class SetReadOperate : ReadOperate
         long index;
         index = arg.MaideIndex;
         Maide a;
-        a = (Maide)arg.MaideArray.GetAt(index);
+        a = arg.MaideArray.GetAt(index) as Maide;
         arg.MaideIndex = index + 1;
         return a;
     }
@@ -83,7 +81,7 @@ public class SetReadOperate : ReadOperate
         long index;
         index = arg.VarIndex;
         Var a;
-        a = (Var)arg.VarArray.GetAt(index);
+        a = arg.VarArray.GetAt(index) as Var;
         arg.VarIndex = index + 1;
         return a;
     }
@@ -95,7 +93,7 @@ public class SetReadOperate : ReadOperate
         long index;
         index = arg.ClassIndexIndex;
         Value a;
-        a = (Value)arg.ClassIndexArray.GetAt(index);
+        a = arg.ClassIndexArray.GetAt(index) as Value;
         arg.ClassIndexIndex = index + 1;
         return a;
     }
@@ -107,7 +105,7 @@ public class SetReadOperate : ReadOperate
         long index;
         index = arg.ModuleRefIndex;
         ModuleRef a;
-        a = (ModuleRef)arg.ModuleRefArray.GetAt(index);
+        a = arg.ModuleRefArray.GetAt(index) as ModuleRef;
         arg.ModuleRefIndex = index + 1;
         return a;
     }
@@ -116,13 +114,13 @@ public class SetReadOperate : ReadOperate
     {
         ReadArg arg;
         arg = this.Read.Arg;
-        long oa;
-        oa = arg.StringIndex;
+        long index;
+        index = arg.StringIndex;
         String a;
-        a = (String)arg.StringArray.GetAt(oa);
-        
+        a = arg.StringArray.GetAt(index) as String;
+
         arg.Index = arg.Index + count;
-        arg.StringIndex = oa + 1;
+        arg.StringIndex = index + 1;
         arg.StringTextIndex = arg.StringTextIndex + count;
         return a;
     }
@@ -134,7 +132,7 @@ public class SetReadOperate : ReadOperate
         long index;
         index = arg.ArrayIndex;
         Array a;
-        a = (Array)arg.ArrayArray.GetAt(index);
+        a = arg.ArrayArray.GetAt(index) as Array;
         arg.ArrayIndex = index + 1;
         return a;
     }

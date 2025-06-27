@@ -1,38 +1,110 @@
 namespace Saber.Binary;
 
-public class CountReadOperate : ReadOperate
+public class ReadCountOperate : ReadOperate
 {
     public override bool Init()
     {
         base.Init();
         this.ListInfra = ListInfra.This;
         this.TextInfra = TextInfra.This;
-        this.Binary = new Binary();
-        this.Binary.Init();
-        this.Class = new Class();
-        this.Class.Init();
-        this.Import = new Import();
-        this.Import.Init();
-        this.Part = new Part();
-        this.Part.Init();
-        this.Field = new Field();
-        this.Field.Init();
-        this.Maide = new Maide();
-        this.Maide.Init();
-        this.Var = new Var();
-        this.Var.Init();
-        this.ClassIndex = new Value();
-        this.ClassIndex.Init();
-        this.ModuleRef = new ModuleRef();
-        this.ModuleRef.Init();
-        this.String = this.TextInfra.Zero;
-        this.Array = this.ListInfra.ArrayCreate(0);
+        this.ClassInfra = ClassInfra.This;
+
+        this.Binary = this.CreateBinary();
+        this.Class = this.CreateClass();
+        this.Import = this.CreateImport();
+        this.Part = this.CreatePart();
+        this.Field = this.CreateField();
+        this.Maide = this.CreateMaide();
+        this.Var = this.CreateVar();
+        this.ClassIndex = this.CreateClassIndex();
+        this.ModuleRef = this.CreateModuleRef();
+        this.String = this.CreateString();
+        this.Array = this.CreateArray();
         return true;
     }
 
-    public virtual Read Read { get; set; }
+    protected virtual Binary CreateBinary()
+    {
+        Binary a;
+        a = new Binary();
+        a.Init();
+        return a;
+    }
+
+    protected virtual Class CreateClass()
+    {
+        Class a;
+        a = new Class();
+        a.Init();
+        return a;
+    }
+
+    protected virtual Import CreateImport()
+    {
+        Import a;
+        a = new Import();
+        a.Init();
+        return a;
+    }
+
+    protected virtual Part CreatePart()
+    {
+        Part a;
+        a = new Part();
+        a.Init();
+        return a;
+    }
+
+    protected virtual Field CreateField()
+    {
+        Field a;
+        a = new Field();
+        a.Init();
+        return a;
+    }
+
+    protected virtual Maide CreateMaide()
+    {
+        Maide a;
+        a = new Maide();
+        a.Init();
+        return a;
+    }
+
+    protected virtual Var CreateVar()
+    {
+        Var a;
+        a = new Var();
+        a.Init();
+        return a;
+    }
+
+    protected virtual Value CreateClassIndex()
+    {
+        Value a;
+        a = new Value();
+        a.Init();
+        return a;
+    }
+
+    protected virtual ModuleRef CreateModuleRef()
+    {
+        return this.ClassInfra.ModuleRefCreate(null, -1);
+    }
+
+    protected virtual String CreateString()
+    {
+        return this.TextInfra.Zero;
+    }
+
+    protected virtual Array CreateArray()
+    {
+        return this.ListInfra.ArrayCreate(0);
+    }
+
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
+    protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual Binary Binary { get; set; }
     protected virtual Class Class { get; set; }
     protected virtual Import Import { get; set; }

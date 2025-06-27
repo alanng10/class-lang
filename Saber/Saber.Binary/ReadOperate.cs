@@ -2,6 +2,8 @@ namespace Saber.Binary;
 
 public class ReadOperate : Any
 {
+    public virtual Read Read { get; set; }
+
     public virtual Binary ExecuteBinary()
     {
         return null;
@@ -37,17 +39,7 @@ public class ReadOperate : Any
         return null;
     }
 
-    public virtual Value ExecuteClassIndex()
-    {
-        return null;
-    }
-
     public virtual ModuleRef ExecuteModuleRef()
-    {
-        return null;
-    }
-
-    public virtual Range ExecuteRange()
     {
         return null;
     }

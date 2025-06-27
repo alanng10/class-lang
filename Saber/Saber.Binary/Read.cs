@@ -8,54 +8,61 @@ public class Read : Any
         this.InfraInfra = InfraInfra.This;
         this.ListInfra = ListInfra.This;
         this.TextInfra = TextInfra.This;
-        this.CountOperate = new CountReadOperate();
-        this.CountOperate.Read = this;
-        this.CountOperate.Init();
-        this.StringOperate = new StringReadOperate();
-        this.StringOperate.Read = this;
-        this.StringOperate.Init();
-        this.SetOperate = new SetReadOperate();
-        this.SetOperate.Read = this;
-        this.SetOperate.Init();
+        this.ClassInfra = ClassInfra.This;
 
-        this.Arg = new ReadArg();
-        this.Arg.Init();
+        this.CountOperate = this.CreateCountOperate();
+        this.StringOperate = this.CreateStringOperate();
+        this.SetOperate = this.CreateSetOperate();
         return true;
     }
 
+    protected virtual ReadCountOperate CreateCountOperate()
+    {
+        ReadCountOperate a;
+        a = new ReadCountOperate();
+        a.Read = this;
+        a.Init();
+        return a;
+    }
+
+    protected virtual ReadStringOperate CreateStringOperate()
+    {
+        ReadStringOperate a;
+        a = new ReadStringOperate();
+        a.Read = this;
+        a.Init();
+        return a;
+    }
+
+    protected virtual ReadSetOperate CreateSetOperate()
+    {
+        ReadSetOperate a;
+        a = new ReadSetOperate();
+        a.Read = this;
+        a.Init();
+        return a;
+    }
+
     public virtual Data Data { get; set; }
-    public virtual Range Range { get; set; }
-    public virtual Binary Binary { get; set; }
+    public virtual Binary Result { get; set; }
     public virtual ReadArg Arg { get; set; }
+    public virtual ReadOperate Operate { get; set; }
+    public virtual ReadCountOperate CountOperate { get; set; }
+    public virtual ReadStringOperate StringOperate { get; set; }
+    public virtual ReadSetOperate SetOperate { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
-    protected virtual ReadOperate Operate { get; set; }
-    protected virtual CountReadOperate CountOperate { get; set; }
-    protected virtual StringReadOperate StringOperate { get; set; }
-    protected virtual SetReadOperate SetOperate { get; set; }
+    protected virtual ClassInfra ClassInfra { get; set; }
 
     public virtual bool Execute()
     {
-        ListInfra listInfra;
-        listInfra = this.ListInfra;
-
-        int dataCount;
-        dataCount = (int)this.Data.Count;
-        Range range;
-        range = this.Range;
-        if (!this.InfraInfra.ValidRange(dataCount, range.Index, range.Count))
-        {
-            return false;
-        }
-
-        ReadArg arg;
-        arg = new ReadArg();
-        this.Arg = arg;
+        this.Arg = new ReadArg();
+        this.Arg.Init();
 
         this.Operate = this.CountOperate;
 
-        this.ResetStageIndex();
+        this.ResetStage();
         this.ExecuteStage();
 
         arg.StringCountData = new Data();
@@ -72,20 +79,20 @@ public class Read : Any
 
         this.Operate = this.StringOperate;
 
-        this.ResetStageIndex();
+        this.ResetStage();
         this.ExecuteStage();
 
-        arg.BinaryArray = listInfra.ArrayCreate(arg.BinaryIndex);
-        arg.ClassArray = listInfra.ArrayCreate(arg.ClassIndex);
-        arg.ImportArray = listInfra.ArrayCreate(arg.ImportIndex);
-        arg.PartArray = listInfra.ArrayCreate(arg.PartIndex);
-        arg.FieldArray = listInfra.ArrayCreate(arg.FieldIndex);
-        arg.MaideArray = listInfra.ArrayCreate(arg.MaideIndex);
-        arg.VarArray = listInfra.ArrayCreate(arg.VarIndex);
-        arg.ClassIndexArray = listInfra.ArrayCreate(arg.ClassIndexIndex);
-        arg.ModuleRefArray = listInfra.ArrayCreate(arg.ModuleRefIndex);
-        arg.StringArray = listInfra.ArrayCreate(arg.StringIndex);
-        arg.ArrayArray = listInfra.ArrayCreate(arg.ArrayIndex);
+        arg.BinaryArray = this.ListInfra.ArrayCreate(arg.BinaryIndex);
+        arg.ClassArray = this.ListInfra.ArrayCreate(arg.ClassIndex);
+        arg.ImportArray = this.ListInfra.ArrayCreate(arg.ImportIndex);
+        arg.PartArray = this.ListInfra.ArrayCreate(arg.PartIndex);
+        arg.FieldArray = this.ListInfra.ArrayCreate(arg.FieldIndex);
+        arg.MaideArray = this.ListInfra.ArrayCreate(arg.MaideIndex);
+        arg.VarArray = this.ListInfra.ArrayCreate(arg.VarIndex);
+        arg.ClassIndexArray = this.ListInfra.ArrayCreate(arg.ClassIndexIndex);
+        arg.ModuleRefArray = this.ListInfra.ArrayCreate(arg.ModuleRefIndex);
+        arg.StringArray = this.ListInfra.ArrayCreate(arg.StringIndex);
+        arg.ArrayArray = this.ListInfra.ArrayCreate(arg.ArrayIndex);
 
         this.ExecuteCreateBinary();
         this.ExecuteCreateClass();
@@ -101,14 +108,15 @@ public class Read : Any
 
         this.Operate = this.SetOperate;
 
-        this.ResetStageIndex();
+        this.ResetStage();
         this.ExecuteStage();
 
+        this.Operate = null;
         this.Arg = null;
         return true;
     }
 
-    public virtual bool ResetStageIndex()
+    public virtual bool ResetStage()
     {
         ReadArg a;
         a = this.Arg;
@@ -128,88 +136,6 @@ public class Read : Any
         return true;
     }
 
-    protected virtual bool ExecuteCreateString()
-    {
-        InfraInfra infraInfra;
-        infraInfra = this.InfraInfra;
-        TextInfra textInfra;
-        textInfra = this.TextInfra;
-
-        ReadArg arg;
-        arg = this.Arg;
-        Array array;
-        array = arg.StringArray;
-        Data countData;
-        countData = arg.StringCountData;
-
-        Text text;
-        text = new Text();
-        text.Init();
-        text.Range = new Range();
-        text.Range.Init();
-        text.Data = arg.StringTextData;
-        long total;
-        total = 0;
-
-        long count;
-        count = array.Count;
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            long index;
-            index = i;
-            index = index * sizeof(ulong);
-
-            long oa;
-            oa = infraInfra.DataIntGet(countData, index);
-
-            text.Range.Index = total;
-            text.Range.Count = oa;
-            String oo;
-            oo = textInfra.StringCreate(text);
-            array.SetAt(i, oo);
-            total = total + oa;
-            i = i + 1;
-        }
-        return true;
-    }
-
-    protected virtual bool ExecuteCreateArray()
-    {
-        InfraInfra infraInfra;
-        infraInfra = this.InfraInfra;
-        ListInfra listInfra;
-        listInfra = this.ListInfra;
-
-        ReadArg arg;
-        arg = this.Arg;
-        Array array;
-        array = arg.ArrayArray;
-        Data countData;
-        countData = arg.ArrayCountData;
-
-        long count;
-        count = array.Count;
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            long index;
-            index = i;
-            index = index * sizeof(ulong);
-
-            long oa;
-            oa = infraInfra.DataIntGet(countData, index);
-
-            Array o;
-            o = listInfra.ArrayCreate(oa);
-            array.SetAt(i, o);
-            i = i + 1;
-        }
-        return true;
-    }
-
     protected virtual bool ExecuteCreateBinary()
     {
         Array array;
@@ -217,14 +143,17 @@ public class Read : Any
 
         long count;
         count = array.Count;
+
         long i;
         i = 0;
         while (i < count)
         {
-            Binary o;
-            o = new Binary();
-            o.Init();
-            array.SetAt(i, o);
+            Binary k;
+            k = new Binary();
+            k.Init();
+
+            array.SetAt(i, k);
+
             i = i + 1;
         }
         return true;
@@ -237,14 +166,17 @@ public class Read : Any
 
         long count;
         count = array.Count;
+
         long i;
         i = 0;
         while (i < count)
         {
-            Class o;
-            o = new Class();
-            o.Init();
-            array.SetAt(i, o);
+            Class k;
+            k = new Class();
+            k.Init();
+
+            array.SetAt(i, k);
+
             i = i + 1;
         }
         return true;
@@ -257,14 +189,17 @@ public class Read : Any
 
         long count;
         count = array.Count;
+
         long i;
         i = 0;
         while (i < count)
         {
-            Import o;
-            o = new Import();
-            o.Init();
-            array.SetAt(i, o);
+            Import k;
+            k = new Import();
+            k.Init();
+
+            array.SetAt(i, k);
+
             i = i + 1;
         }
         return true;
@@ -277,14 +212,17 @@ public class Read : Any
 
         long count;
         count = array.Count;
+
         long i;
         i = 0;
         while (i < count)
         {
-            Part o;
-            o = new Part();
-            o.Init();
-            array.SetAt(i, o);
+            Part k;
+            k = new Part();
+            k.Init();
+
+            array.SetAt(i, k);
+
             i = i + 1;
         }
         return true;
@@ -297,14 +235,17 @@ public class Read : Any
 
         long count;
         count = array.Count;
+
         long i;
         i = 0;
         while (i < count)
         {
-            Field o;
-            o = new Field();
-            o.Init();
-            array.SetAt(i, o);
+            Field k;
+            k = new Field();
+            k.Init();
+
+            array.SetAt(i, k);
+
             i = i + 1;
         }
         return true;
@@ -317,14 +258,17 @@ public class Read : Any
 
         long count;
         count = array.Count;
+
         long i;
         i = 0;
         while (i < count)
         {
-            Maide o;
-            o = new Maide();
-            o.Init();
-            array.SetAt(i, o);
+            Maide k;
+            k = new Maide();
+            k.Init();
+
+            array.SetAt(i, k);
+
             i = i + 1;
         }
         return true;
@@ -337,14 +281,17 @@ public class Read : Any
 
         long count;
         count = array.Count;
+
         long i;
         i = 0;
         while (i < count)
         {
-            Var o;
-            o = new Var();
-            o.Init();
-            array.SetAt(i, o);
+            Var k;
+            k = new Var();
+            k.Init();
+
+            array.SetAt(i, k);
+
             i = i + 1;
         }
         return true;
@@ -357,14 +304,17 @@ public class Read : Any
 
         long count;
         count = array.Count;
+
         long i;
         i = 0;
         while (i < count)
         {
-            Value o;
-            o = new Value();
-            o.Init();
-            array.SetAt(i, o);
+            Value k;
+            k = new Value();
+            k.Init();
+
+            array.SetAt(i, k);
+
             i = i + 1;
         }
         return true;
@@ -377,14 +327,93 @@ public class Read : Any
 
         long count;
         count = array.Count;
+
         long i;
         i = 0;
         while (i < count)
         {
-            ModuleRef o;
-            o = new ModuleRef();
-            o.Init();
-            array.SetAt(i, o);
+            ModuleRef k;
+            k = this.ClassInfra.ModuleRefCreate(null, -1);
+
+            array.SetAt(i, k);
+
+            i = i + 1;
+        }
+        return true;
+    }
+
+    protected virtual bool ExecuteCreateString()
+    {
+        ReadArg arg;
+        arg = this.Arg;
+
+        Array array;
+        array = arg.StringArray;
+
+        Text text;
+        text = new Text();
+        text.Init();
+        text.Range = new Range();
+        text.Range.Init();
+        text.Data = arg.StringTextData;
+
+        long total;
+        total = 0;
+
+        long count;
+        count = array.Count;
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            long kaa;
+            kaa = i * sizeof(long);
+
+            long ka;
+            ka = this.InfraInfra.DataIntGet(arg.StringCountData, kaa);
+
+            text.Range.Index = total;
+            text.Range.Count = ka;
+
+            String k;
+            k = this.TextInfra.StringCreate(text);
+
+            array.SetAt(i, k);
+
+            total = total + ka;
+
+            i = i + 1;
+        }
+        return true;
+    }
+
+    protected virtual bool ExecuteCreateArray()
+    {
+        ReadArg arg;
+        arg = this.Arg;
+
+        Array array;
+        array = arg.ArrayArray;
+
+        long count;
+        count = array.Count;
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            long index;
+            index = i * sizeof(long);
+
+            long ka;
+            ka = this.InfraInfra.DataIntGet(arg.ArrayCountData, index);
+
+            Array k;
+            k = this.ListInfra.ArrayCreate(ka);
+
+            array.SetAt(i, k);
+
             i = i + 1;
         }
         return true;
@@ -392,7 +421,7 @@ public class Read : Any
 
     public virtual bool ExecuteStage()
     {
-        this.Binary = this.ExecuteBinary();
+        this.Result = this.ExecuteBinary();
         return true;
     }
 
@@ -457,14 +486,12 @@ public class Read : Any
 
     protected virtual Array ExecuteClassArray()
     {
-        long o;
-        o = this.ExecuteCount();
-        if (o == -1)
+        long count;
+        count = this.ExecuteCount();
+        if (count == -1)
         {
             return null;
         }
-        long count;
-        count = o;
 
         Array array;
         array = this.ExecuteArray(count);
@@ -483,7 +510,9 @@ public class Read : Any
             {
                 return null;
             }
+
             this.Operate.ExecuteArrayItemSet(array, i, a);
+
             i = i + 1;
         }
         return array;
@@ -506,14 +535,12 @@ public class Read : Any
 
     protected virtual Array ExecuteImportArray()
     {
-        long o;
-        o = this.ExecuteCount();
-        if (o == -1)
+        long count;
+        count = this.ExecuteCount();
+        if (count == -1)
         {
             return null;
         }
-        long count;
-        count = o;
 
         Array array;
         array = this.ExecuteArray(count);
@@ -532,7 +559,9 @@ public class Read : Any
             {
                 return null;
             }
+
             this.Operate.ExecuteArrayItemSet(array, i, a);
+
             i = i + 1;
         }
         return array;
@@ -578,14 +607,12 @@ public class Read : Any
 
     protected virtual Array ExecutePartArray()
     {
-        long o;
-        o = this.ExecuteCount();
-        if (o == -1)
+        long count;
+        count = this.ExecuteCount();
+        if (count == -1)
         {
             return null;
         }
-        long count;
-        count = o;
 
         Array array;
         array = this.ExecuteArray(count);
@@ -604,7 +631,9 @@ public class Read : Any
             {
                 return null;
             }
+
             this.Operate.ExecuteArrayItemSet(array, i, a);
+
             i = i + 1;
         }
         return array;
@@ -612,33 +641,30 @@ public class Read : Any
 
     protected virtual Part ExecutePart()
     {
-        long u;
-        u = this.ExecuteIndex();
-        if (u == -1)
-        {
-            return null;
-        }
         long fieldStart;
-        fieldStart = u;
-
-        u = this.ExecuteIndex();
-        if (u == -1)
+        fieldStart = this.ExecuteIndex();
+        if (fieldStart == -1)
         {
             return null;
         }
+
         long maideStart;
-        maideStart = u;
-
-        Array field;
-        field = this.ExecuteFieldArray();
-        if (field == null)
+        maideStart = this.ExecuteIndex();
+        if (maideStart == -1)
         {
             return null;
         }
 
-        Array maide;
-        maide = this.ExecuteMaideArray();
-        if (maide == null)
+        Array varField;
+        varField = this.ExecuteFieldArray();
+        if (varField == null)
+        {
+            return null;
+        }
+
+        Array varMaide;
+        varMaide = this.ExecuteMaideArray();
+        if (varMaide == null)
         {
             return null;
         }
@@ -647,21 +673,19 @@ public class Read : Any
         a = this.Operate.ExecutePart();
         a.FieldStart = fieldStart;
         a.MaideStart = maideStart;
-        a.Field = field;
-        a.Maide = maide;
+        a.Field = varField;
+        a.Maide = varMaide;
         return a;
     }
 
     protected virtual Array ExecuteFieldArray()
     {
-        long o;
-        o = this.ExecuteCount();
-        if (o == -1)
+        long count;
+        count = this.ExecuteCount();
+        if (count == -1)
         {
             return null;
         }
-        long count;
-        count = o;
 
         Array array;
         array = this.ExecuteArray(count);
@@ -680,7 +704,9 @@ public class Read : Any
             {
                 return null;
             }
+
             this.Operate.ExecuteArrayItemSet(array, i, a);
+
             i = i + 1;
         }
         return array;
@@ -688,22 +714,19 @@ public class Read : Any
 
     protected virtual Field ExecuteField()
     {
-        long u;
-        u = this.ExecuteIndex();
-        if (u == -1)
-        {
-            return null;
-        }
         long varClass;
-        varClass = u;
-
-        u = this.ExecuteByte();
-        if (u == -1)
+        varClass = this.ExecuteIndex();
+        if (varClass == -1)
         {
             return null;
         }
+
         long count;
-        count = u;
+        count = this.ExecuteByte();
+        if (count == -1)
+        {
+            return null;
+        }
 
         String name;
         name = this.ExecuteString();
@@ -722,14 +745,12 @@ public class Read : Any
 
     protected virtual Array ExecuteMaideArray()
     {
-        long o;
-        o = this.ExecuteCount();
-        if (o == -1)
+        long count;
+        count = this.ExecuteCount();
+        if (count == -1)
         {
             return null;
         }
-        long count;
-        count = o;
 
         Array array;
         array = this.ExecuteArray(count);
@@ -748,7 +769,9 @@ public class Read : Any
             {
                 return null;
             }
+
             this.Operate.ExecuteArrayItemSet(array, i, a);
+
             i = i + 1;
         }
         return array;
@@ -756,22 +779,19 @@ public class Read : Any
 
     protected virtual Maide ExecuteMaide()
     {
-        long u;
-        u = this.ExecuteIndex();
-        if (u == -1)
-        {
-            return null;
-        }
         long varClass;
-        varClass = u;
-
-        u = this.ExecuteByte();
-        if (u == -1)
+        varClass = this.ExecuteIndex();
+        if (varClass == -1)
         {
             return null;
         }
+
         long count;
-        count = u;
+        count = this.ExecuteByte();
+        if (count == -1)
+        {
+            return null;
+        }
 
         String name;
         name = this.ExecuteString();
@@ -798,14 +818,12 @@ public class Read : Any
 
     protected virtual Array ExecuteVarArray()
     {
-        long o;
-        o = this.ExecuteCount();
-        if (o == -1)
+        long count;
+        count = this.ExecuteCount();
+        if (count == -1)
         {
             return null;
         }
-        long count;
-        count = o;
 
         Array array;
         array = this.ExecuteArray(count);
@@ -824,7 +842,9 @@ public class Read : Any
             {
                 return null;
             }
+
             this.Operate.ExecuteArrayItemSet(array, i, a);
+
             i = i + 1;
         }
         return array;
@@ -832,14 +852,12 @@ public class Read : Any
 
     protected virtual Var ExecuteVar()
     {
-        long u;
-        u = this.ExecuteIndex();
-        if (u == -1)
+        long varClass;
+        varClass = this.ExecuteIndex();
+        if (varClass == -1)
         {
             return null;
         }
-        long varClass;
-        varClass = u;
 
         String name;
         name = this.ExecuteString();
@@ -857,24 +875,22 @@ public class Read : Any
 
     protected virtual long ExecuteEntry()
     {
-        long u;
-        u = this.ExecuteInt();
+        long k;
+        k = this.ExecuteIndex();
 
         long a;
-        a = u;
+        a = k;
         return a;
     }
 
     protected virtual Array ExecuteClassIndexArray()
     {
-        long o;
-        o = this.ExecuteCount();
-        if (o == -1)
+        long count;
+        count = this.ExecuteCount();
+        if (count == -1)
         {
             return null;
         }
-        long count;
-        count = o;
 
         Array array;
         array = this.ExecuteArray(count);
@@ -893,7 +909,9 @@ public class Read : Any
             {
                 return null;
             }
+
             this.Operate.ExecuteArrayItemSet(array, i, a);
+
             i = i + 1;
         }
         return array;
@@ -901,14 +919,13 @@ public class Read : Any
 
     protected virtual Value ExecuteClassIndex()
     {
-        long u;
-        u = this.ExecuteIndex();
-        if (u == -1)
+        long value;
+        value = this.ExecuteIndex();
+        if (value == -1)
         {
             return null;
         }
-        long value;
-        value = u;
+
         Value a;
         a = this.Operate.ExecuteClassIndex();
         a.Int = value;
@@ -924,19 +941,17 @@ public class Read : Any
             return null;
         }
 
-        long u;
-        u = this.ExecuteInt();
-        if (u == -1)
+        long ver;
+        ver = this.ExecuteInt();
+        if (ver == -1)
         {
             return null;
         }
-        long version;
-        version = u;
 
         ModuleRef a;
         a = this.Operate.ExecuteModuleRef();
         a.Name = name;
-        a.Ver = version;
+        a.Ver = ver;
         return a;
     }
 
@@ -947,16 +962,14 @@ public class Read : Any
 
     protected virtual String ExecuteString()
     {
-        long o;
-        o = this.ExecuteCount();
-        if (o == -1)
+        long count;
+        count = this.ExecuteCount();
+        if (count == -1)
         {
             return null;
         }
-        long count;
-        count = o;
-        
-        if (!this.CheckCount(count))
+
+        if (!this.ValidCount(count))
         {
             return null;
         }
@@ -966,45 +979,45 @@ public class Read : Any
         return a;
     }
 
-    public virtual long ExecuteCount()
+    protected virtual long ExecuteIndex()
     {
         return this.ExecuteInt();
     }
 
-    public virtual long ExecuteIndex()
+    protected virtual long ExecuteCount()
     {
         return this.ExecuteInt();
     }
 
-    public virtual long ExecuteInt()
+    protected virtual long ExecuteInt()
     {
-        int count;
-        count = sizeof(ulong);
-        if (!this.CheckCount(count))
+        long count;
+        count = sizeof(long);
+        if (!this.ValidCount(count))
         {
             return -1;
         }
-        InfraInfra infraInfra;
-        infraInfra = this.InfraInfra;
+
         ReadArg arg;
         arg = this.Arg;
         long index;
         index = arg.Index;
 
         long a;
-        a = infraInfra.DataIntGet(this.Data, index);
+        a = this.InfraInfra.DataIntGet(this.Data, index);
 
         index = index + count;
         arg.Index = index;
         return a;
     }
 
-    public virtual long ExecuteByte()
+    protected virtual long ExecuteByte()
     {
-        if (!(this.CheckCount(1)))
+        if (!this.ValidCount(1))
         {
             return -1;
         }
+
         ReadArg arg;
         arg = this.Arg;
         long index;
@@ -1016,24 +1029,8 @@ public class Read : Any
         return a;
     }
 
-    protected virtual bool CheckCount(long count)
+    protected virtual bool ValidCount(long count)
     {
-        Range range;
-        range = this.Range;
-        long index;
-        long countA;
-        index = range.Index;
-        countA = range.Count;
-
-        long kk;
-        kk = index + countA;
-        
-        long ka;
-        ka = index + this.Arg.Index;
-
-        long kb;
-        kb = ka + count;
-
-        return !(kk < kb);
+        return this.InfraInfra.ValidRange(this.Data.Count, this.Arg.Index, count);
     }
 }
