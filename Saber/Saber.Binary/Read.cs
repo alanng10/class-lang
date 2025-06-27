@@ -60,6 +60,9 @@ public class Read : Any
         this.Arg = new ReadArg();
         this.Arg.Init();
 
+        ReadArg arg;
+        arg = this.Arg;
+
         this.Operate = this.CountOperate;
 
         this.ResetStage();

@@ -10,3 +10,4 @@ global using Text = Avalon.Text.Text;
 global using StringComp = Avalon.Text.StringComp;
 global using TextInfra = Avalon.Text.Infra;
 global using ModuleRef = Saber.Infra.ModuleRef;
+global using ClassInfra = Saber.Infra.Infra;
