@@ -423,26 +423,17 @@ public class PortLoad : TextAdd
             return null;
         }
 
-        long kk;
-        kk = data.Count;
-
-        InfraRange range;
-        range = new InfraRange();
-        range.Init();
-        range.Count = kk;
-
         BinaryRead read;
         read = this.BinaryRead;
 
         read.Data = data;
-        read.Range = range;
 
         read.Execute();
 
         BinaryBinary binary;
-        binary = read.Binary;
+        binary = read.Result;
 
-        read.Binary = null;
+        read.Result = null;
 
         BinaryBinary a;
         a = binary;
