@@ -593,9 +593,9 @@ public class Console : TextAdd
         this.BinaryWrite.Execute();
 
         Data data;
-        data = this.BinaryWrite.Data;
+        data = this.BinaryWrite.Result;
 
-        this.BinaryWrite.Data = null;
+        this.BinaryWrite.Result = null;
         this.BinaryWrite.Binary = null;
 
         String filePath;
