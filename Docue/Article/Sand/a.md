@@ -398,8 +398,8 @@ Sand has maide state to do any init.
 This is enough element to do any system programming glob init.
 
 Sand Lang does not need lang element to interface to external.
-Sand compiler modules have infra to generate machine code binary.
-The generate can be specified to refer the machine code binary state to other custom made machine code binary.
+Sand compiler modules have infra to generate module binary.
+The generate can be specified to refer the module binary state to custom made machine code binary.
 This is enough element to interface to external.
 
 Sand compiler does not optimize output.
