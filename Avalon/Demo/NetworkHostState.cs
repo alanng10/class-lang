@@ -2,9 +2,9 @@ namespace Demo;
 
 class NetworkHostState : State
 {
-    public Demo Demo { get; set; }
-
+    public virtual Demo Demo { get; set; }
     public virtual TimeEvent TimeEvent { get; set; }
+    public virtual long Count { get; set; }
 
     public override bool Execute()
     {
@@ -64,15 +64,23 @@ class NetworkHostState : State
     {
         this.Demo.Host.ClosePeer(peer);
 
-        this.Demo.Host.Close();
+        this.Count = this.Count + 1;
 
-        ThreadThis varThis;
-        varThis = new ThreadThis();
-        varThis.Init();
-        ThreadThread thread;
-        thread = varThis.Thread;
+        bool b;
+        b = (this.Count == 2);
 
-        thread.Exit(code);
+        if (b)
+        {
+            this.Demo.Host.Close();
+
+            ThreadThis varThis;
+            varThis = new ThreadThis();
+            varThis.Init();
+            ThreadThread thread;
+            thread = varThis.Thread;
+
+            thread.Exit(code);
+        }
         return true;
     }
 }
