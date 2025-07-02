@@ -71,6 +71,7 @@ Int NetworkHost_OpenPeer(Int o)
     Int stream;
     stream = Stream_New();
     Stream_Init(stream);
+
     Int network;
     network = Network_New();
     Network_InitInternSet(network, ka);
