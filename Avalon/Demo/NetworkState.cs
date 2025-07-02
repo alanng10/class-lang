@@ -11,10 +11,11 @@ public class NetworkState : State
         return true;
     }
 
-    public TextInfra TextInfra { get; set; }
-    public NetworkStatusList NetworkStatusList { get; set; }
-    public NetworkCaseList NetworkCaseList { get; set; }
-    public NetworkA Network { get; set; }
+    public virtual TextInfra TextInfra { get; set; }
+    public virtual NetworkStatusList NetworkStatusList { get; set; }
+    public virtual NetworkCaseList NetworkCaseList { get; set; }
+    public virtual NetworkA Network { get; set; }
+    public virtual long Count { get; set; }
 
     public override bool Execute()
     {
@@ -67,20 +68,33 @@ public class NetworkState : State
         return true;
     }
 
-    public bool ExitNetwork(long code)
+    public virtual bool ExitNetwork(long code)
     {
         NetworkA network;
         network = this.Network;
 
         network.Close();
 
-        ThreadThis varThis;
-        varThis = new ThreadThis();
-        varThis.Init();
-        ThreadThread thread;
-        thread = varThis.Thread;
+        this.Count = this.Count + 1;
 
-        thread.Exit(code);
+        bool b;
+        b = (this.Count == 2);
+
+        if (b)
+        {
+            ThreadThis varThis;
+            varThis = new ThreadThis();
+            varThis.Init();
+            ThreadThread thread;
+            thread = varThis.Thread;
+
+            thread.Exit(code);
+        }
+
+        if (!b)
+        {
+            network.Open();
+        }
         return true;
     }
 
