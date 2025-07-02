@@ -10,7 +10,7 @@ Bool NetworkHandle::Open()
     Int network;
     network = this->Network;
     Int socket;
-    socket = Network_Intern(network);
+    socket = Network_GetOpenSocket(network);
     QTcpSocket* u;
     u = (QTcpSocket*)socket;
     QIODevice* uu;
@@ -27,7 +27,7 @@ Bool NetworkHandle::Close()
     Int network;
     network = this->Network;
     Int socket;
-    socket = Network_Intern(network);
+    socket = Network_GetOpenSocket(network);
     QTcpSocket* u;
     u = (QTcpSocket*)socket;
     QIODevice* uu;
