@@ -262,7 +262,6 @@ Intern_Api Int Intern_Extern_Draw_ExecuteRoundPart(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Draw_ExecuteRoundShape(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Draw_ExecuteLine(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Draw_ExecuteShape(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Draw_ExecuteShapeLine(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Draw_ExecuteImage(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Draw_ExecuteText(Eval* e, Int f);
 
