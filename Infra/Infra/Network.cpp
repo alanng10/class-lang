@@ -12,22 +12,6 @@ Int Network_Init(Int o)
     handle->Network = o;
     handle->Init();
     m->Handle = handle;
-
-    Bool k;
-    k = (m->InitIntern == null);
-
-    if (k)
-    {
-        QTcpSocket* socket;
-        socket = new QTcpSocket;
-        m->Intern = socket;
-    }
-
-    if (!k)
-    {
-        m->Intern = (QTcpSocket*)(m->InitIntern);
-    }
-
     return true;
 }
 
@@ -36,8 +20,6 @@ Int Network_Final(Int o)
     Network* m;
     m = CP(o);
     
-    delete m->Intern;
-
     delete m->Handle;
     return true;
 }
@@ -45,22 +27,27 @@ Int Network_Final(Int o)
 CppField(Network, HostName)
 CppField(Network, HostPort)
 CppField(Network, Stream)
-CppField(Network, InitIntern)
 
 Int Network_StatusGet(Int o)
 {
     Network* m;
     m = CP(o);
+    Int socket;
+    socket = m->OpenSocket;
+    QIODevice* uu;
+    uu = (QIODevice*)socket;
+    QTcpSocket* u;
+    u = (QTcpSocket*)uu;
 
     QAbstractSocket::SocketError error;
-    error = m->Intern->error();
+    error = u->error();
 
-    int ka;
-    ka = error;
-    ka = ka + 1;
+    int ua;
+    ua = error;
+    ua = ua + 1;
 
     Int a;
-    a = ka;
+    a = ua;
     return a;
 }
 
@@ -70,16 +57,22 @@ Int Network_CaseGet(Int o)
 {
     Network* m;
     m = CP(o);
+    Int socket;
+    socket = m->OpenSocket;
+    QIODevice* uu;
+    uu = (QIODevice*)socket;
+    QTcpSocket* u;
+    u = (QTcpSocket*)uu;
 
     QAbstractSocket::SocketState state;
-    state = m->Intern->state();
+    state = u->state();
 
-    Int ka;
-    ka = state;
-    ka = ka + 1;
+    Int oo;
+    oo = state;
+    oo = oo + 1;
 
     Int a;
-    a = ka;
+    a = oo;
     return a;
 }
 
@@ -89,12 +82,6 @@ Int Network_Open(Int o)
 {
     Network* m;
     m = CP(o);
-
-    if (m->Open)
-    {
-        return true;
-    }
-
     Int hostName;
     hostName = m->HostName;
     Int hostPort;
@@ -108,23 +95,29 @@ Int Network_Open(Int o)
     quint16 portU;
     portU = hostPort;
 
-    m->Open = true;
+    QTcpSocket* socket;
+    socket = new QTcpSocket;
+    
+    QIODevice* ua;
+    ua = socket;
+    Int oa;
+    oa = CastInt(ua);
+    m->OpenSocket = oa;
 
     m->Handle->Open();
 
-    m->Intern->connectToHost(hostNameU, portU);
+    socket->connectToHost(hostNameU, portU);
     return true;
 }
 
-Int Network_OpenConnect(Int o)
+Int Network_OpenConnected(Int o)
 {
     Network* m;
     m = CP(o);
-
     Int stream;
     stream = m->Stream;
     Int socket;
-    socket = CastInt(m->Intern);
+    socket = m->OpenSocket;
 
     Int share;
     share = Infra_Share();
@@ -150,37 +143,48 @@ Int Network_Close(Int o)
     Network* m;
     m = CP(o);
 
+    m->Handle->Close();
+    
     Int stream;
     stream = m->Stream;
+    Int openSocket;
+    openSocket = m->OpenSocket;
 
     Stream_KindSet(stream, null);
     Stream_ValueSet(stream, null);
 
-    m->Handle->Close();
+    QIODevice* oo;
+    oo = (QIODevice*)openSocket;
 
-    m->Intern->close();
+    QTcpSocket* socket;
+    socket = (QTcpSocket*)oo;
 
-    m->Open = false;
+    socket->close();
 
+    socket->deleteLater();
+
+    m->OpenSocket = null;
     return true;
 }
 
-Int Network_HostOpen(Int o)
+Int Network_HostOpen(Int o, Int socket)
 {
     Network* m;
     m = CP(o);
-
-    m->Open = true;
+    QTcpSocket* uu;
+    uu = (QTcpSocket*)socket;
+    QIODevice* ua;
+    ua = uu;
+    Int oa;
+    oa = CastInt(ua);
+    m->OpenSocket = oa;
 
     m->Handle->Open();
-
-    QIODevice* ka;
-    ka = m->Intern;
 
     Int stream;
     stream = m->Stream;
     Int streamValue;
-    streamValue = CastInt(ka);
+    streamValue = m->OpenSocket;
 
     Int share;
     share = Infra_Share();
@@ -207,24 +211,29 @@ Int Network_HostClose(Int o)
     return true;
 }
 
-Int Network_Intern(Int o)
+Int Network_GetOpenSocket(Int o)
 {
     Network* m;
     m = CP(o);
-
-    return CastInt(m->Intern);
+    return m->OpenSocket;
 }
 
 Int Network_ReadyCountGet(Int o)
 {
     Network* m;
     m = CP(o);
+    Int socket;
+    socket = m->OpenSocket;
+    QIODevice* uu;
+    uu = (QIODevice*)socket;
+    QTcpSocket* u;
+    u = (QTcpSocket*)uu;
 
-    qint64 ka;
-    ka = m->Intern->bytesAvailable();
+    qint64 ua;
+    ua = u->bytesAvailable();
 
     Int a;
-    a = ka;
+    a = ua;
     return a;
 }
 
@@ -259,7 +268,7 @@ Int Network_StatusEvent(Int o)
     maide = (Network_StatusEvent_Maide)aa;
 
     maide(o, arg);
-
+    
     return true;
 }
 
@@ -267,13 +276,21 @@ Int Network_CaseEvent(Int o)
 {
     Network* m;
     m = CP(o);
+    Int openSocket;
+    openSocket = m->OpenSocket;
 
-    QAbstractSocket::SocketState ka;
-    ka = m->Intern->state();
+    QIODevice* oo;
+    oo = (QIODevice*)openSocket;
 
-    if (ka == QAbstractSocket::ConnectedState)
+    QTcpSocket* socket;
+    socket = (QTcpSocket*)oo;
+
+    QAbstractSocket::SocketState oa;
+    oa = socket->state();
+
+    if (oa == QAbstractSocket::ConnectedState)
     {
-        Network_OpenConnect(o);
+        Network_OpenConnected(o);
     }
 
     Int state;
