@@ -61,12 +61,12 @@ Int Network_CaseGet(Int o)
     QAbstractSocket::SocketState state;
     state = m->Intern->state();
 
-    Int oo;
-    oo = state;
-    oo = oo + 1;
+    Int ka;
+    ka = state;
+    ka = ka + 1;
 
     Int a;
-    a = oo;
+    a = ka;
     return a;
 }
 
