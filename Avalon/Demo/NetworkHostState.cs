@@ -61,11 +61,8 @@ class NetworkHostState : State
         return true;
     }
 
-    public bool ExitNetwork(long code)
+    public virtual bool ExitNetwork(long code, NetworkNetwork peer)
     {
-        NetworkNetwork peer;
-        peer = this.Demo.Peer;
-
         this.Demo.Host.ClosePeer(peer);
 
         this.Demo.Host.Close();
