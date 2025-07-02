@@ -279,11 +279,11 @@ Int Network_CaseEvent(Int o)
     Int openSocket;
     openSocket = m->OpenSocket;
 
-    QIODevice* oo;
-    oo = (QIODevice*)openSocket;
+    QIODevice* kd;
+    kd = (QIODevice*)openSocket;
 
     QTcpSocket* socket;
-    socket = (QTcpSocket*)oo;
+    socket = (QTcpSocket*)kd;
 
     QAbstractSocket::SocketState ka;
     ka = socket->state();
