@@ -25,7 +25,7 @@ Int Network_Init(Int o)
 
     if (!k)
     {
-        m->Intern = (QTcpSocket*)m->InitIntern;
+        m->Intern = (QTcpSocket*)(m->InitIntern);
     }
 
     return true;
