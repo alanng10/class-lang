@@ -43,26 +43,27 @@ class NetworkHostState : State
 
         this.Demo.Host = null;
 
-        string k;
-        k = null;
-        bool b;
-        b = (o == 0);
-        if (b)
-        {
-            k = "Success";
-        }
-        if (!b)
-        {
-            k = "Fail";
-        }
-
-        Console.This.Out.Write(this.Demo.S("Network Host " + k + ", code: " + o + "\n"));
         return true;
     }
 
     public virtual bool ExitNetwork(long code, NetworkNetwork peer)
     {
         this.Demo.Host.ClosePeer(peer);
+
+        string k;
+        k = null;
+        bool ba;
+        ba = (code == 0);
+        if (ba)
+        {
+            k = "Success";
+        }
+        if (!ba)
+        {
+            k = "Fail";
+        }
+
+        Console.This.Out.Write(this.Demo.S("Network Host " + k + ", code: " + code + "\n"));
 
         this.Count = this.Count + 1;
 
