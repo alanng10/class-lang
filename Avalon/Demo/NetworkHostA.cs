@@ -7,11 +7,11 @@ class NetworkHostA : NetworkHost
 
     public override bool NewPeer()
     {
-        if (!(this.Demo.Peer == null))
-        {
-            Console.This.Err.Write(this.Demo.S("Network Peer is more one\n"));
-            return false;
-        }
+        // if (!(this.Demo.Peer == null))
+        // {
+        //     Console.This.Err.Write(this.Demo.S("Network Peer is more one\n"));
+        //     return false;
+        // }
 
         NetworkNetwork network;
         network = this.OpenPeer();
