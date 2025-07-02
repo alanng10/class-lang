@@ -285,10 +285,10 @@ Int Network_CaseEvent(Int o)
     QTcpSocket* socket;
     socket = (QTcpSocket*)oo;
 
-    QAbstractSocket::SocketState oa;
-    oa = socket->state();
+    QAbstractSocket::SocketState ka;
+    ka = socket->state();
 
-    if (oa == QAbstractSocket::ConnectedState)
+    if (ka == QAbstractSocket::ConnectedState)
     {
         Network_OpenConnected(o);
     }
