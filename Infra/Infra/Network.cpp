@@ -137,26 +137,17 @@ Int Network_Close(Int o)
     m = CP(o);
 
     m->Handle->Close();
-    
+
     Int stream;
     stream = m->Stream;
-    Int openSocket;
-    openSocket = m->OpenSocket;
 
     Stream_KindSet(stream, null);
     Stream_ValueSet(stream, null);
 
-    QIODevice* oo;
-    oo = (QIODevice*)openSocket;
+    m->Intern->close();
 
-    QTcpSocket* socket;
-    socket = (QTcpSocket*)oo;
+    m->Open = false;
 
-    socket->close();
-
-    socket->deleteLater();
-
-    m->OpenSocket = null;
     return true;
 }
 
