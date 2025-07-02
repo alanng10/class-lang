@@ -223,18 +223,12 @@ Int Network_ReadyCountGet(Int o)
 {
     Network* m;
     m = CP(o);
-    Int socket;
-    socket = m->OpenSocket;
-    QIODevice* uu;
-    uu = (QIODevice*)socket;
-    QTcpSocket* u;
-    u = (QTcpSocket*)uu;
 
-    qint64 ua;
-    ua = u->bytesAvailable();
+    qint64 ka;
+    ka = m->Intern->bytesAvailable();
 
     Int a;
-    a = ua;
+    a = ka;
     return a;
 }
 
