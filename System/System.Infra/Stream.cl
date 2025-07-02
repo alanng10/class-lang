@@ -5,19 +5,19 @@ class Stream : Any
         base.Init();
         this.Extern : share Extern;
         this.InternInfra : share InternInfra;
-        
+
         var Extern extern;
         extern : this.Extern;
-        
+
         this.InternData : extern.Data_New();
         extern.Data_Init(this.InternData);
-        
+
         this.InternRange :extern.Range_New();
         extern.Range_Init(this.InternRange);
-        
+
         var Bool b;
         b : (this.SetIntern = null);
-        
+
         inf (b)
         {
             this.Intern : extern.Stream_New();
@@ -35,13 +35,13 @@ class Stream : Any
     {
         var Extern extern;
         extern : this.Extern;
-        
+
         inf (this.SetIntern = null)
         {
             extern.Stream_Final(this.Intern);
             extern.Stream_Delete(this.Intern);
         }
-        
+
         extern.Range_Final(this.InternRange);
         extern.Range_Delete(this.InternRange);
         
