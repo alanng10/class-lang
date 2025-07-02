@@ -12,6 +12,10 @@ Int Network_Init(Int o)
     handle->Network = o;
     handle->Init();
     m->Handle = handle;
+
+    QTcpSocket* socket;
+    socket = new QTcpSocket;
+    m->Intern = socket;
     return true;
 }
 
@@ -20,6 +24,8 @@ Int Network_Final(Int o)
     Network* m;
     m = CP(o);
     
+    delete m->Intern;
+
     delete m->Handle;
     return true;
 }
@@ -32,22 +38,16 @@ Int Network_StatusGet(Int o)
 {
     Network* m;
     m = CP(o);
-    Int socket;
-    socket = m->OpenSocket;
-    QIODevice* uu;
-    uu = (QIODevice*)socket;
-    QTcpSocket* u;
-    u = (QTcpSocket*)uu;
 
     QAbstractSocket::SocketError error;
-    error = u->error();
+    error = m->Intern->error();
 
-    int ua;
-    ua = error;
-    ua = ua + 1;
+    int ka;
+    ka = error;
+    ka = ka + 1;
 
     Int a;
-    a = ua;
+    a = ka;
     return a;
 }
 
@@ -57,15 +57,9 @@ Int Network_CaseGet(Int o)
 {
     Network* m;
     m = CP(o);
-    Int socket;
-    socket = m->OpenSocket;
-    QIODevice* uu;
-    uu = (QIODevice*)socket;
-    QTcpSocket* u;
-    u = (QTcpSocket*)uu;
 
     QAbstractSocket::SocketState state;
-    state = u->state();
+    state = m->Intern->state();
 
     Int oo;
     oo = state;
@@ -94,9 +88,6 @@ Int Network_Open(Int o)
 
     quint16 portU;
     portU = hostPort;
-
-    QTcpSocket* socket;
-    socket = new QTcpSocket;
     
     QIODevice* ua;
     ua = socket;
