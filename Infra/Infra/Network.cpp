@@ -89,15 +89,16 @@ Int Network_Open(Int o)
 {
     Network* m;
     m = CP(o);
-    Int hostName;
-    hostName = m->HostName;
-    Int hostPort;
-    hostPort = m->HostPort;
 
     if (m->Open)
     {
         return true;
     }
+
+    Int hostName;
+    hostName = m->HostName;
+    Int hostPort;
+    hostPort = m->HostPort;
 
     QString hostNameU;
     Int uu;
@@ -164,24 +165,22 @@ Int Network_Close(Int o)
     return true;
 }
 
-Int Network_HostOpen(Int o, Int socket)
+Int Network_HostOpen(Int o)
 {
     Network* m;
     m = CP(o);
-    QTcpSocket* uu;
-    uu = (QTcpSocket*)socket;
-    QIODevice* ua;
-    ua = uu;
-    Int oa;
-    oa = CastInt(ua);
-    m->OpenSocket = oa;
+
+    m->Open = true;
 
     m->Handle->Open();
+
+    QIODevice* ka;
+    ka = m->Intern;
 
     Int stream;
     stream = m->Stream;
     Int streamValue;
-    streamValue = m->OpenSocket;
+    streamValue = CastInt(ka);
 
     Int share;
     share = Infra_Share();
@@ -212,7 +211,12 @@ Int Network_GetOpenSocket(Int o)
 {
     Network* m;
     m = CP(o);
-    return m->OpenSocket;
+
+    if (!m->Open)
+    {
+        return null;
+    }
+    return CastInt(m->Intern);
 }
 
 Int Network_ReadyCountGet(Int o)
