@@ -81,6 +81,11 @@ Int Network_Open(Int o)
     Int hostPort;
     hostPort = m->HostPort;
 
+    if (m->Open)
+    {
+        return true;
+    }
+
     QString hostNameU;
     Int uu;
     uu = CastInt(&hostNameU);
@@ -88,16 +93,12 @@ Int Network_Open(Int o)
 
     quint16 portU;
     portU = hostPort;
-    
-    QIODevice* ua;
-    ua = socket;
-    Int oa;
-    oa = CastInt(ua);
-    m->OpenSocket = oa;
+
+    m->Open = true;
 
     m->Handle->Open();
 
-    socket->connectToHost(hostNameU, portU);
+    m->Intern->connectToHost(hostNameU, portU);
     return true;
 }
 
