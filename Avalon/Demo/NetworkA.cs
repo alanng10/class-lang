@@ -36,6 +36,8 @@ public class NetworkA : NetworkNetwork
 
         if (this.Case == caseList.Connected)
         {
+            this.Stage = 0;
+
             Data data;
             data = this.Data;
 
