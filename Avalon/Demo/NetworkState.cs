@@ -50,21 +50,6 @@ public class NetworkState : State
         network.Final();
 
         this.Network = null;
-
-        string k;
-        k = null;
-        bool b;
-        b = (o == 0);
-        if (b)
-        {
-            k = "Success";
-        }
-        if (!b)
-        {
-            k = "Fail";
-        }
-
-        Console.This.Out.Write(this.S("Network " + k + ", code: " + o + "\n"));
         return true;
     }
 
@@ -74,6 +59,21 @@ public class NetworkState : State
         network = this.Network;
 
         network.Close();
+
+        string k;
+        k = null;
+        bool ba;
+        ba = (code == 0);
+        if (ba)
+        {
+            k = "Success";
+        }
+        if (!ba)
+        {
+            k = "Fail";
+        }
+
+        Console.This.Out.Write(this.S("Network " + k + ", code: " + code + "\n"));
 
         this.Count = this.Count + 1;
 
