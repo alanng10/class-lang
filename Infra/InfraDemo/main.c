@@ -340,15 +340,6 @@ Int DrawHandle(Int frame, Int arg)
     SetPos(fillPos, MathInt(0), MathInt(0));
     Draw_FillPosThisSet(Draw);
 
-    Form_Reset(Form);
-    Form_Pos(Form, MathInt(500), MathInt(100));
-
-    Draw_FormSet(Draw, Form);
-
-    Draw_ExecuteShapeLine(Draw, PointListCount, PointListData);
-
-    Draw_FormSet(Draw, null);
-
     SetRect(RectA, MathInt(850), MathInt(150), MathInt(150), MathInt(150));
     SetRect(RectB, MathInt(50), MathInt(10), MathInt(150), MathInt(150));
     Draw_ExecuteImage(Draw, Image, RectA, RectB);
