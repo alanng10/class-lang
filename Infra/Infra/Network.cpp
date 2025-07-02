@@ -13,9 +13,21 @@ Int Network_Init(Int o)
     handle->Init();
     m->Handle = handle;
 
-    QTcpSocket* socket;
-    socket = new QTcpSocket;
-    m->Intern = socket;
+    Bool k;
+    k = (m->InitIntern == null);
+
+    if (k)
+    {
+        QTcpSocket* socket;
+        socket = new QTcpSocket;
+        m->Intern = socket;
+    }
+
+    if (!k)
+    {
+        m->Intern = (QTcpSocket*)m->InitIntern;
+    }
+
     return true;
 }
 
