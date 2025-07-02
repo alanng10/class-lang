@@ -106,10 +106,11 @@ Int Network_OpenConnect(Int o)
 {
     Network* m;
     m = CP(o);
+
     Int stream;
     stream = m->Stream;
     Int socket;
-    socket = m->OpenSocket;
+    socket = CastInt(m->Intern);
 
     Int share;
     share = Infra_Share();
