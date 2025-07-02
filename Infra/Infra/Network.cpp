@@ -110,7 +110,7 @@ Int Network_Open(Int o)
     return true;
 }
 
-Int Network_OpenConnected(Int o)
+Int Network_OpenConnect(Int o)
 {
     Network* m;
     m = CP(o);
@@ -290,7 +290,7 @@ Int Network_CaseEvent(Int o)
 
     if (ka == QAbstractSocket::ConnectedState)
     {
-        Network_OpenConnected(o);
+        Network_OpenConnect(o);
     }
 
     Int state;
