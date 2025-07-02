@@ -269,7 +269,6 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Draw_ExecuteRoundShape(ulong o, ulong rect, ulong range);
     [DllImport(InfraLib)] public extern static ulong Draw_ExecuteLine(ulong o, ulong startPos, ulong endPos);
     [DllImport(InfraLib)] public extern static ulong Draw_ExecuteShape(ulong o, ulong pointListCount, ulong pointListData);
-    [DllImport(InfraLib)] public extern static ulong Draw_ExecuteShapeLine(ulong o, ulong pointListCount, ulong pointListData);
     [DllImport(InfraLib)] public extern static ulong Draw_ExecuteImage(ulong o, ulong image, ulong destRect, ulong sourceRect);
     [DllImport(InfraLib)] public extern static ulong Draw_ExecuteText(ulong o, ulong text, ulong colAlign, ulong rowAlign, ulong wordWrap, ulong destRect, ulong boundRect);
 
