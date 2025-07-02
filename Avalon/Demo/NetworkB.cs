@@ -29,7 +29,7 @@ class NetworkB : NetworkNetwork
         b = this.StatusExecute();
         if (!b)
         {
-            this.ThreadState.ExitNetwork(this.StatusCode);
+            this.ThreadState.ExitNetwork(this.StatusCode, this);
         }
         return true;
     }
@@ -54,7 +54,7 @@ class NetworkB : NetworkNetwork
         b = this.DataExecute();
         if (!b)
         {
-            this.ThreadState.ExitNetwork(this.StatusCode);
+            this.ThreadState.ExitNetwork(this.StatusCode, this);
         }
         return true;
     }
@@ -169,7 +169,7 @@ class NetworkB : NetworkNetwork
             {
                 Console.This.Out.Write(this.S("Network Host Case 2 Success\n"));
 
-                this.ThreadState.ExitNetwork(0);
+                this.ThreadState.ExitNetwork(0, this);
                 return true;
             }
 

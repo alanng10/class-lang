@@ -41,7 +41,6 @@ class NetworkHostState : State
 
         this.Demo.Host.Final();
 
-        this.Demo.Peer = null;
         this.Demo.Host = null;
 
         string k;
