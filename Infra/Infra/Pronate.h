@@ -15,10 +15,8 @@ Int Stream_CanReadSet(Int o, Int value);
 Int Stream_CanWriteSet(Int o, Int value);
 Int Stream_Intern(Int o);
 
-Int Network_Intern(Int o);
-Int Network_InitInternGet(Int o);
-Int Network_InitInternSet(Int o, Int value);
-Int Network_HostOpen(Int o);
+Int Network_GetOpenSocket(Int o);
+Int Network_HostOpen(Int o, Int socket);
 Int Network_HostClose(Int o);
 Int Network_StatusEvent(Int o);
 Int Network_CaseEvent(Int o);
