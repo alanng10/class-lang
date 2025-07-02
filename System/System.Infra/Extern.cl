@@ -260,7 +260,6 @@ class Extern : Any
     maide prusate Int Draw_ExecuteRoundShape(var Int o, var Int rect, var Int range) { }
     maide prusate Int Draw_ExecuteLine(var Int o, var Int startPos, var Int endPos) { }
     maide prusate Int Draw_ExecuteShape(var Int o, var Int pointListCount, var Int pointListData) { }
-    maide prusate Int Draw_ExecuteShapeLine(var Int o, var Int pointListCount, var Int pointListData) { }
     maide prusate Int Draw_ExecuteImage(var Int o, var Int image, var Int destRect, var Int sourceRect) { }
     maide prusate Int Draw_ExecuteText(var Int o, var Int text, var Int colAlign, var Int rowAlign, var Int wordWrap, var Int destRect, var Int boundRect) { }
 
