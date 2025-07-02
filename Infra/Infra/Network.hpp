@@ -16,6 +16,7 @@ struct Network
     Int DataEventState;
     NetworkHandle* Handle;
     Int Open;
+    Int InitIntern;
     QTcpSocket* Intern;
 };
 

@@ -33,6 +33,7 @@ Int Network_Final(Int o)
 CppField(Network, HostName)
 CppField(Network, HostPort)
 CppField(Network, Stream)
+CppField(Network, InitIntern)
 
 Int Network_StatusGet(Int o)
 {
