@@ -150,8 +150,6 @@ Int Network_Close(Int o)
     Network* m;
     m = CP(o);
 
-    m->Handle->Close();
-
     Int stream;
     stream = m->Stream;
 
@@ -159,6 +157,8 @@ Int Network_Close(Int o)
     Stream_ValueSet(stream, null);
 
     m->Intern->close();
+
+    m->Handle->Close();
 
     m->Open = false;
 
