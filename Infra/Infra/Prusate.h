@@ -303,7 +303,6 @@ Infra_Api Int Draw_ExecuteRoundPart(Int o, Int rect, Int range);
 Infra_Api Int Draw_ExecuteRoundShape(Int o, Int rect, Int range);
 Infra_Api Int Draw_ExecuteLine(Int o, Int startPos, Int endPos);
 Infra_Api Int Draw_ExecuteShape(Int o, Int pointListCount, Int pointListData);
-Infra_Api Int Draw_ExecuteShapeLine(Int o, Int pointListCount, Int pointListData);
 Infra_Api Int Draw_ExecuteImage(Int o, Int image, Int destRect, Int sourceRect);
 Infra_Api Int Draw_ExecuteText(Int o, Int text, Int colAlign, Int rowAlign, Int wordWrap, Int destRect, Int boundRect);
 
