@@ -156,9 +156,9 @@ Int Network_Close(Int o)
     Stream_KindSet(stream, null);
     Stream_ValueSet(stream, null);
 
-    m->Intern->close();
-
     m->Handle->Close();
+
+    m->Intern->close();
 
     m->Open = false;
 
