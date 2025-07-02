@@ -259,7 +259,7 @@ Int Network_StatusEvent(Int o)
     maide = (Network_StatusEvent_Maide)aa;
 
     maide(o, arg);
-    
+
     return true;
 }
 
