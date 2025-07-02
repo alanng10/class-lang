@@ -525,22 +525,6 @@ Int Draw_ExecuteShape(Int o, Int pointListCount, Int pointListData)
     return true;
 }
 
-Int Draw_ExecuteShapeLine(Int o, Int pointListCount, Int pointListData)
-{
-    Draw* m;
-    m = CP(o);
-    int countU;
-    countU = pointListCount;
-
-    Int dataValue;
-    dataValue = Data_ValueGet(pointListData);
-    QPointF* u;
-    u = (QPointF*)dataValue;
-
-    m->Intern->drawPolyline(u, countU);
-    return true;
-}
-
 Int Draw_ExecuteImage(Int o, Int image, Int destRect, Int sourceRect)
 {
     Draw* m;
