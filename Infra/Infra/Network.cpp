@@ -207,15 +207,11 @@ Int Network_HostClose(Int o)
     return true;
 }
 
-Int Network_GetOpenSocket(Int o)
+Int Network_Intern(Int o)
 {
     Network* m;
     m = CP(o);
 
-    if (!m->Open)
-    {
-        return null;
-    }
     return CastInt(m->Intern);
 }
 
