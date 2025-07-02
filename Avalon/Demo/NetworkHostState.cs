@@ -39,6 +39,7 @@ class NetworkHostState : State
         long o;
         o = thread.ExecuteMain();
 
+        this.Demo.Host.Close();
         this.Demo.Host.Final();
 
         this.Demo.Host = null;
@@ -63,7 +64,7 @@ class NetworkHostState : State
             k = "Fail";
         }
 
-        Console.This.Out.Write(this.Demo.S("Network Host " + k + ", code: " + code + "\n"));
+        this.Demo.Console.Out.Write(this.Demo.S("Network Host " + k + ", code: " + code + "\n"));
 
         this.Count = this.Count + 1;
 
@@ -72,8 +73,6 @@ class NetworkHostState : State
 
         if (b)
         {
-            this.Demo.Host.Close();
-
             ThreadThis varThis;
             varThis = new ThreadThis();
             varThis.Init();
