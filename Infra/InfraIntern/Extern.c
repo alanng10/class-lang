@@ -3124,21 +3124,6 @@ Int Intern_Extern_Draw_ExecuteShape(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_Draw_ExecuteShapeLine(Eval* eval, Int frame)
-{
-    Int paramCount;
-    paramCount = 3;
-
-    Param(0);
-    Param(1);
-    Param(2);
-
-    Int a;
-    a = Draw_ExecuteShapeLine(a0, a1, a2);
-
-    Return;
-}
-
 Int Intern_Extern_Draw_ExecuteImage(Eval* eval, Int frame)
 {
     Int paramCount;
