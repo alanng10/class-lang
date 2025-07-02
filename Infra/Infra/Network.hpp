@@ -15,9 +15,7 @@ struct Network
     Int CaseEventState;
     Int DataEventState;
     NetworkHandle* Handle;
-    Int Open;
-    Int InitIntern;
-    QTcpSocket* Intern;
+    Int OpenSocket;
 };
 
 #define CP(a) ((Network*)(a))
