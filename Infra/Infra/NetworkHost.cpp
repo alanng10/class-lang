@@ -61,24 +61,20 @@ Int NetworkHost_OpenPeer(Int o)
 {
     NetworkHost* m;
     m = CP(o);
-
     QTcpSocket* socket;
     socket = m->Intern->nextPendingConnection();
-
-    Int ka;
-    ka = CastInt(socket);
 
     Int stream;
     stream = Stream_New();
     Stream_Init(stream);
-
     Int network;
     network = Network_New();
-    Network_InitInternSet(network, ka);
     Network_Init(network);
     Network_StreamSet(network, stream);
 
-    Network_HostOpen(network);
+    Int uu;
+    uu = CastInt(socket);
+    Network_HostOpen(network, uu);
     return network;
 }
 
