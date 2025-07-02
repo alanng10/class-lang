@@ -130,7 +130,6 @@ Draw
     ExecuteRoundShape(rect, range)
     ExecuteLine(startPos, endPos)
     ExecuteShape(pointListCount, pointListData)
-    ExecuteShapeLine(pointListCount, pointListData)
     ExecuteImage(image, destRect, sourceRect)
     ExecuteText(text, colAlign, rowAlign, wordWrap, destRect, boundRect)
 
