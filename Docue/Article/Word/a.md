@@ -342,6 +342,8 @@ Word "unique" has meaning that is only one in type.
 
 Word "sched" has meaning that is schedule.
 
+Word "kernel" has meaning that is system core.
+
 Word "out" has meaning that is output destination.
 
 Word "err" has meaning that is error destination.
