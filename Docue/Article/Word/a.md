@@ -340,6 +340,8 @@ Word "pattern" has meaning that is pattern entity.
 
 Word "unique" has meaning that is only one in type.
 
+Word "sched" has meaning that is schedule.
+
 Word "out" has meaning that is output destination.
 
 Word "err" has meaning that is error destination.
