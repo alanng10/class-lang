@@ -25,6 +25,8 @@ To import Sand modules, import the module classes with class names in the import
 To export a class, write the class name in the export section.
 Sand Lang port syntax is same as Class Lang port.
 
+A Sand lang source has token list and comment list.
+
 A Sand lang source has root node that is Class node.
 The Class node has no base.
 It has derived Comp classes nodes in Class node.
