@@ -359,8 +359,10 @@ The byte size count of struct type Struct in class Class is resulted.
 The operate Type is 64 bits IntType.
 
 LessOperate, AddOperate, SubOperate, MulOperate, DivOperate, SignLessOperate, 
-SignMulOperate, SignDivOperate, BitAndOperate, BitOrnOperate, BitNotOperate, 
-BitLiteOperate, BitRiteOperate and BitSignRiteOperate have syntaxs that are same as Class Lang.
+SignMulOperate, SignDivOperate, BitLiteOperate, BitRiteOperate and BitSignRiteOperate 
+have syntaxs that are same as Class Lang.
+BitAndOperate, BitOrnOperate and BitNotOperate have syntaxs that are same as 
+AndOperate, OrnOperate and NotOperate in Class Lang.
 The operates input Type is IntType.
 The input IntType is any IntKind.
 Operates with 2 inputs has same IntType kind in both inputs.
