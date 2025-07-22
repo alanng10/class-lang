@@ -151,3 +151,5 @@ Class has major on effect.
 Class has major on execute.
 
 Class has major on tool.
+
+Class is tool class.
