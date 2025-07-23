@@ -12,9 +12,7 @@ If the parts have integer number less than 10, a leading 0 is displayed in the p
 
 Module ref is displayed with the module name, then a hypen sign, then the version.
 
-A module associated files and directories, 
-have 1 module binary file that is a machine code library binary, 
-1 refer binary file that is the declaration of the module,
-1 data directory that contains all the module associated data files and directories.
-These 2 files and 1 directory have names that are the displayed module ref of the module, followed with a dot sign and a extension name.
-The module binary file, refer binary file, and data directory have extension names that are "dll", "ref, and "data".
+A module has 1 fold with the module ref as fold name, 
+and 1 machine code library with the module ref as base name and "dll" as file extension.
+Inside the fold, there is 1 file with "Module" as name that is the module data, 
+and 1 fold with "Data" as name that is the data fold of the module.
