@@ -154,4 +154,4 @@ Class has major on tool.
 
 Class is tool class.
 
-Class major on Class has Sera Major.
+Class major on class has Sera Major.
