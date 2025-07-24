@@ -153,3 +153,5 @@ Class has major on execute.
 Class has major on tool.
 
 Class is tool class.
+
+Class major on Class has Sera Major.
