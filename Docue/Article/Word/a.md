@@ -134,6 +134,8 @@ Word "history" has meaning that is mod history.
 
 Word "problem" has meaning that is issue entity.
 
+Word "mainen" has meaning that is maintenance.
+
 Word "depend" has meaning that is dependency.
 
 Word "update" has meaning that is info update.
