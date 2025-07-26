@@ -332,6 +332,8 @@ Word "except" has meaning that is exception.
 
 Word "recurse" has meaning that is recursive.
 
+Word "evaluat" has meaning that is evaluate.
+
 Word "send" has meaning that is send info.
 
 Word "cive" has meaning that is receive info.
