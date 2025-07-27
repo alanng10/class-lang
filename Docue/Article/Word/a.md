@@ -80,7 +80,7 @@ Word "modular" has meaning that is modular.
 
 Word "design" has meaning that is designed.
 
-Word "effecon" has meaning that is effective. 
+Word "effecon" has meaning that is effective.
 
 Word "order" has meaning that is order.
 
