@@ -172,6 +172,8 @@ Word "archive" has meaning that is stored object.
 
 Word "culture" has meaning that is culture entity.
 
+Word "tranlet" has meaning that is translated.
+
 Word "auto" has meaning that is entity to do effect.
 
 Word "node" has meaning that is entity.
