@@ -85,7 +85,7 @@ This is enough element to do any shared list for system programming.
 Single does not need delegate.
 Single has get, set and call that are virtual.
 Get, set, and call are triggered on any.
-This is enough element to do any ref call. 
+This is enough element to do any ref call.
 
 Single any allocate is most general.
 Single allocate any with NewOperate and ShareOperate.
