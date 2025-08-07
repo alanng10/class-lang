@@ -15,6 +15,8 @@ Single is used to make abstract for effect.
 Single is object oriented.
 Single is class based.
 
+The word "Single" is this program lang node name.
+
 Make module with Single has develop execute certain.
 
 Single source item root node is Class node.
