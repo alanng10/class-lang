@@ -50,7 +50,7 @@ Single has DeleteExecute.
 DeleteExecute is execute that delete any.
 The execute has syntax that starts with "delete" index word, 
 followed by Any of class Operate, followed by limit semicolon.
-Any operate has class that is Any class.
+Any operate has type that is Any class.
 The execute deletes the any refered by the ref value of Any operate.
 After the execute is executed, the any is deleted and does not exist.
 If the any is Bool or Int, the execute has no effect.
