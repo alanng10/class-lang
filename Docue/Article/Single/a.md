@@ -50,6 +50,8 @@ Using any comp on any ref that refers to any that does not exist is a programmin
 Single Field and Maide can be glob comp.
 Comp that has "glob" index word after Count index word is glob comp.
 
+Single Class has Struct comp.
+
 Single CastOperate is same as Class Lang.
 If the operate casts to class that is not value class and not Any class and 
 the input of the operate refers to any that does not exist, 
