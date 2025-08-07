@@ -16,7 +16,7 @@ Single is class based.
 
 Single source item root node is Class node.
 
-Single has all Class Lang lang element nodes.
+Single has all Class Lang lang element nodes. 
 
 Single has Sand inner processing element.
 Single has no ref call.
