@@ -53,7 +53,7 @@ followed by Any of class Operate, followed by limit semicolon.
 Any operate has class that is Any class.
 The execute deletes the any refered by the ref value of Any operate.
 After the execute is executed, the any is deleted and does not exist.
-If the any is Bool or Int or IntType, the execute has no effect.
+If the any is Bool or Int, the execute has no effect.
 
 Using any comp on any ref that refers to any that does not exist is a programming error.
 
