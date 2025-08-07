@@ -2,6 +2,8 @@
 
 Single is program lang for effect.
 Single is programming language for effect.
+Single is Effect Class.
+Single is effect class.
 
 Single is used to make module for effect.
 Single is used to make module that has effect class.
