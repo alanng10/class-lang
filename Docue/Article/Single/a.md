@@ -32,6 +32,9 @@ Single builtin String value uses 32 bits int as char unit.
 
 Single has type checking, name checking and count checking.
 
+Single has Type.
+Type is ClassType, IntType orn StructType.
+
 Single memory management is manual memory management.
 Single NewOperate and ShareOperate have memory allocation.
 The memory allocation does not have auto delete.
