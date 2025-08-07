@@ -96,9 +96,9 @@ Single allocate ClassType any with NewOperate and ShareOperate.
 The allocate is not tagged with the existence of specific type of any.
 Stack allocate ClassType any will tag the allocate with the existence of specific type as the size of the any will tag.
 
-Single does not need maide overload. 
-Single has comp name, same as Class Lang. 
-This is enough element to do any comp with execute certain. 
+Single does not need maide overload.
+Single has comp name, same as Class Lang.
+This is enough element to do any comp with execute certain.
 
 Single does not need operator overloading.
 Single has comp name, same as Class Lang.
