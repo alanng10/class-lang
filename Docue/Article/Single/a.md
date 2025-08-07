@@ -30,7 +30,7 @@ Ref is 64 bits, same as Class Lang.
 
 Single builtin String value uses 32 bits int as char unit.
 
-Single has class checking, name checking and count checking that is same as Class Lang.
+Single has type checking, name checking and count checking.
 
 Single memory management is manual memory management.
 Single NewOperate and ShareOperate have memory allocation.
