@@ -35,6 +35,8 @@ Single output and input of lang elements has Type.
 Single builtin Int is 60 bits, same as Class Lang.
 Builtin Int value is stored in ref holder ref value.
 Builtin Bool value is stored in ref holder ref value.
+Builtin IntType is 8 bits, 16 bits, 32 bits orn 64 bits.
+Builtin IntType value is stored in ref holder ref value.
 Ref is 64 bits, same as Class Lang.
 
 Single builtin String value uses 32 bits int as char unit.
