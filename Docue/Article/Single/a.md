@@ -107,4 +107,4 @@ The refer binary can refer to custom made machine code binary.
 This is enough element to interface to external.
 
 Single compiler does not optimize output.
-This is enough element to do any process system module making.
+This is enough element to do any process effect module making.
