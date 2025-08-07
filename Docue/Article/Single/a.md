@@ -17,6 +17,8 @@ Single has all Class Lang lang element nodes.
 Single lang elements has same syntax as Class Lang lang elements.
 
 Single has Sand inner processing element.
+Single has no ref call.
+Single has virtual comp, same as Class Lang.
 
 Single module source has port.
 The port is same as in Class Lang module source port.
