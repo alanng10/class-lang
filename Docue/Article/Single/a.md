@@ -86,10 +86,10 @@ Single has get, set and call that are virtual.
 Get, set, and call are triggered on any.
 This is enough element to do any ref call.
 
-Single any allocate is most general.
-Single allocate any with NewOperate and ShareOperate.
-The allocate is not tagged with the existence of specific class of any.
-Stack allocate any will tag the allocate with the existence of specific class as the size of the any will tag.
+Single ClassType any allocate is most general.
+Single allocate ClassType any with NewOperate and ShareOperate.
+The allocate is not tagged with the existence of specific type of any.
+Stack allocate ClassType any will tag the allocate with the existence of specific type as the size of the any will tag.
 
 Single does not need operator overloading.
 Single has comp name, same as Class Lang.
