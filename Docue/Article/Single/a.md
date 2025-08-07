@@ -21,9 +21,7 @@ Single source item root node is Class node.
 
 Single has all Class Lang lang element nodes.
 
-Single has Sand inner processing element.
-Single has no ref call.
-Single instant comp is virtual, same as Class Lang.
+Single has Sand inner processing element. 
 
 Single module source has port.
 The port is same as in Class Lang module source port.
