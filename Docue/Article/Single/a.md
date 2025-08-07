@@ -40,6 +40,7 @@ Builtin IntType value is stored in ref holder ref value.
 Ref is 64 bits, same as Class Lang.
 
 Single builtin String value uses 32 bits int as char unit.
+Builtin String is ClassType.
 
 Single memory management is manual memory management.
 Single NewOperate and ShareOperate have memory allocation.
