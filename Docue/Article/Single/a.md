@@ -103,8 +103,8 @@ Single has CastOperate.
 This is enough element to do any class basing.
 
 Single Lang does not need lang element to interface to external.
-Single compiler modules have infra to generate refer binary.
-The refer binary can refer to custom made machine code binary.
+Single compiler modules have infra to generat binary.
+The generate can be specified to refer the module binary state to custom made machine code binary.
 This is enough element to interface to external.
 
 Single compiler does not optimize output.
