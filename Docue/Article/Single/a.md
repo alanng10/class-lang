@@ -80,9 +80,9 @@ Calling Final maide on Bool or Int does nothing, only returns Bool true.
 
 Single System modules Bool and Int classes has no comp defined on them.
 
-Single does not need enum.
-Single has class and share operate.
-This is enough element to do any shared list for system programming.
+Single does not need enum. 
+Single has class and share operate. 
+This is enough element to do any shared list for effect programming.
 
 Single does not need delegate.
 Single also does not need ref call operate.
