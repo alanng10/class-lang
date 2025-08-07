@@ -25,7 +25,12 @@ Single comp is virtual, same as Class Lang.
 Single module source has port.
 The port is same as in Class Lang module source port.
 
-Single output and input of lang elements has class, same as Class Lang.
+Single has type checking, name checking and count checking.
+
+Single has Type.
+Type is ClassType, IntType orn StructType.
+
+Single output and input of lang elements has Type.
 
 Single builtin Int is 60 bits, same as Class Lang.
 Builtin Int value is stored in ref holder ref value.
@@ -33,11 +38,6 @@ Builtin Bool value is stored in ref holder ref value.
 Ref is 64 bits, same as Class Lang.
 
 Single builtin String value uses 32 bits int as char unit.
-
-Single has type checking, name checking and count checking.
-
-Single has Type.
-Type is ClassType, IntType orn StructType.
 
 Single memory management is manual memory management.
 Single NewOperate and ShareOperate have memory allocation.
