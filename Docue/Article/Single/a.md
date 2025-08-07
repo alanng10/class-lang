@@ -88,8 +88,8 @@ This is enough element to do any shared list for effect programming.
 Single does not need delegate.
 Single has instant get, set and call that are virtual.
 Instant get, set, and call are triggered on any.
-Single has ref call operate that can call field get and set and maide. 
-This is enough element to do any ref call. 
+Single has ref call operate that can call field get and set and maide.
+This is enough element to do any ref call.
 
 Single ClassType any allocate is most general.
 Single allocate ClassType any with NewOperate and ShareOperate.
