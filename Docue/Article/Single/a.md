@@ -93,11 +93,6 @@ Instant get, set, and call are triggered on any.
 Single has ref call operate that can call field get and set and maide.
 This is enough element to do any ref call.
 
-Single ClassType any allocate is most general.
-Single allocate ClassType any with NewOperate and ShareOperate.
-The allocate is not tagged with the existence of specific type of any.
-Stack allocate ClassType any will tag the allocate with the existence of specific type as the size of the any will tag.
-
 Single does not need maide overload.
 Single has comp name, same as Class Lang.
 This is enough element to do any comp with execute certain.
