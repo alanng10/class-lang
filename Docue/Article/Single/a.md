@@ -19,6 +19,8 @@ The word "Single" is this program lang node name.
 
 Make module with Single has develop execute certain.
 
+Single is effecon in make module for effect.
+
 Single source item root node is Class node.
 
 Single has all Class Lang lang element nodes.
