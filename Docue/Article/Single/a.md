@@ -13,7 +13,7 @@ Single is used to make module that has effect class.
 Single is used to make abstract for effect.
 
 Single is object oriented.
-Single is class based.
+Single is class base.
 
 The word "Single" is this program lang node name.
 
