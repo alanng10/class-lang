@@ -20,7 +20,7 @@ Sand is used to make system programming modules.
 Sand maide need to not expose StructType in param
 to be able to abstract effect.
 To reuse the maide, the maide need to cast the param IntType to StructType in state.
-Because of the manual cast, Sand has not enough element to make abstract for effect.
+Because of the manual cast, Sand is not enough general to make abstract for effect.
 
 Sand modules sources has port.
 The port source file has file name "Sand.Port".
