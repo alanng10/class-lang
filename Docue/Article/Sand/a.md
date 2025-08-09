@@ -16,7 +16,11 @@ Sand is a plat.
 The plat layers below System in info tech stack arch.
 
 Sand is used to make system programming modules.
-Sand is not used to make abstract for effect.
+
+Sand maide need to not expose StructType in param
+to be able to abstract effect.
+To reuse the maide, the maide need to cast the param IntType to StructType in state.
+Because of the manual cast, Sand is not used to make abstract for effect.
 
 Sand modules sources has port.
 The port source file has file name "Sand.Port".
