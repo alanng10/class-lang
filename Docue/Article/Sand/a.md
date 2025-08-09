@@ -16,6 +16,7 @@ Sand is a plat.
 The plat layers below System in info tech stack arch.
 
 Sand is used to make system programming modules.
+Sand is not used to make abstract for effect.
 
 Sand modules sources has port.
 The port source file has file name "Sand.Port".
