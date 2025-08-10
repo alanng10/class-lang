@@ -12,6 +12,8 @@ Single is used to make module for effect.
 Single is used to make module that has effect class.
 Single is used to make abstract for effect.
 
+Single is not enough general to make model.
+
 Single is object oriented.
 Single is class base.
 
