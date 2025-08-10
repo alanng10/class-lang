@@ -13,6 +13,8 @@ Single is used to make module that has effect class.
 Single is used to make abstract for effect.
 
 Single is not enough general to make model.
+Single New allocated ClassType any need to be deleted,
+when the module need to continue execution.
 
 Single is object oriented.
 Single is class base.
