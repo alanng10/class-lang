@@ -15,10 +15,11 @@ Type board button index table is type index.
 Type index is park type index.
 Type index is did.
 
-Type board has 2 extra button below center of last row of Type index.
-The first button is System button.
-The second button is Frame button.
-The 2 button is alpha button.
+Type board has 3 extra button below center of last row of Type index.
+The first button is Index button.
+The second button is System button.
+The third button is Frame button.
+The 3 button is alpha button.
 
 Type is Class module list for type input.
 
