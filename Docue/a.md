@@ -154,4 +154,4 @@ Class has major on tool.
 
 Class is tool class.
 
-Class is Tier 3 Class.
+Class is Seer Class.
