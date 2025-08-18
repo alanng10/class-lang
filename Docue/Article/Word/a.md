@@ -174,6 +174,10 @@ Word "culture" has meaning that is culture entity.
 
 Word "tranlet" has meaning that is translated.
 
+Word "dynam" has meaning that is dynamic.
+
+Word "stati" has meaning that is static.
+
 Word "auto" has meaning that is entity to do effect.
 
 Word "node" has meaning that is entity.
