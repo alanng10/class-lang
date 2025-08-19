@@ -36,6 +36,8 @@ Word "detail" has meaning that is sub info.
 
 Word "comment" has meaning that is comment info.
 
+Word "describ" has meaning that is describe.
+
 Word "tool" has meaning that is be used.
 
 Word "certain" has meaning that is will happen.
