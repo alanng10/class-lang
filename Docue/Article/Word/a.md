@@ -692,6 +692,8 @@ Word "library" has meaning that is machine code module.
 
 Word "package" has meaning that is entity being done.
 
+Word "paralel" has meaning that is parallel.
+
 Word "draw" has meaning that is comp video.
 
 Word "image" has meaning that is pixel rect.
