@@ -178,6 +178,8 @@ Word "tranlet" has meaning that is translated.
 
 Word "grain" has meaning that is granularity.
 
+Word "manual" has meaning that is manual.
+
 Word "dynam" has meaning that is dynamic.
 
 Word "stati" has meaning that is static.
