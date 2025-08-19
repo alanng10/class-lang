@@ -11,16 +11,16 @@ public class StringAdd : Any
         this.Range = new Range();
         this.Range.Init();
 
-        long capacity;
-        capacity = 16;
+        long capacit;
+        capacit = 16;
 
         Data data;
         data = new Data();
-        data.Count = capacity * sizeof(uint);
+        data.Count = capacit * sizeof(uint);
         data.Init();
 
         this.Data = data;
-        this.Capacity = capacity;
+        this.Capacit = capacit;
         return true;
     }
 
@@ -29,7 +29,7 @@ public class StringAdd : Any
     protected virtual Range Range { get; set; }
     private Data Data { get; set; }
     private long Count { get; set; }
-    private long Capacity { get; set; }
+    private long Capacit { get; set; }
 
     public virtual String Result()
     {
@@ -53,9 +53,9 @@ public class StringAdd : Any
         infraInfra = this.InfraInfra;
 
         long count;
-        long capacity;
+        long capacit;
         count = this.Count;
-        capacity = this.Capacity;
+        capacit = this.Capacit;
 
         Data data;
         data = this.Data;
@@ -63,10 +63,10 @@ public class StringAdd : Any
         long kka;
         kka = sizeof(uint);
 
-        if (!(count < capacity))
+        if (!(count < capacit))
         {
             long ka;
-            ka = capacity * 2;
+            ka = capacit * 2;
             
             long kd;
             kd = ka * kka;
@@ -82,11 +82,11 @@ public class StringAdd : Any
 
             data = k;
 
-            capacity = ka;
+            capacit = ka;
 
             this.Data = data;
 
-            this.Capacity = capacity;
+            this.Capacit = capacit;
         }
 
         long ke;
