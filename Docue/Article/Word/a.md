@@ -124,6 +124,10 @@ Word "style" has meaning that is not intended output.
 
 Word "perform" has meaning that is performance level.
 
+Word "speed" has meaning that is operate rate.
+
+Word "capacit" has meaning that is size space.
+
 Word "publish" has meaning that is published.
 
 Word "storey" has meaning that is repository.
