@@ -86,6 +86,8 @@ Word "effecon" has meaning that is effective.
 
 Word "order" has meaning that is order.
 
+Word "economy" has meaning that is eco system.
+
 Word "default" has meaning that is no fault.
 
 Word "load" has meaning that is effect load.
