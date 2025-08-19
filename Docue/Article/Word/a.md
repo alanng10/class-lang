@@ -174,6 +174,8 @@ Word "culture" has meaning that is culture entity.
 
 Word "tranlet" has meaning that is translated.
 
+Word "grain" has meaning that is granularity.
+
 Word "dynam" has meaning that is dynamic.
 
 Word "stati" has meaning that is static.
