@@ -690,7 +690,7 @@ Word "error" has meaning that is invalid.
 
 Word "valid" has meaning that is can accept.
 
-Word "generat" has meaning that is generate.
+Word "gena" has meaning that is generate.
 
 Word "library" has meaning that is machine code module.
 
