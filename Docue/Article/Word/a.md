@@ -42,9 +42,9 @@ Word "tool" has meaning that is be used.
 
 Word "certain" has meaning that is will happen.
 
-Word "general" has meaning that is applicable to all.
+Word "gene" has meaning that is applicable to all.
 
-Word "level" has meaning that is tiered stop.
+Word "leve" has meaning that is tiered stop.
 
 Word "mark" has meaning that is goaled.
 
