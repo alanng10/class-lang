@@ -10,7 +10,7 @@ Permission is granted to every person to use any copy of this software in any wa
 
 Class is did.
 
-Class is most general and most level program lang.
+Class is most gene and most leve program lang.
 
 Class is park program lang.
 Class is most gain program lang.
