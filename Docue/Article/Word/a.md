@@ -186,9 +186,9 @@ Word "grain" has meaning that is granularity.
 
 Word "manual" has meaning that is manual.
 
-Word "dynam" has meaning that is dynamic.
+Word "dyna" has meaning that is dynamic.
 
-Word "stati" has meaning that is static.
+Word "sona" has meaning that is static.
 
 Word "auto" has meaning that is entity to do effect.
 
