@@ -22,6 +22,8 @@ to be able to abstract effect.
 To reuse the maide, the maide need to cast the param IntType to StructType in state.
 Because of the manual cast, Sand is not enough general to make abstract for effect.
 
+Sand is most gain program lang below System module list.
+
 Sand modules sources has port.
 The port source file has file name "Sand.Port".
 
