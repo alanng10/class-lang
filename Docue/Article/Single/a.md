@@ -102,6 +102,10 @@ of class FieldName.
 Glob field with field name Field in class Class is trigg get.
 The operate Type is result Type of the field.
 
+GlobSetMark is mark that trigg glob field set.
+The mark has syntax that is same as GlobGetOperate.
+Glob field with field name Field in class Class is trigg set.
+
 Single does not need enum.
 Single has class and share operate.
 This is enough element to do any shared list for effect programming.
