@@ -108,6 +108,7 @@ The mark has syntax that is same as GlobGetOperate.
 Glob field with field name Field in class Class is trigg set with Value
 from AreExecute.
 The mark input ref value to the field set.
+The mark Type is result Type of the field.
 
 GlobCallOperate is operate that trigg glob maide call.
 The operate has syntax that start with "glob" index word, follow by
