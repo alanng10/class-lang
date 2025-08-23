@@ -99,6 +99,8 @@ GlobGetOperate is operate that trigg glob field get.
 The operate has syntax that start with "glob" index word, follow by
 Class of class ClassName, follow by dot limit token, follow by Field
 of class FieldName.
+Glob field with field name Field in class Class is trigg get.
+The operate Type is result Type of the field.
 
 Single does not need enum.
 Single has class and share operate.
