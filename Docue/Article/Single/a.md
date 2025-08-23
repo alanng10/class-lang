@@ -18,6 +18,8 @@ Single is not enough general to make model.
 Single New allocated ClassType any need to be deleted,
 when the module need to continue execution.
 
+Single is not enough general to make model package.
+
 Single is object oriented.
 Single is class base.
 
