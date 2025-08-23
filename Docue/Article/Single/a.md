@@ -100,6 +100,7 @@ The operate has syntax that start with "glob" index word, follow by
 Class of class ClassName, follow by limit dot token, follow by Field
 of class FieldName.
 Glob field with field name Field in class Class is trigg get.
+The operate result ref value that the field get return.
 The operate Type is result Type of the field.
 
 GlobSetMark is mark that trigg glob field set.
