@@ -113,6 +113,9 @@ Class of class ClassName, follow by limit dot token, follow by Maide
 of class MaideName, follow by limit brace round open token, follow
 by Argue of class Argue, follow by limit brace round close token.
 Glob maide with maide name Maide in class Class is trigg call.
+Argue is pass into the maide in the call.
+The operate result ref value that the maide return.
+The operate Type is the result Type of the maide.
 
 Single does not need enum.
 Single has class and share operate.
