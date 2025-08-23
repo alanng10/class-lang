@@ -104,7 +104,8 @@ The operate Type is result Type of the field.
 
 GlobSetMark is mark that trigg glob field set.
 The mark has syntax that is same as GlobGetOperate.
-Glob field with field name Field in class Class is trigg set.
+Glob field with field name Field in class Class is trigg set with Value
+from AreExecute.
 
 Single does not need enum.
 Single has class and share operate.
