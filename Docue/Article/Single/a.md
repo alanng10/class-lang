@@ -107,6 +107,7 @@ GlobSetMark is mark that trigg glob field set.
 The mark has syntax that is same as GlobGetOperate.
 Glob field with field name Field in class Class is trigg set with Value
 from AreExecute.
+The mark input ref value to the field set.
 
 GlobCallOperate is operate that trigg glob maide call.
 The operate has syntax that start with "glob" index word, follow by
