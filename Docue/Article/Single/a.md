@@ -97,7 +97,7 @@ Single System modules Bool and Int classes has no comp defined on them.
 
 GlobGetOperate is operate that trigg glob field get.
 The operate has syntax that start with "glob" index word, follow by
-Class of class ClassName, follow by dot limit token, follow by Field
+Class of class ClassName, follow by limit dot token, follow by Field
 of class FieldName.
 Glob field with field name Field in class Class is trigg get.
 The operate Type is result Type of the field.
@@ -106,6 +106,13 @@ GlobSetMark is mark that trigg glob field set.
 The mark has syntax that is same as GlobGetOperate.
 Glob field with field name Field in class Class is trigg set with Value
 from AreExecute.
+
+GlobCallOperate is operate that trigg glob maide call.
+The operate has syntax that start with "glob" index word, follow by
+Class of class ClassName, follow by limit dot token, follow by Maide
+of class MaideName, follow by limit brace round open token, follow
+by Argue of class Argue, follow by limit brace round close token.
+Maide with maide name Maide in class Class is trigg call.
 
 Single does not need enum.
 Single has class and share operate.
