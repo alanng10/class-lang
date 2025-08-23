@@ -95,6 +95,11 @@ Calling Final maide on Bool or Int does nothing, only returns Bool true.
 
 Single System modules Bool and Int classes has no comp defined on them.
 
+GlobGetOperate is operate that trigg glob field get.
+The operate has syntax that start with "glob" index word, follow by
+Class of class ClassName, follow by dot limit token, follow by Field
+of class FieldName.
+
 Single does not need enum.
 Single has class and share operate.
 This is enough element to do any shared list for effect programming.
