@@ -73,7 +73,6 @@ After the execute is executed, the any is deleted and does not exist.
 Using any comp on any ref that refers to any that does not exist is a programming error.
 
 Single Field and Maide can be glob comp.
-Comp that has "glob" index word after Count index word is glob comp.
 
 Single Class has Struct comp.
 
@@ -94,6 +93,10 @@ After this maide is called, the any comps can not be used.
 Calling Final maide on Bool or Int does nothing, only returns Bool true. 
 
 Single System modules Bool and Int classes has no comp defined on them.
+
+Comp has Type of class TypeName instead of Class of class ClassName.
+Type is result Type of the comp.
+Comp that has "glob" index word after Count index word is glob comp.
 
 GlobGetOperate is operate that trigg glob field get.
 The operate has syntax that start with "glob" index word, follow by
