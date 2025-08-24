@@ -145,7 +145,7 @@ Argue is pass into the maide in the call.
 The operate result ref value that the maide return.
 The operate Type is the result Type of the maide.
 
-Single syntax does not have Storage beside name of result Type.
+Single comp syntax does not have Storage beside name of result Type.
 Inf it has, abstract of comp is tagged with the existence of storage.
 
 Single does not need enum.
