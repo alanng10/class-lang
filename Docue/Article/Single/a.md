@@ -107,6 +107,11 @@ IntTypeName is name for IntType.
 IntTypeName syntax is Int of class IntKind.
 Int is kind of the IntType.
 
+1 TypeName derive class is StructTypeName.
+StructTypeName is name for StructType.
+StructTypeName syntax is Class of class ClassName, follow by
+limit dot token, follow by Struct of class StructName.
+
 Comp has Type of class TypeName instead of Class of class ClassName.
 Type is result Type of the comp.
 Comp that has "glob" index word after Count index word is glob comp.
