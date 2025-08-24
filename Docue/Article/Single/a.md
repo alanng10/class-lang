@@ -94,6 +94,9 @@ Calling Final maide on Bool or Int does nothing, only returns Bool true.
 
 Single System modules Bool and Int classes has no comp defined on them.
 
+TypeName is name of Type.
+TypeName is base class.
+
 Comp has Type of class TypeName instead of Class of class ClassName.
 Type is result Type of the comp.
 Comp that has "glob" index word after Count index word is glob comp.
