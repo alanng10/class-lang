@@ -100,7 +100,12 @@ TypeName is base class.
 1 TypeName derive class is ClassTypeName.
 ClassTypeName is name for ClassType.
 ClassTypeName syntax is Class of class ClassName.
-Class is ClassName of the Class of the ClassType.
+Class is name of the Class of the ClassType.
+
+1 TypeName derive class is IntTypeName.
+IntTypeName is name for IntType.
+IntTypeName syntax is Int of class IntKind.
+Int is kind of the IntType.
 
 Comp has Type of class TypeName instead of Class of class ClassName.
 Type is result Type of the comp.
