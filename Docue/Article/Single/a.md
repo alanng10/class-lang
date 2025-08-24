@@ -10,7 +10,7 @@ Single is effect mark program lang.
 
 Single is used to make module for effect.
 Single is used to make module that has effect class.
-Single is used to make abstract for effect.
+Single is used to make class for effect.
 
 Single is used to make effect plat.
 
@@ -20,7 +20,7 @@ when the module need to continue execution.
 
 Single is not enough general to make model package.
 
-Single is most gain program lang in make abstract for effect.
+Single is most gain program lang in make class for effect.
 
 Single is object oriented.
 Single is class base.
