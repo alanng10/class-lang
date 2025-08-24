@@ -45,6 +45,10 @@ Single has type checking, name checking and count checking.
 Single has Type.
 Type is ClassType, IntType orn StructType.
 
+ClassType is type that is a class.
+IntType is type that is builtin Int kind.
+StructType is type that is a struct defined in a class.
+
 Single output and input of lang elements has Type.
 
 Single builtin Int is 60 bits, same as Class Lang.
