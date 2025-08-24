@@ -111,6 +111,8 @@ Int is kind of the IntType.
 StructTypeName is name for StructType.
 StructTypeName syntax is Class of class ClassName, follow by
 limit dot token, follow by Struct of class StructName.
+Class is name of the Class that the Struct of the StructType is define in.
+Struct is name of the Struct of the StructType.
 
 Comp has Type of class TypeName instead of Class of class ClassName.
 Type is result Type of the comp.
