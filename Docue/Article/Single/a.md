@@ -20,8 +20,6 @@ when the module need to continue execution.
 
 Single is not enough general to make model package.
 
-Single is most gain program lang in make class for effect.
-
 Single is object oriented.
 Single is class base.
 
