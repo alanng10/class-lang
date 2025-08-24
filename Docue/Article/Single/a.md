@@ -131,6 +131,9 @@ Var has Type of class TypeName instead of Class of class ClassName.
 ReferExecute syntax has option.
 ReferExecute syntax can has Storage of class Storage after Var and before limit semicolon token.
 
+Storage is data storage of any.
+Storage syntax start with "val" index word.
+
 GlobGetOperate is operate that trigg glob field get.
 The operate has syntax that start with "glob" index word, follow by
 Class of class ClassName, follow by limit dot token, follow by Field
