@@ -126,6 +126,8 @@ Comp that has "glob" index word after Count index word is glob comp.
 Field syntax has option.
 Field syntax can has Storage of class Storage before "get" index word.
 
+Var has Type of class TypeName instead of Class of class ClassName.
+
 GlobGetOperate is operate that trigg glob field get.
 The operate has syntax that start with "glob" index word, follow by
 Class of class ClassName, follow by limit dot token, follow by Field
