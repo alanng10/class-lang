@@ -14,6 +14,7 @@ Class is most gene and most leve program lang.
 
 Class is park program lang.
 Class is most gain program lang.
+Class is most gain program lang to any.
 
 Class is an object oriented programming language.
 Class is class base programming language.
