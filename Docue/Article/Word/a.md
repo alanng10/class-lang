@@ -484,7 +484,7 @@ Word "enable" has meaning that is enabled.
 
 Word "task" has meaning that is to be done.
 
-Word "proto" has meaning that is protocol.
+Word "proto" has meaning that is protocol. 
 
 Word "init" has meaning that is initialized.
 
