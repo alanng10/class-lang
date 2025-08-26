@@ -320,7 +320,7 @@ Int Draw_Clear(Int o)
     size = m->Size;
     Int wed;
     Int het;
-    wed = Size_WedGet(size);
+    wed = Size_WidthGet(size);
     het = Size_HetGet(size);
 
     Pos_ColSet(aPos, 0);

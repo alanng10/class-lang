@@ -71,7 +71,7 @@ Int Image_DataCreate(Int o)
 
     Int wed;
     Int het;
-    wed = Size_WedGet(size);
+    wed = Size_WidthGet(size);
     het = Size_HetGet(size);
     int wedU;
     int hetU;

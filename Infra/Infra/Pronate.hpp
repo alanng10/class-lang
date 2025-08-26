@@ -59,7 +59,7 @@ prefix##Row = Pos_RowGet(prefix##Pos);\
 
 #define SizeValue(prefix) \
 Int prefix##Wed;\
-prefix##Wed = Size_WedGet(prefix##Size);\
+prefix##Wed = Size_WidthGet(prefix##Size);\
 Int prefix##Het;\
 prefix##Het = Size_HetGet(prefix##Size);\
 
