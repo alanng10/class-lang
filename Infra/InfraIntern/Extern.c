@@ -1893,7 +1893,7 @@ Int Intern_Extern_Size_Final(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_Size_WedGet(Eval* eval, Int frame)
+Int Intern_Extern_Size_WidthGet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -1901,12 +1901,12 @@ Int Intern_Extern_Size_WedGet(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Size_WedGet(a0);
+    a = Size_WidthGet(a0);
 
     Return;
 }
 
-Int Intern_Extern_Size_WedSet(Eval* eval, Int frame)
+Int Intern_Extern_Size_WidthSet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -1915,12 +1915,12 @@ Int Intern_Extern_Size_WedSet(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = Size_WedSet(a0, a1);
+    a = Size_WidthSet(a0, a1);
 
     Return;
 }
 
-Int Intern_Extern_Size_HetGet(Eval* eval, Int frame)
+Int Intern_Extern_Size_HegthGet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 1;
@@ -1928,12 +1928,12 @@ Int Intern_Extern_Size_HetGet(Eval* eval, Int frame)
     Param(0);
 
     Int a;
-    a = Size_HetGet(a0);
+    a = Size_HegthGet(a0);
 
     Return;
 }
 
-Int Intern_Extern_Size_HetSet(Eval* eval, Int frame)
+Int Intern_Extern_Size_HegthSet(Eval* eval, Int frame)
 {
     Int paramCount;
     paramCount = 2;
@@ -1942,7 +1942,7 @@ Int Intern_Extern_Size_HetSet(Eval* eval, Int frame)
     Param(1);
 
     Int a;
-    a = Size_HetSet(a0, a1);
+    a = Size_HegthSet(a0, a1);
 
     Return;
 }
