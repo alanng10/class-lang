@@ -241,12 +241,12 @@ public class InternInfra : Any
         return true;
     }
 
-    public virtual bool SizeSet(ulong size, long wed, long het)
+    public virtual bool SizeSet(ulong size, long width, long hegth)
     {
         ulong w;
         ulong h;
-        w = (ulong)wed;
-        h = (ulong)het;
+        w = (ulong)width;
+        h = (ulong)hegth;
 
         Extern.Size_WidthSet(size, w);
         Extern.Size_HegthSet(size, h);
