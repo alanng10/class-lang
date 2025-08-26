@@ -94,7 +94,7 @@ Word "load" has meaning that is effect load.
 
 Word "inter" has meaning that is interface.
 
-Word "implem" has meaning that is implemented.
+Word "implane" has meaning that is implemented.
 
 Word "solve" has meaning that is solved.
 
