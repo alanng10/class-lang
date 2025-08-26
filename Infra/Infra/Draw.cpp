@@ -318,21 +318,21 @@ Int Draw_Clear(Int o)
 
     Int size;
     size = m->Size;
-    Int wed;
+    Int width;
     Int het;
-    wed = Size_WidthGet(size);
+    width = Size_WidthGet(size);
     het = Size_HegthGet(size);
 
     Pos_ColSet(aPos, 0);
     Pos_RowSet(aPos, 0);
-    Size_WidthSet(aSize, wed);
+    Size_WidthSet(aSize, width);
     Size_HegthSet(aSize, het);
 
     Draw_AreaThisSet(o);
 
     int w;
     int h;
-    w = wed;
+    w = width;
     h = het;
 
     Draw_CompSet(o, null);
