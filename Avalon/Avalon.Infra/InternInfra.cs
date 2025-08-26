@@ -248,8 +248,8 @@ public class InternInfra : Any
         w = (ulong)wed;
         h = (ulong)het;
 
-        Extern.Size_WedSet(size, w);
-        Extern.Size_HetSet(size, h);
+        Extern.Size_WidthSet(size, w);
+        Extern.Size_HegthSet(size, h);
         return true;
     }
 
