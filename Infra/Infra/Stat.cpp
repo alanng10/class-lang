@@ -26,19 +26,19 @@ Int Stat_Init(Int o)
     QSizeF kb;
     kb = k->physicalSize();
 
-    int wedA;
+    int widthA;
     int hetA;
-    wedA = ka.width();
+    widthA = ka.width();
     hetA = ka.height();
 
-    Int wed;
+    Int width;
     Int het;
-    wed = wedA;
+    width = widthA;
     het = hetA;
 
     m->ScreenSize = Size_New();
     Size_Init(m->ScreenSize);
-    Size_WidthSet(m->ScreenSize, wed);
+    Size_WidthSet(m->ScreenSize, width);
     Size_HegthSet(m->ScreenSize, het);
 
     qreal wedB;
