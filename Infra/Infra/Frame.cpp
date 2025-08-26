@@ -97,10 +97,10 @@ Int Frame_Update(Int o, Int rect)
     row = Pos_RowGet(pos);
     Int size;
     size = Rect_SizeGet(rect);
-    Int wed;
-    Int het;
-    wed = Size_WedGet(size);
-    het = Size_HetGet(size);
+    Int width;
+    Int hegth;
+    width = Size_WidthGet(size);
+    hegth = Size_HegthGet(size);
 
     int c;
     int r;
@@ -108,8 +108,8 @@ Int Frame_Update(Int o, Int rect)
     int h;
     c = col;
     r = row;
-    w = wed;
-    h = het;
+    w = width;
+    h = hegth;
     m->Intern->update(c, r, w, h);
     return true;
 }
