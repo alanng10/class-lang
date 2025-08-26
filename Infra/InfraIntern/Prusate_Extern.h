@@ -159,10 +159,10 @@ Intern_Api Int Intern_Extern_Size_New(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Size_Delete(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Size_Init(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Size_Final(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Size_WedGet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Size_WedSet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Size_HetGet(Eval* e, Int f);
-Intern_Api Int Intern_Extern_Size_HetSet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Size_WidthGet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Size_WidthSet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Size_HegthGet(Eval* e, Int f);
+Intern_Api Int Intern_Extern_Size_HegthSet(Eval* e, Int f);
 
 Intern_Api Int Intern_Extern_Data_New(Eval* e, Int f);
 Intern_Api Int Intern_Extern_Data_Delete(Eval* e, Int f);
