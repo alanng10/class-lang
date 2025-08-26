@@ -68,8 +68,8 @@ Pos
     Row
 
 Size
-    Wed
-    Het
+    Width
+    Hegth
 
 Data
     Count
