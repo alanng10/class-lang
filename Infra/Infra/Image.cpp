@@ -69,20 +69,20 @@ Int Image_DataCreate(Int o)
     Int data;
     data = m->Data;
 
-    Int wed;
+    Int width;
     Int het;
-    wed = Size_WidthGet(size);
+    width = Size_WidthGet(size);
     het = Size_HegthGet(size);
     int wedU;
     int hetU;
-    wedU = wed;
+    wedU = width;
     hetU = het;
 
     Int pixelByteCount;
     pixelByteCount = 4;
 
     Int rowByteCount;
-    rowByteCount = wed * pixelByteCount;
+    rowByteCount = width * pixelByteCount;
 
     Int dataCount;
     dataCount = het * rowByteCount;
@@ -132,9 +132,9 @@ Int Image_SetReadIntern(Int o, Int value)
     qsizetype bytePerLine;
     bytePerLine = u->bytesPerLine();
 
-    Int wed;
+    Int width;
     Int het;
-    wed = wedU;
+    width = wedU;
     het = hetU;
     
     Int rowByteCount;
@@ -144,7 +144,7 @@ Int Image_SetReadIntern(Int o, Int value)
     pixelByteCount = 4;
 
     Int dataCount;
-    dataCount = wed * het * pixelByteCount;
+    dataCount = width * het * pixelByteCount;
 
     Int dataValue;
     dataValue = Environ_New(dataCount);
@@ -152,11 +152,11 @@ Int Image_SetReadIntern(Int o, Int value)
     Int source;
     source = CastInt(bits);
 
-    Image_DataCopy(o, dataValue, source, wed, het, rowByteCount);
+    Image_DataCopy(o, dataValue, source, width, het, rowByteCount);
 
     Int size;
     size = m->Size;
-    Size_WidthSet(size, wed);
+    Size_WidthSet(size, width);
     Size_HegthSet(size, het);
 
     Int data;
@@ -168,7 +168,7 @@ Int Image_SetReadIntern(Int o, Int value)
     dataValueU = (uchar*)dataValue;
 
     Int ka;
-    ka = wed * pixelByteCount;
+    ka = width * pixelByteCount;
     qsizetype uua;
     uua = ka;
 
