@@ -321,7 +321,7 @@ Int Draw_Clear(Int o)
     Int wed;
     Int het;
     wed = Size_WidthGet(size);
-    het = Size_HetGet(size);
+    het = Size_HegthGet(size);
 
     Pos_ColSet(aPos, 0);
     Pos_RowSet(aPos, 0);

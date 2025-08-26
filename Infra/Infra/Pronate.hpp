@@ -61,7 +61,7 @@ prefix##Row = Pos_RowGet(prefix##Pos);\
 Int prefix##Wed;\
 prefix##Wed = Size_WidthGet(prefix##Size);\
 Int prefix##Het;\
-prefix##Het = Size_HetGet(prefix##Size);\
+prefix##Het = Size_HegthGet(prefix##Size);\
 
 
 #define RectValue(prefix) \
