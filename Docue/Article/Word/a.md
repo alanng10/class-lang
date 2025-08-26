@@ -94,7 +94,7 @@ Word "load" has meaning that is effect load.
 
 Word "inter" has meaning that is interface.
 
-Word "inplane" has meaning that is implemented.
+Word "inplone" has meaning that is implemented.
 
 Word "solve" has meaning that is solved.
 
