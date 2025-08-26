@@ -274,7 +274,7 @@ Int Draw_AreaThisSet(Int o)
     l = aCol;
     u = aRow;
     w = aWidth;
-    h = aHet;
+    h = aHegth;
     if (l < 0)
     {
         l = 0;
@@ -350,7 +350,7 @@ Int Draw_Clear(Int o)
     Pos_ColSet(aPos, aCol);
     Pos_RowSet(aPos, aRow);
     Size_WidthSet(aSize, aWidth);
-    Size_HegthSet(aSize, aHet);
+    Size_HegthSet(aSize, aHegth);
 
     Draw_AreaThisSet(o);
     return true;
