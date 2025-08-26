@@ -9,8 +9,8 @@ Int Image_Init(Int o)
     Image* m;
     m = CP(o);
 
-    Size_WedSet(m->Size, 0);
-    Size_HetSet(m->Size, 0);
+    Size_WidthSet(m->Size, 0);
+    Size_HegthSet(m->Size, 0);
 
     Int dataCount;
     dataCount = 0;
