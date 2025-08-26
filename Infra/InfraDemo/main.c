@@ -198,7 +198,7 @@ Bool SetPos(Int pos, Int left, Int up)
 
 Bool SetSize(Int size, Int width, Int height)
 {
-    Size_WedSet(size, width);
+    Size_WidthSet(size, width);
     Size_HetSet(size, height);
     return true;
 }
@@ -250,7 +250,7 @@ Int DrawHandle(Int frame, Int arg)
 
     areaLeft = Pos_ColGet(areaPos);
     areaUp = Pos_RowGet(areaPos);
-    areaWidth = Size_WedGet(areaSize);
+    areaWidth = Size_WidthGet(areaSize);
     areaHeight = Size_HetGet(areaSize);
 
     Int aSize;
@@ -258,7 +258,7 @@ Int DrawHandle(Int frame, Int arg)
 
     Int aWidth;
     Int aHeight;
-    aWidth = Size_WedGet(aSize);
+    aWidth = Size_WidthGet(aSize);
     aHeight = Size_HetGet(aSize);
 
     areaLeft = AreaOffset;
