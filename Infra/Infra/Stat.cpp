@@ -41,17 +41,17 @@ Int Stat_Init(Int o)
     Size_WidthSet(m->ScreenSize, width);
     Size_HegthSet(m->ScreenSize, hegth);
 
-    qreal wedB;
+    qreal widthB;
     qreal hetB;
-    wedB = kb.width();
+    widthB = kb.width();
     hetB = kb.height();
 
-    ValueFromInternValue(wedB);
+    ValueFromInternValue(widthB);
     ValueFromInternValue(hetB);
 
     m->ScreenDimend = Size_New();
     Size_Init(m->ScreenDimend);
-    Size_WidthSet(m->ScreenDimend, wedBA);
+    Size_WidthSet(m->ScreenDimend, widthBA);
     Size_HegthSet(m->ScreenDimend, hetBA);
 
     return true;
