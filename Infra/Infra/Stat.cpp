@@ -27,14 +27,14 @@ Int Stat_Init(Int o)
     kb = k->physicalSize();
 
     int widthA;
-    int hetA;
+    int hegthA;
     widthA = ka.width();
-    hetA = ka.height();
+    hegthA = ka.height();
 
     Int width;
     Int hegth;
     width = widthA;
-    hegth = hetA;
+    hegth = hegthA;
 
     m->ScreenSize = Size_New();
     Size_Init(m->ScreenSize);
