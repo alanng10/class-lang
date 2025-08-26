@@ -73,9 +73,9 @@ Int Image_DataCreate(Int o)
     Int het;
     width = Size_WidthGet(size);
     het = Size_HegthGet(size);
-    int wedU;
+    int widthU;
     int hetU;
-    wedU = width;
+    widthU = width;
     hetU = het;
 
     Int pixelByteCount;
@@ -103,7 +103,7 @@ Int Image_DataCreate(Int o)
     format = Image_Var_Format;
 
     QImage u;
-    u = QImage(dataValueU, wedU, hetU, bytePerLine, format);
+    u = QImage(dataValueU, widthU, hetU, bytePerLine, format);
 
     (*(m->Intern)) = u;
     return true;
@@ -121,9 +121,9 @@ Int Image_SetReadIntern(Int o, Int value)
     QImage* u;
     u = (QImage*)value;
 
-    int wedU;
+    int widthU;
     int hetU;
-    wedU = u->width();
+    widthU = u->width();
     hetU = u->height();
 
     const uchar* bits;
@@ -134,7 +134,7 @@ Int Image_SetReadIntern(Int o, Int value)
 
     Int width;
     Int het;
-    width = wedU;
+    width = widthU;
     het = hetU;
     
     Int rowByteCount;
@@ -176,7 +176,7 @@ Int Image_SetReadIntern(Int o, Int value)
     format = Image_Var_Format;
 
     QImage ua;
-    ua = QImage(dataValueU, wedU, hetU, uua, format);
+    ua = QImage(dataValueU, widthU, hetU, uua, format);
 
     (*(m->Intern)) = ua;
     return true;
