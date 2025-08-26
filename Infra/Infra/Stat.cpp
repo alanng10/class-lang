@@ -32,14 +32,14 @@ Int Stat_Init(Int o)
     hetA = ka.height();
 
     Int width;
-    Int het;
+    Int hegth;
     width = widthA;
-    het = hetA;
+    hegth = hetA;
 
     m->ScreenSize = Size_New();
     Size_Init(m->ScreenSize);
     Size_WidthSet(m->ScreenSize, width);
-    Size_HegthSet(m->ScreenSize, het);
+    Size_HegthSet(m->ScreenSize, hegth);
 
     qreal wedB;
     qreal hetB;
