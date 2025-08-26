@@ -157,10 +157,10 @@ class Extern : Any
     maide prusate Int Size_Delete(var Int o) { }
     maide prusate Int Size_Init(var Int o) { }
     maide prusate Int Size_Final(var Int o) { }
-    maide prusate Int Size_WedGet(var Int o) { }
-    maide prusate Int Size_WedSet(var Int o, var Int value) { }
-    maide prusate Int Size_HetGet(var Int o) { }
-    maide prusate Int Size_HetSet(var Int o, var Int value) { }
+    maide prusate Int Size_WidthGet(var Int o) { }
+    maide prusate Int Size_WidthSet(var Int o, var Int value) { }
+    maide prusate Int Size_HegthGet(var Int o) { }
+    maide prusate Int Size_HegthSet(var Int o, var Int value) { }
 
     maide prusate Int Data_New() { }
     maide prusate Int Data_Delete(var Int o) { }
