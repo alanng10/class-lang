@@ -319,21 +319,21 @@ Int Draw_Clear(Int o)
     Int size;
     size = m->Size;
     Int width;
-    Int het;
+    Int hegth;
     width = Size_WidthGet(size);
-    het = Size_HegthGet(size);
+    hegth = Size_HegthGet(size);
 
     Pos_ColSet(aPos, 0);
     Pos_RowSet(aPos, 0);
     Size_WidthSet(aSize, width);
-    Size_HegthSet(aSize, het);
+    Size_HegthSet(aSize, hegth);
 
     Draw_AreaThisSet(o);
 
     int w;
     int h;
     w = width;
-    h = het;
+    h = hegth;
 
     Draw_CompSet(o, null);
     Draw_FormSet(o, null);
