@@ -161,10 +161,10 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong Size_Delete(ulong o);
     [DllImport(InfraLib)] public extern static ulong Size_Init(ulong o);
     [DllImport(InfraLib)] public extern static ulong Size_Final(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Size_WedGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Size_WedSet(ulong o, ulong value);
-    [DllImport(InfraLib)] public extern static ulong Size_HetGet(ulong o);
-    [DllImport(InfraLib)] public extern static ulong Size_HetSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Size_WidthGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Size_WidthSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong Size_HegthGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong Size_HegthSet(ulong o, ulong value);
 
     [DllImport(InfraLib)] public extern static ulong Data_New();
     [DllImport(InfraLib)] public extern static ulong Data_Delete(ulong o);
