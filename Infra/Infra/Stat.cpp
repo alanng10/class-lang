@@ -38,8 +38,8 @@ Int Stat_Init(Int o)
 
     m->ScreenSize = Size_New();
     Size_Init(m->ScreenSize);
-    Size_WedSet(m->ScreenSize, wed);
-    Size_HetSet(m->ScreenSize, het);
+    Size_WidthSet(m->ScreenSize, wed);
+    Size_HegthSet(m->ScreenSize, het);
 
     qreal wedB;
     qreal hetB;
@@ -51,8 +51,8 @@ Int Stat_Init(Int o)
 
     m->ScreenDimend = Size_New();
     Size_Init(m->ScreenDimend);
-    Size_WedSet(m->ScreenDimend, wedBA);
-    Size_HetSet(m->ScreenDimend, hetBA);
+    Size_WidthSet(m->ScreenDimend, wedBA);
+    Size_HegthSet(m->ScreenDimend, hetBA);
 
     return true;
 }
