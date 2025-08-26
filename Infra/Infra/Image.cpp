@@ -70,13 +70,13 @@ Int Image_DataCreate(Int o)
     data = m->Data;
 
     Int width;
-    Int het;
+    Int hegth;
     width = Size_WidthGet(size);
-    het = Size_HegthGet(size);
+    hegth = Size_HegthGet(size);
     int widthU;
-    int hetU;
+    int hegthU;
     widthU = width;
-    hetU = het;
+    hegthU = hegth;
 
     Int pixelByteCount;
     pixelByteCount = 4;
@@ -85,7 +85,7 @@ Int Image_DataCreate(Int o)
     rowByteCount = width * pixelByteCount;
 
     Int dataCount;
-    dataCount = het * rowByteCount;
+    dataCount = hegth * rowByteCount;
 
     Int dataValue;
     dataValue = Environ_New(dataCount);
@@ -103,7 +103,7 @@ Int Image_DataCreate(Int o)
     format = Image_Var_Format;
 
     QImage u;
-    u = QImage(dataValueU, widthU, hetU, bytePerLine, format);
+    u = QImage(dataValueU, widthU, hegthU, bytePerLine, format);
 
     (*(m->Intern)) = u;
     return true;
@@ -122,9 +122,9 @@ Int Image_SetReadIntern(Int o, Int value)
     u = (QImage*)value;
 
     int widthU;
-    int hetU;
+    int hegthU;
     widthU = u->width();
-    hetU = u->height();
+    hegthU = u->height();
 
     const uchar* bits;
     bits = u->constBits();
@@ -133,9 +133,9 @@ Int Image_SetReadIntern(Int o, Int value)
     bytePerLine = u->bytesPerLine();
 
     Int width;
-    Int het;
+    Int hegth;
     width = widthU;
-    het = hetU;
+    hegth = hegthU;
     
     Int rowByteCount;
     rowByteCount = bytePerLine;
@@ -144,7 +144,7 @@ Int Image_SetReadIntern(Int o, Int value)
     pixelByteCount = 4;
 
     Int dataCount;
-    dataCount = width * het * pixelByteCount;
+    dataCount = width * hegth * pixelByteCount;
 
     Int dataValue;
     dataValue = Environ_New(dataCount);
@@ -152,12 +152,12 @@ Int Image_SetReadIntern(Int o, Int value)
     Int source;
     source = CastInt(bits);
 
-    Image_DataCopy(o, dataValue, source, width, het, rowByteCount);
+    Image_DataCopy(o, dataValue, source, width, hegth, rowByteCount);
 
     Int size;
     size = m->Size;
     Size_WidthSet(size, width);
-    Size_HegthSet(size, het);
+    Size_HegthSet(size, hegth);
 
     Int data;
     data = m->Data;
@@ -176,7 +176,7 @@ Int Image_SetReadIntern(Int o, Int value)
     format = Image_Var_Format;
 
     QImage ua;
-    ua = QImage(dataValueU, widthU, hetU, uua, format);
+    ua = QImage(dataValueU, widthU, hegthU, uua, format);
 
     (*(m->Intern)) = ua;
     return true;
