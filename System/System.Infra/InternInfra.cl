@@ -355,7 +355,7 @@ class InternInfra : Any
         return true;
     }
 
-    maide prusate Bool RectSet(var Int rect, var Int col, var Int row, var Int wed, var Int het)
+    maide prusate Bool RectSet(var Int rect, var Int col, var Int row, var Int width, var Int hegth)
     {
         var Extern extern;
         extern : this.Extern;
@@ -368,7 +368,7 @@ class InternInfra : Any
         var Int size;
         size : extern.Rect_SizeGet(rect);
 
-        this.SizeSet(size, wed, het);
+        this.SizeSet(size, width, hegth);
         return true;
     }
 
