@@ -58,8 +58,8 @@ prefix##Row = Pos_RowGet(prefix##Pos);\
 
 
 #define SizeValue(prefix) \
-Int prefix##Wed;\
-prefix##Wed = Size_WidthGet(prefix##Size);\
+Int prefix##Width;\
+prefix##Width = Size_WidthGet(prefix##Size);\
 Int prefix##Het;\
 prefix##Het = Size_HegthGet(prefix##Size);\
 
@@ -86,7 +86,7 @@ InternValue(prefix##Row);\
 
 
 #define InternSizeValue(prefix) \
-InternValue(prefix##Wed);\
+InternValue(prefix##Width);\
 InternValue(prefix##Het);\
 
 
@@ -97,7 +97,7 @@ InternSizeValue(prefix);\
 
 #define InternPos(prefix) QPointF prefix##PosU(prefix##ColU, prefix##RowU);
 
-#define InternRect(prefix) QRectF prefix##RectU(prefix##ColU, prefix##RowU, prefix##WedU, prefix##HetU);
+#define InternRect(prefix) QRectF prefix##RectU(prefix##ColU, prefix##RowU, prefix##WidthU, prefix##HetU);
 
 #define ValueFromInternValue(a) \
 Int a##_u;\
