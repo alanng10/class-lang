@@ -306,12 +306,12 @@ class InternInfra : Any
         return true;
     }
 
-    maide prusate Bool SizeSet(var Int size, var Int wed, var Int het)
+    maide prusate Bool SizeSet(var Int size, var Int width, var Int hegth)
     {
         var Extern extern;
         extern : this.Extern;
-        extern.Size_WedSet(size, wed);
-        extern.Size_HetSet(size, het);
+        extern.Size_WidthSet(size, width);
+        extern.Size_HegthSet(size, hegth);
         return true;
     }
 
