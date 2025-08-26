@@ -203,7 +203,7 @@ public class InternInfra : Any
         return true;
     }
 
-    public virtual bool RectSet(ulong rect, long col, long row, long wed, long het)
+    public virtual bool RectSet(ulong rect, long col, long row, long width, long hegth)
     {
         ulong pos;
         pos = Extern.Rect_PosGet(rect);
@@ -213,7 +213,7 @@ public class InternInfra : Any
         ulong size;
         size = Extern.Rect_SizeGet(rect);
 
-        this.SizeSet(size, wed, het);
+        this.SizeSet(size, width, hegth);
         return true;
     }
 
