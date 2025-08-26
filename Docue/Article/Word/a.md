@@ -576,8 +576,6 @@ Word "place" has meaning that is replacement.
 
 Word "arg" has meaning that is parameter any.
 
-Word "width" has meaning that is field count.
-
 Word "main" has meaning that is thread loop.
 
 Word "exit" has meaning that is out of main.
