@@ -780,7 +780,7 @@ Word "size" has meaning that is length in dimensions.
 
 Word "width" has meaning that is length horizontal.
 
-Word "hegth" has meaning that is length vertical.
+Word "hegth" has meaning that is length vertical. 
 
 Word "depth" has meaning that is length frontal.
 
