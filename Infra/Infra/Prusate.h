@@ -213,10 +213,10 @@ Infra_Api Int Pos_RowGet(Int o);
 Infra_Api Int Pos_RowSet(Int o, Int value);
 
 InfraApiNew(Size)
-Infra_Api Int Size_WedGet(Int o);
-Infra_Api Int Size_WedSet(Int o, Int value);
-Infra_Api Int Size_HetGet(Int o);
-Infra_Api Int Size_HetSet(Int o, Int value);
+Infra_Api Int Size_WidthGet(Int o);
+Infra_Api Int Size_WidthSet(Int o, Int value);
+Infra_Api Int Size_HegthGet(Int o);
+Infra_Api Int Size_HegthSet(Int o, Int value);
 
 InfraApiNew(Data)
 Infra_Api Int Data_CountGet(Int o);
