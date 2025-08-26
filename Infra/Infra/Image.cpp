@@ -156,7 +156,7 @@ Int Image_SetReadIntern(Int o, Int value)
 
     Int size;
     size = m->Size;
-    Size_WedSet(size, wed);
+    Size_WidthSet(size, wed);
     Size_HetSet(size, het);
 
     Int data;

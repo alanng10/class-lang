@@ -325,7 +325,7 @@ Int Draw_Clear(Int o)
 
     Pos_ColSet(aPos, 0);
     Pos_RowSet(aPos, 0);
-    Size_WedSet(aSize, wed);
+    Size_WidthSet(aSize, wed);
     Size_HetSet(aSize, het);
 
     Draw_AreaThisSet(o);
@@ -349,7 +349,7 @@ Int Draw_Clear(Int o)
 
     Pos_ColSet(aPos, aCol);
     Pos_RowSet(aPos, aRow);
-    Size_WedSet(aSize, aWed);
+    Size_WidthSet(aSize, aWed);
     Size_HetSet(aSize, aHet);
 
     Draw_AreaThisSet(o);
@@ -609,7 +609,7 @@ Int Draw_ExecuteText(Int o, Int text, Int colAlign, Int rowAlign, Int wordWrap, 
     boundSize = Rect_SizeGet(boundRect);
     Pos_ColSet(boundPos, boundCA);
     Pos_RowSet(boundPos, boundRA);
-    Size_WedSet(boundSize, boundWA);
+    Size_WidthSet(boundSize, boundWA);
     Size_HetSet(boundSize, boundHA);
     return true;
 }
