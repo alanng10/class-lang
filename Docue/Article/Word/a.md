@@ -780,11 +780,11 @@ Word "dimend" has meaning that is dimension entity.
 
 Word "size" has meaning that is length in dimensions.
 
-Word "wed" has meaning that is length horizontal.
+Word "width" has meaning that is length horizontal.
 
-Word "het" has meaning that is length vertical.
+Word "hegth" has meaning that is length vertical.
 
-Word "dep" has meaning that is length frontal.
+Word "depth" has meaning that is length frontal.
 
 Word "rect" has meaning that is rectangle.
 
