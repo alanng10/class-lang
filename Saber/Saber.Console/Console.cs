@@ -69,7 +69,7 @@ public class Console : TextAdd
     protected virtual StorageComp StorageComp { get; set; }
     protected virtual BinaryRead BinaryRead { get; set; }
     protected virtual BinaryWrite BinaryWrite { get; set; }
-    protected virtual ModuleLoad ModuleLoad { get; set; }
+    protected virtual ModulePort ModuleLoad { get; set; }
     protected virtual PortRead PortRead { get; set; }
     protected virtual PortLoad PortLoad { get; set; }
     protected virtual BinaryGen BinaryGen { get; set; }
@@ -136,10 +136,10 @@ public class Console : TextAdd
         return a;
     }
 
-    protected virtual ModuleLoad CreateModuleLoad()
+    protected virtual ModulePort CreateModuleLoad()
     {
-        ModuleLoad a;
-        a = new ModuleLoad();
+        ModulePort a;
+        a = new ModulePort();
         a.Init();
         return a;
     }
