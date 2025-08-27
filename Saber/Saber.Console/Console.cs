@@ -444,7 +444,7 @@ public class Console : TextAdd
 
         portLoad.Port = this.Port;
         portLoad.BinaryRead = this.BinaryRead;
-        portLoad.ModuleLoad = this.ModuleLoad;
+        portLoad.ModulePort = this.ModuleLoad;
         portLoad.ModuleTable = this.ModuleTable;
         portLoad.ImportClass = this.ImportClass;
         portLoad.NameValid = this.NameValid;
@@ -472,7 +472,7 @@ public class Console : TextAdd
         portLoad.NameValid = null;
         portLoad.ImportClass = null;
         portLoad.ModuleTable = null;
-        portLoad.ModuleLoad = null;
+        portLoad.ModulePort = null;
         portLoad.BinaryRead = null;
         portLoad.Port = null;
         return true;
