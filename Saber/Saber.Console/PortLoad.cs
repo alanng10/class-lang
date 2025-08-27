@@ -27,7 +27,7 @@ public class PortLoad : TextAdd
     public virtual ClassModule Module { get; set; }
     public virtual long Status { get; set; }
     public virtual Array Error { get; set; }
-    public virtual ModulePort ModuleLoad { get; set; }
+    public virtual ModulePort ModulePort { get; set; }
     public virtual BinaryRead BinaryRead { get; set; }
     public virtual Table ModuleTable { get; set; }
     public virtual Table ImportClass { get; set; }
@@ -61,8 +61,8 @@ public class PortLoad : TextAdd
         this.ImportModuleRefArray = null;
         this.ImportDependTable = null;
         this.BinaryDependTable = null;
-        this.ModuleLoad.BinaryTable = null;
-        this.ModuleLoad.ModuleTable = null;
+        this.ModulePort.BinaryTable = null;
+        this.ModulePort.ModuleTable = null;
         this.ErrorList = null;
         this.ModuleRef = null;
 
@@ -466,7 +466,7 @@ public class PortLoad : TextAdd
         listInfra = this.ListInfra;
 
         ModulePort moduleLoad;
-        moduleLoad = this.ModuleLoad;
+        moduleLoad = this.ModulePort;
 
         moduleLoad.BinaryTable = this.BinaryTable;
         moduleLoad.ModuleTable = this.ModuleTable;
