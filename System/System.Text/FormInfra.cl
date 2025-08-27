@@ -37,7 +37,7 @@ class FormInfra : Any
         return this.Range(start, end, value);
     }
 
-    maide prusate Bool Alpha(var Int n, var Bool nite)
+    maide prusate Bool Alpha(var Int value, var Bool nite)
     {
         var Int start;
         var Int end;
@@ -52,16 +52,16 @@ class FormInfra : Any
             start : this.Char("a");
             end : this.Char("z");
         }
-        return this.Range(start, end, n);
+        return this.Range(start, end, value);
     }
 
-    maide prusate Bool Range(var Int start, var Int end, var Int n)
+    maide prusate Bool Range(var Int start, var Int end, var Int value)
     {
         inf (end < start)
         {
             return false;
         }
-        return ~((n < start) | (end < n));
+        return ~((value < start) | (end < value));
     }
 
     maide prusate Int Char(var String k)
