@@ -465,11 +465,11 @@ public class PortLoad : TextAdd
         ListInfra listInfra;
         listInfra = this.ListInfra;
 
-        ModulePort moduleLoad;
-        moduleLoad = this.ModulePort;
+        ModulePort modulePort;
+        modulePort = this.ModulePort;
 
-        moduleLoad.BinaryTable = this.BinaryTable;
-        moduleLoad.ModuleTable = this.ModuleTable;
+        modulePort.BinaryTable = this.BinaryTable;
+        modulePort.ModuleTable = this.ModuleTable;
 
         Table table;
         table = this.ModuleTable;
@@ -483,15 +483,15 @@ public class PortLoad : TextAdd
             ModuleRef moduleRef;
             moduleRef = iter.Index as ModuleRef;
 
-            moduleLoad.ModuleRef = moduleRef;
+            modulePort.ModuleRef = moduleRef;
 
             bool b;
-            b = moduleLoad.Execute();
+            b = modulePort.Execute();
 
             if (!b)
             {
                 long o;
-                o = moduleLoad.Status;
+                o = modulePort.Status;
 
                 String k;
                 k = this.ModuleRefString(moduleRef);
@@ -503,10 +503,10 @@ public class PortLoad : TextAdd
             }
 
             ClassModule a;
-            a = moduleLoad.Module;
+            a = modulePort.Module;
 
-            moduleLoad.Module = null;
-            moduleLoad.ModuleRef = null;
+            modulePort.Module = null;
+            modulePort.ModuleRef = null;
 
             listInfra.TableAdd(table, a.Ref, a);
         }
