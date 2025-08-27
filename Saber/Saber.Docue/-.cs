@@ -12,4 +12,3 @@ global using StorageComp = Avalon.Storage.Comp;
 global using StorageInfra = Avalon.Storage.Infra;
 global using EntryEntry = Avalon.Entry.Entry;
 global using ClassInfra = Saber.Infra.Infra;
-global using ModuleLoad = Saber.Console.ModulePort;
