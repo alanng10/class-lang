@@ -17,7 +17,7 @@ public class Console : TextAdd
         this.BinaryRead = this.CreateBinaryRead();
         this.BinaryWrite = this.CreateBinaryWrite();
 
-        this.ModulePort = this.CreateModuleLoad();
+        this.ModulePort = this.CreateModulePort();
 
         this.PortLoad = this.CreatePortLoad();
 
@@ -136,7 +136,7 @@ public class Console : TextAdd
         return a;
     }
 
-    protected virtual ModulePort CreateModuleLoad()
+    protected virtual ModulePort CreateModulePort()
     {
         ModulePort a;
         a = new ModulePort();
