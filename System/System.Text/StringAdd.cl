@@ -45,7 +45,7 @@ class StringAdd : Any
         return true;
     }
 
-    maide prusate Bool Execute(var Int n)
+    maide prusate Bool Execute(var Int value)
     {
         var InfraInfra infraInfra;
         infraInfra : this.InfraInfra;
@@ -90,7 +90,7 @@ class StringAdd : Any
         var Int ke;
         ke : count * kka;
 
-        infraInfra.DataCharSet(data, ke, n);
+        infraInfra.DataCharSet(data, ke, value);
 
         count : count + 1;
 
