@@ -1,7 +1,7 @@
 class Form : Any
 {
-    maide prusate Int Execute(var Int n)
+    maide prusate Int Execute(var Int value)
     {
-        return n;
+        return value;
     }
 }
