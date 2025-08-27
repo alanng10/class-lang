@@ -126,7 +126,7 @@ Word "perform" has meaning that is performance level.
 
 Word "speed" has meaning that is operate rate.
 
-Word "capacit" has meaning that is size space.
+Word "capaci" has meaning that is size space.
 
 Word "publish" has meaning that is published.
 
