@@ -415,10 +415,10 @@ class InternInfra : Any
         return true;
     }
 
-    maide prusate Int TypeIndexFromInternIndex(var Int n)
+    maide prusate Int TypeIndexFromInternIndex(var Int value)
     {
         var Int k;
-        k : n;
+        k : value;
 
         var Int na;
         na : 0h01000000;
