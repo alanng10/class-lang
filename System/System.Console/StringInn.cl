@@ -85,7 +85,7 @@ class StringInn : Inn
         return true;
     }
 
-    maide private Int StringIndex(var String k, var Int index, var Int n)
+    maide private Int StringIndex(var String k, var Int index, var Int value)
     {
         var StringComp stringComp;
         stringComp : this.StringComp;
@@ -100,7 +100,7 @@ class StringInn : Inn
             var Int ka;
             ka : stringComp.Char(k, i);
             
-            inf (ka = n)
+            inf (ka = value)
             {
                 return i;
             }
