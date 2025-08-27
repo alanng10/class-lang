@@ -9,14 +9,14 @@ class FormInfra : Any
 
     field prusate StringComp StringComp { get { return data; } set { data : value; } }
 
-    maide prusate Bool Digit(var Int n)
+    maide prusate Bool Digit(var Int value)
     {
         var Int ka;
         var Int kb;
         ka : this.Char("0");
         kb : this.Char("9");
 
-        return this.Range(ka, kb, n);
+        return this.Range(ka, kb, value);
     }
 
     maide prusate Bool HexAlpha(var Int n, var Bool nite)
