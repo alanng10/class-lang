@@ -19,7 +19,7 @@ class FormInfra : Any
         return this.Range(ka, kb, value);
     }
 
-    maide prusate Bool HexAlpha(var Int n, var Bool nite)
+    maide prusate Bool HexAlpha(var Int value, var Bool nite)
     {
         var Int start;
         var Int end;
@@ -34,7 +34,7 @@ class FormInfra : Any
             start : this.Char("a");
             end : this.Char("f");
         }
-        return this.Range(start, end, n);
+        return this.Range(start, end, value);
     }
 
     maide prusate Bool Alpha(var Int n, var Bool nite)
