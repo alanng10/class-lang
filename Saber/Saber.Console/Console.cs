@@ -17,7 +17,7 @@ public class Console : TextAdd
         this.BinaryRead = this.CreateBinaryRead();
         this.BinaryWrite = this.CreateBinaryWrite();
 
-        this.ModuleLoad = this.CreateModuleLoad();
+        this.ModulePort = this.CreateModuleLoad();
 
         this.PortLoad = this.CreatePortLoad();
 
@@ -69,7 +69,7 @@ public class Console : TextAdd
     protected virtual StorageComp StorageComp { get; set; }
     protected virtual BinaryRead BinaryRead { get; set; }
     protected virtual BinaryWrite BinaryWrite { get; set; }
-    protected virtual ModulePort ModuleLoad { get; set; }
+    protected virtual ModulePort ModulePort { get; set; }
     protected virtual PortRead PortRead { get; set; }
     protected virtual PortLoad PortLoad { get; set; }
     protected virtual BinaryGen BinaryGen { get; set; }
@@ -444,7 +444,7 @@ public class Console : TextAdd
 
         portLoad.Port = this.Port;
         portLoad.BinaryRead = this.BinaryRead;
-        portLoad.ModulePort = this.ModuleLoad;
+        portLoad.ModulePort = this.ModulePort;
         portLoad.ModuleTable = this.ModuleTable;
         portLoad.ImportClass = this.ImportClass;
         portLoad.NameValid = this.NameValid;
