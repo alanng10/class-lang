@@ -2430,7 +2430,7 @@ public class ClassGen : TextAdd
         return true;
     }
 
-    public virtual bool ExecuteOperateLimitAC(String limit)
+    public virtual bool ExecuteOperateLimitAB(String limit)
     {
         String varA;
         String varB;
