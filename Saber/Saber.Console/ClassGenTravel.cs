@@ -747,7 +747,7 @@ public class ClassGenTravel : Travel
     {
         base.ExecuteBitSignRiteOperate(bitSignRiteOperate);
 
-        this.Gen.ExecuteOperateLimitAC(this.Gen.LimitBitRite);
+        this.Gen.ExecuteOperateLimitAB(this.Gen.LimitBitRite);
         return true;
     }
 
