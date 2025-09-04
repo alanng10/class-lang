@@ -81,7 +81,6 @@ public class ClassGenTravel : Travel
         return true;
     }
 
-
     public override bool ExecuteState(State state)
     {
         ClassGen gen;
