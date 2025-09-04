@@ -2501,6 +2501,8 @@ public class ClassGen : TextAdd
 
         this.OperateLimit(varA, varA, varB, limit);
 
+        this.VarMaskClear(varA, this.RefKindClearMask);
+
         this.VarMaskSet(varA, this.RefKindIntMask);
 
         this.EvalValueSet(2, varA);
