@@ -82,11 +82,6 @@ public class StringTravel : Travel
 
     protected virtual bool ExecuteResultSet()
     {
-        InfraInfra infraInfra;
-        infraInfra = this.InfraInfra;
-        ListInfra listInfra;
-        listInfra = this.ListInfra;
-
         Data data;
         data = this.Arg.ClassCountData;
 
@@ -106,12 +101,12 @@ public class StringTravel : Travel
             ka = i * sizeof(long);
 
             long stringCount;
-            stringCount = infraInfra.DataIntGet(data, ka);
+            stringCount = this.InfraInfra.DataIntGet(data, ka);
 
             Array array;
-            array = listInfra.ArrayCreate(stringCount);
+            array = this.ListInfra.ArrayCreate(stringCount);
 
-            listInfra.ArrayCopy(array, 0, stringArray, totalString, stringCount);
+            this.ListInfra.ArrayCopy(array, 0, stringArray, totalString, stringCount);
 
             this.Result.SetAt(i, array);
 
