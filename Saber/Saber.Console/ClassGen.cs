@@ -2414,6 +2414,7 @@ public class ClassGen : TextAdd
         this.EvalValueGet(2, varA);
         this.EvalValueGet(1, varB);
 
+        this.VarMaskClear(varA, ka);
         this.VarMaskClear(varB, ka);
 
         this.OperateLimit(varA, varA, varB, limit);
