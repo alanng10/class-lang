@@ -336,7 +336,7 @@ Word "model" has meaning that is model any.
 
 Word "struct" has meaning that is structure.
 
-Word "delgate" has meaning that is call interface.
+Word "degate" has meaning that is call interface.
 
 Word "macro" has meaning that is macro define.
 
