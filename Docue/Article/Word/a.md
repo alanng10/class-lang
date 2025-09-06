@@ -340,7 +340,7 @@ Word "delgate" has meaning that is call interface.
 
 Word "macro" has meaning that is macro define.
 
-Word "assembe" has meaning that is assembly.
+Word "assem" has meaning that is assembly.
 
 Word "native" has meaning that is native.
 
