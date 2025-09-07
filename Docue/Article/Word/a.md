@@ -56,7 +56,7 @@ Word "client" has meaning that is user.
 
 Word "group" has meaning that is group entity.
 
-Word "infini" has meaning that is infinity.
+Word "infane" has meaning that is infinity.
 
 Word "ready" has meaning that is already.
 
