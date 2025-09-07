@@ -362,7 +362,7 @@ Word "break" has meaning that is breaked.
 
 Word "specify" has meaning that is specific.
 
-Word "perspec" has meaning that is perspective.
+Word "specam" has meaning that is perspective.
 
 Word "regex" has meaning that is regular expression.
 
