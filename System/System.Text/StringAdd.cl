@@ -9,16 +9,16 @@ class StringAdd : Any
         this.Range : new Range;
         this.Range.Init();
 
-        var Int capacity;
-        capacity : 16;
+        var Int capaci;
+        capaci : 16;
 
         var Data data;
         data : new Data;
-        data.Count : capacity * 4;
+        data.Count : capaci * 4;
         data.Init();
 
         this.Data : data;
-        this.Capaci : capacity;
+        this.Capaci : capaci;
         return true;
     }
 
@@ -51,9 +51,9 @@ class StringAdd : Any
         infraInfra : this.InfraInfra;
 
         var Int count;
-        var Int capacity;
+        var Int capaci;
         count : this.Count;
-        capacity : this.Capaci;
+        capaci : this.Capaci;
 
         var Data data;
         data : this.Data;
@@ -61,10 +61,10 @@ class StringAdd : Any
         var Int kka;
         kka : 4;
 
-        inf (~(count < capacity))
+        inf (~(count < capaci))
         {
             var Int ka;
-            ka : capacity * 2;
+            ka : capaci * 2;
 
             var Int kd;
             kd : ka * kka;
@@ -80,11 +80,11 @@ class StringAdd : Any
 
             data : k;
 
-            capacity : ka;
+            capaci : ka;
 
             this.Data : data;
 
-            this.Capaci : capacity;
+            this.Capaci : capaci;
         }
 
         var Int ke;
