@@ -47,9 +47,6 @@ class StringAdd : Any
 
     maide prusate Bool Execute(var Int value)
     {
-        var InfraInfra infraInfra;
-        infraInfra : this.InfraInfra;
-
         var Int count;
         var Int capaci;
         count : this.Count;
@@ -76,7 +73,7 @@ class StringAdd : Any
 
             var Int kk;
             kk : count * kka;
-            infraInfra.DataCopy(k, 0, data, 0, kk);
+            this.InfraInfra.DataCopy(k, 0, data, 0, kk);
 
             data : k;
 
@@ -90,7 +87,7 @@ class StringAdd : Any
         var Int ke;
         ke : count * kka;
 
-        infraInfra.DataCharSet(data, ke, value);
+        this.InfraInfra.DataCharSet(data, ke, value);
 
         count : count + 1;
 
