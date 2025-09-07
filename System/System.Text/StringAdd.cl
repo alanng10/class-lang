@@ -18,7 +18,7 @@ class StringAdd : Any
         data.Init();
 
         this.Data : data;
-        this.Capacity : capacity;
+        this.Capaci : capacity;
         return true;
     }
 
@@ -27,7 +27,7 @@ class StringAdd : Any
     field precate Range Range { get { return data; } set { data : value; } }
     field private Data Data { get { return data; } set { data : value; } }
     field private Int Count { get { return data; } set { data : value; } }
-    field private Int Capacity { get { return data; } set { data : value; } }
+    field private Int Capaci { get { return data; } set { data : value; } }
 
     maide prusate String Result()
     {
@@ -53,7 +53,7 @@ class StringAdd : Any
         var Int count;
         var Int capacity;
         count : this.Count;
-        capacity : this.Capacity;
+        capacity : this.Capaci;
 
         var Data data;
         data : this.Data;
@@ -84,7 +84,7 @@ class StringAdd : Any
 
             this.Data : data;
 
-            this.Capacity : capacity;
+            this.Capaci : capacity;
         }
 
         var Int ke;
