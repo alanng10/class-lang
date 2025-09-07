@@ -370,7 +370,7 @@ Word "pattern" has meaning that is pattern entity.
 
 Word "filter" has meaning that is filter.
 
-Word "unique" has meaning that is only one in type.
+Word "onfon" has meaning that is only one in type.
 
 Word "proced" has meaning that is procedure.
 
