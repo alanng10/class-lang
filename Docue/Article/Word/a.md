@@ -376,6 +376,8 @@ Word "filter" has meaning that is filter.
 
 Word "onfon" has meaning that is only one in type.
 
+Word "carrier" has meaning that is logical.
+
 Word "proced" has meaning that is procedure.
 
 Word "interen" has meaning that is interrupt.
