@@ -56,6 +56,8 @@ Word "client" has meaning that is user.
 
 Word "group" has meaning that is group entity.
 
+Word "geno" has meaning that is generalize.
+
 Word "infane" has meaning that is infinity.
 
 Word "ready" has meaning that is already.
