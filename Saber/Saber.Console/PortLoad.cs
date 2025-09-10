@@ -18,7 +18,6 @@ public class PortLoad : TextAdd
         this.SystemModuleSingle = this.S("System");
         this.SystemModulePre = this.AddClear().Add(this.SystemModuleSingle).Add(this.ClassInfra.TextDot).AddResult();
 
-        this.SDotRef = this.S(".ref");
         this.SModule = this.S("Module");
         return true;
     }
@@ -48,7 +47,6 @@ public class PortLoad : TextAdd
     protected virtual ModuleRef ModuleRef { get; set; }
     protected virtual String SystemModuleSingle { get; set; }
     protected virtual String SystemModulePre { get; set; }
-    protected virtual String SDotRef { get; set; }
     protected virtual String SModule { get; set; }
 
     public virtual bool Execute()
