@@ -413,7 +413,8 @@ public class PortLoad : TextAdd
 
         String filePath;
         filePath = this.AddClear().Add(this.ClassInfra.ClassModulePath(this.ClassPath))
-            .Add(this.TextInfra.PathCombine).Add(moduleRefString).Add(this.SDotRef).AddResult();
+            .Add(this.TextInfra.PathCombine).Add(moduleRefString)
+            .Add(this.TextInfra.PathCombine).Add(this.SModule).AddResult();
 
         Data data;
         data = this.StorageInfra.DataRead(filePath);
