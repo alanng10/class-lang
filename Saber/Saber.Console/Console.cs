@@ -47,7 +47,6 @@ public class Console : TextAdd
         this.SClassDotPort = this.S("Class.Port");
         this.SDotCl = this.S(".cl");
         this.SModule = this.S("Module");
-        this.SRef = this.S("ref");
         return true;
     }
 
@@ -92,7 +91,6 @@ public class Console : TextAdd
     protected virtual String SClassDotPort { get; set; }
     protected virtual String SDotCl { get; set; }
     protected virtual String SModule { get; set; }
-    protected virtual String SRef { get; set; }
 
     protected virtual NameValid CreateNameValid()
     {
