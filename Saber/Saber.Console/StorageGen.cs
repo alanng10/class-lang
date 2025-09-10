@@ -8,7 +8,7 @@ public class StorageGen : TextAdd
         this.StorageInfra = StorageInfra.This;
         this.ClassInfra = ClassInfra.This;
         this.StorageComp = StorageComp.This;
-        this.SData = this.S("data");
+        this.SData = this.S("Data");
         return true;
     }
 
