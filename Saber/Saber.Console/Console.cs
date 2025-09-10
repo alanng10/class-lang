@@ -605,40 +605,19 @@ public class Console : TextAdd
             .Add(this.TextInfra.PathCombine)
             .Add(moduleRefString).AddResult();
 
-        if (this.StorageComp.Exist(foldPath))
-        {
-            bool ba;
-            ba = this.StorageComp.Fold(foldPath);
-
-            if (!ba)
-            {
-                this.Status = 5000 + 10;
-                return false;
-            }
-            if (ba)
-            {
-                bool baa;
-                baa = this.StorageComp.FoldDelete(foldPath);
-
-                if (!baa)
-                {
-                    this.Status = 5000 + 20;
-                    return false;
-                }
-            }
-        }
+        this.StorageComp.FoldDelete(foldPath);
 
         this.StorageComp.FoldCreate(foldPath);
 
         if (!this.StorageComp.Exist(foldPath))
         {
-            this.Status = 5000 + 30;
+            this.Status = 5000 + 10;
             return false;
         }
 
         if (!this.StorageComp.Fold(foldPath))
         {
-            this.Status = 5000 + 40;
+            this.Status = 5000 + 20;
             return false;
         }
 
@@ -651,7 +630,7 @@ public class Console : TextAdd
 
         if (!b)
         {
-            this.Status = 5000 + 50;
+            this.Status = 5000 + 30;
             return false;
         }
 
