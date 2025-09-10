@@ -628,13 +628,7 @@ public class Console : TextAdd
             }
         }
 
-        bool bb;
-        bb = this.StorageComp.FoldCreate(foldPath);
-        if (!bb)
-        {
-            this.Status = 5000 + 30;
-            return false;
-        }
+        this.StorageComp.FoldCreate(foldPath);
 
         if (!this.StorageComp.Exist(foldPath))
         {
