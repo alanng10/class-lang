@@ -46,6 +46,7 @@ public class Console : TextAdd
         this.SFlagM = this.S("-m");
         this.SClassDotPort = this.S("Class.Port");
         this.SDotCl = this.S(".cl");
+        this.SModule = this.S("Module");
         this.SRef = this.S("ref");
         return true;
     }
@@ -90,6 +91,7 @@ public class Console : TextAdd
     protected virtual String SFlagM { get; set; }
     protected virtual String SClassDotPort { get; set; }
     protected virtual String SDotCl { get; set; }
+    protected virtual String SModule { get; set; }
     protected virtual String SRef { get; set; }
 
     protected virtual NameValid CreateNameValid()
@@ -598,17 +600,53 @@ public class Console : TextAdd
         this.BinaryWrite.Result = null;
         this.BinaryWrite.Binary = null;
 
-        String filePath;
-        filePath = this.AddClear().Add(this.ClassInfra.ClassModulePath(this.ClassPath))
+        String foldPath;
+        foldPath = this.AddClear().Add(this.ClassInfra.ClassModulePath(this.ClassPath))
             .Add(this.TextInfra.PathCombine)
-            .Add(moduleRefString).Add(this.ClassInfra.TextDot).Add(this.SRef).AddResult();
+            .Add(moduleRefString).AddResult();
+
+        if (this.StorageComp.Exist(foldPath))
+        {
+            bool ba;
+            ba = this.StorageComp.Fold(foldPath);
+
+            if (!ba)
+            {
+                this.Status = 5000 + 10;
+                return false;
+            }
+            if (ba)
+            {
+                bool baa;
+                baa = this.StorageComp.FoldDelete(foldPath);
+
+                if (!baa)
+                {
+                    this.Status = 5000 + 20;
+                    return false;
+                }
+            }
+        }
+
+        bool bb;
+        bb = this.StorageComp.FoldCreate(foldPath);
+
+        if (!bb)
+        {
+            this.Status = 5000 + 30;
+            return false;
+        }
+
+        String filePath;
+        filePath = this.AddClear().Add(foldPath).Add(this.TextInfra.PathCombine)
+            .Add(this.SModule).AddResult();
 
         bool b;
         b = this.StorageInfra.DataWrite(filePath, data);
 
         if (!b)
         {
-            this.Status = 5000 + 10;
+            this.Status = 5000 + 40;
             return false;
         }
 
