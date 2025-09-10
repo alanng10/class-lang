@@ -630,10 +630,21 @@ public class Console : TextAdd
 
         bool bb;
         bb = this.StorageComp.FoldCreate(foldPath);
-
         if (!bb)
         {
             this.Status = 5000 + 30;
+            return false;
+        }
+
+        if (!this.StorageComp.Exist(foldPath))
+        {
+            this.Status = 5000 + 40;
+            return false;
+        }
+
+        if (!this.StorageComp.Fold(foldPath))
+        {
+            this.Status = 5000 + 50;
             return false;
         }
 
@@ -646,7 +657,7 @@ public class Console : TextAdd
 
         if (!b)
         {
-            this.Status = 5000 + 40;
+            this.Status = 5000 + 60;
             return false;
         }
 
