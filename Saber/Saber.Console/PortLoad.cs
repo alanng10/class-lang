@@ -21,6 +21,7 @@ public class PortLoad : TextAdd
         this.SModule = this.S("Module");
         return true;
     }
+
     public virtual PortPort Port { get; set; }
     public virtual bool SystemModule { get; set; }
     public virtual ClassModule Module { get; set; }
