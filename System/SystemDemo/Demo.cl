@@ -1032,14 +1032,14 @@ class Demo : Add
     maide private Bool ExecuteStorage()
     {
         var String k;
-        k : this.StorageInfra.TextRead("SystemDemo-96207.08.47.data/A.txt");
+        k : this.StorageInfra.TextRead("SystemDemo-96207.08.47/Data/A.txt");
 
         var Bool b;
         b : this.TextSame(this.TA(k), this.TB("HH jj o i 可 的水 。，\n的d E 0 - +\n"));
 
         this.Console.Out.Write(this.AddClear().Add("Storage Infra Read ").Add(this.StatusString(b)).AddLine().AddResult());
 
-        this.StorageComp.ThisFoldSet("SystemDemo-96207.08.47.data");
+        this.StorageComp.ThisFoldSet("SystemDemo-96207.08.47/Data");
 
         var String ka;
         ka : this.StorageInfra.TextRead("A.txt");
@@ -1048,7 +1048,7 @@ class Demo : Add
 
         this.Console.Out.Write(this.AddClear().Add("StorageComp ThisFold Set Read ").Add(this.StatusString(b)).AddLine().AddResult());
 
-        this.StorageComp.ThisFoldSet("..");
+        this.StorageComp.ThisFoldSet("../..");
         return true;
     }
 
