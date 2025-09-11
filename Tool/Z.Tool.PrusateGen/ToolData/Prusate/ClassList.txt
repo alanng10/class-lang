@@ -278,7 +278,7 @@ StorageComp
     FoldCreate(path)
     FoldCopy(path, destPath)
     FoldDelete(path)
-    EntryInfo(path)
+    Entry(result, path)
     EntryList(path, fold)
     ThisFoldGet()
     ThisFoldSet(path)
