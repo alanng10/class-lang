@@ -708,6 +708,17 @@ public class LibraryGen : TextAdd
         List list;
         list = new List();
         list.Init();
+        list.Add(this.S("-pipe"));
+        list.Add(this.S("-fno-strict-aliasing"));
+        list.Add(this.S("-O0"));
+        list.Add(this.S("-std=gnu11"));
+        list.Add(this.S("-Wall"));
+        list.Add(this.S("-Wno-ignored-attributes"));
+        list.Add(this.S("-Wno-bitwise-instead-of-logical"));
+        list.Add(this.S("-Wno-unused-but-set-variable"));
+        list.Add(this.S("-Wno-unused-variable"));
+        list.Add(this.S("-I."));
+        list.Add(this.S("-I../.."));
 
         Program program;
         program = new Program();
