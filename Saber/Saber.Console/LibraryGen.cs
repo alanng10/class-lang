@@ -219,17 +219,10 @@ public class LibraryGen : TextAdd
             return false;
         }
 
-        b = this.ExecuteImportArg();
-        if (!b)
-        {
-            this.Status = 30;
-            return false;
-        }
-
         b = this.ExecuteMakeLib();
         if (!b)
         {
-            this.Status = 40;
+            this.Status = 30;
             return false;
         }
 
@@ -238,21 +231,21 @@ public class LibraryGen : TextAdd
             b = this.ExecuteModuleRefString();
             if (!b)
             {
-                this.Status = 50;
+                this.Status = 40;
                 return false;
             }
 
             b = this.ExecuteModuleExeSource();
             if (!b)
             {
-                this.Status = 60;
+                this.Status = 50;
                 return false;
             }
 
             b = this.ExecuteMakeExe();
             if (!b)
             {
-                this.Status = 70;
+                this.Status = 60;
                 return false;
             }
         }
@@ -261,7 +254,7 @@ public class LibraryGen : TextAdd
 
         if (!b)
         {
-            this.Status = 80;
+            this.Status = 70;
             return false;
         }
 
