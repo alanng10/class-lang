@@ -1,8 +1,12 @@
 @echo off
 
+call Var
+
 set ModuleRef=%~1
 
 set SourceFold=.\Gen\%ModuleRef%
+
+set /p ClassPath=<ClassPath.txt
 
 set /p Import=<%SourceFold%\Import.txt
 
