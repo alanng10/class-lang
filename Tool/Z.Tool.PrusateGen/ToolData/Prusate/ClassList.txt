@@ -289,7 +289,6 @@ StorageEntry
     Fold
     CreateTime
     ModifyTime
-    AccessTime
     Owner
     Group
     Permit
