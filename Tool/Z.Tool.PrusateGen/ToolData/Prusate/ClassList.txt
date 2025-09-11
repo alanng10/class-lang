@@ -287,6 +287,8 @@ StorageEntry
     Name
     Exist
     Fold
+    CreateTime
+    ModifyTime
     Owner
     Group
     Permit
