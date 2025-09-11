@@ -134,7 +134,7 @@ Word "capaci" has meaning that is size space.
 
 Word "publish" has meaning that is published.
 
-Word "storey" has meaning that is repository.
+Word "storey" has meaning that is store repository.
 
 Word "persist" has meaning that is persist entity.
 
