@@ -717,7 +717,7 @@ public class LibraryGen : TextAdd
         list = new List();
         list.Init();
         list.Add(this.S("/c"));
-        list.Add(this.AddClear().AddS("Make").Add(ka).AddS(".cmd ").Add(this.ModuleRefString).AddResult());
+        list.Add(this.AddClear().AddS("MakeLib").Add(ka).AddS(".cmd ").Add(this.ModuleRefString).AddResult());
 
         Program program;
         program = new Program();
