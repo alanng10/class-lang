@@ -136,6 +136,8 @@ Word "publish" has meaning that is published.
 
 Word "storey" has meaning that is store repository.
 
+Word "repo" has meaning that is repository.
+
 Word "persist" has meaning that is persist entity.
 
 Word "permane" has meaning that is permanent entity.
