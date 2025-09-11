@@ -736,10 +736,10 @@ public class LibraryGen : TextAdd
             i = 0;
             while (i < count)
             {
-                String a;
-                a = moduleRefStringArray.GetAt(i) as String;
+                String ka;
+                ka = moduleRefStringArray.GetAt(i) as String;
 
-                list.Add(this.AddClear().AddS("-l").Add(a).AddResult());
+                list.Add(this.AddClear().AddS("-l").Add(ka).AddResult());
 
                 i = i + 1;
             }
