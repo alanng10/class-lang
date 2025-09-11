@@ -22,14 +22,17 @@ Single is not enough general to make model package.
 
 Class is most gain program lang in make class for effect.
 
+Make module with Single has develop execute certain.
+
+Single has more high develop execute certain than Sand in
+make class for effect.
+
+Single is effecon in make module for effect.
+
 Single is object oriented.
 Single is class base.
 
 The word "Single" is this program lang node name.
-
-Make module with Single has develop execute certain.
-
-Single is effecon in make module for effect.
 
 Single source item root node is Class node.
 
