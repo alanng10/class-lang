@@ -703,6 +703,23 @@ public class LibraryGen : TextAdd
         return program;
     }
 
+    protected virtual Program CreateMakeProgramWindows(bool exe)
+    {
+        List list;
+        list = new List();
+        list.Init();
+
+        Program program;
+        program = new Program();
+        program.Init();
+        program.Name = this.S("clang.exe");
+        program.Argue = list;
+        program.WorkFold = this.GenModuleFoldPath;
+        program.Environ = null;
+
+        return program;
+    }
+
     protected virtual Program CreateMakeProgramWindowsA(bool exe)
     {
         String ka;
