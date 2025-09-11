@@ -720,6 +720,13 @@ public class LibraryGen : TextAdd
         list.Add(this.S("-I."));
         list.Add(this.S("-I../.."));
 
+        if (!exe)
+        {
+            list.Add(this.S("-Wl,-s"));
+            list.Add(this.S("-shared"));
+            list.Add(this.S("-Wl,-subsystem,windows"));
+        }
+
         Program program;
         program = new Program();
         program.Init();
