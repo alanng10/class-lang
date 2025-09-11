@@ -646,6 +646,8 @@ Word "modify" has meaning that is last modified.
 
 Word "access" has meaning that is access entity.
 
+Word "owner" has meaning that is owner entity.
+
 Word "host" has meaning that is site hold.
 
 Word "peer" has meaning that is co op.
