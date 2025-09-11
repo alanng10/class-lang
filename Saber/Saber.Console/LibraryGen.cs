@@ -731,6 +731,27 @@ public class LibraryGen : TextAdd
         list.Add(this.S("-lInfra"));
         list.Add(this.S("-lInfraIntern"));
 
+        if (!exe)
+        {
+            Array moduleRefStringArray;
+            moduleRefStringArray = this.ModuleRefStringArray();
+
+            long count;
+            count = moduleRefStringArray.Count;
+
+            long i;
+            i = 0;
+            while (i < count)
+            {
+                String a;
+                a = moduleRefStringArray.GetAt(i) as String;
+
+                list.Add(this.AddClear().AddS("-l").Add(a).AddResult());
+
+                i = i + 1;
+            }
+        }
+
         Program program;
         program = new Program();
         program.Init();
