@@ -745,6 +745,13 @@ public class LibraryGen : TextAdd
             }
         }
 
+        list.Add(this.S("-o"));
+        
+        if (!exe)
+        {
+            
+        }
+
         Program program;
         program = new Program();
         program.Init();
