@@ -720,6 +720,12 @@ public class LibraryGen : TextAdd
             list.Add(this.S("-Wl,-subsystem,windows"));
         }
 
+        if (exe)
+        {
+            list.Add(this.S("-Wl,-s"));
+            list.Add(this.S("-Wl,-subsystem,console"));
+        }
+
         list.Add(this.AddClear().AddS("-L../../../").Add(this.ClassPath).AddResult());
         list.Add(this.S("-lInfra"));
         list.Add(this.S("-lInfraIntern"));
