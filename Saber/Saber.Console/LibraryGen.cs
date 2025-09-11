@@ -751,6 +751,11 @@ public class LibraryGen : TextAdd
             }
         }
 
+        if (exe)
+        {
+            list.Add(this.AddClear().AddS("-l").Add(this.ModuleRefString).AddResult());
+        }
+
         list.Add(this.S("-o"));
 
         if (!exe)
