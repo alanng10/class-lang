@@ -703,7 +703,7 @@ public class LibraryGen : TextAdd
         return program;
     }
 
-    protected virtual Program CreateMakeProgramWindows(bool exe)
+    protected virtual Program CreateMakeProgramWindowsA(bool exe)
     {
         String ka;
         ka = this.TextInfra.Zero;
