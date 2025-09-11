@@ -1,3 +1,3 @@
 # Class
 
-Class program lang storey.
+Class program lang repo.
