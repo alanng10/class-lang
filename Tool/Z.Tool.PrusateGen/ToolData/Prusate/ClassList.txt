@@ -278,11 +278,21 @@ StorageComp
     FoldCreate(path)
     FoldCopy(path, destPath)
     FoldDelete(path)
-    Exist(path)
-    Fold(path)
+    EntryInfo(path)
     EntryList(path, fold)
     ThisFoldGet()
     ThisFoldSet(path)
+
+StorageEntry
+    Name
+    Exist
+    Fold
+    CreateTime
+    ModifyTime
+    AccessTime
+    Owner
+    Group
+    Permit
 
 Network
     HostName
