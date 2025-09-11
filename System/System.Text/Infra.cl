@@ -258,21 +258,21 @@ class Infra : Any
         return this.StringComp.CreateData(text.Data, text.Range);
     }
 
-    maide prusate Bool AddString(var StringAdd h, var String a)
+    maide prusate Bool AddString(var StringAdd stringAdd, var String value)
     {
         var StringComp stringComp;
         stringComp : this.StringComp;
 
         var Int count;
-        count : stringComp.Count(a);
+        count : stringComp.Count(value);
         var Int i;
         i : 0;
         while (i < count)
         {
             var Int n;
-            n : stringComp.Char(a, i);
+            n : stringComp.Char(value, i);
 
-            h.Execute(n);
+            stringAdd.Execute(n);
 
             i : i + 1;
         }
