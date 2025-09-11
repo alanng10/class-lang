@@ -746,10 +746,12 @@ public class LibraryGen : TextAdd
         }
 
         list.Add(this.S("-o"));
-        
+
         if (!exe)
         {
-            
+            list.Add(this.S("-o"));
+            list.Add(this.AddClear().AddS("../../../").Add(this.ClassPath).AddS("/").Add(this.ModuleRefString).AddS(".dll").AddResult());
+            list.Add(this.S("Module.c"));
         }
 
         Program program;
