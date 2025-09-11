@@ -764,6 +764,12 @@ public class LibraryGen : TextAdd
             list.Add(this.S("Module.c"));
         }
 
+        if (exe)
+        {
+            list.Add(this.AddClear().AddS("../../../").Add(this.ClassPath).AddS("/").Add(this.ModuleRefString).AddS(".exe").AddResult());
+            list.Add(this.S("Main.c"));
+        }
+
         Program program;
         program = new Program();
         program.Init();
