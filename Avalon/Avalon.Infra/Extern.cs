@@ -537,11 +537,33 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong StorageComp_FoldCreate(ulong o, ulong path);
     [DllImport(InfraLib)] public extern static ulong StorageComp_FoldCopy(ulong o, ulong path, ulong destPath);
     [DllImport(InfraLib)] public extern static ulong StorageComp_FoldDelete(ulong o, ulong path);
-    [DllImport(InfraLib)] public extern static ulong StorageComp_Exist(ulong o, ulong path);
-    [DllImport(InfraLib)] public extern static ulong StorageComp_Fold(ulong o, ulong path);
+    [DllImport(InfraLib)] public extern static ulong StorageComp_Entry(ulong o, ulong result, ulong path);
     [DllImport(InfraLib)] public extern static ulong StorageComp_EntryList(ulong o, ulong path, ulong fold);
     [DllImport(InfraLib)] public extern static ulong StorageComp_ThisFoldGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong StorageComp_ThisFoldSet(ulong o, ulong path);
+
+    [DllImport(InfraLib)] public extern static ulong StorageEntry_New();
+    [DllImport(InfraLib)] public extern static ulong StorageEntry_Delete(ulong o);
+    [DllImport(InfraLib)] public extern static ulong StorageEntry_Init(ulong o);
+    [DllImport(InfraLib)] public extern static ulong StorageEntry_Final(ulong o);
+    [DllImport(InfraLib)] public extern static ulong StorageEntry_NameGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong StorageEntry_NameSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong StorageEntry_ExistGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong StorageEntry_ExistSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong StorageEntry_FoldGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong StorageEntry_FoldSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong StorageEntry_SizeGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong StorageEntry_SizeSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong StorageEntry_CreateTimeGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong StorageEntry_CreateTimeSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong StorageEntry_ModifyTimeGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong StorageEntry_ModifyTimeSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong StorageEntry_OwnerGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong StorageEntry_OwnerSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong StorageEntry_GroupGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong StorageEntry_GroupSet(ulong o, ulong value);
+    [DllImport(InfraLib)] public extern static ulong StorageEntry_PermitGet(ulong o);
+    [DllImport(InfraLib)] public extern static ulong StorageEntry_PermitSet(ulong o, ulong value);
 
     [DllImport(InfraLib)] public extern static ulong Network_New();
     [DllImport(InfraLib)] public extern static ulong Network_Delete(ulong o);
