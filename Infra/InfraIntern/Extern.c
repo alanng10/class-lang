@@ -6238,30 +6238,17 @@ Int Intern_Extern_StorageComp_FoldDelete(Eval* eval, Int frame)
     Return;
 }
 
-Int Intern_Extern_StorageComp_Exist(Eval* eval, Int frame)
+Int Intern_Extern_StorageComp_Entry(Eval* eval, Int frame)
 {
     Int paramCount;
-    paramCount = 2;
+    paramCount = 3;
 
     Param(0);
     Param(1);
+    Param(2);
 
     Int a;
-    a = StorageComp_Exist(a0, a1);
-
-    Return;
-}
-
-Int Intern_Extern_StorageComp_Fold(Eval* eval, Int frame)
-{
-    Int paramCount;
-    paramCount = 2;
-
-    Param(0);
-    Param(1);
-
-    Int a;
-    a = StorageComp_Fold(a0, a1);
+    a = StorageComp_Entry(a0, a1, a2);
 
     Return;
 }
@@ -6304,6 +6291,299 @@ Int Intern_Extern_StorageComp_ThisFoldSet(Eval* eval, Int frame)
 
     Int a;
     a = StorageComp_ThisFoldSet(a0, a1);
+
+    Return;
+}
+
+Int Intern_Extern_StorageEntry_New(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 0;
+
+    Int a;
+    a = StorageEntry_New();
+
+    Return;
+}
+
+Int Intern_Extern_StorageEntry_Delete(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 1;
+
+    Param(0);
+
+    Int a;
+    a = StorageEntry_Delete(a0);
+
+    Return;
+}
+
+Int Intern_Extern_StorageEntry_Init(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 1;
+
+    Param(0);
+
+    Int a;
+    a = StorageEntry_Init(a0);
+
+    Return;
+}
+
+Int Intern_Extern_StorageEntry_Final(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 1;
+
+    Param(0);
+
+    Int a;
+    a = StorageEntry_Final(a0);
+
+    Return;
+}
+
+Int Intern_Extern_StorageEntry_NameGet(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 1;
+
+    Param(0);
+
+    Int a;
+    a = StorageEntry_NameGet(a0);
+
+    Return;
+}
+
+Int Intern_Extern_StorageEntry_NameSet(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 2;
+
+    Param(0);
+    Param(1);
+
+    Int a;
+    a = StorageEntry_NameSet(a0, a1);
+
+    Return;
+}
+
+Int Intern_Extern_StorageEntry_ExistGet(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 1;
+
+    Param(0);
+
+    Int a;
+    a = StorageEntry_ExistGet(a0);
+
+    Return;
+}
+
+Int Intern_Extern_StorageEntry_ExistSet(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 2;
+
+    Param(0);
+    Param(1);
+
+    Int a;
+    a = StorageEntry_ExistSet(a0, a1);
+
+    Return;
+}
+
+Int Intern_Extern_StorageEntry_FoldGet(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 1;
+
+    Param(0);
+
+    Int a;
+    a = StorageEntry_FoldGet(a0);
+
+    Return;
+}
+
+Int Intern_Extern_StorageEntry_FoldSet(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 2;
+
+    Param(0);
+    Param(1);
+
+    Int a;
+    a = StorageEntry_FoldSet(a0, a1);
+
+    Return;
+}
+
+Int Intern_Extern_StorageEntry_SizeGet(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 1;
+
+    Param(0);
+
+    Int a;
+    a = StorageEntry_SizeGet(a0);
+
+    Return;
+}
+
+Int Intern_Extern_StorageEntry_SizeSet(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 2;
+
+    Param(0);
+    Param(1);
+
+    Int a;
+    a = StorageEntry_SizeSet(a0, a1);
+
+    Return;
+}
+
+Int Intern_Extern_StorageEntry_CreateTimeGet(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 1;
+
+    Param(0);
+
+    Int a;
+    a = StorageEntry_CreateTimeGet(a0);
+
+    Return;
+}
+
+Int Intern_Extern_StorageEntry_CreateTimeSet(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 2;
+
+    Param(0);
+    Param(1);
+
+    Int a;
+    a = StorageEntry_CreateTimeSet(a0, a1);
+
+    Return;
+}
+
+Int Intern_Extern_StorageEntry_ModifyTimeGet(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 1;
+
+    Param(0);
+
+    Int a;
+    a = StorageEntry_ModifyTimeGet(a0);
+
+    Return;
+}
+
+Int Intern_Extern_StorageEntry_ModifyTimeSet(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 2;
+
+    Param(0);
+    Param(1);
+
+    Int a;
+    a = StorageEntry_ModifyTimeSet(a0, a1);
+
+    Return;
+}
+
+Int Intern_Extern_StorageEntry_OwnerGet(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 1;
+
+    Param(0);
+
+    Int a;
+    a = StorageEntry_OwnerGet(a0);
+
+    Return;
+}
+
+Int Intern_Extern_StorageEntry_OwnerSet(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 2;
+
+    Param(0);
+    Param(1);
+
+    Int a;
+    a = StorageEntry_OwnerSet(a0, a1);
+
+    Return;
+}
+
+Int Intern_Extern_StorageEntry_GroupGet(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 1;
+
+    Param(0);
+
+    Int a;
+    a = StorageEntry_GroupGet(a0);
+
+    Return;
+}
+
+Int Intern_Extern_StorageEntry_GroupSet(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 2;
+
+    Param(0);
+    Param(1);
+
+    Int a;
+    a = StorageEntry_GroupSet(a0, a1);
+
+    Return;
+}
+
+Int Intern_Extern_StorageEntry_PermitGet(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 1;
+
+    Param(0);
+
+    Int a;
+    a = StorageEntry_PermitGet(a0);
+
+    Return;
+}
+
+Int Intern_Extern_StorageEntry_PermitSet(Eval* eval, Int frame)
+{
+    Int paramCount;
+    paramCount = 2;
+
+    Param(0);
+    Param(1);
+
+    Int a;
+    a = StorageEntry_PermitSet(a0, a1);
 
     Return;
 }
