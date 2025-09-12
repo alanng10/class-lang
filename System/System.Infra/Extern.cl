@@ -525,11 +525,33 @@ class Extern : Any
     maide prusate Int StorageComp_FoldCreate(var Int o, var Int path) { }
     maide prusate Int StorageComp_FoldCopy(var Int o, var Int path, var Int destPath) { }
     maide prusate Int StorageComp_FoldDelete(var Int o, var Int path) { }
-    maide prusate Int StorageComp_Exist(var Int o, var Int path) { }
-    maide prusate Int StorageComp_Fold(var Int o, var Int path) { }
+    maide prusate Int StorageComp_Entry(var Int o, var Int result, var Int path) { }
     maide prusate Int StorageComp_EntryList(var Int o, var Int path, var Int fold) { }
     maide prusate Int StorageComp_ThisFoldGet(var Int o) { }
     maide prusate Int StorageComp_ThisFoldSet(var Int o, var Int path) { }
+
+    maide prusate Int StorageEntry_New() { }
+    maide prusate Int StorageEntry_Delete(var Int o) { }
+    maide prusate Int StorageEntry_Init(var Int o) { }
+    maide prusate Int StorageEntry_Final(var Int o) { }
+    maide prusate Int StorageEntry_NameGet(var Int o) { }
+    maide prusate Int StorageEntry_NameSet(var Int o, var Int value) { }
+    maide prusate Int StorageEntry_ExistGet(var Int o) { }
+    maide prusate Int StorageEntry_ExistSet(var Int o, var Int value) { }
+    maide prusate Int StorageEntry_FoldGet(var Int o) { }
+    maide prusate Int StorageEntry_FoldSet(var Int o, var Int value) { }
+    maide prusate Int StorageEntry_SizeGet(var Int o) { }
+    maide prusate Int StorageEntry_SizeSet(var Int o, var Int value) { }
+    maide prusate Int StorageEntry_CreateTimeGet(var Int o) { }
+    maide prusate Int StorageEntry_CreateTimeSet(var Int o, var Int value) { }
+    maide prusate Int StorageEntry_ModifyTimeGet(var Int o) { }
+    maide prusate Int StorageEntry_ModifyTimeSet(var Int o, var Int value) { }
+    maide prusate Int StorageEntry_OwnerGet(var Int o) { }
+    maide prusate Int StorageEntry_OwnerSet(var Int o, var Int value) { }
+    maide prusate Int StorageEntry_GroupGet(var Int o) { }
+    maide prusate Int StorageEntry_GroupSet(var Int o, var Int value) { }
+    maide prusate Int StorageEntry_PermitGet(var Int o) { }
+    maide prusate Int StorageEntry_PermitSet(var Int o, var Int value) { }
 
     maide prusate Int Network_New() { }
     maide prusate Int Network_Delete(var Int o) { }
