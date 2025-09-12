@@ -70,6 +70,8 @@ Int Thread_OS_Resume(Int handle);
 Int Thread_CreateStore();
 Int Thread_DeleteStore(Int a);
 
+Int Time_SetValidTick(Int o, Int k);
+
 Int TimeEvent_Elapse(Int o);
 
 Int Post_ExecuteHandle(Int o);
