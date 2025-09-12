@@ -511,11 +511,30 @@ Infra_Api Int StorageComp_FileDelete(Int o, Int path);
 Infra_Api Int StorageComp_FoldCreate(Int o, Int path);
 Infra_Api Int StorageComp_FoldCopy(Int o, Int path, Int destPath);
 Infra_Api Int StorageComp_FoldDelete(Int o, Int path);
-Infra_Api Int StorageComp_Exist(Int o, Int path);
-Infra_Api Int StorageComp_Fold(Int o, Int path);
+Infra_Api Int StorageComp_Entry(Int o, Int result, Int path);
 Infra_Api Int StorageComp_EntryList(Int o, Int path, Int fold);
 Infra_Api Int StorageComp_ThisFoldGet(Int o);
 Infra_Api Int StorageComp_ThisFoldSet(Int o, Int path);
+
+InfraApiNew(StorageEntry)
+Infra_Api Int StorageEntry_NameGet(Int o);
+Infra_Api Int StorageEntry_NameSet(Int o, Int value);
+Infra_Api Int StorageEntry_ExistGet(Int o);
+Infra_Api Int StorageEntry_ExistSet(Int o, Int value);
+Infra_Api Int StorageEntry_FoldGet(Int o);
+Infra_Api Int StorageEntry_FoldSet(Int o, Int value);
+Infra_Api Int StorageEntry_SizeGet(Int o);
+Infra_Api Int StorageEntry_SizeSet(Int o, Int value);
+Infra_Api Int StorageEntry_CreateTimeGet(Int o);
+Infra_Api Int StorageEntry_CreateTimeSet(Int o, Int value);
+Infra_Api Int StorageEntry_ModifyTimeGet(Int o);
+Infra_Api Int StorageEntry_ModifyTimeSet(Int o, Int value);
+Infra_Api Int StorageEntry_OwnerGet(Int o);
+Infra_Api Int StorageEntry_OwnerSet(Int o, Int value);
+Infra_Api Int StorageEntry_GroupGet(Int o);
+Infra_Api Int StorageEntry_GroupSet(Int o, Int value);
+Infra_Api Int StorageEntry_PermitGet(Int o);
+Infra_Api Int StorageEntry_PermitSet(Int o, Int value);
 
 InfraApiNew(Network)
 Infra_Api Int Network_HostNameGet(Int o);
