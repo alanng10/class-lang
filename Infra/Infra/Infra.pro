@@ -53,6 +53,7 @@ HEADERS += \
     State.h \
     Storage.hpp \
     StorageComp.hpp \
+    StorageEntry.h \
     Stream.hpp \
     TextCode.h \
     Thread.hpp \
@@ -131,6 +132,7 @@ SOURCES += \
     State.c \
     Storage.cpp \
     StorageComp.cpp \
+    StorageEntry.c \
     Stream.cpp \
     TextCode.c \
     Thread.cpp \
