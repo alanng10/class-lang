@@ -212,19 +212,49 @@ Int StorageComp_FoldDelete(Int o, Int path)
     return a;
 }
 
-Int StorageComp_Exist(Int o, Int path)
+Int StorageComp_Entry(Int o, Int result, Int path)
 {
     QString pathU;
     Int ua;
     ua = CastInt(&pathU);
     String_QStringSet(ua, path);
 
-    bool bu;
-    bu = QFileInfo::exists(pathU);
+    QFileInfo k;
+    k = QFileInfo(pathU);
 
-    Bool a;
-    a = bu;
-    return a;
+    bool bExist;
+    bExist = k.exists();
+    Bool exist;
+    exist = bExist;
+
+    Bool fold;
+    fold = false;
+    Int size;
+    size = 0;
+
+    if (exist)
+    {
+        bool bFold;
+        bFold = k.isDir();
+
+        fold = bFold;
+
+        if (!fold)
+        {
+            qint64 ka;
+            ka = k.size();
+
+            size = ka;
+
+            Int kaa;
+            kaa = 1;
+            kaa = kaa << 60;
+            kaa = kaa - 1;
+
+            size = size & kaa;
+        }
+    }
+    return true;
 }
 
 Int StorageComp_Fold(Int o, Int path)
