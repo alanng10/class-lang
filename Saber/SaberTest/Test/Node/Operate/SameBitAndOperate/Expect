@@ -1,24 +1,30 @@
 SameOperate
 {
-    Lite : BitAndOperate
+    Lite : BraceOperate
            {
-               Lite : ValueOperate
-                      {
-                          Value : IntValue
-                                  {
-                                      Value : 0h00000000000000a,
-                                  },
-                      },
-               Rite : ValueOperate
-                      {
-                          Value : IntValue
-                                  {
-                                      Value : 0h000000000000009,
-                                  },
-                      },
+               Any : BitAndOperate
+                     {
+                         Lite : ValueOperate
+                                {
+                                    Value : IntValue
+                                            {
+                                                Value : 0h00000000000000a,
+                                            },
+                                },
+                         Rite : ValueOperate
+                                {
+                                    Value : IntValue
+                                            {
+                                                Value : 0h000000000000009,
+                                            },
+                                },
+                     },
            },
-    Rite : IntValue
+    Rite : ValueOperate
            {
-               Value : 0h000000000000001,
+               Value : IntValue
+                       {
+                           Value : 0h000000000000001,
+                       },
            },
 },
