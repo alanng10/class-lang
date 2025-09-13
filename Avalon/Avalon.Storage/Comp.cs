@@ -138,34 +138,20 @@ public class Comp : Any
         return a;
     }
 
-    public virtual bool Exist(String path)
+    public virtual Entry Entry(String path)
     {
         ulong pathU;
         pathU = this.InternInfra.StringCreate(path);
 
-        ulong k;
-        k = Extern.StorageComp_Exist(this.Intern, pathU);
+        ulong ka;
+        ka = Extern.StorageEntry_New();
+        Extern.StorageEntry_Init(ka);
+
+        Extern.StorageComp_Entry(this.Intern, ka, pathU);
 
         this.InternInfra.StringDelete(pathU);
 
-        bool a;
-        a = !(k == 0);
-        return a;
-    }
-
-    public virtual bool Fold(String path)
-    {
-        ulong pathU;
-        pathU = this.InternInfra.StringCreate(path);
-
-        ulong k;
-        k = Extern.StorageComp_Fold(this.Intern, pathU);
-
-        this.InternInfra.StringDelete(pathU);
-
-        bool a;
-        a = !(k == 0);
-        return a;
+        return null;
     }
 
     public virtual String ThisFoldGet()
