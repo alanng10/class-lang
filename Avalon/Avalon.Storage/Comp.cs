@@ -218,6 +218,19 @@ public class Comp : Any
             permit = this.Permit((long)permitK);
         }
 
+        Entry a;
+        a = new Entry();
+        a.Init();
+        a.Name = name;
+        a.Exist = exist;
+        a.Fold = fold;
+        a.Size = size;
+        a.CreateTime = createTime;
+        a.ModifyTime = modifyTime;
+        a.Owner = owner;
+        a.Group = group;
+        a.Permit = permit;
+
         this.InternInfra.StringDelete(nameK);
 
         Extern.StorageEntry_Final(ka);
@@ -225,7 +238,7 @@ public class Comp : Any
 
         this.InternInfra.StringDelete(pathU);
 
-        return null;
+        return a;
     }
 
     public virtual String ThisFoldGet()
