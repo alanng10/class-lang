@@ -79,16 +79,12 @@ public class StorageGen : TextAdd
 
                 entry = this.StorageComp.Entry(destFoldPath);
 
-                bool bb;
-
-                bb = entry.Exist;
-                if (!bb)
+                if (!entry.Exist)
                 {
                     return false;
                 }
 
-                bb = entry.Fold;
-                if (!bb)
+                if (!entry.Fold)
                 {
                     return false;
                 }
@@ -102,10 +98,10 @@ public class StorageGen : TextAdd
 
             if (fold)
             {
-                bool bc;
-                bc = this.StorageComp.FoldCopy(sourcePath, finalDestPath);
+                bool bb;
+                bb = this.StorageComp.FoldCopy(sourcePath, finalDestPath);
 
-                if (!bc)
+                if (!bb)
                 {
                     return false;
                 }
@@ -113,10 +109,10 @@ public class StorageGen : TextAdd
 
             if (!fold)
             {
-                bool bd;
-                bd = this.StorageComp.FileCopy(sourcePath, finalDestPath);
+                bool bc;
+                bc = this.StorageComp.FileCopy(sourcePath, finalDestPath);
 
-                if (!bd)
+                if (!bc)
                 {
                     return false;
                 }
