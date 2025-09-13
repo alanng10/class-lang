@@ -305,13 +305,11 @@ Int StorageComp_Entry(Int o, Int result, Int path)
 
             if (kcd)
             {
-                modifyTime = kcTime;
+                modifyTime = Time_TotalTickGet(kcTime);
             }
-            if (!kcd)
-            {
-                Time_Final(kcTime);
-                Time_Delete(kcTime);
-            }
+
+            Time_Final(kcTime);
+            Time_Delete(kcTime);
         }
 
         owner = k.ownerId();
