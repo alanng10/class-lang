@@ -5,20 +5,8 @@ public class Time : Any
     public override bool Init()
     {
         base.Init();
-
-        bool b;
-        b = (this.InitIdent == 0);
-
-        if (!b)
-        {
-            this.Intern = (ulong)this.InitIdent;
-        }
-
-        if (b)
-        {
-            this.Intern = Extern.Time_New();
-            Extern.Time_Init(this.Intern);
-        }
+        this.Intern = Extern.Time_New();
+        Extern.Time_Init(this.Intern);
         return true;
     }
 
@@ -28,8 +16,6 @@ public class Time : Any
         Extern.Time_Delete(this.Intern);
         return true;
     }
-
-    public virtual long InitIdent { get; set; }
 
     private ulong Intern { get; set; }
 
@@ -361,7 +347,7 @@ public class Time : Any
 
         ulong k;
         k = Extern.Time_Set(this.Intern, yeaU, monU, dayU, ourU, minU, secU, tickU, posU);
-        
+
         bool a;
         a = !(k == 0);
         return a;
