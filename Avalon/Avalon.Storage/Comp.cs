@@ -149,6 +149,35 @@ public class Comp : Any
 
         Extern.StorageComp_Entry(this.Intern, ka, pathU);
 
+        ulong nameK;
+        ulong existK;
+        ulong foldK;
+        ulong sizeK;
+        ulong createTimeK;
+        ulong modifyTimeK;
+        ulong ownerK;
+        ulong groupK;
+        ulong permitK;
+        nameK = Extern.StorageEntry_NameGet(ka);
+        existK = Extern.StorageEntry_ExistGet(ka);
+        foldK = Extern.StorageEntry_FoldGet(ka);
+        sizeK = Extern.StorageEntry_SizeGet(ka);
+        createTimeK = Extern.StorageEntry_CreateTimeGet(ka);
+        modifyTimeK = Extern.StorageEntry_ModifyTimeGet(ka);
+        ownerK = Extern.StorageEntry_OwnerGet(ka);
+        groupK = Extern.StorageEntry_GroupGet(ka);
+        permitK = Extern.StorageEntry_PermitGet(ka);
+
+        String name;
+        bool exist;
+        bool fold;
+        long size;
+        TimeTime createTime;
+        TimeTime modifyTime;
+        long owner;
+        long group
+        Permit permit;
+
         this.InternInfra.StringDelete(pathU);
 
         return null;
