@@ -511,3 +511,14 @@ Int StorageComp_StringCreate(Int o, Int u)
     a = k;
     return a;
 }
+
+Int StorageComp_FlagSet(Int value, Int shift, Int bit)
+{
+    Int k;
+    k = bit;
+    k = k << shift;
+
+    value = value | k;
+
+    return value;
+}
