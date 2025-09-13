@@ -182,7 +182,7 @@ public class Comp : Any
         modifyTime = null;
         long owner;
         owner = -1;
-        long group
+        long group;
         group = -1;
         Permit permit;
         permit = null;
@@ -214,6 +214,8 @@ public class Comp : Any
             owner = (long)ownerK;
 
             group = (long)groupK;
+
+            permit = this.Permit((long)permitK);
         }
 
         this.InternInfra.StringDelete(nameK);
@@ -316,5 +318,29 @@ public class Comp : Any
         Extern.Array_Delete(k);
 
         return array;
+    }
+
+    private Permit Permit(long value)
+    {
+        Permit a;
+        a = new Permit();
+        a.Init();
+
+        a.OwnerRead = this.HasFlag(value, 0);
+        return a;
+    }
+
+    private bool HasFlag(long value, long index)
+    {
+        int shift;
+        shift = (int)index;
+
+        long ka;
+        ka = 1;
+        ka = ka << shift;
+
+        bool a;
+        a = !((value & ka) == 0);
+        return a;
     }
 }
