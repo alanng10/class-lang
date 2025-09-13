@@ -350,6 +350,10 @@ Int StorageComp_Entry(Int o, Int result, Int path)
         permit = StorageComp_FlagSet(permit, 5, otherWrite);
     }
 
+    Int name;
+    name = StorageComp_EntryName(path);
+
+    StorageEntry_NameSet(result, name);
     StorageEntry_ExistSet(result, exist);
     StorageEntry_FoldSet(result, fold);
     StorageEntry_SizeSet(result, size);
