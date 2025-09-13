@@ -858,7 +858,7 @@ public class PortLoad : TextAdd
 
             if (!ba)
             {
-                if (!this.StorageComp.Exist(sourcePathA))
+                if (!this.StorageComp.Entry(sourcePathA).Exist)
                 {
                     this.ErrorAdd(this.ErrorKind.StorageSourceUnachieve, sourcePath);
 
