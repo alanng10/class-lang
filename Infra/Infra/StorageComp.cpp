@@ -259,19 +259,22 @@ Int StorageComp_Entry(Int o, Int result, Int path)
         QDateTime kb;
         kb = k.birthTime();
 
-        Int kba;
-        kba = CastInt(&kb);
-
-        Int kbTime;
-        kbTime = Time_New();
-        Time_Init(kbTime);
-
-        Bool kbd;
-        kbd = Time_SetValidTick(kbTime, kba);
-
-        if (kbd)
+        if (kb.isValid())
         {
-            createTime = kbTime;
+            Int kba;
+            kba = CastInt(&kb);
+
+            Int kbTime;
+            kbTime = Time_New();
+            Time_Init(kbTime);
+
+            Bool kbd;
+            kbd = Time_SetValidTick(kbTime, kba);
+
+            if (kbd)
+            {
+                createTime = kbTime;
+            }
         }
     }
     return true;
