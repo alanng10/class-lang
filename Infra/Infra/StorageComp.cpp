@@ -349,6 +349,16 @@ Int StorageComp_Entry(Int o, Int result, Int path)
         permit = StorageComp_FlagSet(permit, 4, otherRead);
         permit = StorageComp_FlagSet(permit, 5, otherWrite);
     }
+
+    StorageEntry_ExistSet(result, exist);
+    StorageEntry_FoldSet(result, fold);
+    StorageEntry_SizeSet(result, size);
+    StorageEntry_CreateTimeSet(result, createTime);
+    StorageEntry_ModifyTimeSet(result, modifyTime);
+    StorageEntry_OwnerSet(result, owner);
+    StorageEntry_GroupSet(result, group);
+    StorageEntry_PermitSet(result, permit);
+
     return true;
 }
 
