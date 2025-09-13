@@ -195,7 +195,10 @@ public class Comp : Any
         {
             fold = !(foldK == 0);
 
-            size = (long)sizeK;
+            if (!fold)
+            {
+                size = (long)sizeK;
+            }
 
             owner = (long)ownerK;
 
