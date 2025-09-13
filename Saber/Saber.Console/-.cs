@@ -27,6 +27,7 @@ global using TextStringValue = Avalon.Text.StringValue;
 global using TextAdd = Avalon.Text.TextAdd;
 global using TextInfra = Avalon.Text.Infra;
 global using StorageComp = Avalon.Storage.Comp;
+global using StorageEntry = Avalon.Storage.Entry;
 global using StorageInfra = Avalon.Storage.Infra;
 global using Out = Avalon.Console.Out;
 global using ConsoleConsole = Avalon.Console.Console;
