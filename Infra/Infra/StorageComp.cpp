@@ -232,9 +232,9 @@ Int StorageComp_Entry(Int o, Int result, Int path)
     Int size;
     size = 0;
     Int createTime;
-    createTime = 0;
+    createTime = null;
     Int modifyTime;
-    modifyTime = 0;
+    modifyTime = null;
 
     if (exist)
     {
