@@ -176,10 +176,10 @@ public class Comp : Any
         fold = false;
         long size;
         size = -1;
-        TimeTime createTime;
-        createTime = null;
-        TimeTime modifyTime;
-        modifyTime = null;
+        long createTime;
+        createTime = -1;
+        long modifyTime;
+        modifyTime = -1;
         long owner;
         owner = -1;
         long group;
@@ -202,18 +202,14 @@ public class Comp : Any
 
             if (!(createTimeK == 0))
             {
-                createTime = new TimeTime();
-                createTime.InitIdent = (long)createTimeK;
-                createTime.Init();
+                createTime = (long)createTimeK;
             }
 
             if (!fold)
             {
                 if (!(modifyTimeK == 0))
                 {
-                    modifyTime = new TimeTime();
-                    modifyTime.InitIdent = (long)modifyTimeK;
-                    modifyTime.Init();
+                    modifyTime = (long)modifyTimeK;
                 }
             }
 
