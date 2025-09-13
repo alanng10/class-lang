@@ -377,8 +377,8 @@ class Format : Any
         var Int end;
         end : valueIndex + valueWriteCount;
 
-        var Int letterDigitStart;
-        letterDigitStart : textInfra.Char("a");
+        var Int alphaDigitStart;
+        alphaDigitStart : textInfra.Char("a");
 
         var Int k;
         k : value;
@@ -405,7 +405,7 @@ class Format : Any
                 digit : ka;
 
                 var Int n;
-                n : textInfra.DigitChar(digit, letterDigitStart);
+                n : textInfra.DigitChar(digit, alphaDigitStart);
 
                 var Int oa;
                 oa : index - valueIndex;
