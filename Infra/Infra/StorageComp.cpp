@@ -366,24 +366,6 @@ Int StorageComp_Entry(Int o, Int result, Int path)
     return true;
 }
 
-Int StorageComp_Fold(Int o, Int path)
-{
-    QString pathU;
-    Int ua;
-    ua = CastInt(&pathU);
-    String_QStringSet(ua, path);
-
-    QFileInfo k;
-    k = QFileInfo(pathU);
-
-    bool bu;
-    bu = k.isDir();
-
-    Bool a;
-    a = bu;
-    return a;
-}
-
 Int StorageComp_EntryList(Int o, Int path, Int fold)
 {
     QString pathU;
