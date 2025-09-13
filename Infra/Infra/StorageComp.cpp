@@ -589,5 +589,25 @@ Int StorageComp_EntryName(Int path)
         resultCount = count - resultIndex;
     }
 
-    return 0;
+    Int dataCount;
+    dataCount = resultCount * Constant_CharByteCount();
+
+    Int data;
+    data = Environ_New(dataCount);
+
+    Int pathValue;
+    pathValue = String_ValueGet(path);
+
+    Int source;
+    source = pathValue + resultIndex * Constant_CharByteCount();
+
+    Environ_Copy(data, source, dataCount);
+
+    Int result;
+    result = String_New();
+    String_Init(result);
+    String_ValueSet(result, data);
+    String_CountSet(result, resultCount);
+
+    return result;
 }
