@@ -233,6 +233,8 @@ Int StorageComp_Entry(Int o, Int result, Int path)
     size = 0;
     Int createTime;
     createTime = 0;
+    Int modifyTime;
+    modifyTime = 0;
 
     if (exist)
     {
@@ -274,6 +276,27 @@ Int StorageComp_Entry(Int o, Int result, Int path)
             if (kbd)
             {
                 createTime = kbTime;
+            }
+        }
+
+        if (!fold)
+        {
+            QDateTime kc;
+            kc = k.lastModified();
+
+            Int kca;
+            kca = CastInt(&kc);
+
+            Int kcTime;
+            kcTime = Time_New();
+            Time_Init(kcTime);
+
+            Bool kcd;
+            kcd = Time_SetValidTick(kcTime, kca);
+
+            if (kcd)
+            {
+                modifyTime = kcTime;
             }
         }
     }
