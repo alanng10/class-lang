@@ -178,6 +178,9 @@ class Comp : Any
 
         extern.StorageComp_Entry(this.Intern, ka, pathU);
 
+        var Int kc;
+        kc : extern.StorageEntry_NameGet(ka);
+
         var Int ke;
         ke : extern.StorageEntry_ExistGet(ka);
 
@@ -191,6 +194,8 @@ class Comp : Any
         {
             k : extern.StorageEntry_FoldGet(ka);
         }
+
+        this.InternInfra.StringDelete(kc);
 
         extern.StorageEntry_Final(ka);
         extern.StorageEntry_Delete(ka);
