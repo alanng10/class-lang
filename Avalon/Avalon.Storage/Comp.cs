@@ -220,6 +220,9 @@ public class Comp : Any
 
         this.InternInfra.StringDelete(nameK);
 
+        Extern.StorageEntry_Final(ka);
+        Extern.StorageEntry_Delete(ka);
+
         this.InternInfra.StringDelete(pathU);
 
         return null;
