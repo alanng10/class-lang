@@ -200,6 +200,17 @@ public class Comp : Any
                 size = (long)sizeK;
             }
 
+            createTime = new TimeTime();
+            createTime.InitIdent = (long)createTimeK;
+            createTime.Init();
+
+            if (!fold)
+            {
+                modifyTime = new TimeTime();
+                modifyTime.InitIdent = (long)modifyTimeK;
+                modifyTime.Init();
+            }
+
             owner = (long)ownerK;
 
             group = (long)groupK;
