@@ -313,6 +313,10 @@ Int StorageComp_Entry(Int o, Int result, Int path)
                 Time_Delete(kcTime);
             }
         }
+
+        owner = k.ownerId();
+
+        group = k.groupId();
     }
     return true;
 }
