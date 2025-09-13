@@ -281,13 +281,11 @@ Int StorageComp_Entry(Int o, Int result, Int path)
 
             if (kbd)
             {
-                createTime = kbTime;
+                createTime = Time_TotalTickGet(kbTime);
             }
-            if (!kbd)
-            {
-                Time_Final(kbTime);
-                Time_Delete(kbTime);
-            }
+
+            Time_Final(kbTime);
+            Time_Delete(kbTime);
         }
 
         if (!fold)
