@@ -541,3 +541,53 @@ Int StorageComp_FlagSet(Int value, Int shift, Int bit)
 
     return value;
 }
+
+Int StorageComp_EntryName(Int path)
+{
+    Int count;
+    count = String_CountGet(path);
+
+    Int k;
+    k = -1;
+
+    Bool b;
+    b = false;
+
+    Int i;
+    i = 0;
+    while (!b & (i < count))
+    {
+        Int index;
+        index = (count - 1) - i;
+
+        Int ka;
+        ka = String_Char(path, index);
+
+        if (ka == '/')
+        {
+            k = i;
+            b = true;
+        }
+
+        i = i + 1;
+    }
+
+    Int resultIndex;
+    Int resultCount;
+    resultIndex = 0;
+    resultCount = 0;
+
+    if (!b)
+    {
+        resultIndex = 0;
+        resultCount = count;
+    }
+
+    if (b)
+    {
+        resultIndex = k + 1;
+        resultCount = count - resultIndex;
+    }
+
+    return 0;
+}
