@@ -17,3 +17,4 @@ global using TextCodeKind = Avalon.Text.CodeKind;
 global using TextCodeKindList = Avalon.Text.CodeKindList;
 global using TextInfra = Avalon.Text.Infra;
 global using StreamStream = Avalon.Stream.Stream;
+global using TimeTime = Avalon.Time.Time;
