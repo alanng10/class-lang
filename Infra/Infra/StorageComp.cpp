@@ -232,9 +232,9 @@ Int StorageComp_Entry(Int o, Int result, Int path)
     Int size;
     size = 0;
     Int createTime;
-    createTime = null;
+    createTime = -1;
     Int modifyTime;
-    modifyTime = null;
+    modifyTime = -1;
     Int owner;
     owner = 0;
     Int group;
