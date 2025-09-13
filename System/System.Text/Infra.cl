@@ -104,12 +104,12 @@ class Infra : Any
         return a;
     }
 
-    maide prusate StringData StringDataCreateString(var String o)
+    maide prusate StringData StringDataCreateString(var String value)
     {
         var StringData a;
         a : new StringData;
         a.Init();
-        a.ValueString : o;
+        a.ValueString : value;
         return a;
     }
 
