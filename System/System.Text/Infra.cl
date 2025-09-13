@@ -113,13 +113,13 @@ class Infra : Any
         return a;
     }
 
-    maide prusate Text TextCreateStringData(var String o, var Range range)
+    maide prusate Text TextCreateStringData(var String value, var Range range)
     {
         var StringComp stringComp;
         stringComp : this.StringComp;
 
         var Int totalCount;
-        totalCount : stringComp.Count(o);
+        totalCount : stringComp.Count(value);
 
         var Int index;
         var Int count;
@@ -141,7 +141,7 @@ class Infra : Any
         }
 
         var StringData data;
-        data : this.StringDataCreateString(o);
+        data : this.StringDataCreateString(value);
 
         var Range aa;
         aa : new Range;
