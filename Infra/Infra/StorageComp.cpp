@@ -235,6 +235,10 @@ Int StorageComp_Entry(Int o, Int result, Int path)
     createTime = null;
     Int modifyTime;
     modifyTime = null;
+    Int owner;
+    owner = 0;
+    Int group;
+    group = 0;
 
     if (exist)
     {
