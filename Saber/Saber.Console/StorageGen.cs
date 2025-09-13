@@ -31,15 +31,18 @@ public class StorageGen : TextAdd
 
         this.StorageComp.FoldCreate(dataFoldPath);
 
+        StorageEntry entry;
+        entry = this.StorageComp.Entry(dataFoldPath);
+
         bool ba;
 
-        ba = this.StorageComp.Exist(dataFoldPath);
+        ba = entry.Exist;
         if (!ba)
         {
             return false;
         }
 
-        ba = this.StorageComp.Fold(dataFoldPath);
+        ba = entry.Fold;
         if (!ba)
         {
             return false;
