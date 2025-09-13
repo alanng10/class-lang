@@ -169,14 +169,40 @@ public class Comp : Any
         permitK = Extern.StorageEntry_PermitGet(ka);
 
         String name;
+        name = null;
         bool exist;
+        exist = false;
         bool fold;
+        fold = false;
         long size;
+        size = -1;
         TimeTime createTime;
+        createTime = null;
         TimeTime modifyTime;
+        modifyTime = null;
         long owner;
+        owner = -1;
         long group
+        group = -1;
         Permit permit;
+        permit = null;
+
+        name = this.InternInfra.StringCreateIntern(nameK);
+
+        exist = !(existK == 0);
+
+        if (exist)
+        {
+            fold = !(foldK == 0);
+
+            size = (long)sizeK;
+
+            owner = (long)ownerK;
+
+            group = (long)groupK;
+        }
+
+        this.InternInfra.StringDelete(nameK);
 
         this.InternInfra.StringDelete(pathU);
 
