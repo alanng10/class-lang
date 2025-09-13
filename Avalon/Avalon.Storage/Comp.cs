@@ -200,17 +200,11 @@ public class Comp : Any
                 size = (long)sizeK;
             }
 
-            if (!(createTimeK == 0))
-            {
-                createTime = (long)createTimeK;
-            }
+            createTime = (long)createTimeK;
 
             if (!fold)
             {
-                if (!(modifyTimeK == 0))
-                {
-                    modifyTime = (long)modifyTimeK;
-                }
+                modifyTime = (long)modifyTimeK;
             }
 
             owner = (long)ownerK;
