@@ -143,17 +143,17 @@ class Infra : Any
         var StringData data;
         data : this.StringDataCreateString(value);
 
-        var Range aa;
-        aa : new Range;
-        aa.Init();
-        aa.Index : index;
-        aa.Count : count;
+        var Range rangeK;
+        rangeK : new Range;
+        rangeK.Init();
+        rangeK.Index : index;
+        rangeK.Count : count;
 
         var Text a;
         a : new Text;
         a.Init();
         a.Data : data;
-        a.Range : aa;
+        a.Range : rangeK;
         return a;
     }
 
