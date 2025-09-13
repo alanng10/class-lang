@@ -239,6 +239,8 @@ Int StorageComp_Entry(Int o, Int result, Int path)
     owner = 0;
     Int group;
     group = 0;
+    Int permit;
+    permit = 0;
 
     if (exist)
     {
@@ -339,6 +341,13 @@ Int StorageComp_Entry(Int o, Int result, Int path)
         groupWrite = Environ_HasFlag(kdb, QFileDevice::WriteGroup);
         otherRead = Environ_HasFlag(kdb, QFileDevice::ReadOther);
         otherWrite = Environ_HasFlag(kdb, QFileDevice::WriteOther);
+
+        permit = StorageComp_FlagSet(permit, 0, ownerRead);
+        permit = StorageComp_FlagSet(permit, 1, ownerWrite);
+        permit = StorageComp_FlagSet(permit, 2, groupRead);
+        permit = StorageComp_FlagSet(permit, 3, groupWrite);
+        permit = StorageComp_FlagSet(permit, 4, otherRead);
+        permit = StorageComp_FlagSet(permit, 5, otherWrite);
     }
     return true;
 }
