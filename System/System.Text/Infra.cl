@@ -177,7 +177,7 @@ class Infra : Any
         return true;
     }
 
-    maide prusate Int DigitValue(var Int oc, var Int varBase)
+    maide prusate Int DigitValue(var Int char, var Int varBase)
     {
         var Int oa;
         oa : 0;
@@ -200,10 +200,10 @@ class Infra : Any
         var Int oca;
         oca : this.Char("a");
 
-        inf (this.Digit(oc))
+        inf (this.Digit(char))
         {
             var Int ooa;
-            ooa : oc - this.Char("0");
+            ooa : char - this.Char("0");
             inf (~(ooa < oa))
             {
                 return null;
@@ -212,13 +212,13 @@ class Infra : Any
             return ooa;
         }
 
-        inf (~this.Alpha(oc, false))
+        inf (~this.Alpha(char, false))
         {
             return null;
         }
 
         var Int oob;
-        oob : oc - oca;
+        oob : char - oca;
         inf (~(oob < oaa))
         {
             return null;
