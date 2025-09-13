@@ -77,14 +77,15 @@ public class StorageGen : TextAdd
 
                 this.StorageComp.FoldCreate(destFoldPath);
 
-                entry = this.StorageComp.Entry(destFoldPath);
+                StorageEntry entryA;
+                entryA = this.StorageComp.Entry(destFoldPath);
 
-                if (!entry.Exist)
+                if (!entryA.Exist)
                 {
                     return false;
                 }
 
-                if (!entry.Fold)
+                if (!entryA.Fold)
                 {
                     return false;
                 }
