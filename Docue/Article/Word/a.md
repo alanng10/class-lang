@@ -184,6 +184,8 @@ Word "save" has meaning that is saved.
 
 Word "archive" has meaning that is stored object.
 
+Word "vention" has meaning that is convention.
+
 Word "culture" has meaning that is culture entity.
 
 Word "tranlet" has meaning that is translated.
