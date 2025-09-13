@@ -1099,29 +1099,29 @@ class Demo : TextAdd
         this.Console.Out.Write(kaaaa);
 
         bool exist;
-        exist = storageComp.Exist(this.S("DemoData/FoldA/FileA.txt"));
+        exist = storageComp.Entry(this.S("DemoData/FoldA/FileA.txt")).Exist;
 
         this.Console.Out.Write(this.AddClear().AddS("File Exist ").Add(this.StatusString(exist)).AddLine().AddResult());
 
-        exist = storageComp.Exist(this.S("DemoData/FoldA"));
+        exist = storageComp.Entry(this.S("DemoData/FoldA")).Exist;
 
         this.Console.Out.Write(this.AddClear().AddS("Fold Exist ").Add(this.StatusString(exist)).AddLine().AddResult());
 
-        exist = storageComp.Exist(this.S("DemoData/Dummy"));
+        exist = storageComp.Entry(this.S("DemoData/Dummy")).Exist;
 
         this.Console.Out.Write(this.AddClear().AddS("Dummy Exist ").Add(this.StatusString(!exist)).AddLine().AddResult());
 
 
         bool isFold;
-        isFold = storageComp.Fold(this.S("DemoData/FoldA/FileA.txt"));
+        isFold = storageComp.Entry(this.S("DemoData/FoldA/FileA.txt")).Fold;
 
         this.Console.Out.Write(this.AddClear().AddS("File Is Fold ").Add(this.StatusString(!isFold)).AddLine().AddResult());
 
-        isFold = storageComp.Fold(this.S("DemoData/FoldA"));
+        isFold = storageComp.Entry(this.S("DemoData/FoldA")).Fold;
 
         this.Console.Out.Write(this.AddClear().AddS("Fold Is Fold ").Add(this.StatusString(isFold)).AddLine().AddResult());
 
-        isFold = storageComp.Fold(this.S("DemoData/Dummy"));
+        isFold = storageComp.Entry(this.S("DemoData/Dummy")).Fold;
 
         this.Console.Out.Write(this.AddClear().AddS("Dummy Is Fold ").Add(this.StatusString(!isFold)).AddLine().AddResult());
 
