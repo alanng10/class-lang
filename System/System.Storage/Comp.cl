@@ -137,8 +137,20 @@ class Comp : Any
         var Int pathU;
         pathU : this.InternInfra.StringCreate(path);
 
+        var Extern extern;
+        extern : this.Extern;
+
+        var Int ka;
+        ka : extern.StorageEntry_New();
+        extern.StorageEntry_Init(ka);
+
+        extern.StorageComp_Entry(this.Intern, ka, pathU);
+
         var Int k;
-        k : this.Extern.StorageComp_Exist(this.Intern, pathU);
+        k : extern.StorageEntry_ExistGet(ka);
+
+        extern.StorageEntry_Final(ka);
+        extern.StorageEntry_Delete(ka);
 
         this.InternInfra.StringDelete(pathU);
 
