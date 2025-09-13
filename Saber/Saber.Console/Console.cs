@@ -607,13 +607,16 @@ public class Console : TextAdd
 
         this.StorageComp.FoldCreate(foldPath);
 
-        if (!this.StorageComp.Exist(foldPath))
+        StorageEntry entry;
+        entry = this.StorageComp.Entry(foldPath);
+
+        if (!entry.Exist)
         {
             this.Status = 5000 + 10;
             return false;
         }
 
-        if (!this.StorageComp.Fold(foldPath))
+        if (!entry.Fold)
         {
             this.Status = 5000 + 20;
             return false;
