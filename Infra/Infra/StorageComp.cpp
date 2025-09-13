@@ -317,6 +317,28 @@ Int StorageComp_Entry(Int o, Int result, Int path)
         owner = k.ownerId();
 
         group = k.groupId();
+
+        QFileDevice::Permissions kd;
+        kd = k.permissions();
+
+        int kda;
+        kda = kd.toInt();
+
+        Int kdb;
+        kdb = kda;
+
+        Bool ownerRead;
+        Bool ownerWrite;
+        Bool groupRead;
+        Bool groupWrite;
+        Bool otherRead;
+        Bool otherWrite;
+        ownerRead = Environ_HasFlag(kdb, QFileDevice::ReadOwner);
+        ownerWrite = Environ_HasFlag(kdb, QFileDevice::WriteOwner);
+        groupRead = Environ_HasFlag(kdb, QFileDevice::ReadGroup);
+        groupWrite = Environ_HasFlag(kdb, QFileDevice::WriteGroup);
+        otherRead = Environ_HasFlag(kdb, QFileDevice::ReadOther);
+        otherWrite = Environ_HasFlag(kdb, QFileDevice::WriteOther);
     }
     return true;
 }
