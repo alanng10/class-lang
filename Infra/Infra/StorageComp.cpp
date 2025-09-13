@@ -277,6 +277,11 @@ Int StorageComp_Entry(Int o, Int result, Int path)
             {
                 createTime = kbTime;
             }
+            if (!kbd)
+            {
+                Time_Final(kbTime);
+                Time_Delete(kbTime);
+            }
         }
 
         if (!fold)
@@ -297,6 +302,11 @@ Int StorageComp_Entry(Int o, Int result, Int path)
             if (kcd)
             {
                 modifyTime = kcTime;
+            }
+            if (!kcd)
+            {
+                Time_Final(kcTime);
+                Time_Delete(kcTime);
             }
         }
     }
