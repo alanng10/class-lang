@@ -555,7 +555,7 @@ Int StorageComp_EntryName(Int path)
 
     Int i;
     i = 0;
-    while (!b & (i < count))
+    while ((!b) & (i < count))
     {
         Int index;
         index = (count - 1) - i;
