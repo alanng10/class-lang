@@ -77,15 +77,17 @@ public class StorageGen : TextAdd
 
                 this.StorageComp.FoldCreate(destFoldPath);
 
+                entry = this.StorageComp.Entry(destFoldPath);
+
                 bool bb;
 
-                bb = this.StorageComp.Exist(destFoldPath);
+                bb = entry.Exist;
                 if (!bb)
                 {
                     return false;
                 }
 
-                bb = this.StorageComp.Fold(destFoldPath);
+                bb = entry.Fold;
                 if (!bb)
                 {
                     return false;
@@ -96,7 +98,7 @@ public class StorageGen : TextAdd
             finalDestPath = this.AddClear().Add(dataFoldPath).Add(this.TextInfra.PathCombine).Add(destPath).AddResult();
 
             bool fold;
-            fold = this.StorageComp.Fold(sourcePath);
+            fold = this.StorageComp.Entry(sourcePath).Fold;
 
             if (fold)
             {
