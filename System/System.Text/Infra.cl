@@ -229,7 +229,7 @@ class Infra : Any
         return a;
     }
 
-    maide prusate Int DigitChar(var Int digit, var Int letterStart)
+    maide prusate Int DigitChar(var Int digit, var Int alphaStart)
     {
         var Int n;
         n : 0;
@@ -243,7 +243,7 @@ class Infra : Any
         {
             var Int m;
             m : digit - 10;
-            n : letterStart + m;
+            n : alphaStart + m;
         }
         
         n : bit &(n, 0hffffffff);
