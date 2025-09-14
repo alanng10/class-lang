@@ -206,4 +206,10 @@ public class InfoToken : TextAdd
         this.Add(this.SNull).Add(this.SComma).AddLine();
         return true;
     }
+
+    public virtual bool ExecuteBool(bool value)
+    {
+        this.AddBoolValue(value);
+        return true;
+    }
 }
