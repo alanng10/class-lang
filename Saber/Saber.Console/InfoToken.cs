@@ -29,6 +29,14 @@ public class InfoToken : TextAdd
         return true;
     }
 
+    protected virtual bool End()
+    {
+        this.Space = this.Space - 4;
+
+        this.AddSpace().AddS("}").AddS(",").AddLine();
+        return true;
+    }
+
     protected virtual InfoToken AddSpace()
     {
         long count;
