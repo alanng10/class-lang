@@ -136,7 +136,7 @@ public class InfoToken : TextAdd
             }
             if (!b)
             {
-                inf (~this.PrintChar.Get(n))
+                if (!this.PrintChar.Get(n))
                 {
                     this.Add("\\u");
 
