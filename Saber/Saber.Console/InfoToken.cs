@@ -14,6 +14,7 @@ public class InfoToken : TextAdd
         this.SBraceRightRite = this.S("]");
         this.SSpaceColonSpace = this.S(" : ");
         this.SNull = this.S("null");
+        this.SHexPre = this.S("0h");
         return true;
     }
 
@@ -34,6 +35,7 @@ public class InfoToken : TextAdd
     protected virtual String SBraceRightRite { get; set; }
     protected virtual String SSpaceColonSpace { get; set; }
     protected virtual String SNull { get; set; }
+    protected virtual String SHexPre { get; set; }
 
     protected virtual bool Start(String name)
     {
@@ -84,6 +86,12 @@ public class InfoToken : TextAdd
     protected virtual bool AddBoolValue(bool value)
     {
         this.AddBool(value).Add(this.SComma).AddLine();
+        return true;
+    }
+
+    protected virtual bool AddIntValue(long value)
+    {
+        this.Add(this.SHexPre).AddIntHex(value).Add(this.SComma).AddLine();
         return true;
     }
 
