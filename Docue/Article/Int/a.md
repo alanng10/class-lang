@@ -11,6 +11,10 @@ Count of bits more than 60 has redundant bits for human minds to represent int i
 Redundancy of bits is not enough easy for human minds to represent int info.
 The not enough easiness for human minds is specific form.
 
+Int data layout is define as little endian.
+
+Inf Int data layout is not define, Int is not enough develop element.
+
 Int is park int.
 
 Int has park worth.
