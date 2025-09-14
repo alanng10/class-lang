@@ -23,8 +23,8 @@ Storey modules layer on top of System in the arch.
 
 View modules layer on top of Type modules in the arch.
 
-Class compiler modules layer on top of List modules, Text modules, Storage modules in the arch.
+Class compile modules layer on top of List modules, Text modules, Storage modules in the arch.
 
 Page modules layer on top of Storey modules in the arch.
 
-Tool modules layer on top of View modules and Class compiler modules in the arch.
+Tool modules layer on top of View modules and Class compile modules in the arch.
