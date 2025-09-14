@@ -114,23 +114,23 @@ public class InfoToken : TextAdd
             bool b;
             b = false;
 
-            if (~b)
+            if (!b)
             {
-                if (n = this.Char("\""))
+                if (n == '\"'))
                 {
                     this.Add("\\\"");
-                    b : true;
+                    b = true;
                 }
             }
-            if (~b)
+            if (!b)
             {
                 if (n = this.Char("\n"))
                 {
                     this.Add("\\n");
-                    b : true;
+                    b = true;
                 }
             }
-            if (~b)
+            if (!b)
             {
                 inf (~this.PrintChar.Get(n))
                 {
