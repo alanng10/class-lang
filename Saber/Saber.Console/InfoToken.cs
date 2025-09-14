@@ -12,6 +12,7 @@ public class InfoToken : TextAdd
         this.SBraceCurveRite = this.S("}");
         this.SBraceRightLite = this.S("[");
         this.SBraceRightRite = this.S("]");
+        this.SSpaceColonSpace = this.S(" : ");
         this.SNull = this.S("null");
         return true;
     }
@@ -31,6 +32,7 @@ public class InfoToken : TextAdd
     protected virtual String SBraceCurveRite { get; set; }
     protected virtual String SBraceRightLite { get; set; }
     protected virtual String SBraceRightRite { get; set; }
+    protected virtual String SSpaceColonSpace { get; set; }
     protected virtual String SNull { get; set; }
 
     protected virtual bool Start(String name)
@@ -63,6 +65,13 @@ public class InfoToken : TextAdd
         this.Space = this.Space - 4;
 
         this.AddSpace().Add(this.SBraceRightRite).Add(this.SComma).AddLine();
+        return true;
+    }
+
+    protected virtual bool FieldStart(String name)
+    {
+        this.AddSpace().Add(name).Add(this.SSpaceColonSpace);
+        this.Space = this.Space + this.StringCount(name) + 3;
         return true;
     }
 
