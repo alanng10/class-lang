@@ -75,6 +75,12 @@ public class InfoToken : TextAdd
         return true;
     }
 
+    protected virtual bool FieldEnd(String name)
+    {
+        this.Space = this.Space - (this.StringCount(name) + 3);
+        return true;
+    }
+
     protected virtual InfoToken AddSpace()
     {
         long count;
