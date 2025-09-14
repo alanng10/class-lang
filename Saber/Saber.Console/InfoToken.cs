@@ -8,6 +8,8 @@ public class InfoToken : TextAdd
         this.PrintChar = this.CreatePrintChar();
 
         this.SComma = this.S(",");
+        this.SBraceCurveLite = this.S("{");
+        this.SBraceCurveRite = this.S("}");
         this.SNull = this.S("null");
         return true;
     }
@@ -23,12 +25,14 @@ public class InfoToken : TextAdd
     protected virtual PrintChar PrintChar { get; set; }
     protected virtual long Space { get; set; }
     protected virtual String SComma { get; set; }
+    protected virtual String SBraceCurveLite { get; set; }
+    protected virtual String SBraceCurveRite { get; set; }
     protected virtual String SNull { get; set; }
 
     protected virtual bool Start(String name)
     {
         this.Add(name).AddLine();
-        this.AddSpace().AddS("{").AddLine();
+        this.AddSpace().Add(this.SBraceCurveLite).AddLine();
 
         this.Space = this.Space + 4;
         return true;
@@ -38,7 +42,7 @@ public class InfoToken : TextAdd
     {
         this.Space = this.Space - 4;
 
-        this.AddSpace().AddS("}").Add(this.SComma).AddLine();
+        this.AddSpace().Add(this.SBraceCurveRite).Add(this.SComma).AddLine();
         return true;
     }
 
