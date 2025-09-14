@@ -16,6 +16,7 @@ public class InfoToken : TextAdd
         this.SSpaceColonSpace = this.S(" : ");
         this.SNextQuote = this.S("\\\"");
         this.SNextN = this.S("\\n");
+        this.SNextU = this.S("\\u");
         this.SNull = this.S("null");
         this.SHexPre = this.S("0h");
         return true;
@@ -40,6 +41,7 @@ public class InfoToken : TextAdd
     protected virtual String SSpaceColonSpace { get; set; }
     protected virtual String SNextQuote { get; set; }
     protected virtual String SNextN { get; set; }
+    protected virtual String SNextU { get; set; }
     protected virtual String SNull { get; set; }
     protected virtual String SHexPre { get; set; }
 
@@ -138,7 +140,7 @@ public class InfoToken : TextAdd
             {
                 if (!this.PrintChar.Get(n))
                 {
-                    this.Add("\\u");
+                    this.Add(this.SNextU);
 
                     var Int letterStart;
                     letterStart : this.Char("a");
