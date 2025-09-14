@@ -58,6 +58,14 @@ public class InfoToken : TextAdd
         return true;
     }
 
+    protected virtual bool EndArray()
+    {
+        this.Space = this.Space - 4;
+
+        this.AddSpace().Add(this.SBraceRightRite).Add(this.SComma).AddLine();
+        return true;
+    }
+
     protected virtual InfoToken AddSpace()
     {
         long count;
