@@ -8,6 +8,7 @@ public class InfoToken : TextAdd
         this.PrintChar = this.CreatePrintChar();
 
         this.SComma = this.S(",");
+        this.SQuote = this.S("\"");
         this.SBraceCurveLite = this.S("{");
         this.SBraceCurveRite = this.S("}");
         this.SBraceRightLite = this.S("[");
@@ -29,6 +30,7 @@ public class InfoToken : TextAdd
     protected virtual PrintChar PrintChar { get; set; }
     protected virtual long Space { get; set; }
     protected virtual String SComma { get; set; }
+    protected virtual String SQuote { get; set; }
     protected virtual String SBraceCurveLite { get; set; }
     protected virtual String SBraceCurveRite { get; set; }
     protected virtual String SBraceRightLite { get; set; }
