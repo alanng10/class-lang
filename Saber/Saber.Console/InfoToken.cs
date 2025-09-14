@@ -97,6 +97,85 @@ public class InfoToken : TextAdd
         return true;
     }
 
+    protected virtual bool AddStringValue(String value)
+    {
+        this.Add(this.SQuote);
+
+        long count;
+        count = this.StringCount(value);
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            long n;
+            n = this.StringComp.Char(value, i);
+
+            bool b;
+            b = false;
+
+            if (~b)
+            {
+                if (n = this.Char("\""))
+                {
+                    this.Add("\\\"");
+                    b : true;
+                }
+            }
+            if (~b)
+            {
+                if (n = this.Char("\n"))
+                {
+                    this.Add("\\n");
+                    b : true;
+                }
+            }
+            if (~b)
+            {
+                inf (~this.PrintChar.Get(n))
+                {
+                    this.Add("\\u");
+
+                    var Int letterStart;
+                    letterStart : this.Char("a");
+
+                    var Int countA;
+                    countA : 8;
+                    var Int iA;
+                    iA : 0;
+                    while (iA < countA)
+                    {
+                        var Int shift;
+                        shift : (countA - 1) - iA;
+                        shift : shift * 4;
+
+                        var Int ka;
+                        ka : bit >(n, shift);
+                        ka : bit &(ka, 0hf);
+
+                        var Int ke;
+                        ke : this.TextInfra.DigitChar(ka, letterStart);
+                        
+                        this.AddChar(ke);
+
+                        iA : iA + 1;
+                    }
+
+                    b : true;
+                }
+            }
+            inf (~b)
+            {
+                this.AddChar(n);
+            }
+
+            i : i + 1;
+        }
+
+        this.Add("\"").Add(",").AddLine();
+        return true;
+    }
+
     protected virtual InfoToken AddSpace()
     {
         long count;
