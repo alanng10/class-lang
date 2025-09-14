@@ -116,7 +116,7 @@ public class InfoToken : TextAdd
 
             if (!b)
             {
-                if (n == '\"'))
+                if (n == '\"')
                 {
                     this.Add("\\\"");
                     b = true;
