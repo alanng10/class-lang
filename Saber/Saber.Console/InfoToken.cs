@@ -14,6 +14,7 @@ public class InfoToken : TextAdd
         this.SBraceRightLite = this.S("[");
         this.SBraceRightRite = this.S("]");
         this.SSpaceColonSpace = this.S(" : ");
+        this.SNextQuote = this.S("\\\"");
         this.SNull = this.S("null");
         this.SHexPre = this.S("0h");
         return true;
@@ -36,6 +37,7 @@ public class InfoToken : TextAdd
     protected virtual String SBraceRightLite { get; set; }
     protected virtual String SBraceRightRite { get; set; }
     protected virtual String SSpaceColonSpace { get; set; }
+    protected virtual String SNextQuote { get; set; }
     protected virtual String SNull { get; set; }
     protected virtual String SHexPre { get; set; }
 
@@ -118,7 +120,7 @@ public class InfoToken : TextAdd
             {
                 if (n == '\"')
                 {
-                    this.Add("\\\"");
+                    this.Add(this.SNextQuote);
                     b = true;
                 }
             }
