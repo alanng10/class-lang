@@ -143,31 +143,31 @@ public class InfoToken : TextAdd
                     this.Add(this.SNextU);
 
                     var Int alphaStart;
-                    alphaStart : this.Char("a");
+                    alphaStart = this.Char("a");
 
                     var Int countA;
-                    countA : 8;
+                    countA = 8;
                     var Int iA;
-                    iA : 0;
+                    iA = 0;
                     while (iA < countA)
                     {
                         var Int shift;
-                        shift : (countA - 1) - iA;
-                        shift : shift * 4;
+                        shift = (countA - 1) - iA;
+                        shift = shift * 4;
 
                         var Int ka;
-                        ka : bit >(n, shift);
-                        ka : bit &(ka, 0hf);
+                        ka = bit >(n, shift);
+                        ka = bit &(ka, 0hf);
 
                         var Int ke;
-                        ke : this.TextInfra.DigitChar(ka, alphaStart);
+                        ke = this.TextInfra.DigitChar(ka, alphaStart);
                         
                         this.AddChar(ke);
 
-                        iA : iA + 1;
+                        iA = iA + 1;
                     }
 
-                    b : true;
+                    b = true;
                 }
             }
             inf (~b)
@@ -175,7 +175,7 @@ public class InfoToken : TextAdd
                 this.AddChar(n);
             }
 
-            i : i + 1;
+            i = i + 1;
         }
 
         this.Add("\"").Add(",").AddLine();
