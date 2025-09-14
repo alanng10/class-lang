@@ -50,6 +50,14 @@ public class InfoToken : TextAdd
         return true;
     }
 
+    protected virtual bool StartArray()
+    {
+        this.Add(this.SBraceRightLite).AddLine();
+
+        this.Space = this.Space + 4;
+        return true;
+    }
+
     protected virtual InfoToken AddSpace()
     {
         long count;
