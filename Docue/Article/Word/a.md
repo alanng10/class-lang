@@ -154,6 +154,8 @@ Word "mainen" has meaning that is maintenance.
 
 Word "depend" has meaning that is dependency.
 
+Word "compile" has meaning that is compiled.
+
 Word "update" has meaning that is info update.
 
 Word "install" has meaning that is place at site.
