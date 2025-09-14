@@ -10,6 +10,8 @@ public class InfoToken : TextAdd
         this.SComma = this.S(",");
         this.SBraceCurveLite = this.S("{");
         this.SBraceCurveRite = this.S("}");
+        this.SBraceRightLite = this.S("[");
+        this.SBraceRightRite = this.S("]");
         this.SNull = this.S("null");
         return true;
     }
@@ -27,6 +29,8 @@ public class InfoToken : TextAdd
     protected virtual String SComma { get; set; }
     protected virtual String SBraceCurveLite { get; set; }
     protected virtual String SBraceCurveRite { get; set; }
+    protected virtual String SBraceRightLite { get; set; }
+    protected virtual String SBraceRightRite { get; set; }
     protected virtual String SNull { get; set; }
 
     protected virtual bool Start(String name)
