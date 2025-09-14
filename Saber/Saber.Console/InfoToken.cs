@@ -124,7 +124,7 @@ public class InfoToken : TextAdd
             }
             if (!b)
             {
-                if (n = this.Char("\n"))
+                if (n == '\n')
                 {
                     this.Add("\\n");
                     b = true;
