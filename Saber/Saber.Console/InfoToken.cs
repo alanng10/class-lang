@@ -223,4 +223,15 @@ public class InfoToken : TextAdd
         this.AddIntValue(value);
         return true;
     }
+
+    public virtual bool ExecuteString(String value)
+    {
+        if (value == null)
+        {
+            this.Null();
+            return true;
+        }
+        this.AddStringValue(value);
+        return true;
+    }
 }
