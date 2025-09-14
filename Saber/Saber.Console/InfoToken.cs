@@ -81,6 +81,12 @@ public class InfoToken : TextAdd
         return true;
     }
 
+    protected virtual bool AddBoolValue(bool value)
+    {
+        this.AddBool(value).Add(this.SComma).AddLine();
+        return true;
+    }
+
     protected virtual InfoToken AddSpace()
     {
         long count;
