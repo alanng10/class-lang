@@ -6,6 +6,9 @@ public class InfoToken : TextAdd
     {
         base.Init();
         this.PrintChar = this.CreatePrintChar();
+
+        this.SComma = this.S(",");
+        this.SNull = this.S("null");
         return true;
     }
 
@@ -19,6 +22,8 @@ public class InfoToken : TextAdd
 
     protected virtual PrintChar PrintChar { get; set; }
     protected virtual long Space { get; set; }
+    protected virtual String SComma { get; set; }
+    protected virtual String SNull { get; set; }
 
     protected virtual bool Start(String name)
     {
@@ -33,7 +38,7 @@ public class InfoToken : TextAdd
     {
         this.Space = this.Space - 4;
 
-        this.AddSpace().AddS("}").AddS(",").AddLine();
+        this.AddSpace().AddS("}").Add(this.SComma).AddLine();
         return true;
     }
 
@@ -45,7 +50,7 @@ public class InfoToken : TextAdd
         i = 0;
         while (i < count)
         {
-            this.AddS(" ");
+            this.Add(this.SSpace);
 
             i = i + 1;
         }
@@ -55,7 +60,7 @@ public class InfoToken : TextAdd
 
     protected virtual bool Null()
     {
-        this.AddS("null").AddS(",").AddLine();
+        this.Add(this.SNull).Add(this.SComma).AddLine();
         return true;
     }
 }
