@@ -212,4 +212,15 @@ public class InfoToken : TextAdd
         this.AddBoolValue(value);
         return true;
     }
+
+    public virtual bool ExecuteInt(long value)
+    {
+        if (value == -1)
+        {
+            this.Null();
+            return true;
+        }
+        this.AddIntValue(value);
+        return true;
+    }
 }
