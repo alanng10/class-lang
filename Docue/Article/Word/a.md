@@ -176,7 +176,7 @@ Word "central" has meaning that is centralized.
 
 Word "tribute" has meaning that is distributed.
 
-Word "desktop" has meaning that is desktop.
+Word "destop" has meaning that is desktop.
 
 Word "laptop" has meaning that is desktop laptop.
 
