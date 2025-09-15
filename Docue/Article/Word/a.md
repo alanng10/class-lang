@@ -176,6 +176,14 @@ Word "central" has meaning that is centralized.
 
 Word "tribute" has meaning that is distributed.
 
+Word "desktop" has meaning that is desktop.
+
+Word "laptop" has meaning that is desktop laptop.
+
+Word "tablet" has meaning that is mobile tablet.
+
+Word "mobile" has meaning that is mobile.
+
 Word "contain" has meaning that is contained.
 
 Word "include" has meaning that is included.
