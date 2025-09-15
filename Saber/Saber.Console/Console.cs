@@ -784,22 +784,17 @@ public class Console : TextAdd
 
     protected virtual bool PrintTokenResult()
     {
-        ObjectString objectString;
-        objectString = new ObjectString();
-        objectString.Init();
+        Iter iter;
+        iter = this.Result.Token.Code.IterCreate();
+        this.Result.Token.Code.IterSet(iter);
 
-        Iter codeIter;
-        codeIter = this.Result.Token.Code.IterCreate();
-        this.Result.Token.Code.IterSet(codeIter);
-        while (codeIter.Next())
+        while (iter.Next())
         {
             Code code;
-            code = (Code)codeIter.Value;
-            
-            objectString.Execute(code);
-            
+            code = iter.Value as Code;
+
             String a;
-            a = objectString.Result();
+            a = this.InfoToken.Execute(code);
 
             this.Out.Write(a);
         }
