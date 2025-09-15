@@ -19,6 +19,9 @@ public class InfoToken : TextAdd
         this.SNextU = this.S("\\u");
         this.SNull = this.S("null");
         this.SHexPre = this.S("0h");
+        this.SCode = this.S("Code");
+        this.SToken = this.S("Token");
+        this.SComment = this.S("Comment");
         return true;
     }
 
@@ -44,6 +47,9 @@ public class InfoToken : TextAdd
     protected virtual String SNextU { get; set; }
     protected virtual String SNull { get; set; }
     protected virtual String SHexPre { get; set; }
+    protected virtual String SCode { get; set; }
+    protected virtual String SToken { get; set; }
+    protected virtual String SComment { get; set; }
 
     protected virtual bool Start(String name)
     {
