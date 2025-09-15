@@ -311,4 +311,26 @@ public class InfoToken : TextAdd
         this.End();
         return true;
     }
+
+    public virtual bool ExecuteToken(TokenToken token)
+    {
+        if (token == null)
+        {
+            this.Null();
+            return true;
+        }
+
+        this.Start(this.SToken);
+
+        this.FieldStart(this.SRow);
+        this.ExecuteInt(token.Row);
+        this.FieldEnd(this.SRow);
+
+        this.FieldStart(this.SRange);
+        this.ExecuteRange(token.Range);
+        this.FieldEnd(this.SRange);
+
+        this.End();
+        return true;
+    }
 }
