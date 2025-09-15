@@ -333,4 +333,26 @@ public class InfoToken : TextAdd
         this.End();
         return true;
     }
+
+    public virtual bool ExecuteComment(TokenComment comment)
+    {
+        if (comment == null)
+        {
+            this.Null();
+            return true;
+        }
+
+        this.Start(this.SComment);
+
+        this.FieldStart(this.SRow);
+        this.ExecuteInt(comment.Row);
+        this.FieldEnd(this.SRow);
+
+        this.FieldStart(this.SRange);
+        this.ExecuteRange(comment.Range);
+        this.FieldEnd(this.SRange);
+
+        this.End();
+        return true;
+    }
 }
