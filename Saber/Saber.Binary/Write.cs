@@ -355,6 +355,20 @@ public class Write : Any
         return this.ExecuteInt(value);
     }
 
+    protected virtual bool ExecuteBool(bool value)
+    {
+        long k;
+        k = 0;
+
+        if (value)
+        {
+            k = 1;
+        }
+
+        this.ExecuteByte(k);
+        return true;
+    }
+
     protected virtual bool ExecuteMid(long value)
     {
         return this.ExecuteIntCount(value, sizeof(int));
