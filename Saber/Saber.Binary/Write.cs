@@ -213,6 +213,8 @@ public class Write : Any
         this.ExecuteIndex(varField.Class);
         this.ExecuteByte(varField.Count);
         this.ExecuteName(varField.Name);
+        this.ExecuteState(varField.Get);
+        this.ExecuteState(varField.Set);
         return true;
     }
 
