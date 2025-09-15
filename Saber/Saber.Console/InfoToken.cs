@@ -251,4 +251,60 @@ public class InfoToken : TextAdd
         a = this.AddResult();
         return a;
     }
+
+    public virtual bool ExecuteCode(Code code)
+    {
+        if (code == null)
+        {
+            this.Null();
+            return true;
+        }
+
+        this.Start(this.SCode);
+
+        this.FieldStart(this.SToken);
+
+        this.StartArray();
+
+        long count;
+        count = code.Token.Count;
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            TokenToken token;
+            token = code.Token.Get(i) as TokenToken;
+
+            this.AddSpace();
+            this.ExecuteToken(token);
+
+            i = i + 1;
+        }
+        this.EndArray();
+
+        this.FieldEnd(this.SToken);
+
+        this.FieldStart(this.SComment);
+
+        this.StartArray();
+
+        count = code.Comment.Count;
+        i = 0;
+        while (i < count)
+        {
+            TokenComment comment;
+            comment = code.Comment.Get(i) as TokenComment;
+
+            this.AddSpace();
+            this.ExecuteComment(comment);
+
+            i = i + 1;
+        }
+        this.EndArray();
+
+        this.FieldEnd(this.SComment);
+
+        this.End();
+        return true;
+    }
 }
