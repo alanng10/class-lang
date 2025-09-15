@@ -184,6 +184,8 @@ Word "tablet" has meaning that is mobile tablet.
 
 Word "mobile" has meaning that is mobile.
 
+Word "serlon" has meaning that is server.
+
 Word "contain" has meaning that is contained.
 
 Word "include" has meaning that is included.
