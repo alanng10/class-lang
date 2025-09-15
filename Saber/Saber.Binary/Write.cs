@@ -347,7 +347,7 @@ public class Write : Any
             {
                 this.ExecuteByte(2);
 
-                this.ExecuteBool(arg.Bool);
+                this.ExecuteInt(arg.Int);
             }
 
             if (arg.Kind == 3)
