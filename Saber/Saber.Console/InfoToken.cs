@@ -281,7 +281,7 @@ public class InfoToken : TextAdd
         while (i < count)
         {
             TokenToken token;
-            token = code.Token.Get(i) as TokenToken;
+            token = code.Token.GetAt(i) as TokenToken;
 
             this.AddSpace();
             this.ExecuteToken(token);
@@ -301,7 +301,7 @@ public class InfoToken : TextAdd
         while (i < count)
         {
             TokenComment comment;
-            comment = code.Comment.Get(i) as TokenComment;
+            comment = code.Comment.GetAt(i) as TokenComment;
 
             this.AddSpace();
             this.ExecuteComment(comment);
