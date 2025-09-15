@@ -6,4 +6,5 @@ public class Maide : Any
     public virtual long Count { get; set; }
     public virtual String Name { get; set; }
     public virtual Array Param { get; set; }
+    public virtual State Call { get; set; }
 }
