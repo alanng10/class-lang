@@ -82,6 +82,7 @@ public class Console : TextAdd
     protected virtual PortPort Port { get; set; }
     protected virtual Array PortError { get; set; }
     protected virtual bool MakeSystemModule { get; set; }
+    protected virtual InfoToken InfoToken { get; set; }
     protected virtual ModuleRefLess ModuleRefLess { get; set; }
     protected virtual TextLess StorageTextLess { get; set; }
     protected virtual String SClass { get; set; }
