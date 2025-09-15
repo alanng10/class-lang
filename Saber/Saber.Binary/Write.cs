@@ -355,14 +355,21 @@ public class Write : Any
         return this.ExecuteInt(value);
     }
 
+    protected virtual bool ExecuteMid(long value)
+    {
+        return this.ExecuteIntCount(value, sizeof(int));
+    }
+
     protected virtual bool ExecuteInt(long value)
+    {
+        return this.ExecuteIntCount(value, sizeof(long));
+    }
+
+    protected virtual bool ExecuteIntCount(long value, long count)
     {
         long k;
         k = value;
         k = k & (this.InfraInfra.IntCapValue - 1);
-
-        long count;
-        count = sizeof(long);
 
         long i;
         i = 0;
