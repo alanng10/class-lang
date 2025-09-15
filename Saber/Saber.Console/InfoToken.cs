@@ -22,6 +22,8 @@ public class InfoToken : TextAdd
         this.SCode = this.S("Code");
         this.SToken = this.S("Token");
         this.SComment = this.S("Comment");
+        this.SRow = this.S("Row");
+        this.SRange = this.S("Range");
         return true;
     }
 
@@ -50,6 +52,8 @@ public class InfoToken : TextAdd
     protected virtual String SCode { get; set; }
     protected virtual String SToken { get; set; }
     protected virtual String SComment { get; set; }
+    protected virtual String SRow { get; set; }
+    protected virtual String SRange { get; set; }
 
     protected virtual bool Start(String name)
     {
