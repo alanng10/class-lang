@@ -314,6 +314,53 @@ public class Write : Any
         return true;
     }
 
+    protected virtual bool ExecuteOperate(Operate operate)
+    {
+        this.ExecuteByte(operate.Kind);
+        this.ExecuteOperateArg(operate.ArgA);
+        this.ExecuteOperateArg(operate.ArgB);
+        return true;
+    }
+
+    protected virtual bool ExecuteOperateArg(OperateArg arg)
+    {
+        bool b;
+        b = false;
+
+        if (arg == null)
+        {
+            this.ExecuteByte(0);
+
+            b = true;
+        }
+
+        if (!b)
+        {
+            if (arg.Kind == 1)
+            {
+                this.ExecuteByte(1);
+
+                this.ExecuteBool(arg.Bool);
+            }
+
+            if (arg.Kind == 2)
+            {
+                this.ExecuteByte(2);
+
+                this.ExecuteBool(arg.Bool);
+            }
+
+            if (arg.Kind == 3)
+            {
+                this.ExecuteByte(3);
+
+                this.ExecuteString(arg.String);
+            }
+        }
+
+        return true;
+    }
+
     protected virtual bool ExecuteModuleRef(ModuleRef varRef)
     {
         this.ExecuteName(varRef.Name);
