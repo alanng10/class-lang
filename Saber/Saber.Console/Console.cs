@@ -50,75 +50,13 @@ public class Console : TextAdd
         return true;
     }
 
-    public virtual long Status { get; set; }
-    public virtual Array Arg { get; set; }
-    public virtual Task Task { get; set; }
-    public virtual Array Source { get; set; }
-    public virtual String SourceFold { get; set; }
-    public virtual Create Create { get; set; }
-    public virtual Result Result { get; set; }
-    public virtual ClassModule PortModule { get; set; }
-    public virtual ErrorString ErrorString { get; set; }
-    public virtual TaskKindList TaskKind { get; set; }
-    public virtual Table ModuleTable { get; set; }
-    public virtual Table ImportClass { get; set; }
-    public virtual bool ErrorWrite { get; set; }
-    protected virtual ListInfra ListInfra { get; set; }
-    protected virtual StorageInfra StorageInfra { get; set; }
-    protected virtual ClassInfra ClassInfra { get; set; }
-    protected virtual StorageComp StorageComp { get; set; }
-    protected virtual BinaryRead BinaryRead { get; set; }
-    protected virtual BinaryWrite BinaryWrite { get; set; }
-    protected virtual ModulePort ModulePort { get; set; }
-    protected virtual PortRead PortRead { get; set; }
-    protected virtual PortLoad PortLoad { get; set; }
-    protected virtual BinaryGen BinaryGen { get; set; }
-    protected virtual LibraryGen LibraryGen { get; set; }
-    protected virtual StorageGen StorageGen { get; set; }
-    protected virtual NameValid NameValid { get; set; }
-    protected virtual Out Out { get; set; }
-    protected virtual Out Err { get; set; }
-    protected virtual String ClassPath { get; set; }
-    protected virtual PortPort Port { get; set; }
-    protected virtual Array PortError { get; set; }
-    protected virtual bool MakeSystemModule { get; set; }
-    protected virtual InfoToken InfoToken { get; set; }
-    protected virtual ModuleRefLess ModuleRefLess { get; set; }
-    protected virtual TextLess StorageTextLess { get; set; }
-    protected virtual String SClass { get; set; }
-    protected virtual String SDocue { get; set; }
-    protected virtual String SMake { get; set; }
-    protected virtual String SFlagM { get; set; }
-    protected virtual String SClassDotPort { get; set; }
-    protected virtual String SDotCl { get; set; }
-    protected virtual String SModule { get; set; }
-
-    protected virtual NameValid CreateNameValid()
+    protected virtual Create CreateCreate()
     {
-        NameValid a;
-        a = new NameValid();
+        Create a;
+        a = new Create();
+        a.Console = this;
         a.Init();
         return a;
-    }
-
-    public virtual bool Load()
-    {
-        this.ClassPath = this.StorageInfra.TextRead(this.S("Saber.Console.data/ClassPath.txt"));
-
-        if (this.ClassPath == null)
-        {
-            return false;
-        }
-
-        bool b;
-
-        b = this.LibraryGen.Load();
-        if (!b)
-        {
-            return false;
-        }
-
-        return true;
     }
 
     protected virtual BinaryRead CreateBinaryRead()
@@ -177,6 +115,22 @@ public class Console : TextAdd
         return a;
     }
 
+    protected virtual NameValid CreateNameValid()
+    {
+        NameValid a;
+        a = new NameValid();
+        a.Init();
+        return a;
+    }
+
+    protected virtual InfoToken CreateInfoToken()
+    {
+        InfoToken a;
+        a = new InfoToken();
+        a.Init();
+        return a;
+    }
+
     protected virtual TextLess CreateStorageTextLess()
     {
         TextLess a;
@@ -186,6 +140,69 @@ public class Console : TextAdd
         a.CharLess = this.ILess;
         a.Init();
         return a;
+    }
+
+    public virtual long Status { get; set; }
+    public virtual Array Arg { get; set; }
+    public virtual Task Task { get; set; }
+    public virtual Array Source { get; set; }
+    public virtual String SourceFold { get; set; }
+    public virtual Create Create { get; set; }
+    public virtual Result Result { get; set; }
+    public virtual ClassModule PortModule { get; set; }
+    public virtual ErrorString ErrorString { get; set; }
+    public virtual TaskKindList TaskKind { get; set; }
+    public virtual Table ModuleTable { get; set; }
+    public virtual Table ImportClass { get; set; }
+    public virtual bool ErrorWrite { get; set; }
+    protected virtual ListInfra ListInfra { get; set; }
+    protected virtual StorageInfra StorageInfra { get; set; }
+    protected virtual ClassInfra ClassInfra { get; set; }
+    protected virtual StorageComp StorageComp { get; set; }
+    protected virtual BinaryRead BinaryRead { get; set; }
+    protected virtual BinaryWrite BinaryWrite { get; set; }
+    protected virtual ModulePort ModulePort { get; set; }
+    protected virtual PortRead PortRead { get; set; }
+    protected virtual PortLoad PortLoad { get; set; }
+    protected virtual BinaryGen BinaryGen { get; set; }
+    protected virtual LibraryGen LibraryGen { get; set; }
+    protected virtual StorageGen StorageGen { get; set; }
+    protected virtual NameValid NameValid { get; set; }
+    protected virtual Out Out { get; set; }
+    protected virtual Out Err { get; set; }
+    protected virtual String ClassPath { get; set; }
+    protected virtual PortPort Port { get; set; }
+    protected virtual Array PortError { get; set; }
+    protected virtual bool MakeSystemModule { get; set; }
+    protected virtual InfoToken InfoToken { get; set; }
+    protected virtual ModuleRefLess ModuleRefLess { get; set; }
+    protected virtual TextLess StorageTextLess { get; set; }
+    protected virtual String SClass { get; set; }
+    protected virtual String SDocue { get; set; }
+    protected virtual String SMake { get; set; }
+    protected virtual String SFlagM { get; set; }
+    protected virtual String SClassDotPort { get; set; }
+    protected virtual String SDotCl { get; set; }
+    protected virtual String SModule { get; set; }
+
+    public virtual bool Load()
+    {
+        this.ClassPath = this.StorageInfra.TextRead(this.S("Saber.Console.data/ClassPath.txt"));
+
+        if (this.ClassPath == null)
+        {
+            return false;
+        }
+
+        bool b;
+
+        b = this.LibraryGen.Load();
+        if (!b)
+        {
+            return false;
+        }
+
+        return true;
     }
 
     public virtual bool ArgSet(Array arg)
@@ -637,15 +654,6 @@ public class Console : TextAdd
         }
 
         return true;
-    }
-
-    protected virtual Create CreateCreate()
-    {
-        Create a;
-        a = new Create();
-        a.Console = this;
-        a.Init();
-        return a;
     }
 
     protected virtual bool CanGen()
