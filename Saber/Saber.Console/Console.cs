@@ -188,11 +188,14 @@ public class Console : TextAdd
 
     public virtual bool EnvironSet()
     {
-        string newPath = @"C:\Users\aaabb\Qt\6.8.1\llvm-mingw_64\bin;C:\Users\aaabb\Qt\Tools\llvm-mingw1706_64\bin;";
+        string newPath;
+        newPath = @"C:\Users\aaabb\Qt\6.8.1\llvm-mingw_64\bin;C:\Users\aaabb\Qt\Tools\llvm-mingw1706_64\bin;";
 
-        string currentPath = Environ.GetEnvironmentVariable("PATH");
+        string currentPath;
+        currentPath = Environ.GetEnvironmentVariable("PATH");
 
-        string updatePath = newPath + currentPath;
+        string updatePath;
+        updatePath = newPath + currentPath;
 
         Environ.SetEnvironmentVariable("PATH", updatePath);
         return true;
