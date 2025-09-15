@@ -234,4 +234,15 @@ public class InfoToken : TextAdd
         this.AddStringValue(value);
         return true;
     }
+
+    public virtual String Execute(Code code)
+    {
+        this.AddClear();
+
+        this.ExecuteCode(code);
+
+        String a;
+        a = this.AddResult();
+        return a;
+    }
 }
