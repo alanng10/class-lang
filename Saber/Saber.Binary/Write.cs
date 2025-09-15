@@ -285,6 +285,32 @@ public class Write : Any
         return true;
     }
 
+    protected virtual bool ExecuteState(State state)
+    {
+        this.ExecuteCount(state.Var);
+
+        Array array;
+        array = state.Operate;
+
+        long count;
+        count = array.Count;
+
+        this.ExecuteCount(count);
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            Operate operate;
+            operate = array.GetAt(i) as Operate;
+
+            this.ExecuteOperate(operate);
+
+            i = i + 1;
+        }
+        return true;
+    }
+
     protected virtual bool ExecuteModuleRef(ModuleRef varRef)
     {
         this.ExecuteName(varRef.Name);
