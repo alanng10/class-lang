@@ -359,4 +359,26 @@ public class InfoToken : TextAdd
         this.End();
         return true;
     }
+
+    public virtual bool ExecuteRange(InfraRange range)
+    {
+        if (range == null)
+        {
+            this.Null();
+            return true;
+        }
+
+        this.Start(this.SRange);
+
+        this.FieldStart(this.SIndex);
+        this.ExecuteInt(range.Index);
+        this.FieldEnd(this.SIndex);
+
+        this.FieldStart(this.SCount);
+        this.ExecuteInt(range.Count);
+        this.FieldEnd(this.SCount);
+
+        this.End();
+        return true;
+    }
 }
