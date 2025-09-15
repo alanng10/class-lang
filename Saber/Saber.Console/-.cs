@@ -146,6 +146,7 @@ global using ModuleInfo = Saber.Module.Info;
 global using SystemClass = Saber.Module.System;
 global using ErrorKindList = Saber.Module.ErrorKindList;
 global using Type = System.Type;
+global using Environ = System.Environment;
 global using PropertyInfo = System.Reflection.PropertyInfo;
 global using BindingFlags = System.Reflection.BindingFlags;
 global using PropertyInfoDictionary = System.Collections.Generic.Dictionary<string, System.Reflection.PropertyInfo>;
