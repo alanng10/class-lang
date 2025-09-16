@@ -289,6 +289,11 @@ public class Write : Any
         return true;
     }
 
+    protected virtual bool ExecuteState(Data data)
+    {
+        return this.ExecuteData(data);
+    }
+
     protected virtual bool ExecuteData(Data data)
     {
         long count;
