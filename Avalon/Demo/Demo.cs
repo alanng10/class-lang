@@ -1098,13 +1098,13 @@ class Demo : TextAdd
 
         this.Console.Out.Write(kaaaa);
 
-        bool nameK;
-
         StorageEntry entryA;
         entryA = storageComp.Entry(this.S("DemoData/FoldA/FileA.txt"));
 
         StorageEntry entryB;
         entryB = storageComp.Entry(this.S("DemoData/FoldA"));
+
+        bool nameK;
 
         nameK = this.TextSame(this.TA(entryA.Name), this.TB(this.S("FileA.txt")));
 
