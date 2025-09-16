@@ -9,4 +9,5 @@ public class Binary : Any
     public virtual Array Base { get; set; }
     public virtual Array Part { get; set; }
     public virtual Entry Entry { get; set; }
+    public virtual Data State { get; set; }
 }
