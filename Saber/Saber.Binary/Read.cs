@@ -455,6 +455,39 @@ public class Read : Any
         return true;
     }
 
+    protected virtual bool ExecuteCreateData()
+    {
+        ReadArg arg;
+        arg = this.Arg;
+
+        Array array;
+        array = arg.DataArray;
+
+        long count;
+        count = array.Count;
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            long index;
+            index = i * sizeof(long);
+
+            long ka;
+            ka = this.InfraInfra.DataIntGet(arg.DataCountData, index);
+
+            Data k;
+            k = new Data();
+            k.Count = ka;
+            k.Init();
+
+            array.SetAt(i, k);
+
+            i = i + 1;
+        }
+        return true;
+    }
+
     public virtual bool ExecuteStage()
     {
         this.Result = this.ExecuteBinary();
