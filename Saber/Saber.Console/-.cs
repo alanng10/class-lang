@@ -55,6 +55,7 @@ global using BinaryBinary = Saber.Binary.Binary;
 global using BinaryClass = Saber.Binary.Class;
 global using BinaryImport = Saber.Binary.Import;
 global using BinaryPart = Saber.Binary.Part;
+global using BinaryEntry = Saber.Binary.Entry;
 global using BinaryField = Saber.Binary.Field;
 global using BinaryMaide = Saber.Binary.Maide;
 global using BinaryVar = Saber.Binary.Var;

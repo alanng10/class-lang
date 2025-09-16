@@ -512,21 +512,26 @@ public class BinaryGen : Any
         return a;
     }
 
-    public virtual long ExecuteEntry()
+    public virtual BinaryEntry ExecuteEntry()
     {
+        long k;
+        k = -1;
+
         String entry;
         entry = this.Module.Entry;
 
-        if (entry == null)
+        if (!(entry == null))
         {
-            return -1;
+            ClassClass varClass;
+            varClass = this.Module.Class.Get(entry) as ClassClass;
+
+            k = varClass.Index;
         }
 
-        ClassClass varClass;
-        varClass = this.Module.Class.Get(entry) as ClassClass;
-
-        long a;
-        a = varClass.Index;
+        BinaryEntry a;
+        a = new BinaryEntry();
+        a.Init();
+        a.Class = k;
         return a;
     }
 
