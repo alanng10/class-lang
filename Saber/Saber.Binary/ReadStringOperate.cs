@@ -230,23 +230,21 @@ public class ReadStringOperate : ReadOperate
         kd = kd * sizeof(long);
         this.InfraInfra.DataIntSet(arg.StringCountData, kd, count);
 
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            long ka;
-            ka = this.Read.Data.Get(arg.Index + i);
-
-            this.TextInfra.DataCharSet(arg.StringTextData, arg.StringTextIndex + i, ka);
-
-            i = i + 1;
-        }
-
-        arg.Index = arg.Index + count;
         arg.StringIndex = arg.StringIndex + 1;
-        arg.StringTextIndex = arg.StringTextIndex + count;
         return this.String;
     }
+
+    public override bool ExecuteStringDataCharSet(long value)
+    {
+        ReadArg arg;
+        arg = this.Read.Arg;
+
+        this.TextInfra.DataCharSet(arg.StringTextData, arg.StringTextIndex, value);
+
+        arg.StringTextIndex = arg.StringTextIndex + 1;
+        return true;
+    }
+
 
     public override Array ExecuteArray(long count)
     {
