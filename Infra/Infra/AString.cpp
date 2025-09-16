@@ -19,9 +19,16 @@ Int String_Char(Int o, Int index)
 {
     String* m;
     m = CP(o);
-    Char* u;
-    u = (Char*)(m->Value);
-    return u[index];
+
+    Char* ka;
+    ka = (Char*)(m->Value);
+
+    Char k;
+    k = ka[index];
+
+    Int a;
+    a = k;
+    return a;
 }
 
 Int String_Equal(Int o, Int other)

@@ -545,9 +545,9 @@ Int StorageComp_EntryName(Int path)
         Int ka;
         ka = String_Char(path, index);
 
-        if (ka == '/')
+        if (ka == '/' | ka == '\\')
         {
-            k = i;
+            k = index;
             b = true;
         }
 
