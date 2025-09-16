@@ -69,16 +69,20 @@ public class Read : Any
         this.ExecuteStage();
 
         arg.StringCountData = new Data();
-        arg.StringCountData.Count = arg.StringIndex * sizeof(ulong);
+        arg.StringCountData.Count = arg.StringIndex * sizeof(long);
         arg.StringCountData.Init();
 
         arg.StringTextData = new Data();
-        arg.StringTextData.Count = arg.StringTextIndex * sizeof(uint);
+        arg.StringTextData.Count = arg.StringTextIndex * sizeof(int);
         arg.StringTextData.Init();
 
         arg.ArrayCountData = new Data();
-        arg.ArrayCountData.Count = arg.ArrayIndex * sizeof(ulong);
+        arg.ArrayCountData.Count = arg.ArrayIndex * sizeof(long);
         arg.ArrayCountData.Init();
+
+        arg.DataCountData = new Data();
+        arg.DataCountData.Count = arg.DataIndex * sizeof(long);
+        arg.DataCountData.Init();
 
         this.Operate = this.StringOperate;
 
@@ -131,11 +135,13 @@ public class Read : Any
         a.FieldIndex = 0;
         a.MaideIndex = 0;
         a.VarIndex = 0;
+        a.EntryIndex = 0;
         a.ClassIndexIndex = 0;
         a.ModuleRefIndex = 0;
         a.StringIndex = 0;
         a.StringTextIndex = 0;
         a.ArrayIndex = 0;
+        a.DataIndex = 0;
         return true;
     }
 
