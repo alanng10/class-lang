@@ -289,6 +289,27 @@ public class Write : Any
         return true;
     }
 
+    protected virtual bool ExecuteData(Data data)
+    {
+        long count;
+        count = data.Count;
+
+        this.ExecuteCount(count);
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            long ka;
+            ka = data.Get(i);
+
+            this.ExecuteByte(ka);
+
+            i = i + 1;
+        }
+        return true;
+    }
+
     protected virtual bool ExecuteModuleRef(ModuleRef varRef)
     {
         this.ExecuteName(varRef.Name);
