@@ -172,4 +172,10 @@ public class ReadSetOperate : ReadOperate
         arg.DataIndex = index + 1;
         return a;
     }
+
+    public override bool ExecuteDataSet(Data data, long index, long value)
+    {
+        data.Set(index, value);
+        return true;
+    }
 }
