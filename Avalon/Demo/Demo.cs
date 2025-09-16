@@ -1110,9 +1110,13 @@ class Demo : TextAdd
 
         this.Console.Out.Write(this.AddClear().AddS("File Name ").Add(this.StatusString(nameK)).AddLine().AddResult());
 
+        this.Console.Out.Write(this.AddClear().Add(entryA.Name).AddLine().AddResult());
+
         nameK = this.TextSame(this.TA(entryB.Name), this.TB(this.S("FoldA")));
 
         this.Console.Out.Write(this.AddClear().AddS("Fold Name ").Add(this.StatusString(nameK)).AddLine().AddResult());
+
+        this.Console.Out.Write(this.AddClear().Add(entryB.Name).AddLine().AddResult());
 
         bool exist;
 
