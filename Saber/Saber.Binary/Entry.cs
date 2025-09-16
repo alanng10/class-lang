@@ -1,6 +1,6 @@
 namespace Saber.Binary;
 
-class Entry : Any
+public class Entry : Any
 {
     public virtual long Class { get; set; }
 }
