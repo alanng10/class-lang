@@ -310,6 +310,29 @@ public class Read : Any
         return true;
     }
 
+    protected virtual bool ExecuteCreateEntry()
+    {
+        Array array;
+        array = this.Arg.EntryArray;
+
+        long count;
+        count = array.Count;
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            Entry k;
+            k = new Entry();
+            k.Init();
+
+            array.SetAt(i, k);
+
+            i = i + 1;
+        }
+        return true;
+    }
+
     protected virtual bool ExecuteCreateClassIndex()
     {
         Array array;
