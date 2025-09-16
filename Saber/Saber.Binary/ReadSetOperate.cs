@@ -131,10 +131,16 @@ public class ReadSetOperate : ReadOperate
         String a;
         a = arg.StringArray.GetAt(index) as String;
 
-        arg.Index = arg.Index + count;
         arg.StringIndex = index + 1;
-        arg.StringTextIndex = arg.StringTextIndex + count;
         return a;
+    }
+
+    public override bool ExecuteStringDataCharSet(long value)
+    {
+        ReadArg arg;
+        arg = this.Read.Arg;
+        arg.StringTextIndex = arg.StringTextIndex + 1;
+        return true;
     }
 
     public override Array ExecuteArray(long count)
@@ -153,5 +159,17 @@ public class ReadSetOperate : ReadOperate
     {
         array.SetAt(index, value);
         return true;
+    }
+
+    public override Data ExecuteData(long count)
+    {
+        ReadArg arg;
+        arg = this.Read.Arg;
+        long index;
+        index = arg.DataIndex;
+        Data a;
+        a = arg.DataArray.GetAt(index) as Data;
+        arg.DataIndex = index + 1;
+        return a;
     }
 }
