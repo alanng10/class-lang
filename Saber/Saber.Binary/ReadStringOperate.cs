@@ -17,10 +17,12 @@ public class ReadStringOperate : ReadOperate
         this.Field = this.CreateField();
         this.Maide = this.CreateMaide();
         this.Var = this.CreateVar();
+        this.Entry = this.CreateEntry();
         this.ClassIndex = this.CreateClassIndex();
         this.ModuleRef = this.CreateModuleRef();
         this.String = this.CreateString();
         this.Array = this.CreateArray();
+        this.Data = this.CreateData();
         return true;
     }
 
@@ -80,6 +82,14 @@ public class ReadStringOperate : ReadOperate
         return a;
     }
 
+    protected virtual Entry CreateEntry()
+    {
+        Entry a;
+        a = new Entry();
+        a.Init();
+        return a;
+    }
+
     protected virtual Value CreateClassIndex()
     {
         Value a;
@@ -103,6 +113,15 @@ public class ReadStringOperate : ReadOperate
         return this.ListInfra.ArrayCreate(0);
     }
 
+    protected virtual Data CreateData()
+    {
+        Data a;
+        a = new Data();
+        a.Count = 0;
+        a.Init();
+        return a;
+    }
+
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
@@ -114,10 +133,12 @@ public class ReadStringOperate : ReadOperate
     protected virtual Field Field { get; set; }
     protected virtual Maide Maide { get; set; }
     protected virtual Var Var { get; set; }
+    protected virtual Entry Entry { get; set; }
     protected virtual Value ClassIndex { get; set; }
     protected virtual ModuleRef ModuleRef { get; set; }
     protected virtual String String { get; set; }
     protected virtual Array Array { get; set; }
+    protected virtual Data Data { get; set; }
 
     public override Binary ExecuteBinary()
     {
