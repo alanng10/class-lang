@@ -810,7 +810,7 @@ public class Read : Any
         }
 
         String name;
-        name = this.ExecuteString();
+        name = this.ExecuteName();
         if (name == null)
         {
             return null;
@@ -875,7 +875,7 @@ public class Read : Any
         }
 
         String name;
-        name = this.ExecuteString();
+        name = this.ExecuteName();
         if (name == null)
         {
             return null;
