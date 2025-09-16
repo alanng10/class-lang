@@ -96,10 +96,12 @@ public class Read : Any
         arg.FieldArray = this.ListInfra.ArrayCreate(arg.FieldIndex);
         arg.MaideArray = this.ListInfra.ArrayCreate(arg.MaideIndex);
         arg.VarArray = this.ListInfra.ArrayCreate(arg.VarIndex);
+        arg.EntryArray = this.ListInfra.ArrayCreate(arg.EntryIndex);
         arg.ClassIndexArray = this.ListInfra.ArrayCreate(arg.ClassIndexIndex);
         arg.ModuleRefArray = this.ListInfra.ArrayCreate(arg.ModuleRefIndex);
         arg.StringArray = this.ListInfra.ArrayCreate(arg.StringIndex);
         arg.ArrayArray = this.ListInfra.ArrayCreate(arg.ArrayIndex);
+        arg.DataArray = this.ListInfra.ArrayCreate(arg.DataIndex);
 
         this.ExecuteCreateBinary();
         this.ExecuteCreateClass();
