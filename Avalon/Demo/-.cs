@@ -44,6 +44,7 @@ global using Time = Avalon.Time.Time;
 global using Storage = Avalon.Storage.Storage;
 global using StorageMode = Avalon.Storage.Mode;
 global using StorageComp = Avalon.Storage.Comp;
+global using StorageEntry = Avalon.Storage.Entry;
 global using StorageStatusList = Avalon.Storage.StatusList;
 global using StorageInfra = Avalon.Storage.Infra;
 global using NetworkNetwork = Avalon.Network.Network;
