@@ -538,8 +538,19 @@ public class Read : Any
             return null;
         }
 
-        long entry;
+        Entry entry;
         entry = this.ExecuteEntry();
+        if (entry == null)
+        {
+            return null;
+        }
+
+        Data state;
+        state = this.ExecuteState();
+        if (state == null)
+        {
+            return null;
+        }
 
         Binary a;
         a = this.Operate.ExecuteBinary();
@@ -550,6 +561,7 @@ public class Read : Any
         a.Base = varBase;
         a.Part = part;
         a.Entry = entry;
+        a.State = state;
         return a;
     }
 
