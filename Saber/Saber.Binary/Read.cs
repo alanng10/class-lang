@@ -110,10 +110,12 @@ public class Read : Any
         this.ExecuteCreateField();
         this.ExecuteCreateMaide();
         this.ExecuteCreateVar();
+        this.ExecuteCreateEntry();
         this.ExecuteCreateClassIndex();
         this.ExecuteCreateModuleRef();
         this.ExecuteCreateString();
         this.ExecuteCreateArray();
+        this.ExecuteCreateData();
 
         this.Operate = this.SetOperate;
 
