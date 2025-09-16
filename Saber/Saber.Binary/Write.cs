@@ -275,14 +275,17 @@ public class Write : Any
         return true;
     }
 
-    protected virtual bool ExecuteEntry(long entry)
+    protected virtual bool ExecuteEntry(Entry entry)
     {
-        if (entry == -1)
+        if (entry.Class == -1)
         {
+            this.ExecuteByte(0);
             return true;
         }
 
-        this.ExecuteIndex(entry);
+        this.ExecuteByte(1);
+
+        this.ExecuteIndex(entry.Class);
         return true;
     }
 
