@@ -88,6 +88,7 @@ public class Write : Any
         this.ExecuteBaseArray(binary.Base);
         this.ExecutePartArray(binary.Part);
         this.ExecuteEntry(binary.Entry);
+        this.ExecuteState(binary.State);
         return true;
     }
 
@@ -213,8 +214,6 @@ public class Write : Any
         this.ExecuteIndex(varField.Class);
         this.ExecuteByte(varField.Count);
         this.ExecuteName(varField.Name);
-        this.ExecuteState(varField.Get);
-        this.ExecuteState(varField.Set);
         return true;
     }
 
@@ -245,7 +244,6 @@ public class Write : Any
         this.ExecuteByte(varMaide.Count);
         this.ExecuteName(varMaide.Name);
         this.ExecuteVarArray(varMaide.Param);
-        this.ExecuteState(varMaide.Call);
         return true;
     }
 
@@ -285,79 +283,6 @@ public class Write : Any
         }
 
         this.ExecuteIndex(entry);
-        return true;
-    }
-
-    protected virtual bool ExecuteState(State state)
-    {
-        this.ExecuteCount(state.Var);
-
-        Array array;
-        array = state.Operate;
-
-        long count;
-        count = array.Count;
-
-        this.ExecuteCount(count);
-
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            Operate operate;
-            operate = array.GetAt(i) as Operate;
-
-            this.ExecuteOperate(operate);
-
-            i = i + 1;
-        }
-        return true;
-    }
-
-    protected virtual bool ExecuteOperate(Operate operate)
-    {
-        this.ExecuteByte(operate.Kind);
-        this.ExecuteOperateArg(operate.ArgA);
-        this.ExecuteOperateArg(operate.ArgB);
-        return true;
-    }
-
-    protected virtual bool ExecuteOperateArg(OperateArg arg)
-    {
-        bool b;
-        b = false;
-
-        if (arg == null)
-        {
-            this.ExecuteByte(0);
-
-            b = true;
-        }
-
-        if (!b)
-        {
-            if (arg.Kind == 1)
-            {
-                this.ExecuteByte(1);
-
-                this.ExecuteBool(arg.Bool);
-            }
-
-            if (arg.Kind == 2)
-            {
-                this.ExecuteByte(2);
-
-                this.ExecuteInt(arg.Int);
-            }
-
-            if (arg.Kind == 3)
-            {
-                this.ExecuteByte(3);
-
-                this.ExecuteString(arg.String);
-            }
-        }
-
         return true;
     }
 
@@ -445,25 +370,6 @@ public class Write : Any
             i = i + 1;
         }
         return true;
-    }
-
-    protected virtual bool ExecuteBool(bool value)
-    {
-        long k;
-        k = 0;
-
-        if (value)
-        {
-            k = 1;
-        }
-
-        this.ExecuteByte(k);
-        return true;
-    }
-
-    protected virtual bool ExecuteMid(long value)
-    {
-        return this.ExecuteIntCount(value, sizeof(int));
     }
 
     protected virtual bool ExecuteInt(long value)
