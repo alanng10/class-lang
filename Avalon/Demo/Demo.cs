@@ -1098,29 +1098,29 @@ class Demo : TextAdd
 
         this.Console.Out.Write(kaaaa);
 
-        StorageEntry entry;
-        entry = null;
-
         bool nameK;
-        bool exist;
 
-        entry = storageComp.Entry(this.S("DemoData/FoldA/FileA.txt"));
+        StorageEntry entryA;
+        entryA = storageComp.Entry(this.S("DemoData/FoldA/FileA.txt"));
 
-        nameK = this.TextSame(this.TA(entry.Name), this.TB(this.S("FileA.txt")));
+        StorageEntry entryB;
+        entryB = storageComp.Entry(this.S("DemoData/FoldA"));
 
-        exist = entry.Exist;
+        nameK = this.TextSame(this.TA(entryA.Name), this.TB(this.S("FileA.txt")));
 
         this.Console.Out.Write(this.AddClear().AddS("File Name ").Add(this.StatusString(nameK)).AddLine().AddResult());
 
-        this.Console.Out.Write(this.AddClear().AddS("File Exist ").Add(this.StatusString(exist)).AddLine().AddResult());
-
-        entry = storageComp.Entry(this.S("DemoData/FoldA"));
-
-        nameK = this.TextSame(this.TA(entry.Name), this.TB(this.S("FoldA")));
-
-        exist = entry.Exist;
+        nameK = this.TextSame(this.TA(entryB.Name), this.TB(this.S("FoldA")));
 
         this.Console.Out.Write(this.AddClear().AddS("Fold Name ").Add(this.StatusString(nameK)).AddLine().AddResult());
+
+        bool exist;
+
+        exist = entryA.Exist;
+
+        this.Console.Out.Write(this.AddClear().AddS("File Exist ").Add(this.StatusString(exist)).AddLine().AddResult());
+
+        exist = entryB.Exist;
 
         this.Console.Out.Write(this.AddClear().AddS("Fold Exist ").Add(this.StatusString(exist)).AddLine().AddResult());
 
