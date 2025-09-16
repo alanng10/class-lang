@@ -1124,12 +1124,9 @@ class Demo : TextAdd
 
         this.Console.Out.Write(this.AddClear().AddS("Fold Exist ").Add(this.StatusString(exist)).AddLine().AddResult());
 
-        entry = storageComp.Entry(this.S("DemoData/Dummy"));
-
-        exist = entry.Exist;
+        exist = storageComp.Entry(this.S("DemoData/Dummy")).Exist;
 
         this.Console.Out.Write(this.AddClear().AddS("Dummy Exist ").Add(this.StatusString(!exist)).AddLine().AddResult());
-
 
         bool isFold;
         isFold = storageComp.Entry(this.S("DemoData/FoldA/FileA.txt")).Fold;
