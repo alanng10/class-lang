@@ -222,10 +222,16 @@ public class ReadCountOperate : ReadOperate
     {
         ReadArg arg;
         arg = this.Read.Arg;
-        arg.Index = arg.Index + count;
         arg.StringIndex = arg.StringIndex + 1;
-        arg.StringTextIndex = arg.StringTextIndex + count;
         return this.String;
+    }
+
+    public override bool ExecuteStringDataCharSet(long value)
+    {
+        ReadArg arg;
+        arg = this.Read.Arg;
+        arg.StringTextIndex = arg.StringTextIndex + 1;
+        return true;
     }
 
     public override Array ExecuteArray(long count)
@@ -237,6 +243,19 @@ public class ReadCountOperate : ReadOperate
     }
 
     public override bool ExecuteArrayItemSet(Array array, long index, object value)
+    {
+        return true;
+    }
+
+    public override Data ExecuteData(long count)
+    {
+        ReadArg arg;
+        arg = this.Read.Arg;
+        arg.DataIndex = arg.DataIndex + 1;
+        return this.Data;
+    }
+
+    public override bool ExecuteDataSet(Data data, long index, long value)
     {
         return true;
     }
