@@ -196,6 +196,14 @@ public class ReadStringOperate : ReadOperate
         return this.Var;
     }
 
+    public override Entry ExecuteEntry()
+    {
+        ReadArg arg;
+        arg = this.Read.Arg;
+        arg.EntryIndex = arg.EntryIndex + 1;
+        return this.Entry;
+    }
+
     public override Value ExecuteClassIndex()
     {
         ReadArg arg;
