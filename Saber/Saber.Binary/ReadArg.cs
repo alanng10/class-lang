@@ -17,6 +17,8 @@ public class ReadArg : Any
     public virtual Array MaideArray { get; set; }
     public virtual long VarIndex { get; set; }
     public virtual Array VarArray { get; set; }
+    public virtual long EntryIndex { get; set; }
+    public virtual Array EntryArray { get; set; }
     public virtual long ClassIndexIndex { get; set; }
     public virtual Array ClassIndexArray { get; set; }
     public virtual long ModuleRefIndex { get; set; }
@@ -29,4 +31,7 @@ public class ReadArg : Any
     public virtual long ArrayIndex { get; set; }
     public virtual Data ArrayCountData { get; set; }
     public virtual Array ArrayArray { get; set; }
+    public virtual long DataIndex { get; set; }
+    public virtual Data DataCountData { get; set; }
+    public virtual Array DataArray { get; set; }
 }
