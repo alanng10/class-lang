@@ -264,4 +264,23 @@ public class ReadStringOperate : ReadOperate
     {
         return true;
     }
+
+    public override Data ExecuteData(long count)
+    {
+        ReadArg arg;
+        arg = this.Read.Arg;
+
+        long kd;
+        kd = arg.DataIndex;
+        kd = kd * sizeof(long);
+        this.InfraInfra.DataIntSet(arg.DataCountData, kd, count);
+
+        arg.DataIndex = arg.DataIndex + 1;
+        return this.Data;
+    }
+
+    public override bool ExecuteDataSet(Data data, long index, long value)
+    {
+        return true;
+    }
 }
