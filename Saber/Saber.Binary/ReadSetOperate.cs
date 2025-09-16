@@ -86,6 +86,18 @@ public class ReadSetOperate : ReadOperate
         return a;
     }
 
+    public override Entry ExecuteEntry()
+    {
+        ReadArg arg;
+        arg = this.Read.Arg;
+        long index;
+        index = arg.EntryIndex;
+        Entry a;
+        a = arg.EntryArray.GetAt(index) as Entry;
+        arg.EntryIndex = index + 1;
+        return a;
+    }
+
     public override Value ExecuteClassIndex()
     {
         ReadArg arg;
