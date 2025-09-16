@@ -523,7 +523,7 @@ public class BinaryGen : Any
         }
 
         ClassClass varClass;
-        varClass = (ClassClass)this.Module.Class.Get(entry);
+        varClass = this.Module.Class.Get(entry) as ClassClass;
 
         long a;
         a = varClass.Index;
