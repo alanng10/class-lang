@@ -39,6 +39,11 @@ public class ReadOperate : Any
         return null;
     }
 
+    public virtual Entry ExecuteEntry()
+    {
+        return null;
+    }
+
     public virtual Value ExecuteClassIndex()
     {
         return null;
@@ -54,6 +59,11 @@ public class ReadOperate : Any
         return null;
     }
 
+    public virtual bool ExecuteStringDataCharSet(long value)
+    {
+        return false;
+    }
+
     public virtual Array ExecuteArray(long count)
     {
         return null;
@@ -61,6 +71,16 @@ public class ReadOperate : Any
 
     public virtual bool ExecuteArrayItemSet(Array array, long index, object value)
     {
-        return true;
+        return false;
+    }
+
+    public virtual Data ExecuteData(long count)
+    {
+        return null;
+    }
+
+    public virtual bool ExecuteDataSet(Data data, long index, long value)
+    {
+        return false;
     }
 }
