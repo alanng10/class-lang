@@ -375,7 +375,7 @@ public class BinaryGena : Any
             iter.Next();
 
             Field ka;
-            ka = (Field)iter.Value;
+            ka = iter.Value as Field;
 
             BinaryField a;
             a = this.ExecuteField(ka);
