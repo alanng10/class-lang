@@ -7,21 +7,34 @@ public class BinaryStateTravel : Travel
         base.Init();
         this.Kind = BinaryOperateKindList.This;
 
+        this.Operate = this.CreateOperate();
         this.NullArg = this.CreateNullArg();
         return true;
     }
 
-    protected BinaryOperateArg CreateNullArg()
+    protected virtual BinaryOperate CreateOperate()
+    {
+        BinaryOperate a;
+        a = new BinaryOperate();
+        a.Init();
+        return a;
+    }
+
+    protected virtual BinaryOperateArg CreateNullArg()
     {
         BinaryOperateArg a;
         a = new BinaryOperateArg();
         a.Init();
         a.Kind = 0;
+        a.Bool = false;
+        a.Int = -1;
+        a.String = null;
         return a;
     }
 
     public virtual BinaryState State { get; set; }
     protected virtual BinaryOperateKindList Kind { get; set; }
+    protected virtual BinaryOperate Operate { get; set; }
     protected virtual BinaryOperateArg NullArg { get; set; }
 
     public override bool ExecuteThisOperate(ThisOperate thisOperate)
