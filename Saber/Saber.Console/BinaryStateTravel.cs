@@ -217,6 +217,14 @@ public class BinaryStateTravel : Travel
         return true;
     }
 
+    public override bool ExecuteOrnOperate(OrnOperate ornOperate)
+    {
+        base.ExecuteOrnOperate(ornOperate);
+
+        this.Op(this.Kind.Orn, null, null);
+        return true;
+    }
+
     public override bool ExecuteAddOperate(AddOperate addOperate)
     {
         base.ExecuteAddOperate(addOperate);
