@@ -121,7 +121,7 @@ public class BinaryGena : Any
             iter.Next();
 
             ClassClass varClass;
-            varClass = (ClassClass)iter.Value;
+            varClass = iter.Value as ClassClass;
 
             BinaryClass a;
             a = this.ExecuteClass(varClass);
