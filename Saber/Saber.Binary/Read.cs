@@ -1114,6 +1114,11 @@ public class Read : Any
         return this.ExecuteInt();
     }
 
+    protected virtual long ExecuteInt()
+    {
+        return this.ExecuteIntCount(sizeof(long));
+    }
+
     protected virtual long ExecuteIntCount(long count)
     {
         if (!this.ValidCount(count))
