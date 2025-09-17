@@ -1,4 +1,4 @@
-namespace Z.Tool.Class.OperateKindList;
+namespace Z.Tool.Saber.OperateKindList;
 
 class Entry : EntryEntry
 {
