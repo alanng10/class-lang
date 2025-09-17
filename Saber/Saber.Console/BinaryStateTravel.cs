@@ -75,6 +75,8 @@ public class BinaryStateTravel : Travel
         long kk;
         kk = varClass.FieldStart;
         kk = kk + varField.Index;
+
+        this.Op(this.Kind.ItemGet, this.IntArg(this.ArgA, kk), null);
         return true;
     }
 
@@ -110,6 +112,15 @@ public class BinaryStateTravel : Travel
 
         this.Op(this.Kind.Add, null, null);
         return true;
+    }
+
+    protected BinaryOperateArg IntArg(BinaryOperateArg arg, long value)
+    {
+        arg.Kind = 2;
+        arg.Bool = false;
+        arg.Int = value;
+        arg.String = null;
+        return arg;
     }
 
     protected virtual bool Op(BinaryOperateKind kind, BinaryOperateArg argA, BinaryOperateArg argB)
