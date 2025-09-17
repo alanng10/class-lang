@@ -84,6 +84,16 @@ public class BinaryState : Any
         return true;
     }
 
+    public virtual bool ExecuteOperateArg(BinaryOperateArg arg)
+    {
+        if (arg.Kind == 0)
+        {
+            return true;
+        }
+
+        return true;
+    }
+
     protected virtual bool ExecuteInt(long value)
     {
         return this.ExecuteIntCount(value, sizeof(long));
