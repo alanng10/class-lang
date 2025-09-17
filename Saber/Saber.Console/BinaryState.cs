@@ -192,4 +192,15 @@ public class BinaryState : Any
         this.Operate.ExecuteByte(value);
         return true;
     }
+
+    public virtual long ClassIndex(ClassClass varClass)
+    {
+        InfraValue k;
+        k = this.IndexTable.Get(varClass) as InfraValue;
+
+        long n;
+        n = k.Int;
+
+        return n;
+    }
 }
