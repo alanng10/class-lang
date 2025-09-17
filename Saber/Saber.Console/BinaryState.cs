@@ -35,7 +35,7 @@ public class BinaryState : Any
     public virtual BinaryStateCountOperate CountOperate { get; set; }
     public virtual BinaryStateSetOperate SetOperate { get; set; }
 
-    public virtual bool ExecuteState()
+    public virtual bool Execute()
     {
         this.Arg = new BinaryStateArg();
         this.Arg.Init();
