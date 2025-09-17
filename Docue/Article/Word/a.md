@@ -56,6 +56,8 @@ Word "client" has meaning that is user.
 
 Word "group" has meaning that is group entity.
 
+Word "gen" has meaning that is generate.
+
 Word "geno" has meaning that is generalize.
 
 Word "infane" has meaning that is infinity.
@@ -715,8 +717,6 @@ Word "status" has meaning that is kind of output.
 Word "error" has meaning that is invalid.
 
 Word "valid" has meaning that is can accept.
-
-Word "gena" has meaning that is generate.
 
 Word "library" has meaning that is machine code module.
 
