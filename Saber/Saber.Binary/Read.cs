@@ -954,13 +954,37 @@ public class Read : Any
         return a;
     }
 
-    protected virtual long ExecuteEntry()
+    protected virtual Entry ExecuteEntry()
     {
-        long k;
-        k = this.ExecuteIndex();
+        long ka;
+        ka = this.ExecuteByte();
+        if (ka == -1)
+        {
+            return null;
+        }
 
-        long a;
-        a = k;
+        long varClass;
+        varClass = -1;
+
+        if (ka == 0)
+        {
+            varClass = -1;
+        }
+
+        if (ka == 1)
+        {
+            long kd;
+            kd = this.ExecuteIndex();
+            if (kd == -1)
+            {
+                return null;
+            }
+            varClass = kd;
+        }
+
+        Entry a;
+        a = this.Operate.ExecuteEntry();
+        a.Class = varClass;
         return a;
     }
 
