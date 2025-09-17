@@ -31,6 +31,9 @@ public class BinaryGena : Any
     public virtual ClassModule Module { get; set; }
     public virtual BinaryBinary Result { get; set; }
     public virtual BinaryGenaArg Arg { get; set; }
+    public virtual BinaryGenaOperate Operate { get; set; }
+    public virtual BinaryGenaCountOperate CountOperate { get; set; }
+    public virtual BinaryGenaSetOperate SetOperate { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual Table IndexTable { get; set; }
