@@ -10,6 +10,7 @@ public class BinaryStateTravel : Travel
         this.Operate = this.CreateOperate();
         this.ArgA = this.CreateArgA();
         this.ArgB = this.CreateArgB();
+        this.NullArg = this.CreateNullArg();
         return true;
     }
 
@@ -37,11 +38,24 @@ public class BinaryStateTravel : Travel
         return a;
     }
 
+    protected virtual BinaryOperateArg CreateNullArg()
+    {
+        BinaryOperateArg a;
+        a = new BinaryOperateArg();
+        a.Init();
+        a.Kind = 0;
+        a.Bool = false;
+        a.Int = -1;
+        a.String = null;
+        return a;
+    }
+
     public virtual BinaryState State { get; set; }
     protected virtual BinaryOperateKindList Kind { get; set; }
     protected virtual BinaryOperate Operate { get; set; }
     protected virtual BinaryOperateArg ArgA { get; set; }
     protected virtual BinaryOperateArg ArgB { get; set; }
+    protected virtual BinaryOperateArg NullArg { get; set; }
 
     public override bool ExecuteThisOperate(ThisOperate thisOperate)
     {
@@ -51,6 +65,16 @@ public class BinaryStateTravel : Travel
 
     protected virtual bool Op(BinaryOperateKind kind, BinaryOperateArg argA, BinaryOperateArg argB)
     {
+        if (argA == null)
+        {
+            argA = this.NullArg;
+        }
+
+        if (argB == null)
+        {
+            argB = this.NullArg;
+        }
+
         this.Operate.Kind = kind.Index;
         this.Operate.ArgA = argA;
         this.Operate.ArgB = argB;
