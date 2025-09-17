@@ -113,6 +113,22 @@ public class BinaryState : Any
 
     protected virtual bool ExecuteString(String value)
     {
+        long count;
+        count = this.StringComp.Count(value);
+
+        this.ExecuteCount(count);
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            long ka;
+            ka = this.StringComp.Char(value, i);
+
+            this.ExecuteMid(ka);
+
+            i = i + 1;
+        }
         return true;
     }
 
