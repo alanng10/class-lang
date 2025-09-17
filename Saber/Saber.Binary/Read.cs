@@ -988,6 +988,11 @@ public class Read : Any
         return a;
     }
 
+    protected virtual Data ExecuteState()
+    {
+        return this.ExecuteData();
+    }
+
     protected virtual Array ExecuteClassIndexArray()
     {
         long count;
