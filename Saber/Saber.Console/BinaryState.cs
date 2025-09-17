@@ -93,6 +93,40 @@ public class BinaryState : Any
             return true;
         }
 
+        if (arg.Kind == 1)
+        {
+            this.ExecuteBool(arg.Bool);
+        }
+
+        if (arg.Kind == 2)
+        {
+            this.ExecuteInt(arg.Int);
+        }
+
+        if (arg.Kind == 3)
+        {
+            this.ExecuteString(arg.String);
+        }
+
+        return true;
+    }
+
+    protected virtual bool ExecuteString(String value)
+    {
+        return true;
+    }
+
+    protected virtual bool ExecuteBool(bool value)
+    {
+        long k;
+        k = 0;
+
+        if (value)
+        {
+            k = 1;
+        }
+
+        this.ExecuteByte(k);
         return true;
     }
 
