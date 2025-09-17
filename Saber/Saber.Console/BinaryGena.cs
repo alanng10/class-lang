@@ -202,7 +202,7 @@ public class BinaryGena : Any
         {
             iter.Next();
             ClassClass kd;
-            kd = (ClassClass)iter.Value;
+            kd = iter.Value as ClassClass;
 
             long n;
             n = kd.Index;
