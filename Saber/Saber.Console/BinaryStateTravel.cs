@@ -139,6 +139,15 @@ public class BinaryStateTravel : Travel
         return true;
     }
 
+    public override bool ExecuteVarMark(VarMark varMark)
+    {
+        Var varVar;
+        varVar = this.Info(varMark).Var;
+
+        this.Op(this.Kind.VarMark, this.IntArg(this.ArgA, varVar.Index), null);
+        return true;
+    }
+
     public override bool ExecuteNewOperate(NewOperate newOperate)
     {
         ClassClass ka;
