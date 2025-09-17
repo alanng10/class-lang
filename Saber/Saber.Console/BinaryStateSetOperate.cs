@@ -1,11 +1,11 @@
 namespace Saber.Console;
 
-public class BinaryGenaSetOperate : BinaryGenaOperate
+public class BinaryStateSetOperate : BinaryStateOperate
 {
     public override bool ExecuteByte(long value)
     {
-        BinaryGenaArg arg;
-        arg = this.Gena.Arg;
+        BinaryStateArg arg;
+        arg = this.State.Arg;
 
         long index;
         index = arg.Index;

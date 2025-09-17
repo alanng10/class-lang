@@ -1,6 +1,6 @@
 namespace Saber.Console;
 
-public class BinaryGenaTravel : Travel
+public class BinaryStateTravel : Travel
 {
     public virtual BinaryGena Gena { get; set; }
 }

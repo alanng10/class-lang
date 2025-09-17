@@ -7,35 +7,11 @@ public class BinaryGena : Any
         base.Init();
         this.ListInfra = ListInfra.This;
         this.ClassInfra = ClassInfra.This;
-        this.CountOperate = this.CreateCountOperate();
-        this.SetOperate = this.CreateSetOperate();
         return true;
-    }
-
-    protected virtual BinaryGenaCountOperate CreateCountOperate()
-    {
-        BinaryGenaCountOperate a;
-        a = new BinaryGenaCountOperate();
-        a.Gena = this;
-        a.Init();
-        return a;
-    }
-
-    protected virtual BinaryGenaSetOperate CreateSetOperate()
-    {
-        BinaryGenaSetOperate a;
-        a = new BinaryGenaSetOperate();
-        a.Gena = this;
-        a.Init();
-        return a;
     }
 
     public virtual ClassModule Module { get; set; }
     public virtual BinaryBinary Result { get; set; }
-    public virtual BinaryGenaArg Arg { get; set; }
-    public virtual BinaryGenaOperate Operate { get; set; }
-    public virtual BinaryGenaCountOperate CountOperate { get; set; }
-    public virtual BinaryGenaSetOperate SetOperate { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual Table IndexTable { get; set; }
@@ -575,49 +551,5 @@ public class BinaryGena : Any
         n = k.Int;
 
         return n;
-    }
-
-    public virtual bool ExecuteState()
-    {
-        this.Arg = new BinaryGenaArg();
-        this.Arg.Init();
-
-        this.Operate = this.CountOperate;
-
-        this.ResetStateStage();
-        this.ExecuteStateStage();
-
-        long count;
-        count = this.Arg.Index;
-        this.Arg.Data = new Data();
-        this.Arg.Data.Count = count;
-        this.Arg.Data.Init();
-
-        this.Operate = this.SetOperate;
-
-        this.ResetStateStage();
-        this.ExecuteStateStage();
-
-        this.Result.State = this.Arg.Data;
-
-        this.Operate = null;
-        this.Arg = null;
-        return true;
-    }
-
-    public virtual bool ResetStateStage()
-    {
-        this.Arg.Index = 0;
-        return true;
-    }
-
-    public virtual bool ExecuteStateStage()
-    {
-        return true;
-    }
-
-    public virtual bool ExecuteByte(long value)
-    {
-        return true;
     }
 }
