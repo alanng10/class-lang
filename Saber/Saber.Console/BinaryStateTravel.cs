@@ -197,6 +197,12 @@ public class BinaryStateTravel : Travel
         return true;
     }
 
+    public override bool ExecuteBoolValue(BoolValue boolValue)
+    {
+        this.Op(this.Kind.BoolValue, this.BoolArg(this.ArgA, boolValue.Value), null);
+        return true;
+    }
+
     protected virtual BinaryOperateArg BoolArg(BinaryOperateArg arg, bool value)
     {
         arg.Kind = 1;
