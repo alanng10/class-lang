@@ -209,6 +209,24 @@ public class BinaryStateTravel : Travel
         return true;
     }
 
+    public override bool ExecuteIntSignValue(IntSignValue intSignValue)
+    {
+        this.IntValueOp(intSignValue.Value);
+        return true;
+    }
+
+    public override bool ExecuteIntHexValue(IntHexValue intHexValue)
+    {
+        this.IntValueOp(intHexValue.Value);
+        return true;
+    }
+
+    public override bool ExecuteIntHexSignValue(IntHexSignValue intHexSignValue)
+    {
+        this.IntValueOp(intHexSignValue.Value);
+        return true;
+    }
+
     public override bool ExecuteStringValue(StringValue stringValue)
     {
         this.Op(this.Kind.StringValue, this.StringArg(this.ArgA, stringValue.Value), null);
