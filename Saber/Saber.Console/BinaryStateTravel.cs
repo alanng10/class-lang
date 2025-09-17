@@ -75,6 +75,14 @@ public class BinaryStateTravel : Travel
         return true;
     }
 
+    public override bool ExecuteAndOperate(AndOperate andOperate)
+    {
+        base.ExecuteAndOperate(andOperate);
+
+        this.Op(this.Kind.And, null, null);
+        return true;
+    }
+
     public override bool ExecuteAddOperate(AddOperate addOperate)
     {
         base.ExecuteAddOperate(addOperate);
