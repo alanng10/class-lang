@@ -545,7 +545,7 @@ public class BinaryGena : Any
     public virtual long ClassIndex(ClassClass varClass)
     {
         InfraValue k;
-        k = (InfraValue)this.IndexTable.Get(varClass);
+        k = this.IndexTable.Get(varClass) as InfraValue;
 
         long n;
         n = k.Int;
