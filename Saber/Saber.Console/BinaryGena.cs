@@ -320,7 +320,7 @@ public class BinaryGena : Any
             iter.Next();
 
             ClassClass ka;
-            ka = (ClassClass)iter.Value;
+            ka = iter.Value as ClassClass;
 
             BinaryPart a;
             a = this.ExecutePart(ka);
