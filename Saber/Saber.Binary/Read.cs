@@ -1070,7 +1070,7 @@ public class Read : Any
         return this.Operate.ExecuteArray(count);
     }
 
-    protected virtual String ExecuteString()
+    protected virtual String ExecuteName()
     {
         long count;
         count = this.ExecuteCount();
@@ -1084,8 +1084,23 @@ public class Read : Any
             return null;
         }
 
+        String k;
+        k = this.Operate.ExecuteString(count);
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            long ka;
+            ka = this.ExecuteByte();
+
+            this.Operate.ExecuteStringDataCharSet(ka);
+
+            i = i + 1;
+        }
+
         String a;
-        a = this.Operate.ExecuteString(count);
+        a = k;
         return a;
     }
 
