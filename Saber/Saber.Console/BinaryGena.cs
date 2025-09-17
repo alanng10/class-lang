@@ -10,6 +10,24 @@ public class BinaryGena : Any
         return true;
     }
 
+    protected virtual BinaryGenaCountOperate CreateCountOperate()
+    {
+        BinaryGenaCountOperate a;
+        a = new BinaryGenaCountOperate();
+        a.Gena = this;
+        a.Init();
+        return a;
+    }
+
+    protected virtual BinaryGenaSetOperate CreateSetOperate()
+    {
+        BinaryGenaSetOperate a;
+        a = new BinaryGenaSetOperate();
+        a.Gena = this;
+        a.Init();
+        return a;
+    }
+
     public virtual ClassModule Module { get; set; }
     public virtual BinaryBinary Result { get; set; }
     public virtual BinaryGenaArg Arg { get; set; }
