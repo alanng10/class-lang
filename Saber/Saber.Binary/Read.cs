@@ -1070,6 +1070,42 @@ public class Read : Any
         return this.Operate.ExecuteArray(count);
     }
 
+    protected virtual Data ExecuteData()
+    {
+        long count;
+        count = this.ExecuteCount();
+        if (count == -1)
+        {
+            return null;
+        }
+
+        if (!this.ValidCount(count))
+        {
+            return null;
+        }
+
+        Data data;
+        data = this.Operate.ExecuteData(count);
+        if (data == null)
+        {
+            return null;
+        }
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            long a;
+            a = this.ExecuteByte();
+
+            this.Operate.ExecuteDataSet(data, i, a);
+
+            i = i + 1;
+        }
+
+        return data;
+    }
+
     protected virtual String ExecuteName()
     {
         long count;
