@@ -21,7 +21,7 @@ public class Console : TextAdd
 
         this.PortLoad = this.CreatePortLoad();
 
-        this.BinaryGena = this.CreateBinaryGena();
+        this.BinaryGen = this.CreateBinaryGen();
 
         this.LibraryGen = this.CreateLibraryGen();
 
@@ -92,10 +92,10 @@ public class Console : TextAdd
         return a;
     }
 
-    protected virtual BinaryGena CreateBinaryGena()
+    protected virtual BinaryGen CreateBinaryGen()
     {
-        BinaryGena a;
-        a = new BinaryGena();
+        BinaryGen a;
+        a = new BinaryGen();
         a.Init();
         return a;
     }
@@ -165,7 +165,7 @@ public class Console : TextAdd
     protected virtual ModulePort ModulePort { get; set; }
     protected virtual PortRead PortRead { get; set; }
     protected virtual PortLoad PortLoad { get; set; }
-    protected virtual BinaryGena BinaryGena { get; set; }
+    protected virtual BinaryGen BinaryGen { get; set; }
     protected virtual LibraryGen LibraryGen { get; set; }
     protected virtual StorageGen StorageGen { get; set; }
     protected virtual NameValid NameValid { get; set; }
@@ -559,7 +559,7 @@ public class Console : TextAdd
         moduleRefString = this.ClassInfra.ModuleRefString(module.Ref.Name, verString);
 
         bool ba;
-        ba = this.ExecuteGenaBinary(moduleRefString);
+        ba = this.ExecuteGenBinary(moduleRefString);
 
         if (!ba)
         {
@@ -607,20 +607,20 @@ public class Console : TextAdd
         return true;
     }
 
-    protected virtual bool ExecuteGenaBinary(String moduleRefString)
+    protected virtual bool ExecuteGenBinary(String moduleRefString)
     {
         ClassModule module;
         module = this.Result.Module.Module;
 
-        this.BinaryGena.Module = module;
+        this.BinaryGen.Module = module;
 
-        this.BinaryGena.Execute();
+        this.BinaryGen.Execute();
 
         BinaryBinary binary;
-        binary = this.BinaryGena.Result;
+        binary = this.BinaryGen.Result;
 
-        this.BinaryGena.Result = null;
-        this.BinaryGena.Module = null;
+        this.BinaryGen.Result = null;
+        this.BinaryGen.Module = null;
 
         this.BinaryWrite.Binary = binary;
 
