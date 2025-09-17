@@ -130,6 +130,11 @@ public class BinaryState : Any
         return true;
     }
 
+    protected virtual bool ExecuteMid(long value)
+    {
+        return this.ExecuteIntCount(value, sizeof(int));
+    }
+
     protected virtual bool ExecuteInt(long value)
     {
         return this.ExecuteIntCount(value, sizeof(long));
