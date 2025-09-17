@@ -57,29 +57,6 @@ public class BinaryStateTravel : Travel
     protected virtual BinaryOperateArg ArgB { get; set; }
     protected virtual BinaryOperateArg NullArg { get; set; }
 
-    public override bool ExecuteSetMark(SetMark setMark)
-    {
-        base.ExecuteSetMark(setMark);
-
-        Field varField;
-        varField = this.Info(setMark).SetField;
-
-        if (!(varField.Virtual == null))
-        {
-            varField = varField.Virtual;
-        }
-
-        ClassClass varClass;
-        varClass = varField.Parent;
-
-        long kk;
-        kk = varClass.FieldStart;
-        kk = kk + varField.Index;
-
-        this.Op(this.Kind.SetMark, this.IntArg(this.ArgA, kk), null);
-        return true;
-    }
-
     public override bool ExecuteGetOperate(GetOperate getOperate)
     {
         base.ExecuteGetOperate(getOperate);
@@ -100,6 +77,29 @@ public class BinaryStateTravel : Travel
         kk = kk + varField.Index;
 
         this.Op(this.Kind.ItemGet, this.IntArg(this.ArgA, kk), null);
+        return true;
+    }
+
+    public override bool ExecuteSetMark(SetMark setMark)
+    {
+        base.ExecuteSetMark(setMark);
+
+        Field varField;
+        varField = this.Info(setMark).SetField;
+
+        if (!(varField.Virtual == null))
+        {
+            varField = varField.Virtual;
+        }
+
+        ClassClass varClass;
+        varClass = varField.Parent;
+
+        long kk;
+        kk = varClass.FieldStart;
+        kk = kk + varField.Index;
+
+        this.Op(this.Kind.SetMark, this.IntArg(this.ArgA, kk), null);
         return true;
     }
 
