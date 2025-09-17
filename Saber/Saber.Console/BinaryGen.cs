@@ -550,6 +550,7 @@ public class BinaryGen : Any
     public virtual Data ExecuteState()
     {
         this.BinaryState.Module = this.Module;
+        this.BinaryState.IndexTable = this.IndexTable;
 
         this.BinaryState.Execute();
 
@@ -558,6 +559,7 @@ public class BinaryGen : Any
 
         this.BinaryState.Result = null;
 
+        this.BinaryState.IndexTable = null;
         this.BinaryState.Module = null;
 
         Data a;
