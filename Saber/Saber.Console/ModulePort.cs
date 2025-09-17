@@ -716,7 +716,7 @@ public class ModulePort : TextAdd
         entry = null;
 
         long k;
-        k = this.Binary.Entry;
+        k = this.Binary.Entry.Class;
         if (!(k == -1))
         {
             ClassClass a;
