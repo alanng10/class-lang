@@ -81,6 +81,8 @@ public class BinaryState : Any
     {
         this.ExecuteByte(operate.Kind);
 
+        this.ExecuteOperateArg(operate.ArgA);
+        this.ExecuteOperateArg(operate.ArgB);
         return true;
     }
 
