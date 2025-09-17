@@ -141,6 +141,30 @@ public class BinaryStateTravel : Travel
         return true;
     }
 
+    public override bool ExecuteSubOperate(SubOperate subOperate)
+    {
+        base.ExecuteSubOperate(subOperate);
+
+        this.Op(this.Kind.Sub, null, null);
+        return true;
+    }
+
+    public override bool ExecuteMulOperate(MulOperate mulOperate)
+    {
+        base.ExecuteMulOperate(mulOperate);
+
+        this.Op(this.Kind.Mul, null, null);
+        return true;
+    }
+
+    public override bool ExecuteDivOperate(DivOperate divOperate)
+    {
+        base.ExecuteDivOperate(divOperate);
+
+        this.Op(this.Kind.Div, null, null);
+        return true;
+    }
+
     protected BinaryOperateArg IntArg(BinaryOperateArg arg, long value)
     {
         arg.Kind = 2;
