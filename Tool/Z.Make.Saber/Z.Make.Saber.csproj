@@ -11,6 +11,7 @@
         <ProjectReference Include="../Z.Tool.Saber.IndexList/Z.Tool.Saber.IndexList.csproj" />
         <ProjectReference Include="../Z.Tool.Saber.ErrorKindList/Z.Tool.Saber.ErrorKindList.csproj" />
         <ProjectReference Include="../Z.Tool.Saber.TaskKindList/Z.Tool.Saber.TaskKindList.csproj" />
+        <ProjectReference Include="../Z.Tool.Saber.OperateKindList/Z.Tool.Saber.OperateKindList.csproj" />
     </ItemGroup>
 
 </Project>
