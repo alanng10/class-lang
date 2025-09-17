@@ -7,13 +7,24 @@ public class BinaryGen : Any
         base.Init();
         this.ListInfra = ListInfra.This;
         this.ClassInfra = ClassInfra.This;
+
+        this.BinaryState = this.CreateBinaryState();
         return true;
+    }
+
+    protected virtual BinaryState CreateBinaryState()
+    {
+        BinaryState a;
+        a = new BinaryState();
+        a.Init();
+        return a;
     }
 
     public virtual ClassModule Module { get; set; }
     public virtual BinaryBinary Result { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
+    protected virtual BinaryState BinaryState { get; set; }
     protected virtual Table IndexTable { get; set; }
 
     public virtual bool Execute()
@@ -99,6 +110,7 @@ public class BinaryGen : Any
         a.Base = this.ExecuteBaseArray();
         a.Part = this.ExecutePartArray();
         a.Entry = this.ExecuteEntry();
+        a.State = this.ExecuteState();
         return a;
     }
 
@@ -532,6 +544,24 @@ public class BinaryGen : Any
         a = new BinaryEntry();
         a.Init();
         a.Class = k;
+        return a;
+    }
+
+    public virtual Data ExecuteState()
+    {
+        this.BinaryState.Module = this.Module;
+
+        this.BinaryState.Execute();
+
+        Data k;
+        k = this.BinaryState.Result;
+
+        this.BinaryState.Result = null;
+
+        this.BinaryState.Module = null;
+
+        Data a;
+        a = k;
         return a;
     }
 
