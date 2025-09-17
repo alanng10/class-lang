@@ -427,7 +427,7 @@ public class BinaryGena : Any
             iter.Next();
 
             Maide ka;
-            ka = (Maide)iter.Value;
+            ka = iter.Value as Maide;
 
             BinaryMaide a;
             a = this.ExecuteMaide(ka);
