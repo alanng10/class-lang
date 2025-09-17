@@ -552,4 +552,9 @@ public class BinaryGena : Any
 
         return n;
     }
+
+    public virtual bool ExecuteByte(long value)
+    {
+        return true;
+    }
 }
