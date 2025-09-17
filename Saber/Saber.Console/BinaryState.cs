@@ -76,6 +76,7 @@ public class BinaryState : Any
 
     public virtual bool ExecuteByte(long value)
     {
+        this.Operate.ExecuteByte(value);
         return true;
     }
 }
