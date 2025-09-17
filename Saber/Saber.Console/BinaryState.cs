@@ -28,6 +28,7 @@ public class BinaryState : Any
         return a;
     }
 
+    public virtual ClassModule Module { get; set; }
     public virtual Data Result { get; set; }
     public virtual BinaryStateArg Arg { get; set; }
     public virtual BinaryStateOperate Operate { get; set; }
