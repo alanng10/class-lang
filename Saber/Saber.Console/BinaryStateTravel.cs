@@ -112,11 +112,6 @@ public class BinaryStateTravel : Travel
         return true;
     }
 
-    protected virtual ModuleInfo Info(NodeNode node)
-    {
-        return node.NodeAny as ModuleInfo;
-    }
-
     protected virtual bool Op(BinaryOperateKind kind, BinaryOperateArg argA, BinaryOperateArg argB)
     {
         if (argA == null)
@@ -135,5 +130,10 @@ public class BinaryStateTravel : Travel
 
         this.State.ExecuteOperate(this.Operate);
         return true;
+    }
+
+    protected virtual ModuleInfo Info(NodeNode node)
+    {
+        return node.NodeAny as ModuleInfo;
     }
 }
