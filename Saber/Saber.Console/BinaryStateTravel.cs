@@ -203,6 +203,12 @@ public class BinaryStateTravel : Travel
         return true;
     }
 
+    public override bool ExecuteStringValue(StringValue stringValue)
+    {
+        this.Op(this.Kind.StringValue, this.StringArg(this.ArgA, stringValue.Value), null);
+        return true;
+    }
+
     protected virtual BinaryOperateArg BoolArg(BinaryOperateArg arg, bool value)
     {
         arg.Kind = 1;
@@ -218,6 +224,15 @@ public class BinaryStateTravel : Travel
         arg.Bool = false;
         arg.Int = value;
         arg.String = null;
+        return arg;
+    }
+
+    protected virtual BinaryOperateArg StringArg(BinaryOperateArg arg, String value)
+    {
+        arg.Kind = 3;
+        arg.Bool = false;
+        arg.Int = -1;
+        arg.String = value;
         return arg;
     }
 
