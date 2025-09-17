@@ -602,7 +602,7 @@ public class Read : Any
     protected virtual Class ExecuteClass()
     {
         String name;
-        name = this.ExecuteString();
+        name = this.ExecuteName();
         if (name == null)
         {
             return null;
@@ -941,7 +941,7 @@ public class Read : Any
         }
 
         String name;
-        name = this.ExecuteString();
+        name = this.ExecuteName();
         if (name == null)
         {
             return null;
@@ -1045,7 +1045,7 @@ public class Read : Any
     protected virtual ModuleRef ExecuteModuleRef()
     {
         String name;
-        name = this.ExecuteString();
+        name = this.ExecuteName();
         if (name == null)
         {
             return null;
