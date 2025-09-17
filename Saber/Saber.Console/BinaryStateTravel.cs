@@ -80,6 +80,33 @@ public class BinaryStateTravel : Travel
         return true;
     }
 
+    public override bool ExecuteCallOperate(CallOperate callOperate)
+    {
+        base.ExecuteCallOperate(callOperate);
+
+        Maide varMaide;
+        varMaide = this.Info(callOperate).CallMaide;
+
+        if (!(varMaide.Virtual == null))
+        {
+            varMaide = varMaide.Virtual;
+        }
+
+        ClassClass varClass;
+        varClass = varMaide.Parent;
+
+        long kk;
+        kk = varClass.MaideStart;
+        kk = kk + varMaide.Index;
+
+        long k;
+        k = varMaide.Param.Count;
+
+        this.Op(this.Kind.Call, this.IntArg(this.ArgA, kk), this.IntArg(this.ArgB, k));
+
+        return true;
+    }
+
     public override bool ExecuteThisOperate(ThisOperate thisOperate)
     {
         this.Op(this.Kind.ItemThis, null, null);
