@@ -201,6 +201,14 @@ public class BinaryStateTravel : Travel
         return true;
     }
 
+    public override bool ExecuteLessOperate(LessOperate lessOperate)
+    {
+        base.ExecuteLessOperate(lessOperate);
+
+        this.Op(this.Kind.Less, null, null);
+        return true;
+    }
+
     public override bool ExecuteAndOperate(AndOperate andOperate)
     {
         base.ExecuteAndOperate(andOperate);
