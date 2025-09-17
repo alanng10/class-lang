@@ -197,7 +197,16 @@ public class BinaryStateTravel : Travel
         return true;
     }
 
-    protected BinaryOperateArg IntArg(BinaryOperateArg arg, long value)
+    protected virtual BinaryOperateArg BoolArg(BinaryOperateArg arg, bool value)
+    {
+        arg.Kind = 1;
+        arg.Bool = value;
+        arg.Int = -1;
+        arg.String = null;
+        return arg;
+    }
+
+    protected virtual BinaryOperateArg IntArg(BinaryOperateArg arg, long value)
     {
         arg.Kind = 2;
         arg.Bool = false;
