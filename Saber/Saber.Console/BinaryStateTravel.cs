@@ -75,6 +75,14 @@ public class BinaryStateTravel : Travel
         return true;
     }
 
+    public override bool ExecuteAddOperate(AddOperate addOperate)
+    {
+        base.ExecuteAddOperate(addOperate);
+
+        this.Op(this.Kind.Add, null, null);
+        return true;
+    }
+
     protected virtual bool Op(BinaryOperateKind kind, BinaryOperateArg argA, BinaryOperateArg argB)
     {
         if (argA == null)
