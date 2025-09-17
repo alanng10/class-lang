@@ -1,6 +1,6 @@
 namespace Saber.Console;
 
-public class BinaryGena : Any
+public class BinaryGen : Any
 {
     public override bool Init()
     {
