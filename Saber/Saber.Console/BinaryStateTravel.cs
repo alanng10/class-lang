@@ -163,6 +163,18 @@ public class BinaryStateTravel : Travel
         return true;
     }
 
+    public override bool ExecuteCastOperate(CastOperate castOperate)
+    {
+        ClassClass ka;
+        ka = this.Info(castOperate).OperateClass;
+
+        long k;
+        k = this.State.ClassIndex(ka);
+
+        this.Op(this.Kind.Cast, this.IntArg(this.ArgA, k), null);
+        return true;
+    }
+
     public override bool ExecuteThisOperate(ThisOperate thisOperate)
     {
         this.Op(this.Kind.ItemThis, null, null);
