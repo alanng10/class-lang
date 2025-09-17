@@ -32,6 +32,7 @@ public class BinaryState : Any
     }
 
     public virtual ClassModule Module { get; set; }
+    public virtual Table IndexTable { get; set; }
     public virtual Data Result { get; set; }
     public virtual BinaryStateArg Arg { get; set; }
     public virtual BinaryStateOperate Operate { get; set; }
