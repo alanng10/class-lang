@@ -69,6 +69,12 @@ public class BinaryStateTravel : Travel
         return true;
     }
 
+    public override bool ExecuteNullOperate(NullOperate nullOperate)
+    {
+        this.Op(this.Kind.Null, null, null);
+        return true;
+    }
+
     protected virtual bool Op(BinaryOperateKind kind, BinaryOperateArg argA, BinaryOperateArg argB)
     {
         if (argA == null)
