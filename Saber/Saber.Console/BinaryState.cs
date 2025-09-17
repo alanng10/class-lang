@@ -6,6 +6,7 @@ public class BinaryState : Any
     {
         base.Init();
         this.InfraInfra = InfraInfra.This;
+        this.StringComp = StringComp.This;
 
         this.CountOperate = this.CreateCountOperate();
         this.SetOperate = this.CreateSetOperate();
@@ -37,6 +38,7 @@ public class BinaryState : Any
     public virtual BinaryStateCountOperate CountOperate { get; set; }
     public virtual BinaryStateSetOperate SetOperate { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
+    protected virtual StringComp StringComp { get; set; }
 
     public virtual bool Execute()
     {
