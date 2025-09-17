@@ -1114,25 +1114,35 @@ public class Read : Any
         return this.ExecuteInt();
     }
 
-    protected virtual long ExecuteInt()
+    protected virtual long ExecuteIntCount(long count)
     {
-        long count;
-        count = sizeof(long);
         if (!this.ValidCount(count))
         {
             return -1;
         }
 
-        ReadArg arg;
-        arg = this.Arg;
-        long index;
-        index = arg.Index;
+        long k;
+        k = 0;
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            long ka;
+            ka = this.ExecuteByte();
+
+            int shift;
+            shift = (int)(i * 8);
+
+            ka = ka << shift;
+
+            k = k | ka;
+
+            i = i + 1;
+        }
 
         long a;
-        a = this.InfraInfra.DataIntGet(this.Data, index);
-
-        index = index + count;
-        arg.Index = index;
+        a = k;
         return a;
     }
 
