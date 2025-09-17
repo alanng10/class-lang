@@ -280,7 +280,7 @@ public class BinaryGena : Any
             iter.Next();
 
             ClassClass ka;
-            ka = (ClassClass)iter.Value;
+            ka = iter.Value as ClassClass;
 
             ClassClass baseClass;
             baseClass = ka.Base;
