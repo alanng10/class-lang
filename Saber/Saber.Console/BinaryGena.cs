@@ -483,7 +483,7 @@ public class BinaryGena : Any
             iter.Next();
 
             Var ka;
-            ka = (Var)iter.Value;
+            ka = iter.Value as Var;
 
             BinaryVar a;
             a = this.ExecuteVar(ka);
