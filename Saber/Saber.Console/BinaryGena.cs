@@ -7,6 +7,8 @@ public class BinaryGena : Any
         base.Init();
         this.ListInfra = ListInfra.This;
         this.ClassInfra = ClassInfra.This;
+        this.CountOperate = this.CreateCountOperate();
+        this.SetOperate = this.CreateSetOperate();
         return true;
     }
 
