@@ -198,9 +198,9 @@ public class BinaryState : Any
         InfraValue k;
         k = this.IndexTable.Get(varClass) as InfraValue;
 
-        long n;
-        n = k.Int;
+        long a;
+        a = k.Int;
 
-        return n;
+        return a;
     }
 }
