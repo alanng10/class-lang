@@ -42,7 +42,7 @@ public class BinaryGena : Any
         while (iter.Next())
         {
             ClassClass ka;
-            ka = (ClassClass)iter.Value;
+            ka = iter.Value as ClassClass;
 
             this.IndexTableAdd(ka);
         }
@@ -52,7 +52,7 @@ public class BinaryGena : Any
         while (iter.Next())
         {
             Table kk;
-            kk = (Table)iter.Value;
+            kk = iter.Value as Table;
 
             Iter iterA;
             iterA = new TableIter();
@@ -63,7 +63,7 @@ public class BinaryGena : Any
             while (iterA.Next())
             {
                 ClassClass kb;
-                kb = (ClassClass)iterA.Value;
+                kb = iterA.Value as ClassClass;
 
                 this.IndexTableAdd(kb);
             }
