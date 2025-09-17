@@ -5,6 +5,8 @@ public class BinaryState : Any
     public override bool Init()
     {
         base.Init();
+        this.InfraInfra = InfraInfra.This;
+
         this.CountOperate = this.CreateCountOperate();
         this.SetOperate = this.CreateSetOperate();
         return true;
@@ -34,6 +36,7 @@ public class BinaryState : Any
     public virtual BinaryStateOperate Operate { get; set; }
     public virtual BinaryStateCountOperate CountOperate { get; set; }
     public virtual BinaryStateSetOperate SetOperate { get; set; }
+    protected virtual InfraInfra InfraInfra { get; set; }
 
     public virtual bool Execute()
     {
@@ -76,6 +79,34 @@ public class BinaryState : Any
 
     public virtual bool ExecuteOperate(BinaryOperate operate)
     {
+        return true;
+    }
+
+    protected virtual bool ExecuteInt(long value)
+    {
+        return this.ExecuteIntCount(value, sizeof(long));
+    }
+
+    protected virtual bool ExecuteIntCount(long value, long count)
+    {
+        long k;
+        k = value;
+        k = k & (this.InfraInfra.IntCapValue - 1);
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            int shift;
+            shift = (int)(i * 8);
+
+            long ka;
+            ka = (k >> shift) & 0xff;
+
+            this.ExecuteByte(ka);
+
+            i = i + 1;
+        }
         return true;
     }
 
