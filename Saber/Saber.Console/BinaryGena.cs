@@ -165,10 +165,10 @@ public class BinaryGena : Any
             iter.Next();
 
             ModuleRef ka;
-            ka = (ModuleRef)iter.Index;
+            ka = iter.Index as ModuleRef;
 
             Table kb;
-            kb = (Table)iter.Value;
+            kb = iter.Value as Table;
 
             BinaryImport a;
             a = this.ExecuteImport(ka, kb);
