@@ -203,6 +203,12 @@ public class BinaryStateTravel : Travel
         return true;
     }
 
+    public override bool ExecuteIntValue(IntValue intValue)
+    {
+        this.Op(this.Kind.IntValue, this.IntArg(this.ArgA, intValue.Value), null);
+        return true;
+    }
+
     public override bool ExecuteStringValue(StringValue stringValue)
     {
         this.Op(this.Kind.StringValue, this.StringArg(this.ArgA, stringValue.Value), null);
