@@ -57,6 +57,27 @@ public class BinaryStateTravel : Travel
     protected virtual BinaryOperateArg ArgB { get; set; }
     protected virtual BinaryOperateArg NullArg { get; set; }
 
+    public override bool ExecuteGetOperate(GetOperate getOperate)
+    {
+        base.ExecuteGetOperate(getOperate);
+
+        Field varField;
+        varField = this.Info(getOperate).GetField;
+
+        if (!(varField.Virtual == null))
+        {
+            varField = varField.Virtual;
+        }
+
+        ClassClass varClass;
+        varClass = varField.Parent;
+
+        long kk;
+        kk = varClass.FieldStart;
+        kk = kk + varField.Index;
+        return true;
+    }
+
     public override bool ExecuteThisOperate(ThisOperate thisOperate)
     {
         this.Op(this.Kind.ItemThis, null, null);
@@ -89,6 +110,11 @@ public class BinaryStateTravel : Travel
 
         this.Op(this.Kind.Add, null, null);
         return true;
+    }
+
+    protected virtual ModuleInfo Info(NodeNode node)
+    {
+        return node.NodeAny as ModuleInfo;
     }
 
     protected virtual bool Op(BinaryOperateKind kind, BinaryOperateArg argA, BinaryOperateArg argB)
