@@ -577,6 +577,45 @@ public class BinaryGena : Any
         return n;
     }
 
+    public virtual bool ExecuteState()
+    {
+        this.Arg = new BinaryGenaArg();
+        this.Arg.Init();
+
+        this.Operate = this.CountOperate;
+
+        this.ResetStateStage();
+        this.ExecuteStateStage();
+
+        long count;
+        count = this.Arg.Index;
+        this.Arg.Data = new Data();
+        this.Arg.Data.Count = count;
+        this.Arg.Data.Init();
+
+        this.Operate = this.SetOperate;
+
+        this.ResetStateStage();
+        this.ExecuteStateStage();
+
+        this.Result.State = this.Arg.Data;
+
+        this.Operate = null;
+        this.Arg = null;
+        return true;
+    }
+
+    public virtual bool ResetStateStage()
+    {
+        this.Arg.Index = 0;
+        return true;
+    }
+
+    public virtual bool ExecuteStateStage()
+    {
+        return true;
+    }
+
     public virtual bool ExecuteByte(long value)
     {
         return true;
