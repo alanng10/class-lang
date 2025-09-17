@@ -225,6 +225,14 @@ public class BinaryStateTravel : Travel
         return true;
     }
 
+    public override bool ExecuteNotOperate(NotOperate notOperate)
+    {
+        base.ExecuteNotOperate(notOperate);
+
+        this.Op(this.Kind.Not, null, null);
+        return true;
+    }
+
     public override bool ExecuteAddOperate(AddOperate addOperate)
     {
         base.ExecuteAddOperate(addOperate);
