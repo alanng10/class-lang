@@ -57,6 +57,28 @@ public class BinaryStateTravel : Travel
     protected virtual BinaryOperateArg ArgB { get; set; }
     protected virtual BinaryOperateArg NullArg { get; set; }
 
+    public override bool ExecuteAreExecute(AreExecute areExecute)
+    {
+        base.ExecuteAreExecute(areExecute);
+
+        Mark mark;
+        mark = areExecute.Mark;
+
+        long k;
+        k = 0;
+
+        VarMark ka;
+        ka = mark as VarMark;
+
+        if (ka == null)
+        {
+            k = 1;
+        }
+
+        this.Op(this.Kind.Are, this.IntArg(this.ArgA, k), null);
+        return true;
+    }
+
     public override bool ExecuteGetOperate(GetOperate getOperate)
     {
         base.ExecuteGetOperate(getOperate);
