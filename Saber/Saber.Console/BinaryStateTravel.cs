@@ -95,6 +95,23 @@ public class BinaryStateTravel : Travel
         return true;
     }
 
+    public override bool ExecuteInfExecute(InfExecute infExecute)
+    {
+        Operate cond;
+        cond = infExecute.Cond;
+        State then;
+        then = infExecute.Then;
+
+        this.ExecuteOperate(cond);
+
+        this.Op(this.Kind.InfStart, null, null);
+
+        this.ExecuteState(then);
+
+        this.Op(this.Kind.InfEnd, null, null);
+        return true;
+    }
+
     public override bool ExecuteGetOperate(GetOperate getOperate)
     {
         base.ExecuteGetOperate(getOperate);
