@@ -85,7 +85,7 @@ public class BinaryStateTravel : Travel
         base.ExecuteSetMark(setMark);
 
         Field varField;
-        varField = this.Info(setMark).SetField;
+        varField = this.Info(setMark).SetField; 
 
         if (!(varField.Virtual == null))
         {
