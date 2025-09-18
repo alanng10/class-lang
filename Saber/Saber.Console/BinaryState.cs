@@ -10,6 +10,8 @@ public class BinaryState : Any
 
         this.CountOperate = this.CreateCountOperate();
         this.SetOperate = this.CreateSetOperate();
+        this.ClassIter = this.CreateClassIter();
+        this.TableIter = this.CreateTableIter();
         return true;
     }
 
@@ -31,6 +33,19 @@ public class BinaryState : Any
         return a;
     }
 
+    protected virtual TableIter CreateClassIter()
+    {
+        return this.CreateTableIter();
+    }
+
+    protected virtual TableIter CreateTableIter()
+    {
+        TableIter a;
+        a = new TableIter();
+        a.Init();
+        return a;
+    }
+
     public virtual ClassModule Module { get; set; }
     public virtual Table IndexTable { get; set; }
     public virtual Data Result { get; set; }
@@ -40,6 +55,8 @@ public class BinaryState : Any
     public virtual BinaryStateSetOperate SetOperate { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
+    protected virtual TableIter ClassIter { get; set; }
+    protected virtual TableIter TableIter { get; set; }
 
     public virtual bool Execute()
     {
