@@ -208,6 +208,8 @@ public class BinaryState : Any
 
         this.ExecuteOperateArg(operate.ArgA);
         this.ExecuteOperateArg(operate.ArgB);
+
+        this.Operate.ExecuteOperate();
         return true;
     }
 
