@@ -192,6 +192,7 @@ public class BinaryState : Any
     {
         this.ExecuteInt(varVar);
 
+        this.Travel.ExecuteState(state);
         return true;
     }
 
