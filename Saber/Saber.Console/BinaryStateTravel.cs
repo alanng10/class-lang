@@ -408,6 +408,14 @@ public class BinaryStateTravel : Travel
         return true;
     }
 
+    public override bool ExecuteBitLiteOperate(BitLiteOperate bitLiteOperate)
+    {
+        base.ExecuteBitLiteOperate(bitLiteOperate);
+
+        this.Op(this.Kind.BitLite, null, null);
+        return true;
+    }
+
     public override bool ExecuteBoolValue(BoolValue boolValue)
     {
         this.Op(this.Kind.BoolValue, this.BoolArg(this.ArgA, boolValue.Value), null);
