@@ -100,6 +100,8 @@ public class BinaryState : Any
     public virtual bool ResetStage()
     {
         this.Arg.Index = 0;
+        this.Arg.StateIndex = 0;
+        this.Arg.OperateIndex = 0;
         return true;
     }
 
