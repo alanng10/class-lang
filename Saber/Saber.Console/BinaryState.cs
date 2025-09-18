@@ -123,6 +123,16 @@ public class BinaryState : Any
 
             this.ExecuteField(varField);
         }
+
+        varClass.Maide.IterSet(iter);
+
+        while (iter.Next())
+        {
+            Maide varMaide;
+            varMaide = iter.Value as Maide;
+
+            this.ExecuteMaide(varMaide);
+        }
         return true;
     }
 
@@ -149,6 +159,21 @@ public class BinaryState : Any
         nodeField = varField.Any as NodeField;
 
         this.ExecuteCompState(nodeField.Set, varField.Set.Count);
+        return true;
+    }
+
+    public virtual bool ExecuteMaide(Maide varMaide)
+    {
+        this.ExecuteMaideCall(varMaide);
+        return true;
+    }
+
+    public virtual bool ExecuteMaideCall(Maide varMaide)
+    {
+        NodeMaide nodeMaide;
+        nodeMaide = varMaide.Any as NodeMaide;
+
+        this.ExecuteCompState(nodeMaide.Call, varMaide.Call.Count);
         return true;
     }
 
