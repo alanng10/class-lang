@@ -424,6 +424,14 @@ public class BinaryStateTravel : Travel
         return true;
     }
 
+    public override bool ExecuteBitSignRiteOperate(BitSignRiteOperate bitSignRiteOperate)
+    {
+        base.ExecuteBitSignRiteOperate(bitSignRiteOperate);
+
+        this.Op(this.Kind.BitSignRite, null, null);
+        return true;
+    }
+
     public override bool ExecuteBoolValue(BoolValue boolValue)
     {
         this.Op(this.Kind.BoolValue, this.BoolArg(this.ArgA, boolValue.Value), null);
