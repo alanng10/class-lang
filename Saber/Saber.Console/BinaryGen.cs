@@ -567,10 +567,10 @@ public class BinaryGen : Any
         return a;
     }
 
-    public virtual ModuleRef ExecuteModuleRef(ModuleRef ks)
+    public virtual ModuleRef ExecuteModuleRef(ModuleRef moduleRef)
     {
         ModuleRef a;
-        a = this.ClassInfra.ModuleRefCreate(ks.Name, ks.Ver);
+        a = this.ClassInfra.ModuleRefCreate(moduleRef.Name, moduleRef.Ver);
         return a;
     }
 
