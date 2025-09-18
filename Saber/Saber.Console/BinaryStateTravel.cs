@@ -400,6 +400,14 @@ public class BinaryStateTravel : Travel
         return true;
     }
 
+    public override bool ExecuteBitNotOperate(BitNotOperate bitNotOperate)
+    {
+        base.ExecuteBitNotOperate(bitNotOperate);
+
+        this.Op(this.Kind.BitNot, null, null);
+        return true;
+    }
+
     public override bool ExecuteBoolValue(BoolValue boolValue)
     {
         this.Op(this.Kind.BoolValue, this.BoolArg(this.ArgA, boolValue.Value), null);
