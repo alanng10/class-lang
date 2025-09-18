@@ -94,6 +94,40 @@ public class BinaryState : Any
 
     public virtual bool ExecuteStage()
     {
+        Iter iter;
+        iter = this.ClassIter;
+
+        this.Module.Class.IterSet(iter);
+
+        while (iter.Next())
+        {
+            ClassClass varClass;
+            varClass = iter.Value as ClassClass;
+
+            this.ExecuteClass(varClass);
+        }
+        return true;
+    }
+
+    public virtual bool ExecuteClass(ClassClass varClass)
+    {
+        Iter iter;
+        iter = this.TableIter;
+
+        varClass.Field.IterSet(iter);
+
+        while (iter.Next())
+        {
+            Field varField;
+            varField = iter.Value as Field;
+
+            this.ExecuteField(varField);
+        }
+        return true;
+    }
+
+    public virtual bool ExecuteField(Field varField)
+    {
         return true;
     }
 
