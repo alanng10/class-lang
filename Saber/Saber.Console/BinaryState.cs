@@ -10,6 +10,7 @@ public class BinaryState : Any
 
         this.CountOperate = this.CreateCountOperate();
         this.SetOperate = this.CreateSetOperate();
+        this.Travel = this.CreateTravel();
         this.ClassIter = this.CreateClassIter();
         this.TableIter = this.CreateTableIter();
         return true;
@@ -28,6 +29,15 @@ public class BinaryState : Any
     {
         BinaryStateSetOperate a;
         a = new BinaryStateSetOperate();
+        a.State = this;
+        a.Init();
+        return a;
+    }
+
+    protected virtual BinaryStateTravel CreateTravel()
+    {
+        BinaryStateTravel a;
+        a = new BinaryStateTravel();
         a.State = this;
         a.Init();
         return a;
@@ -55,6 +65,7 @@ public class BinaryState : Any
     public virtual BinaryStateSetOperate SetOperate { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
+    protected virtual BinaryStateTravel Travel { get; set; }
     protected virtual TableIter ClassIter { get; set; }
     protected virtual TableIter TableIter { get; set; }
 
