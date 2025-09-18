@@ -73,6 +73,15 @@ public class BinaryStateTravel : Travel
         return true;
     }
 
+    public override bool ExecuteReferExecute(ReferExecute referExecute)
+    {
+        Var varVar;
+        varVar = this.Info(referExecute).Var;
+
+        this.Op(this.Kind.Refer, this.IntArg(this.ArgA, varVar.Index), null);
+        return true;
+    }
+
     public override bool ExecuteAreExecute(AreExecute areExecute)
     {
         base.ExecuteAreExecute(areExecute);
