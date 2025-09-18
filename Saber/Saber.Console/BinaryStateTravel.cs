@@ -65,6 +65,14 @@ public class BinaryStateTravel : Travel
         return true;
     }
 
+    public override bool ExecuteReturnExecute(ReturnExecute returnExecute)
+    {
+        base.ExecuteReturnExecute(returnExecute);
+
+        this.Op(this.Kind.Ret, null, null);
+        return true;
+    }
+
     public override bool ExecuteAreExecute(AreExecute areExecute)
     {
         base.ExecuteAreExecute(areExecute);
