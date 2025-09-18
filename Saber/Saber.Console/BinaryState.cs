@@ -190,7 +190,9 @@ public class BinaryState : Any
 
     public virtual bool ExecuteCompState(State state, long varVar)
     {
-        this.ExecuteInt(varVar);
+        this.ExecuteCount(varVar);
+
+        this.ExecuteCount(state.Value.Count);
 
         this.Travel.ExecuteState(state);
         return true;
