@@ -192,8 +192,6 @@ public class BinaryState : Any
     {
         this.ExecuteCount(varVar);
 
-        this.ExecuteCount(state.Value.Count);
-
         this.Travel.ExecuteState(state);
         return true;
     }
