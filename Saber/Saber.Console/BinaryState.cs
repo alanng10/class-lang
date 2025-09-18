@@ -131,6 +131,31 @@ public class BinaryState : Any
         return true;
     }
 
+    public virtual bool ExecuteFieldGet(Field varField)
+    {
+        NodeField nodeField;
+        nodeField = varField.Any as NodeField;
+
+        this.ExecuteCompState(nodeField.Get, varField.Get.Count);
+        return true;
+    }
+
+    public virtual bool ExecuteFieldSet(Field varField)
+    {
+        NodeField nodeField;
+        nodeField = varField.Any as NodeField;
+
+        this.ExecuteCompState(nodeField.Set, varField.Set.Count);
+        return true;
+    }
+
+    public virtual bool ExecuteCompState(State state, long varVar)
+    {
+        this.ExecuteInt(varVar);
+
+        return true;
+    }
+
     public virtual bool ExecuteOperate(BinaryOperate operate)
     {
         this.ExecuteByte(operate.Kind);
