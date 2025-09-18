@@ -376,6 +376,14 @@ public class BinaryStateTravel : Travel
         return true;
     }
 
+    public override bool ExecuteSignDivOperate(SignDivOperate signDivOperate)
+    {
+        base.ExecuteSignDivOperate(signDivOperate);
+
+        this.Op(this.Kind.SignDiv, null, null);
+        return true;
+    }
+
     public override bool ExecuteBoolValue(BoolValue boolValue)
     {
         this.Op(this.Kind.BoolValue, this.BoolArg(this.ArgA, boolValue.Value), null);
