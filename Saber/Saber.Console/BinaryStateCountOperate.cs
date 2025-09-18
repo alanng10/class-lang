@@ -16,12 +16,9 @@ public class BinaryStateCountOperate : BinaryStateOperate
         BinaryStateArg arg;
         arg = this.State.Arg;
 
-        arg.OperateIndex = 0;
+        this.State.ExecuteCount(0);
 
-        long index;
-        index = arg.Index;
-        index = index + sizeof(long);
-        arg.Index = index;
+        arg.OperateIndex = 0;
         return true;
     }
 
