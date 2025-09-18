@@ -360,6 +360,22 @@ public class BinaryStateTravel : Travel
         return true;
     }
 
+    public override bool ExecuteSignLessOperate(SignLessOperate signLessOperate)
+    {
+        base.ExecuteSignLessOperate(signLessOperate);
+
+        this.Op(this.Kind.SignLess, null, null);
+        return true;
+    }
+
+    public override bool ExecuteSignMulOperate(SignMulOperate signMulOperate)
+    {
+        base.ExecuteSignMulOperate(signMulOperate);
+
+        this.Op(this.Kind.SignMul, null, null);
+        return true;
+    }
+
     public override bool ExecuteBoolValue(BoolValue boolValue)
     {
         this.Op(this.Kind.BoolValue, this.BoolArg(this.ArgA, boolValue.Value), null);
