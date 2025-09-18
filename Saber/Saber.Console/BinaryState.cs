@@ -128,6 +128,9 @@ public class BinaryState : Any
 
     public virtual bool ExecuteField(Field varField)
     {
+        this.ExecuteFieldGet(varField);
+
+        this.ExecuteFieldSet(varField);
         return true;
     }
 
