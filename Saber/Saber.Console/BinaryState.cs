@@ -234,7 +234,7 @@ public class BinaryState : Any
         return true;
     }
 
-    protected virtual bool ExecuteString(String value)
+    public virtual bool ExecuteString(String value)
     {
         long count;
         count = this.StringComp.Count(value);
@@ -255,7 +255,7 @@ public class BinaryState : Any
         return true;
     }
 
-    protected virtual bool ExecuteBool(bool value)
+    public virtual bool ExecuteBool(bool value)
     {
         long k;
         k = 0;
@@ -269,22 +269,22 @@ public class BinaryState : Any
         return true;
     }
 
-    protected virtual bool ExecuteCount(long value)
+    public virtual bool ExecuteCount(long value)
     {
         return this.ExecuteInt(value);
     }
 
-    protected virtual bool ExecuteMid(long value)
+    public virtual bool ExecuteMid(long value)
     {
         return this.ExecuteIntCount(value, sizeof(int));
     }
 
-    protected virtual bool ExecuteInt(long value)
+    public virtual bool ExecuteInt(long value)
     {
         return this.ExecuteIntCount(value, sizeof(long));
     }
 
-    protected virtual bool ExecuteIntCount(long value, long count)
+    public virtual bool ExecuteIntCount(long value, long count)
     {
         long k;
         k = value;
