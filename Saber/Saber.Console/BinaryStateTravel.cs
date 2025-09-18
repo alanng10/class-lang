@@ -75,8 +75,11 @@ public class BinaryStateTravel : Travel
 
     public override bool ExecuteReferExecute(ReferExecute referExecute)
     {
+        NodeVar nodeVar;
+        nodeVar = referExecute.Var;
+
         Var varVar;
-        varVar = this.Info(referExecute).Var;
+        varVar = this.Info(nodeVar).Var;
 
         this.Op(this.Kind.Refer, this.IntArg(this.ArgA, varVar.Index), null);
         return true;
