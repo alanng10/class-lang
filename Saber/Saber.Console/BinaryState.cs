@@ -63,6 +63,7 @@ public class BinaryState : Any
     public virtual BinaryStateOperate Operate { get; set; }
     public virtual BinaryStateCountOperate CountOperate { get; set; }
     public virtual BinaryStateSetOperate SetOperate { get; set; }
+    public virtual long StateCount { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
     protected virtual BinaryStateTravel Travel { get; set; }
@@ -73,6 +74,12 @@ public class BinaryState : Any
     {
         this.Arg = new BinaryStateArg();
         this.Arg.Init();
+
+        this.StateCount = this.StateCountGet();
+
+        this.Arg.OperateCountData = new Data();
+        this.Arg.OperateCountData.Count = this.StateCount * sizeof(long);
+        this.Arg.OperateCountData.Init();
 
         this.Operate = this.CountOperate;
 
@@ -97,6 +104,29 @@ public class BinaryState : Any
         return true;
     }
 
+    public virtual long StateCountGet()
+    {
+        long count;
+        count = 0;
+
+        Iter iter;
+        iter = this.ClassIter;
+
+        this.Module.Class.IterSet(iter);
+
+        while (iter.Next())
+        {
+            ClassClass varClass;
+            varClass = iter.Value as ClassClass;
+
+            count = count + varClass.Field.Count * 2;
+
+            count = count + varClass.Maide.Count;
+        }
+
+        return count;
+    }
+
     public virtual bool ResetStage()
     {
         this.Arg.Index = 0;
@@ -107,6 +137,8 @@ public class BinaryState : Any
 
     public virtual bool ExecuteStage()
     {
+        this.ExecuteCount(this.StateCount);
+
         Iter iter;
         iter = this.ClassIter;
 
