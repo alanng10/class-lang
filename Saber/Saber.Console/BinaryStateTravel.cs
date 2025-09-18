@@ -392,6 +392,14 @@ public class BinaryStateTravel : Travel
         return true;
     }
 
+    public override bool ExecuteBitOrnOperate(BitOrnOperate bitOrnOperate)
+    {
+        base.ExecuteBitOrnOperate(bitOrnOperate);
+
+        this.Op(this.Kind.BitOrn, null, null);
+        return true;
+    }
+
     public override bool ExecuteBoolValue(BoolValue boolValue)
     {
         this.Op(this.Kind.BoolValue, this.BoolArg(this.ArgA, boolValue.Value), null);
