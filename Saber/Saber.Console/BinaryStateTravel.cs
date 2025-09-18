@@ -112,6 +112,25 @@ public class BinaryStateTravel : Travel
         return true;
     }
 
+    public override bool ExecuteWhileExecute(WhileExecute whileExecute)
+    {
+        Operate cond;
+        cond = whileExecute.Cond;
+        State loop;
+        loop = whileExecute.Loop;
+
+        this.Op(this.Kind.WhileStart, null, null);
+
+        this.ExecuteOperate(cond);
+
+        this.Op(this.Kind.While, null, null);
+
+        this.ExecuteState(loop);
+
+        this.Op(this.Kind.WhileEnd, null, null);
+        return true;
+    }
+
     public override bool ExecuteGetOperate(GetOperate getOperate)
     {
         base.ExecuteGetOperate(getOperate);
