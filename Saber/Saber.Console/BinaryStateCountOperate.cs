@@ -22,7 +22,6 @@ public class BinaryStateCountOperate : BinaryStateOperate
         index = arg.Index;
         index = index + sizeof(long);
         arg.Index = index;
-        arg.StateIndex = arg.StateIndex + 1;
         return true;
     }
 
@@ -39,6 +38,8 @@ public class BinaryStateCountOperate : BinaryStateOperate
         ka = ka * sizeof(long);
 
         this.InfraInfra.DataIntSet(arg.OperateCountData, ka, count);
+
+        arg.StateIndex = arg.StateIndex + 1;
         return true;
     }
 
