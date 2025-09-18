@@ -124,6 +124,8 @@ public class BinaryState : Any
             count = count + varClass.Maide.Count;
         }
 
+        iter.Clear();
+
         return count;
     }
 
@@ -151,6 +153,8 @@ public class BinaryState : Any
 
             this.ExecuteClass(varClass);
         }
+
+        iter.Clear();
         return true;
     }
 
@@ -178,6 +182,8 @@ public class BinaryState : Any
 
             this.ExecuteMaide(varMaide);
         }
+
+        iter.Clear();
         return true;
     }
 
