@@ -24,13 +24,15 @@ public class BinaryStateTravel : Travel
 
     protected virtual BinaryOperateArg CreateArgA()
     {
-        BinaryOperateArg a;
-        a = new BinaryOperateArg();
-        a.Init();
-        return a;
+        return this.CreateArg();
     }
 
     protected virtual BinaryOperateArg CreateArgB()
+    {
+        return this.CreateArg();
+    }
+
+    protected virtual BinaryOperateArg CreateArg()
     {
         BinaryOperateArg a;
         a = new BinaryOperateArg();
