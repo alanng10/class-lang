@@ -214,7 +214,6 @@ public class BinaryStateTravel : Travel
         k = varMaide.Param.Count;
 
         this.Ope(this.Kind.Call, this.IntArg(this.ArgA, kk), this.IntArg(this.ArgB, k));
-
         return true;
     }
 
