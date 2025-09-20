@@ -503,7 +503,7 @@ public class BinaryStateTravel : Travel
         return arg;
     }
 
-    protected virtual bool Oper(BinaryOperateKind kind, BinaryOperateArg argA, BinaryOperateArg argB)
+    protected virtual bool Ope(BinaryOperateKind kind, BinaryOperateArg argA, BinaryOperateArg argB)
     {
         if (argA == null)
         {
