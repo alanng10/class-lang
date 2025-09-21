@@ -36,6 +36,7 @@ public class BinaryStateCountOperate : BinaryStateOperate
 
         this.InfraInfra.DataIntSet(arg.OperateCountData, ka, count);
 
+        arg.OperateIndex = 0;
         arg.StateIndex = arg.StateIndex + 1;
         return true;
     }
