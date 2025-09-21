@@ -34,6 +34,7 @@ public class BinaryStateSetOperate : BinaryStateOperate
         BinaryStateArg arg;
         arg = this.State.Arg;
 
+        arg.OperateIndex = 0;
         arg.StateIndex = arg.StateIndex + 1;
         return true;
     }
