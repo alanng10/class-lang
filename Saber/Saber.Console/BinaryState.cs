@@ -72,10 +72,10 @@ public class BinaryState : Any
 
     public virtual bool Execute()
     {
+        this.StateCount = this.StateCountGet();
+
         this.Arg = new BinaryStateArg();
         this.Arg.Init();
-
-        this.StateCount = this.StateCountGet();
 
         this.Arg.OperateCountData = new Data();
         this.Arg.OperateCountData.Count = this.StateCount * sizeof(long);
@@ -101,6 +101,7 @@ public class BinaryState : Any
 
         this.Operate = null;
         this.Arg = null;
+        this.StateCount = 0;
         return true;
     }
 
