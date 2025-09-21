@@ -58,7 +58,7 @@ Word "group" has meaning that is group entity.
 
 Word "gen" has meaning that is generate.
 
-Word "ope" has meaning that is work done label.
+Word "op" has meaning that is work done label.
 
 Word "geno" has meaning that is generalize.
 
