@@ -45,7 +45,12 @@ public class BinaryGen : Any
         this.IndexTable = this.ClassInfra.TableCreateRefLess();
 
         Iter iter;
-        iter = this.Module.Class.IterCreate();
+        iter = new TableIter();
+        iter.Init();
+
+        Iter iterA;
+        iterA = new TableIter();
+        iterA.Init();
 
         this.Module.Class.IterSet(iter);
 
@@ -57,17 +62,12 @@ public class BinaryGen : Any
             this.IndexTableAdd(ka);
         }
 
-        iter = this.Module.Import.IterCreate();
-
         this.Module.Import.IterSet(iter);
 
         while (iter.Next())
         {
             Table kk;
             kk = iter.Value as Table;
-
-            Iter iterA;
-            iterA = kk.IterCreate();
 
             kk.IterSet(iterA);
 
