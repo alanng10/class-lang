@@ -30,6 +30,9 @@ To import Sand modules, import the module classes with class names in the import
 To export a class, write the class name in the export section.
 Sand Lang port syntax is same as Class Lang port.
 
+Sand compiler classes derives from Class compiler classes.
+Sand compiler module arch derives from Class compiler module arch.
+
 A Sand lang source has token list and comment list.
 
 A Sand lang source has root node that is Class node.
@@ -186,6 +189,9 @@ The node has syntax that is 1 of 4 index words.
 The node has 1 field Value of class Int.
 Field Value is index of the int kind.
 
+Sand has Int Value nodes, same as Class Lang.
+The values syntaxs valid ints are unsigned 64 bits or signed 64 bits.
+
 TypeName node represent Type of any.
 TypeName is base class.
 TypeName has 1 derived class.
@@ -228,12 +234,6 @@ Field Type is the Type of result ref.
 Any is int any or struct any that is being casted.
 Casting IntType Any to IntTypeName is IntType conversion.
 Any cast that is not IntType conversion is reinterpret cast.
-
-Sand has Int Value nodes, same as Class Lang.
-The values syntaxs valid ints are unsigned 64 bits or signed 64 bits.
-
-Sand compiler classes derives from Class compiler classes.
-Sand compiler module arch derives from Class compiler module arch.
 
 Calculate memory index with int operation operate lang elements is enough element to
 do any calculate of memory index.
