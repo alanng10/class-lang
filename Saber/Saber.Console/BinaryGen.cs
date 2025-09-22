@@ -255,11 +255,12 @@ public class BinaryGen : Any
         while (i < count)
         {
             iter.Next();
-            ClassClass ka;
-            ka = iter.Value as ClassClass;
+
+            ClassClass varClass;
+            varClass = iter.Value as ClassClass;
 
             long n;
-            n = ka.Index;
+            n = varClass.Index;
 
             InfraValue value;
             value = new InfraValue();
