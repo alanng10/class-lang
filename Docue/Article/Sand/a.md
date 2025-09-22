@@ -137,7 +137,7 @@ Call is the state of the maide.
 Param node is list of Var. The list is delimited by limit comma token.
 
 CallOperate is operate that call a maide.
-The operate has syntax that starts with Class of class ClassName, 
+The operate has syntax that starts with "call" index word, followed by Class of class ClassName, 
 followed by limit dot token, followed by Maide of class MaideName, followed by limit brace round open token, 
 followed by Argue of class Argue, followed by limit brace round close token.
 Maide with maide name Maide in class Class is called.
