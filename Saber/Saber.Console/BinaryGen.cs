@@ -440,11 +440,11 @@ public class BinaryGen : Any
         {
             iter.Next();
 
-            Maide ka;
-            ka = iter.Value as Maide;
+            Maide varMaide;
+            varMaide = iter.Value as Maide;
 
             BinaryMaide a;
-            a = this.ExecuteMaide(ka);
+            a = this.ExecuteMaide(varMaide);
 
             array.SetAt(i, a);
 
