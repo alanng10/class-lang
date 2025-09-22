@@ -337,8 +337,7 @@ The operate Type is 64 bits IntType.
 LessOperate, AddOperate, SubOperate, MulOperate, DivOperate, SignLessOperate, 
 SignMulOperate, SignDivOperate, BitLiteOperate, BitRiteOperate and BitSignRiteOperate 
 have syntaxs that are same as Class Lang.
-BitAndOperate, BitOrnOperate and BitNotOperate have syntaxs that are same as 
-AndOperate, OrnOperate and NotOperate in Class Lang.
+AndOperate, OrnOperate and NotOperate have syntaxs that are same as Class Lang.
 The operates input Type is IntType.
 The input IntType is any IntKind.
 Operates with 2 inputs has same IntType kind in both inputs.
