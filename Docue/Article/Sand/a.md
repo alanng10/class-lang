@@ -344,7 +344,7 @@ The input IntType is any IntKind.
 Operates with 2 inputs has same IntType kind in both inputs.
 The operates output Type is IntType.
 Output that is int value is the IntType of kind that is same as input kind.
-Output that is bool value is 64 bit IntType, the output value is bool value in 64 bits IntType.
+Output that is bool value is 64 bit IntType, the output value is bool value represented in 64 bits IntType.
 
 IntType any sign extend to more bit count is done with 
 BitLiteOperate to shift lite to highest bit, followed by BitSignRiteOperate to 
