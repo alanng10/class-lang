@@ -186,6 +186,13 @@ The node has syntax that is 1 of 4 index words.
 The node has 1 field Value of class Int.
 Field Value is index of the int kind.
 
+TypeName node represent Type of any.
+TypeName is base class.
+TypeName has 1 derived class.
+The derived class is IntTypeName.
+IntTypeName is Type name for IntType.
+IntType syntax is Kind of class IntKind.
+
 Storage node represent storage alloc for var.
 Storage syntax start with "val" index word, followed by none orn Count
 of class IntDecValue orn Count of class IntHexValue.
@@ -199,49 +206,6 @@ followed by Var of class VarName, followed optionally by Storage of class Storag
 Type is the the Type of the any of the var.
 Var is the name of the var.
 Storage is the storage alloc of the var.
-
-TypeName represents StorageType.
-TypeName class is base class.
-The class has 5 derived class.
-1 derived class is IntTypeName.
-IntTypeName represents IntType name.
-IntTypeName has syntax that is Kind of class IntKind.
-The IntType is int type of Kind.
-Struct var that is declared with IntTypeName is allocated space for the size of IntKind of the IntType.
-1 derived class is StructTypeName.
-StructTypeName represents StructType name.
-StructTypeName has syntax that is Class of class ClassName, 
-followed by limit dot token, followed by Struct of class StructName.
-The StructType is struct Struct in class Class.
-1 derived class is ValueStructTypeName.
-ValueStructTypeName represents value StructType name.
-ValueStructTypeName has syntax that starts with "value" index word, followed by Class of class ClassName, 
-followed by limit dot token, followed by Struct of class StructName.
-The StructType is struct Struct in class Class.
-Var that is declared with ValueStructTypeName is allocated space for the struct any of the StructType.
-The var holds ref value that is memory index of the allocated struct any.
-The var Type is the StructType.
-The var cannot be assigned to.
-1 derived class is ArrayStructTypeName.
-ArrayStructTypeName represents value array of StructType name.
-ArrayStructTypeName has syntax that starts with "value" index word, followed by Class of class ClassName, 
-followed by limit dot token, followed by Struct of class StructName, followed by limit brace right open token, 
-followed by Count of class IntValue, followed by limit brace right close token.
-The StructType is struct Struct in class Class.
-Var that is declared with ArrayStructTypeName is allocated space for the array of count Count of struct anys of the StructType.
-The var holds ref value that is memory index of the allocated array.
-The var Type is the StructType.
-The var cannot be assigned to.
-1 derived class is ArrayIntTypeName.
-ArrayIntTypeName represents value array of IntType name.
-ArrayIntTypeName has syntax that starts with "value" index word, followed by Kind of class IntKind, 
-followed by limit brace right open token, followed by Count of class IntValue, 
-followed by limit brace right close token.
-The IntType is int type of Kind.
-Var that is declared with ArrayIntTypeName is allocated space for the array of count Count of int anys of the IntType.
-The var holds ref value that is memory index of the allocated array.
-The var Type is 64 bits IntType.
-The var cannot be assigned to.
 
 Var that has StorageType that is array, is 1 dimensional array.
 
