@@ -217,8 +217,7 @@ that is memory index of the array, and the var can not be assign to.
 Inf Type is StructTypeName and Storage is present, array of any of the StructType is alloc
 with the count of the Storage, the var result type is the StructType of the StructTypeName,
 the var result ref that is memory index of the array, and the var can not be assign to.
-
-Var that has StorageType that is array, is 1 dimensional array.
+Var that has Storage is 1 dimensional array.
 
 Maide Param Var StorageType is IntTypeName or StructTypeName.
 
