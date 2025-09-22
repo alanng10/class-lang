@@ -496,11 +496,11 @@ public class BinaryGen : Any
         {
             iter.Next();
 
-            Var ka;
-            ka = iter.Value as Var;
+            Var varVar;
+            varVar = iter.Value as Var;
 
             BinaryVar a;
-            a = this.ExecuteVar(ka);
+            a = this.ExecuteVar(varVar);
 
             array.SetAt(i, a);
 
