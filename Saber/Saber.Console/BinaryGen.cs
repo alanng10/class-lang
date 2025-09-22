@@ -193,20 +193,20 @@ public class BinaryGen : Any
         return array;
     }
 
-    public virtual BinaryImport ExecuteImport(ModuleRef ka, Table kb)
+    public virtual BinaryImport ExecuteImport(ModuleRef moduleRef, Table table)
     {
-        ModuleRef moduleRef;
-        moduleRef = this.ExecuteModuleRef(ka);
+        ModuleRef moduleRefA;
+        moduleRefA = this.ExecuteModuleRef(moduleRef);
 
         long count;
-        count = kb.Count;
+        count = table.Count;
 
         Array array;
         array = this.ListInfra.ArrayCreate(count);
 
         Iter iter;
-        iter = kb.IterCreate();
-        kb.IterSet(iter);
+        iter = table.IterCreate();
+        table.IterSet(iter);
 
         long i;
         i = 0;
@@ -233,7 +233,7 @@ public class BinaryGen : Any
         BinaryImport a;
         a = new BinaryImport();
         a.Init();
-        a.Module = moduleRef;
+        a.Module = moduleRefA;
         a.Class = array;
         return a;
     }
