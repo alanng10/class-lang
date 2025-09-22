@@ -214,16 +214,16 @@ public class BinaryGen : Any
         {
             iter.Next();
 
-            ClassClass kd;
-            kd = iter.Value as ClassClass;
+            ClassClass varClass;
+            varClass = iter.Value as ClassClass;
 
-            long n;
-            n = kd.Index;
+            long ka;
+            ka = varClass.Index;
 
             InfraValue value;
             value = new InfraValue();
             value.Init();
-            value.Int = n;
+            value.Int = ka;
 
             array.SetAt(i, value);
 
