@@ -510,13 +510,13 @@ public class BinaryGen : Any
         return array;
     }
 
-    public virtual BinaryVar ExecuteVar(Var ka)
+    public virtual BinaryVar ExecuteVar(Var varVar)
     {
         long varClass;
-        varClass = this.ClassIndex(ka.Class);
+        varClass = this.ClassIndex(varVar.Class);
 
         String name;
-        name = ka.Name;
+        name = varVar.Name;
 
         BinaryVar a;
         a = new BinaryVar();
