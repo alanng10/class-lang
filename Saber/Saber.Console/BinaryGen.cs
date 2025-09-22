@@ -146,10 +146,10 @@ public class BinaryGen : Any
         return array;
     }
 
-    public virtual BinaryClass ExecuteClass(ClassClass ka)
+    public virtual BinaryClass ExecuteClass(ClassClass varClass)
     {
         String name;
-        name = ka.Name;
+        name = varClass.Name;
 
         BinaryClass a;
         a = new BinaryClass();
