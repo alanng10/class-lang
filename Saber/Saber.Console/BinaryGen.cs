@@ -388,11 +388,11 @@ public class BinaryGen : Any
         {
             iter.Next();
 
-            Field ka;
-            ka = iter.Value as Field;
+            Field varField;
+            varField = iter.Value as Field;
 
             BinaryField a;
-            a = this.ExecuteField(ka);
+            a = this.ExecuteField(varField);
 
             array.SetAt(i, a);
 
