@@ -339,7 +339,7 @@ SignMulOperate, SignDivOperate, BitLiteOperate, BitRiteOperate and BitSignRiteOp
 have syntaxs that are same as Class Lang.
 AndOperate, OrnOperate and NotOperate have syntaxs that are same as Class Lang.
 The 3 operates done bit wise And, Orn and Not operations.
-The operates input Type is IntType.
+All the operates input Type is IntType.
 The input IntType is any IntKind.
 Operates with 2 inputs has same IntType kind in both inputs.
 The operates output Type is IntType.
