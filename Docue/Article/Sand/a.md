@@ -9,8 +9,8 @@ Sand is did.
 
 Sand is park system program lang.
 
-Sand is used to make system program.
-Sand is not used to make module that is executed on system program.
+Sand is tool to make system program.
+Sand is not tool to make module that is executed on system program.
 
 Sand is a plat.
 The plat layers below System in info tech stack arch.
