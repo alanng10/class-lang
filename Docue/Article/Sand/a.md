@@ -191,7 +191,10 @@ TypeName is base class.
 TypeName has 1 derived class.
 The derived class is IntTypeName.
 IntTypeName is Type name for IntType.
-IntType syntax is Kind of class IntKind.
+IntTypeName syntax is Kind of class IntKind.
+TypeName has 1 derived class.
+The derived class is StructTypeName.
+StructTypeName is Type name for StructType.
 
 Storage node represent storage alloc for var.
 Storage syntax start with "val" index word, followed by none orn Count
