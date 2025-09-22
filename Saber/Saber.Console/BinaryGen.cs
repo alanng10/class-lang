@@ -333,11 +333,11 @@ public class BinaryGen : Any
         {
             iter.Next();
 
-            ClassClass ka;
-            ka = iter.Value as ClassClass;
+            ClassClass varClass;
+            varClass = iter.Value as ClassClass;
 
             BinaryPart a;
-            a = this.ExecutePart(ka);
+            a = this.ExecutePart(varClass);
 
             array.SetAt(i, a);
 
