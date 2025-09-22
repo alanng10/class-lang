@@ -193,10 +193,12 @@ Inf it is followed by none, storage with size of count 1 of the any size is allo
 Inf it is followed by Count, storage with size of count Count of the any size is alloc.
 Count is not zero.
 
+Var node represent variable declaration.
 Var node syntax starts with "var" index word, followed by Type of class TypeName, 
-followed by Var of class VarName.
-The node declares var with name Var with StorageType.
-Field Type is the StorageType.
+followed by Var of class VarName, followed optionally by Storage of class Storage.
+Type is the the Type of the any of the var.
+Var is the name of the var.
+Storage is the storage alloc of the var.
 
 TypeName represents StorageType.
 TypeName class is base class.
