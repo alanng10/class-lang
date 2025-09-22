@@ -195,7 +195,7 @@ IntTypeName syntax is Kind of class IntKind.
 TypeName has 1 derived class.
 The derived class is StructTypeName.
 StructTypeName is Type name for StructType.
-SturctTypeName syntax starts with Class of class ClassName, followed by limit dot token,
+StructTypeName syntax starts with Class of class ClassName, followed by limit dot token,
 followed by Struct of class StructName.
 
 Storage node represent storage alloc for var.
