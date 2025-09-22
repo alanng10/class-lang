@@ -162,8 +162,9 @@ The mark has syntax that is same as GlobVarOperate.
 The mark Type is the glob var Type.
 
 StructVarOperate is operate that results ref that var in struct any holds.
-The operate has syntax that starts with This of class Operate, 
-followed by limit dot token, followed by Var of class VarName.
+The operate has syntax that starts with "struct" index word, 
+followed by limit brace round open token, followed by This of class Operate, 
+followed by limit brace round close token, followed by limit dot token, followed by Var of class VarName.
 Field This is memory index of the struct any.
 Field This Type is StructType.
 The operate Type is the struct var Type.
