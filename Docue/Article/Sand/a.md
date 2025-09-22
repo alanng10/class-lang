@@ -211,6 +211,9 @@ followed by Var of class VarName, followed optionally by Storage of class Storag
 Type is the the Type of the any of the var.
 Var is the name of the var.
 Storage is the storage alloc of the var.
+Inf Type is IntTypeName and Storage is present, array of any of the IntType is alloc
+with the count of the Storage, the var result type is 64 bit IntType, the var result ref
+that is memory index of the array, and the var can not be assign to.
 
 Var that has StorageType that is array, is 1 dimensional array.
 
