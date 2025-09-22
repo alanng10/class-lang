@@ -213,6 +213,7 @@ public class BinaryGen : Any
         while (i < count)
         {
             iter.Next();
+
             ClassClass kd;
             kd = iter.Value as ClassClass;
 
