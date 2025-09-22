@@ -402,16 +402,16 @@ public class BinaryGen : Any
         return array;
     }
 
-    public virtual BinaryField ExecuteField(Field ka)
+    public virtual BinaryField ExecuteField(Field varField)
     {
         long varClass;
-        varClass = this.ClassIndex(ka.Class);
+        varClass = this.ClassIndex(varField.Class);
 
         long count;
-        count = ka.Count.Index;
+        count = varField.Count.Index;
 
         String name;
-        name = ka.Name;
+        name = varField.Name;
 
         BinaryField a;
         a = new BinaryField();
