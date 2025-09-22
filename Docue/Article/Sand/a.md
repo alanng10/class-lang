@@ -229,14 +229,7 @@ Any is int any or struct any that is being casted.
 Casting IntType Any to IntTypeName is IntType conversion.
 Any cast that is not IntType conversion is reinterpret cast.
 
-IntValue represents int value.
-IntValue class is base class.
-The class has 4 derived class.
-The derived classes are IntDecValue, IntDecSignValue, IntHexValue and IntHexSignValue.
-IntDecValue corresponds to IntValue in Class Lang.
-IntDecSignValue corresponds to IntSignValue in Class Lang.
-IntHexValue and IntHexSignValue corresponds to nodes with same names in Class Lang.
-They have prefixs that are same as corresponding nodes in Class Lang.
+Sand has Int Value nodes, same as Class Lang.
 The values syntaxs valid ints are unsigned 64 bits or signed 64 bits.
 
 Sand compiler classes derives from Class compiler classes.
