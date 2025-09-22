@@ -214,6 +214,9 @@ Storage is the storage alloc of the var.
 Inf Type is IntTypeName and Storage is present, array of any of the IntType is alloc
 with the count of the Storage, the var result type is 64 bit IntType, the var result ref
 that is memory index of the array, and the var can not be assign to.
+Inf Type is StructTypeName and Storage is present, array of any of the StructType is alloc
+with the count of the Storage, the var result type is the StructType of the StructTypeName,
+the var result ref that is memory index of the array, and the var can not be assign to.
 
 Var that has StorageType that is array, is 1 dimensional array.
 
