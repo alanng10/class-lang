@@ -581,9 +581,8 @@ public class BinaryGen : Any
         InfraValue k;
         k = this.IndexTable.Get(varClass) as InfraValue;
 
-        long n;
-        n = k.Int;
-
-        return n;
+        long a;
+        a = k.Int;
+        return a;
     }
 }
