@@ -345,6 +345,9 @@ The operates output Type is IntType.
 Output that is int value is the IntType of kind that is same as input kind.
 Output that is bool value is 64 bit IntType, the output value is bool value represented in 64 bits IntType.
 
+Sand has none BitAndOperate, BitOrnOperate and BitNotOperate.
+AndOperate, OrnOperate and NotOperate is enough element.
+
 IntType any sign extend to more bit count is done with 
 BitLiteOperate to shift lite to highest bit, followed by BitSignRiteOperate to 
 sign shift rite back to original bit.
