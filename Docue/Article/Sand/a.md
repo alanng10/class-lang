@@ -186,6 +186,10 @@ The node has syntax that is 1 of 4 index words.
 The node has 1 field Value of class Int.
 Field Value is index of the int kind.
 
+Storage node represent storage alloc for var.
+Storage syntax start with "val" index word, followed by none orn Count
+of class IntDecValue orn Count of class IntHexValue.
+
 Var node syntax starts with "var" index word, followed by Type of class TypeName, 
 followed by Var of class VarName.
 The node declares var with name Var with StorageType.
