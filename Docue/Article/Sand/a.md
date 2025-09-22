@@ -15,7 +15,7 @@ Sand is not tool to make module that is executed on system program.
 Sand is a plat.
 The plat layers below System in info tech stack arch.
 
-Sand is used to make system programming modules.
+Sand is tool to make system programming modules.
 
 Sand maide need to not expose StructType in param
 to be able to abstract effect.
