@@ -536,10 +536,10 @@ public class BinaryGen : Any
 
         if (!(entry == null))
         {
-            ClassClass varClass;
-            varClass = this.Module.Class.Get(entry) as ClassClass;
+            ClassClass entryClass;
+            entryClass = this.Module.Class.Get(entry) as ClassClass;
 
-            k = varClass.Index;
+            k = entryClass.Index;
         }
 
         BinaryEntry a;
