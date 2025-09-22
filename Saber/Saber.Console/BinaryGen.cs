@@ -293,11 +293,11 @@ public class BinaryGen : Any
         {
             iter.Next();
 
-            ClassClass ka;
-            ka = iter.Value as ClassClass;
+            ClassClass varClass;
+            varClass = iter.Value as ClassClass;
 
             ClassClass baseClass;
-            baseClass = ka.Base;
+            baseClass = varClass.Base;
 
             long n;
             n = this.ClassIndex(baseClass);
