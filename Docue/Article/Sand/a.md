@@ -67,7 +67,7 @@ Ref that has StructType has the memory index of the struct any stored in ref val
 Ref that is assigned to input of lang elements is required 
 to has Type that the input requires.
 
-StorageType is used to declare variable storage.
+Storage is used to declare variable storage.
 
 Operate that is IntType that is smaller than 64 bits
 results int any ref that has the int value at lower bits in the ref value.
