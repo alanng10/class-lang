@@ -85,13 +85,13 @@ public class BinaryGen : Any
 
     public virtual bool IndexTableAdd(ClassClass ka)
     {
-        long n;
-        n = this.IndexTable.Count;
+        long k;
+        k = this.IndexTable.Count;
 
         InfraValue value;
         value = new InfraValue();
         value.Init();
-        value.Int = n;
+        value.Int = k;
 
         this.ListInfra.TableAdd(this.IndexTable, ka, value);
         return true;
