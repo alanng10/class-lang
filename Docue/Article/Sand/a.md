@@ -189,6 +189,8 @@ Field Value is index of the int kind.
 Storage node represent storage alloc for var.
 Storage syntax start with "val" index word, followed by none orn Count
 of class IntDecValue orn Count of class IntHexValue.
+Inf it is followed by none, storage with size of count 1 of the any size is alloc.
+Inf it is followed by Count, storage with size of count Count of the any size is alloc.
 
 Var node syntax starts with "var" index word, followed by Type of class TypeName, 
 followed by Var of class VarName.
