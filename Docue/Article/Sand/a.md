@@ -345,9 +345,6 @@ The operates output Type is IntType.
 Output that is int value is the IntType of kind that is same as input kind.
 Output that is bool value is 64 bit IntType, that is same as bool operation operates output.
 
-Operates that output int values output 64 bits int values in refs.
-The operates do 64 bits int operations instead of 60 bits in Class Lang.
-
 IntType any sign extend to more bit count is done with 
 BitLiteOperate to shift lite to highest bit, followed by BitSignRiteOperate to 
 sign shift rite back to original bit.
