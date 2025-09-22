@@ -219,10 +219,6 @@ with the count of the Storage, the var result type is the StructType of the Stru
 the var result ref that is memory index of the array, and the var can not be assign to.
 Var that has Storage is 1 dimensional array.
 
-Maide Param Var StorageType is IntTypeName or StructTypeName.
-
-Maide field Type is IntTypeName or StructTypeName.
-
 CastOperate is operate that results ref of reinterpret cast to any Type or 
 ref of IntType conversion of IntType int.
 The operate has syntax that starts with "cast" index word, followed by Type of class TypeName,
