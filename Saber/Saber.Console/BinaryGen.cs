@@ -299,13 +299,13 @@ public class BinaryGen : Any
             ClassClass baseClass;
             baseClass = varClass.Base;
 
-            long n;
-            n = this.ClassIndex(baseClass);
+            long ka;
+            ka = this.ClassIndex(baseClass);
 
             InfraValue value;
             value = new InfraValue();
             value.Init();
-            value.Int = n;
+            value.Int = ka;
 
             array.SetAt(i, value);
 
