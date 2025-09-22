@@ -288,9 +288,10 @@ The call argue list Type is not declared.
 The call result Type is 64 bits IntType.
 It is programming error, to passed argue with different count of ref with declared param count of the maide, in the call.
 
-RefCallOperate has syntax that starts with "refcall" index word,
-followed by Var of class VarName, followed by limit brace round open token,
-followed by Argue of class Argue, followed by limit brace round close token.
+RefCallOperate has syntax that starts with "ref" index word,
+followed by "call" index word, followed by Var of class VarName, 
+followed by limit brace round open token, followed by Argue of class Argue, 
+followed by limit brace round close token.
 Var is the var that hold ref value that is the maide memory index.
 Var Type is any Type.
 Argue is argue that is passed into the maide being called.
