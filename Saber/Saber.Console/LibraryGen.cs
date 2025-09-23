@@ -212,17 +212,24 @@ public class LibraryGen : TextAdd
             return false;
         }
 
-        b = this.ExecuteClassSource();
+        b = this.ExecuteClean();
         if (!b)
         {
             this.Status = 20;
             return false;
         }
 
-        b = this.ExecuteMakeLib();
+        b = this.ExecuteClassSource();
         if (!b)
         {
             this.Status = 30;
+            return false;
+        }
+
+        b = this.ExecuteMakeLib();
+        if (!b)
+        {
+            this.Status = 40;
             return false;
         }
 
@@ -231,21 +238,21 @@ public class LibraryGen : TextAdd
             b = this.ExecuteModuleRefString();
             if (!b)
             {
-                this.Status = 40;
+                this.Status = 50;
                 return false;
             }
 
             b = this.ExecuteModuleExeSource();
             if (!b)
             {
-                this.Status = 50;
+                this.Status = 60;
                 return false;
             }
 
             b = this.ExecuteMakeExe();
             if (!b)
             {
-                this.Status = 60;
+                this.Status = 70;
                 return false;
             }
         }
@@ -254,7 +261,7 @@ public class LibraryGen : TextAdd
 
         if (!b)
         {
-            this.Status = 70;
+            this.Status = 80;
             return false;
         }
 
@@ -361,6 +368,21 @@ public class LibraryGen : TextAdd
 
             i = i + 1;
         }
+
+        return true;
+    }
+
+    protected virtual bool ExecuteClean()
+    {
+        String libFilePath;
+        libFilePath = this.AddClear().AddS("../../../").Add(this.ClassPath).AddS("/").Add(this.ModuleRefString).AddS(".dll").AddResult();
+
+        this.StorageComp.FileDelete(libFilePath);
+
+        String exeFilePath;
+        exeFilePath = this.AddClear().AddS("../../../").Add(this.ClassPath).AddS("/").Add(this.ModuleRefString).AddS(".exe").AddResult();
+
+        this.StorageComp.FileDelete(exeFilePath);
 
         return true;
     }
