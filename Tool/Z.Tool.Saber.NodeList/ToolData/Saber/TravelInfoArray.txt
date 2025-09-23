@@ -1,4 +1,4 @@
-        this.Start(this.SField#ClassName#);
+        this.Start(#ClassName#);
 
         this.FieldStart(this.SValue);
         
