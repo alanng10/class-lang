@@ -1471,6 +1471,12 @@ public class ClassGen : TextAdd
         return true;
     }
 
+    public virtual bool ExecuteState()
+    {
+        this.ExecuteString();
+        return true;
+    }
+
     public virtual bool ExecuteString()
     {
         this.ExecuteStringData();
@@ -1734,12 +1740,6 @@ public class ClassGen : TextAdd
         this.Text(this.LimitBraceCurveRite);
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
-        return true;
-    }
-
-    public virtual bool ExecuteState()
-    {
-        this.ExecuteString();
         return true;
     }
 
