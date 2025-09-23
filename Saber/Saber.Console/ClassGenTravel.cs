@@ -450,25 +450,6 @@ public class ClassGenTravel : Travel
         return true;
     }
 
-    public override bool ExecuteThisOperate(ThisOperate thisOperate)
-    {
-        ClassGen gen;
-        gen = this.Gen;
-
-        String varA;
-        varA = gen.VarA;
-
-        long k;
-        k = gen.ParamCount;
-
-        gen.EvalFrameValueGet(-(k + 1), varA);
-
-        gen.EvalValueSet(0, varA);
-
-        gen.EvalIndexPosSet(1);
-        return true;
-    }
-
     public override bool ExecuteBaseOperate(BaseOperate baseOperate)
     {
         ClassGen gen;
@@ -488,22 +469,6 @@ public class ClassGenTravel : Travel
         gen.VarMaskClear(varA, gen.BaseClearMask);
 
         gen.VarMaskSetInt(varA, kk);
-
-        gen.EvalValueSet(0, varA);
-
-        gen.EvalIndexPosSet(1);
-        return true;
-    }
-
-    public override bool ExecuteNullOperate(NullOperate nullOperate)
-    {
-        ClassGen gen;
-        gen = this.Gen;
-
-        String varA;
-        varA = gen.VarA;
-
-        gen.VarSet(varA, gen.Zero);
 
         gen.EvalValueSet(0, varA);
 

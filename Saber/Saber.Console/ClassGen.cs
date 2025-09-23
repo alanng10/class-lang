@@ -1493,6 +1493,19 @@ public class ClassGen : TextAdd
         return true;
     }
 
+    public virtual bool ExecuteOperateNull()
+    {
+        String varA;
+        varA = this.VarA;
+
+        this.VarSet(varA, this.Zero);
+
+        this.EvalValueSet(0, varA);
+
+        this.EvalIndexPosSet(1);
+        return true;
+    }
+
     public virtual bool ExecuteString()
     {
         this.ExecuteStringData();
