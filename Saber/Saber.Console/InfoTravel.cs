@@ -1,6 +1,6 @@
 namespace Saber.Console;
 
-public class InfoTravel : Travel
+public partial class InfoTravel : Travel
 {
     public override bool Init()
     {
