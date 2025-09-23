@@ -26,7 +26,7 @@ public class ClassGenTravel : Travel
 
         gen.LocalVarCount = field.Get.Count - 1;
 
-        gen.CompStateStart(gen.Class, field, gen.StateKindGet, gen.LocalVarCount);
+        gen.CompStateStart(gen.Class, field, gen.StateKindGet);
 
         base.ExecuteState(varGet);
 
@@ -40,7 +40,7 @@ public class ClassGenTravel : Travel
 
         gen.LocalVarCount = field.Set.Count - 2;
 
-        gen.CompStateStart(gen.Class, field, gen.StateKindSet, gen.LocalVarCount);
+        gen.CompStateStart(gen.Class, field, gen.StateKindSet);
 
         base.ExecuteState(varSet);
 
