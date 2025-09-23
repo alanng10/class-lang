@@ -200,6 +200,6 @@ public class NodeKindList : Any
 
     public virtual NodeKind Get(long index)
     {
-        return (NodeKind)this.Array.GetAt(index);
+        return this.Array.GetAt(index) as NodeKind;
     }
 }
