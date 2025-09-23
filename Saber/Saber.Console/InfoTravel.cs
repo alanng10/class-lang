@@ -189,7 +189,7 @@ public class InfoTravel : Travel
         return true;
     }
 
-    protected virtual InfoToken AddSpace()
+    protected virtual InfoTravel AddSpace()
     {
         long count;
         count = this.Space;
