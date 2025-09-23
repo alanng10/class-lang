@@ -1,6 +1,6 @@
-    maide prusate Bool Execute#ClassName#(var #DeclareClassName# #VarName#)
+    public override bool Execute#ClassName#(#DeclareClassName# #VarName#)
     {
-        inf (#VarName# = null)
+        if (#VarName# == null)
         {
             this.Null();
             return true;
