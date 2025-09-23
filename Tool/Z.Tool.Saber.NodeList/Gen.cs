@@ -46,6 +46,11 @@ public class Gen : Any
         travelPathGen = this.CreateTravelPathGen();
         travelPathGen.ClassTable = this.ClassTable;
         travelPathGen.Execute();
+
+        TravelInfoGen travelInfoGen;
+        travelInfoGen = this.CreateTravelInfoGen();
+        travelInfoGen.ClassTable = this.ClassTable;
+        travelInfoGen.Execute();
         return 0;
     }
 
@@ -111,6 +116,14 @@ public class Gen : Any
     {
         TravelPathGen a;
         a = new TravelPathGen();
+        a.Init();
+        return a;
+    }
+
+    protected virtual TravelInfoGen CreateTravelInfoGen()
+    {
+        TravelInfoGen a;
+        a = new TravelInfoGen();
         a.Init();
         return a;
     }
