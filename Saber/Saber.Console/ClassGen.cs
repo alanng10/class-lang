@@ -1564,6 +1564,11 @@ public class ClassGen : TextAdd
         return a;
     }
 
+    public virtual long StateInt()
+    {
+        return this.StateIntCount(sizeof(long));
+    }
+
     public virtual long StateIntCount(long count)
     {
         long k;
