@@ -314,12 +314,7 @@ public class ClassGenTravel : Travel
         {
             if (thisClass == gen.System.Any)
             {
-                gen.ExecuteValueMaideCallThisCond(gen.One, k);
-            }
-
-            if (thisClass == gen.System.Bool | thisClass == gen.System.Int | thisClass == gen.System.String)
-            {
-                gen.ExecuteValueMaideCallThisCondA(k);
+                gen.ExecuteVirtualCallThisCond(k);
             }
         }
 
