@@ -1,8 +1,8 @@
-        inf (~b)
+        if (!b)
         {
-            inf (~(cast #DeclareClassName#(node) = null))
+            if (!((node as #DeclareClassName#) == null))
             {
-                this.Execute#ClassName#(cast #DeclareClassName#(node));
+                this.Execute#ClassName#(node as #DeclareClassName#);
                 b : true;
             }
         }
