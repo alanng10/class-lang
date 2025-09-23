@@ -20,6 +20,7 @@ public class TravelInfoGen : TravelGen
 
     protected virtual String PathInitStringMaide { get; set; }
     protected virtual String TextInitStringMaide { get; set; }
+    protected virtual Table FieldTable { get; set; }
     protected virtual String PathExecute { get; set; }
     protected virtual String TextExecute { get; set; }
     protected virtual String ValueOverride { get; set; }
@@ -53,6 +54,109 @@ public class TravelInfoGen : TravelGen
 
         this.StorageTextWrite(this.PathOutput, a);
         return true;
+    }
+
+    protected virtual bool SetFieldTable()
+    {
+        Table table;
+        table = this.TableCreateStringLess();
+
+        Table classTable;
+        classTable = this.ClassTable;
+
+        Iter iter;
+        iter = classTable.IterCreate();
+        classTable.IterSet(iter);
+
+        while (iter.Next())
+        {
+            Class varClass;
+            varClass = iter.Value as Class;
+
+            Iter iterA;
+            iterA = varClass.Field.IterCreate();
+            varClass.Field.IterSet(iterA);
+
+            while (iterA.Next())
+            {
+                Field field;
+                field = iterA.Value as Field;
+
+                this.ListInfra.TableAdd(table, field.Name, field.Name);
+            }
+        }
+
+        this.FieldTable = table;
+        return true;
+    }
+
+    protected virtual String InitStringMaide()
+    {
+        String ka;
+        ka = this.StringFieldSetList();
+
+        Text k;
+        k = this.TextCreate(this.TextInitStringMaide);
+        k = this.Place(k, "#StringFieldSetList#", ka);
+
+        String a;
+        a = this.StringCreate(k);
+
+        return a;
+    }
+
+    protected virtual String StringFieldSetList()
+    {
+        String ka;
+        String kb;
+        String kc;
+        ka = this.S("this.SField");
+        kb = this.S(" = this.S(\"");
+        kc = this.S("\");\n");
+
+        this.AddClear();
+
+        Iter iter;
+        iter = this.FieldTable.IterCreate();
+        this.FieldTable.IterSet(iter);
+
+        while (iter.Next())
+        {
+            String k;
+            k = iter.Value as String;
+
+            this.AddIndent(2).Add(ka).Add(k).Add(kb).Add(k).Add(kc);
+        }
+
+        String a;
+        a = this.AddResult();
+        return a;
+    }
+
+    protected virtual String StringFieldList()
+    {
+        String ka;
+        String kb;
+        ka = this.S("protected virtual String SField");
+        kb = this.S(" { get; set; }\n");
+
+        this.AddClear();
+
+        Iter iter;
+        iter = this.FieldTable.IterCreate();
+        this.FieldTable.IterSet(iter);
+
+        while (iter.Next())
+        {
+            String k;
+            k = iter.Value as String;
+
+            this.AddIndent(1).Add(ka).Add(k).Add(kb);
+        }
+
+        String a;
+        a = this.AddResult();
+        return a;
     }
 
     protected virtual String ExecuteList()
