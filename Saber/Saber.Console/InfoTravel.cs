@@ -49,179 +49,177 @@ public class InfoTravel : Travel
     protected virtual String SHexPre { get; set; }
     protected virtual String SValue { get; set; }
 
-    maide precate Bool Start(var String name)
+    protected virtual bool Start(String name)
     {
         this.Add(name).AddLine();
-        this.AddSpace().Add("{").AddLine();
+        this.AddSpace().Add(this.SBraceCurveLite).AddLine();
 
-        this.Space : this.Space + 4;
+        this.Space = this.Space + 4;
         return true;
     }
 
-    maide precate Bool End()
+    protected virtual bool End()
     {
-        this.Space : this.Space - 4;
+        this.Space = this.Space - 4;
 
-        this.AddSpace().Add("}").Add(",").AddLine();
+        this.AddSpace().Add(this.SBraceCurveRite).Add(this.SComma).AddLine();
         return true;
     }
 
-    maide precate Bool StartArray()
+    protected virtual bool StartArray()
     {
-        this.Add("[").AddLine();
+        this.Add(this.SBraceRightLite).AddLine();
 
-        this.Space : this.Space + 4;
+        this.Space = this.Space + 4;
         return true;
     }
 
-    maide precate Bool EndArray()
+    protected virtual bool EndArray()
     {
-        this.Space : this.Space - 4;
+        this.Space = this.Space - 4;
 
-        this.AddSpace().Add("]").Add(",").AddLine();
+        this.AddSpace().Add(this.SBraceRightRite).Add(this.SComma).AddLine();
         return true;
     }
 
-    maide precate Bool FieldStart(var String name)
+    protected virtual bool FieldStart(String name)
     {
-        this.AddSpace().Add(name).Add(" : ");
-        this.Space : this.Space + this.StringCount(name) + 3;
+        this.AddSpace().Add(name).Add(this.SSpaceColonSpace);
+        this.Space = this.Space + this.StringCount(name) + 3;
         return true;
     }
 
-    maide precate Bool FieldEnd(var String name)
+    protected virtual bool FieldEnd(String name)
     {
-        this.Space : this.Space - (this.StringCount(name) + 3);
+        this.Space = this.Space - (this.StringCount(name) + 3);
         return true;
     }
 
-    maide precate Bool AddBoolValue(var Bool value)
+    protected virtual bool AddBoolValue(bool value)
     {
-        this.AddBool(value).Add(",").AddLine();
+        this.AddBool(value).Add(this.SComma).AddLine();
         return true;
     }
 
-    maide precate Bool AddIntValue(var Int value)
+    protected virtual bool AddIntValue(long value)
     {
-        this.Add("0h").AddIntHex(value).Add(",").AddLine();
+        this.Add(this.SHexPre).AddIntHex(value).Add(this.SComma).AddLine();
         return true;
     }
 
-    maide precate Bool AddStringValue(var String value)
+    protected virtual bool AddStringValue(String value)
     {
-        this.Add("\"");
+        this.Add(this.SQuote);
 
-        var Int count;
-    count: this.StringCount(value);
+        long count;
+        count = this.StringCount(value);
 
-        var Int i;
-    i: 0;
+        long i;
+        i = 0;
         while (i < count)
         {
-            var Int n;
-        n: this.StringComp.Char(value, i);
+            long n;
+            n = this.StringComp.Char(value, i);
 
-            var Bool b;
-        b: false;
+            bool b;
+            b = false;
 
-            inf(~b)
+            if (!b)
             {
-                inf(n = this.Char("\""))
+                if (n == '\"')
                 {
-                    this.Add("\\\"");
-                b: true;
+                    this.Add(this.SNextQuote);
+                    b = true;
                 }
             }
-            inf(~b)
+            if (!b)
             {
-                inf(n = this.Char("\n"))
+                if (n == '\n')
                 {
-                    this.Add("\\n");
-                b: true;
+                    this.Add(this.SNextN);
+                    b = true;
                 }
             }
-            inf(~b)
+            if (!b)
             {
-                inf(~this.PrintChar.Get(n))
+                if (!this.PrintChar.Get(n))
                 {
-                    this.Add("\\u");
+                    this.Add(this.SNextU);
 
-                    var Int alphaStart;
-                alphaStart: this.Char("a");
+                    long alphaStart;
+                    alphaStart = 'a';
 
-                    var Int countA;
-                countA: 8;
-                    var Int iA;
-                iA: 0;
+                    long countA;
+                    countA = 8;
+                    long iA;
+                    iA = 0;
                     while (iA < countA)
                     {
-                        var Int shift;
-                    shift: (countA - 1) - iA;
-                    shift: shift * 4;
+                        long shift;
+                        shift = (countA - 1) - iA;
+                        shift = shift * 4;
 
-                        var Int ka;
-                    ka: bit > (n, shift);
-                    ka: bit & (ka, 0hf);
+                        int shiftK;
+                        shiftK = (int)shift;
 
-                        var Int ke;
-                    ke: this.TextInfra.DigitChar(ka, alphaStart);
+                        long ka;
+                        ka = n >> shiftK;
+                        ka = ka & 0xf;
+
+                        long ke;
+                        ke = this.TextInfra.DigitChar(ka, alphaStart);
 
                         this.AddChar(ke);
 
-                    iA: iA + 1;
+                        iA = iA + 1;
                     }
 
-                b: true;
+                    b = true;
                 }
             }
-            inf(~b)
+            if (!b)
             {
                 this.AddChar(n);
             }
 
-        i: i + 1;
+            i = i + 1;
         }
 
-        this.Add("\"").Add(",").AddLine();
+        this.Add(this.SQuote).Add(this.SComma).AddLine();
         return true;
     }
 
-    maide precate InfoTravel AddSpace()
+    protected virtual InfoToken AddSpace()
     {
-        var Int count;
-    count: this.Space;
-        var Int i;
-    i: 0;
+        long count;
+        count = this.Space;
+        long i;
+        i = 0;
         while (i < count)
         {
-            this.Add(" ");
+            this.Add(this.SSpace);
 
-        i: i + 1;
+            i = i + 1;
         }
 
         return this;
     }
 
-    maide precate Bool Null()
+    protected virtual bool Null()
     {
-        this.Add("null").Add(",").AddLine();
+        this.Add(this.SNull).Add(this.SComma).AddLine();
         return true;
     }
 
-    maide prusate Bool ExecuteBool(var Bool value)
+    public virtual bool ExecuteBool(bool value)
     {
-        inf(value = null)
-        {
-            this.Null();
-            return true;
-        }
         this.AddBoolValue(value);
         return true;
     }
 
-    maide prusate Bool ExecuteInt(var Int value)
+    public virtual bool ExecuteInt(long value)
     {
-        inf(value = null)
+        if (value == -1)
         {
             this.Null();
             return true;
@@ -230,9 +228,9 @@ public class InfoTravel : Travel
         return true;
     }
 
-    maide prusate Bool ExecuteString(var String value)
+    public virtual bool ExecuteString(String value)
     {
-        inf(value = null)
+        if (value == null)
         {
             this.Null();
             return true;
@@ -240,24 +238,4 @@ public class InfoTravel : Travel
         this.AddStringValue(value);
         return true;
     }
-
-    maide prusate String Execute(var Node node)
-    {
-        this.AddClear();
-
-        inf(node = null)
-        {
-            this.Null();
-            return this.AddResult();
-        }
-
-        var Bool b;
-    b: false;
-
-#ExecuteList#
-        var String a;
-    a: this.AddResult();
-        return a;
-    }
-
-#NodeList#}
+}
