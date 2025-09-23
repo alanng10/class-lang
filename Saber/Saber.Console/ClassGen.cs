@@ -982,8 +982,6 @@ public class ClassGen : TextAdd
             return true;
         }
 
-        this.ExecuteString();
-
         this.ExecuteState();
         return true;
     }
@@ -1755,6 +1753,7 @@ public class ClassGen : TextAdd
 
     public virtual bool ExecuteState()
     {
+        this.ExecuteString();
         return true;
     }
 
