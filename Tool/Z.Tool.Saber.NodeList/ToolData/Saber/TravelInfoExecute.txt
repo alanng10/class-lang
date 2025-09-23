@@ -3,6 +3,6 @@
             if (!((node as #DeclareClassName#) == null))
             {
                 this.Execute#ClassName#(node as #DeclareClassName#);
-                b : true;
+                b = true;
             }
         }
