@@ -12,10 +12,12 @@ public class TravelPathGen : TravelGen
         this.PathArray = this.GetPath(this.S("PathArray"));
         this.PathExecuteNode = this.GetPath(this.S("PathExecuteNode"));
         this.PathField = this.GetPath(this.S("PathField"));
+        this.PathInitStringMaide = this.GetPath(this.S("PathInitStringMaide"));
         this.ValueOverride = this.S("override");
         return true;
     }
 
+    protected virtual String PathInitStringMaide { get; set; }
     protected virtual String TextInitStringMaide { get; set; }
     protected virtual Table FieldTable { get; set; }
     protected virtual String ValueOverride { get; set; }
@@ -28,7 +30,7 @@ public class TravelPathGen : TravelGen
         this.TextExecuteNode = this.StorageTextRead(this.PathExecuteNode);
         this.TextArray = this.StorageTextRead(this.PathArray);
         this.TextField = this.StorageTextRead(this.PathField);
-        this.TextInitStringMaide = this.StorageTextRead(this.GetPath(this.S("PathInitStringMaide")));
+        this.TextInitStringMaide = this.StorageTextRead(this.PathInitStringMaide);
 
         this.TextVirtual = this.Virtual();
 
