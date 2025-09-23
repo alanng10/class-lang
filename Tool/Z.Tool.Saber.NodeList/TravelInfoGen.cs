@@ -1,4 +1,4 @@
-namespace Z.Tool.Class.NodeList;
+namespace Z.Tool.Saber.NodeList;
 
 public class TravelInfoGen : TravelGen
 {
