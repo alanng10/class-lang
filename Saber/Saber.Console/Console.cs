@@ -132,6 +132,14 @@ public class Console : TextAdd
         return a;
     }
 
+    protected virtual InfoTravel CreateInfoTravel()
+    {
+        InfoTravel a;
+        a = new InfoTravel();
+        a.Init();
+        return a;
+    }
+
     protected virtual TextLess CreateStorageTextLess()
     {
         TextLess a;
@@ -176,6 +184,7 @@ public class Console : TextAdd
     protected virtual Array PortError { get; set; }
     protected virtual bool MakeSystemModule { get; set; }
     protected virtual InfoToken InfoToken { get; set; }
+    protected virtual InfoTravel InfoTravel { get; set; }
     protected virtual ModuleRefLess ModuleRefLess { get; set; }
     protected virtual TextLess StorageTextLess { get; set; }
     protected virtual String SClass { get; set; }
