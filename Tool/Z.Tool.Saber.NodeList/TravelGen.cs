@@ -153,11 +153,11 @@ public class TravelGen : ToolBase
 
     protected virtual String DeriveState(Class varClass, String varName)
     {
-        StringJoin h;
-        h = new StringJoin();
+        StringAdd h;
+        h = new StringAdd();
         h.Init();
 
-        StringJoin hh;
+        StringAdd hh;
         hh = this.StringAdd;
 
         this.StringAdd = h;
@@ -206,11 +206,11 @@ public class TravelGen : ToolBase
 
     protected virtual String ArrayState(Class varClass, String varName)
     {
-        StringJoin h;
-        h = new StringJoin();
+        StringAdd h;
+        h = new StringAdd();
         h.Init();
 
-        StringJoin hh;
+        StringAdd hh;
         hh = this.StringAdd;
 
         this.StringAdd = h;
@@ -258,11 +258,11 @@ public class TravelGen : ToolBase
 
     protected virtual String FieldState(Class varClass, String varName)
     {
-        StringJoin h;
-        h = new StringJoin();
+        StringAdd h;
+        h = new StringAdd();
         h.Init();
 
-        StringJoin hh;
+        StringAdd hh;
         hh = this.StringAdd;
 
         this.StringAdd = h;
@@ -391,11 +391,11 @@ public class TravelGen : ToolBase
         String a;
         a = null;
 
-        StringJoin h;
-        h = new StringJoin();
+        StringAdd h;
+        h = new StringAdd();
         h.Init();
 
-        StringJoin hh;
+        StringAdd hh;
         hh = this.StringAdd;
 
         this.StringAdd = h;
