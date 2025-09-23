@@ -2256,6 +2256,23 @@ public class ClassGen : TextAdd
         return true;
     }
 
+    public virtual long ClassBaseMask(long baseCount)
+    {
+        long ka;
+        ka = baseCount - 1;
+
+        if (0 < ka)
+        {
+            ka = ka - 1;
+        }
+
+        long k;
+        k = ka;
+        k = k & 0xff;
+        k = k << 52;
+        return k;
+    }
+
     public virtual bool ExecuteOperateLimit(String limit)
     {
         String varA;
@@ -3714,22 +3731,5 @@ public class ClassGen : TextAdd
     public virtual bool ExecuteChar(long n)
     {
         return this.Operate.ExecuteChar(n);
-    }
-
-    public virtual long ClassBaseMask(long baseCount)
-    {
-        long ka;
-        ka = baseCount - 1;
-
-        if (0 < ka)
-        {
-            ka = ka - 1;
-        }
-
-        long k;
-        k = ka;
-        k = k & 0xff;
-        k = k << 52;
-        return k;
     }
 }
