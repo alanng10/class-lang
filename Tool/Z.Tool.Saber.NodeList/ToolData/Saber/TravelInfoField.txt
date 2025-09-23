@@ -1,3 +1,3 @@
-        this.FieldStart("#FieldName#");
+        this.FieldStart(this.SField#FieldName#);
         this.Execute#FieldClassName#(#VarName#.#FieldName#);
-        this.FieldEnd("#FieldName#");
+        this.FieldEnd(this.SField#FieldName#);
