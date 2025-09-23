@@ -83,7 +83,7 @@ public class BinaryGen : Any
         return true;
     }
 
-    public virtual bool IndexTableAdd(ClassClass ka)
+    public virtual bool IndexTableAdd(ClassClass varClass)
     {
         long k;
         k = this.IndexTable.Count;
@@ -93,7 +93,7 @@ public class BinaryGen : Any
         value.Init();
         value.Int = k;
 
-        this.ListInfra.TableAdd(this.IndexTable, ka, value);
+        this.ListInfra.TableAdd(this.IndexTable, varClass, value);
         return true;
     }
 
