@@ -1549,14 +1549,7 @@ public class ClassGen : TextAdd
 
     public virtual long OperateKind()
     {
-        long k;
-        k = this.Binary.State.Get(this.StateDataIndex);
-
-        this.StateDataIndex = this.StateDataIndex + 1;
-
-        long a;
-        a = k;
-        return a;
+        return this.StateByte();
     }
 
     public virtual long OperateArgInt()
@@ -1565,6 +1558,18 @@ public class ClassGen : TextAdd
         k = this.InfraInfra.DataIntGet(this.Binary.State, this.StateDataIndex);
 
         this.StateDataIndex = this.StateDataIndex + sizeof(long);
+
+        long a;
+        a = k;
+        return a;
+    }
+
+    public virtual long StateByte()
+    {
+        long k;
+        k = this.Binary.State.Get(this.StateDataIndex);
+
+        this.StateDataIndex = this.StateDataIndex + 1;
 
         long a;
         a = k;
