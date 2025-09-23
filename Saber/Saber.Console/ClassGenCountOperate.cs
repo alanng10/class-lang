@@ -29,7 +29,7 @@ public class ClassGenCountOperate : ClassGenOperate
 
     public override bool ExecuteChar(long o)
     {
-        GenArg arg;
+        ClassGenArg arg;
         arg = this.Gen.Arg;
         long index;
         index = arg.Index;
@@ -40,7 +40,7 @@ public class ClassGenCountOperate : ClassGenOperate
 
     public override bool ExecuteTextInt(long o)
     {
-        GenArg arg;
+        ClassGenArg arg;
         arg = this.Gen.Arg;
         long index;
         index = arg.Index;
@@ -70,7 +70,7 @@ public class ClassGenCountOperate : ClassGenOperate
 
     public override bool ExecuteTextIntHex(long o)
     {
-        GenArg arg;
+        ClassGenArg arg;
         arg = this.Gen.Arg;
         long index;
         index = arg.Index;
