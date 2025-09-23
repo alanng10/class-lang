@@ -5,40 +5,27 @@ public class ClassGen : TextAdd
     public override bool Init()
     {
         base.Init();
-        this.CountOperate = new ClassGenCountOperate();
-        this.CountOperate.Gen = this;
-        this.CountOperate.Init();
-        this.SetOperate = new ClassGenSetOperate();
-        this.SetOperate.Gen = this;
-        this.SetOperate.Init();
-
-        this.Travel = new ClassGenTravel();
-        this.Travel.Gen = this;
-        this.Travel.Init();
-
-        this.ClassIter = new TableIter();
-        this.ClassIter.Init();
-
-        this.TableIter = new TableIter();
-        this.TableIter.Init();
+        this.CountOperate = this.CreateCountOperate();
+        this.SetOperate = this.CreateSetOperate();
+        this.Travel = this.CreateTravel();
+        this.ClassIter = this.CreateClassIter();
+        this.TableIter = this.CreateTableIter();
 
         this.StateKindGet = 1;
         this.StateKindSet = 2;
         this.StateKindCall = 3;
 
         this.Space = this.S(" ");
-        this.NewLine = this.S("\n");
+        this.NewLine = this.TextInfra.NewLine;
         this.Zero = this.S("0");
         this.One = this.S("1");
-        String k;
-        k = this.S("v");
-        this.VarA = this.InitVar(k, "A");
-        this.VarB = this.InitVar(k, "B");
-        this.VarC = this.InitVar(k, "C");
-        this.VarD = this.InitVar(k, "D");
-        this.VarSA = this.InitVar(k, "SA");
-        this.VarSB = this.InitVar(k, "SB");
-        this.VarSC = this.InitVar(k, "SC");
+        this.VarA = this.InitVar("A");
+        this.VarB = this.InitVar("B");
+        this.VarC = this.InitVar("C");
+        this.VarD = this.InitVar("D");
+        this.VarSA = this.InitVar("SA");
+        this.VarSB = this.InitVar("SB");
+        this.VarSC = this.InitVar("SC");
         this.EvalVar = this.S("e");
         this.EvalStackVar = this.S("S");
         this.EvalIndexVar = this.S("N");
@@ -141,6 +128,51 @@ public class ClassGen : TextAdd
         this.LimitBitLite = this.S("<<");
         this.LimitBitRite = this.S(">>");
         return true;
+    }
+
+    protected virtual ClassGenCountOperate CreateCountOperate()
+    {
+        ClassGenCountOperate a;
+        a = new ClassGenCountOperate();
+        a.Gen = this;
+        a.Init();
+        return a;
+    }
+
+    protected virtual ClassGenSetOperate CreateSetOperate()
+    {
+        ClassGenSetOperate a;
+        a = new ClassGenSetOperate();
+        a.Gen = this;
+        a.Init();
+        return a;
+    }
+
+    protected virtual ClassGenTravel CreateTravel()
+    {
+        ClassGenTravel a;
+        a = new ClassGenTravel();
+        a.Gen = this;
+        a.Init();
+        return a;
+    }
+
+    protected virtual TableIter CreateClassIter()
+    {
+        return this.CreateTableIter();
+    }
+
+    protected virtual TableIter CreateTableIter()
+    {
+        TableIter a;
+        a = new TableIter();
+        a.Init();
+        return a;
+    }
+
+    protected virtual String InitVar(string name)
+    {
+        return this.AddClear().AddS("v").AddS(name).AddResult();
     }
 
     public virtual ClassModule Module { get; set; }
@@ -1118,7 +1150,7 @@ public class ClassGen : TextAdd
         this.Text(this.LimitAre);
         this.Text(this.Space);
         this.Text(this.LimitAnd);
-        this.ModuleClassVarName(this.Class);
+        this.ModuleClass(this.Class);
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
 
@@ -1217,7 +1249,7 @@ public class ClassGen : TextAdd
         this.Text(this.Space);
 
         this.Text(this.LimitAnd);
-        this.ModuleClassVarName(this.Class.Base);
+        this.ModuleClass(this.Class.Base);
         this.Text(this.LimitComma);
         this.Text(this.Space);
 
@@ -1348,7 +1380,7 @@ public class ClassGen : TextAdd
 
         this.Text(this.LimitBraceRoundLite);
 
-        this.ModuleClassVarName(this.Class.Base);
+        this.ModuleClass(this.Class.Base);
         this.Text(this.LimitDot);
         this.Text(this.BaseWord);
         this.Text(this.ItemWord);
@@ -1427,7 +1459,7 @@ public class ClassGen : TextAdd
 
         this.Text(this.CastInt);
         this.Text(this.LimitBraceRoundLite);
-        this.CompStateMaideName(this.Class, comp, stateKind);
+        this.CompStateName(this.Class, comp, stateKind);
         this.Text(this.LimitBraceRoundRite);
 
         this.Text(this.LimitSemicolon);
@@ -1762,7 +1794,7 @@ public class ClassGen : TextAdd
         return true;
     }
 
-    public virtual bool ModuleClassVarName(ClassClass varClass)
+    public virtual bool ModuleClass(ClassClass varClass)
     {
         this.ModuleStructName(varClass.Module.Ref);
         this.Text(this.LimitDot);
@@ -1773,10 +1805,10 @@ public class ClassGen : TextAdd
         return true;
     }
 
-    public virtual bool ModuleClassVarClassName(ClassClass varClass)
+    public virtual bool ClassVar(ClassClass varClass)
     {
         this.Text(this.LimitBraceRoundLite);
-        this.ModuleClassVarName(varClass);
+        this.ModuleClass(varClass);
         this.Text(this.LimitDot);
         this.Text(this.VarWord);
         this.Text(this.LimitBraceRoundRite);
@@ -1852,51 +1884,6 @@ public class ClassGen : TextAdd
         return true;
     }
 
-    public virtual bool ExecuteVirtualCall(long thisEvalIndex, long stateKind, long stateIndex)
-    {
-        String varA;
-        String varB;
-        String varC;
-        String varD;
-        varA = this.VarA;
-        varB = this.VarB;
-        varC = this.VarC;
-        varD = this.VarD;
-
-        this.EvalValueGet(thisEvalIndex, varA);
-
-        this.VarSet(varB, varA);
-
-        this.VarMaskClear(varA, this.MemoryIndexMask);
-
-        this.VarSetDeref(varA, varA, 0);
-
-        this.VarSetDeref(varC, varA, 0);
-
-        this.VarSet(varD, varB);
-
-        this.VarMaskClear(varD, this.BaseMask);
-
-        this.OperateLimit(varD, varD, this.BaseBitRiteCount, this.LimitBitRite);
-
-        this.VarSetDerefVar(varC, varC, varD);
-
-        this.VarSetDeref(varC, varC, stateKind);
-
-        this.VarSetDeref(varC, varC, stateIndex);
-
-        this.VarSetDeref(varD, varA, 1);
-
-        this.VarMaskClear(varB, this.BaseClearMask);
-
-        this.VarMaskSet(varB, varD);
-
-        this.EvalValueSet(thisEvalIndex, varB);
-
-        this.CallCompState(varC);
-        return true;
-    }
-
     public virtual bool ExecuteVarGet(Var varVar)
     {
         String varA;
@@ -1934,19 +1921,19 @@ public class ClassGen : TextAdd
 
         if (stateKind == this.StateKindSet)
         {
+            bool bb;
+            bb = (kk == 0);
             bool bc;
-            bc = (kk == 0);
-            bool bd;
-            bd = (kk == 1);
+            bc = (kk == 1);
 
-            if (bc)
+            if (bb)
             {
                 this.ExecuteThisFieldData();
 
                 this.VarSetDeref(varA, varA, 0);
             }
 
-            if (bd)
+            if (bc)
             {
                 long posB;
                 posB = -1;
@@ -1954,7 +1941,7 @@ public class ClassGen : TextAdd
                 this.EvalFrameValueGet(posB, varA);
             }
 
-            if (!(bc | bd))
+            if (!(bb | bc))
             {
                 long posC;
                 posC = kk - 2;
@@ -1965,23 +1952,10 @@ public class ClassGen : TextAdd
 
         if (stateKind == this.StateKindCall)
         {
-            bool b;
-            b = (kk < k);
-            if (b)
-            {
-                long posD;
-                posD = kk - k;
+            long posD;
+            posD = kk - k;
 
-                this.EvalFrameValueGet(posD, varA);
-            }
-
-            if (!b)
-            {
-                long posE;
-                posE = kk - k;
-
-                this.EvalFrameValueGet(posE, varA);
-            }
+            this.EvalFrameValueGet(posD, varA);
         }
 
         this.EvalValueSet(0, varA);
@@ -2032,19 +2006,19 @@ public class ClassGen : TextAdd
 
         if (stateKind == this.StateKindSet)
         {
+            bool bb;
+            bb = (kk == 0);
             bool bc;
-            bc = (kk == 0);
-            bool bd;
-            bd = (kk == 1);
+            bc = (kk == 1);
 
-            if (bc)
+            if (bb)
             {
                 this.ExecuteThisFieldData();
 
                 this.VarDerefSet(varA, varB);
             }
 
-            if (bd)
+            if (bc)
             {
                 long posB;
                 posB = -1;
@@ -2052,7 +2026,7 @@ public class ClassGen : TextAdd
                 this.EvalFrameValueSet(posB, varB);
             }
 
-            if (!(bc | bd))
+            if (!(bb | bc))
             {
                 long posC;
                 posC = kk - 2;
@@ -2063,23 +2037,10 @@ public class ClassGen : TextAdd
 
         if (stateKind == this.StateKindCall)
         {
-            bool b;
-            b = (kk < k);
-            if (b)
-            {
-                long posD;
-                posD = kk - k;
+            long posD;
+            posD = kk - k;
 
-                this.EvalFrameValueSet(posD, varB);
-            }
-
-            if (!b)
-            {
-                long posE;
-                posE = kk - k;
-
-                this.EvalFrameValueSet(posE, varB);
-            }
+            this.EvalFrameValueSet(posD, varB);
         }
 
         return true;
@@ -2130,58 +2091,6 @@ public class ClassGen : TextAdd
         return true;
     }
 
-    public virtual long LocalVarFrameValueIndex(long varIndex)
-    {
-        long stateKind;
-        stateKind = this.CompStateKind;
-
-        long ka;
-        ka = 0;
-
-        if (stateKind == this.StateKindGet)
-        {
-            ka = varIndex - 1;
-        }
-
-        if (stateKind == this.StateKindSet)
-        {
-            ka = varIndex - 2;
-        }
-
-        if (stateKind == this.StateKindCall)
-        {
-            long k;
-            k = this.ParamCount;
-
-            ka = varIndex - k;
-        }
-
-        return ka;
-    }
-
-    public virtual bool TableVarLocalVarSetNull(Table table)
-    {
-        Iter iter;
-        iter = this.TableIter;
-
-        table.IterSet(iter);
-
-        while (iter.Next())
-        {
-            Var kk;
-            kk = iter.Value as Var;
-
-            long ka;
-            ka = this.LocalVarFrameValueIndex(kk.Index);
-
-            this.EvalFrameValueSet(ka, this.Zero);
-        }
-
-        iter.Clear();
-
-        return true;
-    }
-
     public virtual bool CompStateHead(ClassClass varClass, object comp, long stateKind)
     {
         this.Text(this.IndexStatic);
@@ -2192,7 +2101,7 @@ public class ClassGen : TextAdd
 
         this.Text(this.Space);
 
-        this.CompStateMaideName(varClass, comp, stateKind);
+        this.CompStateName(varClass, comp, stateKind);
 
         this.Text(this.LimitBraceRoundLite);
 
@@ -2212,7 +2121,7 @@ public class ClassGen : TextAdd
         return true;
     }
 
-    public virtual bool CompStateStart(ClassClass varClass, object comp, long stateKind, long localVarCount)
+    public virtual bool CompStateStart(ClassClass varClass, object comp, long stateKind)
     {
         this.CompStateHead(varClass, comp, stateKind);
 
@@ -2237,8 +2146,6 @@ public class ClassGen : TextAdd
         this.VarSet(this.VarSA, this.Zero);
         this.VarSet(this.VarSB, this.Zero);
         this.VarSet(this.VarSC, this.Zero);
-
-        this.InitLocalVarList(localVarCount);
         return true;
     }
 
@@ -2257,6 +2164,95 @@ public class ClassGen : TextAdd
 
         this.Text(this.LimitBraceCurveRite);
         this.Text(this.NewLine);
+        return true;
+    }
+
+    public virtual bool CompStateName(ClassClass varClass, object comp, long stateKind)
+    {
+        if (varClass == this.InternClass | varClass == this.ExternClass)
+        {
+            this.Text(this.InternWord);
+
+            this.Text(this.NameCombine);
+
+            String kaa;
+            kaa = this.InternWord;
+
+            if (varClass == this.ExternClass)
+            {
+                kaa = this.ExternWord;
+            }
+
+            this.Text(kaa);
+
+            this.Text(this.NameCombine);
+
+            Maide maideA;
+            maideA = comp as Maide;
+
+            String name;
+            name = maideA.Name;
+
+            this.Text(name);
+
+            return true;
+        }
+
+        long ka;
+        ka = 0;
+
+        long kk;
+        kk = 0;
+
+        String kb;
+        kb = null;
+
+        if (stateKind == this.StateKindGet | stateKind == this.StateKindSet)
+        {
+            ka = varClass.FieldStart;
+
+            Field varField;
+            varField = comp as Field;
+
+            kk = varField.Index;
+
+            bool ba;
+            ba = (stateKind == this.StateKindGet);
+
+            if (ba)
+            {
+                kb = this.StateGet;
+            }
+            if (!ba)
+            {
+                kb = this.StateSet;
+            }
+        }
+
+        if (stateKind == this.StateKindCall)
+        {
+            ka = varClass.MaideStart;
+
+            Maide varMaide;
+            varMaide = comp as Maide;
+
+            kk = varMaide.Index;
+
+            kb = this.StateCall;
+        }
+
+        long ke;
+        ke = ka + kk;
+
+        this.ClassName(varClass);
+
+        this.Text(this.NameCombine);
+
+        this.CompIndex(ke);
+
+        this.Text(this.NameCombine);
+
+        this.Text(kb);
         return true;
     }
 
@@ -2401,6 +2397,29 @@ public class ClassGen : TextAdd
         return true;
     }
 
+    public virtual bool ExecuteOperateLimitA(String limit)
+    {
+        String varA;
+        String varB;
+        varA = this.VarA;
+        varB = this.VarB;
+
+        this.EvalValueGet(2, varA);
+        this.EvalValueGet(1, varB);
+
+        this.OperateLimit(varA, varA, varB, limit);
+
+        this.VarMaskClear(varA, this.RefKindClearMask);
+
+        this.VarMaskSet(varA, this.RefKindIntMask);
+
+        this.EvalValueSet(2, varA);
+
+        this.EvalIndexPosSet(-1);
+
+        return true;
+    }
+
     public virtual bool ExecuteOperateLimitAA(String limit)
     {
         String varA;
@@ -2408,18 +2427,15 @@ public class ClassGen : TextAdd
         varA = this.VarA;
         varB = this.VarB;
 
-        String ka;
-        ka = this.RefKindClearMask;
-
         this.EvalValueGet(2, varA);
         this.EvalValueGet(1, varB);
 
-        this.VarMaskClear(varA, ka);
-        this.VarMaskClear(varB, ka);
+        this.VarMaskClear(varA, this.RefKindClearMask);
+        this.VarMaskClear(varB, this.RefKindClearMask);
 
         this.OperateLimit(varA, varA, varB, limit);
 
-        this.VarMaskClear(varA, ka);
+        this.VarMaskClear(varA, this.RefKindClearMask);
 
         this.VarMaskSet(varA, this.RefKindIntMask);
 
@@ -2463,29 +2479,6 @@ public class ClassGen : TextAdd
         return true;
     }
 
-    public virtual bool ExecuteOperateLimitA(String limit)
-    {
-        String varA;
-        String varB;
-        varA = this.VarA;
-        varB = this.VarB;
-
-        this.EvalValueGet(2, varA);
-        this.EvalValueGet(1, varB);
-
-        this.OperateLimit(varA, varA, varB, limit);
-
-        this.VarMaskClear(varA, this.RefKindClearMask);
-
-        this.VarMaskSet(varA, this.RefKindIntMask);
-
-        this.EvalValueSet(2, varA);
-
-        this.EvalIndexPosSet(-1);
-
-        return true;
-    }
-
     public virtual bool ExecuteOperateLimitBool(String limit)
     {
         String varA;
@@ -2496,7 +2489,12 @@ public class ClassGen : TextAdd
         this.EvalValueGet(2, varA);
         this.EvalValueGet(1, varB);
 
+        this.VarMaskClear(varA, this.RefKindClearMask);
+        this.VarMaskClear(varB, this.RefKindClearMask);
+
         this.OperateLimit(varA, varA, varB, limit);
+
+        this.VarMaskClear(varA, this.RefKindClearMask);
 
         this.VarMaskSet(varA, this.RefKindBoolMask);
 
@@ -2512,178 +2510,18 @@ public class ClassGen : TextAdd
         String varA;
         varA = this.VarA;
 
-        String ka;
-        ka = this.RefKindClearMask;
-
         this.EvalValueGet(1, varA);
 
-        this.VarMaskClear(varA, ka);
+        this.VarMaskClear(varA, this.RefKindClearMask);
 
         this.OperateLimitOne(varA, varA, limit);
+
+        this.VarMaskClear(varA, this.RefKindClearMask);
 
         this.VarMaskSet(varA, this.RefKindBoolMask);
 
         this.EvalValueSet(1, varA);
 
-        return true;
-    }
-
-    public virtual bool OperateLimit(String dest, String lite, String rite, String limit)
-    {
-        String space;
-        space = this.Space;
-
-        this.TextIndent();
-
-        this.Text(dest);
-
-        this.Text(space);
-        this.Text(this.LimitAre);
-        this.Text(space);
-
-        this.Text(lite);
-
-        this.Text(space);
-        this.Text(limit);
-        this.Text(space);
-
-        this.Text(rite);
-
-        this.Text(this.LimitSemicolon);
-        this.Text(this.NewLine);
-        return true;
-    }
-
-    public virtual bool OperateLimitSame(String dest, String lite, String rite)
-    {
-        String space;
-        space = this.Space;
-
-        this.TextIndent();
-
-        this.Text(dest);
-
-        this.Text(space);
-        this.Text(this.LimitAre);
-        this.Text(space);
-
-        this.Text(this.LimitBraceRoundLite);
-        this.Text(lite);
-
-        this.Text(space);
-        this.Text(this.LimitSame);
-        this.Text(space);
-
-        this.Text(rite);
-        this.Text(this.LimitBraceRoundRite);
-
-        this.Text(this.LimitSemicolon);
-        this.Text(this.NewLine);
-        return true;
-    }
-
-    public virtual bool OperateLimitOne(String dest, String value, String limit)
-    {
-        this.TextIndent();
-
-        this.Text(dest);
-
-        this.Text(this.Space);
-        this.Text(this.LimitAre);
-        this.Text(this.Space);
-
-        this.Text(limit);
-        this.Text(this.Space);
-
-        this.Text(value);
-
-        this.Text(this.LimitSemicolon);
-        this.Text(this.NewLine);
-        return true;
-    }
-
-    public virtual bool OperateLimitSameClass(String dest, String lite, ClassClass varClass)
-    {
-        String space;
-        space = this.Space;
-
-        this.TextIndent();
-
-        this.Text(dest);
-
-        this.Text(space);
-        this.Text(this.LimitAre);
-        this.Text(space);
-
-        this.Text(this.LimitBraceRoundLite);
-        this.Text(lite);
-
-        this.Text(space);
-        this.Text(this.LimitSame);
-        this.Text(space);
-
-        this.ModuleClassVarClassName(varClass);
-        this.Text(this.LimitBraceRoundRite);
-
-        this.Text(this.LimitSemicolon);
-        this.Text(this.NewLine);
-        return true;
-    }
-
-    public virtual bool SignExtend(String varVar)
-    {
-        this.OperateLimit(varVar, varVar, this.RefBitCount, this.LimitBitLite);
-
-        this.OperateLimit(varVar, varVar, this.RefBitCount, this.LimitBitRite);
-        return true;
-    }
-
-    public virtual bool Return()
-    {
-        this.TextIndent();
-
-        this.Text(this.IndexReturn);
-
-        this.Text(this.Space);
-
-        this.Text(this.Zero);
-
-        this.Text(this.LimitSemicolon);
-        this.Text(this.NewLine);
-        return true;
-    }
-
-    public virtual bool CallCompState(String compState)
-    {
-        String ka;
-        String kb;
-        ka = this.LimitBraceRoundLite;
-        kb = this.LimitBraceRoundRite;
-
-        this.TextIndent();
-
-        this.Text(ka);
-
-        this.Text(ka);
-        this.Text(this.ClassCompState);
-        this.Text(kb);
-
-        this.Text(compState);
-
-        this.Text(kb);
-
-        this.Text(ka);
-        this.Text(this.EvalVar);
-
-        this.Text(this.LimitComma);
-        this.Text(this.Space);
-
-        this.EvalIndex();
-
-        this.Text(kb);
-
-        this.Text(this.LimitSemicolon);
-        this.Text(this.NewLine);
         return true;
     }
 
@@ -2699,7 +2537,7 @@ public class ClassGen : TextAdd
         this.Text(this.LimitComma);
         this.Text(this.Space);
 
-        this.ModuleClassVarClassName(varClass);
+        this.ClassVar(varClass);
 
         this.Text(this.LimitComma);
         this.Text(this.Space);
@@ -2720,7 +2558,7 @@ public class ClassGen : TextAdd
         this.Text(this.InternShareMaide);
         this.Text(this.LimitBraceRoundLite);
 
-        this.ModuleClassVarClassName(varClass);
+        this.ClassVar(varClass);
 
         this.Text(this.LimitComma);
         this.Text(this.Space);
@@ -2780,7 +2618,7 @@ public class ClassGen : TextAdd
         return true;
     }
 
-    public virtual bool ExecuteValueMaideCallThisCond(String refKind, long thisEvalIndex)
+    public virtual bool ExecuteVirtualCallThisCond(long thisEvalIndex)
     {
         String varA;
         String varB;
@@ -2793,7 +2631,7 @@ public class ClassGen : TextAdd
 
         this.OperateLimit(varA, varC, this.RefKindBitRiteCount, this.LimitBitRite);
 
-        this.OperateLimitSame(varB, varA, refKind);
+        this.OperateLimitSame(varB, varA, this.RefKindAny);
 
         this.OperateLimitSame(varA, varA, this.Zero);
 
@@ -2806,21 +2644,82 @@ public class ClassGen : TextAdd
         return true;
     }
 
-    public virtual bool ExecuteValueMaideCallThisCondA(long thisEvalIndex)
+    public virtual bool ExecuteVirtualCall(long thisEvalIndex, long stateKind, long stateIndex)
     {
         String varA;
         String varB;
+        String varC;
+        String varD;
         varA = this.VarA;
         varB = this.VarB;
+        varC = this.VarC;
+        varD = this.VarD;
 
-        this.EvalValueGet(thisEvalIndex, varB);
+        this.EvalValueGet(thisEvalIndex, varA);
 
-        this.OperateLimitSame(varA, varB, this.Zero);
+        this.VarSet(varB, varA);
 
-        this.CondSet(varB, varA, varB, this.InternValueRef);
+        this.VarMaskClear(varA, this.MemoryIndexMask);
+
+        this.VarSetDeref(varA, varA, 0);
+
+        this.VarSetDeref(varC, varA, 0);
+
+        this.VarSet(varD, varB);
+
+        this.VarMaskClear(varD, this.BaseMask);
+
+        this.OperateLimit(varD, varD, this.BaseBitRiteCount, this.LimitBitRite);
+
+        this.VarSetDerefVar(varC, varC, varD);
+
+        this.VarSetDeref(varC, varC, stateKind);
+
+        this.VarSetDeref(varC, varC, stateIndex);
+
+        this.VarSetDeref(varD, varA, 1);
+
+        this.VarMaskClear(varB, this.BaseClearMask);
+
+        this.VarMaskSet(varB, varD);
 
         this.EvalValueSet(thisEvalIndex, varB);
 
+        this.CallCompState(varC);
+        return true;
+    }
+
+    public virtual bool CallCompState(String compState)
+    {
+        String ka;
+        String kb;
+        ka = this.LimitBraceRoundLite;
+        kb = this.LimitBraceRoundRite;
+
+        this.TextIndent();
+
+        this.Text(ka);
+
+        this.Text(ka);
+        this.Text(this.ClassCompState);
+        this.Text(kb);
+
+        this.Text(compState);
+
+        this.Text(kb);
+
+        this.Text(ka);
+        this.Text(this.EvalVar);
+
+        this.Text(this.LimitComma);
+        this.Text(this.Space);
+
+        this.EvalIndex();
+
+        this.Text(kb);
+
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
         return true;
     }
 
@@ -3071,6 +2970,122 @@ public class ClassGen : TextAdd
         }
 
         this.EvalIndexFramePosSet(count);
+        return true;
+    }
+
+    public virtual bool Return()
+    {
+        this.TextIndent();
+
+        this.Text(this.IndexReturn);
+
+        this.Text(this.Space);
+
+        this.Text(this.Zero);
+
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
+        return true;
+    }
+
+    public virtual bool SignExtend(String varVar)
+    {
+        this.OperateLimit(varVar, varVar, this.RefBitCount, this.LimitBitLite);
+
+        this.OperateLimit(varVar, varVar, this.RefBitCount, this.LimitBitRite);
+        return true;
+    }
+
+    public virtual bool OperateLimit(String dest, String lite, String rite, String limit)
+    {
+        this.TextIndent();
+
+        this.Text(dest);
+
+        this.Text(this.Space);
+        this.Text(this.LimitAre);
+        this.Text(this.Space);
+
+        this.Text(lite);
+
+        this.Text(this.Space);
+        this.Text(limit);
+        this.Text(this.Space);
+
+        this.Text(rite);
+
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
+        return true;
+    }
+
+    public virtual bool OperateLimitSame(String dest, String lite, String rite)
+    {
+        this.TextIndent();
+
+        this.Text(dest);
+
+        this.Text(this.Space);
+        this.Text(this.LimitAre);
+        this.Text(this.Space);
+
+        this.Text(this.LimitBraceRoundLite);
+        this.Text(lite);
+
+        this.Text(this.Space);
+        this.Text(this.LimitSame);
+        this.Text(this.Space);
+
+        this.Text(rite);
+        this.Text(this.LimitBraceRoundRite);
+
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
+        return true;
+    }
+
+    public virtual bool OperateLimitSameClass(String dest, String lite, ClassClass varClass)
+    {
+        this.TextIndent();
+
+        this.Text(dest);
+
+        this.Text(this.Space);
+        this.Text(this.LimitAre);
+        this.Text(this.Space);
+
+        this.Text(this.LimitBraceRoundLite);
+        this.Text(lite);
+
+        this.Text(this.Space);
+        this.Text(this.LimitSame);
+        this.Text(this.Space);
+
+        this.ClassVar(varClass);
+        this.Text(this.LimitBraceRoundRite);
+
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
+        return true;
+    }
+
+    public virtual bool OperateLimitOne(String dest, String value, String limit)
+    {
+        this.TextIndent();
+
+        this.Text(dest);
+
+        this.Text(this.Space);
+        this.Text(this.LimitAre);
+        this.Text(this.Space);
+
+        this.Text(limit);
+        this.Text(this.Space);
+
+        this.Text(value);
+
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
         return true;
     }
 
@@ -3506,95 +3521,6 @@ public class ClassGen : TextAdd
         return true;
     }
 
-    public virtual bool CompStateMaideName(ClassClass varClass, object comp, long stateKind)
-    {
-        if (varClass == this.InternClass | varClass == this.ExternClass)
-        {
-            this.Text(this.InternWord);
-
-            this.Text(this.NameCombine);
-
-            String k;
-            k = this.InternWord;
-
-            if (varClass == this.ExternClass)
-            {
-                k = this.ExternWord;
-            }
-
-            this.Text(k);
-
-            this.Text(this.NameCombine);
-
-            Maide maide;
-            maide = comp as Maide;
-
-            String name;
-            name = maide.Name;
-
-            this.Text(name);
-
-            return true;
-        }
-
-        String kb;
-        kb = null;
-
-        long ka;
-        ka = 0;
-
-        long kk;
-        kk = 0;
-
-        if (stateKind == this.StateKindGet | stateKind == this.StateKindSet)
-        {
-            ka = varClass.FieldStart;
-
-            Field field;
-            field = comp as Field;
-
-            kk = field.Index;
-
-            bool ba;
-            ba = (stateKind == this.StateKindGet);
-
-            if (ba)
-            {
-                kb = this.StateGet;
-            }
-            if (!ba)
-            {
-                kb = this.StateSet;
-            }
-        }
-
-        if (stateKind == this.StateKindCall)
-        {
-            ka = varClass.MaideStart;
-
-            Maide maide;
-            maide = comp as Maide;
-
-            kk = maide.Index;
-
-            kb = this.StateCall;
-        }
-
-        long ke;
-        ke = ka + kk;
-
-        this.ClassName(varClass);
-
-        this.Text(this.NameCombine);
-
-        this.CompIndex(ke);
-
-        this.Text(this.NameCombine);
-
-        this.Text(kb);
-        return true;
-    }
-
     public virtual bool ClassName(ClassClass varClass)
     {
         this.Text(this.NamePre);
@@ -3805,10 +3731,5 @@ public class ClassGen : TextAdd
         k = k & 0xff;
         k = k << 52;
         return k;
-    }
-
-    protected virtual String InitVar(String prefix, string name)
-    {
-        return this.AddClear().Add(prefix).AddS(name).AddResult();
     }
 }
