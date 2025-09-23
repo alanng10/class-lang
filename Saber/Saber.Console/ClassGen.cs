@@ -181,7 +181,7 @@ public class ClassGen : TextAdd
     public virtual ClassComp Comp { get; set; }
     public virtual Array String { get; set; }
     public virtual Maide InitMaide { get; set; }
-    public virtual GenArg Arg { get; set; }
+    public virtual ClassGenArg Arg { get; set; }
     public virtual ClassGenOperate Operate { get; set; }
     public virtual ClassGenCountOperate CountOperate { get; set; }
     public virtual ClassGenSetOperate SetOperate { get; set; }
@@ -319,7 +319,7 @@ public class ClassGen : TextAdd
     {
         this.InitMaide = this.System.Any.Maide.Get(this.InitWord) as Maide;
 
-        this.Arg = new GenArg();
+        this.Arg = new ClassGenArg();
         this.Arg.Init();
 
         this.Operate = this.CountOperate;
