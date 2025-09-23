@@ -1477,6 +1477,19 @@ public class ClassGen : TextAdd
         return true;
     }
 
+    public virtual bool ExecuteOperateGet()
+    {
+        long kk;
+        kk = this.IntArg();
+
+        long k;
+        k = 1;
+
+        this.ExecuteVirtualCall(k, this.StateKindGet, kk);
+
+        return true;
+    }
+
     public virtual bool ExecuteOperateThis()
     {
         String varA;

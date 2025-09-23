@@ -252,35 +252,6 @@ public class ClassGenTravel : Travel
         return true;
     }
 
-    public override bool ExecuteGetOperate(GetOperate getOperate)
-    {
-        base.ExecuteGetOperate(getOperate);
-
-        Field varField;
-        varField = this.Info(getOperate).GetField;
-
-        if (!(varField.Virtual == null))
-        {
-            varField = varField.Virtual;
-        }
-
-        ClassClass varClass;
-        varClass = varField.Parent;
-
-        long kk;
-        kk = varClass.FieldStart;
-        kk = kk + varField.Index;
-
-        long k;
-        k = 1;
-
-        ClassGen gen;
-        gen = this.Gen;
-        gen.ExecuteVirtualCall(k, gen.StateKindGet, kk);
-
-        return true;
-    }
-
     public override bool ExecuteCallOperate(CallOperate callOperate)
     {
         base.ExecuteCallOperate(callOperate);
