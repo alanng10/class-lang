@@ -1,0 +1,26 @@
+        this.Start("#ClassName#");
+
+        this.FieldStart("Value");
+        
+        this.StartArray();
+
+        var Int count;
+        count : #VarName#.Value.Count;
+        var Int i;
+        i : 0;
+        while (i < count)
+        {
+            this.AddSpace();
+
+            var #ItemDeclareClassName# item;
+            item : cast #ItemDeclareClassName#(#VarName#.Value.Get(i));
+            this.Execute#ItemClassName#(item);
+
+            i : i + 1;
+        }
+
+        this.EndArray();
+
+        this.FieldEnd("Value");
+
+        this.End();

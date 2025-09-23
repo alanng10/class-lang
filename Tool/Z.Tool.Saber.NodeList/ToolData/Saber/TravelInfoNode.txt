@@ -1,0 +1,10 @@
+    maide prusate Bool Execute#ClassName#(var #DeclareClassName# #VarName#)
+    {
+        inf (#VarName# = null)
+        {
+            this.Null();
+            return true;
+        }
+#State#        return true;
+    }
+
