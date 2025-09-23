@@ -327,27 +327,24 @@ public class ClassGen : TextAdd
         this.ResetStage();
         this.ExecuteStage();
 
-        long nn;
-        nn = this.Arg.Index;
-        nn = nn * sizeof(uint);
-        Data data;
-        data = new Data();
-        data.Count = nn;
-        data.Init();
-        this.Arg.Data = data;
+        long count;
+        count = this.Arg.Index;
+        count = count * sizeof(int);
+        this.Arg.Data = new Data();
+        this.Arg.Data.Count = count;
+        this.Arg.Data.Init();
 
         this.Operate = this.SetOperate;
 
         this.ResetStage();
         this.ExecuteStage();
 
+        String k;
+        k = this.StringComp.CreateData(this.Arg.Data, null);
+        this.Result = k;
+
         this.Operate = null;
         this.Arg = null;
-
-        String k;
-        k = this.StringComp.CreateData(data, null);
-
-        this.Result = k;
         return true;
     }
 
