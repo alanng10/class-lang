@@ -334,7 +334,7 @@ public class TravelInfoGen : TravelGen
         this.Add(ka);
 
         this.AddLine();
-        this.AddIndent(2).AddS("this.Start(\"").Add(varClass.Name).AddS("\");").AddLine();
+        this.AddIndent(2).AddS("this.Start(this.SClass").Add(varClass.Name).AddS(");").AddLine();
 
         bool ba;
         ba = false;
@@ -373,11 +373,11 @@ public class TravelInfoGen : TravelGen
                     ba = true;
                 }
 
-                this.AddIndent(2).AddS("this.FieldStart(\"").Add(kb.Name).AddS("\");").AddLine();
+                this.AddIndent(2).AddS("this.FieldStart(this.SField").Add(kb.Name).AddS(");").AddLine();
 
                 this.AddIndent(2).AddS("this.Execute").Add(kb.Class).AddS("(").Add(varName).AddS(".").Add(kb.Name).AddS(");").AddLine();
 
-                this.AddIndent(2).AddS("this.FieldEnd(\"").Add(kb.Name).AddS("\");").AddLine();
+                this.AddIndent(2).AddS("this.FieldEnd(this.SField").Add(kb.Name).AddS(");").AddLine();
             }
         }
 
