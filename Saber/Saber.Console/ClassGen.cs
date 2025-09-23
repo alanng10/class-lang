@@ -1564,6 +1564,35 @@ public class ClassGen : TextAdd
         return a;
     }
 
+    public virtual long StateIntCount(long count)
+    {
+        long k;
+        k = 0;
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            long ka;
+            ka = this.StateByte();
+
+            int shift;
+            shift = (int)(i * 8);
+
+            ka = ka << shift;
+
+            k = k | ka;
+
+            i = i + 1;
+        }
+
+        k = k & (this.InfraInfra.IntCapValue - 1);
+
+        long a;
+        a = k;
+        return a;
+    }
+
     public virtual long StateByte()
     {
         long k;
