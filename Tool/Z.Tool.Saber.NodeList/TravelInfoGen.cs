@@ -160,14 +160,30 @@ public class TravelInfoGen : TravelGen
 
     protected virtual String StringFieldList()
     {
-        String ka;
-        String kb;
-        ka = this.S("protected virtual String SField");
-        kb = this.S(" { get; set; }\n");
-
         this.AddClear();
 
+        String ka;
+        String kb;
+        String kc;
+        String kd;
+        ka = this.S("protected virtual String ");
+        kb = this.S(" { get; set; }\n");
+        kc = this.S("SClass");
+        kd = this.S("SField");
+
         Iter iter;
+
+        iter = this.ClassTable.IterCreate();
+        this.ClassTable.IterSet(iter);
+
+        while (iter.Next())
+        {
+            Class varClass;
+            varClass = iter.Value as Class;
+
+            this.AddIndent(1).Add(ka).Add(kc).Add(varClass.Name).Add(kb);
+        }
+
         iter = this.FieldTable.IterCreate();
         this.FieldTable.IterSet(iter);
 
@@ -176,7 +192,7 @@ public class TravelInfoGen : TravelGen
             String k;
             k = iter.Value as String;
 
-            this.AddIndent(1).Add(ka).Add(k).Add(kb);
+            this.AddIndent(1).Add(ka).Add(kd).Add(k).Add(kb);
         }
 
         String a;
