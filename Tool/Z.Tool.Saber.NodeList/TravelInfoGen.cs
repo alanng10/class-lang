@@ -5,7 +5,7 @@ public class TravelInfoGen : TravelGen
     public override bool Init()
     {
         base.Init();
-        this.PathOutput = this.S("../../Saber/Saber.Console/InfoTravel.cs");
+        this.PathOutput = this.S("../../Saber/Saber.Console/InfoTravel_Part.cs");
         this.PathSource = this.GetPathName(this.S("InfoSource.txt"));
         this.PathNode = this.GetPath(this.S("InfoNode"));
         this.PathDerive = this.GetPath(this.S("InfoDerive"));
@@ -38,6 +38,14 @@ public class TravelInfoGen : TravelGen
 
         this.TextVirtual = this.Virtual();
 
+        this.SetFieldTable();
+
+        String initStringMaide;
+        initStringMaide = this.InitStringMaide();
+
+        String stringFieldList;
+        stringFieldList = this.StringFieldList();
+
         String executeList;
         executeList = this.ExecuteList();
 
@@ -46,6 +54,8 @@ public class TravelInfoGen : TravelGen
 
         Text k;
         k = this.TextCreate(this.TextSource);
+        k = this.Place(k, "#InitStringMaide#", initStringMaide);
+        k = this.Place(k, "#StringFieldList#", stringFieldList);
         k = this.Place(k, "#NodeList#", nodeList);
         k = this.Place(k, "#ExecuteList#", executeList);
 
