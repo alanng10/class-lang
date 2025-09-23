@@ -784,23 +784,17 @@ public class Console : TextAdd
 
     protected virtual bool PrintNodeResult()
     {
-        ObjectString objectString;
-        objectString = new ObjectString();
-        objectString.Init();
+        Iter iter;
+        iter = this.Result.Node.Root.IterCreate();
+        this.Result.Node.Root.IterSet(iter);
 
-        Iter rootIter;
-        rootIter = this.Result.Node.Root.IterCreate();
-        this.Result.Node.Root.IterSet(rootIter);
-
-        while (rootIter.Next())
+        while (iter.Next())
         {
             NodeNode root;
-            root = (NodeNode)rootIter.Value;
-
-            objectString.Execute(root);
+            root = iter.Value as NodeNode;
 
             String a;
-            a = objectString.Result();
+            a = this.InfoTravel.Execute(root);
 
             this.Out.Write(a);
         }
