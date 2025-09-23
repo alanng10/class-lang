@@ -354,19 +354,19 @@ public class BinaryGen : Any
         fieldStart = varClass.FieldStart;
         maideStart = varClass.MaideStart;
 
-        Array field;
-        field = this.ExecuteFieldArray(varClass.Field);
+        Array varField;
+        varField = this.ExecuteFieldArray(varClass.Field);
 
-        Array maide;
-        maide = this.ExecuteMaideArray(varClass.Maide);
+        Array varMaide;
+        varMaide = this.ExecuteMaideArray(varClass.Maide);
 
         BinaryPart a;
         a = new BinaryPart();
         a.Init();
         a.FieldStart = fieldStart;
         a.MaideStart = maideStart;
-        a.Field = field;
-        a.Maide = maide;
+        a.Field = varField;
+        a.Maide = varMaide;
         return a;
     }
 
