@@ -70,7 +70,7 @@ public class ClassGenTravel : Travel
 
         gen.LocalVarCount = maide.Call.Count - maide.Param.Count;
 
-        gen.CompStateStart(gen.Class, maide, gen.StateKindCall, gen.LocalVarCount);
+        gen.CompStateStart(gen.Class, maide, gen.StateKindCall);
 
         base.ExecuteState(call);
 
