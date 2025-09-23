@@ -1182,6 +1182,8 @@ public class Read : Any
             i = i + 1;
         }
 
+        k = k & (this.InfraInfra.IntCapValue - 1);
+
         long a;
         a = k;
         return a;
