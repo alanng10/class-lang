@@ -1,7 +1,7 @@
-        this.Start(#ClassName#);
+        this.Start(this.SClass#ClassName#);
 
         this.FieldStart(this.SValue);
-        
+
         this.StartArray();
 
         long count;
