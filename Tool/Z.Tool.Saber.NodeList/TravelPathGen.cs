@@ -242,11 +242,11 @@ public class TravelPathGen : TravelGen
 
         if (b)
         {
-            StringJoin h;
-            h = new StringJoin();
+            StringAdd h;
+            h = new StringAdd();
             h.Init();
 
-            StringJoin hh;
+            StringAdd hh;
             hh = this.StringAdd;
 
             this.StringAdd = h;
