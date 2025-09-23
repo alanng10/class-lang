@@ -244,14 +244,6 @@ public class ClassGenTravel : Travel
         return true;
     }
 
-    public override bool ExecuteOperateExecute(OperateExecute operateExecute)
-    {
-        base.ExecuteOperateExecute(operateExecute);
-
-        this.Gen.EvalIndexPosSet(-1);
-        return true;
-    }
-
     public override bool ExecuteVarOperate(VarOperate varOperate)
     {
         Var varVar;

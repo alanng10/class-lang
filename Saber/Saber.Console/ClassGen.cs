@@ -1482,6 +1482,12 @@ public class ClassGen : TextAdd
         return true;
     }
 
+    public virtual bool ExecuteOperateEnd()
+    {
+        this.EvalIndexPosSet(-1);
+        return true;
+    }
+
     public virtual bool ExecuteOperateGet()
     {
         long kk;
