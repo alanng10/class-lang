@@ -5,6 +5,8 @@ public class ClassGen : TextAdd
     public override bool Init()
     {
         base.Init();
+        this.InfraInfra = InfraInfra.This;
+
         this.CountOperate = this.CreateCountOperate();
         this.SetOperate = this.CreateSetOperate();
         this.ClassIter = this.CreateClassIter();
@@ -129,7 +131,7 @@ public class ClassGen : TextAdd
         return true;
     }
 
-    protected virtual ClassGenCountOperate CreateCountOperate()
+    public virtual ClassGenCountOperate CreateCountOperate()
     {
         ClassGenCountOperate a;
         a = new ClassGenCountOperate();
@@ -138,7 +140,7 @@ public class ClassGen : TextAdd
         return a;
     }
 
-    protected virtual ClassGenSetOperate CreateSetOperate()
+    public virtual ClassGenSetOperate CreateSetOperate()
     {
         ClassGenSetOperate a;
         a = new ClassGenSetOperate();
@@ -147,12 +149,12 @@ public class ClassGen : TextAdd
         return a;
     }
 
-    protected virtual TableIter CreateClassIter()
+    public virtual TableIter CreateClassIter()
     {
         return this.CreateTableIter();
     }
 
-    protected virtual TableIter CreateTableIter()
+    public virtual TableIter CreateTableIter()
     {
         TableIter a;
         a = new TableIter();
@@ -160,12 +162,13 @@ public class ClassGen : TextAdd
         return a;
     }
 
-    protected virtual String InitVar(string name)
+    public virtual String InitVar(string name)
     {
         return this.AddClear().AddS("v").AddS(name).AddResult();
     }
 
     public virtual ClassModule Module { get; set; }
+    public virtual BinaryBinary Binary { get; set; }
     public virtual long ModuleCount { get; set; }
     public virtual Array InitArray { get; set; }
     public virtual Array BaseArray { get; set; }
@@ -197,6 +200,7 @@ public class ClassGen : TextAdd
     public virtual long StateKindGet { get; set; }
     public virtual long StateKindSet { get; set; }
     public virtual long StateKindCall { get; set; }
+    public virtual long StateDataIndex { get; set; }
     public virtual String Space { get; set; }
     public virtual String NewLine { get; set; }
     public virtual String Zero { get; set; }
@@ -309,8 +313,9 @@ public class ClassGen : TextAdd
     public virtual String LimitBitNot { get; set; }
     public virtual String LimitBitLite { get; set; }
     public virtual String LimitBitRite { get; set; }
+    public virtual InfraInfra InfraInfra { get; set; }
 
-    protected virtual String RefKindMask(String kindHexDigit)
+    public virtual String RefKindMask(String kindHexDigit)
     {
         return this.AddClear().Add(this.IntValueHexPre).Add(kindHexDigit).AddS("000000000000000").AddResult();
     }
@@ -1480,7 +1485,7 @@ public class ClassGen : TextAdd
     public virtual bool ExecuteOperateGet()
     {
         long kk;
-        kk = this.IntArg();
+        kk = this.OperateArgInt();
 
         long k;
         k = 1;
@@ -1540,6 +1545,18 @@ public class ClassGen : TextAdd
 
         this.EvalIndexPosSet(1);
         return true;
+    }
+
+    public virtual long OperateArgInt()
+    {
+        long k;
+        k = this.InfraInfra.DataIntGet(this.Binary.State, this.StateDataIndex);
+
+        this.StateDataIndex = this.StateDataIndex + sizeof(long);
+
+        long a;
+        a = k;
+        return a;
     }
 
     public virtual bool ExecuteString()
