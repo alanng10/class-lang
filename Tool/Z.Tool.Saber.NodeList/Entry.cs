@@ -1,4 +1,4 @@
-namespace Z.Tool.NodeListGen;
+namespace Z.Tool.Saber.NodeList;
 
 class Entry : EntryEntry
 {
