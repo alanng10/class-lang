@@ -554,7 +554,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(varClass);
 
-        this.Start("Class");
+        this.Start(this.SClassClass);
 
         this.FieldStart(this.SFieldName);
         this.ExecuteClassName(varClass.Name);
@@ -629,7 +629,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(varField);
 
-        this.Start("Field");
+        this.Start(this.SClassField);
 
         this.FieldStart(this.SFieldClass);
         this.ExecuteClassName(varField.Class);
@@ -660,7 +660,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(varMaide);
 
-        this.Start("Maide");
+        this.Start(this.SClassMaide);
 
         this.FieldStart(this.SFieldClass);
         this.ExecuteClassName(varMaide.Class);
@@ -729,7 +729,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(varVar);
 
-        this.Start("Var");
+        this.Start(this.SClassVar);
 
         this.FieldStart(this.SFieldClass);
         this.ExecuteClassName(varVar.Class);
@@ -763,7 +763,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(prusateCount);
 
-        this.Start("PrusateCount");
+        this.Start(this.SClassPrusateCount);
 
         this.End();
         return true;
@@ -778,7 +778,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(precateCount);
 
-        this.Start("PrecateCount");
+        this.Start(this.SClassPrecateCount);
 
         this.End();
         return true;
@@ -793,7 +793,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(pronateCount);
 
-        this.Start("PronateCount");
+        this.Start(this.SClassPronateCount);
 
         this.End();
         return true;
@@ -808,7 +808,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(privateCount);
 
-        this.Start("PrivateCount");
+        this.Start(this.SClassPrivateCount);
 
         this.End();
         return true;
@@ -873,7 +873,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(infExecute);
 
-        this.Start("InfExecute");
+        this.Start(this.SClassInfExecute);
 
         this.FieldStart(this.SFieldCond);
         this.ExecuteOperate(infExecute.Cond);
@@ -895,7 +895,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(whileExecute);
 
-        this.Start("WhileExecute");
+        this.Start(this.SClassWhileExecute);
 
         this.FieldStart(this.SFieldCond);
         this.ExecuteOperate(whileExecute.Cond);
@@ -917,7 +917,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(returnExecute);
 
-        this.Start("ReturnExecute");
+        this.Start(this.SClassReturnExecute);
 
         this.FieldStart(this.SFieldResult);
         this.ExecuteOperate(returnExecute.Result);
@@ -936,7 +936,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(referExecute);
 
-        this.Start("ReferExecute");
+        this.Start(this.SClassReferExecute);
 
         this.FieldStart(this.SFieldVar);
         this.ExecuteVar(referExecute.Var);
@@ -955,7 +955,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(areExecute);
 
-        this.Start("AreExecute");
+        this.Start(this.SClassAreExecute);
 
         this.FieldStart(this.SFieldMark);
         this.ExecuteMark(areExecute.Mark);
@@ -977,7 +977,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(operateExecute);
 
-        this.Start("OperateExecute");
+        this.Start(this.SClassOperateExecute);
 
         this.FieldStart(this.SFieldAny);
         this.ExecuteOperate(operateExecute.Any);
@@ -1046,7 +1046,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(varMark);
 
-        this.Start("VarMark");
+        this.Start(this.SClassVarMark);
 
         this.FieldStart(this.SFieldVar);
         this.ExecuteVarName(varMark.Var);
@@ -1065,7 +1065,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(setMark);
 
-        this.Start("SetMark");
+        this.Start(this.SClassSetMark);
 
         this.FieldStart(this.SFieldThis);
         this.ExecuteOperate(setMark.This);
@@ -1099,7 +1099,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(getOperate);
 
-        this.Start("GetOperate");
+        this.Start(this.SClassGetOperate);
 
         this.FieldStart(this.SFieldThis);
         this.ExecuteOperate(getOperate.This);
@@ -1121,7 +1121,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(callOperate);
 
-        this.Start("CallOperate");
+        this.Start(this.SClassCallOperate);
 
         this.FieldStart(this.SFieldThis);
         this.ExecuteOperate(callOperate.This);
@@ -1146,7 +1146,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(thisOperate);
 
-        this.Start("ThisOperate");
+        this.Start(this.SClassThisOperate);
 
         this.End();
         return true;
@@ -1161,7 +1161,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(baseOperate);
 
-        this.Start("BaseOperate");
+        this.Start(this.SClassBaseOperate);
 
         this.End();
         return true;
@@ -1176,7 +1176,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(nullOperate);
 
-        this.Start("NullOperate");
+        this.Start(this.SClassNullOperate);
 
         this.End();
         return true;
@@ -1191,7 +1191,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(newOperate);
 
-        this.Start("NewOperate");
+        this.Start(this.SClassNewOperate);
 
         this.FieldStart(this.SFieldClass);
         this.ExecuteClassName(newOperate.Class);
@@ -1210,7 +1210,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(shareOperate);
 
-        this.Start("ShareOperate");
+        this.Start(this.SClassShareOperate);
 
         this.FieldStart(this.SFieldClass);
         this.ExecuteClassName(shareOperate.Class);
@@ -1229,7 +1229,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(castOperate);
 
-        this.Start("CastOperate");
+        this.Start(this.SClassCastOperate);
 
         this.FieldStart(this.SFieldClass);
         this.ExecuteClassName(castOperate.Class);
@@ -1251,7 +1251,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(varOperate);
 
-        this.Start("VarOperate");
+        this.Start(this.SClassVarOperate);
 
         this.FieldStart(this.SFieldVar);
         this.ExecuteVarName(varOperate.Var);
@@ -1270,7 +1270,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(valueOperate);
 
-        this.Start("ValueOperate");
+        this.Start(this.SClassValueOperate);
 
         this.FieldStart(this.SFieldValue);
         this.ExecuteValue(valueOperate.Value);
@@ -1289,7 +1289,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(braceOperate);
 
-        this.Start("BraceOperate");
+        this.Start(this.SClassBraceOperate);
 
         this.FieldStart(this.SFieldAny);
         this.ExecuteOperate(braceOperate.Any);
@@ -1320,11 +1320,11 @@ partial class InfoTravel
         }
         this.ExecuteNode(boolValue);
 
-        this.Start("BoolValue");
+        this.Start(this.SClassBoolValue);
 
-        this.FieldStart("Value");
+        this.FieldStart(this.SFieldValue);
         this.ExecuteBool(boolValue.Value);
-        this.FieldEnd("Value");
+        this.FieldEnd(this.SFieldValue);
 
         this.End();
         return true;
@@ -1339,11 +1339,11 @@ partial class InfoTravel
         }
         this.ExecuteNode(intValue);
 
-        this.Start("IntValue");
+        this.Start(this.SClassIntValue);
 
-        this.FieldStart("Value");
+        this.FieldStart(this.SFieldValue);
         this.ExecuteInt(intValue.Value);
-        this.FieldEnd("Value");
+        this.FieldEnd(this.SFieldValue);
 
         this.End();
         return true;
@@ -1358,11 +1358,11 @@ partial class InfoTravel
         }
         this.ExecuteNode(intSignValue);
 
-        this.Start("IntSignValue");
+        this.Start(this.SClassIntSignValue);
 
-        this.FieldStart("Value");
+        this.FieldStart(this.SFieldValue);
         this.ExecuteInt(intSignValue.Value);
-        this.FieldEnd("Value");
+        this.FieldEnd(this.SFieldValue);
 
         this.End();
         return true;
@@ -1377,11 +1377,11 @@ partial class InfoTravel
         }
         this.ExecuteNode(intHexValue);
 
-        this.Start("IntHexValue");
+        this.Start(this.SClassIntHexValue);
 
-        this.FieldStart("Value");
+        this.FieldStart(this.SFieldValue);
         this.ExecuteInt(intHexValue.Value);
-        this.FieldEnd("Value");
+        this.FieldEnd(this.SFieldValue);
 
         this.End();
         return true;
@@ -1396,11 +1396,11 @@ partial class InfoTravel
         }
         this.ExecuteNode(intHexSignValue);
 
-        this.Start("IntHexSignValue");
+        this.Start(this.SClassIntHexSignValue);
 
-        this.FieldStart("Value");
+        this.FieldStart(this.SFieldValue);
         this.ExecuteInt(intHexSignValue.Value);
-        this.FieldEnd("Value");
+        this.FieldEnd(this.SFieldValue);
 
         this.End();
         return true;
@@ -1415,11 +1415,11 @@ partial class InfoTravel
         }
         this.ExecuteNode(stringValue);
 
-        this.Start("StringValue");
+        this.Start(this.SClassStringValue);
 
-        this.FieldStart("Value");
+        this.FieldStart(this.SFieldValue);
         this.ExecuteString(stringValue.Value);
-        this.FieldEnd("Value");
+        this.FieldEnd(this.SFieldValue);
 
         this.End();
         return true;
@@ -1434,11 +1434,11 @@ partial class InfoTravel
         }
         this.ExecuteNode(className);
 
-        this.Start("ClassName");
+        this.Start(this.SClassClassName);
 
-        this.FieldStart("Value");
+        this.FieldStart(this.SFieldValue);
         this.ExecuteString(className.Value);
-        this.FieldEnd("Value");
+        this.FieldEnd(this.SFieldValue);
 
         this.End();
         return true;
@@ -1453,11 +1453,11 @@ partial class InfoTravel
         }
         this.ExecuteNode(fieldName);
 
-        this.Start("FieldName");
+        this.Start(this.SClassFieldName);
 
-        this.FieldStart("Value");
+        this.FieldStart(this.SFieldValue);
         this.ExecuteString(fieldName.Value);
-        this.FieldEnd("Value");
+        this.FieldEnd(this.SFieldValue);
 
         this.End();
         return true;
@@ -1472,11 +1472,11 @@ partial class InfoTravel
         }
         this.ExecuteNode(maideName);
 
-        this.Start("MaideName");
+        this.Start(this.SClassMaideName);
 
-        this.FieldStart("Value");
+        this.FieldStart(this.SFieldValue);
         this.ExecuteString(maideName.Value);
-        this.FieldEnd("Value");
+        this.FieldEnd(this.SFieldValue);
 
         this.End();
         return true;
@@ -1491,11 +1491,11 @@ partial class InfoTravel
         }
         this.ExecuteNode(varName);
 
-        this.Start("VarName");
+        this.Start(this.SClassVarName);
 
-        this.FieldStart("Value");
+        this.FieldStart(this.SFieldValue);
         this.ExecuteString(varName.Value);
-        this.FieldEnd("Value");
+        this.FieldEnd(this.SFieldValue);
 
         this.End();
         return true;
@@ -1510,7 +1510,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(sameOperate);
 
-        this.Start("SameOperate");
+        this.Start(this.SClassSameOperate);
 
         this.FieldStart(this.SFieldLite);
         this.ExecuteOperate(sameOperate.Lite);
@@ -1532,7 +1532,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(andOperate);
 
-        this.Start("AndOperate");
+        this.Start(this.SClassAndOperate);
 
         this.FieldStart(this.SFieldLite);
         this.ExecuteOperate(andOperate.Lite);
@@ -1554,7 +1554,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(ornOperate);
 
-        this.Start("OrnOperate");
+        this.Start(this.SClassOrnOperate);
 
         this.FieldStart(this.SFieldLite);
         this.ExecuteOperate(ornOperate.Lite);
@@ -1576,7 +1576,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(notOperate);
 
-        this.Start("NotOperate");
+        this.Start(this.SClassNotOperate);
 
         this.FieldStart(this.SFieldValue);
         this.ExecuteOperate(notOperate.Value);
@@ -1595,7 +1595,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(lessOperate);
 
-        this.Start("LessOperate");
+        this.Start(this.SClassLessOperate);
 
         this.FieldStart(this.SFieldLite);
         this.ExecuteOperate(lessOperate.Lite);
@@ -1617,7 +1617,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(addOperate);
 
-        this.Start("AddOperate");
+        this.Start(this.SClassAddOperate);
 
         this.FieldStart(this.SFieldLite);
         this.ExecuteOperate(addOperate.Lite);
@@ -1639,7 +1639,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(subOperate);
 
-        this.Start("SubOperate");
+        this.Start(this.SClassSubOperate);
 
         this.FieldStart(this.SFieldLite);
         this.ExecuteOperate(subOperate.Lite);
@@ -1661,7 +1661,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(mulOperate);
 
-        this.Start("MulOperate");
+        this.Start(this.SClassMulOperate);
 
         this.FieldStart(this.SFieldLite);
         this.ExecuteOperate(mulOperate.Lite);
@@ -1683,7 +1683,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(divOperate);
 
-        this.Start("DivOperate");
+        this.Start(this.SClassDivOperate);
 
         this.FieldStart(this.SFieldLite);
         this.ExecuteOperate(divOperate.Lite);
@@ -1705,7 +1705,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(signMulOperate);
 
-        this.Start("SignMulOperate");
+        this.Start(this.SClassSignMulOperate);
 
         this.FieldStart(this.SFieldLite);
         this.ExecuteOperate(signMulOperate.Lite);
@@ -1727,7 +1727,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(signDivOperate);
 
-        this.Start("SignDivOperate");
+        this.Start(this.SClassSignDivOperate);
 
         this.FieldStart(this.SFieldLite);
         this.ExecuteOperate(signDivOperate.Lite);
@@ -1749,7 +1749,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(signLessOperate);
 
-        this.Start("SignLessOperate");
+        this.Start(this.SClassSignLessOperate);
 
         this.FieldStart(this.SFieldLite);
         this.ExecuteOperate(signLessOperate.Lite);
@@ -1771,7 +1771,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(bitAndOperate);
 
-        this.Start("BitAndOperate");
+        this.Start(this.SClassBitAndOperate);
 
         this.FieldStart(this.SFieldLite);
         this.ExecuteOperate(bitAndOperate.Lite);
@@ -1793,7 +1793,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(bitOrnOperate);
 
-        this.Start("BitOrnOperate");
+        this.Start(this.SClassBitOrnOperate);
 
         this.FieldStart(this.SFieldLite);
         this.ExecuteOperate(bitOrnOperate.Lite);
@@ -1815,7 +1815,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(bitNotOperate);
 
-        this.Start("BitNotOperate");
+        this.Start(this.SClassBitNotOperate);
 
         this.FieldStart(this.SFieldValue);
         this.ExecuteOperate(bitNotOperate.Value);
@@ -1834,7 +1834,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(bitLiteOperate);
 
-        this.Start("BitLiteOperate");
+        this.Start(this.SClassBitLiteOperate);
 
         this.FieldStart(this.SFieldValue);
         this.ExecuteOperate(bitLiteOperate.Value);
@@ -1856,7 +1856,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(bitRiteOperate);
 
-        this.Start("BitRiteOperate");
+        this.Start(this.SClassBitRiteOperate);
 
         this.FieldStart(this.SFieldValue);
         this.ExecuteOperate(bitRiteOperate.Value);
@@ -1878,7 +1878,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(bitSignRiteOperate);
 
-        this.Start("BitSignRiteOperate");
+        this.Start(this.SClassBitSignRiteOperate);
 
         this.FieldStart(this.SFieldValue);
         this.ExecuteOperate(bitSignRiteOperate.Value);
