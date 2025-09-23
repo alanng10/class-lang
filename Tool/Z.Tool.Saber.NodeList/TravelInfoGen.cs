@@ -345,4 +345,9 @@ public class TravelInfoGen : TravelGen
 
         return className;
     }
+
+    protected override String Virtual()
+    {
+        return this.ValueOverride;
+    }
 }
