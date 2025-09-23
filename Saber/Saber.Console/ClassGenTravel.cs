@@ -252,48 +252,6 @@ public class ClassGenTravel : Travel
         return true;
     }
 
-    public override bool ExecuteCallOperate(CallOperate callOperate)
-    {
-        base.ExecuteCallOperate(callOperate);
-        
-        Maide varMaide;
-        varMaide = this.Info(callOperate).CallMaide;
-
-        if (!(varMaide.Virtual == null))
-        {
-            varMaide = varMaide.Virtual;
-        }
-
-        ClassClass varClass;
-        varClass = varMaide.Parent;
-
-        long kk;
-        kk = varClass.MaideStart;
-        kk = kk + varMaide.Index;
-
-        long k;
-        k = varMaide.Param.Count;
-        k = k + 1;
-
-        ClassGen gen;
-        gen = this.Gen;
-
-        ClassClass thisClass;
-        thisClass = this.Info(callOperate.This).OperateClass;
-
-        if (varMaide == gen.InitMaide)
-        {
-            if (thisClass == gen.System.Any)
-            {
-                gen.ExecuteVirtualCallThisCond(k);
-            }
-        }
-
-        gen.ExecuteVirtualCall(k, gen.StateKindCall, kk);
-
-        return true;
-    }
-
     public override bool ExecuteVarOperate(VarOperate varOperate)
     {
         Var varVar;
