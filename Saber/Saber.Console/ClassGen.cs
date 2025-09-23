@@ -1493,6 +1493,29 @@ public class ClassGen : TextAdd
         return true;
     }
 
+    public virtual bool ExecuteOperateBase()
+    {
+        String varA;
+        varA = this.VarA;
+
+        long k;
+        k = this.ParamCount;
+
+        long kk;
+        kk = this.ClassBaseMask(this.Class.BaseCount);
+
+        this.EvalFrameValueGet(-(k + 1), varA);
+
+        this.VarMaskClear(varA, this.BaseClearMask);
+
+        this.VarMaskSetInt(varA, kk);
+
+        this.EvalValueSet(0, varA);
+
+        this.EvalIndexPosSet(1);
+        return true;
+    }
+
     public virtual bool ExecuteOperateNull()
     {
         String varA;

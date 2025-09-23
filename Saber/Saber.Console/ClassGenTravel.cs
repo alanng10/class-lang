@@ -450,32 +450,6 @@ public class ClassGenTravel : Travel
         return true;
     }
 
-    public override bool ExecuteBaseOperate(BaseOperate baseOperate)
-    {
-        ClassGen gen;
-        gen = this.Gen;
-
-        String varA;
-        varA = gen.VarA;
-
-        long k;
-        k = gen.ParamCount;
-
-        long kk;
-        kk = gen.ClassBaseMask(gen.Class.BaseCount);
-
-        gen.EvalFrameValueGet(-(k + 1), varA);
-
-        gen.VarMaskClear(varA, gen.BaseClearMask);
-
-        gen.VarMaskSetInt(varA, kk);
-
-        gen.EvalValueSet(0, varA);
-
-        gen.EvalIndexPosSet(1);
-        return true;
-    }
-
     public override bool ExecuteSameOperate(SameOperate sameOperate)
     {
         base.ExecuteSameOperate(sameOperate);
