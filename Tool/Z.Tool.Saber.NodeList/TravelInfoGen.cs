@@ -5,8 +5,8 @@ public class TravelInfoGen : TravelGen
     public override bool Init()
     {
         base.Init();
-        this.PathOutput = this.S("../../Module/Class.Console/InfoTravel.cl");
-        this.PathSource = this.GetPathName(this.S("InfoSource.cl"));
+        this.PathOutput = this.S("../../Saber/Saber.Console/InfoTravel.cs");
+        this.PathSource = this.GetPathName(this.S("InfoSource.txt"));
         this.PathNode = this.GetPath(this.S("InfoNode"));
         this.PathDerive = this.GetPath(this.S("InfoDerive"));
         this.PathExecuteNode = this.GetPath(this.S("InfoExecuteNode"));
@@ -69,8 +69,8 @@ public class TravelInfoGen : TravelGen
 
         while (iter.Next())
         {
-            GenClass varClass;
-            varClass = iter.Value as GenClass;
+            Class varClass;
+            varClass = iter.Value as Class;
 
             String ka;
             ka = this.ExecuteOne(varClass);
@@ -86,7 +86,7 @@ public class TravelInfoGen : TravelGen
         return a;
     }
 
-    protected virtual String ExecuteOne(GenClass varClass)
+    protected virtual String ExecuteOne(Class varClass)
     {
         if (varClass.AnyInt == 1)
         {
@@ -109,7 +109,7 @@ public class TravelInfoGen : TravelGen
         return a;
     }
 
-    protected override String DeriveState(GenClass varClass, String varName)
+    protected override String DeriveState(Class varClass, String varName)
     {
         StringAdd h;
         h = new StringAdd();
@@ -142,7 +142,7 @@ public class TravelInfoGen : TravelGen
         return a;
     }
 
-    protected override String ArrayState(GenClass varClass, String varName)
+    protected override String ArrayState(Class varClass, String varName)
     {
         StringAdd h;
         h = new StringAdd();
@@ -195,7 +195,7 @@ public class TravelInfoGen : TravelGen
         return a;
     }
 
-    protected override String FieldState(GenClass varClass, String varName)
+    protected override String FieldState(Class varClass, String varName)
     {
         StringAdd h;
         h = new StringAdd();
