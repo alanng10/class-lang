@@ -4,6 +4,71 @@ partial class InfoTravel
 {
     public virtual bool InitString()
     {
+        this.SClassClass = this.S("Class");
+        this.SClassPart = this.S("Part");
+        this.SClassComp = this.S("Comp");
+        this.SClassField = this.S("Field");
+        this.SClassMaide = this.S("Maide");
+        this.SClassParam = this.S("Param");
+        this.SClassVar = this.S("Var");
+        this.SClassCount = this.S("Count");
+        this.SClassPrusateCount = this.S("PrusateCount");
+        this.SClassPrecateCount = this.S("PrecateCount");
+        this.SClassPronateCount = this.S("PronateCount");
+        this.SClassPrivateCount = this.S("PrivateCount");
+        this.SClassState = this.S("State");
+        this.SClassExecute = this.S("Execute");
+        this.SClassInfExecute = this.S("InfExecute");
+        this.SClassWhileExecute = this.S("WhileExecute");
+        this.SClassReturnExecute = this.S("ReturnExecute");
+        this.SClassReferExecute = this.S("ReferExecute");
+        this.SClassAreExecute = this.S("AreExecute");
+        this.SClassOperateExecute = this.S("OperateExecute");
+        this.SClassArgue = this.S("Argue");
+        this.SClassMark = this.S("Mark");
+        this.SClassVarMark = this.S("VarMark");
+        this.SClassSetMark = this.S("SetMark");
+        this.SClassOperate = this.S("Operate");
+        this.SClassGetOperate = this.S("GetOperate");
+        this.SClassCallOperate = this.S("CallOperate");
+        this.SClassThisOperate = this.S("ThisOperate");
+        this.SClassBaseOperate = this.S("BaseOperate");
+        this.SClassNullOperate = this.S("NullOperate");
+        this.SClassNewOperate = this.S("NewOperate");
+        this.SClassShareOperate = this.S("ShareOperate");
+        this.SClassCastOperate = this.S("CastOperate");
+        this.SClassVarOperate = this.S("VarOperate");
+        this.SClassValueOperate = this.S("ValueOperate");
+        this.SClassBraceOperate = this.S("BraceOperate");
+        this.SClassValue = this.S("Value");
+        this.SClassBoolValue = this.S("BoolValue");
+        this.SClassIntValue = this.S("IntValue");
+        this.SClassIntSignValue = this.S("IntSignValue");
+        this.SClassIntHexValue = this.S("IntHexValue");
+        this.SClassIntHexSignValue = this.S("IntHexSignValue");
+        this.SClassStringValue = this.S("StringValue");
+        this.SClassClassName = this.S("ClassName");
+        this.SClassFieldName = this.S("FieldName");
+        this.SClassMaideName = this.S("MaideName");
+        this.SClassVarName = this.S("VarName");
+        this.SClassSameOperate = this.S("SameOperate");
+        this.SClassAndOperate = this.S("AndOperate");
+        this.SClassOrnOperate = this.S("OrnOperate");
+        this.SClassNotOperate = this.S("NotOperate");
+        this.SClassLessOperate = this.S("LessOperate");
+        this.SClassAddOperate = this.S("AddOperate");
+        this.SClassSubOperate = this.S("SubOperate");
+        this.SClassMulOperate = this.S("MulOperate");
+        this.SClassDivOperate = this.S("DivOperate");
+        this.SClassSignMulOperate = this.S("SignMulOperate");
+        this.SClassSignDivOperate = this.S("SignDivOperate");
+        this.SClassSignLessOperate = this.S("SignLessOperate");
+        this.SClassBitAndOperate = this.S("BitAndOperate");
+        this.SClassBitOrnOperate = this.S("BitOrnOperate");
+        this.SClassBitNotOperate = this.S("BitNotOperate");
+        this.SClassBitLiteOperate = this.S("BitLiteOperate");
+        this.SClassBitRiteOperate = this.S("BitRiteOperate");
+        this.SClassBitSignRiteOperate = this.S("BitSignRiteOperate");
         this.SFieldName = this.S("Name");
         this.SFieldBase = this.S("Base");
         this.SFieldPart = this.S("Part");
@@ -30,6 +95,71 @@ partial class InfoTravel
         return true;
     }
 
+    protected virtual String SClassClass { get; set; }
+    protected virtual String SClassPart { get; set; }
+    protected virtual String SClassComp { get; set; }
+    protected virtual String SClassField { get; set; }
+    protected virtual String SClassMaide { get; set; }
+    protected virtual String SClassParam { get; set; }
+    protected virtual String SClassVar { get; set; }
+    protected virtual String SClassCount { get; set; }
+    protected virtual String SClassPrusateCount { get; set; }
+    protected virtual String SClassPrecateCount { get; set; }
+    protected virtual String SClassPronateCount { get; set; }
+    protected virtual String SClassPrivateCount { get; set; }
+    protected virtual String SClassState { get; set; }
+    protected virtual String SClassExecute { get; set; }
+    protected virtual String SClassInfExecute { get; set; }
+    protected virtual String SClassWhileExecute { get; set; }
+    protected virtual String SClassReturnExecute { get; set; }
+    protected virtual String SClassReferExecute { get; set; }
+    protected virtual String SClassAreExecute { get; set; }
+    protected virtual String SClassOperateExecute { get; set; }
+    protected virtual String SClassArgue { get; set; }
+    protected virtual String SClassMark { get; set; }
+    protected virtual String SClassVarMark { get; set; }
+    protected virtual String SClassSetMark { get; set; }
+    protected virtual String SClassOperate { get; set; }
+    protected virtual String SClassGetOperate { get; set; }
+    protected virtual String SClassCallOperate { get; set; }
+    protected virtual String SClassThisOperate { get; set; }
+    protected virtual String SClassBaseOperate { get; set; }
+    protected virtual String SClassNullOperate { get; set; }
+    protected virtual String SClassNewOperate { get; set; }
+    protected virtual String SClassShareOperate { get; set; }
+    protected virtual String SClassCastOperate { get; set; }
+    protected virtual String SClassVarOperate { get; set; }
+    protected virtual String SClassValueOperate { get; set; }
+    protected virtual String SClassBraceOperate { get; set; }
+    protected virtual String SClassValue { get; set; }
+    protected virtual String SClassBoolValue { get; set; }
+    protected virtual String SClassIntValue { get; set; }
+    protected virtual String SClassIntSignValue { get; set; }
+    protected virtual String SClassIntHexValue { get; set; }
+    protected virtual String SClassIntHexSignValue { get; set; }
+    protected virtual String SClassStringValue { get; set; }
+    protected virtual String SClassClassName { get; set; }
+    protected virtual String SClassFieldName { get; set; }
+    protected virtual String SClassMaideName { get; set; }
+    protected virtual String SClassVarName { get; set; }
+    protected virtual String SClassSameOperate { get; set; }
+    protected virtual String SClassAndOperate { get; set; }
+    protected virtual String SClassOrnOperate { get; set; }
+    protected virtual String SClassNotOperate { get; set; }
+    protected virtual String SClassLessOperate { get; set; }
+    protected virtual String SClassAddOperate { get; set; }
+    protected virtual String SClassSubOperate { get; set; }
+    protected virtual String SClassMulOperate { get; set; }
+    protected virtual String SClassDivOperate { get; set; }
+    protected virtual String SClassSignMulOperate { get; set; }
+    protected virtual String SClassSignDivOperate { get; set; }
+    protected virtual String SClassSignLessOperate { get; set; }
+    protected virtual String SClassBitAndOperate { get; set; }
+    protected virtual String SClassBitOrnOperate { get; set; }
+    protected virtual String SClassBitNotOperate { get; set; }
+    protected virtual String SClassBitLiteOperate { get; set; }
+    protected virtual String SClassBitRiteOperate { get; set; }
+    protected virtual String SClassBitSignRiteOperate { get; set; }
     protected virtual String SFieldName { get; set; }
     protected virtual String SFieldBase { get; set; }
     protected virtual String SFieldPart { get; set; }
@@ -579,10 +709,10 @@ partial class InfoTravel
         }
         this.ExecuteNode(part);
 
-        this.Start(Part);
+        this.Start(this.SClassPart);
 
         this.FieldStart(this.SValue);
-        
+
         this.StartArray();
 
         long count;
@@ -691,10 +821,10 @@ partial class InfoTravel
         }
         this.ExecuteNode(param);
 
-        this.Start(Param);
+        this.Start(this.SClassParam);
 
         this.FieldStart(this.SValue);
-        
+
         this.StartArray();
 
         long count;
@@ -823,10 +953,10 @@ partial class InfoTravel
         }
         this.ExecuteNode(state);
 
-        this.Start(State);
+        this.Start(this.SClassState);
 
         this.FieldStart(this.SValue);
-        
+
         this.StartArray();
 
         long count;
@@ -996,10 +1126,10 @@ partial class InfoTravel
         }
         this.ExecuteNode(argue);
 
-        this.Start(Argue);
+        this.Start(this.SClassArgue);
 
         this.FieldStart(this.SValue);
-        
+
         this.StartArray();
 
         long count;
