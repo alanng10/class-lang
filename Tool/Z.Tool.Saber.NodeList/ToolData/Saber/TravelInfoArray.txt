@@ -1,22 +1,22 @@
-        this.Start("#ClassName#");
+        this.Start(this.SField#ClassName#);
 
-        this.FieldStart("Value");
+        this.FieldStart(this.SValue);
         
         this.StartArray();
 
-        var Int count;
-        count : #VarName#.Value.Count;
+        long count;
+        count = #VarName#.Value.Count;
         var Int i;
-        i : 0;
+        i = 0;
         while (i < count)
         {
             this.AddSpace();
 
             var #ItemDeclareClassName# item;
-            item : cast #ItemDeclareClassName#(#VarName#.Value.Get(i));
+            item = cast #ItemDeclareClassName#(#VarName#.Value.Get(i));
             this.Execute#ItemClassName#(item);
 
-            i : i + 1;
+            i = i + 1;
         }
 
         this.EndArray();
