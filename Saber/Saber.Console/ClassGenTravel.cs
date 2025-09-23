@@ -86,14 +86,9 @@ public class ClassGenTravel : Travel
         ClassGen gen;
         gen = this.Gen;
 
-        Table table;
-        table = this.Info(state).StateVar;
-
         gen.IndentCount = gen.IndentCount + 1;
 
         base.ExecuteState(state);
-
-        gen.TableVarLocalVarSetNull(table);
 
         gen.IndentCount = gen.IndentCount - 1;
 
