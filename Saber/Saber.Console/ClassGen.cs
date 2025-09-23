@@ -984,10 +984,7 @@ public class ClassGen : TextAdd
 
         this.ExecuteString();
 
-        NodeClass nodeClass;
-        nodeClass = this.Class.Any as NodeClass;
-
-        this.Travel.ExecuteClass(nodeClass);
+        this.ExecuteState();
         return true;
     }
 
@@ -1753,6 +1750,11 @@ public class ClassGen : TextAdd
         this.Text(this.LimitBraceCurveRite);
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
+        return true;
+    }
+
+    public virtual bool ExecuteState()
+    {
         return true;
     }
 
