@@ -7,7 +7,6 @@ public class ClassGen : TextAdd
         base.Init();
         this.CountOperate = this.CreateCountOperate();
         this.SetOperate = this.CreateSetOperate();
-        this.Travel = this.CreateTravel();
         this.ClassIter = this.CreateClassIter();
         this.TableIter = this.CreateTableIter();
 
@@ -148,15 +147,6 @@ public class ClassGen : TextAdd
         return a;
     }
 
-    protected virtual ClassGenTravel CreateTravel()
-    {
-        ClassGenTravel a;
-        a = new ClassGenTravel();
-        a.Gen = this;
-        a.Init();
-        return a;
-    }
-
     protected virtual TableIter CreateClassIter()
     {
         return this.CreateTableIter();
@@ -195,7 +185,6 @@ public class ClassGen : TextAdd
     public virtual ClassGenOperate Operate { get; set; }
     public virtual ClassGenCountOperate CountOperate { get; set; }
     public virtual ClassGenSetOperate SetOperate { get; set; }
-    public virtual ClassGenTravel Travel { get; set; }
     public virtual long StringValueIndex { get; set; }
     public virtual Field ThisField { get; set; }
     public virtual Iter ClassIter { get; set; }
