@@ -72,7 +72,7 @@ partial class InfoTravel
             if (!((node as NodeClass) == null))
             {
                 this.ExecuteClass(node as NodeClass);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -80,7 +80,7 @@ partial class InfoTravel
             if (!((node as Part) == null))
             {
                 this.ExecutePart(node as Part);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -88,7 +88,7 @@ partial class InfoTravel
             if (!((node as NodeField) == null))
             {
                 this.ExecuteField(node as NodeField);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -96,7 +96,7 @@ partial class InfoTravel
             if (!((node as NodeMaide) == null))
             {
                 this.ExecuteMaide(node as NodeMaide);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -104,7 +104,7 @@ partial class InfoTravel
             if (!((node as Param) == null))
             {
                 this.ExecuteParam(node as Param);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -112,7 +112,7 @@ partial class InfoTravel
             if (!((node as NodeVar) == null))
             {
                 this.ExecuteVar(node as NodeVar);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -120,7 +120,7 @@ partial class InfoTravel
             if (!((node as PrusateCount) == null))
             {
                 this.ExecutePrusateCount(node as PrusateCount);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -128,7 +128,7 @@ partial class InfoTravel
             if (!((node as PrecateCount) == null))
             {
                 this.ExecutePrecateCount(node as PrecateCount);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -136,7 +136,7 @@ partial class InfoTravel
             if (!((node as PronateCount) == null))
             {
                 this.ExecutePronateCount(node as PronateCount);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -144,7 +144,7 @@ partial class InfoTravel
             if (!((node as PrivateCount) == null))
             {
                 this.ExecutePrivateCount(node as PrivateCount);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -152,7 +152,7 @@ partial class InfoTravel
             if (!((node as State) == null))
             {
                 this.ExecuteState(node as State);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -160,7 +160,7 @@ partial class InfoTravel
             if (!((node as InfExecute) == null))
             {
                 this.ExecuteInfExecute(node as InfExecute);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -168,7 +168,7 @@ partial class InfoTravel
             if (!((node as WhileExecute) == null))
             {
                 this.ExecuteWhileExecute(node as WhileExecute);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -176,7 +176,7 @@ partial class InfoTravel
             if (!((node as ReturnExecute) == null))
             {
                 this.ExecuteReturnExecute(node as ReturnExecute);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -184,7 +184,7 @@ partial class InfoTravel
             if (!((node as ReferExecute) == null))
             {
                 this.ExecuteReferExecute(node as ReferExecute);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -192,7 +192,7 @@ partial class InfoTravel
             if (!((node as AreExecute) == null))
             {
                 this.ExecuteAreExecute(node as AreExecute);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -200,7 +200,7 @@ partial class InfoTravel
             if (!((node as OperateExecute) == null))
             {
                 this.ExecuteOperateExecute(node as OperateExecute);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -208,7 +208,7 @@ partial class InfoTravel
             if (!((node as Argue) == null))
             {
                 this.ExecuteArgue(node as Argue);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -216,7 +216,7 @@ partial class InfoTravel
             if (!((node as VarMark) == null))
             {
                 this.ExecuteVarMark(node as VarMark);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -224,7 +224,7 @@ partial class InfoTravel
             if (!((node as SetMark) == null))
             {
                 this.ExecuteSetMark(node as SetMark);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -232,7 +232,7 @@ partial class InfoTravel
             if (!((node as GetOperate) == null))
             {
                 this.ExecuteGetOperate(node as GetOperate);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -240,7 +240,7 @@ partial class InfoTravel
             if (!((node as CallOperate) == null))
             {
                 this.ExecuteCallOperate(node as CallOperate);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -248,7 +248,7 @@ partial class InfoTravel
             if (!((node as ThisOperate) == null))
             {
                 this.ExecuteThisOperate(node as ThisOperate);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -256,7 +256,7 @@ partial class InfoTravel
             if (!((node as BaseOperate) == null))
             {
                 this.ExecuteBaseOperate(node as BaseOperate);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -264,7 +264,7 @@ partial class InfoTravel
             if (!((node as NullOperate) == null))
             {
                 this.ExecuteNullOperate(node as NullOperate);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -272,7 +272,7 @@ partial class InfoTravel
             if (!((node as NewOperate) == null))
             {
                 this.ExecuteNewOperate(node as NewOperate);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -280,7 +280,7 @@ partial class InfoTravel
             if (!((node as ShareOperate) == null))
             {
                 this.ExecuteShareOperate(node as ShareOperate);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -288,7 +288,7 @@ partial class InfoTravel
             if (!((node as CastOperate) == null))
             {
                 this.ExecuteCastOperate(node as CastOperate);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -296,7 +296,7 @@ partial class InfoTravel
             if (!((node as VarOperate) == null))
             {
                 this.ExecuteVarOperate(node as VarOperate);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -304,7 +304,7 @@ partial class InfoTravel
             if (!((node as ValueOperate) == null))
             {
                 this.ExecuteValueOperate(node as ValueOperate);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -312,7 +312,7 @@ partial class InfoTravel
             if (!((node as BraceOperate) == null))
             {
                 this.ExecuteBraceOperate(node as BraceOperate);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -320,7 +320,7 @@ partial class InfoTravel
             if (!((node as BoolValue) == null))
             {
                 this.ExecuteBoolValue(node as BoolValue);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -328,7 +328,7 @@ partial class InfoTravel
             if (!((node as IntValue) == null))
             {
                 this.ExecuteIntValue(node as IntValue);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -336,7 +336,7 @@ partial class InfoTravel
             if (!((node as IntSignValue) == null))
             {
                 this.ExecuteIntSignValue(node as IntSignValue);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -344,7 +344,7 @@ partial class InfoTravel
             if (!((node as IntHexValue) == null))
             {
                 this.ExecuteIntHexValue(node as IntHexValue);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -352,7 +352,7 @@ partial class InfoTravel
             if (!((node as IntHexSignValue) == null))
             {
                 this.ExecuteIntHexSignValue(node as IntHexSignValue);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -360,7 +360,7 @@ partial class InfoTravel
             if (!((node as StringValue) == null))
             {
                 this.ExecuteStringValue(node as StringValue);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -368,7 +368,7 @@ partial class InfoTravel
             if (!((node as ClassName) == null))
             {
                 this.ExecuteClassName(node as ClassName);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -376,7 +376,7 @@ partial class InfoTravel
             if (!((node as FieldName) == null))
             {
                 this.ExecuteFieldName(node as FieldName);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -384,7 +384,7 @@ partial class InfoTravel
             if (!((node as MaideName) == null))
             {
                 this.ExecuteMaideName(node as MaideName);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -392,7 +392,7 @@ partial class InfoTravel
             if (!((node as VarName) == null))
             {
                 this.ExecuteVarName(node as VarName);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -400,7 +400,7 @@ partial class InfoTravel
             if (!((node as SameOperate) == null))
             {
                 this.ExecuteSameOperate(node as SameOperate);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -408,7 +408,7 @@ partial class InfoTravel
             if (!((node as AndOperate) == null))
             {
                 this.ExecuteAndOperate(node as AndOperate);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -416,7 +416,7 @@ partial class InfoTravel
             if (!((node as OrnOperate) == null))
             {
                 this.ExecuteOrnOperate(node as OrnOperate);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -424,7 +424,7 @@ partial class InfoTravel
             if (!((node as NotOperate) == null))
             {
                 this.ExecuteNotOperate(node as NotOperate);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -432,7 +432,7 @@ partial class InfoTravel
             if (!((node as LessOperate) == null))
             {
                 this.ExecuteLessOperate(node as LessOperate);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -440,7 +440,7 @@ partial class InfoTravel
             if (!((node as AddOperate) == null))
             {
                 this.ExecuteAddOperate(node as AddOperate);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -448,7 +448,7 @@ partial class InfoTravel
             if (!((node as SubOperate) == null))
             {
                 this.ExecuteSubOperate(node as SubOperate);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -456,7 +456,7 @@ partial class InfoTravel
             if (!((node as MulOperate) == null))
             {
                 this.ExecuteMulOperate(node as MulOperate);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -464,7 +464,7 @@ partial class InfoTravel
             if (!((node as DivOperate) == null))
             {
                 this.ExecuteDivOperate(node as DivOperate);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -472,7 +472,7 @@ partial class InfoTravel
             if (!((node as SignMulOperate) == null))
             {
                 this.ExecuteSignMulOperate(node as SignMulOperate);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -480,7 +480,7 @@ partial class InfoTravel
             if (!((node as SignDivOperate) == null))
             {
                 this.ExecuteSignDivOperate(node as SignDivOperate);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -488,7 +488,7 @@ partial class InfoTravel
             if (!((node as SignLessOperate) == null))
             {
                 this.ExecuteSignLessOperate(node as SignLessOperate);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -496,7 +496,7 @@ partial class InfoTravel
             if (!((node as BitAndOperate) == null))
             {
                 this.ExecuteBitAndOperate(node as BitAndOperate);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -504,7 +504,7 @@ partial class InfoTravel
             if (!((node as BitOrnOperate) == null))
             {
                 this.ExecuteBitOrnOperate(node as BitOrnOperate);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -512,7 +512,7 @@ partial class InfoTravel
             if (!((node as BitNotOperate) == null))
             {
                 this.ExecuteBitNotOperate(node as BitNotOperate);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -520,7 +520,7 @@ partial class InfoTravel
             if (!((node as BitLiteOperate) == null))
             {
                 this.ExecuteBitLiteOperate(node as BitLiteOperate);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -528,7 +528,7 @@ partial class InfoTravel
             if (!((node as BitRiteOperate) == null))
             {
                 this.ExecuteBitRiteOperate(node as BitRiteOperate);
-                b : true;
+                b = true;
             }
         }
         if (!b)
@@ -536,7 +536,7 @@ partial class InfoTravel
             if (!((node as BitSignRiteOperate) == null))
             {
                 this.ExecuteBitSignRiteOperate(node as BitSignRiteOperate);
-                b : true;
+                b = true;
             }
         }
 
@@ -579,7 +579,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(part);
 
-        this.Start(this.SFieldPart);
+        this.Start(Part);
 
         this.FieldStart(this.SValue);
         
@@ -691,7 +691,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(param);
 
-        this.Start(this.SFieldParam);
+        this.Start(Param);
 
         this.FieldStart(this.SValue);
         
@@ -823,7 +823,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(state);
 
-        this.Start(this.SFieldState);
+        this.Start(State);
 
         this.FieldStart(this.SValue);
         
@@ -996,7 +996,7 @@ partial class InfoTravel
         }
         this.ExecuteNode(argue);
 
-        this.Start(this.SFieldArgue);
+        this.Start(Argue);
 
         this.FieldStart(this.SValue);
         
