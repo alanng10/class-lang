@@ -39,6 +39,7 @@ public class Console : TextAdd
         this.ModuleRefLess.Init();
 
         this.InfoToken = this.CreateInfoToken();
+        this.InfoTravel = this.CreateInfoTravel();
         this.StorageTextLess = this.CreateStorageTextLess();
 
         this.SClass = this.S("Class");
