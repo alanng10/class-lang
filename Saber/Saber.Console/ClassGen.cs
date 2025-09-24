@@ -3232,7 +3232,7 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
-    maide prusate Bool BlockLabelLine(var Int blockIndex)
+    public virtual bool BlockLabelLine(long blockIndex)
     {
         this.TextIndent();
 
@@ -3244,7 +3244,7 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
-    maide prusate Bool BlockLabelGone(var Int blockIndex)
+    public virtual bool BlockLabelGone(long blockIndex)
     {
         this.TextIndent();
 
