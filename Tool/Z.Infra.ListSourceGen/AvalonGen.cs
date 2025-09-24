@@ -25,11 +25,11 @@ public class AvalonGen : Gen
         return true;
     }
 
-    protected override bool AddField(String item)
+    protected override bool AddField(String index, object value)
     {
         this.AddIndent(1)
             .AddS("public").AddS(" ").AddS("virtual").AddS(" ")
-            .Add(this.ItemClassName).AddS(" ").Add(item).AddS(" ")
+            .Add(this.ItemClassName).AddS(" ").Add(index).AddS(" ")
             .AddS("{").AddS(" ").AddS("get").AddS(";").AddS(" ").AddS("set").AddS(";").AddS(" ").AddS("}")
             .AddLine();
         return true;
