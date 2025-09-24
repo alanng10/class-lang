@@ -1,6 +1,6 @@
 namespace Saber.Console;
 
-public class ClassGen : TextAdd
+public partial class ClassGen : TextAdd
 {
     public override bool Init()
     {
