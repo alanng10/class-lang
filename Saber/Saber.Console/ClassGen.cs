@@ -371,7 +371,8 @@ public partial class ClassGen : TextAdd
 
         this.StateDataIndex = 0;
 
-        this.StateInt();
+        long stateCount;
+        stateCount = this.StateInt();
 
         long count;
         count = this.Module.Class.Count;
