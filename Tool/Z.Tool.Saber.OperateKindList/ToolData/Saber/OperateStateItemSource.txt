@@ -6,3 +6,4 @@ public class #Name#ClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
