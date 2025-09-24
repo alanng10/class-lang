@@ -367,8 +367,6 @@ public partial class ClassGen : TextAdd
 
     public virtual bool ExecuteStage()
     {
-        this.ExecuteModule();
-
         this.ExecuteRefer();
 
         this.ExecuteState();
@@ -377,6 +375,8 @@ public partial class ClassGen : TextAdd
 
     public virtual bool ExecuteRefer()
     {
+        this.ExecuteModule();
+
         long count;
         count = this.Module.Class.Count;
 
