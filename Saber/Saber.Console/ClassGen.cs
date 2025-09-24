@@ -2268,13 +2268,10 @@ public partial class ClassGen : TextAdd
         long k;
         k = this.ParamCount;
 
-        long kk;
-        kk = varIndex;
-
         if (stateKind == this.StateKindGet)
         {
             bool ba;
-            ba = (kk == 0);
+            ba = (varIndex == 0);
 
             if (ba)
             {
@@ -2286,7 +2283,7 @@ public partial class ClassGen : TextAdd
             if (!ba)
             {
                 long posA;
-                posA = kk - 1;
+                posA = varIndex - 1;
 
                 this.EvalFrameValueGet(posA, varA);
             }
@@ -2295,9 +2292,9 @@ public partial class ClassGen : TextAdd
         if (stateKind == this.StateKindSet)
         {
             bool bb;
-            bb = (kk == 0);
+            bb = (varIndex == 0);
             bool bc;
-            bc = (kk == 1);
+            bc = (varIndex == 1);
 
             if (bb)
             {
@@ -2317,7 +2314,7 @@ public partial class ClassGen : TextAdd
             if (!(bb | bc))
             {
                 long posC;
-                posC = kk - 2;
+                posC = varIndex - 2;
 
                 this.EvalFrameValueGet(posC, varA);
             }
@@ -2326,7 +2323,7 @@ public partial class ClassGen : TextAdd
         if (stateKind == this.StateKindCall)
         {
             long posD;
-            posD = kk - k;
+            posD = varIndex - k;
 
             this.EvalFrameValueGet(posD, varA);
         }
