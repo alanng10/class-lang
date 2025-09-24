@@ -27,6 +27,15 @@ public class ReferClassGenOperateState : ClassGenOperateState
     }
 }
 
+public class AreClassGenOperateState : ClassGenOperateState
+{
+    public override bool Execute()
+    {
+        this.Gen.ExecuteOperateAre();
+        return true;
+    }
+}
+
 public class InfStartClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -72,20 +81,11 @@ public class WhileEndClassGenOperateState : ClassGenOperateState
     }
 }
 
-public class AreClassGenOperateState : ClassGenOperateState
+public class GetClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
     {
-        this.Gen.ExecuteOperateAre();
-        return true;
-    }
-}
-
-public class VarMarkClassGenOperateState : ClassGenOperateState
-{
-    public override bool Execute()
-    {
-        this.Gen.ExecuteOperateVarMark();
+        this.Gen.ExecuteOperateGet();
         return true;
     }
 }
@@ -95,15 +95,6 @@ public class SetMarkClassGenOperateState : ClassGenOperateState
     public override bool Execute()
     {
         this.Gen.ExecuteOperateSetMark();
-        return true;
-    }
-}
-
-public class GetClassGenOperateState : ClassGenOperateState
-{
-    public override bool Execute()
-    {
-        this.Gen.ExecuteOperateGet();
         return true;
     }
 }
@@ -126,56 +117,11 @@ public class VarClassGenOperateState : ClassGenOperateState
     }
 }
 
-public class BoolValueClassGenOperateState : ClassGenOperateState
+public class VarMarkClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
     {
-        this.Gen.ExecuteOperateBoolValue();
-        return true;
-    }
-}
-
-public class IntValueClassGenOperateState : ClassGenOperateState
-{
-    public override bool Execute()
-    {
-        this.Gen.ExecuteOperateIntValue();
-        return true;
-    }
-}
-
-public class StringValueClassGenOperateState : ClassGenOperateState
-{
-    public override bool Execute()
-    {
-        this.Gen.ExecuteOperateStringValue();
-        return true;
-    }
-}
-
-public class ThisClassGenOperateState : ClassGenOperateState
-{
-    public override bool Execute()
-    {
-        this.Gen.ExecuteOperateThis();
-        return true;
-    }
-}
-
-public class BaseClassGenOperateState : ClassGenOperateState
-{
-    public override bool Execute()
-    {
-        this.Gen.ExecuteOperateBase();
-        return true;
-    }
-}
-
-public class NullClassGenOperateState : ClassGenOperateState
-{
-    public override bool Execute()
-    {
-        this.Gen.ExecuteOperateNull();
+        this.Gen.ExecuteOperateVarMark();
         return true;
     }
 }
@@ -207,11 +153,47 @@ public class CastClassGenOperateState : ClassGenOperateState
     }
 }
 
+public class ThisClassGenOperateState : ClassGenOperateState
+{
+    public override bool Execute()
+    {
+        this.Gen.ExecuteOperateThis();
+        return true;
+    }
+}
+
+public class BaseClassGenOperateState : ClassGenOperateState
+{
+    public override bool Execute()
+    {
+        this.Gen.ExecuteOperateBase();
+        return true;
+    }
+}
+
+public class NullClassGenOperateState : ClassGenOperateState
+{
+    public override bool Execute()
+    {
+        this.Gen.ExecuteOperateNull();
+        return true;
+    }
+}
+
 public class SameClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
     {
         this.Gen.ExecuteOperateSame();
+        return true;
+    }
+}
+
+public class LessClassGenOperateState : ClassGenOperateState
+{
+    public override bool Execute()
+    {
+        this.Gen.ExecuteOperateLess();
         return true;
     }
 }
@@ -239,15 +221,6 @@ public class NotClassGenOperateState : ClassGenOperateState
     public override bool Execute()
     {
         this.Gen.ExecuteOperateNot();
-        return true;
-    }
-}
-
-public class LessClassGenOperateState : ClassGenOperateState
-{
-    public override bool Execute()
-    {
-        this.Gen.ExecuteOperateLess();
         return true;
     }
 }
@@ -365,6 +338,33 @@ public class BitSignRiteClassGenOperateState : ClassGenOperateState
     public override bool Execute()
     {
         this.Gen.ExecuteOperateBitSignRite();
+        return true;
+    }
+}
+
+public class BoolValueClassGenOperateState : ClassGenOperateState
+{
+    public override bool Execute()
+    {
+        this.Gen.ExecuteOperateBoolValue();
+        return true;
+    }
+}
+
+public class IntValueClassGenOperateState : ClassGenOperateState
+{
+    public override bool Execute()
+    {
+        this.Gen.ExecuteOperateIntValue();
+        return true;
+    }
+}
+
+public class StringValueClassGenOperateState : ClassGenOperateState
+{
+    public override bool Execute()
+    {
+        this.Gen.ExecuteOperateStringValue();
         return true;
     }
 }
