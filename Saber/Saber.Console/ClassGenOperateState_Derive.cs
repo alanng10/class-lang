@@ -99,11 +99,11 @@ public class SetMarkClassGenOperateState : ClassGenOperateState
     }
 }
 
-public class ItemGetClassGenOperateState : ClassGenOperateState
+public class GetClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
     {
-        this.Gen.ExecuteOperateItemGet();
+        this.Gen.ExecuteOperateGet();
         return true;
     }
 }
@@ -153,11 +153,11 @@ public class StringValueClassGenOperateState : ClassGenOperateState
     }
 }
 
-public class ItemThisClassGenOperateState : ClassGenOperateState
+public class ThisClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
     {
-        this.Gen.ExecuteOperateItemThis();
+        this.Gen.ExecuteOperateThis();
         return true;
     }
 }
