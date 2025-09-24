@@ -1,0 +1,1 @@
+        this.OperateKindList.#FieldName#.Any = this.InitOperateState(new #Name#ClassGenOperateState());
