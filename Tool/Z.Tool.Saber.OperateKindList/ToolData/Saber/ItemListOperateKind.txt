@@ -12,12 +12,12 @@ SetMark 1
 Call 2
 Var 1
 VarMark 1
-This 0
-Base 0
-Null 0
 New 1
 Share 1
 Cast 1
+This 0
+Base 0
+Null 0
 Same 0
 And 0
 Orn 0
