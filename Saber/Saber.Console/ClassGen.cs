@@ -1485,6 +1485,57 @@ public partial class ClassGen : TextAdd
     public virtual bool ExecuteState()
     {
         this.ExecuteString();
+
+        Iter iter;
+        iter = this.TableIter;
+
+        this.Class.Field.IterSet(iter);
+
+        while (iter.Next())
+        {
+            Field varField;
+            varField = iter.Value as Field;
+
+            this.ExecuteStateFieldGet(varField);
+
+            this.ExecuteStateFieldSet(varField);
+        }
+
+        this.Class.Maide.IterSet(iter);
+
+        while (iter.Next())
+        {
+            Maide varMaide;
+            varMaide = iter.Value as Maide;
+
+            this.ExecuteStateMaideCall(varMaide);
+        }
+
+        iter.Clear();
+        return true;
+    }
+
+    public virtual bool ExecuteStateFieldGet(Field varField)
+    {
+        return true;
+    }
+
+    public virtual bool ExecuteStateFieldSet(Field varField)
+    {
+        return true;
+    }
+
+    public virtual bool ExecuteStateMaideCall(Maide varMaide)
+    {
+        return true;
+    }
+
+    public virtual bool ExecuteCompState()
+    {
+        long varCount;
+        varCount = this.StateInt();
+
+        this.ExecuteOperateList();
         return true;
     }
 
