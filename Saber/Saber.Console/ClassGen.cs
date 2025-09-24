@@ -1504,6 +1504,8 @@ public partial class ClassGen : TextAdd
             this.Class = k;
 
             this.ExecuteStateClass();
+
+            this.Class = null;
         }
 
         iter.Clear();
