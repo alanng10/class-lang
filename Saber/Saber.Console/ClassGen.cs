@@ -183,7 +183,6 @@ public class ClassGen : TextAdd
     public virtual Array Base { get; set; }
     public virtual ClassComp Comp { get; set; }
     public virtual Array String { get; set; }
-    public virtual Maide InitMaide { get; set; }
     public virtual ClassGenArg Arg { get; set; }
     public virtual ClassGenOperate Operate { get; set; }
     public virtual ClassGenCountOperate CountOperate { get; set; }
@@ -322,8 +321,6 @@ public class ClassGen : TextAdd
 
     public virtual bool Execute()
     {
-        this.InitMaide = this.System.Any.Maide.Get(this.InitWord) as Maide;
-
         this.Arg = new ClassGenArg();
         this.Arg.Init();
 
