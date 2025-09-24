@@ -168,6 +168,12 @@ public partial class ClassGen : TextAdd
         return this.AddClear().AddS("v").AddS(name).AddResult();
     }
 
+    public virtual ClassGenOperateState InitOperateState(ClassGenOperateState state)
+    {
+        state.Init();
+        return state;
+    }
+
     public virtual ClassModule Module { get; set; }
     public virtual BinaryBinary Binary { get; set; }
     public virtual long ModuleCount { get; set; }
