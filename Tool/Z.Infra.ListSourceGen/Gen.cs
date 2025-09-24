@@ -181,9 +181,13 @@ public class Gen : ToolBase
         this.ItemTable.IterSet(iter);
         while (iter.Next())
         {
-            String item;
-            item = (String)iter.Index;
-            this.AddField(item);
+            String index;
+            index = iter.Index as String;
+
+            object value;
+            value = iter.Value;
+
+            this.AddField(index, value);
         }
 
         String a;
@@ -191,11 +195,11 @@ public class Gen : ToolBase
         return a;
     }
 
-    protected virtual bool AddField(String item)
+    protected virtual bool AddField(String index, object value)
     {
         this.AddIndent(1)
             .AddS("field").AddS(" ").AddS("prusate").AddS(" ")
-            .Add(this.ItemClassName).AddS(" ").Add(item).AddS(" ")
+            .Add(this.ItemClassName).AddS(" ").Add(index).AddS(" ")
             .AddS("{").AddS(" ")
             .AddS("get").AddS(" ").AddS("{").AddS(" ").AddS("return").AddS(" ").AddS("data").AddS(";").AddS(" ").AddS("}")
             .AddS(" ")
