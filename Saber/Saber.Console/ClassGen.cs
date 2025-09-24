@@ -6,6 +6,7 @@ public class ClassGen : TextAdd
     {
         base.Init();
         this.InfraInfra = InfraInfra.This;
+        this.OperateKindList = BinaryOperateKindList.This;
 
         this.CountOperate = this.CreateCountOperate();
         this.SetOperate = this.CreateSetOperate();
@@ -313,6 +314,7 @@ public class ClassGen : TextAdd
     public virtual String LimitBitLite { get; set; }
     public virtual String LimitBitRite { get; set; }
     public virtual InfraInfra InfraInfra { get; set; }
+    public virtual BinaryOperateKindList OperateKindList { get; set; }
 
     public virtual String RefKindMask(String kindHexDigit)
     {
