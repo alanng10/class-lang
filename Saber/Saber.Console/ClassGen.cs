@@ -3110,21 +3110,6 @@ public class ClassGen : TextAdd
         return true;
     }
 
-    public virtual bool InitLocalVarList(long count)
-    {
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            this.EvalFrameValueSet(i, this.Zero);
-
-            i = i + 1;
-        }
-
-        this.EvalIndexFramePosSet(count);
-        return true;
-    }
-
     public virtual bool Return()
     {
         this.TextIndent();
