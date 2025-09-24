@@ -3180,7 +3180,7 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
-    maide prusate Bool BlockStart()
+    public virtual bool BlockStart()
     {
         this.TextIndent();
 
@@ -3188,13 +3188,13 @@ public partial class ClassGen : TextAdd
 
         this.Text(this.NewLine);
 
-        this.IndentCount : this.IndentCount + 1;
+        this.IndentCount = this.IndentCount + 1;
         return true;
     }
 
     maide prusate Bool BlockEnd()
     {
-        this.IndentCount : this.IndentCount - 1;
+        this.IndentCount = this.IndentCount - 1;
 
         this.TextIndent();
 
