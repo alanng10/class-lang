@@ -1485,6 +1485,24 @@ public class ClassGen : TextAdd
         return true;
     }
 
+    public virtual bool ExecuteOperateRet()
+    {
+        String varA;
+        varA = this.VarA;
+
+        long k;
+        k = this.ParamCount;
+
+        this.EvalValueGet(1, varA);
+
+        this.EvalFrameValueSet(-(k + 1), varA);
+
+        this.EvalIndexFramePosSet(-k);
+
+        this.Return();
+        return true;
+    }
+
     public virtual bool ExecuteOperateGet()
     {
         long kk;

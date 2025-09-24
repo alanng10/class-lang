@@ -168,29 +168,6 @@ public class ClassGenTravel : Travel
         return true;
     }
 
-    public override bool ExecuteReturnExecute(ReturnExecute returnExecute)
-    {
-        base.ExecuteReturnExecute(returnExecute);
-
-        ClassGen gen;
-        gen = this.Gen;
-
-        String varA;
-        varA = gen.VarA;
-
-        long k;
-        k = gen.ParamCount;
-
-        gen.EvalValueGet(1, varA);
-
-        gen.EvalFrameValueSet(-(k + 1), varA);
-
-        gen.EvalIndexFramePosSet(-k);
-
-        gen.Return();
-        return true;
-    }
-
     public override bool ExecuteAreExecute(AreExecute areExecute)
     {
         base.ExecuteAreExecute(areExecute);
