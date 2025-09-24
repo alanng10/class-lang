@@ -686,33 +686,6 @@ public class LibraryGen : TextAdd
         return program;
     }
 
-    protected virtual Program CreateMakeProgramWindowsA(bool exe)
-    {
-        String ka;
-        ka = this.TextInfra.Zero;
-
-        if (exe)
-        {
-            ka = this.SExe;
-        }
-
-        List list;
-        list = new List();
-        list.Init();
-        list.Add(this.S("/c"));
-        list.Add(this.AddClear().AddS("MakeLib").Add(ka).AddS(".cmd ").Add(this.ModuleRefString).AddResult());
-
-        Program program;
-        program = new Program();
-        program.Init();
-        program.Name = this.S("cmd.exe");
-        program.Argue = list;
-        program.WorkFold = this.S("Saber.Console.data");
-        program.Environ = null;
-
-        return program;
-    }
-
     protected virtual bool FinalMakeProgram(Program a)
     {
         a.Final();
