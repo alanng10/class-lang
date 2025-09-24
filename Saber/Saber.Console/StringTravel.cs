@@ -57,9 +57,9 @@ public class StringTravel : Travel
         this.Arg = new StringArg();
         this.Arg.Init();
 
-        this.Arg.ClassCountData = new Data();
-        this.Arg.ClassCountData.Count = this.Module.Class.Count * sizeof(long);
-        this.Arg.ClassCountData.Init();
+        this.Arg.StringCountData = new Data();
+        this.Arg.StringCountData.Count = this.Module.Class.Count * sizeof(long);
+        this.Arg.StringCountData.Init();
 
         this.Operate = this.CountOperate;
 
@@ -83,7 +83,7 @@ public class StringTravel : Travel
     protected virtual bool ExecuteResultSet()
     {
         Data data;
-        data = this.Arg.ClassCountData;
+        data = this.Arg.StringCountData;
 
         Array stringArray;
         stringArray = this.Arg.Array;

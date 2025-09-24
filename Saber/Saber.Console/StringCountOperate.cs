@@ -41,7 +41,7 @@ public class StringCountOperate : StringOperate
         stringCount = arg.Index - this.StringStart;
 
         Data data;
-        data = arg.ClassCountData;
+        data = arg.StringCountData;
 
         long ka;
         ka = index * sizeof(long);
