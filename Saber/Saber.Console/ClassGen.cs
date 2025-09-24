@@ -1672,6 +1672,13 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
+    public virtual bool ExecuteOperateWhileStart()
+    {
+        this.BlockLabelLine(this.BlockIndex);
+
+        return true;
+    }
+
     public virtual bool ExecuteOperateGet()
     {
         long kk;
