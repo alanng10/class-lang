@@ -61,11 +61,11 @@ public class ClassCompGen : Any
         return true;
     }
 
-    public virtual bool ExecuteSetClass(ClassComp classComp, ClassClass c)
+    public virtual bool ExecuteSetClass(ClassComp classComp, ClassClass varClass)
     {
-        this.ExecuteSetClassField(classComp.Field, c);
+        this.ExecuteSetClassField(classComp.Field, varClass);
 
-        this.ExecuteSetClassMaide(classComp.Maide, c);
+        this.ExecuteSetClassMaide(classComp.Maide, varClass);
         return true;
     }
 
