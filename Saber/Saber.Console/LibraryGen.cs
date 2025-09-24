@@ -22,8 +22,6 @@ public class LibraryGen : TextAdd
 
         this.ImportArgGen = this.CreateImportArgGen();
 
-        this.ProjectGen = this.CreateProjectGen();
-
         this.ModuleRefStringGen = this.CreateModuleRefStringGen();
 
         this.ModuleRef = this.CreateModuleRef();
@@ -90,14 +88,6 @@ public class LibraryGen : TextAdd
         return a;
     }
 
-    protected virtual ProjectGen CreateProjectGen()
-    {
-        ProjectGen a;
-        a = new ProjectGen();
-        a.Init();
-        return a;
-    }
-
     protected virtual ModuleRefStringGen CreateModuleRefStringGen()
     {
         ModuleRefStringGen a;
@@ -127,7 +117,6 @@ public class LibraryGen : TextAdd
     protected virtual ClassGen ClassGen { get; set; }
     protected virtual StringTravel StringTravel { get; set; }
     protected virtual ImportArgGen ImportArgGen { get; set; }
-    protected virtual ProjectGen ProjectGen { get; set; }
     protected virtual ModuleRefStringGen ModuleRefStringGen { get; set; }
     protected virtual Array InitArray { get; set; }
     protected virtual Array BaseArray { get; set; }
@@ -513,50 +502,6 @@ public class LibraryGen : TextAdd
 
         if (!b)
         {
-            return false;
-        }
-
-        return true;
-    }
-
-    protected virtual bool ExecuteGenProject()
-    {
-        Array moduleRefStringArray;
-        moduleRefStringArray = this.ModuleRefStringArray();
-
-        this.ProjectGen.Gen = this.ClassGen;
-        this.ProjectGen.ModuleRefString = moduleRefStringArray;
-
-        this.ProjectGen.Execute();
-
-        String import;
-        import = this.ProjectGen.Result;
-
-        this.ProjectGen.Result = null;
-        this.ProjectGen.ModuleRefString = null;
-        this.ProjectGen.Gen = null;
-
-        Text k;
-        k = this.TextCreate(this.ModuleProjectText);
-        k = this.TextPlace(k, this.TA(this.S("#Name#")), this.TB(this.ModuleRefString));
-        k = this.TextPlace(k, this.TA(this.S("#Import#")), this.TB(import));
-        k = this.TextPlace(k, this.TA(this.S("#ClassPath#")), this.TB(this.ClassPath));
-
-        String ka;
-        ka = this.StringCreate(k);
-
-        String fileName;
-        fileName = this.AddClear().Add(this.SModule).Add(this.ClassInfra.TextDot).Add(this.SPro).AddResult();
-
-        String filePath;
-        filePath = this.AddClear().Add(this.GenModuleFoldPath).Add(this.TextInfra.PathCombine).Add(fileName).AddResult();
-
-        bool b;
-        b = this.StorageInfra.TextWrite(filePath, ka);
-
-        if (!b)
-        {
-            this.Status = 50;
             return false;
         }
 
