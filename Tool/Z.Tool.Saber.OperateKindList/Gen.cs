@@ -7,8 +7,8 @@ public class Gen : Any
         ListGen gen;
         gen = new ListGen();
         gen.Init();
-        long o;
-        o = gen.Execute();
+        long k;
+        k = gen.Execute();
         return 0;
     }
 }
