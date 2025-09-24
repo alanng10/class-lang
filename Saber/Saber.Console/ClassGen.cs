@@ -1637,6 +1637,28 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
+    public virtual bool ExecuteOperateInfStart()
+    {
+        String varA;
+        varA = this.VarA;
+
+        this.EvalValueGet(1, varA);
+
+        this.EvalIndexPosSet(-1);
+
+        this.VarMaskClear(varA, this.RefKindClearMask);
+
+        this.InfStart(varA);
+
+        this.BlockStart();
+
+        this.BlockEvalIndexStart(this.BlockIndex);
+
+        this.BlockIndex = this.BlockIndex + 1;
+
+        return true;
+    }
+
     public virtual bool ExecuteOperateGet()
     {
         long kk;
