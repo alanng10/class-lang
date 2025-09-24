@@ -3180,6 +3180,123 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
+    maide prusate Bool BlockStart()
+    {
+        this.TextIndent();
+
+        this.Text(this.LimitBraceCurveLite);
+
+        this.Text(this.NewLine);
+
+        this.IndentCount : this.IndentCount + 1;
+        return true;
+    }
+
+    maide prusate Bool BlockEnd()
+    {
+        this.IndentCount : this.IndentCount - 1;
+
+        this.TextIndent();
+
+        this.Text(this.LimitBraceCurveRite);
+
+        this.Text(this.NewLine);
+        return true;
+    }
+
+    maide prusate Bool BlockLabel(var Int blockIndex)
+    {
+        this.Text(this.WordBlock);
+
+        this.Text(this.NameCombine);
+
+        this.ClassIndex(this.Class.Index);
+
+        this.Text(this.NameCombine);
+
+        this.Operate.ExecuteTextIntHex(blockIndex);
+        return true;
+    }
+
+    maide prusate Bool BlockVar(var Int blockIndex)
+    {
+        this.BlockLabel(blockIndex);
+
+        this.Text(this.NameCombine);
+
+        this.Text(this.WordIndex);
+        return true;
+    }
+
+    maide prusate Bool BlockLabelLine(var Int blockIndex)
+    {
+        this.TextIndent();
+
+        this.BlockLabel(blockIndex);
+
+        this.Text(this.LimitColon);
+
+        this.Text(this.NewLine);
+        return true;
+    }
+
+    maide prusate Bool BlockLabelGone(var Int blockIndex)
+    {
+        this.TextIndent();
+
+        this.Text(this.IndexGoto);
+
+        this.Text(this.Space);
+
+        this.BlockLabel(blockIndex);
+
+        this.Text(this.LimitSemicolon);
+
+        this.Text(this.NewLine);
+        return true;
+    }
+
+    maide prusate Bool BlockEvalIndexStart(var Int blockIndex)
+    {
+        this.TextIndent();
+        this.Text(this.ClassInt);
+        this.Text(this.Space);
+        this.BlockVar(blockIndex);
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
+
+        this.TextIndent();
+
+        this.BlockVar(blockIndex);
+
+        this.Text(this.Space);
+        this.Text(this.LimitAre);
+        this.Text(this.Space);
+
+        this.EvalIndex();
+
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
+        return true;
+    }
+
+    maide prusate Bool BlockEvalIndexEnd(var Int blockIndex)
+    {
+        this.TextIndent();
+
+        this.EvalIndex();
+
+        this.Text(this.Space);
+        this.Text(this.LimitAre);
+        this.Text(this.Space);
+
+        this.BlockVar(blockIndex);
+
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
+        return true;
+    }
+
     public virtual bool Return()
     {
         this.TextIndent();
