@@ -3192,7 +3192,7 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
-    maide prusate Bool BlockEnd()
+    public virtual bool BlockEnd()
     {
         this.IndentCount = this.IndentCount - 1;
 
@@ -3204,7 +3204,7 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
-    maide prusate Bool BlockLabel(var Int blockIndex)
+    public virtual bool BlockLabel(long blockIndex)
     {
         this.Text(this.WordBlock);
 
