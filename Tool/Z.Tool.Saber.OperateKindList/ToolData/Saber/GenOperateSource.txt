@@ -1,0 +1,8 @@
+public class #Name#GenOperateState : GenOperateState
+{
+    public override bool Execute()
+    {
+        this.Gen.ExecuteOperate#Name#();
+        return true;
+    }
+}
