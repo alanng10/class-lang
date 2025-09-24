@@ -93,6 +93,7 @@ public partial class ClassGen : TextAdd
         this.VarMWord = this.S("m");
         this.VarNWord = this.S("n");
         this.BlockWord = this.S("Block");
+        this.IndexWord = this.S("Index");
         this.CastInt = this.S("CastInt");
         this.WhileLabelPre = this.S("W_");
         this.DirectiveInclude = this.S("#include");
@@ -285,6 +286,7 @@ public partial class ClassGen : TextAdd
     public virtual String VarMWord { get; set; }
     public virtual String VarNWord { get; set; }
     public virtual String BlockWord { get; set; }
+    public virtual String IndexWord { get; set; }
     public virtual String CastInt { get; set; }
     public virtual String WhileLabelPre { get; set; }
     public virtual String DirectiveInclude { get; set; }
@@ -3220,13 +3222,13 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
-    maide prusate Bool BlockVar(var Int blockIndex)
+    public virtual bool BlockVar(long blockIndex)
     {
         this.BlockLabel(blockIndex);
 
         this.Text(this.NameCombine);
 
-        this.Text(this.WordIndex);
+        this.Text(this.IndexWord);
         return true;
     }
 
