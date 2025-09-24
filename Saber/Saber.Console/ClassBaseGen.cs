@@ -23,19 +23,19 @@ public class ClassBaseGen : Any
 
         this.Result = array;
 
-        ClassClass c;
-        c = this.Class;
+        ClassClass varClass;
+        varClass = this.Class;
 
         long i;
         i = 0;
         while (i < count)
         {
             long index;
-            index = count - 1 - i;
+            index = (count - 1) - i;
 
-            array.SetAt(index, c);
+            array.SetAt(index, varClass);
 
-            c = c.Base;
+            varClass = varClass.Base;
 
             i = i + 1;
         }
