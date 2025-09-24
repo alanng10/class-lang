@@ -17,6 +17,12 @@ public class Gen : Any
         stateGen.Init();
         stateGen.ItemTable = itemTable;
         stateGen.Execute();
+
+        InitGen initGen;
+        initGen = new InitGen();
+        initGen.Init();
+        initGen.ItemTable = itemTable;
+        initGen.Execute();
         return 0;
     }
 }
