@@ -126,13 +126,6 @@ public class LibraryGen : TextAdd
 
     public virtual bool Load()
     {
-        // this.ModuleProjectText = this.StorageInfra.TextRead(this.S("Saber.Console.data/ModuleProject.txt"));
-
-        // if (this.ModuleProjectText == null)
-        // {
-        //     return false;
-        // }
-
         this.ModuleExeText = this.StorageInfra.TextRead(this.S("Saber.Console.data/ModuleExe.txt"));
 
         if (this.ModuleExeText == null)
