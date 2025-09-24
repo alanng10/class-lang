@@ -1492,6 +1492,27 @@ public partial class ClassGen : TextAdd
         stateCount = this.StateInt();
 
         Iter iter;
+        iter = this.ClassIter;
+
+        this.Module.Class.IterSet(iter);
+
+        while (iter.Next())
+        {
+            ClassClass k;
+            k = iter.Value as ClassClass;
+
+            this.Class = k;
+
+            this.ExecuteStateClass();
+        }
+
+        iter.Clear();
+        return true;
+    }
+
+    public virtual bool ExecuteStateClass()
+    {
+        Iter iter;
         iter = this.TableIter;
 
         this.Class.Field.IterSet(iter);
