@@ -976,8 +976,6 @@ public partial class ClassGen : TextAdd
 
     public virtual bool ExecuteReferClass()
     {
-        this.StringValueIndex = 0;
-
         this.WhileIndex = 0;
 
         this.ExecuteCompList(this.Comp.Field, this.StateGet);
