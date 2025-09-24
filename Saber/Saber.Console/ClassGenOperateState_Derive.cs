@@ -8,6 +8,7 @@ public class EndClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class RetClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -16,6 +17,7 @@ public class RetClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class ReferClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -24,6 +26,7 @@ public class ReferClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class InfStartClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -32,6 +35,7 @@ public class InfStartClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class InfEndClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -40,6 +44,7 @@ public class InfEndClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class WhileStartClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -48,6 +53,7 @@ public class WhileStartClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class WhileClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -56,6 +62,7 @@ public class WhileClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class WhileEndClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -64,6 +71,7 @@ public class WhileEndClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class AreClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -72,6 +80,7 @@ public class AreClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class VarMarkClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -80,6 +89,7 @@ public class VarMarkClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class SetMarkClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -88,6 +98,7 @@ public class SetMarkClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class ItemGetClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -96,6 +107,7 @@ public class ItemGetClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class CallClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -104,6 +116,7 @@ public class CallClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class VarClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -112,6 +125,7 @@ public class VarClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class BoolValueClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -120,6 +134,7 @@ public class BoolValueClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class IntValueClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -128,6 +143,7 @@ public class IntValueClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class StringValueClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -136,6 +152,7 @@ public class StringValueClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class ItemThisClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -144,6 +161,7 @@ public class ItemThisClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class BaseClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -152,6 +170,7 @@ public class BaseClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class NullClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -160,6 +179,7 @@ public class NullClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class NewClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -168,6 +188,7 @@ public class NewClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class ShareClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -176,6 +197,7 @@ public class ShareClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class CastClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -184,6 +206,7 @@ public class CastClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class SameClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -192,6 +215,7 @@ public class SameClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class AndClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -200,6 +224,7 @@ public class AndClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class OrnClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -208,6 +233,7 @@ public class OrnClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class NotClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -216,6 +242,7 @@ public class NotClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class LessClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -224,6 +251,7 @@ public class LessClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class AddClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -232,6 +260,7 @@ public class AddClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class SubClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -240,6 +269,7 @@ public class SubClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class MulClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -248,6 +278,7 @@ public class MulClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class DivClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -256,6 +287,7 @@ public class DivClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class SignLessClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -264,6 +296,7 @@ public class SignLessClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class SignMulClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -272,6 +305,7 @@ public class SignMulClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class SignDivClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -280,6 +314,7 @@ public class SignDivClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class BitAndClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -288,6 +323,7 @@ public class BitAndClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class BitOrnClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -296,6 +332,7 @@ public class BitOrnClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class BitNotClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -304,6 +341,7 @@ public class BitNotClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class BitLiteClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -312,6 +350,7 @@ public class BitLiteClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class BitRiteClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -320,6 +359,7 @@ public class BitRiteClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
 public class BitSignRiteClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
@@ -328,3 +368,4 @@ public class BitSignRiteClassGenOperateState : ClassGenOperateState
         return true;
     }
 }
+
