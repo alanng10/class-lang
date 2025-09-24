@@ -1746,6 +1746,12 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
+    public override bool ExecuteOperateVar()
+    {
+        this.ExecuteVarGet(varVar);
+        return true;
+    }
+
     public virtual bool ExecuteOperateThis()
     {
         String varA;
@@ -2248,7 +2254,7 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
-    public virtual bool ExecuteVarGet(Var varVar)
+    public virtual bool ExecuteVarGet(long varIndex)
     {
         String varA;
         varA = this.VarA;
@@ -2260,7 +2266,7 @@ public partial class ClassGen : TextAdd
         k = this.ParamCount;
 
         long kk;
-        kk = varVar.Index;
+        kk = varIndex;
 
         if (stateKind == this.StateKindGet)
         {
