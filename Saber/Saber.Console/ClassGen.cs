@@ -3325,6 +3325,24 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
+    public virtual bool InfStart(String cond)
+    {
+        this.TextIndent();
+
+        this.Text(this.IndexInf);
+        this.Text(this.Space);
+
+        this.Text(this.LimitBraceRoundLite);
+
+        this.Text(cond);
+
+        this.Text(this.LimitBraceRoundRite);
+
+        this.Text(this.NewLine);
+
+        return true;
+    }
+
     public virtual bool Return()
     {
         this.TextIndent();
