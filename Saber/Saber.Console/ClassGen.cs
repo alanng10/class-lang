@@ -1701,6 +1701,19 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
+    public virtual bool ExecuteOperateWhileEnd()
+    {
+        this.BlockIndex = this.BlockIndex - 1;
+
+        this.BlockEvalIndexEnd(this.BlockIndex);
+
+        this.BlockLabelGone(this.BlockIndex);
+
+        this.BlockEnd();
+
+        return true;
+    }
+
     public virtual bool ExecuteOperateGet()
     {
         long kk;
