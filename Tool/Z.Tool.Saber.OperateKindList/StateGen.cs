@@ -23,6 +23,35 @@ public class StateGen : ToolBase
         this.TextStateSource = this.StorageTextRead(this.PathStateSource);
         this.TextStateItemSource = this.StorageTextRead(this.PathStateItemSource);
 
+        this.AddClear();
+
+        Iter iter;
+        iter = this.ItemTable.IterCreate();
+        this.ItemTable.IterSet(iter);
+
+        while (iter.Next())
+        {
+            String name;
+            name = iter.Index as String;
+
+            String ka;
+            ka = this.ExecuteItem(name);
+
+            this.Add(ka);
+        }
+
+        String kk;
+        kk = this.AddResult();
+
+        Text k;
+        k = this.TextCreate(this.TextStateSource);
+
+        k = this.Place(k, "#Class#", kk);
+
+        String a;
+        a = this.StringCreate(k);
+
+        this.StorageTextWrite(this.PathEffect, a);
         return 0;
     }
 
