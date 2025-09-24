@@ -19,27 +19,24 @@ public class ModuleRefStringGen : TextAdd
         gen.ResetStage();
         this.ExecuteStage();
 
-        long nn;
-        nn = gen.Arg.Index;
-        nn = nn * sizeof(uint);
-        Data data;
-        data = new Data();
-        data.Count = nn;
-        data.Init();
-        gen.Arg.Data = data;
+        long count;
+        count = gen.Arg.Index;
+        count = count * sizeof(int);
+        gen.Arg.Data = new Data();
+        gen.Arg.Data.Count = count;
+        gen.Arg.Data.Init();
 
         gen.Operate = gen.SetOperate;
 
         gen.ResetStage();
         this.ExecuteStage();
 
+        String k;
+        k = this.StringComp.CreateData(gen.Arg.Data, null);
+        this.Result = k;
+
         gen.Operate = null;
         gen.Arg = null;
-
-        String o;
-        o = this.StringComp.CreateData(data, null);
-
-        this.Result = o;
         return true;
     }
 
