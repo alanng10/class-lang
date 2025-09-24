@@ -1,6 +1,6 @@
 namespace Z.Tool.Saber.OperateKindList;
 
-public class Gen : SourceGen
+public class ListGen : SourceGen
 {
     public override bool Init()
     {
