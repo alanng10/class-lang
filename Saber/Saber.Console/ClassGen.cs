@@ -197,7 +197,6 @@ public partial class ClassGen : TextAdd
     public virtual ClassGenOperate Operate { get; set; }
     public virtual ClassGenCountOperate CountOperate { get; set; }
     public virtual ClassGenSetOperate SetOperate { get; set; }
-    public virtual long StringValueIndex { get; set; }
     public virtual Field ThisField { get; set; }
     public virtual Iter ClassIter { get; set; }
     public virtual Iter TableIter { get; set; }
@@ -205,11 +204,12 @@ public partial class ClassGen : TextAdd
     public virtual long ParamCount { get; set; }
     public virtual long LocalVarCount { get; set; }
     public virtual long IndentCount { get; set; }
-    public virtual long WhileIndex { get; set; }
     public virtual long StateKindGet { get; set; }
     public virtual long StateKindSet { get; set; }
     public virtual long StateKindCall { get; set; }
     public virtual long StateDataIndex { get; set; }
+    public virtual long StringValueIndex { get; set; }
+    public virtual long BlockIndex { get; set; }
     public virtual String Space { get; set; }
     public virtual String NewLine { get; set; }
     public virtual String Zero { get; set; }
