@@ -7,9 +7,9 @@ class Entry : EntryEntry
         Gen gen;
         gen = new Gen();
         gen.Init();
-        long o;
-        o = gen.Execute();
-        return o;
+        long k;
+        k = gen.Execute();
+        return k;
     }
 
     [STAThread]
@@ -19,8 +19,8 @@ class Entry : EntryEntry
         a = new Entry();
         a.Init();
         a.ArgSet(arg);
-        int o;
-        o = a.Execute();
-        return o;
+        int k;
+        k = a.Execute();
+        return k;
     }
 }
