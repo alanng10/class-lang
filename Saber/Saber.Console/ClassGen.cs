@@ -399,7 +399,7 @@ public partial class ClassGen : TextAdd
             this.Comp = this.CompArray.GetAt(i) as ClassComp;
             this.String = this.StringArray.GetAt(i) as Array;
 
-            this.ExecuteClass();
+            this.ExecuteReferClass();
 
             this.String = null;
             this.Comp = null;
@@ -974,7 +974,7 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
-    public virtual bool ExecuteClass()
+    public virtual bool ExecuteReferClass()
     {
         this.StringValueIndex = 0;
 
