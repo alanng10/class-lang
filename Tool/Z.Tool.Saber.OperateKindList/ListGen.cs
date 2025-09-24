@@ -87,4 +87,19 @@ public class ListGen : SourceGen
             .AddS(")");
         return true;
     }
+
+    protected override bool AddInitField(String index, object value)
+    {
+        Value ka;
+        ka = value as Value;
+
+        this.AddIndent(2);
+
+        this.AddS("this").AddS(".").Add(ka.FieldName).AddS(" ").AddS("=").AddS(" ").AddS("this").AddS(".");
+
+        this.AddInitFieldAddItem(index, value);
+
+        this.AddS(";").AddLine();
+        return true;
+    }
 }
