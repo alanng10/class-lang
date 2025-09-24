@@ -92,6 +92,7 @@ public partial class ClassGen : TextAdd
         this.VarKWord = this.S("k");
         this.VarMWord = this.S("m");
         this.VarNWord = this.S("n");
+        this.BlockWord = this.S("Block");
         this.CastInt = this.S("CastInt");
         this.WhileLabelPre = this.S("W_");
         this.DirectiveInclude = this.S("#include");
@@ -283,6 +284,7 @@ public partial class ClassGen : TextAdd
     public virtual String VarKWord { get; set; }
     public virtual String VarMWord { get; set; }
     public virtual String VarNWord { get; set; }
+    public virtual String BlockWord { get; set; }
     public virtual String CastInt { get; set; }
     public virtual String WhileLabelPre { get; set; }
     public virtual String DirectiveInclude { get; set; }
@@ -3206,7 +3208,7 @@ public partial class ClassGen : TextAdd
 
     public virtual bool BlockLabel(long blockIndex)
     {
-        this.Text(this.WordBlock);
+        this.Text(this.BlockWord);
 
         this.Text(this.NameCombine);
 
