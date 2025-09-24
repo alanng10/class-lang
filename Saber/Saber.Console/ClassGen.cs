@@ -1516,6 +1516,8 @@ public partial class ClassGen : TextAdd
     {
         this.StringValueIndex = 0;
 
+        this.BlockIndex = 0;
+
         Iter iter;
         iter = this.TableIter;
 
