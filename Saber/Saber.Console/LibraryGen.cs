@@ -20,8 +20,6 @@ public class LibraryGen : TextAdd
 
         this.StringTravel = this.CreateStringTravel();
 
-        this.ImportArgGen = this.CreateImportArgGen();
-
         this.ModuleRefStringGen = this.CreateModuleRefStringGen();
 
         this.ModuleRef = this.CreateModuleRef();
@@ -80,14 +78,6 @@ public class LibraryGen : TextAdd
         return a;
     }
 
-    protected virtual ImportArgGen CreateImportArgGen()
-    {
-        ImportArgGen a;
-        a = new ImportArgGen();
-        a.Init();
-        return a;
-    }
-
     protected virtual ModuleRefStringGen CreateModuleRefStringGen()
     {
         ModuleRefStringGen a;
@@ -116,7 +106,6 @@ public class LibraryGen : TextAdd
     protected virtual ClassCompGen ClassCompGen { get; set; }
     protected virtual ClassGen ClassGen { get; set; }
     protected virtual StringTravel StringTravel { get; set; }
-    protected virtual ImportArgGen ImportArgGen { get; set; }
     protected virtual ModuleRefStringGen ModuleRefStringGen { get; set; }
     protected virtual Array InitArray { get; set; }
     protected virtual Array BaseArray { get; set; }
@@ -467,40 +456,6 @@ public class LibraryGen : TextAdd
         bab = this.StorageInfra.TextWrite(filePath, k);
 
         if (!bab)
-        {
-            return false;
-        }
-
-        return true;
-    }
-
-    protected virtual bool ExecuteImportArg()
-    {
-        Array moduleRefStringArray;
-        moduleRefStringArray = this.ModuleRefStringArray();
-
-        this.ImportArgGen.Gen = this.ClassGen;
-        this.ImportArgGen.ModuleRefString = moduleRefStringArray;
-
-        this.ImportArgGen.Execute();
-
-        String import;
-        import = this.ImportArgGen.Result;
-
-        this.ImportArgGen.Result = null;
-        this.ImportArgGen.ModuleRefString = null;
-        this.ImportArgGen.Gen = null;
-
-        String fileName;
-        fileName = this.AddClear().Add(this.SImport).Add(this.ClassInfra.TextDot).Add(this.STxt).AddResult();
-
-        String filePath;
-        filePath = this.AddClear().Add(this.GenModuleFoldPath).Add(this.TextInfra.PathCombine).Add(fileName).AddResult();
-
-        bool b;
-        b = this.StorageInfra.TextWrite(filePath, import);
-
-        if (!b)
         {
             return false;
         }
