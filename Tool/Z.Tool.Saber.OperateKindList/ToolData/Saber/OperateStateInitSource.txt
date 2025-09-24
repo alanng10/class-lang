@@ -1,0 +1,10 @@
+namespace Saber.Console;
+
+partial class ClassGen
+{
+    public virtual bool InitOperateKindState()
+    {
+#Init#
+        return true;
+    }
+}
