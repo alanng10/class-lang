@@ -18,6 +18,18 @@ public class ListGen : SourceGen
         return true;
     }
 
+    public virtual Table Result { get; set; }
+
+    public override long Execute()
+    {
+        long k;
+        k = base.Execute();
+
+        this.Result = this.ItemTable;
+
+        return k;
+    }
+
     protected override ListEntry GetItemEntry(String line)
     {
         Text kka;
