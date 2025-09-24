@@ -369,6 +369,8 @@ public partial class ClassGen : TextAdd
     {
         this.ExecuteModule();
 
+        this.StateInt();
+
         long count;
         count = this.Module.Class.Count;
 
