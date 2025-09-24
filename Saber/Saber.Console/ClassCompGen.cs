@@ -6,9 +6,17 @@ public class ClassCompGen : Any
     {
         base.Init();
         this.ListInfra = ListInfra.This;
-        this.TableIter = new TableIter();
-        this.TableIter.Init();
+
+        this.TableIter = this.CreateTableIter();
         return true;
+    }
+
+    protected virtual TableIter CreateTableIter()
+    {
+        TableIter a;
+        a = new TableIter();
+        a.Init();
+        return a;
     }
 
     public virtual ClassClass Class { get; set; }
