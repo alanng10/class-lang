@@ -1486,10 +1486,13 @@ public class ClassGen : TextAdd
         long kindIndex;
         kindIndex = this.OperateKind();
 
-        OperateKind kind;
+        BinaryOperateKind kind;
         kind = this.OperateKindList.Get(kindIndex);
 
-        kind.Operate.Execute();
+        ClassGenOperateState state;
+        state = kind.Any as ClassGenOperateState;
+
+        state.Execute();
         return true;
     }
 
