@@ -49,11 +49,14 @@ public class ListGen : SourceGen
         String index;
         index = this.StringCreate(ka);
 
+        String fieldName;
+        fieldName = index;
+
         if (this.TextSame(this.TA(index), this.TB(this.S("This"))) |
             this.TextSame(this.TA(index), this.TB(this.S("Get")))
         )
         {
-            index = this.AddClear().AddS("Item").Add(index).AddResult();
+            fieldName = this.AddClear().AddS("Item").Add(index).AddResult();
         }
 
         long arg;
@@ -62,7 +65,8 @@ public class ListGen : SourceGen
         Value value;
         value = new Value();
         value.Init();
-        value.Int = arg;
+        value.Arg = arg;
+        value.FieldName = fieldName;
 
         ListEntry entry;
         entry = new ListEntry();
@@ -79,7 +83,7 @@ public class ListGen : SourceGen
 
         this.AddS("AddItem")
             .AddS("(")
-            .AddInt(a.Int)
+            .AddInt(a.Arg)
             .AddS(")");
         return true;
     }
