@@ -1746,9 +1746,12 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
-    public override bool ExecuteOperateVar()
+    public virtual bool ExecuteOperateVar()
     {
-        this.ExecuteVarGet(varVar);
+        long varIndex;
+        varIndex = this.OperateArgInt();
+
+        this.ExecuteVarGet(varIndex);
         return true;
     }
 
