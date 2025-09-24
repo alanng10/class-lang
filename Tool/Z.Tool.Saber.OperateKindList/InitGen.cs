@@ -8,9 +8,6 @@ public class InitGen : ToolBase
         this.PathEffect = this.S("../../Saber/Saber.Console/ClassGen_Part.cs");
         this.PathStateSource = this.S("ToolData/Saber/OperateStateInitSource.txt");
         this.PathStateItemSource = this.S("ToolData/Saber/OperateStateInitItemSource.txt");
-
-        this.SThis = this.S("This");
-        this.SGet = this.S("Get");
         return true;
     }
 
@@ -20,8 +17,6 @@ public class InitGen : ToolBase
     protected virtual String PathStateItemSource { get; set; }
     protected virtual String TextStateSource { get; set; }
     protected virtual String TextStateItemSource { get; set; }
-    protected virtual String SThis { get; set; }
-    protected virtual String SGet { get; set; }
 
     public virtual long Execute()
     {
@@ -39,8 +34,11 @@ public class InitGen : ToolBase
             String name;
             name = iter.Index as String;
 
+            Value value;
+            value = iter.Value as Value;
+
             String ka;
-            ka = this.ExecuteItem(name);
+            ka = this.ExecuteItem(name, value);
 
             this.Add(ka);
         }
@@ -60,10 +58,10 @@ public class InitGen : ToolBase
         return 0;
     }
 
-    protected virtual String ExecuteItem(String name)
+    protected virtual String ExecuteItem(String name, Value value)
     {
         String fieldName;
-        fieldName = this.FieldName(name);
+        fieldName = value.FieldName;
 
         Text k;
         k = this.TextCreate(this.TextStateItemSource);
@@ -74,28 +72,5 @@ public class InitGen : ToolBase
         String a;
         a = this.StringCreate(k);
         return a;
-    }
-
-    protected virtual String FieldName(String name)
-    {
-        String k;
-        k = name;
-
-        if (this.TextSame(this.TA(name), this.TB(this.SThis)) |
-            this.TextSame(this.TA(name), this.TB(this.SGet))
-        )
-        {
-            StringAdd ke;
-            ke = this.StringAdd;
-
-            this.StringAdd = new StringAdd();
-            this.StringAdd.Init();
-
-            k = this.AddClear().AddS("Item").Add(name).AddResult();
-
-            this.StringAdd = ke;
-        }
-
-        return k;
     }
 }
