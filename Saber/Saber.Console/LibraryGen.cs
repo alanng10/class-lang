@@ -111,7 +111,6 @@ public class LibraryGen : TextAdd
     protected virtual String ModuleProjectText { get; set; }
     protected virtual String ModuleExeText { get; set; }
     protected virtual String GenModuleFoldPath { get; set; }
-    protected virtual String ImportArg { get; set; }
     protected virtual ModuleRef ModuleRef { get; set; }
     protected virtual String ModuleExeString { get; set; }
     protected virtual String SSystemDotInfra { get; set; }
@@ -146,7 +145,6 @@ public class LibraryGen : TextAdd
         this.CompArray = null;
         this.ModuleExeString = null;
         this.GenModuleFoldPath = null;
-        this.ImportArg = null;
         this.ModuleRef.Name = null;
 
         return b;
