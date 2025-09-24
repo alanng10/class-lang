@@ -3260,7 +3260,7 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
-    maide prusate Bool BlockEvalIndexStart(var Int blockIndex)
+    public virtual bool BlockEvalIndexStart(long blockIndex)
     {
         this.TextIndent();
         this.Text(this.ClassInt);
@@ -3284,7 +3284,7 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
-    maide prusate Bool BlockEvalIndexEnd(var Int blockIndex)
+    public virtual bool BlockEvalIndexEnd(long blockIndex)
     {
         this.TextIndent();
 
