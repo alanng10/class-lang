@@ -1512,6 +1512,10 @@ public partial class ClassGen : TextAdd
 
     public virtual bool ExecuteStateClass()
     {
+        this.StringValueIndex = 0;
+
+        this.WhileIndex = 0;
+
         Iter iter;
         iter = this.TableIter;
 
