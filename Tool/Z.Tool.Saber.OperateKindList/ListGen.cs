@@ -18,14 +18,14 @@ public class ListGen : SourceGen
         return true;
     }
 
-    public virtual Table Result { get; set; }
+    public virtual Table TableResult { get; set; }
 
     public override long Execute()
     {
         long k;
         k = base.Execute();
 
-        this.Result = this.ItemTable;
+        this.TableResult = this.ItemTable;
 
         return k;
     }
