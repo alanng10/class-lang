@@ -28,8 +28,6 @@ public class LibraryGen : TextAdd
         this.SIntern = this.S("Intern");
         this.SExtern = this.S("Extern");
         this.SC = this.S("c");
-        this.SH = this.S("h");
-        this.SPro = this.S("pro");
         this.STxt = this.S("txt");
         this.SModule = this.S("Module");
         this.SImport = this.S("Import");
@@ -120,8 +118,6 @@ public class LibraryGen : TextAdd
     protected virtual String SIntern { get; set; }
     protected virtual String SExtern { get; set; }
     protected virtual String SC { get; set; }
-    protected virtual String SH { get; set; }
-    protected virtual String SPro { get; set; }
     protected virtual String STxt { get; set; }
     protected virtual String SModule { get; set; }
     protected virtual String SImport { get; set; }
