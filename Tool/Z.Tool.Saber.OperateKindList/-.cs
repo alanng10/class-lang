@@ -1,3 +1,4 @@
+global using Any = Avalon.Infra.Any;
 global using String = Avalon.Infra.String;
 global using Value = Avalon.Infra.Value;
 global using Array = Avalon.List.Array;
