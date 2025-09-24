@@ -69,12 +69,12 @@ public class ClassCompGen : Any
         return true;
     }
 
-    public virtual bool ExecuteSetClassField(Array array, ClassClass c)
+    public virtual bool ExecuteSetClassField(Array array, ClassClass varClass)
     {
         Iter iter;
         iter = this.TableIter;
 
-        c.Field.IterSet(iter);
+        varClass.Field.IterSet(iter);
 
         while (iter.Next())
         {
@@ -104,12 +104,12 @@ public class ClassCompGen : Any
         return true;
     }
 
-    public virtual bool ExecuteSetClassMaide(Array array, ClassClass c)
+    public virtual bool ExecuteSetClassMaide(Array array, ClassClass varClass)
     {
         Iter iter;
         iter = this.TableIter;
 
-        c.Maide.IterSet(iter);
+        varClass.Maide.IterSet(iter);
 
         while (iter.Next())
         {
