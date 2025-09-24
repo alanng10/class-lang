@@ -980,19 +980,6 @@ public partial class ClassGen : TextAdd
 
         this.WhileIndex = 0;
 
-        this.ExecuteClassRefer();
-
-        if (this.Class == this.InternClass | this.Class == this.ExternClass)
-        {
-            return true;
-        }
-
-        this.ExecuteString();
-        return true;
-    }
-
-    public virtual bool ExecuteClassRefer()
-    {
         this.ExecuteCompList(this.Comp.Field, this.StateGet);
         this.Text(this.NewLine);
         this.ExecuteCompList(this.Comp.Field, this.StateSet);
@@ -1007,6 +994,13 @@ public partial class ClassGen : TextAdd
         this.Text(this.NewLine);
 
         this.ExecuteClassInit();
+
+        if (this.Class == this.InternClass | this.Class == this.ExternClass)
+        {
+            return true;
+        }
+
+        this.ExecuteString();
         return true;
     }
 
