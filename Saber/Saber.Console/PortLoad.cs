@@ -9,7 +9,6 @@ public class PortLoad : TextAdd
         this.StorageInfra = StorageInfra.This;
         this.ClassInfra = ClassInfra.This;
         this.StorageComp = StorageComp.This;
-
         this.ErrorKind = ErrorKindList.This;
 
         this.StoragePathValid = new StoragePathValid();
