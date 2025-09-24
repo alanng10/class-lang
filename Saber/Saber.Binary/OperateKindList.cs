@@ -24,31 +24,28 @@ public class OperateKindList : Any
         this.End = this.AddItem(0);
         this.Ret = this.AddItem(0);
         this.Refer = this.AddItem(1);
+        this.Are = this.AddItem(1);
         this.InfStart = this.AddItem(0);
         this.InfEnd = this.AddItem(0);
         this.WhileStart = this.AddItem(0);
         this.While = this.AddItem(0);
         this.WhileEnd = this.AddItem(0);
-        this.Are = this.AddItem(1);
-        this.VarMark = this.AddItem(1);
-        this.SetMark = this.AddItem(1);
         this.ItemGet = this.AddItem(1);
+        this.SetMark = this.AddItem(1);
         this.Call = this.AddItem(2);
         this.Var = this.AddItem(1);
-        this.BoolValue = this.AddItem(1);
-        this.IntValue = this.AddItem(1);
-        this.StringValue = this.AddItem(1);
-        this.ItemThis = this.AddItem(0);
-        this.Base = this.AddItem(0);
-        this.Null = this.AddItem(0);
+        this.VarMark = this.AddItem(1);
         this.New = this.AddItem(1);
         this.Share = this.AddItem(1);
         this.Cast = this.AddItem(1);
+        this.ItemThis = this.AddItem(0);
+        this.Base = this.AddItem(0);
+        this.Null = this.AddItem(0);
         this.Same = this.AddItem(0);
+        this.Less = this.AddItem(0);
         this.And = this.AddItem(0);
         this.Orn = this.AddItem(0);
         this.Not = this.AddItem(0);
-        this.Less = this.AddItem(0);
         this.Add = this.AddItem(0);
         this.Sub = this.AddItem(0);
         this.Mul = this.AddItem(0);
@@ -62,37 +59,37 @@ public class OperateKindList : Any
         this.BitLite = this.AddItem(0);
         this.BitRite = this.AddItem(0);
         this.BitSignRite = this.AddItem(0);
+        this.BoolValue = this.AddItem(1);
+        this.IntValue = this.AddItem(1);
+        this.StringValue = this.AddItem(1);
         return true;
     }
 
     public virtual OperateKind End { get; set; }
     public virtual OperateKind Ret { get; set; }
     public virtual OperateKind Refer { get; set; }
+    public virtual OperateKind Are { get; set; }
     public virtual OperateKind InfStart { get; set; }
     public virtual OperateKind InfEnd { get; set; }
     public virtual OperateKind WhileStart { get; set; }
     public virtual OperateKind While { get; set; }
     public virtual OperateKind WhileEnd { get; set; }
-    public virtual OperateKind Are { get; set; }
-    public virtual OperateKind VarMark { get; set; }
-    public virtual OperateKind SetMark { get; set; }
     public virtual OperateKind ItemGet { get; set; }
+    public virtual OperateKind SetMark { get; set; }
     public virtual OperateKind Call { get; set; }
     public virtual OperateKind Var { get; set; }
-    public virtual OperateKind BoolValue { get; set; }
-    public virtual OperateKind IntValue { get; set; }
-    public virtual OperateKind StringValue { get; set; }
-    public virtual OperateKind ItemThis { get; set; }
-    public virtual OperateKind Base { get; set; }
-    public virtual OperateKind Null { get; set; }
+    public virtual OperateKind VarMark { get; set; }
     public virtual OperateKind New { get; set; }
     public virtual OperateKind Share { get; set; }
     public virtual OperateKind Cast { get; set; }
+    public virtual OperateKind ItemThis { get; set; }
+    public virtual OperateKind Base { get; set; }
+    public virtual OperateKind Null { get; set; }
     public virtual OperateKind Same { get; set; }
+    public virtual OperateKind Less { get; set; }
     public virtual OperateKind And { get; set; }
     public virtual OperateKind Orn { get; set; }
     public virtual OperateKind Not { get; set; }
-    public virtual OperateKind Less { get; set; }
     public virtual OperateKind Add { get; set; }
     public virtual OperateKind Sub { get; set; }
     public virtual OperateKind Mul { get; set; }
@@ -106,6 +103,9 @@ public class OperateKindList : Any
     public virtual OperateKind BitLite { get; set; }
     public virtual OperateKind BitRite { get; set; }
     public virtual OperateKind BitSignRite { get; set; }
+    public virtual OperateKind BoolValue { get; set; }
+    public virtual OperateKind IntValue { get; set; }
+    public virtual OperateKind StringValue { get; set; }
 
     protected virtual OperateKind AddItem(long arg)
     {
