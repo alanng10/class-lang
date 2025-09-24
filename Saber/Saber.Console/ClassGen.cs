@@ -1488,6 +1488,22 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
+    public virtual bool ExecuteOperateList()
+    {
+        long count;
+        count = this.StateInt();
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            this.ExecuteOperate();
+
+            i = i + 1;
+        }
+        return true;
+    }
+
     public virtual bool ExecuteOperate()
     {
         long kindIndex;
