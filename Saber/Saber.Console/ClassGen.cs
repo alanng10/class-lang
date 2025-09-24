@@ -1479,6 +1479,18 @@ public class ClassGen : TextAdd
         return true;
     }
 
+    public virtual bool ExecuteOperate()
+    {
+        long kindIndex;
+        kindIndex = this.OperateKind();
+
+        OperateKind kind;
+        kind = this.OperateKindList.Get(kindIndex);
+
+        kind.Operate.Execute();
+        return true;
+    }
+
     public virtual bool ExecuteOperateEnd()
     {
         this.EvalIndexPosSet(-1);
