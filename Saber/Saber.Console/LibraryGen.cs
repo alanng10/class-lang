@@ -30,7 +30,6 @@ public class LibraryGen : TextAdd
         this.SC = this.S("c");
         this.STxt = this.S("txt");
         this.SModule = this.S("Module");
-        this.SImport = this.S("Import");
         this.SExe = this.S("Exe");
         this.SMain = this.S("Main");
         return true;
@@ -119,7 +118,6 @@ public class LibraryGen : TextAdd
     protected virtual String SC { get; set; }
     protected virtual String STxt { get; set; }
     protected virtual String SModule { get; set; }
-    protected virtual String SImport { get; set; }
     protected virtual String SExe { get; set; }
     protected virtual String SMain { get; set; }
 
