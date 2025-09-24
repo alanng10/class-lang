@@ -170,6 +170,7 @@ public partial class ClassGen : TextAdd
 
     public virtual ClassGenOperateState InitOperateState(ClassGenOperateState state)
     {
+        state.Gen = this;
         state.Init();
         return state;
     }
