@@ -369,11 +369,14 @@ public partial class ClassGen : TextAdd
     {
         this.ExecuteModule();
 
-        this.StateDataIndex = 0;
+        this.ExecuteRefer();
 
-        long stateCount;
-        stateCount = this.StateInt();
+        this.ExecuteState();
+        return true;
+    }
 
+    public virtual bool ExecuteRefer()
+    {
         long count;
         count = this.Module.Class.Count;
 
@@ -977,18 +980,18 @@ public partial class ClassGen : TextAdd
 
         this.WhileIndex = 0;
 
-        this.ExecuteRefer();
+        this.ExecuteClassRefer();
 
         if (this.Class == this.InternClass | this.Class == this.ExternClass)
         {
             return true;
         }
 
-        this.ExecuteState();
+        this.ExecuteString();
         return true;
     }
 
-    public virtual bool ExecuteRefer()
+    public virtual bool ExecuteClassRefer()
     {
         this.ExecuteCompList(this.Comp.Field, this.StateGet);
         this.Text(this.NewLine);
@@ -1489,7 +1492,10 @@ public partial class ClassGen : TextAdd
 
     public virtual bool ExecuteState()
     {
-        this.ExecuteString();
+        this.StateDataIndex = 0;
+
+        long stateCount;
+        stateCount = this.StateInt();
 
         Iter iter;
         iter = this.TableIter;
