@@ -19,10 +19,10 @@ This 0
 Base 0
 Null 0
 Same 0
+Less 0
 And 0
 Orn 0
 Not 0
-Less 0
 Add 0
 Sub 0
 Mul 0
