@@ -102,4 +102,17 @@ public class ListGen : SourceGen
         this.AddS(";").AddLine();
         return true;
     }
+
+    protected override bool AddField(String index, object value)
+    {
+        Value ka;
+        ka = value as Value;
+
+        this.AddIndent(1)
+            .AddS("public").AddS(" ").AddS("virtual").AddS(" ")
+            .Add(this.ItemClassName).AddS(" ").Add(ka.FieldName).AddS(" ")
+            .AddS("{").AddS(" ").AddS("get").AddS(";").AddS(" ").AddS("set").AddS(";").AddS(" ").AddS("}")
+            .AddLine();
+        return true;
+    }
 }
