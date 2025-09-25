@@ -1634,6 +1634,23 @@ public partial class ClassGen : TextAdd
 
     public virtual bool ExecuteStateFieldGet(Field varField)
     {
+        long varCount;
+        varCount = this.StateInt();
+
+        this.CompStateKind = this.StateKindGet;
+
+        this.ParamCount = 0;
+
+        this.LocalVarCount = varField.Get.Count - this.ParamCount;
+
+        this.CompStateStart(this.Class, varField, this.StateKindGet);
+
+        this.ExecuteOperateList();
+
+        this.CompStateEnd();
+
+        this.Text(this.NewLine);
+
         return true;
     }
 
