@@ -3114,7 +3114,7 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
-    public virtual bool InternShare(ClassClass varClass)
+    public virtual bool ExecuteInternShare(ClassClass varClass)
     {
         this.TextIndent();
 
