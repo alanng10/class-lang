@@ -210,6 +210,7 @@ public partial class ClassGen : TextAdd
     public virtual long StateDataIndex { get; set; }
     public virtual long StringValueIndex { get; set; }
     public virtual long BlockIndex { get; set; }
+    public virtual long SetFieldIndex { get; set; }
     public virtual String Space { get; set; }
     public virtual String NewLine { get; set; }
     public virtual String Zero { get; set; }
@@ -1724,6 +1725,12 @@ public partial class ClassGen : TextAdd
 
         this.ExecuteVirtualCall(k, this.StateKindGet, kk);
 
+        return true;
+    }
+
+    public virtual bool ExecuteOperateSet()
+    {
+        this.SetFieldIndex = this.OperateArgInt();
         return true;
     }
 
