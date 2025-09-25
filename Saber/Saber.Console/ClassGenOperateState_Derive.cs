@@ -90,11 +90,11 @@ public class GetClassGenOperateState : ClassGenOperateState
     }
 }
 
-public class SetMarkClassGenOperateState : ClassGenOperateState
+public class SetClassGenOperateState : ClassGenOperateState
 {
     public override bool Execute()
     {
-        this.Gen.ExecuteOperateSetMark();
+        this.Gen.ExecuteOperateSet();
         return true;
     }
 }
