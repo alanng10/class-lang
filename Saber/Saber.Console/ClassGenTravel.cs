@@ -95,30 +95,6 @@ public class ClassGenTravel : Travel
         return true;
     }
 
-    public override bool ExecuteIntValue(IntValue intValue)
-    {
-        this.Gen.IntValueRef(intValue.Value);
-        return true;
-    }
-
-    public override bool ExecuteIntSignValue(IntSignValue intSignValue)
-    {
-        this.Gen.IntValueRef(intSignValue.Value);
-        return true;
-    }
-
-    public override bool ExecuteIntHexValue(IntHexValue intHexValue)
-    {
-        this.Gen.IntValueRef(intHexValue.Value);
-        return true;
-    }
-
-    public override bool ExecuteIntHexSignValue(IntHexSignValue intHexSignValue)
-    {
-        this.Gen.IntValueRef(intHexSignValue.Value);
-        return true;
-    }
-
     public override bool ExecuteStringValue(StringValue stringValue)
     {
         long index;
