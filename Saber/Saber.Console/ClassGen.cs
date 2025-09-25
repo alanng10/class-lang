@@ -2189,6 +2189,24 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
+    public virtual bool ExecuteOperateBitNot()
+    {
+        String varA;
+        varA = this.VarA;
+
+        this.EvalValueGet(1, varA);
+
+        this.OperateLimitOne(varA, varA, this.LimitBitNot);
+
+        this.VarMaskClear(varA, this.RefKindClearMask);
+
+        this.VarMaskSet(varA, this.RefKindIntMask);
+
+        this.EvalValueSet(1, varA);
+
+        return true;
+    }
+
     public virtual long OperateKind()
     {
         return this.StateByte();
