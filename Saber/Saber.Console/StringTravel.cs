@@ -96,17 +96,13 @@ public class StringTravel : Travel
         {
             iter.Next();
 
-            ClassClass k;
-            k = iter.Value as ClassClass;
+            ClassClass varClass;
+            varClass = iter.Value as ClassClass;
 
             NodeClass nodeClass;
-            nodeClass = k.Any as NodeClass;
-
-            this.Operate.ExecuteClassStart(i);
+            nodeClass = varClass.Any as NodeClass;
 
             this.ExecuteClass(nodeClass);
-
-            this.Operate.ExecuteClassEnd(i);
 
             i = i + 1;
         }
