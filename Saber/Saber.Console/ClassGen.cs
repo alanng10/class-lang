@@ -1806,6 +1806,30 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
+    public virtual bool ExecuteOperateNew()
+    {
+        long classIndex;
+        classIndex : cast Int(operate.ArgA);
+
+        var Class ka;
+        ka : this.ClassGet(classIndex);
+
+        var Bool b;
+        b : (ka = this.System.Bool | ka = this.System.Int | ka = this.System.String);
+
+        inf (b)
+        {
+            this.ExecuteInternValue(ka);
+        }
+
+        inf (~b)
+        {
+            this.ExecuteInternNew(ka);
+        }
+
+        return true;
+    }
+
     public virtual bool ExecuteOperateThis()
     {
         String varA;
