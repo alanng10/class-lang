@@ -31,7 +31,7 @@ public class OperateKindList : Any
         this.While = this.AddItem(0);
         this.WhileEnd = this.AddItem(0);
         this.ItemGet = this.AddItem(1);
-        this.SetMark = this.AddItem(1);
+        this.Set = this.AddItem(1);
         this.Call = this.AddItem(2);
         this.Var = this.AddItem(1);
         this.VarMark = this.AddItem(1);
@@ -75,7 +75,7 @@ public class OperateKindList : Any
     public virtual OperateKind While { get; set; }
     public virtual OperateKind WhileEnd { get; set; }
     public virtual OperateKind ItemGet { get; set; }
-    public virtual OperateKind SetMark { get; set; }
+    public virtual OperateKind Set { get; set; }
     public virtual OperateKind Call { get; set; }
     public virtual OperateKind Var { get; set; }
     public virtual OperateKind VarMark { get; set; }
