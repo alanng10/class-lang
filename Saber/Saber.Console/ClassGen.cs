@@ -1937,10 +1937,10 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
-    maide prusate Bool ExecuteOperateCast(var Operate operate)
+    public virtual bool ExecuteOperateCast()
     {
-        var Int classIndex;
-        classIndex : cast Int(operate.ArgA);
+        long classIndex;
+        classIndex : this.OperateArgInt();
 
         var Class ka;
         ka : this.ClassGet(classIndex);
