@@ -95,38 +95,6 @@ public class ClassGenTravel : Travel
         return true;
     }
 
-    public override bool ExecuteLessOperate(LessOperate lessOperate)
-    {
-        base.ExecuteLessOperate(lessOperate);
-
-        ClassGen gen;
-        gen = this.Gen;
-
-        String varA;
-        String varB;
-        varA = gen.VarA;
-        varB = gen.VarB;
-
-        String ka;
-        ka = gen.RefKindClearMask;
-
-        gen.EvalValueGet(2, varA);
-        gen.EvalValueGet(1, varB);
-
-        gen.VarMaskClear(varA, ka);
-        gen.VarMaskClear(varB, ka);
-
-        gen.OperateLimit(varA, varA, varB, gen.LimitLess);
-
-        gen.VarMaskSet(varA, gen.RefKindBoolMask);
-
-        gen.EvalValueSet(2, varA);
-
-        gen.EvalIndexPosSet(-1);
-
-        return true;
-    }
-
     public override bool ExecuteAndOperate(AndOperate andOperate)
     {
         base.ExecuteAndOperate(andOperate);
