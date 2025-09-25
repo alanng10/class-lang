@@ -14,7 +14,7 @@ partial class ClassGen
         this.OperateKindList.While.Any = this.InitOperateState(new WhileClassGenOperateState());
         this.OperateKindList.WhileEnd.Any = this.InitOperateState(new WhileEndClassGenOperateState());
         this.OperateKindList.ItemGet.Any = this.InitOperateState(new GetClassGenOperateState());
-        this.OperateKindList.SetMark.Any = this.InitOperateState(new SetMarkClassGenOperateState());
+        this.OperateKindList.Set.Any = this.InitOperateState(new SetClassGenOperateState());
         this.OperateKindList.Call.Any = this.InitOperateState(new CallClassGenOperateState());
         this.OperateKindList.Var.Any = this.InitOperateState(new VarClassGenOperateState());
         this.OperateKindList.VarMark.Any = this.InitOperateState(new VarMarkClassGenOperateState());
