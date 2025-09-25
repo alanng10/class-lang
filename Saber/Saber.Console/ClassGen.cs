@@ -2230,8 +2230,11 @@ public partial class ClassGen : TextAdd
         bool k;
         k = this.OperateArgBool();
 
+        this.ValuePre();
+
         this.BoolValueRef(k);
 
+        this.ValuePost();
         return true;
     }
 
