@@ -95,14 +95,6 @@ public class ClassGenTravel : Travel
         return true;
     }
 
-    public override bool ExecuteBitSignRiteOperate(BitSignRiteOperate bitSignRiteOperate)
-    {
-        base.ExecuteBitSignRiteOperate(bitSignRiteOperate);
-
-        this.Gen.ExecuteOperateLimitAB(this.Gen.LimitBitRite);
-        return true;
-    }
-
     public override bool ExecuteValueOperate(ValueOperate valueOperate)
     {
         Value value;
