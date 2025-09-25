@@ -1940,19 +1940,19 @@ public partial class ClassGen : TextAdd
     public virtual bool ExecuteOperateCast()
     {
         long classIndex;
-        classIndex : this.OperateArgInt();
+        classIndex = this.OperateArgInt();
 
         var Class ka;
-        ka : this.ClassGet(classIndex);
+        ka = this.ClassGet(classIndex);
 
         var Bool b;
-        b : false;
+        b = false;
 
         inf (~b)
         {
             inf (ka == this.System.Any)
             {
-                b : true;
+                b = true;
             }
         }
 
@@ -1962,7 +1962,7 @@ public partial class ClassGen : TextAdd
             {
                 this.ExecuteCondRefKind(this.RefKindBool);
 
-                b : true;
+                b = true;
             }
         }
 
@@ -1972,7 +1972,7 @@ public partial class ClassGen : TextAdd
             {
                 this.ExecuteCondRefKind(this.RefKindInt);
 
-                b : true;
+                b = true;
             }
         }
 
@@ -1982,7 +1982,7 @@ public partial class ClassGen : TextAdd
             {
                 this.ExecuteCondRefKindA(this.RefKindString, this.RefKindStringValue);
 
-                b : true;
+                b = true;
             }
         }
 
