@@ -1641,6 +1641,28 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
+    public virtual bool ExecuteOperateAre()
+    {
+        long kind;
+        kind = this.OperateArgInt();
+
+        bool b;
+        b = (kind == 1);
+
+        if (!b)
+        {
+            this.ExecuteVarSet(this.VarMarkIndex);
+
+            this.EvalIndexPosSet(-1);
+        }
+
+        if (b)
+        {
+
+        }
+        return true;
+    }
+
     public virtual bool ExecuteOperateInfStart()
     {
         String varA;
