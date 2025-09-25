@@ -8,8 +8,17 @@ public class BinaryGen : Any
         this.ListInfra = ListInfra.This;
         this.ClassInfra = ClassInfra.This;
 
+        this.StringTravel = this.CreateStringTravel();
         this.BinaryState = this.CreateBinaryState();
         return true;
+    }
+
+    protected virtual StringTravel CreateStringTravel()
+    {
+        StringTravel a;
+        a = new StringTravel();
+        a.Init();
+        return a;
     }
 
     protected virtual BinaryState CreateBinaryState()
@@ -24,8 +33,10 @@ public class BinaryGen : Any
     public virtual BinaryBinary Result { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
+    protected virtual StringTravel StringTravel { get; set; }
     protected virtual BinaryState BinaryState { get; set; }
     protected virtual Table IndexTable { get; set; }
+    protected virtual Array StringArray { get; set; }
 
     public virtual bool Execute()
     {
@@ -80,6 +91,19 @@ public class BinaryGen : Any
             }
         }
 
+        return true;
+    }
+
+    public virtual bool StringArraySet()
+    {
+        this.StringTravel.Module = this.Module;
+
+        this.StringTravel.Execute();
+
+        this.StringArray = this.StringTravel.Result;
+
+        this.StringTravel.Result = null;
+        this.StringTravel.Module = null;
         return true;
     }
 
