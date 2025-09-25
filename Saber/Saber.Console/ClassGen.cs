@@ -2135,35 +2135,32 @@ public partial class ClassGen : TextAdd
 
     public virtual bool ExecuteOperateSignLess()
     {
-        ClassGen gen;
-        gen = this.Gen;
-
         String varA;
         String varB;
-        varA = gen.VarA;
-        varB = gen.VarB;
+        varA = this.VarA;
+        varB = this.VarB;
 
         String varSA;
         String varSB;
-        varSA = gen.VarSA;
-        varSB = gen.VarSB;
+        varSA = this.VarSA;
+        varSB = this.VarSB;
 
-        gen.EvalValueGet(2, varA);
-        gen.EvalValueGet(1, varB);
+        this.EvalValueGet(2, varA);
+        this.EvalValueGet(1, varB);
 
-        gen.VarSet(varSA, varA);
-        gen.VarSet(varSB, varB);
+        this.VarSet(varSA, varA);
+        this.VarSet(varSB, varB);
 
-        gen.SignExtend(varSA);
-        gen.SignExtend(varSB);
+        this.SignExtend(varSA);
+        this.SignExtend(varSB);
 
-        gen.OperateLimit(varA, varSA, varSB, gen.LimitLess);
+        this.OperateLimit(varA, varSA, varSB, this.LimitLess);
 
-        gen.VarMaskSet(varA, gen.RefKindBoolMask);
+        this.VarMaskSet(varA, this.RefKindBoolMask);
 
-        gen.EvalValueSet(2, varA);
+        this.EvalValueSet(2, varA);
 
-        gen.EvalIndexPosSet(-1);
+        this.EvalIndexPosSet(-1);
 
         return true;
     }
