@@ -8,7 +8,7 @@ WhileStart 0
 While 0
 WhileEnd 0
 Get 1
-SetMark 1
+Set 1
 Call 2
 Var 1
 VarMark 1
