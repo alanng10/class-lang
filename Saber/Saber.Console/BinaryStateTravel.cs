@@ -187,7 +187,7 @@ public class BinaryStateTravel : Travel
         kk = varClass.FieldStart;
         kk = kk + varField.Index;
 
-        this.Op(this.Kind.SetMark, this.IntArg(this.ArgA, kk), null);
+        this.Op(this.Kind.Set, this.IntArg(this.ArgA, kk), null);
         return true;
     }
 
