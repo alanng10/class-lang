@@ -95,36 +95,6 @@ public class ClassGenTravel : Travel
         return true;
     }
 
-    public override bool ExecuteValueOperate(ValueOperate valueOperate)
-    {
-        Value value;
-        value = valueOperate.Value;
-
-        ClassGen gen;
-        gen = this.Gen;
-
-        String varA;
-        varA = gen.VarA;
-
-        gen.VarSetPre(varA);
-
-        base.ExecuteValueOperate(valueOperate);
-
-        gen.VarSetPost();
-
-        gen.EvalValueSet(0, varA);
-
-        gen.EvalIndexPosSet(1);
-
-        return true;
-    }
-
-    public override bool ExecuteBoolValue(BoolValue boolValue)
-    {
-        this.Gen.BoolValueRef(boolValue.Value);
-        return true;
-    }
-
     public override bool ExecuteIntValue(IntValue intValue)
     {
         this.Gen.IntValueRef(intValue.Value);
