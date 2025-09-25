@@ -2230,7 +2230,18 @@ public partial class ClassGen : TextAdd
         bool k;
         k = this.OperateArgBool();
 
+        String varA;
+        varA = this.VarA;
+
+        this.VarSetPre(varA);
+
         this.BoolValueRef(k);
+
+        this.VarSetPost();
+
+        this.EvalValueSet(0, varA);
+
+        this.EvalIndexPosSet(1);
         return true;
     }
 
