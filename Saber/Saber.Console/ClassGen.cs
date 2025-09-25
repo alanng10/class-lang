@@ -1918,20 +1918,20 @@ public partial class ClassGen : TextAdd
         long classIndex;
         classIndex = this.OperateArgInt();
 
-        ClassClass ka;
-        ka = this.ClassGet(classIndex);
+        ClassClass varClass;
+        varClass = this.ClassGet(classIndex);
 
         bool b;
-        b = (ka == this.System.Bool | ka == this.System.Int | ka == this.System.String);
+        b = (varClass == this.System.Bool | varClass == this.System.Int | varClass == this.System.String);
 
         if (b)
         {
-            this.ExecuteInternValue(ka);
+            this.ExecuteInternValue(varClass);
         }
 
         if (!b)
         {
-            this.ExecuteInternShare(ka);
+            this.ExecuteInternShare(varClass);
         }
 
         return true;
