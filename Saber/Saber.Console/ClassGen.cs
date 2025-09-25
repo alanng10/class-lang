@@ -1637,11 +1637,13 @@ public partial class ClassGen : TextAdd
         long varCount;
         varCount = this.StateInt();
 
+        this.ThisField = varField;
+
         this.CompStateKind = this.StateKindGet;
 
         this.ParamCount = 0;
 
-        this.LocalVarCount = varField.Get.Count - this.ParamCount;
+        this.LocalVarCount = varField.Get.Count - 1;
 
         this.CompStateStart(this.Class, varField, this.StateKindGet);
 
