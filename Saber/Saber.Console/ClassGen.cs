@@ -3027,10 +3027,7 @@ public partial class ClassGen : TextAdd
 
         this.Return();
 
-        this.IndentCount = this.IndentCount - 1;
-
-        this.Text(this.LimitBraceCurveRite);
-        this.Text(this.NewLine);
+        this.BlockEnd();
         return true;
     }
 
