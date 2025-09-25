@@ -95,22 +95,6 @@ public class ClassGenTravel : Travel
         return true;
     }
 
-    public override bool ExecuteBitAndOperate(BitAndOperate bitAndOperate)
-    {
-        base.ExecuteBitAndOperate(bitAndOperate);
-
-        this.Gen.ExecuteOperateLimitA(this.Gen.LimitAnd);
-        return true;
-    }
-
-    public override bool ExecuteBitOrnOperate(BitOrnOperate bitOrnOperate)
-    {
-        base.ExecuteBitOrnOperate(bitOrnOperate);
-
-        this.Gen.ExecuteOperateLimitA(this.Gen.LimitOrn);
-        return true;
-    }
-
     public override bool ExecuteBitNotOperate(BitNotOperate bitNotOperate)
     {
         base.ExecuteBitNotOperate(bitNotOperate);
