@@ -1809,20 +1809,20 @@ public partial class ClassGen : TextAdd
     public virtual bool ExecuteOperateNew()
     {
         long classIndex;
-        classIndex = cast Int(operate.ArgA);
+        classIndex = this.OperateArgInt();
 
-        var Class ka;
+        ClassClass ka;
         ka = this.ClassGet(classIndex);
 
-        var Bool b;
+        bool b;
         b = (ka == this.System.Bool | ka == this.System.Int | ka == this.System.String);
 
-        inf (b)
+        if (b)
         {
             this.ExecuteInternValue(ka);
         }
 
-        inf (~b)
+        if (!b)
         {
             this.ExecuteInternNew(ka);
         }
