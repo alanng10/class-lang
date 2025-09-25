@@ -180,13 +180,13 @@ public partial class ClassGen : TextAdd
     public virtual ClassModule Module { get; set; }
     public virtual BinaryBinary Binary { get; set; }
     public virtual long ModuleCount { get; set; }
-    public virtual Array ClassArray { get; set; }
-    public virtual Array ImportArray { get; set; }
     public virtual Array InitArray { get; set; }
     public virtual Array BaseArray { get; set; }
     public virtual Array CompArray { get; set; }
     public virtual Array StringArray { get; set; }
     public virtual String Result { get; set; }
+    public virtual Array ClassArray { get; set; }
+    public virtual Array ImportArray { get; set; }
     public virtual ClassClass Class { get; set; }
     public virtual SystemClass System { get; set; }
     public virtual bool SystemInfraModule { get; set; }
@@ -338,6 +338,8 @@ public partial class ClassGen : TextAdd
 
     public virtual bool Execute()
     {
+        this.ClassArraySet();
+
         this.Arg = new ClassGenArg();
         this.Arg.Init();
 
@@ -364,6 +366,12 @@ public partial class ClassGen : TextAdd
 
         this.Operate = null;
         this.Arg = null;
+        this.ClassArray = null;
+        return true;
+    }
+
+    public virtual bool ClassArraySet()
+    {
         return true;
     }
 
