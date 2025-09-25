@@ -52,14 +52,8 @@ public class StringTravel : Travel
 
     public virtual bool Execute()
     {
-        this.Result = this.ListInfra.ArrayCreate(this.Module.Class.Count);
-
         this.Arg = new StringArg();
         this.Arg.Init();
-
-        this.Arg.StringCountData = new Data();
-        this.Arg.StringCountData.Count = this.Module.Class.Count * sizeof(long);
-        this.Arg.StringCountData.Init();
 
         this.Operate = this.CountOperate;
 
@@ -73,48 +67,10 @@ public class StringTravel : Travel
         this.ResetStage();
         this.ExecuteStage();
 
-        this.ExecuteResultSet();
+        this.Result = this.Arg.Array;
 
         this.Operate = null;
         this.Arg = null;
-        return true;
-    }
-
-    protected virtual bool ExecuteResultSet()
-    {
-        Data data;
-        data = this.Arg.StringCountData;
-
-        Array stringArray;
-        stringArray = this.Arg.Array;
-
-        long totalString;
-        totalString = 0;
-
-        long count;
-        count = this.Module.Class.Count;
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            long ka;
-            ka = i * sizeof(long);
-
-            long stringCount;
-            stringCount = this.InfraInfra.DataIntGet(data, ka);
-
-            Array array;
-            array = this.ListInfra.ArrayCreate(stringCount);
-
-            this.ListInfra.ArrayCopy(array, 0, stringArray, totalString, stringCount);
-
-            this.Result.SetAt(i, array);
-
-            totalString = totalString + stringCount;
-
-            i = i + 1;
-        }
-
         return true;
     }
 
