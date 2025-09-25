@@ -2067,6 +2067,36 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
+    public virtual bool ExecuteOperateLess()
+    {
+        ClassGen gen;
+        gen = this.Gen;
+
+        String varA;
+        String varB;
+        varA = gen.VarA;
+        varB = gen.VarB;
+
+        String ka;
+        ka = gen.RefKindClearMask;
+
+        gen.EvalValueGet(2, varA);
+        gen.EvalValueGet(1, varB);
+
+        gen.VarMaskClear(varA, ka);
+        gen.VarMaskClear(varB, ka);
+
+        gen.OperateLimit(varA, varA, varB, gen.LimitLess);
+
+        gen.VarMaskSet(varA, gen.RefKindBoolMask);
+
+        gen.EvalValueSet(2, varA);
+
+        gen.EvalIndexPosSet(-1);
+
+        return true;
+    }
+
     public virtual long OperateKind()
     {
         return this.StateByte();
