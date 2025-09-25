@@ -1942,15 +1942,15 @@ public partial class ClassGen : TextAdd
         long classIndex;
         classIndex = this.OperateArgInt();
 
-        ClassClass ka;
-        ka = this.ClassGet(classIndex);
+        ClassClass varClass;
+        varClass = this.ClassGet(classIndex);
 
         bool b;
         b = false;
 
         if (!b)
         {
-            if (ka == this.System.Any)
+            if (varClass == this.System.Any)
             {
                 b = true;
             }
@@ -1958,7 +1958,7 @@ public partial class ClassGen : TextAdd
 
         if (!b)
         {
-            if (ka == this.System.Bool)
+            if (varClass == this.System.Bool)
             {
                 this.ExecuteCondRefKind(this.RefKindBool);
 
@@ -1968,7 +1968,7 @@ public partial class ClassGen : TextAdd
 
         if (!b)
         {
-            if (ka == this.System.Int)
+            if (varClass == this.System.Int)
             {
                 this.ExecuteCondRefKind(this.RefKindInt);
 
@@ -1978,7 +1978,7 @@ public partial class ClassGen : TextAdd
 
         if (!b)
         {
-            if (ka == this.System.String)
+            if (varClass == this.System.String)
             {
                 this.ExecuteCondRefKindA(this.RefKindString, this.RefKindStringValue);
 
@@ -1988,7 +1988,7 @@ public partial class ClassGen : TextAdd
 
         if (!b)
         {
-            this.ExecuteCast(ka);
+            this.ExecuteCast(varClass);
         }
 
         return true;
