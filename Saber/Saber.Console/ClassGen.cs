@@ -6,6 +6,7 @@ public partial class ClassGen : TextAdd
     {
         base.Init();
         this.InfraInfra = InfraInfra.This;
+        this.ListInfra = ListInfra.This;
         this.OperateKindList = BinaryOperateKindList.This;
 
         this.CountOperate = this.CreateCountOperate();
@@ -329,6 +330,7 @@ public partial class ClassGen : TextAdd
     public virtual String LimitBitLite { get; set; }
     public virtual String LimitBitRite { get; set; }
     public virtual InfraInfra InfraInfra { get; set; }
+    public virtual ListInfra ListInfra { get; set; }
     public virtual BinaryOperateKindList OperateKindList { get; set; }
 
     public virtual String RefKindMask(String kindHexDigit)
@@ -372,6 +374,28 @@ public partial class ClassGen : TextAdd
 
     public virtual bool ClassArraySet()
     {
+        this.ClassArray = this.ListInfra.ArrayCreate(this.Module.Class.Count);
+
+        Iter iter;
+        iter = this.Module.Class.IterCreate();
+        this.Module.Class.IterSet(iter);
+
+        long count;
+        count = this.ClassArray.Count;
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            iter.Next();
+
+            ClassClass varClass;
+            varClass = iter.Value as ClassClass;
+
+            this.ClassArray.SetAt(i, varClass);
+
+            i = i + 1;
+        }
         return true;
     }
 
