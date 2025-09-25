@@ -2225,9 +2225,24 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
+    public virtual bool ExecuteOperateBoolValue()
+    {
+        return true;
+    }
+
     public virtual long OperateKind()
     {
         return this.StateByte();
+    }
+
+    public virtual bool OperateArgBool()
+    {
+        long k;
+        k = this.StateByte();
+
+        bool a;
+        a = !(k == 0);
+        return a;
     }
 
     public virtual long OperateArgInt()
