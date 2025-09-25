@@ -1693,7 +1693,7 @@ public partial class ClassGen : TextAdd
 
         this.ParamCount = varMaide.Param.Count;
 
-        this.LocalVarCount = varMaide.Call.Count - this.ParamCount;
+        this.LocalVarCount = varMaide.Call.Count - varMaide.Param.Count;
 
         this.CompStateStart(this.Class, varMaide, this.StateKindCall);
 
