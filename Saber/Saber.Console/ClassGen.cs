@@ -2219,6 +2219,12 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
+    public virtual bool ExecuteOperateBitSignRite()
+    {
+        this.ExecuteOperateLimitAB(this.LimitBitRite);
+        return true;
+    }
+
     public virtual long OperateKind()
     {
         return this.StateByte();
