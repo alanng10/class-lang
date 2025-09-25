@@ -2999,8 +2999,6 @@ public partial class ClassGen : TextAdd
 
         this.BlockStart();
 
-        this.IndentCount = this.IndentCount + 1;
-
         this.DeclareVar(this.ClassInt, this.VarA);
         this.DeclareVar(this.ClassInt, this.VarB);
         this.DeclareVar(this.ClassInt, this.VarC);
