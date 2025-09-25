@@ -2109,6 +2109,30 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
+    public virtual bool ExecuteOperateAdd()
+    {
+        this.ExecuteOperateLimit(this.LimitAdd);
+        return true;
+    }
+
+    public virtual bool ExecuteOperateSub()
+    {
+        this.ExecuteOperateLimit(this.LimitSub);
+        return true;
+    }
+
+    public virtual bool ExecuteOperateMul()
+    {
+        this.ExecuteOperateLimit(this.LimitMul);
+        return true;
+    }
+
+    public virtual bool ExecuteOperateDiv()
+    {
+        this.ExecuteOperateLimitCond(this.LimitDiv);
+        return true;
+    }
+
     public virtual long OperateKind()
     {
         return this.StateByte();
