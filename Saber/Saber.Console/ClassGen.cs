@@ -1658,8 +1658,16 @@ public partial class ClassGen : TextAdd
 
         if (b)
         {
+            long k;
+            k = 2;
 
+            this.ExecuteVirtualCall(k, this.StateKindSet, this.SetFieldIndex);
+
+            this.EvalIndexPosSet(-1);
         }
+
+        this.SetFieldIndex = 0;
+        this.VarMarkIndex = 0;
         return true;
     }
 
