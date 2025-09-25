@@ -5,7 +5,6 @@ public class StringTravel : Travel
     public override bool Init()
     {
         base.Init();
-        this.InfraInfra = InfraInfra.This;
         this.ListInfra = ListInfra.This;
 
         this.CountOperate = this.CreateCountOperate();
@@ -43,10 +42,9 @@ public class StringTravel : Travel
     public virtual ClassModule Module { get; set; }
     public virtual Array Result { get; set; }
     public virtual StringArg Arg { get; set; }
+    public virtual StringOperate Operate { get; set; }
     public virtual StringCountOperate CountOperate { get; set; }
     public virtual StringSetOperate SetOperate { get; set; }
-    public virtual StringOperate Operate { get; set; }
-    protected virtual InfraInfra InfraInfra { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual Iter TableIter { get; set; }
 
