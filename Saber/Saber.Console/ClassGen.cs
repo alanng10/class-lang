@@ -399,6 +399,53 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
+    public virtual bool ImportArraySet()
+    {
+        long importTotal;
+        importTotal = 0;
+
+        Iter iter;
+        iter = this.Module.Import.IterCreate();
+
+        this.Module.Import.IterSet(iter);
+
+        while (iter.Next())
+        {
+            Table kf;
+            kf = iter.Value as Table;
+
+            importTotal = importTotal + kf.Count;
+        }
+
+        this.ImportArray = this.ListInfra.ArrayCreate(importTotal);
+
+        long importIndex;
+        importIndex = 0;
+
+        this.Module.Import.IterSet(iter);
+
+        while (iter.Next())
+        {
+            Table kd;
+            kd = iter.Value as Table;
+
+            Iter iterA;
+            iterA = kd.IterCreate();
+            kd.IterSet(iterA);
+
+            while (iterA.Next())
+            {
+                ClassClass ka;
+                ka = iterA.Value as ClassClass;
+
+                this.ImportArray.SetAt(importIndex, ka);
+
+                importIndex = importIndex + 1;
+            }
+        }
+        return true;
+    }
+
     public virtual bool ResetStage()
     {
         this.Arg.Index = 0;
