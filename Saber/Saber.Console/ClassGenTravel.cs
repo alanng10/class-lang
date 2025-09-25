@@ -95,15 +95,6 @@ public class ClassGenTravel : Travel
         return true;
     }
 
-    public override bool ExecuteVarOperate(VarOperate varOperate)
-    {
-        Var varVar;
-        varVar = this.Info(varOperate).Var;
-
-        this.Gen.ExecuteVarGet(varVar);
-        return true;
-    }
-
     public override bool ExecuteNewOperate(NewOperate newOperate)
     {
         ClassClass ka;
