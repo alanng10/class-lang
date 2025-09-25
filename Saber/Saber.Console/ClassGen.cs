@@ -2980,7 +2980,7 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
-    public virtual bool InternNew(ClassClass varClass)
+    public virtual bool ExecuteInternNew(ClassClass varClass)
     {
         this.TextIndent();
 
