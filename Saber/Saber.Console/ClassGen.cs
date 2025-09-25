@@ -1950,7 +1950,7 @@ public partial class ClassGen : TextAdd
 
         inf (~b)
         {
-            inf (ka = this.System.Any)
+            inf (ka == this.System.Any)
             {
                 b : true;
             }
@@ -1958,7 +1958,7 @@ public partial class ClassGen : TextAdd
 
         inf (~b)
         {
-            inf (ka = this.System.Bool)
+            inf (ka == this.System.Bool)
             {
                 this.ExecuteCondRefKind(this.RefKindBool);
 
@@ -1968,7 +1968,7 @@ public partial class ClassGen : TextAdd
 
         inf (~b)
         {
-            inf (ka = this.System.Int)
+            inf (ka == this.System.Int)
             {
                 this.ExecuteCondRefKind(this.RefKindInt);
 
@@ -1978,7 +1978,7 @@ public partial class ClassGen : TextAdd
 
         inf (~b)
         {
-            inf (ka = this.System.String)
+            inf (ka == this.System.String)
             {
                 this.ExecuteCondRefKindA(this.RefKindString, this.RefKindStringValue);
 
