@@ -369,6 +369,7 @@ public partial class ClassGen : TextAdd
 
         this.Operate = null;
         this.Arg = null;
+        this.ImportArray = null;
         this.ClassArray = null;
         return true;
     }
