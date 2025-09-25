@@ -41,11 +41,15 @@ public class BinaryGen : Any
     public virtual bool Execute()
     {
         this.IndexTableSet();
-        
+
+        this.StringArraySet();
+
         BinaryBinary a;
         a = this.ExecuteBinary();
 
         this.Result = a;
+
+        this.StringArray = null;
 
         this.IndexTable = null;
         return true;
