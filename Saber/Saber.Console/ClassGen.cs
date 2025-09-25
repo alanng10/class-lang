@@ -1789,7 +1789,14 @@ public partial class ClassGen : TextAdd
         long varIndex;
         varIndex = this.OperateArgInt();
 
+        String varA;
+        varA = this.VarA;
+
         this.ExecuteVarGet(varIndex);
+
+        this.EvalValueSet(0, varA);
+
+        this.EvalIndexPosSet(1);
         return true;
     }
 
@@ -2371,10 +2378,6 @@ public partial class ClassGen : TextAdd
 
             this.EvalFrameValueGet(posD, varA);
         }
-
-        this.EvalValueSet(0, varA);
-
-        this.EvalIndexPosSet(1);
 
         return true;
     }
