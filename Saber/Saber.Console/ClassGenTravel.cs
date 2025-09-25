@@ -95,54 +95,6 @@ public class ClassGenTravel : Travel
         return true;
     }
 
-    public override bool ExecuteNewOperate(NewOperate newOperate)
-    {
-        ClassClass ka;
-        ka = this.Info(newOperate).OperateClass;
-
-        ClassGen gen;
-        gen = this.Gen;
-
-        bool b;
-        b = (ka == gen.System.Bool | ka == gen.System.Int | ka == gen.System.String);
-
-        if (b)
-        {
-            gen.ExecuteInternValue(ka);
-        }
-
-        if (!b)
-        {
-            this.Gen.InternNew(ka);
-        }
-        
-        return true;
-    }
-
-    public override bool ExecuteShareOperate(ShareOperate shareOperate)
-    {
-        ClassClass ka;
-        ka = this.Info(shareOperate).OperateClass;
-
-        ClassGen gen;
-        gen = this.Gen;
-
-        bool b;
-        b = (ka == gen.System.Bool | ka == gen.System.Int | ka == gen.System.String);
-
-        if (b)
-        {
-            gen.ExecuteInternValue(ka);
-        }
-
-        if (!b)
-        {
-            this.Gen.InternShare(ka);
-        }
-
-        return true;
-    }
-
     public override bool ExecuteCastOperate(CastOperate castOperate)
     {
         base.ExecuteCastOperate(castOperate);
