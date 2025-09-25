@@ -94,19 +94,6 @@ public class BinaryGen : Any
         return true;
     }
 
-    public virtual bool StringArraySet()
-    {
-        this.StringTravel.Module = this.Module;
-
-        this.StringTravel.Execute();
-
-        this.StringArray = this.StringTravel.Result;
-
-        this.StringTravel.Result = null;
-        this.StringTravel.Module = null;
-        return true;
-    }
-
     public virtual bool IndexTableAdd(ClassClass varClass)
     {
         long k;
@@ -118,6 +105,19 @@ public class BinaryGen : Any
         value.Int = k;
 
         this.ListInfra.TableAdd(this.IndexTable, varClass, value);
+        return true;
+    }
+
+    public virtual bool StringArraySet()
+    {
+        this.StringTravel.Module = this.Module;
+
+        this.StringTravel.Execute();
+
+        this.StringArray = this.StringTravel.Result;
+
+        this.StringTravel.Result = null;
+        this.StringTravel.Module = null;
         return true;
     }
 
