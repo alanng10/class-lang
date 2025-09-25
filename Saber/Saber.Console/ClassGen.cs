@@ -341,6 +341,7 @@ public partial class ClassGen : TextAdd
     public virtual bool Execute()
     {
         this.ClassArraySet();
+        this.ImportArraySet();
 
         this.Arg = new ClassGenArg();
         this.Arg.Init();
