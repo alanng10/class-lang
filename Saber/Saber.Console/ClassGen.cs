@@ -1815,7 +1815,7 @@ public partial class ClassGen : TextAdd
         ka : this.ClassGet(classIndex);
 
         var Bool b;
-        b : (ka = this.System.Bool | ka = this.System.Int | ka = this.System.String);
+        b : (ka == this.System.Bool | ka == this.System.Int | ka == this.System.String);
 
         inf (b)
         {
