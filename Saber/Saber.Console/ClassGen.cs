@@ -2271,11 +2271,6 @@ public partial class ClassGen : TextAdd
         return this.StateInt();
     }
 
-    public virtual long StateMid()
-    {
-        return this.StateIntCount(sizeof(int));
-    }
-
     public virtual long StateInt()
     {
         return this.StateIntCount(sizeof(long));
