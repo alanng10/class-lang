@@ -31,9 +31,9 @@ public class StringTravel : Travel
         return a;
     }
 
-    protected virtual Iter CreateTableIter()
+    protected virtual TableIter CreateTableIter()
     {
-        Iter a;
+        TableIter a;
         a = new TableIter();
         a.Init();
         return a;
@@ -46,7 +46,7 @@ public class StringTravel : Travel
     public virtual StringCountOperate CountOperate { get; set; }
     public virtual StringSetOperate SetOperate { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
-    protected virtual Iter TableIter { get; set; }
+    protected virtual TableIter TableIter { get; set; }
 
     public virtual bool Execute()
     {
