@@ -2997,8 +2997,7 @@ public partial class ClassGen : TextAdd
 
         this.Text(this.NewLine);
 
-        this.Text(this.LimitBraceCurveLite);
-        this.Text(this.NewLine);
+        this.BlockStart();
 
         this.IndentCount = this.IndentCount + 1;
 
