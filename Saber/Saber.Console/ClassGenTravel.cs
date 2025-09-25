@@ -95,19 +95,6 @@ public class ClassGenTravel : Travel
         return true;
     }
 
-    public override bool ExecuteStringValue(StringValue stringValue)
-    {
-        long index;
-        index = this.Gen.StringValueIndex;
-
-        this.Gen.StringValueRef(index);
-
-        index = index + 1;
-
-        this.Gen.StringValueIndex = index;
-        return true;
-    }
-
     protected virtual ModuleInfo Info(NodeNode node)
     {
         return node.NodeAny as ModuleInfo;
