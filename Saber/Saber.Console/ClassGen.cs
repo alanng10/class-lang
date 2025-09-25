@@ -2165,6 +2165,18 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
+    public virtual bool ExecuteOperateSignMul()
+    {
+        this.ExecuteOperateLimitSign(this.LimitMul);
+        return true;
+    }
+
+    public virtual bool ExecuteOperateSignDiv()
+    {
+        this.ExecuteOperateLimitSignCond(this.LimitDiv);
+        return true;
+    }
+
     public virtual long OperateKind()
     {
         return this.StateByte();
