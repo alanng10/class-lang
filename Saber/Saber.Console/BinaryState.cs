@@ -280,6 +280,10 @@ public class BinaryState : Any
 
     public virtual bool ExecuteStringArg()
     {
+        long k;
+        k = this.Operate.ExecuteString();
+
+        this.ExecuteInt(k);
         return true;
     }
 
