@@ -1942,23 +1942,23 @@ public partial class ClassGen : TextAdd
         long classIndex;
         classIndex = this.OperateArgInt();
 
-        var Class ka;
+        ClassClass ka;
         ka = this.ClassGet(classIndex);
 
-        var Bool b;
+        bool b;
         b = false;
 
-        inf (~b)
+        if (~b)
         {
-            inf (ka == this.System.Any)
+            if (ka == this.System.Any)
             {
                 b = true;
             }
         }
 
-        inf (~b)
+        if (~b)
         {
-            inf (ka == this.System.Bool)
+            if (ka == this.System.Bool)
             {
                 this.ExecuteCondRefKind(this.RefKindBool);
 
@@ -1966,9 +1966,9 @@ public partial class ClassGen : TextAdd
             }
         }
 
-        inf (~b)
+        if (~b)
         {
-            inf (ka == this.System.Int)
+            if (ka == this.System.Int)
             {
                 this.ExecuteCondRefKind(this.RefKindInt);
 
@@ -1976,9 +1976,9 @@ public partial class ClassGen : TextAdd
             }
         }
 
-        inf (~b)
+        if (~b)
         {
-            inf (ka == this.System.String)
+            if (ka == this.System.String)
             {
                 this.ExecuteCondRefKindA(this.RefKindString, this.RefKindStringValue);
 
@@ -1986,7 +1986,7 @@ public partial class ClassGen : TextAdd
             }
         }
 
-        inf (~b)
+        if (~b)
         {
             this.ExecuteCast(ka);
         }
