@@ -2251,6 +2251,26 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
+    public virtual bool ExecuteOperateStringValue()
+    {
+        long count;
+        count = this.OperateArgInt();
+
+        long byteCount;
+        byteCount = count * sizeof(int);
+
+        this.StateDataIndex = this.StateDataIndex + byteCount;
+
+        this.ValuePre();
+
+        this.StringValueRef(this.StringValueIndex);
+
+        this.ValuePost();
+
+        this.StringValueIndex = this.StringValueIndex + 1;
+        return true;
+    }
+
     public virtual long OperateKind()
     {
         return this.StateByte();
