@@ -11,6 +11,22 @@ public class BinaryStateSetOperate : BinaryStateOperate
 
     protected virtual InfraInfra InfraInfra { get; set; }
 
+    public override long ExecuteString()
+    {
+        BinaryStateArg arg;
+        arg = this.State.Arg;
+
+        long index;
+        index = arg.StringIndex;
+
+        long a;
+        a = index;
+
+        index = index + 1;
+        arg.StringIndex = index;
+        return a;
+    }
+
     public override bool ExecuteTravelStart()
     {
         BinaryStateArg arg;
