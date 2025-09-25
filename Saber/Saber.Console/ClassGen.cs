@@ -1916,13 +1916,13 @@ public partial class ClassGen : TextAdd
     public virtual bool ExecuteOperateShare()
     {
         long classIndex;
-        classIndex : cast Int(operate.ArgA);
+        classIndex = cast Int(operate.ArgA);
 
         var Class ka;
-        ka : this.ClassGet(classIndex);
+        ka = this.ClassGet(classIndex);
 
         var Bool b;
-        b : (ka == this.System.Bool | ka == this.System.Int | ka == this.System.String);
+        b = (ka == this.System.Bool | ka == this.System.Int | ka == this.System.String);
 
         inf (b)
         {
