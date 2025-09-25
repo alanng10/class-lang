@@ -211,6 +211,7 @@ public partial class ClassGen : TextAdd
     public virtual long StringValueIndex { get; set; }
     public virtual long BlockIndex { get; set; }
     public virtual long SetFieldIndex { get; set; }
+    public virtual long VarMarkIndex { get; set; }
     public virtual String Space { get; set; }
     public virtual String NewLine { get; set; }
     public virtual String Zero { get; set; }
@@ -1759,6 +1760,11 @@ public partial class ClassGen : TextAdd
         varIndex = this.OperateArgInt();
 
         this.ExecuteVarGet(varIndex);
+        return true;
+    }
+
+    public virtual bool ExecuteOperateVarMark()
+    {
         return true;
     }
 
