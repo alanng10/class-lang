@@ -95,22 +95,6 @@ public class ClassGenTravel : Travel
         return true;
     }
 
-    public override bool ExecuteSignMulOperate(SignMulOperate signMulOperate)
-    {
-        base.ExecuteSignMulOperate(signMulOperate);
-
-        this.Gen.ExecuteOperateLimitSign(this.Gen.LimitMul);
-        return true;
-    }
-
-    public override bool ExecuteSignDivOperate(SignDivOperate signDivOperate)
-    {
-        base.ExecuteSignDivOperate(signDivOperate);
-
-        this.Gen.ExecuteOperateLimitSignCond(this.Gen.LimitDiv);
-        return true;
-    }
-
     public override bool ExecuteBitAndOperate(BitAndOperate bitAndOperate)
     {
         base.ExecuteBitAndOperate(bitAndOperate);
