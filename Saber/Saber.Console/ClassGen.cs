@@ -2227,6 +2227,10 @@ public partial class ClassGen : TextAdd
 
     public virtual bool ExecuteOperateBoolValue()
     {
+        bool k;
+        k = this.OperateArgBool();
+
+        this.BoolValueRef(k);
         return true;
     }
 
