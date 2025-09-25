@@ -1937,6 +1937,63 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
+    maide prusate Bool ExecuteOperateCast(var Operate operate)
+    {
+        var Int classIndex;
+        classIndex : cast Int(operate.ArgA);
+
+        var Class ka;
+        ka : this.ClassGet(classIndex);
+
+        var Bool b;
+        b : false;
+
+        inf (~b)
+        {
+            inf (ka = this.System.Any)
+            {
+                b : true;
+            }
+        }
+
+        inf (~b)
+        {
+            inf (ka = this.System.Bool)
+            {
+                this.ExecuteCondRefKind(this.RefKindBool);
+
+                b : true;
+            }
+        }
+
+        inf (~b)
+        {
+            inf (ka = this.System.Int)
+            {
+                this.ExecuteCondRefKind(this.RefKindInt);
+
+                b : true;
+            }
+        }
+
+        inf (~b)
+        {
+            inf (ka = this.System.String)
+            {
+                this.ExecuteCondRefKindA(this.RefKindString, this.RefKindStringValue);
+
+                b : true;
+            }
+        }
+
+        inf (~b)
+        {
+            this.ExecuteCast(ka);
+        }
+
+        return true;
+    }
+
     public virtual bool ExecuteOperateThis()
     {
         String varA;
