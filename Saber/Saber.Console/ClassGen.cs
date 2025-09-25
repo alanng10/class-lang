@@ -1948,7 +1948,7 @@ public partial class ClassGen : TextAdd
         bool b;
         b = false;
 
-        if (~b)
+        if (!b)
         {
             if (ka == this.System.Any)
             {
@@ -1956,7 +1956,7 @@ public partial class ClassGen : TextAdd
             }
         }
 
-        if (~b)
+        if (!b)
         {
             if (ka == this.System.Bool)
             {
@@ -1966,7 +1966,7 @@ public partial class ClassGen : TextAdd
             }
         }
 
-        if (~b)
+        if (!b)
         {
             if (ka == this.System.Int)
             {
@@ -1976,7 +1976,7 @@ public partial class ClassGen : TextAdd
             }
         }
 
-        if (~b)
+        if (!b)
         {
             if (ka == this.System.String)
             {
@@ -1986,7 +1986,7 @@ public partial class ClassGen : TextAdd
             }
         }
 
-        if (~b)
+        if (!b)
         {
             this.ExecuteCast(ka);
         }
