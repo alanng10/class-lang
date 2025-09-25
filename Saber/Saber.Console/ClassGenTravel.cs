@@ -95,38 +95,6 @@ public class ClassGenTravel : Travel
         return true;
     }
 
-    public override bool ExecuteAddOperate(AddOperate addOperate)
-    {
-        base.ExecuteAddOperate(addOperate);
-
-        this.Gen.ExecuteOperateLimit(this.Gen.LimitAdd);
-        return true;
-    }
-
-    public override bool ExecuteSubOperate(SubOperate subOperate)
-    {
-        base.ExecuteSubOperate(subOperate);
-
-        this.Gen.ExecuteOperateLimit(this.Gen.LimitSub);
-        return true;
-    }
-
-    public override bool ExecuteMulOperate(MulOperate mulOperate)
-    {
-        base.ExecuteMulOperate(mulOperate);
-
-        this.Gen.ExecuteOperateLimit(this.Gen.LimitMul);
-        return true;
-    }
-
-    public override bool ExecuteDivOperate(DivOperate divOperate)
-    {
-        base.ExecuteDivOperate(divOperate);
-
-        this.Gen.ExecuteOperateLimitCond(this.Gen.LimitDiv);
-        return true;
-    }
-
     public override bool ExecuteSignLessOperate(SignLessOperate signLessOperate)
     {
         base.ExecuteSignLessOperate(signLessOperate);
