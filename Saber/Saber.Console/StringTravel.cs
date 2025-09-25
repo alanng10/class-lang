@@ -82,18 +82,11 @@ public class StringTravel : Travel
     {
         Iter iter;
         iter = this.TableIter;
+
         this.Module.Class.IterSet(iter);
 
-        long count;
-        count = this.Module.Class.Count;
-
-        long i;
-        i = 0;
-
-        while (i < count)
+        while (iter.Next())
         {
-            iter.Next();
-
             ClassClass varClass;
             varClass = iter.Value as ClassClass;
 
@@ -101,8 +94,6 @@ public class StringTravel : Travel
             nodeClass = varClass.Any as NodeClass;
 
             this.ExecuteClass(nodeClass);
-
-            i = i + 1;
         }
 
         iter.Clear();
