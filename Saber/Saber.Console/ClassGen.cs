@@ -2177,6 +2177,18 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
+    public virtual bool ExecuteOperateBitAnd()
+    {
+        this.ExecuteOperateLimitA(this.LimitAnd);
+        return true;
+    }
+
+    public virtual bool ExecuteOperateBitOrn()
+    {
+        this.ExecuteOperateLimitA(this.LimitOrn);
+        return true;
+    }
+
     public virtual long OperateKind()
     {
         return this.StateByte();
