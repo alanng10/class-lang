@@ -95,29 +95,6 @@ public class ClassGenTravel : Travel
         return true;
     }
 
-    public override bool ExecuteBitNotOperate(BitNotOperate bitNotOperate)
-    {
-        base.ExecuteBitNotOperate(bitNotOperate);
-
-        ClassGen gen;
-        gen = this.Gen;
-
-        String varA;
-        varA = gen.VarA;
-
-        gen.EvalValueGet(1, varA);
-
-        gen.OperateLimitOne(varA, varA, gen.LimitBitNot);
-
-        gen.VarMaskClear(varA, gen.RefKindClearMask);
-
-        gen.VarMaskSet(varA, gen.RefKindIntMask);
-
-        gen.EvalValueSet(1, varA);
-
-        return true;
-    }
-
     public override bool ExecuteBitLiteOperate(BitLiteOperate bitLiteOperate)
     {
         base.ExecuteBitLiteOperate(bitLiteOperate);
