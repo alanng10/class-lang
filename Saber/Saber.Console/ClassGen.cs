@@ -1765,6 +1765,7 @@ public partial class ClassGen : TextAdd
 
     public virtual bool ExecuteOperateVarMark()
     {
+        this.VarMarkIndex = this.OperateArgInt();
         return true;
     }
 
