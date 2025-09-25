@@ -95,30 +95,6 @@ public class ClassGenTravel : Travel
         return true;
     }
 
-    public override bool ExecuteAndOperate(AndOperate andOperate)
-    {
-        base.ExecuteAndOperate(andOperate);
-
-        this.Gen.ExecuteOperateLimitBool(this.Gen.LimitAnd);
-        return true;
-    }
-
-    public override bool ExecuteOrnOperate(OrnOperate ornOperate)
-    {
-        base.ExecuteOrnOperate(ornOperate);
-
-        this.Gen.ExecuteOperateLimitBool(this.Gen.LimitOrn);
-        return true;
-    }
-
-    public override bool ExecuteNotOperate(NotOperate notOperate)
-    {
-        base.ExecuteNotOperate(notOperate);
-
-        this.Gen.ExecuteOperateLimitBoolOne(this.Gen.LimitNot);
-        return true;
-    }
-
     public override bool ExecuteAddOperate(AddOperate addOperate)
     {
         base.ExecuteAddOperate(addOperate);
