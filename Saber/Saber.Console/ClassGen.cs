@@ -2091,6 +2091,24 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
+    public virtual bool ExecuteOperateAnd()
+    {
+        this.ExecuteOperateLimitBool(this.LimitAnd);
+        return true;
+    }
+
+    public virtual bool ExecuteOperateOrn()
+    {
+        this.ExecuteOperateLimitBool(this.LimitOrn);
+        return true;
+    }
+
+    public virtual bool ExecuteOperateNot()
+    {
+        this.ExecuteOperateLimitBoolOne(this.LimitNot);
+        return true;
+    }
+
     public virtual long OperateKind()
     {
         return this.StateByte();
