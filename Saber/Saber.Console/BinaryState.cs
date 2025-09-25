@@ -133,6 +133,7 @@ public class BinaryState : Any
     public virtual bool ResetStage()
     {
         this.Arg.Index = 0;
+        this.Arg.StringIndex = 0;
         this.Arg.StateIndex = 0;
         this.Arg.OperateIndex = 0;
         return true;
@@ -271,9 +272,14 @@ public class BinaryState : Any
 
         if (arg.Kind == 3)
         {
-            this.ExecuteString(arg.String);
+            this.ExecuteStringArg();
         }
 
+        return true;
+    }
+
+    public virtual bool ExecuteStringArg()
+    {
         return true;
     }
 
