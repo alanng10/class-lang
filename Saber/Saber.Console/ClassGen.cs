@@ -2046,6 +2046,27 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
+    public virtual bool ExecuteOperateSame()
+    {
+        String varA;
+        String varB;
+        varA = this.VarA;
+        varB = this.VarB;
+
+        this.EvalValueGet(2, varA);
+        this.EvalValueGet(1, varB);
+
+        this.OperateLimitSame(varA, varA, varB);
+
+        this.VarMaskSet(varA, this.RefKindBoolMask);
+
+        this.EvalValueSet(2, varA);
+
+        this.EvalIndexPosSet(-1);
+
+        return true;
+    }
+
     public virtual long OperateKind()
     {
         return this.StateByte();
