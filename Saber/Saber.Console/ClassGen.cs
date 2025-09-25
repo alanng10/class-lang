@@ -2238,6 +2238,19 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
+    public virtual bool ExecuteOperateIntValue()
+    {
+        long k;
+        k = this.OperateArgInt();
+
+        this.ValuePre();
+
+        this.IntValueRef(k);
+
+        this.ValuePost();
+        return true;
+    }
+
     public virtual long OperateKind()
     {
         return this.StateByte();
