@@ -95,59 +95,6 @@ public class ClassGenTravel : Travel
         return true;
     }
 
-    public override bool ExecuteAreExecute(AreExecute areExecute)
-    {
-        base.ExecuteAreExecute(areExecute);
-
-        ClassGen gen;
-        gen = this.Gen;
-
-        Mark mark;
-        mark = areExecute.Mark;
-
-        if (mark is VarMark)
-        {
-            VarMark varMark;
-            varMark = (VarMark)mark;
-
-            Var varVar;
-            varVar = this.Info(varMark).Var;
-
-            gen.ExecuteVarSet(varVar);
-
-            gen.EvalIndexPosSet(-1);
-        }
-
-        if (mark is SetMark)
-        {
-            SetMark setMark;
-            setMark = (SetMark)mark;
-
-            Field varField;
-            varField = this.Info(setMark).SetField;
-
-            if (!(varField.Virtual == null))
-            {
-                varField = varField.Virtual;
-            }
-
-            ClassClass varClass;
-            varClass = varField.Parent;
-
-            long kk;
-            kk = varClass.FieldStart;
-            kk = kk + varField.Index;
-
-            long k;
-            k = 2;
-
-            gen.ExecuteVirtualCall(k, gen.StateKindSet, kk);
-
-            gen.EvalIndexPosSet(-1);
-        }
-        return true;
-    }
-
     public override bool ExecuteVarOperate(VarOperate varOperate)
     {
         Var varVar;
