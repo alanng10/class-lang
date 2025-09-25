@@ -1653,6 +1653,8 @@ public partial class ClassGen : TextAdd
 
         this.Text(this.NewLine);
 
+        this.ThisField = null;
+
         return true;
     }
 
