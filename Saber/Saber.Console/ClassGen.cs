@@ -2074,14 +2074,11 @@ public partial class ClassGen : TextAdd
         varA = this.VarA;
         varB = this.VarB;
 
-        String ka;
-        ka = this.RefKindClearMask;
-
         this.EvalValueGet(2, varA);
         this.EvalValueGet(1, varB);
 
-        this.VarMaskClear(varA, ka);
-        this.VarMaskClear(varB, ka);
+        this.VarMaskClear(varA, this.RefKindClearMask);
+        this.VarMaskClear(varB, this.RefKindClearMask);
 
         this.OperateLimit(varA, varA, varB, this.LimitLess);
 
