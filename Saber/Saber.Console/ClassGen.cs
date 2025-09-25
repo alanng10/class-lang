@@ -1644,15 +1644,23 @@ public partial class ClassGen : TextAdd
 
     public virtual bool ExecuteStateMaideCall(Maide varMaide)
     {
-        return true;
-    }
-
-    public virtual bool ExecuteCompState()
-    {
         long varCount;
         varCount = this.StateInt();
 
+        this.CompStateKind = this.StateKindCall;
+
+        this.ParamCount = varMaide.Param.Count;
+
+        this.LocalVarCount = varCount - this.ParamCount;
+
+        this.CompStateStart(this.Class, varMaide, this.StateKindCall);
+
         this.ExecuteOperateList();
+
+        this.CompStateEnd();
+
+        this.Text(this.NewLine);
+
         return true;
     }
 
