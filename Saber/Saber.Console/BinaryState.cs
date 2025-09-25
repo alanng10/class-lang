@@ -58,6 +58,7 @@ public class BinaryState : Any
 
     public virtual ClassModule Module { get; set; }
     public virtual Table IndexTable { get; set; }
+    public virtual Array StringArray { get; set; }
     public virtual Data Result { get; set; }
     public virtual BinaryStateArg Arg { get; set; }
     public virtual BinaryStateOperate Operate { get; set; }
@@ -141,6 +142,8 @@ public class BinaryState : Any
 
     public virtual bool ExecuteStage()
     {
+        this.ExecuteStringArray(this.StringArray);
+
         this.ExecuteCount(this.StateCount);
 
         Iter iter;
@@ -157,6 +160,27 @@ public class BinaryState : Any
         }
 
         iter.Clear();
+        return true;
+    }
+
+    public virtual bool ExecuteStringArray(Array array)
+    {
+        this.ExecuteCount(array.Count);
+
+        long count;
+        count = array.Count;
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            String k;
+            k = array.GetAt(i) as String;
+
+            this.ExecuteString(k);
+
+            i = i + 1;
+        }
         return true;
     }
 
