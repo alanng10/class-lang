@@ -180,6 +180,8 @@ public partial class ClassGen : TextAdd
     public virtual ClassModule Module { get; set; }
     public virtual BinaryBinary Binary { get; set; }
     public virtual long ModuleCount { get; set; }
+    public virtual Array ClassArray { get; set; }
+    public virtual Array ImportArray { get; set; }
     public virtual Array InitArray { get; set; }
     public virtual Array BaseArray { get; set; }
     public virtual Array CompArray { get; set; }
@@ -2318,6 +2320,31 @@ public partial class ClassGen : TextAdd
         this.Text(this.StringWord);
         this.Text(this.ListWord);
         return true;
+    }
+
+    public virtual ClassClass ClassGet(long index)
+    {
+        ClassClass a;
+        a = null;
+
+        bool b;
+        b = this.ClassArray.ValidAt(index);
+
+        if (b)
+        {
+            a = this.ClassArray.GetAt(index) as ClassClass;
+        }
+        if (!b)
+        {
+            long ka;
+            ka = index - this.ClassArray.Count;
+            if (!this.ImportArray.ValidAt(ka))
+            {
+                return null;
+            }
+            a = this.ImportArray.GetAt(ka) as ClassClass;
+        }
+        return a;
     }
 
     public virtual bool Include(String value)
