@@ -193,10 +193,10 @@ public partial class ClassGen : TextAdd
     public virtual Array CompArray { get; set; }
     public virtual Array StringArray { get; set; }
     public virtual String Result { get; set; }
+    public virtual SystemClass System { get; set; }
     public virtual Array ClassArray { get; set; }
     public virtual Array ImportArray { get; set; }
     public virtual ClassClass Class { get; set; }
-    public virtual SystemClass System { get; set; }
     public virtual ClassModule SystemInfraModule { get; set; }
     public virtual ClassClass InternClass { get; set; }
     public virtual ClassClass ExternClass { get; set; }
