@@ -2417,7 +2417,7 @@ public partial class ClassGen : TextAdd
             this.Text(this.ClassInt32);
             this.Text(this.Space);
 
-            this.StringDataName(this.Class, i);
+            this.StringDataName(i);
 
             this.Text(this.LimitBraceRightLite);
 
