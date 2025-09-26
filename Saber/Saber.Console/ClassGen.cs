@@ -1084,8 +1084,6 @@ public partial class ClassGen : TextAdd
         {
             return true;
         }
-
-        this.ExecuteString();
         return true;
     }
 
@@ -1571,6 +1569,8 @@ public partial class ClassGen : TextAdd
 
     public virtual bool ExecuteState()
     {
+        this.ExecuteString();
+
         this.StateDataIndex = 0;
 
         long stateCount;
@@ -2400,13 +2400,13 @@ public partial class ClassGen : TextAdd
     public virtual bool ExecuteStringData()
     {
         long count;
-        count = this.String.Count;
+        count = this.StringArray.Count;
         long i;
         i = 0;
         while (i < count)
         {
             String a;
-            a = this.String.GetAt(i) as String;
+            a = this.StringArray.GetAt(i) as String;
 
             long countA;
             countA = this.StringCount(a);
@@ -2501,13 +2501,13 @@ public partial class ClassGen : TextAdd
     public virtual bool ExecuteStringAny()
     {
         long count;
-        count = this.String.Count;
+        count = this.StringArray.Count;
         long i;
         i = 0;
         while (i < count)
         {
             String a;
-            a = this.String.GetAt(i) as String;
+            a = this.StringArray.GetAt(i) as String;
 
             long ka;
             ka = this.StringCount(a);
@@ -2593,7 +2593,7 @@ public partial class ClassGen : TextAdd
     public virtual bool ExecuteStringList()
     {
         long count;
-        count = this.String.Count;
+        count = this.StringArray.Count;
 
         this.Text(this.IndexStatic);
         this.Text(this.Space);
