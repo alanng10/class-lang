@@ -195,7 +195,6 @@ public partial class ClassGen : TextAdd
     public virtual ClassClass ExternClass { get; set; }
     public virtual Array Base { get; set; }
     public virtual ClassComp Comp { get; set; }
-    public virtual Array String { get; set; }
     public virtual ClassGenArg Arg { get; set; }
     public virtual ClassGenOperate Operate { get; set; }
     public virtual ClassGenCountOperate CountOperate { get; set; }
@@ -486,11 +485,9 @@ public partial class ClassGen : TextAdd
 
             this.Base = this.BaseArray.GetAt(i) as Array;
             this.Comp = this.CompArray.GetAt(i) as ClassComp;
-            this.String = this.StringArray.GetAt(i) as Array;
 
             this.ExecuteReferClass();
 
-            this.String = null;
             this.Comp = null;
             this.Base = null;
 
