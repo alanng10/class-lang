@@ -339,6 +339,7 @@ public partial class ClassGen : TextAdd
 
     public virtual bool Execute()
     {
+        this.SystemSet();
         this.ClassArraySet();
         this.ImportArraySet();
 
@@ -370,6 +371,7 @@ public partial class ClassGen : TextAdd
         this.Arg = null;
         this.ImportArray = null;
         this.ClassArray = null;
+        this.System = null;
         return true;
     }
 
