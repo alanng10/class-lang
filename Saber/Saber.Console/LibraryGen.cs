@@ -366,7 +366,6 @@ public class LibraryGen : TextAdd
         }
 
         this.ClassGen.SystemInfraModule = systemInfraModule;
-        this.ClassGen.System = this.SystemClass;
 
         long count;
         count = this.BaseArray.Count;
