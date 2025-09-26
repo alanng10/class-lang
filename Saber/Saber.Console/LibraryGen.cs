@@ -88,7 +88,7 @@ public class LibraryGen : TextAdd
     public virtual ClassModule Module { get; set; }
     public virtual String ModuleRefString { get; set; }
     public virtual Table ModuleTable { get; set; }
-    public virtual SystemClass SystemClass { get; set; }
+    public virtual SystemClass System { get; set; }
     public virtual String ClassPath { get; set; }
     public virtual long Status { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
@@ -101,6 +101,7 @@ public class LibraryGen : TextAdd
     protected virtual ClassGen ClassGen { get; set; }
     protected virtual StringTravel StringTravel { get; set; }
     protected virtual ModuleRefStringGen ModuleRefStringGen { get; set; }
+    protected virtual ClassModule SystemInfraModule { get; set; }
     protected virtual Array InitArray { get; set; }
     protected virtual Array BaseArray { get; set; }
     protected virtual Array CompArray { get; set; }
@@ -145,6 +146,9 @@ public class LibraryGen : TextAdd
     protected virtual bool ExecuteAll()
     {
         this.Status = 0;
+
+        this.SystemInfraModuleGet();
+        this.SystemSet();
 
         String genFoldPath;
         genFoldPath = this.S("Saber.Console.data/Gen");
@@ -225,10 +229,46 @@ public class LibraryGen : TextAdd
         return true;
     }
 
+    protected virtual bool SystemInfraModuleGet()
+    {
+        ClassModule systemInfraModule;
+        systemInfraModule = null;
+
+        bool b;
+        b = this.TextSame(this.TA(this.Module.Ref.Name), this.TB(this.SSystemDotInfra));
+
+        if (b)
+        {
+            systemInfraModule = this.Module;
+        }
+
+        if (!b)
+        {
+            this.ModuleRef.Name = this.SSystemDotInfra;
+            this.ModuleRef.Ver = 0;
+
+            systemInfraModule = this.ModuleTable.Get(this.ModuleRef) as ClassModule;
+        }
+
+        this.SystemInfraModule = systemInfraModule;
+        return true;
+    }
+
+    protected virtual bool SystemSet()
+    {
+        this.System = new SystemClass();
+        this.System.Init();
+        this.System.Any = this.SystemInfraModule.Class.Get(this.S("Any")) as ClassClass;
+        this.System.Bool = this.SystemInfraModule.Class.Get(this.S("Bool")) as ClassClass;
+        this.System.Int = this.SystemInfraModule.Class.Get(this.S("Int")) as ClassClass;
+        this.System.String = this.SystemInfraModule.Class.Get(this.S("String")) as ClassClass;
+        return true;
+    }
+
     protected virtual bool ExecuteInit()
     {
         this.ClassInitGen.Module = this.Module;
-        this.ClassInitGen.AnyClass = this.SystemClass.Any;
+        this.ClassInitGen.AnyClass = this.System.Any;
 
         this.ClassInitGen.Execute();
 
@@ -346,27 +386,6 @@ public class LibraryGen : TextAdd
 
     protected virtual bool ExecuteClassSource()
     {
-        ClassModule systemInfraModule;
-        systemInfraModule = null;
-
-        bool b;
-        b = this.TextSame(this.TA(this.Module.Ref.Name), this.TB(this.SSystemDotInfra));
-
-        if (b)
-        {
-            systemInfraModule = this.Module;
-        }
-
-        if (!b)
-        {
-            this.ModuleRef.Name = this.SSystemDotInfra;
-            this.ModuleRef.Ver = 0;
-
-            systemInfraModule = this.ModuleTable.Get(this.ModuleRef) as ClassModule;
-        }
-
-        this.ClassGen.SystemInfraModule = systemInfraModule;
-
         long count;
         count = this.BaseArray.Count;
         long i;
@@ -396,6 +415,8 @@ public class LibraryGen : TextAdd
 
         this.ClassGen.Module = this.Module;
         this.ClassGen.ModuleCount = this.ModuleTable.Count;
+        this.ClassGen.SystemInfraModule = this.SystemInfraModule;
+        this.ClassGen.System = this.System;
         this.ClassGen.InitArray = this.InitArray;
         this.ClassGen.BaseArray = this.BaseArray;
         this.ClassGen.CompArray = this.CompArray;
@@ -411,6 +432,8 @@ public class LibraryGen : TextAdd
         this.ClassGen.CompArray = null;
         this.ClassGen.BaseArray = null;
         this.ClassGen.InitArray = null;
+        this.ClassGen.System = null;
+        this.ClassGen.SystemInfraModule = null;
         this.ClassGen.ModuleCount = 0;
         this.ClassGen.Module = null;
 
