@@ -19,7 +19,6 @@ public class ClassStringGen : Any
     protected virtual TextInfra TextInfra { get; set; }
     protected virtual StringComp StringComp { get; set; }
     protected virtual long Index { get; set; }
-    protected virtual Data CountData { get; set; }
 
     public virtual bool Execute()
     {
@@ -30,9 +29,10 @@ public class ClassStringGen : Any
 
         this.Index = sizeof(long);
 
-        this.CountData = new Data();
-        this.CountData.Count = count * sizeof(long);
-        this.CountData.Init();
+        Data countData;
+        countData = new Data();
+        countData.Count = count * sizeof(long);
+        countData.Init();
 
         long totalTextCount;
         totalTextCount = 0;
@@ -49,7 +49,7 @@ public class ClassStringGen : Any
 
             this.Index = this.Index + ka * sizeof(int);
 
-            this.InfraInfra.DataIntSet(this.CountData, i * sizeof(long), ka);
+            this.InfraInfra.DataIntSet(countData, i * sizeof(long), ka);
 
             totalTextCount = totalTextCount + ka;
 
@@ -71,7 +71,7 @@ public class ClassStringGen : Any
         while (i < count)
         {
             long countA;
-            countA = this.InfraInfra.DataIntGet(this.CountData, i * sizeof(long));
+            countA = this.InfraInfra.DataIntGet(countData, i * sizeof(long));
 
             this.Index = this.Index + sizeof(long);
 
@@ -107,7 +107,7 @@ public class ClassStringGen : Any
         while (i < count)
         {
             long countB;
-            countB = this.InfraInfra.DataIntGet(this.CountData, i * sizeof(long));
+            countB = this.InfraInfra.DataIntGet(countData, i * sizeof(long));
 
             range.Index = textIndex;
             range.Count = countB;
