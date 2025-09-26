@@ -2753,6 +2753,8 @@ public partial class ClassGen : TextAdd
 
     public virtual bool StringDataName(long index)
     {
+        this.Text(this.NamePre);
+        this.Text(this.NameCombine);
         this.Text(this.StringWord);
         this.Text(this.NameCombine);
         this.TextIntHex(index);
@@ -2763,6 +2765,8 @@ public partial class ClassGen : TextAdd
 
     public virtual bool StringAnyName(long index)
     {
+        this.Text(this.NamePre);
+        this.Text(this.NameCombine);
         this.Text(this.StringWord);
         this.Text(this.NameCombine);
         this.TextIntHex(index);
@@ -2773,6 +2777,8 @@ public partial class ClassGen : TextAdd
 
     public virtual bool StringListName()
     {
+        this.Text(this.NamePre);
+        this.Text(this.NameCombine);
         this.Text(this.StringWord);
         this.Text(this.NameCombine);
         this.Text(this.AnyWord);
