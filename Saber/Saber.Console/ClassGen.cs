@@ -529,7 +529,7 @@ public partial class ClassGen : TextAdd
         this.Include(this.IncludeValueInfraIntern);
         this.Text(this.NewLine);
 
-        if (this.SystemInfraModule)
+        if (this.Module == this.SystemInfraModule)
         {
             this.Include(this.IncludeValueInfraInternIntern);
             this.Include(this.IncludeValueInfraInternExtern);
