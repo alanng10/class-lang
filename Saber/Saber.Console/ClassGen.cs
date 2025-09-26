@@ -373,6 +373,17 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
+    public virtual bool SystemSet()
+    {
+        this.System = new SystemClass();
+        this.System.Init();
+        this.System.Any = this.SystemInfraModule.Class.Get(this.S("Any")) as ClassClass;
+        this.System.Bool = this.SystemInfraModule.Class.Get(this.S("Bool")) as ClassClass;
+        this.System.Int = this.SystemInfraModule.Class.Get(this.S("Int")) as ClassClass;
+        this.System.String = this.SystemInfraModule.Class.Get(this.S("String")) as ClassClass;
+        return true;
+    }
+
     public virtual bool ClassArraySet()
     {
         this.ClassArray = this.ListInfra.ArrayCreate(this.Module.Class.Count);
