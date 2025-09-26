@@ -2742,9 +2742,10 @@ public partial class ClassGen : TextAdd
     public virtual bool StringDataName(long index)
     {
         this.Text(this.StringWord);
-        this.Text(this.DataWord);
         this.Text(this.NameCombine);
         this.TextIntHex(index);
+        this.Text(this.NameCombine);
+        this.Text(this.DataWord);
         return true;
     }
 
@@ -2753,12 +2754,17 @@ public partial class ClassGen : TextAdd
         this.Text(this.StringWord);
         this.Text(this.NameCombine);
         this.TextIntHex(index);
+        this.Text(this.NameCombine);
+        this.Text(this.AnyWord);
         return true;
     }
 
     public virtual bool StringListName()
     {
         this.Text(this.StringWord);
+        this.Text(this.NameCombine);
+        this.Text(this.AnyWord);
+        this.Text(this.NameCombine);
         this.Text(this.ListWord);
         return true;
     }
