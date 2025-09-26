@@ -6,14 +6,18 @@ public class ClassStringGen : Any
     {
         base.Init();
         this.InfraInfra = InfraInfra.This;
+        this.ListInfra = ListInfra.This;
         this.TextInfra = TextInfra.This;
+        this.StringComp = StringComp.This;
         return true;
     }
 
     public virtual Data State { get; set; }
     public virtual Array Result { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
+    protected virtual ListInfra ListInfra { get; set; }
     protected virtual TextInfra TextInfra { get; set; }
+    protected virtual StringComp StringComp { get; set; }
     protected virtual long Index { get; set; }
     protected virtual Data CountData { get; set; }
 
@@ -90,6 +94,33 @@ public class ClassStringGen : Any
             i = i + 1;
         }
 
+        this.Result = this.ListInfra.ArrayCreate(count);
+
+        InfraRange range;
+        range = new InfraRange();
+        range.Init();
+
+        textIndex = 0;
+
+        i = 0;
+
+        while (i < count)
+        {
+            long countB;
+            countB = this.InfraInfra.DataIntGet(this.CountData, i * sizeof(long));
+
+            range.Index = textIndex;
+            range.Count = countB;
+
+            String k;
+            k = this.StringComp.CreateData(textData, range);
+
+            this.Result.SetAt(i, k);
+
+            textIndex = textIndex + countB;
+
+            i = i + 1;
+        }
         return true;
     }
 
