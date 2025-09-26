@@ -1653,7 +1653,7 @@ public partial class ClassGen : TextAdd
 
         this.ParamCount = 0;
 
-        this.LocalVarCount = varField.Get.Count - 1;
+        this.LocalVarCount = varCount - 1;
 
         this.CompStateStart(this.Class, varField, this.StateKindGet);
 
@@ -1679,7 +1679,7 @@ public partial class ClassGen : TextAdd
 
         this.ParamCount = 1;
 
-        this.LocalVarCount = varField.Set.Count - 2;
+        this.LocalVarCount = varCount - 2;
 
         this.CompStateStart(this.Class, varField, this.StateKindSet);
 
@@ -1703,7 +1703,7 @@ public partial class ClassGen : TextAdd
 
         this.ParamCount = varMaide.Param.Count;
 
-        this.LocalVarCount = varMaide.Call.Count - varMaide.Param.Count;
+        this.LocalVarCount = varCount - varMaide.Param.Count;
 
         this.CompStateStart(this.Class, varMaide, this.StateKindCall);
 
