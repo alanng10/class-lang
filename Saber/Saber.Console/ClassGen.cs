@@ -1076,11 +1076,6 @@ public partial class ClassGen : TextAdd
         this.Text(this.NewLine);
 
         this.ExecuteClassInit();
-
-        if (this.Class == this.InternClass | this.Class == this.ExternClass)
-        {
-            return true;
-        }
         return true;
     }
 
@@ -1596,6 +1591,11 @@ public partial class ClassGen : TextAdd
 
     public virtual bool ExecuteStateClass()
     {
+        if (this.Class == this.InternClass | this.Class == this.ExternClass)
+        {
+            return true;
+        }
+
         this.StringValueIndex = 0;
 
         this.BlockIndex = 0;
