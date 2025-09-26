@@ -43,8 +43,8 @@ public partial class ClassGen : TextAdd
         this.RefKindString = this.S("4");
         this.RefKindStringValue = this.S("5");
         this.RefKindClearMask = this.S("0x0fffffffffffffff");
-        this.RefKindBoolMask = this.RefKindMask(this.RefKindBool);
-        this.RefKindIntMask = this.RefKindMask(this.RefKindInt);
+        this.RefKindBoolMask = this.CreateRefKindMask(this.RefKindBool);
+        this.RefKindIntMask = this.CreateRefKindMask(this.RefKindInt);
         this.BaseClearMask = this.S("0xf00fffffffffffff");
         this.BaseMask = this.S("0x0ff0000000000000");
         this.MemoryIndexMask = this.S("0x000fffffffffffff");
@@ -176,6 +176,11 @@ public partial class ClassGen : TextAdd
         state.Gen = this;
         state.Init();
         return state;
+    }
+
+    public virtual String CreateRefKindMask(String kindHexDigit)
+    {
+        return this.AddClear().Add(this.IntValueHexPre).Add(kindHexDigit).AddS("000000000000000").AddResult();
     }
 
     public virtual ClassModule Module { get; set; }
@@ -331,11 +336,6 @@ public partial class ClassGen : TextAdd
     public virtual InfraInfra InfraInfra { get; set; }
     public virtual ListInfra ListInfra { get; set; }
     public virtual BinaryOperateKindList OperateKindList { get; set; }
-
-    public virtual String RefKindMask(String kindHexDigit)
-    {
-        return this.AddClear().Add(this.IntValueHexPre).Add(kindHexDigit).AddS("000000000000000").AddResult();
-    }
 
     public virtual bool Execute()
     {
