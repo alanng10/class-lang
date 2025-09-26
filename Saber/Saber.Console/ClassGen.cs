@@ -173,16 +173,16 @@ public partial class ClassGen : TextAdd
         return this.AddClear().AddS("v").AddS(name).AddResult();
     }
 
+    public virtual String CreateRefKindMask(String kindHexDigit)
+    {
+        return this.AddClear().Add(this.IntValueHexPre).Add(kindHexDigit).AddS("000000000000000").AddResult();
+    }
+
     public virtual ClassGenOperateState InitOperateState(ClassGenOperateState state)
     {
         state.Gen = this;
         state.Init();
         return state;
-    }
-
-    public virtual String CreateRefKindMask(String kindHexDigit)
-    {
-        return this.AddClear().Add(this.IntValueHexPre).Add(kindHexDigit).AddS("000000000000000").AddResult();
     }
 
     public virtual ClassModule Module { get; set; }
