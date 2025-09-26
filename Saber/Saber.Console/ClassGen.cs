@@ -133,6 +133,9 @@ public partial class ClassGen : TextAdd
         this.LimitBitLite = this.S("<<");
         this.LimitBitRite = this.S(">>");
 
+        this.SIntern = this.S("Intern");
+        this.SExtern = this.S("Extern");
+
         this.InitOperateKindState();
         return true;
     }
@@ -338,6 +341,8 @@ public partial class ClassGen : TextAdd
     public virtual InfraInfra InfraInfra { get; set; }
     public virtual ListInfra ListInfra { get; set; }
     public virtual BinaryOperateKindList OperateKindList { get; set; }
+    public virtual String SIntern { get; set; }
+    public virtual String SExtern { get; set; }
 
     public virtual bool Execute()
     {
@@ -517,6 +522,12 @@ public partial class ClassGen : TextAdd
 
     public virtual bool ExecuteModule()
     {
+        if (this.Module == this.SystemInfraModule)
+        {
+            this.InternClass = this.SystemInfraModule.Class.Get(this.SIntern) as ClassClass;
+            this.ExternClass = this.SystemInfraModule.Class.Get(this.SExtern) as ClassClass;
+        }
+
         this.ExecuteExtern();
 
         this.ExecuteModuleStruct();

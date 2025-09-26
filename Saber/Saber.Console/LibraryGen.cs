@@ -25,8 +25,6 @@ public class LibraryGen : TextAdd
         this.ModuleRef = this.CreateModuleRef();
 
         this.SSystemDotInfra = this.S("System.Infra");
-        this.SIntern = this.S("Intern");
-        this.SExtern = this.S("Extern");
         this.SC = this.S("c");
         this.SModule = this.S("Module");
         this.SExe = this.S("Exe");
@@ -112,8 +110,6 @@ public class LibraryGen : TextAdd
     protected virtual ModuleRef ModuleRef { get; set; }
     protected virtual String ModuleExeString { get; set; }
     protected virtual String SSystemDotInfra { get; set; }
-    protected virtual String SIntern { get; set; }
-    protected virtual String SExtern { get; set; }
     protected virtual String SC { get; set; }
     protected virtual String SModule { get; set; }
     protected virtual String SExe { get; set; }
@@ -369,14 +365,7 @@ public class LibraryGen : TextAdd
             systemInfraModule = this.ModuleTable.Get(this.ModuleRef) as ClassModule;
         }
 
-        ClassClass internClass;
-        ClassClass externClass;
-        internClass = systemInfraModule.Class.Get(this.SIntern) as ClassClass;
-        externClass = systemInfraModule.Class.Get(this.SExtern) as ClassClass;
-
         this.ClassGen.SystemInfraModule = systemInfraModule;
-        this.ClassGen.InternClass = internClass;
-        this.ClassGen.ExternClass = externClass;
         this.ClassGen.System = this.SystemClass;
 
         long count;
