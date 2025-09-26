@@ -200,8 +200,8 @@ public partial class ClassGen : TextAdd
     public virtual ClassGenCountOperate CountOperate { get; set; }
     public virtual ClassGenSetOperate SetOperate { get; set; }
     public virtual Field ThisField { get; set; }
-    public virtual Iter ClassIter { get; set; }
-    public virtual Iter TableIter { get; set; }
+    public virtual TableIter ClassIter { get; set; }
+    public virtual TableIter TableIter { get; set; }
     public virtual long CompStateKind { get; set; }
     public virtual long ParamCount { get; set; }
     public virtual long LocalVarCount { get; set; }
