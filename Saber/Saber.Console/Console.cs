@@ -663,6 +663,12 @@ public class Console : TextAdd
 
     protected virtual bool ExecuteGenLibrary()
     {
+        String verString;
+        verString = this.ClassInfra.VerString(module.Ref.Ver);
+
+        String moduleRefString;
+        moduleRefString = this.ClassInfra.ModuleRefString(module.Ref.Name, verString);
+
         this.LibraryGen.Module = module;
         this.LibraryGen.ModuleRefString = moduleRefString;
         this.LibraryGen.ModuleTable = this.ModuleTable;
