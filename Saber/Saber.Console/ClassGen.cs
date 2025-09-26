@@ -191,16 +191,16 @@ public partial class ClassGen : TextAdd
     public virtual ClassModule Module { get; set; }
     public virtual BinaryBinary Binary { get; set; }
     public virtual long ModuleCount { get; set; }
+    public virtual ClassModule SystemInfraModule { get; set; }
+    public virtual SystemClass System { get; set; }
     public virtual Array InitArray { get; set; }
     public virtual Array BaseArray { get; set; }
     public virtual Array CompArray { get; set; }
     public virtual Array StringArray { get; set; }
     public virtual String Result { get; set; }
-    public virtual SystemClass System { get; set; }
     public virtual Array ClassArray { get; set; }
     public virtual Array ImportArray { get; set; }
     public virtual ClassClass Class { get; set; }
-    public virtual ClassModule SystemInfraModule { get; set; }
     public virtual ClassClass InternClass { get; set; }
     public virtual ClassClass ExternClass { get; set; }
     public virtual Array Base { get; set; }
@@ -346,7 +346,6 @@ public partial class ClassGen : TextAdd
 
     public virtual bool Execute()
     {
-        this.SystemSet();
         this.ClassArraySet();
         this.ImportArraySet();
 
@@ -378,18 +377,6 @@ public partial class ClassGen : TextAdd
         this.Arg = null;
         this.ImportArray = null;
         this.ClassArray = null;
-        this.System = null;
-        return true;
-    }
-
-    public virtual bool SystemSet()
-    {
-        this.System = new SystemClass();
-        this.System.Init();
-        this.System.Any = this.SystemInfraModule.Class.Get(this.S("Any")) as ClassClass;
-        this.System.Bool = this.SystemInfraModule.Class.Get(this.S("Bool")) as ClassClass;
-        this.System.Int = this.SystemInfraModule.Class.Get(this.S("Int")) as ClassClass;
-        this.System.String = this.SystemInfraModule.Class.Get(this.S("String")) as ClassClass;
         return true;
     }
 
