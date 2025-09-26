@@ -1563,6 +1563,8 @@ public partial class ClassGen : TextAdd
     {
         this.ExecuteString();
 
+        this.StringValueIndex = 0;
+
         this.StateDataIndex = 0;
 
         long stateCount;
@@ -1595,8 +1597,6 @@ public partial class ClassGen : TextAdd
         {
             return true;
         }
-
-        this.StringValueIndex = 0;
 
         this.BlockIndex = 0;
 
