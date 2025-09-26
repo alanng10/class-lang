@@ -576,25 +576,6 @@ public class Console : TextAdd
             return false;
         }
 
-        this.LibraryGen.Module = module;
-        this.LibraryGen.ModuleRefString = moduleRefString;
-        this.LibraryGen.ModuleTable = this.ModuleTable;
-        this.LibraryGen.ClassPath = this.ClassPath;
-
-        bool bb;
-        bb = this.LibraryGen.Execute();
-
-        this.LibraryGen.ClassPath = null;
-        this.LibraryGen.ModuleTable = null;
-        this.LibraryGen.ModuleRefString = null;
-        this.LibraryGen.Module = null;
-
-        if (!bb)
-        {
-            this.Status = 5200 + this.LibraryGen.Status;
-            return false;
-        }
-
         this.StorageGen.Module = module;
         this.StorageGen.ModuleRefString = moduleRefString;
         this.StorageGen.ClassPath = this.ClassPath;
@@ -608,7 +589,7 @@ public class Console : TextAdd
 
         if (!bc)
         {
-            this.Status = 5500;
+            this.Status = 5200;
             return false;
         }
 
@@ -677,6 +658,29 @@ public class Console : TextAdd
             return false;
         }
 
+        return true;
+    }
+
+    protected virtual bool ExecuteGenLibrary()
+    {
+        this.LibraryGen.Module = module;
+        this.LibraryGen.ModuleRefString = moduleRefString;
+        this.LibraryGen.ModuleTable = this.ModuleTable;
+        this.LibraryGen.ClassPath = this.ClassPath;
+
+        bool bb;
+        bb = this.LibraryGen.Execute();
+
+        this.LibraryGen.ClassPath = null;
+        this.LibraryGen.ModuleTable = null;
+        this.LibraryGen.ModuleRefString = null;
+        this.LibraryGen.Module = null;
+
+        if (!bb)
+        {
+            this.Status = 5500 + this.LibraryGen.Status;
+            return false;
+        }
         return true;
     }
 
