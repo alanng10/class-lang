@@ -132,6 +132,8 @@ public partial class ClassGen : TextAdd
         this.LimitBitNot = this.S("~");
         this.LimitBitLite = this.S("<<");
         this.LimitBitRite = this.S(">>");
+
+        this.InitOperateKindState();
         return true;
     }
 
