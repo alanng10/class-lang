@@ -6,13 +6,16 @@ public class ClassStringGen : Any
     {
         base.Init();
         this.InfraInfra = InfraInfra.This;
+        this.TextInfra = TextInfra.This;
         return true;
     }
 
     public virtual Data State { get; set; }
     public virtual Array Result { get; set; }
     protected virtual InfraInfra InfraInfra { get; set; }
+    protected virtual TextInfra TextInfra { get; set; }
     protected virtual long Index { get; set; }
+    protected virtual Data CountData { get; set; }
 
     public virtual bool Execute()
     {
@@ -22,6 +25,10 @@ public class ClassStringGen : Any
         count = this.ExecuteCount();
 
         this.Index = sizeof(long);
+
+        this.CountData = new Data();
+        this.CountData.Count = count * sizeof(long);
+        this.CountData.Init();
 
         long totalTextCount;
         totalTextCount = 0;
@@ -38,6 +45,8 @@ public class ClassStringGen : Any
 
             this.Index = this.Index + ka * sizeof(int);
 
+            this.InfraInfra.DataIntSet(this.CountData, i * sizeof(long), ka);
+
             totalTextCount = totalTextCount + ka;
 
             i = i + 1;
@@ -50,16 +59,33 @@ public class ClassStringGen : Any
 
         this.Index = sizeof(long);
 
+        long textIndex;
+        textIndex = 0;
+
         i = 0;
 
         while (i < count)
         {
-            long countK;
-            countK = this.ExecuteCount();
+            long countA;
+            countA = this.InfraInfra.DataIntGet(this.CountData, i * sizeof(long));
 
             this.Index = this.Index + sizeof(long);
 
-            this.Index = this.Index + countK * sizeof(int);
+            long iA;
+            iA = 0;
+            while (iA < countA)
+            {
+                long kk;
+                kk = this.ExecuteMid();
+
+                this.Index = this.Index + sizeof(int);
+
+                this.TextInfra.DataCharSet(textData, textIndex, kk);
+
+                textIndex = textIndex + 1;
+
+                iA = iA + 1;
+            }
 
             i = i + 1;
         }
