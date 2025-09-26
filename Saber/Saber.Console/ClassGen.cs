@@ -22,13 +22,13 @@ public partial class ClassGen : TextAdd
         this.NewLine = this.TextInfra.NewLine;
         this.Zero = this.S("0");
         this.One = this.S("1");
-        this.VarA = this.InitVar("A");
-        this.VarB = this.InitVar("B");
-        this.VarC = this.InitVar("C");
-        this.VarD = this.InitVar("D");
-        this.VarSA = this.InitVar("SA");
-        this.VarSB = this.InitVar("SB");
-        this.VarSC = this.InitVar("SC");
+        this.VarA = this.CreateVar("A");
+        this.VarB = this.CreateVar("B");
+        this.VarC = this.CreateVar("C");
+        this.VarD = this.CreateVar("D");
+        this.VarSA = this.CreateVar("SA");
+        this.VarSB = this.CreateVar("SB");
+        this.VarSC = this.CreateVar("SC");
         this.EvalVar = this.S("e");
         this.EvalStackVar = this.S("S");
         this.EvalIndexVar = this.S("N");
@@ -168,7 +168,7 @@ public partial class ClassGen : TextAdd
         return a;
     }
 
-    public virtual String InitVar(string name)
+    public virtual String CreateVar(string name)
     {
         return this.AddClear().AddS("v").AddS(name).AddResult();
     }
