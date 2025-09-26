@@ -2739,31 +2739,25 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
-    public virtual bool StringDataName(ClassClass varClass, long index)
+    public virtual bool StringDataName(long index)
     {
-        this.ClassName(varClass);
-        this.Text(this.NameCombine);
-        this.TextIntHex(index);
-        this.Text(this.NameCombine);
         this.Text(this.StringWord);
         this.Text(this.DataWord);
-        return true;
-    }
-
-    public virtual bool StringAnyName(ClassClass varClass, long index)
-    {
-        this.ClassName(varClass);
         this.Text(this.NameCombine);
         this.TextIntHex(index);
-        this.Text(this.NameCombine);
-        this.Text(this.StringWord);
         return true;
     }
 
-    public virtual bool StringListName(ClassClass varClass)
+    public virtual bool StringAnyName(long index)
     {
-        this.ClassName(varClass);
+        this.Text(this.StringWord);
         this.Text(this.NameCombine);
+        this.TextIntHex(index);
+        return true;
+    }
+
+    public virtual bool StringListName()
+    {
         this.Text(this.StringWord);
         this.Text(this.ListWord);
         return true;
@@ -4616,7 +4610,7 @@ public partial class ClassGen : TextAdd
 
     public virtual bool StringValueRef(long index)
     {
-        this.StringListName(this.Class);
+        this.StringListName();
 
         this.Text(this.LimitBraceRightLite);
 
