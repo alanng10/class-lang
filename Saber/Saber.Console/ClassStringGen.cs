@@ -16,6 +16,54 @@ public class ClassStringGen : Any
 
     public virtual bool Execute()
     {
+        this.Index = 0;
+
+        long count;
+        count = this.ExecuteCount();
+
+        this.Index = sizeof(long);
+
+        long totalTextCount;
+        totalTextCount = 0;
+
+        long i;
+        i = 0;
+
+        while (i < count)
+        {
+            long ka;
+            ka = this.ExecuteCount();
+
+            this.Index = this.Index + sizeof(long);
+
+            this.Index = this.Index + ka * sizeof(int);
+
+            totalTextCount = totalTextCount + ka;
+
+            i = i + 1;
+        }
+
+        Data textData;
+        textData = new Data();
+        textData.Count = totalTextCount * sizeof(int);
+        textData.Init();
+
+        this.Index = sizeof(long);
+
+        i = 0;
+
+        while (i < count)
+        {
+            long countK;
+            countK = this.ExecuteCount();
+
+            this.Index = this.Index + sizeof(long);
+
+            this.Index = this.Index + countK * sizeof(int);
+
+            i = i + 1;
+        }
+
         return true;
     }
 
@@ -26,66 +74,11 @@ public class ClassStringGen : Any
 
     protected virtual long ExecuteMid()
     {
-        return this.ExecuteIntCount(sizeof(int));
+        return this.InfraInfra.DataMidGet(this.State, this.Index);
     }
 
     protected virtual long ExecuteInt()
     {
-        return this.ExecuteIntCount(sizeof(long));
-    }
-
-    protected virtual long ExecuteIntCount(long count)
-    {
-        if (!this.ValidCount(count))
-        {
-            return -1;
-        }
-
-        long k;
-        k = 0;
-
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            long ka;
-            ka = this.ExecuteByte();
-
-            int shift;
-            shift = (int)(i * 8);
-
-            ka = ka << shift;
-
-            k = k | ka;
-
-            i = i + 1;
-        }
-
-        k = k & (this.InfraInfra.IntCapValue - 1);
-
-        long a;
-        a = k;
-        return a;
-    }
-
-    protected virtual long ExecuteByte()
-    {
-        if (!this.ValidCount(1))
-        {
-            return -1;
-        }
-
-        long index;
-        index = this.Index;
-        long a;
-        a = this.State.Get(index);
-        index = index + 1;
-        this.Index = index;
-        return a;
-    }
-
-    protected virtual bool ValidCount(long count)
-    {
-        return this.InfraInfra.ValidRange(this.State.Count, this.Index, count);
+        return this.InfraInfra.DataIntGet(this.State, this.Index);
     }
 }
