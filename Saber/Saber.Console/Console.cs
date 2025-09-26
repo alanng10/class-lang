@@ -579,14 +579,12 @@ public class Console : TextAdd
         this.LibraryGen.Module = module;
         this.LibraryGen.ModuleRefString = moduleRefString;
         this.LibraryGen.ModuleTable = this.ModuleTable;
-        this.LibraryGen.SystemClass = this.Create.Module.System;
         this.LibraryGen.ClassPath = this.ClassPath;
 
         bool bb;
         bb = this.LibraryGen.Execute();
 
         this.LibraryGen.ClassPath = null;
-        this.LibraryGen.SystemClass = null;
         this.LibraryGen.ModuleTable = null;
         this.LibraryGen.ModuleRefString = null;
         this.LibraryGen.Module = null;
