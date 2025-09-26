@@ -190,7 +190,7 @@ public partial class ClassGen : TextAdd
     public virtual Array ImportArray { get; set; }
     public virtual ClassClass Class { get; set; }
     public virtual SystemClass System { get; set; }
-    public virtual bool SystemInfraModule { get; set; }
+    public virtual ClassModule SystemInfraModule { get; set; }
     public virtual ClassClass InternClass { get; set; }
     public virtual ClassClass ExternClass { get; set; }
     public virtual Array Base { get; set; }
