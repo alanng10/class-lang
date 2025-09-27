@@ -8,8 +8,8 @@ The spell is:
 "s" for seer radius.
 "s" for system effect.
 
-The word "Any" has spell.
-The spell is:
-"A" for Animi.
-"n" for each a.
-"y" for yamdoe.
+The word "Any" has spell. 
+The spell is: 
+"A" for Any Class.
+"n" for never done.
+"y" for yes total.
