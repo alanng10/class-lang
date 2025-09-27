@@ -1,6 +1,6 @@
 # Spell
 
-Class Lang word "Class" has spell.
+Class Lang word "Class" has spell. 
 The spell is:
 "C" for Class Super.
 "l" for land execute.
