@@ -44,6 +44,8 @@ Word "certain" has meaning that is will happen.
 
 Word "gene" has meaning that is applicable to all.
 
+Word "tier" has meaning that is tier mark.
+
 Word "leve" has meaning that is tiered stop.
 
 Word "mark" has meaning that is goaled.
