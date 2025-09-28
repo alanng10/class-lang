@@ -13,3 +13,12 @@ The spell is:
 "A" for Any Class.
 "n" for never done.
 "y" for yes total.
+
+The word "System" has spell.
+The spell is:
+"S" for Seer Land.
+"y" for yes total.
+"s" for sera effect.
+"t" for time radius.
+"e" for effect kind.
+"m" for maide all.
