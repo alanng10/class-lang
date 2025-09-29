@@ -154,6 +154,8 @@ Word "revert" has meaning that is unmod.
 
 Word "history" has meaning that is mod history.
 
+Word "diff" has meaning that is difference.
+
 Word "problem" has meaning that is issue entity.
 
 Word "mainen" has meaning that is maintenance.
