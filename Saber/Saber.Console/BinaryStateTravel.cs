@@ -441,25 +441,25 @@ public class BinaryStateTravel : Travel
 
     public override bool ExecuteIntValue(IntValue intValue)
     {
-        this.IntValueOp(intValue.Value);
+        this.IntValueOpe(intValue.Value);
         return true;
     }
 
     public override bool ExecuteIntSignValue(IntSignValue intSignValue)
     {
-        this.IntValueOp(intSignValue.Value);
+        this.IntValueOpe(intSignValue.Value);
         return true;
     }
 
     public override bool ExecuteIntHexValue(IntHexValue intHexValue)
     {
-        this.IntValueOp(intHexValue.Value);
+        this.IntValueOpe(intHexValue.Value);
         return true;
     }
 
     public override bool ExecuteIntHexSignValue(IntHexSignValue intHexSignValue)
     {
-        this.IntValueOp(intHexSignValue.Value);
+        this.IntValueOpe(intHexSignValue.Value);
         return true;
     }
 
@@ -469,7 +469,7 @@ public class BinaryStateTravel : Travel
         return true;
     }
 
-    protected virtual bool IntValueOp(long value)
+    protected virtual bool IntValueOpe(long value)
     {
         this.Ope(this.Kind.IntValue, this.IntArg(this.ArgA, value), null);
         return true;
