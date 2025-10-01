@@ -88,7 +88,6 @@ public class LibraryGen : TextAdd
     public virtual ClassModule Module { get; set; }
     public virtual String ModuleRefString { get; set; }
     public virtual Table ModuleTable { get; set; }
-    public virtual SystemClass System { get; set; }
     public virtual String ClassPath { get; set; }
     public virtual long Status { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
@@ -102,6 +101,7 @@ public class LibraryGen : TextAdd
     protected virtual StringTravel StringTravel { get; set; }
     protected virtual ModuleRefStringGen ModuleRefStringGen { get; set; }
     protected virtual ClassModule SystemInfraModule { get; set; }
+    protected virtual SystemClass System { get; set; }
     protected virtual Array InitArray { get; set; }
     protected virtual Array BaseArray { get; set; }
     protected virtual Array CompArray { get; set; }
@@ -133,6 +133,8 @@ public class LibraryGen : TextAdd
         bool b;
         b = this.ExecuteAll();
 
+        this.SystemInfraModule = null;
+        this.System = null;
         this.InitArray = null;
         this.BaseArray = null;
         this.CompArray = null;
