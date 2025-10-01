@@ -11,17 +11,11 @@ public class LibraryGen : TextAdd
         this.StorageComp = StorageComp.This;
 
         this.ClassInitGen = this.CreateClassInitGen();
-
         this.ClassBaseGen = this.CreateClassBaseGen();
-
         this.ClassCompGen = this.CreateClassCompGen();
-
+        this.ClassStringGen = this.CreateClassStringGen();
         this.ClassGen = this.CreateClassGen();
-
-        this.StringTravel = this.CreateStringTravel();
-
         this.ModuleRefStringGen = this.CreateModuleRefStringGen();
-
         this.ModuleRef = this.CreateModuleRef();
 
         this.SSystemDotInfra = this.S("System.Infra");
@@ -56,18 +50,18 @@ public class LibraryGen : TextAdd
         return a;
     }
 
-    protected virtual ClassGen CreateClassGen()
+    protected virtual ClassStringGen CreateClassStringGen()
     {
-        ClassGen a;
-        a = new ClassGen();
+        ClassStringGen a;
+        a = new ClassStringGen();
         a.Init();
         return a;
     }
 
-    protected virtual StringTravel CreateStringTravel()
+    protected virtual ClassGen CreateClassGen()
     {
-        StringTravel a;
-        a = new StringTravel();
+        ClassGen a;
+        a = new ClassGen();
         a.Init();
         return a;
     }
@@ -97,8 +91,8 @@ public class LibraryGen : TextAdd
     protected virtual ClassInitGen ClassInitGen { get; set; }
     protected virtual ClassBaseGen ClassBaseGen { get; set; }
     protected virtual ClassCompGen ClassCompGen { get; set; }
+    protected virtual ClassStringGen ClassStringGen { get; set; }
     protected virtual ClassGen ClassGen { get; set; }
-    protected virtual StringTravel StringTravel { get; set; }
     protected virtual ModuleRefStringGen ModuleRefStringGen { get; set; }
     protected virtual ClassModule SystemInfraModule { get; set; }
     protected virtual SystemClass System { get; set; }
@@ -369,6 +363,11 @@ public class LibraryGen : TextAdd
         }
 
         return true;
+    }
+
+    protected virtual bool ExecuteString()
+    {
+
     }
 
     protected virtual bool ExecuteClean()
