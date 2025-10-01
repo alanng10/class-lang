@@ -418,6 +418,7 @@ public class LibraryGen : TextAdd
         }
 
         this.ClassGen.Module = this.Module;
+        this.ClassGen.Binary = this.Binary;
         this.ClassGen.ModuleCount = this.ModuleTable.Count;
         this.ClassGen.SystemInfraModule = this.SystemInfraModule;
         this.ClassGen.System = this.System;
@@ -439,6 +440,7 @@ public class LibraryGen : TextAdd
         this.ClassGen.System = null;
         this.ClassGen.SystemInfraModule = null;
         this.ClassGen.ModuleCount = 0;
+        this.ClassGen.Binary = null;
         this.ClassGen.Module = null;
 
         String fileName;
