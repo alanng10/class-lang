@@ -162,6 +162,8 @@ public class LibraryGen : TextAdd
 
         this.ExecuteComp();
 
+        this.ExecuteString();
+
         bool b;
         b = this.StorageComp.FoldCreate(this.GenModuleFoldPath);
 
@@ -369,7 +371,16 @@ public class LibraryGen : TextAdd
 
     protected virtual bool ExecuteString()
     {
+        this.ClassStringGen.State = this.Binary.State;
 
+        this.ClassStringGen.Execute();
+
+        this.StringArray = this.ClassStringGen.Result;
+
+        this.ClassStringGen.Result = null;
+        this.ClassStringGen.State = null;
+
+        return true;
     }
 
     protected virtual bool ExecuteClean()
@@ -406,16 +417,6 @@ public class LibraryGen : TextAdd
             i = i + 1;
         }
 
-        this.StringTravel.Module = this.Module;
-
-        this.StringTravel.Execute();
-
-        Array stringArray;
-        stringArray = this.StringTravel.Result;
-
-        this.StringTravel.Result = null;
-        this.StringTravel.Module = null;
-
         this.ClassGen.Module = this.Module;
         this.ClassGen.ModuleCount = this.ModuleTable.Count;
         this.ClassGen.SystemInfraModule = this.SystemInfraModule;
@@ -423,7 +424,7 @@ public class LibraryGen : TextAdd
         this.ClassGen.InitArray = this.InitArray;
         this.ClassGen.BaseArray = this.BaseArray;
         this.ClassGen.CompArray = this.CompArray;
-        this.ClassGen.StringArray = stringArray;
+        this.ClassGen.StringArray = this.StringArray;
 
         this.ClassGen.Execute();
 
@@ -440,14 +441,11 @@ public class LibraryGen : TextAdd
         this.ClassGen.ModuleCount = 0;
         this.ClassGen.Module = null;
 
-        String combine;
-        combine = this.TextInfra.PathCombine;
-
         String fileName;
         fileName = this.AddClear().Add(this.SModule).Add(this.ClassInfra.TextDot).Add(this.SC).AddResult();
 
         String filePath;
-        filePath = this.AddClear().Add(this.GenModuleFoldPath).Add(combine).Add(fileName).AddResult();
+        filePath = this.AddClear().Add(this.GenModuleFoldPath).Add(this.TextInfra.PathCombine).Add(fileName).AddResult();
 
         bool bab;
         bab = this.StorageInfra.TextWrite(filePath, k);
