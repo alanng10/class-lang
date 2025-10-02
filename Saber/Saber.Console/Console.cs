@@ -732,8 +732,8 @@ public class Console : TextAdd
         name = this.StringCreateRange(value, 0, ka);
 
         long verIndex;
-        verIndex = ka + 1;
         long verCount;
+        verIndex = ka + 1;
         verCount = this.StringCount(value) - verIndex;
 
         String verString;
