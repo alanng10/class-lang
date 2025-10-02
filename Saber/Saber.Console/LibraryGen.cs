@@ -10,6 +10,7 @@ public class LibraryGen : TextAdd
         this.ClassInfra = ClassInfra.This;
         this.StorageComp = StorageComp.This;
 
+        this.LibraryGenLoad = this.CreateLibraryGenLoad();
         this.ClassInitGen = this.CreateClassInitGen();
         this.ClassBaseGen = this.CreateClassBaseGen();
         this.ClassCompGen = this.CreateClassCompGen();
@@ -24,6 +25,14 @@ public class LibraryGen : TextAdd
         this.SExe = this.S("Exe");
         this.SMain = this.S("Main");
         return true;
+    }
+
+    protected virtual LibraryGenLoad CreateLibraryGenLoad()
+    {
+        LibraryGenLoad a;
+        a = new LibraryGenLoad();
+        a.Init();
+        return a;
     }
 
     protected virtual ClassInitGen CreateClassInitGen()
@@ -88,6 +97,7 @@ public class LibraryGen : TextAdd
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual StorageComp StorageComp { get; set; }
+    protected virtual LibraryGenLoad LibraryGenLoad { get; set; }
     protected virtual ClassInitGen ClassInitGen { get; set; }
     protected virtual ClassBaseGen ClassBaseGen { get; set; }
     protected virtual ClassCompGen ClassCompGen { get; set; }
