@@ -664,28 +664,18 @@ public class Console : TextAdd
 
     protected virtual bool ExecuteGenLibrary()
     {
-        String verString;
-        verString = this.ClassInfra.VerString(module.Ref.Ver);
-
-        String moduleRefString;
-        moduleRefString = this.ClassInfra.ModuleRefString(module.Ref.Name, verString);
-
-        this.LibraryGen.Module = module;
-        this.LibraryGen.ModuleRefString = moduleRefString;
-        this.LibraryGen.ModuleTable = this.ModuleTable;
+        this.LibraryGen.ModuleRef = module;
         this.LibraryGen.ClassPath = this.ClassPath;
 
-        bool bb;
-        bb = this.LibraryGen.Execute();
+        bool b;
+        b = this.LibraryGen.Execute();
 
         this.LibraryGen.ClassPath = null;
-        this.LibraryGen.ModuleTable = null;
-        this.LibraryGen.ModuleRefString = null;
-        this.LibraryGen.Module = null;
+        this.LibraryGen.ModuleRef = null;
 
-        if (!bb)
+        if (!b)
         {
-            this.Status = 5500 + this.LibraryGen.Status;
+            this.Status = 6000 + this.LibraryGen.Status;
             return false;
         }
         return true;
