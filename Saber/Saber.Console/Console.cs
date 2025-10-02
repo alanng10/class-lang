@@ -665,12 +665,16 @@ public class Console : TextAdd
     protected virtual bool ExecuteGenLibrary()
     {
         this.LibraryGen.ModuleRef = module;
+        this.LibraryGen.ModulePort = this.ModulePort;
+        this.LibraryGen.BinaryRead = this.BinaryRead;
         this.LibraryGen.ClassPath = this.ClassPath;
 
         bool b;
         b = this.LibraryGen.Execute();
 
         this.LibraryGen.ClassPath = null;
+        this.LibraryGen.BinaryRead = null;
+        this.LibraryGen.ModulePort = null;
         this.LibraryGen.ModuleRef = null;
 
         if (!b)
