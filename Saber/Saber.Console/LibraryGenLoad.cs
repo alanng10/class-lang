@@ -32,10 +32,43 @@ public class LibraryGenLoad : TextAdd
 
         this.ModulePort.BinaryTable = null;
         this.ModulePort.ModuleTable = null;
-        this.ModuleRef = null;
 
         this.ClearData();
         return b;
+    }
+
+    protected virtual bool ExecuteAll()
+    {
+        this.Status = 0;
+
+        bool b;
+
+        b = this.ExecuteBinaryLoad();
+        if (!b)
+        {
+            return false;
+        }
+
+        b = this.ExecuteModulePort();
+        if (!b)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    protected virtual bool ExecuteBinaryLoad()
+    {
+        bool b;
+        b = this.BinaryLoadRecurse(this.ModuleRef);
+        if (!b)
+        {
+            this.Status = 50;
+            return false;
+        }
+
+        return true;
     }
 
     protected virtual bool BinaryLoadRecurse(ModuleRef moduleRef)
@@ -114,7 +147,7 @@ public class LibraryGenLoad : TextAdd
         return a;
     }
 
-    protected virtual bool ImportModulePort()
+    protected virtual bool ExecuteModulePort()
     {
         ModulePort modulePort;
         modulePort = this.ModulePort;
