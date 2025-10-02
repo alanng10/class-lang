@@ -66,7 +66,7 @@ public class LibraryGenLoad : TextAdd
         b = this.BinaryLoadRecurse(this.ModuleRef);
         if (!b)
         {
-            this.Status = 50;
+            this.Status = 90;
             return false;
         }
 
@@ -178,7 +178,7 @@ public class LibraryGenLoad : TextAdd
                 long ka;
                 ka = modulePort.Status;
 
-                this.Status = 200 + ka;
+                this.Status = ka;
                 return false;
             }
 
