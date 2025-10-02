@@ -131,15 +131,19 @@ public class LibraryGen : TextAdd
         bool b;
         b = this.ExecuteAll();
 
+        this.TModuleRef.Name = null;
         this.SystemInfraModule = null;
         this.System = null;
+        this.Binary = null;
+        this.Module = null;
+        this.BinaryTable = null;
+        this.ModuleTable = null;
         this.InitArray = null;
         this.BaseArray = null;
         this.CompArray = null;
         this.StringArray = null;
-        this.ModuleExeString = null;
         this.GenModuleFoldPath = null;
-        this.TModuleRef.Name = null;
+        this.ModuleExeString = null;
 
         return b;
     }
@@ -161,6 +165,14 @@ public class LibraryGen : TextAdd
         this.SystemInfraModuleGet();
         this.SystemSet();
 
+        this.ExecuteInit();
+
+        this.ExecuteBase();
+
+        this.ExecuteComp();
+
+        this.ExecuteString();
+
         String verString;
         verString = this.ClassInfra.VerString(this.ModuleRef.Ver);
 
@@ -173,14 +185,6 @@ public class LibraryGen : TextAdd
         combine = this.TextInfra.PathCombine;
 
         this.GenModuleFoldPath = this.AddClear().Add(genFoldPath).Add(combine).Add(this.ModuleRefString).AddResult();
-
-        this.ExecuteInit();
-
-        this.ExecuteBase();
-
-        this.ExecuteComp();
-
-        this.ExecuteString();
 
         b = this.StorageComp.FoldCreate(this.GenModuleFoldPath);
 
