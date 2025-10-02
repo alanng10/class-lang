@@ -486,15 +486,15 @@ public class PortLoad : TextAdd
 
             if (!b)
             {
-                long o;
-                o = modulePort.Status;
+                long ka;
+                ka = modulePort.Status;
 
                 String k;
                 k = this.ModuleRefString(moduleRef);
 
                 this.ErrorAdd(this.ErrorKind.ModuleUndefine, k);
 
-                this.Status = 200 + o;
+                this.Status = 200 + ka;
                 return false;
             }
 
