@@ -171,7 +171,7 @@ public class LibraryGen : TextAdd
 
         if (!b)
         {
-            return this.Error();
+            return false;
         }
 
         this.SystemInfraModuleGet();
