@@ -107,6 +107,7 @@ public class LibraryGen : TextAdd
     protected virtual String GenModuleFoldPath { get; set; }
     protected virtual ModuleRef TModuleRef { get; set; }
     protected virtual String ModuleExeString { get; set; }
+    protected virtual long Stage { get; set; }
     protected virtual String SSystemDotInfra { get; set; }
     protected virtual String SC { get; set; }
     protected virtual String SModule { get; set; }
@@ -135,6 +136,7 @@ public class LibraryGen : TextAdd
         this.InitArray = null;
         this.BaseArray = null;
         this.CompArray = null;
+        this.StringArray = null;
         this.ModuleExeString = null;
         this.GenModuleFoldPath = null;
         this.TModuleRef.Name = null;
@@ -145,6 +147,16 @@ public class LibraryGen : TextAdd
     protected virtual bool ExecuteAll()
     {
         this.Status = 0;
+        this.Stage = 0;
+
+        bool b;
+
+        b = this.ExecuteModuleLoad();
+
+        if (!b)
+        {
+            return this.Error();
+        }
 
         this.SystemInfraModuleGet();
         this.SystemSet();
@@ -170,34 +182,29 @@ public class LibraryGen : TextAdd
 
         this.ExecuteString();
 
-        bool b;
         b = this.StorageComp.FoldCreate(this.GenModuleFoldPath);
 
         if (!b)
         {
-            this.Status = 10;
-            return false;
+            return this.Error();
         }
 
         b = this.ExecuteClean();
         if (!b)
         {
-            this.Status = 20;
-            return false;
+            return this.Error();
         }
 
         b = this.ExecuteClassSource();
         if (!b)
         {
-            this.Status = 30;
-            return false;
+            return this.Error();
         }
 
         b = this.ExecuteMakeLib();
         if (!b)
         {
-            this.Status = 40;
-            return false;
+            return this.Error();
         }
 
         if (!(this.Module.Entry == null))
@@ -205,22 +212,19 @@ public class LibraryGen : TextAdd
             b = this.ExecuteModuleRefString();
             if (!b)
             {
-                this.Status = 50;
-                return false;
+                return this.Error();
             }
 
             b = this.ExecuteModuleExeSource();
             if (!b)
             {
-                this.Status = 60;
-                return false;
+                return this.Error();
             }
 
             b = this.ExecuteMakeExe();
             if (!b)
             {
-                this.Status = 70;
-                return false;
+                return this.Error();
             }
         }
 
@@ -228,8 +232,7 @@ public class LibraryGen : TextAdd
 
         if (!b)
         {
-            this.Status = 80;
-            return false;
+            return this.Error();
         }
 
         return true;
@@ -237,26 +240,10 @@ public class LibraryGen : TextAdd
 
     protected virtual bool SystemInfraModuleGet()
     {
-        ClassModule systemInfraModule;
-        systemInfraModule = null;
+        this.TModuleRef.Name = this.SSystemDotInfra;
+        this.TModuleRef.Ver = 0;
 
-        bool b;
-        b = this.TextSame(this.TA(this.Module.Ref.Name), this.TB(this.SSystemDotInfra));
-
-        if (b)
-        {
-            systemInfraModule = this.Module;
-        }
-
-        if (!b)
-        {
-            this.TModuleRef.Name = this.SSystemDotInfra;
-            this.TModuleRef.Ver = 0;
-
-            systemInfraModule = this.ModuleTable.Get(this.TModuleRef) as ClassModule;
-        }
-
-        this.SystemInfraModule = systemInfraModule;
+        this.SystemInfraModule = this.ModuleTable.Get(this.TModuleRef) as ClassModule;
         return true;
     }
 
@@ -715,5 +702,18 @@ public class LibraryGen : TextAdd
     {
         a.Final();
         return true;
+    }
+
+    protected virtual bool Error()
+    {
+        long k;
+        k = this.Stage + 1;
+        k = k * 10;
+
+        this.Status = k;
+
+        this.Stage = this.Stage + 1;
+
+        return false;
     }
 }
