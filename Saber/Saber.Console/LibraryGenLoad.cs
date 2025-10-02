@@ -15,6 +15,9 @@ public class LibraryGenLoad : TextAdd
 
     public virtual ModuleRef ModuleRef { get; set; }
     public virtual Table BinaryTable { get; set; }
+    public virtual Table ModuleTable { get; set; }
+    public virtual long Status { get; set; }
+    public virtual ModulePort ModulePort { get; set; }
     public virtual BinaryRead BinaryRead { get; set; }
     public virtual String ClassPath { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
@@ -96,6 +99,52 @@ public class LibraryGenLoad : TextAdd
         a = binary;
 
         return a;
+    }
+
+    protected virtual bool ImportModulePort()
+    {
+        ModulePort modulePort;
+        modulePort = this.ModulePort;
+
+        modulePort.BinaryTable = this.BinaryTable;
+        modulePort.ModuleTable = this.ModuleTable;
+
+        Table table;
+        table = this.ModuleTable;
+
+        Iter iter;
+        iter = this.BinaryTable.IterCreate();
+        this.BinaryTable.IterSet(iter);
+
+        while (iter.Next())
+        {
+            ModuleRef moduleRef;
+            moduleRef = iter.Index as ModuleRef;
+
+            modulePort.ModuleRef = moduleRef;
+
+            bool b;
+            b = modulePort.Execute();
+
+            if (!b)
+            {
+                long ka;
+                ka = modulePort.Status;
+
+                this.Status = 200 + ka;
+                return false;
+            }
+
+            ClassModule a;
+            a = modulePort.Module;
+
+            modulePort.Module = null;
+            modulePort.ModuleRef = null;
+
+            this.ListInfra.TableAdd(table, a.Ref, a);
+        }
+
+        return true;
     }
 
     protected virtual String ModuleRefString(ModuleRef k)
