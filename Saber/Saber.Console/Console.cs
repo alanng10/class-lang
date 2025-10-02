@@ -308,6 +308,22 @@ public class Console : TextAdd
             task.Err = oo.Err;
 
             this.Task = task;
+
+            return true;
+        }
+
+        bool bc;
+        bc = this.TextSame(this.TA(aa), this.TB(this.SLibrary));
+        if (bc)
+        {
+            bool bca;
+            bca = (1 < arg.Count);
+            if (!bca)
+            {
+                return false;
+            }
+            String aca;
+            aca = arg.GetAt(1) as String;
         }
         return true;
     }
