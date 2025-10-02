@@ -159,9 +159,6 @@ public class LibraryGenLoad : TextAdd
         modulePort.BinaryTable = this.BinaryTable;
         modulePort.ModuleTable = this.ModuleTable;
 
-        Table table;
-        table = this.ModuleTable;
-
         Iter iter;
         iter = this.BinaryTable.IterCreate();
         this.BinaryTable.IterSet(iter);
@@ -191,7 +188,7 @@ public class LibraryGenLoad : TextAdd
             modulePort.Module = null;
             modulePort.ModuleRef = null;
 
-            this.ListInfra.TableAdd(table, a.Ref, a);
+            this.ListInfra.TableAdd(this.ModuleTable, a.Ref, a);
         }
 
         return true;
