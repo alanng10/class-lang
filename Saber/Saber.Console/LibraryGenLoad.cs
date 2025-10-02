@@ -8,6 +8,8 @@ public class LibraryGenLoad : TextAdd
         this.ListInfra = ListInfra.This;
         this.StorageInfra = StorageInfra.This;
         this.ClassInfra = ClassInfra.This;
+
+        this.SModule = this.S("Module");
         return true;
     }
 
@@ -16,6 +18,7 @@ public class LibraryGenLoad : TextAdd
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
+    protected virtual String SModule { get; set; }
 
     protected virtual bool BinaryLoadRecurse(ModuleRef moduleRef)
     {
