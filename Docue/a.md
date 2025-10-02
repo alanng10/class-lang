@@ -4,7 +4,7 @@ Class is program lang.
 Class is a all mark program lang.
 Class is used to create modules.
 Class is used to create tools.
-Class consists of infra modules, compiler modules, execution runner, documentation, source code.
+Class consists of infra modules, compiler modules, documentation, source code.
 Class is open source.
 Permission is granted to every person to use any copy of this software in any way.
 
