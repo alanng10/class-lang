@@ -12,34 +12,20 @@ public class Console : TextAdd
         this.TaskKind = TaskKindList.This;
 
         this.ErrorWrite = true;
-        this.NameValid = this.CreateNameValid();
-
+        this.Create = this.CreateCreate();
+        this.PortRead = this.CreatePortRead();
         this.BinaryRead = this.CreateBinaryRead();
         this.BinaryWrite = this.CreateBinaryWrite();
-
         this.ModulePort = this.CreateModulePort();
-
         this.PortLoad = this.CreatePortLoad();
-
         this.BinaryGen = this.CreateBinaryGen();
-
-        this.LibraryGen = this.CreateLibraryGen();
-
         this.StorageGen = this.CreateStorageGen();
-
-        this.ErrorString = new ErrorString();
-        this.ErrorString.Init();
-
-        this.Create = this.CreateCreate();
-
-        this.PortRead = new PortRead();
-        this.PortRead.Init();
-
-        this.ModuleRefLess = new ModuleRefLess();
-        this.ModuleRefLess.Init();
-
+        this.LibraryGen = this.CreateLibraryGen();
+        this.ErrorString = this.CreateErrorString();
         this.InfoToken = this.CreateInfoToken();
         this.InfoTravel = this.CreateInfoTravel();
+        this.NameValid = this.CreateNameValid();
+        this.ModuleRefLess = this.CreateModuleRefLess();
         this.StorageTextLess = this.CreateStorageTextLess();
 
         this.SClass = this.S("Class");
@@ -58,6 +44,14 @@ public class Console : TextAdd
         Create a;
         a = new Create();
         a.Console = this;
+        a.Init();
+        return a;
+    }
+
+    protected virtual PortRead CreatePortRead()
+    {
+        PortRead a;
+        a = new PortRead();
         a.Init();
         return a;
     }
@@ -102,14 +96,6 @@ public class Console : TextAdd
         return a;
     }
 
-    protected virtual LibraryGen CreateLibraryGen()
-    {
-        LibraryGen a;
-        a = new LibraryGen();
-        a.Init();
-        return a;
-    }
-
     protected virtual StorageGen CreateStorageGen()
     {
         StorageGen a;
@@ -118,10 +104,18 @@ public class Console : TextAdd
         return a;
     }
 
-    protected virtual NameValid CreateNameValid()
+    protected virtual LibraryGen CreateLibraryGen()
     {
-        NameValid a;
-        a = new NameValid();
+        LibraryGen a;
+        a = new LibraryGen();
+        a.Init();
+        return a;
+    }
+
+    protected virtual ErrorString CreateErrorString()
+    {
+        ErrorString a;
+        a = new ErrorString();
         a.Init();
         return a;
     }
@@ -138,6 +132,22 @@ public class Console : TextAdd
     {
         InfoTravel a;
         a = new InfoTravel();
+        a.Init();
+        return a;
+    }
+
+    protected virtual NameValid CreateNameValid()
+    {
+        NameValid a;
+        a = new NameValid();
+        a.Init();
+        return a;
+    }
+
+    protected virtual ModuleRefLess CreateModuleRefLess()
+    {
+        ModuleRefLess a;
+        a = new ModuleRefLess();
         a.Init();
         return a;
     }
