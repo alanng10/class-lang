@@ -151,6 +151,8 @@ public class LibraryGenLoad : TextAdd
 
     protected virtual bool ExecuteModulePort()
     {
+        this.ModuleTable = this.ClassInfra.TableCreateModuleRefLess();
+
         ModulePort modulePort;
         modulePort = this.ModulePort;
 
