@@ -45,6 +45,7 @@ public class Console : TextAdd
         this.SClass = this.S("Class");
         this.SDocue = this.S("docue");
         this.SMake = this.S("make");
+        this.SLibrary = this.S("library");
         this.SFlagM = this.S("-m");
         this.SClassDotPort = this.S("Class.Port");
         this.SDotCl = this.S(".cl");
@@ -191,6 +192,7 @@ public class Console : TextAdd
     protected virtual String SClass { get; set; }
     protected virtual String SDocue { get; set; }
     protected virtual String SMake { get; set; }
+    protected virtual String SLibrary { get; set; }
     protected virtual String SFlagM { get; set; }
     protected virtual String SClassDotPort { get; set; }
     protected virtual String SDotCl { get; set; }
