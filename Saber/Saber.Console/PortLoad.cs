@@ -461,9 +461,6 @@ public class PortLoad : TextAdd
 
     protected virtual bool ImportModulePort()
     {
-        ListInfra listInfra;
-        listInfra = this.ListInfra;
-
         ModulePort modulePort;
         modulePort = this.ModulePort;
 
@@ -507,7 +504,7 @@ public class PortLoad : TextAdd
             modulePort.Module = null;
             modulePort.ModuleRef = null;
 
-            listInfra.TableAdd(table, a.Ref, a);
+            this.ListInfra.TableAdd(table, a.Ref, a);
         }
 
         return true;
