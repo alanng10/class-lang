@@ -60,6 +60,8 @@ public class LibraryGenLoad : TextAdd
 
     protected virtual bool ExecuteBinaryLoad()
     {
+        this.BinaryTable = this.ClassInfra.TableCreateModuleRefLess();
+
         bool b;
         b = this.BinaryLoadRecurse(this.ModuleRef);
         if (!b)
