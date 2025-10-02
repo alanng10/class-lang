@@ -25,6 +25,19 @@ public class LibraryGenLoad : TextAdd
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual String SModule { get; set; }
 
+    public virtual bool Execute()
+    {
+        bool b;
+        b = this.ExecuteAll();
+
+        this.ModulePort.BinaryTable = null;
+        this.ModulePort.ModuleTable = null;
+        this.ModuleRef = null;
+
+        this.ClearData();
+        return b;
+    }
+
     protected virtual bool BinaryLoadRecurse(ModuleRef moduleRef)
     {
         if (this.BinaryTable.Valid(moduleRef))
