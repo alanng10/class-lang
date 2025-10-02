@@ -755,7 +755,7 @@ public class Console : TextAdd
         kae = majorDot + 1;
 
         String kaa;
-        kaa = this.StringCreateRange(verString, kae, this.StringCount(verString) - kae);
+        kaa = this.StringCreateRange(verString, kae, verCount - kae);
 
         long minorDot;
         minorDot = this.TextIndex(this.TA(kaa), this.TB(this.SDot));
@@ -777,7 +777,7 @@ public class Console : TextAdd
         long verReviseIndex;
         long verReviseCount;
         verReviseIndex = verMinorIndex + verMinorCount + 1;
-        verReviseCount = this.StringCount(verString) - verReviseIndex;
+        verReviseCount = verCount - verReviseIndex;
 
         verReviseString = this.StringCreateRange(verString, verReviseIndex, verReviseCount);
 
