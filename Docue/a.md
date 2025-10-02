@@ -33,7 +33,8 @@ Class does class checking when compiling source code.
 All classes are checked when they are used, and when the variables are assigned.
 
 Class outputs module binary when compiling.
-The module binary is executed with execute generated machine code library from the binary.
+Class generate machine code library from the binary.
+The module binary is executed with execute the machine code library.
 
 Class has documentation that includes programming guide, system architecture, and API reference.
 
