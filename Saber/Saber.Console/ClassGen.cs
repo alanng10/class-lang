@@ -853,7 +853,7 @@ public partial class ClassGen : TextAdd
     public virtual bool ExecuteModuleCount()
     {
         long count;
-        count = this.ModuleCount + 1;
+        count = this.ModuleCount;
 
         this.Text(this.ClassInt);
         this.Text(this.Space);
