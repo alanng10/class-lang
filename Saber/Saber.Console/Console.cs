@@ -34,6 +34,7 @@ public class Console : TextAdd
         this.SLibrary = this.S("library");
         this.SFlagM = this.S("-m");
         this.SHyphen = this.S("-");
+        this.SDot = this.S(".");
         this.SClassDotPort = this.S("Class.Port");
         this.SDotCl = this.S(".cl");
         this.SModule = this.S("Module");
@@ -206,6 +207,7 @@ public class Console : TextAdd
     protected virtual String SLibrary { get; set; }
     protected virtual String SFlagM { get; set; }
     protected virtual String SHyphen { get; set; }
+    protected virtual String SDot { get; set; }
     protected virtual String SClassDotPort { get; set; }
     protected virtual String SDotCl { get; set; }
     protected virtual String SModule { get; set; }
@@ -736,6 +738,48 @@ public class Console : TextAdd
 
         String verString;
         verString = this.StringCreateRange(value, verIndex, verCount);
+
+        String verMajorString;
+        String verMinorString;
+        String verReviseString;
+
+        long majorDot;
+        majorDot = this.TextIndex(this.TA(verString), this.TB(this.SDot));
+
+        if (majorDot == -1)
+        {
+            return null;
+        }
+
+        long kae;
+        kae = majorDot + 1;
+
+        String kaa;
+        kaa = this.StringCreateRange(verString, kae, this.StringCount(verString) - kae);
+
+        long minorDot;
+        minorDot = this.TextIndex(this.TA(kaa), this.TB(this.SDot));
+
+        if (minorDot == -1)
+        {
+            return null;
+        }
+
+        verMajorString = this.StringCreateRange(verString, 0, majorDot);
+
+        long verMinorIndex;
+        long verMinorCount;
+        verMinorIndex = kae;
+        verMinorCount = minorDot;
+
+        verMinorString = this.StringCreateRange(verString, verMinorIndex, verMinorCount);
+
+        long verReviseIndex;
+        long verReviseCount;
+        verReviseIndex = verMinorIndex + verMinorCount + 1;
+        verReviseCount = this.StringCount(verString) - verReviseIndex;
+
+        verReviseString = this.StringCreateRange(verString, verReviseIndex, verReviseCount);
 
         return null;
     }
