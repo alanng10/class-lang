@@ -103,7 +103,6 @@ public class LibraryGen : TextAdd
     protected virtual Array BaseArray { get; set; }
     protected virtual Array CompArray { get; set; }
     protected virtual Array StringArray { get; set; }
-    protected virtual String ModuleProjectText { get; set; }
     protected virtual String ModuleExeText { get; set; }
     protected virtual String GenModuleFoldPath { get; set; }
     protected virtual ModuleRef TModuleRef { get; set; }
