@@ -13,6 +13,7 @@ public class LibraryGenLoad : TextAdd
         return true;
     }
 
+    public virtual ModuleRef ModuleRef { get; set; }
     public virtual Table BinaryTable { get; set; }
     public virtual BinaryRead BinaryRead { get; set; }
     public virtual String ClassPath { get; set; }
