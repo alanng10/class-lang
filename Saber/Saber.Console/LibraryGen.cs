@@ -16,7 +16,7 @@ public class LibraryGen : TextAdd
         this.ClassStringGen = this.CreateClassStringGen();
         this.ClassGen = this.CreateClassGen();
         this.ModuleRefStringGen = this.CreateModuleRefStringGen();
-        this.ModuleRef = this.CreateModuleRef();
+        this.TModuleRef = this.CreateModuleRef();
 
         this.SSystemDotInfra = this.S("System.Infra");
         this.SC = this.S("c");
@@ -79,10 +79,7 @@ public class LibraryGen : TextAdd
         return this.ClassInfra.ModuleRefCreate(null, 0);
     }
 
-    public virtual ClassModule Module { get; set; }
-    public virtual BinaryBinary Binary { get; set; }
-    public virtual String ModuleRefString { get; set; }
-    public virtual Table ModuleTable { get; set; }
+    public virtual ModuleRef ModuleRef { get; set; }
     public virtual String ClassPath { get; set; }
     public virtual long Status { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
@@ -97,6 +94,11 @@ public class LibraryGen : TextAdd
     protected virtual ModuleRefStringGen ModuleRefStringGen { get; set; }
     protected virtual ClassModule SystemInfraModule { get; set; }
     protected virtual SystemClass System { get; set; }
+    protected virtual String ModuleRefString { get; set; }
+    protected virtual BinaryBinary Binary { get; set; }
+    protected virtual ClassModule Module { get; set; }
+    protected virtual Table BinaryTable { get; set; }
+    protected virtual Table ModuleTable { get; set; }
     protected virtual Array InitArray { get; set; }
     protected virtual Array BaseArray { get; set; }
     protected virtual Array CompArray { get; set; }
@@ -104,7 +106,7 @@ public class LibraryGen : TextAdd
     protected virtual String ModuleProjectText { get; set; }
     protected virtual String ModuleExeText { get; set; }
     protected virtual String GenModuleFoldPath { get; set; }
-    protected virtual ModuleRef ModuleRef { get; set; }
+    protected virtual ModuleRef TModuleRef { get; set; }
     protected virtual String ModuleExeString { get; set; }
     protected virtual String SSystemDotInfra { get; set; }
     protected virtual String SC { get; set; }
@@ -136,7 +138,7 @@ public class LibraryGen : TextAdd
         this.CompArray = null;
         this.ModuleExeString = null;
         this.GenModuleFoldPath = null;
-        this.ModuleRef.Name = null;
+        this.TModuleRef.Name = null;
 
         return b;
     }
@@ -147,6 +149,11 @@ public class LibraryGen : TextAdd
 
         this.SystemInfraModuleGet();
         this.SystemSet();
+
+        String verString;
+        verString = this.ClassInfra.VerString(this.ModuleRef.Ver);
+
+        this.ModuleRefString = this.ClassInfra.ModuleRefString(this.ModuleRef.Name, verString);
 
         String genFoldPath;
         genFoldPath = this.S("Saber.Console.data/Gen");
@@ -244,10 +251,10 @@ public class LibraryGen : TextAdd
 
         if (!b)
         {
-            this.ModuleRef.Name = this.SSystemDotInfra;
-            this.ModuleRef.Ver = 0;
+            this.TModuleRef.Name = this.SSystemDotInfra;
+            this.TModuleRef.Ver = 0;
 
-            systemInfraModule = this.ModuleTable.Get(this.ModuleRef) as ClassModule;
+            systemInfraModule = this.ModuleTable.Get(this.TModuleRef) as ClassModule;
         }
 
         this.SystemInfraModule = systemInfraModule;
@@ -262,6 +269,11 @@ public class LibraryGen : TextAdd
         this.System.Bool = this.SystemInfraModule.Class.Get(this.S("Bool")) as ClassClass;
         this.System.Int = this.SystemInfraModule.Class.Get(this.S("Int")) as ClassClass;
         this.System.String = this.SystemInfraModule.Class.Get(this.S("String")) as ClassClass;
+        return true;
+    }
+
+    protected virtual bool ExecuteModuleLoad()
+    {
         return true;
     }
 
