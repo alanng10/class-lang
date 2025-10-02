@@ -193,10 +193,8 @@ public class LibraryGen : TextAdd
         String genFoldPath;
         genFoldPath = this.S("Saber.Console.data/Gen");
 
-        String combine;
-        combine = this.TextInfra.PathCombine;
-
-        this.GenModuleFoldPath = this.AddClear().Add(genFoldPath).Add(combine).Add(this.ModuleRefString).AddResult();
+        this.GenModuleFoldPath = this.AddClear().Add(genFoldPath).Add(this.TextInfra.PathCombine)
+            .Add(this.ModuleRefString).AddResult();
 
         this.Stage = 1;
 
