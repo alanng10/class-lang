@@ -33,6 +33,7 @@ public class Console : TextAdd
         this.SMake = this.S("make");
         this.SLibrary = this.S("library");
         this.SFlagM = this.S("-m");
+        this.SHyphen = this.S("-");
         this.SClassDotPort = this.S("Class.Port");
         this.SDotCl = this.S(".cl");
         this.SModule = this.S("Module");
@@ -204,6 +205,7 @@ public class Console : TextAdd
     protected virtual String SMake { get; set; }
     protected virtual String SLibrary { get; set; }
     protected virtual String SFlagM { get; set; }
+    protected virtual String SHyphen { get; set; }
     protected virtual String SClassDotPort { get; set; }
     protected virtual String SDotCl { get; set; }
     protected virtual String SModule { get; set; }
@@ -712,6 +714,30 @@ public class Console : TextAdd
             return false;
         }
         return true;
+    }
+
+    protected virtual ModuleRef ModuleRefFromString(String value)
+    {
+        long ka;
+        ka = this.TextIndex(this.TA(value), this.TB(this.SHyphen));
+
+        if (ka == -1)
+        {
+            return null;
+        }
+
+        String name;
+        name = this.StringCreateRange(value, 0, ka);
+
+        long verIndex;
+        verIndex = ka + 1;
+        long verCount;
+        verCount = this.StringCount(value) - verIndex;
+
+        String verString;
+        verString = this.StringCreateRange(value, verIndex, verCount);
+
+        return null;
     }
 
     protected virtual bool CanGen()
