@@ -765,7 +765,12 @@ public class Console : TextAdd
             return null;
         }
 
-        verMajorString = this.StringCreateRange(verString, 0, majorDot);
+        long verMajorIndex;
+        long verMajorCount;
+        verMajorIndex = 0;
+        verMajorCount = majorDot;
+
+        verMajorString = this.StringCreateRange(verString, verMajorIndex, verMajorCount);
 
         long verMinorIndex;
         long verMinorCount;
