@@ -6,12 +6,16 @@ public class LibraryGenLoad : TextAdd
     {
         base.Init();
         this.ListInfra = ListInfra.This;
+        this.StorageInfra = StorageInfra.This;
+        this.ClassInfra = ClassInfra.This;
         return true;
     }
 
     public virtual Table BinaryTable { get; set; }
     public virtual String ClassPath { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
+    protected virtual StorageInfra StorageInfra { get; set; }
+    protected virtual ClassInfra ClassInfra { get; set; }
 
     protected virtual bool BinaryLoadRecurse(ModuleRef moduleRef)
     {
@@ -86,6 +90,16 @@ public class LibraryGenLoad : TextAdd
         BinaryBinary a;
         a = binary;
 
+        return a;
+    }
+
+    protected virtual String ModuleRefString(ModuleRef k)
+    {
+        String verString;
+        verString = this.ClassInfra.VerString(k.Ver);
+
+        String a;
+        a = this.ClassInfra.ModuleRefString(k.Name, verString);
         return a;
     }
 }
