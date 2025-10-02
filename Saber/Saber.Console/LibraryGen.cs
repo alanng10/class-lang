@@ -276,7 +276,26 @@ public class LibraryGen : TextAdd
 
     protected virtual bool ExecuteModuleLoad()
     {
-        return true;
+        bool b;
+
+        this.LibraryGenLoad.ModuleRef = this.ModuleRef;
+        this.LibraryGenLoad.ModulePort = this.ModulePort;
+        this.LibraryGenLoad.BinaryRead = this.BinaryRead;
+        this.LibraryGenLoad.ClassPath = this.ClassPath;
+
+        b = this.LibraryGenLoad.Execute();
+
+        this.BinaryTable = this.LibraryGenLoad.BinaryTable;
+        this.ModuleTable = this.LibraryGenLoad.ModuleTable;
+
+        this.LibraryGenLoad.ModuleTable = null;
+        this.LibraryGenLoad.BinaryTable = null;
+        this.LibraryGenLoad.ClassPath = null;
+        this.LibraryGenLoad.BinaryRead = null;
+        this.LibraryGenLoad.ModulePort = null;
+        this.LibraryGenLoad.ModuleRef = null;
+
+        return b;
     }
 
     protected virtual bool ExecuteInit()
