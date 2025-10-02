@@ -198,6 +198,8 @@ public class LibraryGen : TextAdd
 
         this.GenModuleFoldPath = this.AddClear().Add(genFoldPath).Add(combine).Add(this.ModuleRefString).AddResult();
 
+        this.Stage = 1;
+
         b = this.StorageComp.FoldCreate(this.GenModuleFoldPath);
 
         if (!b)
@@ -285,17 +287,27 @@ public class LibraryGen : TextAdd
 
         b = this.LibraryGenLoad.Execute();
 
+        long k;
+        k = this.LibraryGenLoad.Status;
+
         this.BinaryTable = this.LibraryGenLoad.BinaryTable;
         this.ModuleTable = this.LibraryGenLoad.ModuleTable;
 
         this.LibraryGenLoad.ModuleTable = null;
         this.LibraryGenLoad.BinaryTable = null;
+        this.LibraryGenLoad.Status = 0;
         this.LibraryGenLoad.ClassPath = null;
         this.LibraryGenLoad.BinaryRead = null;
         this.LibraryGenLoad.ModulePort = null;
         this.LibraryGenLoad.ModuleRef = null;
 
-        return b;
+        if (!b)
+        {
+            this.Status = 400 + k;
+            return false;
+        }
+
+        return true;
     }
 
     protected virtual bool ExecuteInit()
