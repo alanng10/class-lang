@@ -80,6 +80,8 @@ public class LibraryGen : TextAdd
     }
 
     public virtual ModuleRef ModuleRef { get; set; }
+    public virtual ModulePort ModulePort { get; set; }
+    public virtual BinaryRead BinaryRead { get; set; }
     public virtual String ClassPath { get; set; }
     public virtual long Status { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
