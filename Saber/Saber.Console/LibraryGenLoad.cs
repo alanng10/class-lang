@@ -14,6 +14,7 @@ public class LibraryGenLoad : TextAdd
     }
 
     public virtual Table BinaryTable { get; set; }
+    public virtual BinaryRead BinaryRead { get; set; }
     public virtual String ClassPath { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
