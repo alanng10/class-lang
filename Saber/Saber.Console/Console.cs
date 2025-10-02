@@ -257,7 +257,7 @@ public class Console : TextAdd
         }
         if (b)
         {
-            aa = (String)arg.GetAt(0);
+            aa = arg.GetAt(0) as String;
         }
 
         bool bb;
@@ -271,13 +271,13 @@ public class Console : TextAdd
                 return false;
             }
             String aba;
-            aba = (String)arg.GetAt(1);
+            aba = arg.GetAt(1) as String;
 
             String abb;
             abb = null;
             if (2 < arg.Count)
             {
-                abb = (String)arg.GetAt(2);
+                abb = arg.GetAt(2) as String;
             }
 
             String sourceFold;
