@@ -294,7 +294,8 @@ public class Console : TextAdd
             }
 
             ConsoleConsole oo;
-            oo = ConsoleConsole.This;
+            oo = new ConsoleConsole();
+            oo.Init();
 
             Task task;
             task = new Task();
