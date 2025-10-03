@@ -163,7 +163,6 @@ public class LibraryGen : TextAdd
     protected virtual bool ExecuteAll()
     {
         this.Status = 0;
-        this.Stage = 0;
 
         bool b;
 
@@ -198,7 +197,7 @@ public class LibraryGen : TextAdd
         this.GenModuleFoldPath = this.AddClear().Add(genFoldPath).Add(this.TextInfra.PathCombine)
             .Add(this.ModuleRefString).AddResult();
 
-        this.Stage = 1;
+        this.Stage = 0;
 
         b = this.StorageComp.FoldCreate(this.GenModuleFoldPath);
 
