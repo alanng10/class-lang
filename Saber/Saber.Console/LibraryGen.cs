@@ -544,8 +544,6 @@ public class LibraryGen : TextAdd
         iter = this.ModuleTable.IterCreate();
         this.ModuleTable.IterSet(iter);
 
-        iter.Next();
-
         long i;
         i = 0;
         while (i < count)
