@@ -398,7 +398,7 @@ Word "pattern" has meaning that is pattern entity.
 
 Word "filter" has meaning that is filter.
 
-Word "onlan" has meaning that is only one in type.
+Word "onlon" has meaning that is only one in type.
 
 Word "carrier" has meaning that is logical.
 
