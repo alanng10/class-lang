@@ -376,6 +376,8 @@ public partial class ClassGen : TextAdd
 
         this.Operate = null;
         this.Arg = null;
+        this.ExternClass = null;
+        this.InternClass = null;
         this.ImportArray = null;
         this.ClassArray = null;
         return true;
