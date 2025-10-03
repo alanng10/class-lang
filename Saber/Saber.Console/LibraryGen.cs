@@ -269,38 +269,6 @@ public class LibraryGen : TextAdd
         return true;
     }
 
-    protected virtual bool SystemInfraModuleSet()
-    {
-        this.TModuleRef.Name = this.SSystemDotInfra;
-        this.TModuleRef.Ver = 0;
-
-        this.SystemInfraModule = this.ModuleTable.Get(this.TModuleRef) as ClassModule;
-        return true;
-    }
-
-    protected virtual bool SystemSet()
-    {
-        this.System = new SystemClass();
-        this.System.Init();
-        this.System.Any = this.SystemInfraModule.Class.Get(this.S("Any")) as ClassClass;
-        this.System.Bool = this.SystemInfraModule.Class.Get(this.S("Bool")) as ClassClass;
-        this.System.Int = this.SystemInfraModule.Class.Get(this.S("Int")) as ClassClass;
-        this.System.String = this.SystemInfraModule.Class.Get(this.S("String")) as ClassClass;
-        return true;
-    }
-
-    protected virtual bool BinarySet()
-    {
-        this.Binary = this.BinaryTable.Get(this.ModuleRef) as BinaryBinary;
-        return true;
-    }
-
-    protected virtual bool ModuleSet()
-    {
-        this.Module = this.ModuleTable.Get(this.ModuleRef) as ClassModule;
-        return true;
-    }
-
     protected virtual bool ExecuteModuleLoad()
     {
         bool b;
@@ -332,6 +300,38 @@ public class LibraryGen : TextAdd
             return false;
         }
 
+        return true;
+    }
+
+    protected virtual bool SystemInfraModuleSet()
+    {
+        this.TModuleRef.Name = this.SSystemDotInfra;
+        this.TModuleRef.Ver = 0;
+
+        this.SystemInfraModule = this.ModuleTable.Get(this.TModuleRef) as ClassModule;
+        return true;
+    }
+
+    protected virtual bool SystemSet()
+    {
+        this.System = new SystemClass();
+        this.System.Init();
+        this.System.Any = this.SystemInfraModule.Class.Get(this.S("Any")) as ClassClass;
+        this.System.Bool = this.SystemInfraModule.Class.Get(this.S("Bool")) as ClassClass;
+        this.System.Int = this.SystemInfraModule.Class.Get(this.S("Int")) as ClassClass;
+        this.System.String = this.SystemInfraModule.Class.Get(this.S("String")) as ClassClass;
+        return true;
+    }
+
+    protected virtual bool BinarySet()
+    {
+        this.Binary = this.BinaryTable.Get(this.ModuleRef) as BinaryBinary;
+        return true;
+    }
+
+    protected virtual bool ModuleSet()
+    {
+        this.Module = this.ModuleTable.Get(this.ModuleRef) as ClassModule;
         return true;
     }
 
