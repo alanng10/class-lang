@@ -771,8 +771,6 @@ public class LibraryGen : TextAdd
 
         this.Status = k;
 
-        this.Stage = this.Stage + 1;
-
         return false;
     }
 }
