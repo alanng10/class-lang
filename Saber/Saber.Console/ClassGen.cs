@@ -198,6 +198,10 @@ public partial class ClassGen : TextAdd
     public virtual Array CompArray { get; set; }
     public virtual Array StringArray { get; set; }
     public virtual String Result { get; set; }
+    public virtual ClassGenArg Arg { get; set; }
+    public virtual ClassGenOperate Operate { get; set; }
+    public virtual ClassGenCountOperate CountOperate { get; set; }
+    public virtual ClassGenSetOperate SetOperate { get; set; }
     public virtual Array ClassArray { get; set; }
     public virtual Array ImportArray { get; set; }
     public virtual ClassClass Class { get; set; }
@@ -205,10 +209,6 @@ public partial class ClassGen : TextAdd
     public virtual ClassClass ExternClass { get; set; }
     public virtual Array Base { get; set; }
     public virtual ClassComp Comp { get; set; }
-    public virtual ClassGenArg Arg { get; set; }
-    public virtual ClassGenOperate Operate { get; set; }
-    public virtual ClassGenCountOperate CountOperate { get; set; }
-    public virtual ClassGenSetOperate SetOperate { get; set; }
     public virtual Field ThisField { get; set; }
     public virtual TableIter ClassIter { get; set; }
     public virtual TableIter TableIter { get; set; }
