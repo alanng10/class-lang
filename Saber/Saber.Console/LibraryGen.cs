@@ -519,10 +519,10 @@ public class LibraryGen : TextAdd
         String filePath;
         filePath = this.AddClear().Add(this.GenModuleFoldPath).Add(this.TextInfra.PathCombine).Add(fileName).AddResult();
 
-        bool bab;
-        bab = this.StorageInfra.TextWrite(filePath, k);
+        bool b;
+        b = this.StorageInfra.TextWrite(filePath, k);
 
-        if (!bab)
+        if (!b)
         {
             return false;
         }
