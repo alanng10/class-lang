@@ -220,7 +220,6 @@ public partial class ClassGen : TextAdd
     public virtual long StateKindSet { get; set; }
     public virtual long StateKindCall { get; set; }
     public virtual long StateDataIndex { get; set; }
-    public virtual long StringValueIndex { get; set; }
     public virtual long BlockIndex { get; set; }
     public virtual long SetFieldIndex { get; set; }
     public virtual long VarMarkIndex { get; set; }
@@ -1582,8 +1581,6 @@ public partial class ClassGen : TextAdd
 
         this.ExecuteString();
 
-        this.StringValueIndex = 0;
-
         long stateCount;
         stateCount = this.StateInt();
 
@@ -2326,11 +2323,9 @@ public partial class ClassGen : TextAdd
 
         this.ValuePre();
 
-        this.StringValueRef(this.StringValueIndex);
+        this.StringValueRef(index);
 
         this.ValuePost();
-
-        this.StringValueIndex = this.StringValueIndex + 1;
         return true;
     }
 
