@@ -847,7 +847,7 @@ public class Console : TextAdd
         ver.Revise = verRevise;
 
         long moduleVer;
-        moduleVer = this.ClassInfra.ModuleRefVer(ver);
+        moduleVer = this.ClassInfra.VerValue(ver);
 
         ModuleRef a;
         a = this.ClassInfra.ModuleRefCreate(name, moduleVer);
