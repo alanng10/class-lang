@@ -328,8 +328,29 @@ public class Console : TextAdd
             }
             String aca;
             aca = arg.GetAt(1) as String;
+
+            String moduleRefString;
+            moduleRefString = aca;
+
+            ConsoleConsole oo;
+            oo = new ConsoleConsole();
+            oo.Init();
+
+            Task task;
+            task = new Task();
+            task.Init();
+            task.Kind = this.TaskKind.Library;
+            task.Source = moduleRefString;
+            task.ArgBool = false;
+            task.Node = null;
+            task.Out = oo.Out;
+            task.Err = oo.Err;
+
+            this.Task = task;
+
+            return true;
         }
-        return true;
+        return false;
     }
 
     public virtual bool Execute()
