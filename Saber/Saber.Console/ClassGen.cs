@@ -1497,9 +1497,9 @@ public partial class ClassGen : TextAdd
             {
                 if (!b)
                 {
-                    Field field;
-                    field = k as Field;
-                    ka = field.Parent;
+                    Field varField;
+                    varField = k as Field;
+                    ka = varField.Parent;
                 }
                 if (b)
                 {
