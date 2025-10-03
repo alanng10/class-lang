@@ -80,7 +80,7 @@ public class ClassStringGen : Any
             while (iA < countA)
             {
                 long kk;
-                kk = this.ExecuteMid();
+                kk = this.ExecuteChar();
 
                 this.Index = this.Index + sizeof(int);
 
@@ -129,9 +129,9 @@ public class ClassStringGen : Any
         return this.ExecuteInt();
     }
 
-    protected virtual long ExecuteMid()
+    protected virtual long ExecuteChar()
     {
-        return this.InfraInfra.DataMidGet(this.State, this.Index);
+        return this.InfraInfra.DataCharGet(this.State, this.Index);
     }
 
     protected virtual long ExecuteInt()
