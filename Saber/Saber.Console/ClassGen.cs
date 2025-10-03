@@ -1574,11 +1574,11 @@ public partial class ClassGen : TextAdd
 
     public virtual bool ExecuteState()
     {
+        this.StateDataIndex = 0;
+
         this.ExecuteString();
 
         this.StringValueIndex = 0;
-
-        this.StateDataIndex = 0;
 
         long stateCount;
         stateCount = this.StateInt();
