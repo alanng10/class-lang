@@ -1705,13 +1705,22 @@ public partial class ClassGen : TextAdd
 
         this.LocalVarCount = varCount - varMaide.Param.Count;
 
-        this.CompStateStart(this.Class, varMaide, this.StateKindCall);
+        bool b;
+        b = (this.Class == this.InternClass | this.Class == this.ExternClass);
+        
+        if (!b)
+        {
+            this.CompStateStart(this.Class, varMaide, this.StateKindCall);
+        }
 
         this.ExecuteOperateList();
 
-        this.CompStateEnd();
+        if (!b)
+        {
+            this.CompStateEnd();
 
-        this.Text(this.NewLine);
+            this.Text(this.NewLine);
+        }
 
         return true;
     }
