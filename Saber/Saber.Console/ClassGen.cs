@@ -1503,9 +1503,9 @@ public partial class ClassGen : TextAdd
                 }
                 if (b)
                 {
-                    Maide maide;
-                    maide = k as Maide;
-                    ka = maide.Parent;
+                    Maide varMaide;
+                    varMaide = k as Maide;
+                    ka = varMaide.Parent;
                 }
 
                 bool ba;
