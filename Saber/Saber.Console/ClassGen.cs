@@ -1778,6 +1778,9 @@ public partial class ClassGen : TextAdd
 
     public virtual bool ExecuteOperateRefer()
     {
+        long varIndex;
+        varIndex = this.OperateArgInt();
+
         String varA;
         varA = this.VarA;
 
