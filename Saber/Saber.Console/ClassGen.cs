@@ -1707,7 +1707,7 @@ public partial class ClassGen : TextAdd
 
         bool b;
         b = (this.Class == this.InternClass | this.Class == this.ExternClass);
-        
+
         if (!b)
         {
             this.CompStateStart(this.Class, varMaide, this.StateKindCall);
