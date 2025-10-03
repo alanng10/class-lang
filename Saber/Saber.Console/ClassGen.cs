@@ -348,6 +348,7 @@ public partial class ClassGen : TextAdd
     {
         this.ClassArraySet();
         this.ImportArraySet();
+        this.InternExternClassSet();
 
         this.Arg = new ClassGenArg();
         this.Arg.Init();
@@ -454,6 +455,13 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
+    public virtual bool InternExternClassSet()
+    {
+        this.InternClass = this.SystemInfraModule.Class.Get(this.SIntern) as ClassClass;
+        this.ExternClass = this.SystemInfraModule.Class.Get(this.SExtern) as ClassClass;
+        return true;
+    }
+
     public virtual bool ResetStage()
     {
         this.Arg.Index = 0;
@@ -509,12 +517,6 @@ public partial class ClassGen : TextAdd
 
     public virtual bool ExecuteModule()
     {
-        if (this.Module == this.SystemInfraModule)
-        {
-            this.InternClass = this.SystemInfraModule.Class.Get(this.SIntern) as ClassClass;
-            this.ExternClass = this.SystemInfraModule.Class.Get(this.SExtern) as ClassClass;
-        }
-
         this.ExecuteExtern();
 
         this.ExecuteModuleStruct();
