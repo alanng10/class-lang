@@ -2317,13 +2317,8 @@ public partial class ClassGen : TextAdd
 
     public virtual bool ExecuteOperateStringValue()
     {
-        long count;
-        count = this.OperateArgInt();
-
-        long byteCount;
-        byteCount = count * sizeof(int);
-
-        this.StateDataIndex = this.StateDataIndex + byteCount;
+        long index;
+        index = this.OperateArgInt();
 
         this.ValuePre();
 
