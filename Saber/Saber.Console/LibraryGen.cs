@@ -197,7 +197,7 @@ public class LibraryGen : TextAdd
         this.GenModuleFoldPath = this.AddClear().Add(genFoldPath).Add(this.TextInfra.PathCombine)
             .Add(this.ModuleRefString).AddResult();
 
-        this.Stage = 0;
+        this.Stage = 1;
 
         b = this.StorageComp.FoldCreate(this.GenModuleFoldPath);
 
