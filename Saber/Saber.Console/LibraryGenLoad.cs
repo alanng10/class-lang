@@ -183,9 +183,9 @@ public class LibraryGenLoad : TextAdd
             }
 
             ClassModule a;
-            a = modulePort.Module;
+            a = modulePort.Result;
 
-            modulePort.Module = null;
+            modulePort.Result = null;
             modulePort.ModuleRef = null;
 
             this.ListInfra.TableAdd(this.ModuleTable, a.Ref, a);
