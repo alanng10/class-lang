@@ -34,7 +34,6 @@ public class Console : TextAdd
         this.SLibrary = this.S("library");
         this.SFlagM = this.S("-m");
         this.SHyphen = this.S("-");
-        this.SDot = this.S(".");
         this.SClassDotPort = this.S("Class.Port");
         this.SDotCl = this.S(".cl");
         this.SModule = this.S("Module");
@@ -207,7 +206,6 @@ public class Console : TextAdd
     protected virtual String SLibrary { get; set; }
     protected virtual String SFlagM { get; set; }
     protected virtual String SHyphen { get; set; }
-    protected virtual String SDot { get; set; }
     protected virtual String SClassDotPort { get; set; }
     protected virtual String SDotCl { get; set; }
     protected virtual String SModule { get; set; }
@@ -789,7 +787,7 @@ public class Console : TextAdd
         String verReviseString;
 
         long majorDot;
-        majorDot = this.TextIndex(this.TA(verString), this.TB(this.SDot));
+        majorDot = this.TextIndex(this.TA(verString), this.TB(this.ClassInfra.TextDot));
 
         if (majorDot == -1)
         {
@@ -803,7 +801,7 @@ public class Console : TextAdd
         kaa = this.StringCreateRange(verString, kae, verCount - kae);
 
         long minorDot;
-        minorDot = this.TextIndex(this.TA(kaa), this.TB(this.SDot));
+        minorDot = this.TextIndex(this.TA(kaa), this.TB(this.ClassInfra.TextDot));
 
         if (minorDot == -1)
         {
