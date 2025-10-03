@@ -113,15 +113,15 @@ public class ClassCompGen : Any
 
         while (iter.Next())
         {
-            Maide maide;
-            maide = iter.Value as Maide;
+            Maide varMaide;
+            varMaide = iter.Value as Maide;
 
             Maide k;
-            k = maide;
+            k = varMaide;
 
-            if (!(maide.Virtual == null))
+            if (!(varMaide.Virtual == null))
             {
-                k = maide.Virtual;
+                k = varMaide.Virtual;
             }
 
             ClassClass ka;
@@ -131,7 +131,7 @@ public class ClassCompGen : Any
             kk = ka.MaideStart;
             kk = kk + k.Index;
 
-            array.SetAt(kk, maide);
+            array.SetAt(kk, varMaide);
         }
 
         iter.Clear();
