@@ -218,6 +218,38 @@ public class Infra : Any
         return a;
     }
 
+    public virtual long ModuleRefVer(Ver ver)
+    {
+        long k;
+        k = 0;
+
+        long ka;
+        ka = ver.Revise;
+        ka = ka & 0xff;
+
+        k = k | ka;
+
+        ka = ver.Minor;
+        ka = ka & 0xff;
+        ka = ka << 8;
+
+        k = k | ka;
+
+        ka = ver.Major;
+        ka = ka << 16;
+
+        k = k | ka;
+
+        long kd;
+        kd = this.InfraInfra.IntCapValue - 1;
+
+        k = k & kd;
+
+        long a;
+        a = k;
+        return a;
+    }
+
     public virtual long BaseCount(Class varClass, Class anyClass)
     {
         Class kk;
