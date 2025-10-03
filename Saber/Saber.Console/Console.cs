@@ -836,8 +836,22 @@ public class Console : TextAdd
         long verRevise;
 
         verMajor = this.IntText(this.TA(verMajorString), 10);
+        if (verMajor == -1)
+        {
+            return null;
+        }
+
         verMinor = this.IntText(this.TA(verMinorString), 10);
+        if (verMinor == -1)
+        {
+            return null;
+        }
+
         verRevise = this.IntText(this.TA(verReviseString), 10);
+        if (verRevise == -1)
+        {
+            return null;
+        }
 
         Ver ver;
         ver = new Ver();
