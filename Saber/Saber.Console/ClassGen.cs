@@ -2404,6 +2404,24 @@ public partial class ClassGen : TextAdd
         this.ExecuteStringAny();
         this.Text(this.NewLine);
         this.ExecuteStringList();
+
+        long count;
+        count = this.StateInt();
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            long countA;
+            countA = this.StateInt();
+
+            long dataCount;
+            dataCount = countA * sizeof(int);
+
+            this.StateDataIndex = this.StateDataIndex + dataCount;
+
+            i = i + 1;
+        }
         return true;
     }
 
