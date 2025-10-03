@@ -793,7 +793,20 @@ public class Console : TextAdd
         verMajor = this.IntText(this.TA(verMajorString), 10);
         verMinor = this.IntText(this.TA(verMinorString), 10);
         verRevise = this.IntText(this.TA(verReviseString), 10);
-        return null;
+
+        Ver ver;
+        ver = new Ver();
+        ver.Init();
+        ver.Major = verMajor;
+        ver.Minor = verMinor;
+        ver.Revise = verRevise;
+
+        long moduleVer;
+        moduleVer = this.ClassInfra.ModuleRefVer(ver);
+
+        ModuleRef a;
+        a = this.ClassInfra.ModuleRefCreate(name, moduleVer);
+        return a;
     }
 
     protected virtual bool CanGen()
