@@ -814,12 +814,22 @@ public class Console : TextAdd
         verMinorIndex = kae;
         verMinorCount = minorDot;
 
+        if (!(verMinorCount == 2))
+        {
+            return null;
+        }
+
         verMinorString = this.StringCreateRange(verString, verMinorIndex, verMinorCount);
 
         long verReviseIndex;
         long verReviseCount;
         verReviseIndex = verMinorIndex + verMinorCount + 1;
         verReviseCount = verCount - verReviseIndex;
+
+        if (!(verReviseCount == 2))
+        {
+            return null;
+        }
 
         verReviseString = this.StringCreateRange(verString, verReviseIndex, verReviseCount);
 
