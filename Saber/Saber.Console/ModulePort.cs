@@ -17,11 +17,12 @@ public class ModulePort : TextAdd
     public virtual Table ModuleTable { get; set; }
     public virtual Table BinaryTable { get; set; }
     public virtual ModuleRef ModuleRef { get; set; }
-    public virtual ClassModule Module { get; set; }
+    public virtual ClassModule Result { get; set; }
     public virtual long Status { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual CountList CountList { get; set; }
+    protected virtual ClassModule Module { get; set; }
     protected virtual BinaryBinary Binary { get; set; }
     protected virtual Array ClassArray { get; set; }
     protected virtual Array ImportArray { get; set; }
@@ -35,13 +36,13 @@ public class ModulePort : TextAdd
         bool b;
         b = this.ExecuteAll();
 
+        this.Module = null;
         this.Binary = null;
         this.ClassArray = null;
         this.ImportArray = null;
 
         if (!b)
         {
-            this.Module = null;
             return false;
         }
 
@@ -51,6 +52,7 @@ public class ModulePort : TextAdd
     protected virtual bool ExecuteAll()
     {
         this.Status = 0;
+        this.Result = null;
 
         if (this.ModuleTable.Valid(this.ModuleRef))
         {
@@ -111,6 +113,7 @@ public class ModulePort : TextAdd
             return false;
         }
 
+        this.Result = this.Module;
         return true;
     }
 
