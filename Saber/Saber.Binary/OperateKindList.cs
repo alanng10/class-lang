@@ -25,11 +25,11 @@ public class OperateKindList : Any
         this.Ret = this.AddItem(0);
         this.Refer = this.AddItem(1);
         this.Are = this.AddItem(1);
-        this.InfStart = this.AddItem(0);
-        this.InfEnd = this.AddItem(0);
-        this.WhileStart = this.AddItem(0);
-        this.While = this.AddItem(0);
-        this.WhileEnd = this.AddItem(0);
+        this.InfStart = this.AddItem(1);
+        this.InfEnd = this.AddItem(1);
+        this.WhileStart = this.AddItem(1);
+        this.While = this.AddItem(1);
+        this.WhileEnd = this.AddItem(1);
         this.ItemGet = this.AddItem(1);
         this.Set = this.AddItem(1);
         this.Call = this.AddItem(2);
