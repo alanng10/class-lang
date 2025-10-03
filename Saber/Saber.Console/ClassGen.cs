@@ -1606,11 +1606,6 @@ public partial class ClassGen : TextAdd
 
     public virtual bool ExecuteStateClass()
     {
-        if (this.Class == this.InternClass | this.Class == this.ExternClass)
-        {
-            return true;
-        }
-
         this.BlockIndex = 0;
 
         Iter iter;
