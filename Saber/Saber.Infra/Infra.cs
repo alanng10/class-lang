@@ -136,7 +136,7 @@ public class Infra : Any
         return a;
     }
 
-    public virtual String ModuleRefVerString(long value)
+    public virtual String VerString(long value)
     {
         long kf;
         kf = this.InfraInfra.IntCapValue - 1;
@@ -218,7 +218,7 @@ public class Infra : Any
         return a;
     }
 
-    public virtual long ModuleRefVer(Ver ver)
+    public virtual long VerValue(Ver ver)
     {
         long k;
         k = 0;
