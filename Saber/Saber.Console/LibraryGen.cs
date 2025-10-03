@@ -535,12 +535,16 @@ public class LibraryGen : TextAdd
         long count;
         count = this.ModuleTable.Count;
 
+        count = count - 1;
+
         Array array;
         array = this.ListInfra.ArrayCreate(count);
 
         Iter iter;
         iter = this.ModuleTable.IterCreate();
         this.ModuleTable.IterSet(iter);
+
+        iter.Next();
 
         long i;
         i = 0;
