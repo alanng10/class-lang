@@ -375,6 +375,30 @@ public class Console : TextAdd
         b = (kind == kindList.Console | kind == kindList.Module);
         bool ba;
         ba = (kind == kindList.Token | kind == kindList.Node);
+        bool bb;
+        bb = (kind == kindList.Library);
+
+        if (bb)
+        {
+            ModuleRef moduleRef;
+            moduleRef = this.ModuleRefFromString(this.Task.Source);
+
+            if (moduleRef == null)
+            {
+                this.Status = 1200;
+                return false;
+            }
+
+            bool bba;
+            bba = this.ExecuteGenLibrary(moduleRef);
+
+            if (!bba)
+            {
+                return false;
+            }
+
+            return true;
+        }
 
         bool hasFileExtend;
         hasFileExtend = false;
@@ -716,9 +740,9 @@ public class Console : TextAdd
         return true;
     }
 
-    protected virtual bool ExecuteGenLibrary()
+    protected virtual bool ExecuteGenLibrary(ModuleRef moduleRef)
     {
-        this.LibraryGen.ModuleRef = module;
+        this.LibraryGen.ModuleRef = moduleRef;
         this.LibraryGen.ModulePort = this.ModulePort;
         this.LibraryGen.BinaryRead = this.BinaryRead;
         this.LibraryGen.ClassPath = this.ClassPath;
