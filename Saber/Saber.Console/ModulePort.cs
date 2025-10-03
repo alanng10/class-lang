@@ -481,7 +481,7 @@ public class ModulePort : TextAdd
 
         long count;
         count = binaryField.Count;
-        int i;
+        long i;
         i = 0;
         while (i < count)
         {
