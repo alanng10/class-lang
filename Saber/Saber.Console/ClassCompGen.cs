@@ -78,15 +78,15 @@ public class ClassCompGen : Any
 
         while (iter.Next())
         {
-            Field field;
-            field = iter.Value as Field;
+            Field varField;
+            varField = iter.Value as Field;
 
             Field k;
-            k = field;
+            k = varField;
 
-            if (!(field.Virtual == null))
+            if (!(varField.Virtual == null))
             {
-                k = field.Virtual;
+                k = varField.Virtual;
             }
 
             ClassClass ka;
@@ -96,7 +96,7 @@ public class ClassCompGen : Any
             kk = ka.FieldStart;
             kk = kk + k.Index;
 
-            array.SetAt(kk, field);
+            array.SetAt(kk, varField);
         }
 
         iter.Clear();
