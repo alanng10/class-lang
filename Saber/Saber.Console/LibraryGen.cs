@@ -207,17 +207,23 @@ public class LibraryGen : TextAdd
             return this.Error();
         }
 
+        this.Stage = this.Stage + 1;
+
         b = this.ExecuteClean();
         if (!b)
         {
             return this.Error();
         }
 
+        this.Stage = this.Stage + 1;
+
         b = this.ExecuteClassSource();
         if (!b)
         {
             return this.Error();
         }
+
+        this.Stage = this.Stage + 1;
 
         b = this.ExecuteMakeLib();
         if (!b)
@@ -227,17 +233,23 @@ public class LibraryGen : TextAdd
 
         if (!(this.Module.Entry == null))
         {
+            this.Stage = this.Stage + 1;
+
             b = this.ExecuteModuleRefString();
             if (!b)
             {
                 return this.Error();
             }
 
+            this.Stage = this.Stage + 1;
+
             b = this.ExecuteModuleExeSource();
             if (!b)
             {
                 return this.Error();
             }
+
+            this.Stage = this.Stage + 1;
 
             b = this.ExecuteMakeExe();
             if (!b)
@@ -250,7 +262,8 @@ public class LibraryGen : TextAdd
 
         if (!b)
         {
-            return this.Error();
+            this.Status = 300;
+            return false;
         }
 
         return true;
@@ -766,7 +779,7 @@ public class LibraryGen : TextAdd
     protected virtual bool Error()
     {
         long k;
-        k = this.Stage + 1;
+        k = this.Stage;
         k = k * 10;
 
         this.Status = k;
