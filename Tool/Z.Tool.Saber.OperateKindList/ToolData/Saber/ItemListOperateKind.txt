@@ -2,11 +2,11 @@ End 0
 Ret 0
 Refer 1
 Are 1
-InfStart 0
-InfEnd 0
-WhileStart 0
-While 0
-WhileEnd 0
+InfStart 1
+InfEnd 1
+WhileStart 1
+While 1
+WhileEnd 1
 Get 1
 Set 1
 Call 2
