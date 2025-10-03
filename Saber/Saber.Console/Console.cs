@@ -786,6 +786,13 @@ public class Console : TextAdd
 
         verReviseString = this.StringCreateRange(verString, verReviseIndex, verReviseCount);
 
+        long verMajor;
+        long verMinor;
+        long verRevise;
+
+        verMajor = this.IntText(this.TA(verMajorString), 10);
+        verMinor = this.IntText(this.TA(verMinorString), 10);
+        verRevise = this.IntText(this.TA(verReviseString), 10);
         return null;
     }
 
