@@ -232,7 +232,7 @@ public class LibraryGen : TextAdd
 
         if (!(this.Module.Entry == null))
         {
-            this.Stage = this.Stage + 1;
+            this.Stage = 10;
 
             b = this.ExecuteModuleRefString();
             if (!b)
