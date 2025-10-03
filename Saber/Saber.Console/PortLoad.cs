@@ -495,9 +495,9 @@ public class PortLoad : TextAdd
             }
 
             ClassModule a;
-            a = modulePort.Module;
+            a = modulePort.Result;
 
-            modulePort.Module = null;
+            modulePort.Result = null;
             modulePort.ModuleRef = null;
 
             this.ListInfra.TableAdd(table, a.Ref, a);
