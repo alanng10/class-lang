@@ -258,12 +258,13 @@ public class LibraryGen : TextAdd
             }
         }
 
+        this.Stage = 20;
+
         b = this.StorageComp.FoldDelete(this.GenModuleFoldPath);
 
         if (!b)
         {
-            this.Status = 300;
-            return false;
+            return this.Error();
         }
 
         return true;
