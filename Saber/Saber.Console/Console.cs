@@ -33,7 +33,6 @@ public class Console : TextAdd
         this.SMake = this.S("make");
         this.SLibrary = this.S("library");
         this.SFlagM = this.S("-m");
-        this.SHyphen = this.S("-");
         this.SClassDotPort = this.S("Class.Port");
         this.SDotCl = this.S(".cl");
         this.SModule = this.S("Module");
@@ -205,7 +204,6 @@ public class Console : TextAdd
     protected virtual String SMake { get; set; }
     protected virtual String SLibrary { get; set; }
     protected virtual String SFlagM { get; set; }
-    protected virtual String SHyphen { get; set; }
     protected virtual String SClassDotPort { get; set; }
     protected virtual String SDotCl { get; set; }
     protected virtual String SModule { get; set; }
@@ -764,7 +762,7 @@ public class Console : TextAdd
     protected virtual ModuleRef ModuleRefFromString(String value)
     {
         long ka;
-        ka = this.TextIndex(this.TA(value), this.TB(this.SHyphen));
+        ka = this.TextIndex(this.TA(value), this.TB(this.ClassInfra.TextHyphen));
 
         if (ka == -1)
         {
