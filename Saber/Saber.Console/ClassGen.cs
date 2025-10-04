@@ -3864,13 +3864,13 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
-    public virtual bool BlockLabel(long blockIndex)
+    public virtual bool BlockLabel(String blockKind, long blockIndex)
     {
         this.Text(this.BlockWord);
 
         this.Text(this.NameCombine);
 
-        this.ClassIndex(this.Class.Index);
+        this.Text(blockKind);
 
         this.Text(this.NameCombine);
 
@@ -3878,9 +3878,9 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
-    public virtual bool BlockVar(long blockIndex)
+    public virtual bool BlockVar(String blockKind, long blockIndex)
     {
-        this.BlockLabel(blockIndex);
+        this.BlockLabel(blockKind, blockIndex);
 
         this.Text(this.NameCombine);
 
@@ -3888,11 +3888,11 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
-    public virtual bool BlockLabelLine(long blockIndex)
+    public virtual bool BlockLabelLine(String blockKind, long blockIndex)
     {
         this.TextIndent();
 
-        this.BlockLabel(blockIndex);
+        this.BlockLabel(blockKind, blockIndex);
 
         this.Text(this.LimitColon);
 
@@ -3900,7 +3900,7 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
-    public virtual bool BlockLabelGone(long blockIndex)
+    public virtual bool BlockLabelGone(String blockKind, long blockIndex)
     {
         this.TextIndent();
 
@@ -3908,7 +3908,7 @@ public partial class ClassGen : TextAdd
 
         this.Text(this.Space);
 
-        this.BlockLabel(blockIndex);
+        this.BlockLabel(blockKind, blockIndex);
 
         this.Text(this.LimitSemicolon);
 
