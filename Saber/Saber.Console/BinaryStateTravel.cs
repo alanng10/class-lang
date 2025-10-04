@@ -58,6 +58,15 @@ public class BinaryStateTravel : Travel
     protected virtual BinaryOperateArg ArgA { get; set; }
     protected virtual BinaryOperateArg ArgB { get; set; }
     protected virtual BinaryOperateArg NullArg { get; set; }
+    protected virtual long InfIndex { get; set; }
+    protected virtual long WhileIndex { get; set; }
+
+    public virtual bool ResetBlockIndex()
+    {
+        this.InfIndex = 0;
+        this.WhileIndex = 0;
+        return true;
+    }
 
     public override bool ExecuteOperateExecute(OperateExecute operateExecute)
     {
@@ -118,11 +127,16 @@ public class BinaryStateTravel : Travel
 
         this.ExecuteOperate(cond);
 
-        this.Ope(this.Kind.InfStart, null, null);
+        long index;
+        index = this.InfIndex;
+
+        this.InfIndex = index + 1;
+
+        this.Ope(this.Kind.InfStart, this.IntArg(this.ArgA, index), null);
 
         this.ExecuteState(then);
 
-        this.Ope(this.Kind.InfEnd, null, null);
+        this.Ope(this.Kind.InfEnd, this.IntArg(this.ArgA, index), null);
         return true;
     }
 
@@ -133,15 +147,20 @@ public class BinaryStateTravel : Travel
         State loop;
         loop = whileExecute.Loop;
 
-        this.Ope(this.Kind.WhileStart, null, null);
+        long index;
+        index = this.WhileIndex;
+
+        this.WhileIndex = index + 1;
+
+        this.Ope(this.Kind.WhileStart, this.IntArg(this.ArgA, index), null);
 
         this.ExecuteOperate(cond);
 
-        this.Ope(this.Kind.While, null, null);
+        this.Ope(this.Kind.While, this.IntArg(this.ArgA, index), null);
 
         this.ExecuteState(loop);
 
-        this.Ope(this.Kind.WhileEnd, null, null);
+        this.Ope(this.Kind.WhileEnd, this.IntArg(this.ArgA, index), null);
         return true;
     }
 
