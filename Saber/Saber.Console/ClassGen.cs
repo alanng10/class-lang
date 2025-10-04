@@ -3916,18 +3916,18 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
-    public virtual bool BlockEvalIndexStart(long blockIndex)
+    public virtual bool BlockEvalIndexStart(String blockKind, long blockIndex)
     {
         this.TextIndent();
         this.Text(this.ClassInt);
         this.Text(this.Space);
-        this.BlockVar(blockIndex);
+        this.BlockVar(blockKind, blockIndex);
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
 
         this.TextIndent();
 
-        this.BlockVar(blockIndex);
+        this.BlockVar(blockKind, blockIndex);
 
         this.Text(this.Space);
         this.Text(this.LimitAre);
@@ -3940,7 +3940,7 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
-    public virtual bool BlockEvalIndexEnd(long blockIndex)
+    public virtual bool BlockEvalIndexEnd(String blockKind, long blockIndex)
     {
         this.TextIndent();
 
@@ -3950,7 +3950,7 @@ public partial class ClassGen : TextAdd
         this.Text(this.LimitAre);
         this.Text(this.Space);
 
-        this.BlockVar(blockIndex);
+        this.BlockVar(blockKind, blockIndex);
 
         this.Text(this.LimitSemicolon);
         this.Text(this.NewLine);
