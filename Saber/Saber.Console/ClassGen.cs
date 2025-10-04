@@ -1823,6 +1823,9 @@ public partial class ClassGen : TextAdd
 
     public virtual bool ExecuteOperateInfStart()
     {
+        long index;
+        index = this.OperateArgInt();
+
         String varA;
         varA = this.VarA;
 
@@ -1836,18 +1839,17 @@ public partial class ClassGen : TextAdd
 
         this.BlockStart();
 
-        this.BlockEvalIndexStart(this.BlockIndex);
-
-        this.BlockIndex = this.BlockIndex + 1;
+        this.BlockEvalIndexStart(this.BlockKindInf, index);
 
         return true;
     }
 
     public virtual bool ExecuteOperateInfEnd()
     {
-        this.BlockIndex = this.BlockIndex - 1;
+        long index;
+        index = this.OperateArgInt();
 
-        this.BlockEvalIndexEnd(this.BlockIndex);
+        this.BlockEvalIndexEnd(this.BlockKindInf, index);
 
         this.BlockEnd();
 
