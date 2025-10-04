@@ -23,7 +23,7 @@ public class OperateKindList : Any
 
         this.End = this.AddItem(0);
         this.Ret = this.AddItem(0);
-        this.Refer = this.AddItem(1);
+        this.Refer = this.AddItem(2);
         this.Are = this.AddItem(1);
         this.InfStart = this.AddItem(1);
         this.InfEnd = this.AddItem(1);
@@ -33,8 +33,8 @@ public class OperateKindList : Any
         this.ItemGet = this.AddItem(1);
         this.Set = this.AddItem(1);
         this.Call = this.AddItem(2);
-        this.Var = this.AddItem(1);
-        this.VarMark = this.AddItem(1);
+        this.Var = this.AddItem(2);
+        this.VarMark = this.AddItem(2);
         this.New = this.AddItem(1);
         this.Share = this.AddItem(1);
         this.Cast = this.AddItem(1);
