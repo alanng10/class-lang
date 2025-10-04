@@ -1780,6 +1780,9 @@ public partial class ClassGen : TextAdd
         long varIndex;
         varIndex = this.OperateArgInt();
 
+        long varPos;
+        varPos = this.OperateArgInt();
+
         String varA;
         varA = this.VarA;
 
