@@ -8,7 +8,7 @@ Class consists of infra modules, compiler modules, documentation, source code.
 Class is open source.
 Permission is granted to every person to use any copy of this software in any way.
 
-Class is did.
+Class is did. 
 
 Class is most gene program lang.
 
