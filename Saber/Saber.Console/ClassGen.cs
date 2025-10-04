@@ -1889,11 +1889,12 @@ public partial class ClassGen : TextAdd
 
     public virtual bool ExecuteOperateWhileEnd()
     {
-        this.BlockIndex = this.BlockIndex - 1;
+        long index;
+        index = this.OperateArgInt();
 
-        this.BlockEvalIndexEnd(this.BlockIndex);
+        this.BlockEvalIndexEnd(this.BlockKindWhile, index);
 
-        this.BlockLabelGone(this.BlockIndex);
+        this.BlockLabelGone(this.BlockKindWhile, index);
 
         this.BlockEnd();
 
