@@ -1951,10 +1951,13 @@ public partial class ClassGen : TextAdd
         long varIndex;
         varIndex = this.OperateArgInt();
 
+        long varPos;
+        varPos = this.OperateArgInt();
+
         String varA;
         varA = this.VarA;
 
-        this.ExecuteVarGet(varIndex);
+        this.ExecuteVarGet(varIndex, varPos);
 
         this.EvalValueSet(0, varA);
 
@@ -2853,7 +2856,7 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
-    public virtual bool ExecuteVarGet(long varIndex)
+    public virtual bool ExecuteVarGet(long varIndex, long varPos)
     {
         String varA;
         varA = this.VarA;
@@ -2878,10 +2881,7 @@ public partial class ClassGen : TextAdd
 
             if (!ba)
             {
-                long posA;
-                posA = varIndex - 1;
-
-                this.EvalFrameValueGet(posA, varA);
+                this.EvalFrameValueGet(varPos, varA);
             }
         }
 
@@ -2901,27 +2901,29 @@ public partial class ClassGen : TextAdd
 
             if (bc)
             {
-                long posB;
-                posB = -1;
+                long posA;
+                posA = -1;
 
-                this.EvalFrameValueGet(posB, varA);
+                this.EvalFrameValueGet(posA, varA);
             }
 
             if (!(bb | bc))
             {
-                long posC;
-                posC = varIndex - 2;
-
-                this.EvalFrameValueGet(posC, varA);
+                this.EvalFrameValueGet(varPos, varA);
             }
         }
 
         if (stateKind == this.StateKindCall)
         {
-            long posD;
-            posD = varIndex - k;
+            long posB;
+            posB = varPos;
 
-            this.EvalFrameValueGet(posD, varA);
+            if (varIndex < k)
+            {
+                posB = varIndex - k;
+            }
+
+            this.EvalFrameValueGet(posB, varA);
         }
 
         return true;
