@@ -223,6 +223,7 @@ public partial class ClassGen : TextAdd
     public virtual long StateDataIndex { get; set; }
     public virtual long SetFieldIndex { get; set; }
     public virtual long VarMarkIndex { get; set; }
+    public virtual long VarMarkPos { get; set; }
     public virtual String Space { get; set; }
     public virtual String NewLine { get; set; }
     public virtual String Zero { get; set; }
@@ -1804,7 +1805,7 @@ public partial class ClassGen : TextAdd
 
         if (!b)
         {
-            this.ExecuteVarSet(this.VarMarkIndex);
+            this.ExecuteVarSet(this.VarMarkIndex, this.VarMarkPos);
 
             this.EvalIndexPosSet(-1);
         }
@@ -1821,6 +1822,7 @@ public partial class ClassGen : TextAdd
 
         this.SetFieldIndex = 0;
         this.VarMarkIndex = 0;
+        this.VarMarkPos = 0;
         return true;
     }
 
@@ -2924,7 +2926,7 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
-    public virtual bool ExecuteVarSet(long varIndex)
+    public virtual bool ExecuteVarSet(long varIndex, long varPos)
     {
         String varA;
         String varB;
@@ -2953,10 +2955,7 @@ public partial class ClassGen : TextAdd
 
             if (!ba)
             {
-                long posA;
-                posA = varIndex - 1;
-
-                this.EvalFrameValueSet(posA, varB);
+                this.EvalFrameValueSet(varPos, varB);
             }
         }
 
@@ -2976,27 +2975,29 @@ public partial class ClassGen : TextAdd
 
             if (bc)
             {
-                long posB;
-                posB = -1;
+                long posA;
+                posA = -1;
 
-                this.EvalFrameValueSet(posB, varB);
+                this.EvalFrameValueSet(posA, varB);
             }
 
             if (!(bb | bc))
             {
-                long posC;
-                posC = varIndex - 2;
-
-                this.EvalFrameValueSet(posC, varB);
+                this.EvalFrameValueSet(varPos, varB);
             }
         }
 
         if (stateKind == this.StateKindCall)
         {
-            long posD;
-            posD = varIndex - k;
+            long posB;
+            posB = varPos;
 
-            this.EvalFrameValueSet(posD, varB);
+            if (varIndex < k)
+            {
+                posB = varIndex - k;
+            }
+
+            this.EvalFrameValueSet(posB, varB);
         }
 
         return true;
