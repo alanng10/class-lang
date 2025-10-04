@@ -4729,10 +4729,10 @@ public partial class ClassGen : TextAdd
         i = 0;
         while (i < count)
         {
-            long oc;
-            oc = this.StringChar(text, i);
+            long ka;
+            ka = this.StringChar(text, i);
 
-            this.ExecuteChar(oc);
+            this.ExecuteChar(ka);
 
             i = i + 1;
         }
