@@ -1839,8 +1839,6 @@ public partial class ClassGen : TextAdd
 
         this.BlockStart();
 
-        this.BlockEvalIndexStart(this.BlockKindInf, index);
-
         return true;
     }
 
@@ -1848,8 +1846,6 @@ public partial class ClassGen : TextAdd
     {
         long index;
         index = this.OperateArgInt();
-
-        this.BlockEvalIndexEnd(this.BlockKindInf, index);
 
         this.BlockEnd();
 
@@ -1884,8 +1880,6 @@ public partial class ClassGen : TextAdd
 
         this.BlockStart();
 
-        this.BlockEvalIndexStart(this.BlockKindWhile, index);
-
         return true;
     }
 
@@ -1893,8 +1887,6 @@ public partial class ClassGen : TextAdd
     {
         long index;
         index = this.OperateArgInt();
-
-        this.BlockEvalIndexEnd(this.BlockKindWhile, index);
 
         this.BlockLabelGone(this.BlockKindWhile, index);
 
