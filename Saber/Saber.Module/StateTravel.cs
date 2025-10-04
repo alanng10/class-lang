@@ -292,7 +292,10 @@ public class StateTravel : Travel
         a.Name = varName;
         a.Class = varClass;
         a.Index = this.StateVar.Count;
+        a.Pos = this.VarPos;
         a.Any = nodeVar;
+
+        this.VarPos = this.VarPos + 1;
 
         Table k;
         k = this.VarStack.Top as Table;
