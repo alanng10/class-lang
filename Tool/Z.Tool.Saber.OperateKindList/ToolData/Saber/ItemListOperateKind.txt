@@ -1,6 +1,6 @@
 End 0
 Ret 0
-Refer 1
+Refer 2
 Are 1
 InfStart 1
 InfEnd 1
@@ -10,8 +10,8 @@ WhileEnd 1
 Get 1
 Set 1
 Call 2
-Var 1
-VarMark 1
+Var 2
+VarMark 2
 New 1
 Share 1
 Cast 1
