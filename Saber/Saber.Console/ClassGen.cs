@@ -221,7 +221,6 @@ public partial class ClassGen : TextAdd
     public virtual long StateKindSet { get; set; }
     public virtual long StateKindCall { get; set; }
     public virtual long StateDataIndex { get; set; }
-    public virtual long BlockIndex { get; set; }
     public virtual long SetFieldIndex { get; set; }
     public virtual long VarMarkIndex { get; set; }
     public virtual String Space { get; set; }
@@ -1609,8 +1608,6 @@ public partial class ClassGen : TextAdd
 
     public virtual bool ExecuteStateClass()
     {
-        this.BlockIndex = 0;
-
         Iter iter;
         iter = this.TableIter;
 
@@ -1859,13 +1856,19 @@ public partial class ClassGen : TextAdd
 
     public virtual bool ExecuteOperateWhileStart()
     {
-        this.BlockLabelLine(this.BlockIndex);
+        long index;
+        index = this.OperateArgInt();
+
+        this.BlockLabelLine(this.BlockKindWhile, index);
 
         return true;
     }
 
     public virtual bool ExecuteOperateWhile()
     {
+        long index;
+        index = this.OperateArgInt();
+
         String varA;
         varA = this.VarA;
 
@@ -1879,9 +1882,7 @@ public partial class ClassGen : TextAdd
 
         this.BlockStart();
 
-        this.BlockEvalIndexStart(this.BlockIndex);
-
-        this.BlockIndex = this.BlockIndex + 1;
+        this.BlockEvalIndexStart(this.BlockKindWhile, index);
 
         return true;
     }
