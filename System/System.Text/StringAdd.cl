@@ -19,6 +19,7 @@ class StringAdd : Any
 
         this.Data : data;
         this.Capaci : capaci;
+        this.Count : 0;
         return true;
     }
 
