@@ -96,7 +96,8 @@ public partial class ClassGen : TextAdd
         this.BlockWord = this.S("Block");
         this.IndexWord = this.S("Index");
         this.CastInt = this.S("CastInt");
-        this.WhileLabelPre = this.S("W_");
+        this.BlockKindInf = this.S("I");
+        this.BlockKindWhile = this.S("W");
         this.DirectiveInclude = this.S("#include");
         this.IncludeValueInfra = this.S("<Infra/Prusate.h>");
         this.IncludeValueInfraIntern = this.S("<InfraIntern/Prusate.h>");
@@ -301,7 +302,8 @@ public partial class ClassGen : TextAdd
     public virtual String BlockWord { get; set; }
     public virtual String IndexWord { get; set; }
     public virtual String CastInt { get; set; }
-    public virtual String WhileLabelPre { get; set; }
+    public virtual String BlockKindInf { get; set; }
+    public virtual String BlockKindWhile { get; set; }
     public virtual String DirectiveInclude { get; set; }
     public virtual String IncludeValueInfra { get; set; }
     public virtual String IncludeValueInfraIntern { get; set; }
