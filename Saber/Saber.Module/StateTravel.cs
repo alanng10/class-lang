@@ -225,7 +225,11 @@ public class StateTravel : Travel
 
         this.VarStack.Push(varMaide.Param);
 
+        this.VarPos = 0;
+
         this.ExecuteState(call);
+
+        this.VarPos = 0;
 
         this.VarStack.Pop();
 
