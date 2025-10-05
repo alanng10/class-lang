@@ -41,6 +41,7 @@ public class PortLoad : TextAdd
     protected virtual StoragePathValid StoragePathValid { get; set; }
     protected virtual Array ImportModuleRefArray { get; set; }
     protected virtual Table BinaryTable { get; set; }
+    protected virtual ClassClass AnyClass { get; set; }
     protected virtual List ErrorList { get; set; }
     protected virtual ModuleRef ModuleRef { get; set; }
     protected virtual String SystemModuleSingle { get; set; }
@@ -57,6 +58,7 @@ public class PortLoad : TextAdd
         this.ImportModuleRefArray = null;
         this.ModulePort.BinaryTable = null;
         this.ModulePort.ModuleTable = null;
+        this.AnyClass = null;
         this.ErrorList = null;
         this.ModuleRef = null;
 
