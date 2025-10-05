@@ -18,6 +18,7 @@ public class ModulePort : TextAdd
     public virtual Table BinaryTable { get; set; }
     public virtual ModuleRef ModuleRef { get; set; }
     public virtual ClassModule Result { get; set; }
+    public virtual ClassClass AnyClass { get; set; }
     public virtual long Status { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
@@ -27,7 +28,6 @@ public class ModulePort : TextAdd
     protected virtual Array ClassArray { get; set; }
     protected virtual Array ImportArray { get; set; }
     protected virtual Table VirtualTable { get; set; }
-    protected virtual ClassClass AnyClass { get; set; }
     protected virtual String SSystemDotInfra { get; set; }
     protected virtual String SAny { get; set; }
 
