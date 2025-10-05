@@ -764,20 +764,35 @@ class Demo : TextAdd
         Time time;
         time = new Time();
         time.Init();
-        
-        this.ConsoleWriteTime("Time Init : ", time);
-        
+
+        bool b;
+        b = true;
+
+        b = b & (time.TotalTick == 0);
+
+        b = b & this.ValidTime(time, 1, 1, 1, 0, 0, 0, 0, 0);
+
         time.This();
+
+        this.Console.Out.Write(this.AddClear().AddS("Time ").Add(this.StatusString(b)).AddLine().AddResult());
+
         this.ConsoleWriteTime("Time This : ", time);
 
-        time.ToPos(2 * 60 * 60);
-        this.ConsoleWriteTime("Time ToPos : ", time);
-
-        time.AddTick(200 * 1000);
-        this.ConsoleWriteTime("Time AddTick : ", time);
-
         time.Final();
+
         return true;
+    }
+
+    private bool ValidTime(Time time, long yea, long mon, long day, long our, long min, long sec, long tick, long pos)
+    {
+        bool b;
+
+        b = (time.Yea == yea & time.Mon == mon & time.Day == day &
+         time.Our == our & time.Min == min & time.Sec == sec &
+         time.Tick == tick & time.Pos == pos
+        );
+
+        return b;
     }
 
     private bool ConsoleWriteTime(string prefix, Time time)
