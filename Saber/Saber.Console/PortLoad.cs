@@ -475,6 +475,7 @@ public class PortLoad : TextAdd
             moduleRef = iter.Index as ModuleRef;
 
             modulePort.ModuleRef = moduleRef;
+            modulePort.AnyClass = this.AnyClass;
 
             bool b;
             b = modulePort.Execute();
@@ -496,7 +497,10 @@ public class PortLoad : TextAdd
             ClassModule a;
             a = modulePort.Result;
 
+            this.AnyClass = modulePort.AnyClass;
+
             modulePort.Result = null;
+            modulePort.AnyClass = null;
             modulePort.ModuleRef = null;
 
             this.ListInfra.TableAdd(this.ModuleTable, a.Ref, a);
