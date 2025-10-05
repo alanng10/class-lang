@@ -23,6 +23,7 @@ public class LibraryGenLoad : TextAdd
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
+    protected virtual ClassClass AnyClass { get; set; }
     protected virtual String SModule { get; set; }
 
     public virtual bool Execute()
@@ -32,6 +33,7 @@ public class LibraryGenLoad : TextAdd
 
         this.ModulePort.BinaryTable = null;
         this.ModulePort.ModuleTable = null;
+        this.AnyClass = null;
 
         this.ClearData();
         return b;
@@ -169,6 +171,7 @@ public class LibraryGenLoad : TextAdd
             moduleRef = iter.Index as ModuleRef;
 
             modulePort.ModuleRef = moduleRef;
+            modulePort.AnyClass = this.AnyClass;
 
             bool b;
             b = modulePort.Execute();
@@ -185,7 +188,10 @@ public class LibraryGenLoad : TextAdd
             ClassModule a;
             a = modulePort.Result;
 
+            this.AnyClass = modulePort.AnyClass;
+
             modulePort.Result = null;
+            modulePort.AnyClass = null;
             modulePort.ModuleRef = null;
 
             this.ListInfra.TableAdd(this.ModuleTable, a.Ref, a);
