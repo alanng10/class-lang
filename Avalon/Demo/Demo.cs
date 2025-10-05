@@ -772,9 +772,13 @@ class Demo : TextAdd
 
         b = b & this.ValidTime(time, 1, 1, 1, 0, 0, 0, 0, 0);
 
-        time.This();
+        time.AddTick(2042000);
+
+        b = b & (time.TotalTick == 2042000);
 
         this.Console.Out.Write(this.AddClear().AddS("Time ").Add(this.StatusString(b)).AddLine().AddResult());
+
+        time.This();
 
         this.ConsoleWriteTime("Time This : ", time);
 
