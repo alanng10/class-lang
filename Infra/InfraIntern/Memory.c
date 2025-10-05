@@ -335,8 +335,8 @@ Int Intern_New_DeleteUnused()
     Int totalDataCount;
     totalDataCount = 0;
 
-    Int previousNode;
-    previousNode = null;
+    Int prevNode;
+    prevNode = null;
 
     Int node;
     node = m->FirstNode;
@@ -352,11 +352,17 @@ Int Intern_New_DeleteUnused()
         Int nextNode;
         nextNode = NodeFieldNext(node);
 
+        NodeFieldQueueNext(node) = null;
+
+        flag = flag & 0xffff;
+
+        NodeFieldFlag(node) = flag;
+
         if (b)
         {
-            if (!(previousNode == null))
+            if (!(prevNode == null))
             {
-                NodeFieldNext(previousNode) = nextNode;
+                NodeFieldNext(prevNode) = nextNode;
             }
 
             if (m->FirstNode == node)
@@ -366,7 +372,7 @@ Int Intern_New_DeleteUnused()
 
             if (m->LastNode == node)
             {
-                m->LastNode = previousNode;
+                m->LastNode = prevNode;
             }
 
             Environ_Delete(node);
@@ -374,18 +380,14 @@ Int Intern_New_DeleteUnused()
 
         if (!b)
         {
-            flag = flag & 0xffff;
+
 
             Int dataCount;
             dataCount = NodeFieldSize(node);
 
             totalDataCount = totalDataCount + dataCount;
 
-            NodeFieldFlag(node) = flag;
-
-            NodeFieldQueueNext(node) = null;
-
-            previousNode = node;
+            prevNode = node;
         }
 
         node = nextNode;
