@@ -64,7 +64,7 @@ Word "ope" has meaning that is work done topic.
 
 Word "geno" has meaning that is generalize.
 
-Word "infane" has meaning that is infinity.
+Word "provane" has meaning that is infinity.
 
 Word "ready" has meaning that is already.
 
