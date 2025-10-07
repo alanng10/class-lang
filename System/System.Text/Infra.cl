@@ -17,7 +17,7 @@ class Infra : Any
 
         this.BoolFalseString : "false";
         this.BoolTrueString : "true";
-        
+
         this.AlphaNiteForm : new AlphaNiteForm;
         this.AlphaNiteForm.Init();
         this.AlphaSiteForm : new AlphaSiteForm;
