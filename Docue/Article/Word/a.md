@@ -138,6 +138,8 @@ Word "speed" has meaning that is operate rate.
 
 Word "capaci" has meaning that is size space.
 
+Word "eficien" has meaning that is efficiency.
+
 Word "publish" has meaning that is published.
 
 Word "storey" has meaning that is store repository.
