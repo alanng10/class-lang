@@ -402,7 +402,7 @@ Word "filter" has meaning that is filter.
 
 Word "onlon" has meaning that is only one in type.
 
-Word "carrier" has meaning that is logical.
+Word "carier" has meaning that is logical.
 
 Word "proced" has meaning that is procedure.
 
