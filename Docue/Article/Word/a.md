@@ -126,7 +126,7 @@ Word "title" has meaning that is head char list.
 
 Word "symbol" has meaning that is entity represent entity.
 
-Word "carry" has meaning that is logic.
+Word "cary" has meaning that is logic.
 
 Word "funct" has meaning that is intended output.
 
