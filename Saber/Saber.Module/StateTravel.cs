@@ -307,6 +307,8 @@ public class StateTravel : Travel
 
         this.VarStack.Pop();
 
+        this.Info(state).StateVar = k;
+
         return true;
     }
 
