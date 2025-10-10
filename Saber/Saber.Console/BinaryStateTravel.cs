@@ -528,7 +528,7 @@ public class BinaryStateTravel : Travel
         return arg;
     }
 
-    protected virtual bool Ope(BinaryOperateKind kind, BinaryOperateArg argA, BinaryOperateArg argB)
+    protected virtual bool Ope(BinaryOperateKind kind, BinaryOperateArg argA, BinaryOperateArg argB, BinaryOperateArg argC)
     {
         if (argA == null)
         {
@@ -540,9 +540,15 @@ public class BinaryStateTravel : Travel
             argB = this.NullArg;
         }
 
+        if (argC == null)
+        {
+            argC = this.NullArg;
+        }
+
         this.Operate.Kind = kind.Index;
         this.Operate.ArgA = argA;
         this.Operate.ArgB = argB;
+        this.Operate.ArgC = argC;
 
         this.State.ExecuteOperate(this.Operate);
         return true;
