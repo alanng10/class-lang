@@ -19,7 +19,7 @@ public class Table : List
         {
             Entry entry;
             entry = this.Entry(this.List.Start);
-            
+
             if (entry == null)
             {
                 return null;
