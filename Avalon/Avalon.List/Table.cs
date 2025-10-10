@@ -17,13 +17,42 @@ public class Table : List
     { 
         get
         {
-            return null;
+            Entry entry;
+            entry = this.Entry(this.List.Start);
+            
+            if (entry == null)
+            {
+                return null;
+            }
+
+            object a;
+            a = entry.Index;
+            return a;
         }
         set
         {
         }
     }
-    public override object End { get { return null; } set { } }
+    public override object End
+    {
+        get
+        {
+            Entry entry;
+            entry = this.Entry(this.List.End);
+
+            if (entry == null)
+            {
+                return null;
+            }
+
+            object a;
+            a = entry.Index;
+            return a;
+        }
+        set
+        {
+        }
+    }
     private Tree Tree { get; set; }
     private List List { get; set; }
 
