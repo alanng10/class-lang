@@ -13,7 +13,16 @@ public class Table : List
     }
 
     public virtual Less Less { get; set; }
-    public override object Start { get { return null; } set { } }
+    public override object Start
+    { 
+        get
+        {
+            return null;
+        }
+        set
+        {
+        }
+    }
     public override object End { get { return null; } set { } }
     private Tree Tree { get; set; }
     private List List { get; set; }
@@ -194,7 +203,7 @@ public class Table : List
         }
 
         ListNode listNode;
-        listNode = (ListNode)k.Node.Value;
+        listNode = k.Node.Value as ListNode;
         ListNode a;
         a = listNode;
         return a;
