@@ -10,6 +10,7 @@ public class BinaryStateTravel : Travel
         this.Operate = this.CreateOperate();
         this.ArgA = this.CreateArgA();
         this.ArgB = this.CreateArgB();
+        this.ArgC = this.CreateArgC();
         this.NullArg = this.CreateNullArg();
         return true;
     }
@@ -62,6 +63,7 @@ public class BinaryStateTravel : Travel
     protected virtual BinaryOperate Operate { get; set; }
     protected virtual BinaryOperateArg ArgA { get; set; }
     protected virtual BinaryOperateArg ArgB { get; set; }
+    protected virtual BinaryOperateArg ArgC { get; set; }
     protected virtual BinaryOperateArg NullArg { get; set; }
     protected virtual long InfIndex { get; set; }
     protected virtual long WhileIndex { get; set; }
