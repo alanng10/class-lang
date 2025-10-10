@@ -62,6 +62,7 @@ public class StateTravel : Travel
     protected virtual Table StateVar { get; set; }
     protected virtual Stack VarStack { get; set; }
     protected virtual Iter VarStackIter { get; set; }
+    protected virtual long VarPos { get; set; }
     protected virtual Iter ParamIter { get; set; }
     protected virtual Iter ArgueIter { get; set; }
     protected virtual String SData { get; set; }
@@ -134,7 +135,11 @@ public class StateTravel : Travel
 
         this.VarStack.Push(k);
 
+        this.VarPos = 0;
+
         this.ExecuteState(nodeGet);
+
+        this.VarPos = 0;
 
         this.VarStack.Pop();
 
@@ -180,7 +185,11 @@ public class StateTravel : Travel
 
         this.VarStack.Push(k);
 
+        this.VarPos = 0;
+
         this.ExecuteState(nodeSet);
+
+        this.VarPos = 0;
 
         this.VarStack.Pop();
 
@@ -216,7 +225,11 @@ public class StateTravel : Travel
 
         this.VarStack.Push(varMaide.Param);
 
+        this.VarPos = 0;
+
         this.ExecuteState(call);
+
+        this.VarPos = 0;
 
         this.VarStack.Pop();
 
@@ -279,7 +292,10 @@ public class StateTravel : Travel
         a.Name = varName;
         a.Class = varClass;
         a.Index = this.StateVar.Count;
+        a.Pos = this.VarPos;
         a.Any = nodeVar;
+
+        this.VarPos = this.VarPos + 1;
 
         Table k;
         k = this.VarStack.Top as Table;
@@ -303,11 +319,14 @@ public class StateTravel : Travel
 
         this.VarStack.Push(k);
 
+        long pos;
+        pos = this.VarPos;
+
         base.ExecuteState(state);
 
-        this.VarStack.Pop();
+        this.VarPos = pos;
 
-        this.Info(state).StateVar = k;
+        this.VarStack.Pop();
 
         return true;
     }
