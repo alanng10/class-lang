@@ -17,11 +17,11 @@ public class Table : List
     { 
         get
         {
-            ListNode node;
-            node = this.List.Start as ListNode;
+            object value;
+            value = this.List.Get(this.List.Start);
 
             Entry entry;
-            entry = this.Entry(node.Value);
+            entry = this.Entry(value);
 
             if (entry == null)
             {
@@ -40,11 +40,11 @@ public class Table : List
     {
         get
         {
-            ListNode node;
-            node = this.List.End as ListNode;
+            object value;
+            value = this.List.Get(this.List.End);
 
             Entry entry;
-            entry = this.Entry(node.Value);
+            entry = this.Entry(value);
 
             if (entry == null)
             {
