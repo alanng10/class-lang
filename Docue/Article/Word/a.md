@@ -842,7 +842,7 @@ Word "vector" has meaning that is scalable vector.
 
 Word "visual" has meaning that is graphics.
 
-Word "animate" has meaning that is animation.
+Word "anima" has meaning that is animation.
 
 Word "button" has meaning that is view button.
 
