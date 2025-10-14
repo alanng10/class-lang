@@ -804,9 +804,15 @@ Word "area" has meaning that is region.
 
 Word "pos" has meaning that is position in signed int.
 
-Word "row" has meaning that is vertical index.
+Word "horz" has meaning that is horizontal index.
+
+Word "vert" has meaning that is vertical index.
+
+Word "fron" has meaning that is frontal index.
 
 Word "col" has meaning that is horizontal index.
+
+Word "row" has meaning that is vertical index.
 
 Word "hor" has meaning that is frontal index.
 
