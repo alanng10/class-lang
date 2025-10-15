@@ -55,6 +55,7 @@ public partial class ClassGen : TextAdd
         this.ClassCompState = this.S("Intern_State");
         this.InternNewMaide = this.S("Intern_New");
         this.InternShareMaide = this.S("Intern_Share");
+        this.InternCastMaide = this.S("Intern_Cast");
         this.InternValueRef = this.S("Intern_Value_Ref");
         this.InternValueClass = this.S("Intern_Value_Class");
         this.InternValueBool = this.S("Intern_Value_Bool");
@@ -261,6 +262,7 @@ public partial class ClassGen : TextAdd
     public virtual String ClassCompState { get; set; }
     public virtual String InternNewMaide { get; set; }
     public virtual String InternShareMaide { get; set; }
+    public virtual String InternCastMaide { get; set; }
     public virtual String InternValueRef { get; set; }
     public virtual String InternValueClass { get; set; }
     public virtual String InternValueBool { get; set; }
@@ -3700,57 +3702,27 @@ public partial class ClassGen : TextAdd
         long baseIndex;
         baseIndex = varClass.BaseCount - 1;
 
-        String varA;
-        String varB;
-        String varC;
-        String varD;
-        varA = this.VarA;
-        varB = this.VarB;
-        varC = this.VarC;
-        varD = this.VarD;
+        this.TextIndent();
 
-        this.EvalValueGet(1, varA);
+        this.Text(this.InternCastMaide);
+        this.Text(this.LimitBraceRoundLite);
 
-        this.VarSet(varB, varA);
+        this.TextInt(baseIndex);
 
-        this.OperateLimit(varB, varB, this.RefKindBitRiteCount, this.LimitBitRite);
+        this.Text(this.LimitComma);
+        this.Text(this.Space);
 
-        this.OperateLimitSame(varB, varB, this.RefKindAny);
+        this.ClassVar(varClass);
 
-        this.CondSet(varC, varB, varA, this.InternValueRef);
+        this.Text(this.LimitComma);
+        this.Text(this.Space);
 
-        this.VarMaskClear(varC, this.MemoryIndexMask);
+        this.Text(this.EvalVar);
 
-        this.VarSetDeref(varC, varC, 0);
+        this.Text(this.LimitBraceRoundRite);
 
-        this.VarSet(varB, varC);
-
-        this.VarSetDeref(varC, varC, 1);
-
-        this.OperateLimit(varC, varC, this.BaseBitRiteCount, this.LimitBitRite);
-
-        this.VarSetPre(varD);
-        this.TextIntHex(baseIndex);
-        this.VarSetPost();
-
-        this.OperateLimit(varC, varC, varD, this.LimitLess);
-
-        this.CondSet(varD, varC, this.Zero, varD);
-
-        this.CondSet(varB, varC, this.InternValueClass, varB);
-
-        this.VarSetDeref(varC, varB, 0);
-
-        this.VarSetDerefVar(varC, varC, varD);
-
-        this.VarSetDeref(varC, varC, 0);
-
-        this.OperateLimitSameClass(varC, varC, varClass);
-
-        this.CondSet(varA, varC, varA, this.Zero);
-
-        this.EvalValueSet(1, varA);
-
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
         return true;
     }
 
