@@ -1184,7 +1184,7 @@ public partial class ClassGen : TextAdd
     public virtual bool ExecuteClassInit()
     {
         long baseIndex;
-        baseIndex = this.Base.Count - 1;
+        baseIndex = this.Class.BaseCount - 1;
 
         long baseMask;
         baseMask = baseIndex << 52;
