@@ -92,7 +92,7 @@ public class BinaryStateTravel : Travel
         Var varVar;
         varVar = this.Info(nodeVar).Var;
 
-        this.Ope(this.Kind.Refer, this.IntArg(this.ArgA, varVar.Index), null);
+        this.Ope(this.Kind.Refer, this.IntArg(this.ArgA, varVar.Index), this.IntArg(this.ArgB, varVar.Pos));
         return true;
     }
 
@@ -241,7 +241,7 @@ public class BinaryStateTravel : Travel
         Var varVar;
         varVar = this.Info(varOperate).Var;
 
-        this.Ope(this.Kind.Var, this.IntArg(this.ArgA, varVar.Index), null);
+        this.Ope(this.Kind.Var, this.IntArg(this.ArgA, varVar.Index), this.IntArg(this.ArgB, varVar.Pos));
         return true;
     }
 
@@ -250,7 +250,7 @@ public class BinaryStateTravel : Travel
         Var varVar;
         varVar = this.Info(varMark).Var;
 
-        this.Ope(this.Kind.VarMark, this.IntArg(this.ArgA, varVar.Index), null);
+        this.Ope(this.Kind.VarMark, this.IntArg(this.ArgA, varVar.Index), this.IntArg(this.ArgB, varVar.Pos));
         return true;
     }
 
