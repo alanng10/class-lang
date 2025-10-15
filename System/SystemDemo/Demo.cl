@@ -67,11 +67,11 @@ class Demo : Add
 
         # this.Console.Out.Write(a);
 
+        this.ExecuteIntOperate();
+
         this.ExecuteValueCast();
 
         this.ExecuteCast();
-
-        this.ExecuteIntOperate();
 
         this.ExecuteEnviron();
 
