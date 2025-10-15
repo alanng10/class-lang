@@ -8,6 +8,7 @@ HEADERS += \
     Prusate_Intern.h \
     Pronate.h \
     Call.h \
+    Cast.h \
     Extern.h \
     Intern.h \
     Main.h \
@@ -19,6 +20,7 @@ HEADERS += \
 
 SOURCES += \
     Call.c \
+    Cast.c \
     Extern.c \
     Intern.c \
     Main.c \
