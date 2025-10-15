@@ -69,11 +69,11 @@ class Demo : Add
 
         this.ExecuteIntOperate();
 
+        this.ExecuteEnviron();
+
         this.ExecuteValueCast();
 
         this.ExecuteCast();
-
-        this.ExecuteEnviron();
 
         this.ExecuteList();
 
