@@ -57,7 +57,7 @@ Intern_Api Int Intern_New(Int kind, Int info, Eval* eval);
 
 Intern_Api Int Intern_Share(Int info, Eval* eval);
 
-Intern_Api Int Intern_Cast(Int baseIndex, Int classVar, Eval* eval);
+Intern_Api Int Intern_Cast(Int classVar, Eval* eval);
 
 Intern_Api Int Intern_Init(Int entryModule, Int entryClassIndex, Int entryModuleInit, Int moduleCount);
 
