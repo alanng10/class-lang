@@ -5,10 +5,22 @@ Int Intern_Cast(Int classVar, Eval* eval)
     Int ka;
     ka = eval->S[eval->N - 1];
 
-    
+    Int refKind;
+    refKind = ka >> 60;
 
+    Int k;
+    k = 0;
 
-    eval->S[eval->N - 1] = ka;
+    if (refKind == RefKindAny)
+    {
+        Int* kd;
+        kd = CastPointer(classVar);
+
+        Int baseIndex;
+        baseIndex = kd[1];
+    }
+
+    eval->S[eval->N - 1] = k;
 
     return 0;
 }
