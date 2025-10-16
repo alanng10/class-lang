@@ -73,11 +73,11 @@ class Demo : Add
 
         this.ExecuteSameOperate();
 
+        this.ExecuteValueCast();
+
         this.ExecuteCast();
 
         this.ExecuteEnviron();
-
-        this.ExecuteValueCast();
 
         this.ExecuteList();
 
@@ -169,6 +169,74 @@ class Demo : Add
         b : b & ~ba;
 
         this.Console.Out.Write(this.AddClear().Add("Bool Operate ").Add(this.StatusString(b)).AddLine().AddResult());
+
+        return true;
+    }
+
+    maide private Bool ExecuteIntOperate()
+    {
+        var Bool b;
+        b : true;
+
+        var Int ka;
+        ka : 1 / 0;
+
+        b : b & (ka = 0);
+
+        ka : 0 / 0;
+
+        b : b & (ka = 0);
+
+        var Bool ba;
+        ba : sign <(0sn11, 0sn10); 
+
+        b : b & ba;
+
+        ka : sign *(0sn4, 0sn6);
+
+        b : b & (ka = 24);
+
+        ka : sign *(0sn9, 3);
+
+        b : b & (ka = 0sn27);
+
+        ka : sign /(0sn1, 0);
+
+        b : b & (ka = 0);
+
+        ka : sign /(0, 0);
+
+        b : b & (ka = 0);
+
+        ka : bit ~(0haf);
+
+        b : b & (ka = 0hfffffffffffff50);
+
+        ka : bit &(0ha0, 0h7f);
+
+        b : b & (ka = 0h20);
+
+        ka : bit |(0ha0, 0h40f);
+
+        b : b & (ka = 0h4af);
+
+        ka : bit <(3, 2);
+
+        b : b & (ka = 12);
+
+        ka : bit >(8, 2);
+
+        b : b & (ka = 2);
+
+        ka : bit >>(0h800000000000070, 4);
+
+        b : b & (ka = 0hf80000000000007);
+
+        ka : bit >>(0h700000000000070, 4);
+
+        b : b & (ka = 0h070000000000007);
+
+        this.Console.Out.Write(this.AddClear().Add("Int Operate ").Add(this.StatusString(b)).AddLine().AddResult());
 
         return true;
     }
@@ -279,74 +347,6 @@ class Demo : Add
         b : b & (kac = ka);
 
         this.Console.Out.Write(this.AddClear().Add("Cast ").Add(this.StatusString(b)).AddLine().AddResult());
-
-        return true;
-    }
-
-    maide private Bool ExecuteIntOperate()
-    {
-        var Bool b;
-        b : true;
-
-        var Int ka;
-        ka : 1 / 0;
-
-        b : b & (ka = 0);
-
-        ka : 0 / 0;
-
-        b : b & (ka = 0);
-
-        var Bool ba;
-        ba : sign <(0sn11, 0sn10); 
-
-        b : b & ba;
-
-        ka : sign *(0sn4, 0sn6);
-
-        b : b & (ka = 24);
-
-        ka : sign *(0sn9, 3);
-
-        b : b & (ka = 0sn27);
-
-        ka : sign /(0sn1, 0);
-
-        b : b & (ka = 0);
-
-        ka : sign /(0, 0);
-
-        b : b & (ka = 0);
-
-        ka : bit ~(0haf);
-
-        b : b & (ka = 0hfffffffffffff50);
-
-        ka : bit &(0ha0, 0h7f);
-
-        b : b & (ka = 0h20);
-
-        ka : bit |(0ha0, 0h40f);
-
-        b : b & (ka = 0h4af);
-
-        ka : bit <(3, 2);
-
-        b : b & (ka = 12);
-
-        ka : bit >(8, 2);
-
-        b : b & (ka = 2);
-
-        ka : bit >>(0h800000000000070, 4);
-
-        b : b & (ka = 0hf80000000000007);
-
-        ka : bit >>(0h700000000000070, 4);
-
-        b : b & (ka = 0h070000000000007);
-
-        this.Console.Out.Write(this.AddClear().Add("Int Operate ").Add(this.StatusString(b)).AddLine().AddResult());
 
         return true;
     }
