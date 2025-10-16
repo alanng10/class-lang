@@ -26,11 +26,11 @@ Int Intern_Cast(Int classVar, Eval* eval)
         anyMemory = any;
         MaskClear(anyMemory, RefMaskMemory);
 
-        Int* kke;
-        kke = CastPointer(anyMemory);
+        Int* anyArray;
+        anyArray = CastPointer(anyMemory);
 
         Int anyClassVar;
-        anyClassVar = kke[0];
+        anyClassVar = anyArray[0];
 
         Int* anyClass;
         anyClass = CastPointer(anyClassVar);
