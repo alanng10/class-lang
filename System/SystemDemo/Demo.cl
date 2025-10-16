@@ -315,7 +315,7 @@ class Demo : Add
 
         b : b & (ka = null);
 
-        this.Console.Out.Write(this.AddClear().Add("Demo Value Cast ").Add(this.StatusString(b)).AddLine().AddResult());
+        this.Console.Out.Write(this.AddClear().Add("Cast Value ").Add(this.StatusString(b)).AddLine().AddResult());
 
         return true;
     }
