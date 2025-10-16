@@ -56,6 +56,8 @@ public partial class ClassGen : TextAdd
         this.InternNewMaide = this.S("Intern_New");
         this.InternShareMaide = this.S("Intern_Share");
         this.InternCastMaide = this.S("Intern_Cast");
+        this.InternCastRefKindMaide = this.S("Intern_Cast_RefKind");
+        this.InternCastRefKindTwoMaide = this.S("Intern_Cast_RefKindTwo");
         this.InternValueRef = this.S("Intern_Value_Ref");
         this.InternValueClass = this.S("Intern_Value_Class");
         this.InternValueBool = this.S("Intern_Value_Bool");
@@ -263,6 +265,8 @@ public partial class ClassGen : TextAdd
     public virtual String InternNewMaide { get; set; }
     public virtual String InternShareMaide { get; set; }
     public virtual String InternCastMaide { get; set; }
+    public virtual String InternCastRefKindMaide { get; set; }
+    public virtual String InternCastRefKindTwoMaide { get; set; }
     public virtual String InternValueRef { get; set; }
     public virtual String InternValueClass { get; set; }
     public virtual String InternValueBool { get; set; }
