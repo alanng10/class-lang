@@ -3,7 +3,7 @@
 #include "Pronate.h"
 #include "Prusate_Intern.h"
 
-#define RefMemory(name) name = name & RefMaskMemory;
+#define RefMemory(name) MaskClear(name, RefMaskMemory)
 
 #define Return(ret, paramCount) \
 eval->S[frame - (paramCount + 1)] = ret;\
