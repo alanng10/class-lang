@@ -3707,11 +3707,6 @@ public partial class ClassGen : TextAdd
         this.Text(this.InternCastMaide);
         this.Text(this.LimitBraceRoundLite);
 
-        this.TextInt(kind);
-
-        this.Text(this.LimitComma);
-        this.Text(this.Space);
-
         this.ClassVar(varClass);
 
         this.Text(this.LimitComma);
