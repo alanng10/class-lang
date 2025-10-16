@@ -280,6 +280,8 @@ public class BinaryStateTravel : Travel
 
     public override bool ExecuteCastOperate(CastOperate castOperate)
     {
+        base.ExecuteCastOperate(castOperate);
+
         ClassClass ka;
         ka = this.Info(castOperate).OperateClass;
 
