@@ -3725,53 +3725,50 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
-    public virtual bool ExecuteCondRefKind(String refKind)
+    public virtual bool ExecuteCastRefKind(String refKind)
     {
-        String varA;
-        String varB;
-        varA = this.VarA;
-        varB = this.VarB;
+        this.TextIndent();
 
-        this.EvalValueGet(1, varA);
+        this.Text(this.InternCastRefKindMaide);
+        this.Text(this.LimitBraceRoundLite);
 
-        this.VarSet(varB, varA);
+        this.Text(refKind);
 
-        this.OperateLimit(varB, varB, this.RefKindBitRiteCount, this.LimitBitRite);
+        this.Text(this.LimitComma);
+        this.Text(this.Space);
 
-        this.OperateLimitSame(varB, varB, refKind);
+        this.Text(this.EvalVar);
 
-        this.CondSet(varA, varB, varA, this.Zero);
+        this.Text(this.LimitBraceRoundRite);
 
-        this.EvalValueSet(1, varA);
-
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
         return true;
     }
 
-    public virtual bool ExecuteCondRefKindA(String refKindA, String refKindB)
+    public virtual bool ExecuteCastRefKindTwo(String refKindA, String refKindB)
     {
-        String varA;
-        String varB;
-        String varC;
-        varA = this.VarA;
-        varB = this.VarB;
-        varC = this.VarC;
+        this.TextIndent();
 
-        this.EvalValueGet(1, varA);
+        this.Text(this.InternCastRefKindTwoMaide);
+        this.Text(this.LimitBraceRoundLite);
 
-        this.VarSet(varB, varA);
+        this.Text(refKindA);
 
-        this.OperateLimit(varB, varB, this.RefKindBitRiteCount, this.LimitBitRite);
+        this.Text(this.LimitComma);
+        this.Text(this.Space);
 
-        this.OperateLimitSame(varC, varB, refKindA);
+        this.Text(refKindB);
 
-        this.OperateLimitSame(varB, varB, refKindB);
+        this.Text(this.LimitComma);
+        this.Text(this.Space);
 
-        this.OperateLimit(varB, varB, varC, this.LimitOrn);
+        this.Text(this.EvalVar);
 
-        this.CondSet(varA, varB, varA, this.Zero);
+        this.Text(this.LimitBraceRoundRite);
 
-        this.EvalValueSet(1, varA);
-
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
         return true;
     }
 
