@@ -13,7 +13,13 @@
 
 #define BoolTrue 0x2000000000000001
 
-#define RefKindClear(name) name = name & 0x0fffffffffffffff;
+#define VarSetDeref(dest, var, pos) (dest = *(((Int*)var) + pos));
+
+#define MaskClear(name, mask) (name = name & mask);
+
+#define MaskSet(name, mask) (name = name | mask);
+
+#define RefKindClear(name) MaskClear(name, 0x0fffffffffffffff);
 
 #define RefKindSet(name, kind) name = name | (kind << 60);
 
