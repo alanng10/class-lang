@@ -69,3 +69,26 @@ Int Intern_Cast(Int classVar, Eval* eval)
 
     return 0;
 }
+
+Int Intern_Cast_RefKind(Int refKind, Eval* eval)
+{
+    Int any;
+    any = eval->S[eval->N - 1];
+
+    Int k;
+    k = 0;
+
+    Int anyRefKind;
+    anyRefKind = any >> 60;
+
+    if (anyRefKind == refKind)
+    {
+        k = any;
+    }
+
+    eval->S[eval->N - 1] = k;
+
+    return 0;
+}
+
+Int Intern_Cast_RefKindTwo(Int refKindA, Int refKindB, Eval* eval);
