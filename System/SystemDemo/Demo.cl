@@ -67,13 +67,17 @@ class Demo : Add
 
         # this.Console.Out.Write(a);
 
+        this.ExecuteBoolOperate();
+
         this.ExecuteIntOperate();
+
+        this.ExecuteSameOperate();
+
+        this.ExecuteCast();
 
         this.ExecuteEnviron();
 
         this.ExecuteValueCast();
-
-        this.ExecuteCast();
 
         this.ExecuteList();
 
@@ -113,6 +117,84 @@ class Demo : Add
         # this.Console.Out.Write("Demo HHHH\n");
 
         this.Console.Out.Write("Demo Execute End\n");
+
+        return true;
+    }
+
+    maide private Bool ExecuteBoolOperate()
+    {
+        var Bool b;
+        b : true;
+
+        var Bool ba;
+        ba : true;
+
+        b : b & ba;
+
+        var Bool bb;
+        bb : false;
+
+        b : b & ~bb;
+
+        ba : true & true;
+
+        b : b & ba;
+
+        ba : true & false;
+
+        b : b & ~ba;
+
+        ba : false & true;
+
+        b : b & ~ba;
+
+        ba : false & false;
+
+        b : b & ~ba;
+
+        ba : true | true;
+
+        b : b & ba;
+
+        ba : true | false;
+
+        b : b & ba;
+
+        ba : false | true;
+
+        b : b & ba;
+
+        ba : false | false;
+
+        b : b & ~ba;
+
+        this.Console.Out.Write(this.AddClear().Add("Bool Operate ").Add(this.StatusString(b)).AddLine().AddResult());
+
+        return true;
+    }
+
+    maide private Bool ExecuteSameOperate()
+    {
+        var Bool b;
+        b : true;
+
+        b : b & (~(this = null));
+
+        b : b & (~(base = null));
+
+        var Any ka;
+        ka : this;
+
+        b : b & (~(ka = null));
+
+        var Text kb;
+        kb : new Text;
+
+        b : b & (~(kb = null));
+
+        b : b & (null = null);
+
+        this.Console.Out.Write(this.AddClear().Add("Same Operate ").Add(this.StatusString(b)).AddLine().AddResult());
 
         return true;
     }
@@ -264,7 +346,7 @@ class Demo : Add
 
         b : b & (ka = 0h070000000000007);
 
-        this.Console.Out.Write(this.AddClear().Add("Demo Int Operate ").Add(this.StatusString(b)).AddLine().AddResult());
+        this.Console.Out.Write(this.AddClear().Add("Int Operate ").Add(this.StatusString(b)).AddLine().AddResult());
 
         return true;
     }
