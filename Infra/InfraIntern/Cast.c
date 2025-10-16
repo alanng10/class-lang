@@ -5,11 +5,11 @@ Int Intern_Cast(Int classVar, Eval* eval)
     Int any;
     any = eval->S[eval->N - 1];
 
-    Int refKind;
-    refKind = any >> 60;
-
     Int k;
     k = 0;
+
+    Int refKind;
+    refKind = any >> 60;
 
     if (refKind == RefKindAny)
     {
