@@ -22,12 +22,12 @@ Int Intern_Cast(Int classVar, Eval* eval)
         Int requireBaseIndex;
         requireBaseIndex = requireBaseMask >> 52;
 
-        Int kka;
-        kka = any;
-        MaskClear(kka, RefMaskMemory);
+        Int anyMemory;
+        anyMemory = any;
+        MaskClear(anyMemory, RefMaskMemory);
 
         Int* kke;
-        kke = CastPointer(kka);
+        kke = CastPointer(anyMemory);
 
         Int anyClassVar;
         anyClassVar = kke[0];
