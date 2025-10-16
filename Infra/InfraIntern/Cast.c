@@ -2,32 +2,38 @@
 
 Int Intern_Cast(Int classVar, Eval* eval)
 {
-    Int ka;
-    ka = eval->S[eval->N - 1];
+    Int any;
+    any = eval->S[eval->N - 1];
 
     Int refKind;
-    refKind = ka >> 60;
+    refKind = any >> 60;
 
     Int k;
     k = 0;
 
     if (refKind == RefKindAny)
     {
-        Int* kd;
-        kd = CastPointer(classVar);
+        Int* requireClass;
+        requireClass = CastPointer(classVar);
 
         Int requireBaseMask;
-        requireBaseMask = kd[1];
+        requireBaseMask = requireClass[1];
 
         Int requireBaseIndex;
         requireBaseIndex = requireBaseMask >> 52;
 
         Int kka;
-        kka = ka;
+        kka = any;
         MaskClear(kka, RefMaskMemory);
 
         Int* kke;
         kke = CastPointer(kka);
+
+        Int anyClassVar;
+        anyClassVar = kke[0];
+
+        Int* anyClass;
+        anyClass = CastPointer(anyClassVar);
     }
 
     eval->S[eval->N - 1] = k;
