@@ -21,7 +21,7 @@
 
 #define RefKindClear(name) MaskClear(name, 0x0fffffffffffffff);
 
-#define RefKindSet(name, kind) name = name | (kind << 60);
+#define RefKindSet(name, kind) MaskSet(name, (kind << 60));
 
 #define ThreadCountMax (1024)
 
