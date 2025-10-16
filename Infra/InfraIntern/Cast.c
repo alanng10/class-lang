@@ -34,6 +34,21 @@ Int Intern_Cast(Int classVar, Eval* eval)
 
         Int* anyClass;
         anyClass = CastPointer(anyClassVar);
+
+        Int anyBaseMask;
+        anyBaseMask = anyClass[1];
+
+        Int anyBaseIndex;
+        anyBaseIndex = anyBaseMask >> 52;
+
+        if (!(anyBaseIndex < requireBaseIndex))
+        {
+            Int anyBaseArrayVar;
+            anyBaseArrayVar = anyClass[0];
+
+            Int* anyBaseArray;
+            anyBaseArray = CastPointer(anyBaseArrayVar);
+        }
     }
 
     eval->S[eval->N - 1] = k;
