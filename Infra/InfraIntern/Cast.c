@@ -48,6 +48,20 @@ Int Intern_Cast(Int classVar, Eval* eval)
 
             Int* anyBaseArray;
             anyBaseArray = CastPointer(anyBaseArrayVar);
+
+            Int anyBaseItemVar;
+            anyBaseItemVar = anyBaseArray[requireBaseIndex];
+
+            Int* anyBaseItem;
+            anyBaseItem = CastPointer(anyBaseItemVar);
+
+            Int anyBaseItemClassVar;
+            anyBaseItemClassVar = anyBaseItem[0];
+
+            if (classVar == anyBaseItemClassVar)
+            {
+                k = any;
+            }
         }
     }
 
