@@ -2035,9 +2035,6 @@ public partial class ClassGen : TextAdd
         ClassClass varClass;
         varClass = this.ClassGet(classIndex);
 
-        long kind;
-        kind = 0;
-
         bool b;
         b = false;
 
@@ -2045,8 +2042,6 @@ public partial class ClassGen : TextAdd
         {
             if (varClass == this.System.Any)
             {
-                kind = 1;
-
                 b = true;
             }
         }
@@ -2055,7 +2050,7 @@ public partial class ClassGen : TextAdd
         {
             if (varClass == this.System.Bool)
             {
-                kind = 2;
+                this.ExecuteCastRefKind(this.RefKindBool);
 
                 b = true;
             }
@@ -2065,7 +2060,7 @@ public partial class ClassGen : TextAdd
         {
             if (varClass == this.System.Int)
             {
-                kind = 3;
+                this.ExecuteCastRefKind(this.RefKindInt);
 
                 b = true;
             }
@@ -2075,14 +2070,16 @@ public partial class ClassGen : TextAdd
         {
             if (varClass == this.System.String)
             {
-                kind = 4;
+                this.ExecuteCastRefKindTwo(this.RefKindString, this.RefKindStringValue);
 
                 b = true;
             }
         }
 
-
-        this.ExecuteCast(kind, varClass);
+        if (!b)
+        {
+            this.ExecuteCast(varClass);
+        }
 
         return true;
     }
@@ -3704,7 +3701,7 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
-    public virtual bool ExecuteCast(long kind, ClassClass varClass)
+    public virtual bool ExecuteCast(ClassClass varClass)
     {
         this.TextIndent();
 
