@@ -163,8 +163,11 @@ public class Test : TextAdd
         kindList.IterSet(kindIter);
         while (kindIter.Next())
         {
+            StorageEntry kindFold;
+            kindFold = kindIter.Value as StorageEntry;
+
             String kind;
-            kind = (String)kindIter.Value;
+            kind = kindFold.Name;
 
             String kindFoldPath;
             kindFoldPath = this.AddClear().Add(setFoldPath).Add(combine).Add(kind).AddResult();
