@@ -96,8 +96,11 @@ public class SourceSpace : Base
         i = 0;
         while (i < count)
         {
+            StorageEntry entry;
+            entry = array.GetAt(i) as StorageEntry;
+
             String name;
-            name = array.GetAt(i) as String;
+            name = entry.Name;
 
             bool b;
             b = false;
@@ -153,8 +156,11 @@ public class SourceSpace : Base
         i = 0;
         while (i < count)
         {
+            StorageEntry entry;
+            entry = array.GetAt(i) as StorageEntry;
+
             String name;
-            name = array.GetAt(i) as String;
+            name = entry.Name;
 
             bool b;
             b = false;
