@@ -379,7 +379,7 @@ Int StorageComp_EntryQFileInfo(Int o, Int result, Int fileInfo)
     return true;
 }
 
-Int StorageComp_EntryList(Int o, Int path, Int fold)
+Int StorageComp_EntryList(Int o, Int path, Int fold, Int file)
 {
     QString pathU;
     Int ua;
@@ -393,12 +393,13 @@ Int StorageComp_EntryList(Int o, Int path, Int fold)
 
     if (fold)
     {
-        kaa = QDir::Dirs | QDir::NoDotAndDotDot;
+        kaa = kaa | QDir::Dirs;
+        kaa = kaa | QDir::NoDotAndDotDot;
     }
 
-    if (!fold)
+    if (file)
     {
-        kaa = QDir::Files;
+        kaa = kaa | QDir::Files;
     }
 
     QDir::Filter filterU;
