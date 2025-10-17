@@ -6256,14 +6256,15 @@ Int Intern_Extern_StorageComp_Entry(Eval* eval, Int frame)
 Int Intern_Extern_StorageComp_EntryList(Eval* eval, Int frame)
 {
     Int paramCount;
-    paramCount = 3;
+    paramCount = 4;
 
     Param(0);
     Param(1);
     Param(2);
+    Param(3);
 
     Int a;
-    a = StorageComp_EntryList(a0, a1, a2);
+    a = StorageComp_EntryList(a0, a1, a2, a3);
 
     Return;
 }
