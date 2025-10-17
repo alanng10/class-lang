@@ -1321,27 +1321,19 @@ class Demo : TextAdd
         Array fileList;
         fileList = storageComp.EntryList(fileListPath, false, true);
 
-        this.AddClear().AddS("File List: \n");
+        b = true;
 
-        long count;
-        count = fileList.Count;
+        b = b & fileList.Count == 2;
 
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            StorageEntry file;
-            file = fileList.GetAt(i) as StorageEntry;
+        keee = fileList.GetAt(0) as StorageEntry;
+        b = b & this.TextSame(this.TA(keee.Name), this.TB(this.S("K.txt")));
+        b = b & !keee.Fold;
 
-            this.Add(file.Name).AddLine();
+        keee = fileList.GetAt(1) as StorageEntry;
+        b = b & this.TextSame(this.TA(keee.Name), this.TB(this.S("O.txt")));
+        b = b & !keee.Fold;
 
-            i = i + 1;
-        }
-
-        String aakb;
-        aakb = this.AddResult();
-
-        this.Console.Out.Write(aakb);
+        this.Console.Out.Write(this.AddClear().AddS("Entry List File ").Add(this.StatusString(b)).AddLine().AddResult());
 
         storageComp.Final();
         return true;
