@@ -221,9 +221,15 @@ Int StorageComp_Entry(Int o, Int result, Int path)
 
     QFileInfo k;
     k = QFileInfo(pathU);
+}
+
+Int StorageComp_EntryQFileInfo(Int o, Int result, Int fileInfo)
+{
+    QFileInfo* k;
+    k = (QFileInfo*)fileInfo;
 
     bool bExist;
-    bExist = k.exists();
+    bExist = k->exists();
     Bool exist;
     exist = bExist;
 
@@ -245,14 +251,14 @@ Int StorageComp_Entry(Int o, Int result, Int path)
     if (exist)
     {
         bool bFold;
-        bFold = k.isDir();
+        bFold = k->isDir();
 
         fold = bFold;
 
         if (!fold)
         {
             qint64 ka;
-            ka = k.size();
+            ka = k->size();
 
             size = ka;
 
@@ -265,7 +271,7 @@ Int StorageComp_Entry(Int o, Int result, Int path)
         }
 
         QDateTime kb;
-        kb = k.birthTime();
+        kb = k->birthTime();
 
         if (kb.isValid())
         {
@@ -291,7 +297,7 @@ Int StorageComp_Entry(Int o, Int result, Int path)
         if (!fold)
         {
             QDateTime kc;
-            kc = k.lastModified();
+            kc = k->lastModified();
 
             Int kca;
             kca = CastInt(&kc);
@@ -312,12 +318,12 @@ Int StorageComp_Entry(Int o, Int result, Int path)
             Time_Delete(kcTime);
         }
 
-        owner = k.ownerId();
+        owner = k->ownerId();
 
-        group = k.groupId();
+        group = k->groupId();
 
         QFileDevice::Permissions kd;
-        kd = k.permissions();
+        kd = k->permissions();
 
         int kda;
         kda = kd.toInt();
@@ -347,7 +353,7 @@ Int StorageComp_Entry(Int o, Int result, Int path)
     }
 
     QString kName;
-    kName = k.fileName();
+    kName = k->fileName();
 
     Int kNameA;
     kNameA = CastInt(&kName);
