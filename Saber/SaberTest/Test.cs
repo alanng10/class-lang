@@ -166,11 +166,11 @@ public class Test : TextAdd
             String kind;
             kind = (String)kindIter.Value;
 
-            String kindFold;
-            kindFold = this.AddClear().Add(setFoldPath).Add(combine).Add(kind).AddResult();
+            String kindFoldPath;
+            kindFoldPath = this.AddClear().Add(setFoldPath).Add(combine).Add(kind).AddResult();
 
             Array unitList;            
-            unitList = this.FoldList(kindFold);
+            unitList = this.FoldList(kindFoldPath);
 
             Iter unitIter;
             unitIter = unitList.IterCreate();
@@ -181,7 +181,7 @@ public class Test : TextAdd
                 unit = (String)unitIter.Value;
 
                 String unitFold;
-                unitFold = this.AddClear().Add(kindFold).Add(combine).Add(unit).AddResult();
+                unitFold = this.AddClear().Add(kindFoldPath).Add(combine).Add(unit).AddResult();
 
                 String expectFile;                
                 expectFile = this.AddClear().Add(unitFold).Add(combine).Add(this.SExpect).AddResult();
