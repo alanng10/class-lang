@@ -221,6 +221,11 @@ Int StorageComp_Entry(Int o, Int result, Int path)
 
     QFileInfo k;
     k = QFileInfo(pathU);
+
+    Int fileInfo;
+    fileInfo = CastInt(&k);
+
+    return StorageComp_EntryQFileInfo(o, result, fileInfo);
 }
 
 Int StorageComp_EntryQFileInfo(Int o, Int result, Int fileInfo)
