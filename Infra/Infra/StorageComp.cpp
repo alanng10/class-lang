@@ -432,14 +432,14 @@ Int StorageComp_EntryList(Int o, Int path, Int fold, Int file)
         QFileInfo kFileInfo;
         kFileInfo = entryList.at(indexU);
 
-        Int ka;
-        ka = CastInt(&kFileInfo);
+        Int fileInfo;
+        fileInfo = CastInt(&kFileInfo);
 
         Int a;
         a = StorageEntry_New();
         StorageEntry_Init(a);
 
-        StorageComp_EntryQFileInfo(o, a, ka);
+        StorageComp_EntryQFileInfo(o, a, fileInfo);
 
         Array_ItemSet(array, i, a);
 
