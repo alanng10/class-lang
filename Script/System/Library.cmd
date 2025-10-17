@@ -11,4 +11,4 @@ call ..\Script\Module\Library System.Storage
 call ..\Script\Module\Library System.Network
 call ..\Script\Module\Library System.Console
 call ..\Script\Module\Library System.Entry
-call Script\System\MakeDemoLibrary
+call Script\System\LibraryDemo
