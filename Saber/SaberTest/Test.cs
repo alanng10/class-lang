@@ -449,7 +449,7 @@ public class Test : TextAdd
     protected virtual Array FoldList(String foldPath)
     {
         Array a;
-        a = this.StorageComp.EntryList(foldPath, true);
+        a = this.StorageComp.EntryList(foldPath, true, false);
         return a;
     }
 }
