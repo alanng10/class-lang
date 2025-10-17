@@ -38,15 +38,51 @@ public class SourceSpace : Base
 
     protected virtual bool ExecuteFold(String path)
     {
-        Array foldList;
-        foldList = this.StorageComp.EntryList(path, true);
+        Array entryList;
+        entryList = this.StorageComp.EntryList(path, true, true);
 
-        Array fileList;
-        fileList = this.StorageComp.EntryList(path, false);
+        List foldList;
+        foldList = new List();
+        foldList.Init();
 
-        this.ExecuteFoldList(path, foldList);
+        List fileList;
+        fileList = new List();
+        fileList.Init();
 
-        this.ExecuteFileList(path, fileList);
+        long count;
+        count = entryList.Count;
+
+        long i;
+        i = 0;
+        while (i < count)
+        {
+            StorageEntry entry;
+            entry = entryList.GetAt(i) as StorageEntry;
+
+            bool b;
+            b = entry.Fold;
+
+            if (b)
+            {
+                foldList.Add(entry);
+            }
+
+            if (!b)
+            {
+                fileList.Add(entry);
+            }
+
+            i = i + 1;
+        }
+
+        Array foldArray;
+        Array fileArray;
+        foldArray = this.ListInfra.ArrayCreateList(foldList);
+        fileArray = this.ListInfra.ArrayCreateList(fileList);
+
+        this.ExecuteFoldList(path, foldArray);
+
+        this.ExecuteFileList(path, fileArray);
 
         return true;
     }
