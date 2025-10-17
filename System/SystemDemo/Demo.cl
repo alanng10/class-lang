@@ -1057,6 +1057,11 @@ class Demo : Add
         var Time time;
         time : new Time;
         time.Init();
+
+        var Bool b;
+        b : true;
+
+        b : b & (time.TotalTick = 0);
         
         this.ConsoleWriteTime("Time Init : ", time);
         
@@ -1071,6 +1076,18 @@ class Demo : Add
 
         time.Final();
         return true;
+    }
+
+    maide private Bool ValidTime(var Time time, var Int yea, var Int mon, var Int day, var Int our, var Int min, var Int sec, var Int tick, var Int pos)
+    {
+        var Bool b;
+
+        b : (time.Yea = yea & time.Mon = mon & time.Day = day &
+            time.Our = our & time.Min = min & time.Sec = sec &
+            time.Tick = tick & time.Pos = pos
+        );
+
+        return b;
     }
 
     maide private Bool ConsoleWriteTime(var String prefix, var Time time)
