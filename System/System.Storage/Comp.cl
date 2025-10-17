@@ -234,25 +234,24 @@ class Comp : Any
         a : ~(k = 0);
         return a;
     }
-    
+
     maide prusate Array EntryList(var String path, var Bool fold)
     {
         var Int pathU;
         pathU : this.InternInfra.StringCreate(path);
 
         var Int foldU;
-        foldU : 0;
-        inf (fold)
-        {
-            foldU : 1;
-        }
+        foldU : this.InternInfra.Bool(fold);
+
+        var Int fileU;
+        fileU : this.InternInfra.Bool(~fold);
 
         var Extern extern;
         extern : this.Extern;
 
         var Int k;
-        k : extern.StorageComp_EntryList(this.Intern, pathU, foldU);
-        
+        k : extern.StorageComp_EntryList(this.Intern, pathU, foldU, fileU);
+
         this.InternInfra.StringDelete(pathU);
 
         var Int count;
@@ -265,11 +264,16 @@ class Comp : Any
         i : 0;
         while (i < count)
         {
-            var Int u;
-            u : extern.Array_ItemGet(k, i);
+            var Int ka;
+            ka : extern.Array_ItemGet(k, i);
+
+            var Int kc;
+            kc : extern.StorageEntry_NameGet(ka);
 
             var String a;
-            a : this.InternInfra.StringCreateIntern(u);
+            a : this.InternInfra.StringCreateIntern(kc);
+
+            this.InternInfra.StringDelete(kc);
 
             array.Set(i, a);
 
@@ -282,10 +286,11 @@ class Comp : Any
             var Int indexA;
             indexA : (count - 1) - i;
 
-            var Int ua;
-            ua : extern.Array_ItemGet(k, indexA);
+            var Int kd;
+            kd : extern.Array_ItemGet(k, indexA);
 
-            this.InternInfra.StringDelete(ua);
+            extern.StorageEntry_Final(kd);
+            extern.StorageEntry_Delete(kd);
 
             i : i + 1;
         }
