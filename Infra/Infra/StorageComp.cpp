@@ -346,8 +346,14 @@ Int StorageComp_Entry(Int o, Int result, Int path)
         permit = StorageComp_FlagSet(permit, 5, otherWrite);
     }
 
+    QString kName;
+    kName = k.fileName();
+
+    Int kNameA;
+    kNameA = CastInt(&kName);
+
     Int name;
-    name = StorageComp_EntryName(path);
+    name = StorageComp_StringCreate(o, kNameA);
 
     StorageEntry_NameSet(result, name);
     StorageEntry_ExistSet(result, exist);
