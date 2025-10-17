@@ -152,7 +152,7 @@ public class Test : TextAdd
         String set;
         set = this.Set.Name;
 
-        String setFold;            
+        String setFold;
         setFold = this.AddClear().Add(this.DataFold).Add(combine).Add(set).AddResult();
 
         Array kindList;
