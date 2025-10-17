@@ -223,8 +223,8 @@ public class Comp : Any
             ulong u;
             u = Extern.Array_ItemGet(k, indexU);
 
-            String a;
-            a = this.InternInfra.StringCreateIntern(u);
+            Entry a;
+            a = this.EntryFromIntern(u);
 
             array.SetAt(i, a);
 
@@ -243,7 +243,8 @@ public class Comp : Any
             ulong ua;
             ua = Extern.Array_ItemGet(k, indexAU);
 
-            this.InternInfra.StringDelete(ua);
+            Extern.StorageEntry_Final(ua);
+            Extern.StorageEntry_Delete(ua);
 
             i = i + 1;
         }
