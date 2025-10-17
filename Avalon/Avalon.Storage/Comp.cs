@@ -254,7 +254,7 @@ public class Comp : Any
         return array;
     }
 
-    private Entry EntryFromIntern(ulong ka)
+    private Entry EntryFromIntern(ulong k)
     {
         ulong nameK;
         ulong existK;
@@ -265,15 +265,15 @@ public class Comp : Any
         ulong ownerK;
         ulong groupK;
         ulong permitK;
-        nameK = Extern.StorageEntry_NameGet(ka);
-        existK = Extern.StorageEntry_ExistGet(ka);
-        foldK = Extern.StorageEntry_FoldGet(ka);
-        sizeK = Extern.StorageEntry_SizeGet(ka);
-        createTimeK = Extern.StorageEntry_CreateTimeGet(ka);
-        modifyTimeK = Extern.StorageEntry_ModifyTimeGet(ka);
-        ownerK = Extern.StorageEntry_OwnerGet(ka);
-        groupK = Extern.StorageEntry_GroupGet(ka);
-        permitK = Extern.StorageEntry_PermitGet(ka);
+        nameK = Extern.StorageEntry_NameGet(k);
+        existK = Extern.StorageEntry_ExistGet(k);
+        foldK = Extern.StorageEntry_FoldGet(k);
+        sizeK = Extern.StorageEntry_SizeGet(k);
+        createTimeK = Extern.StorageEntry_CreateTimeGet(k);
+        modifyTimeK = Extern.StorageEntry_ModifyTimeGet(k);
+        ownerK = Extern.StorageEntry_OwnerGet(k);
+        groupK = Extern.StorageEntry_GroupGet(k);
+        permitK = Extern.StorageEntry_PermitGet(k);
 
         String name;
         name = null;
