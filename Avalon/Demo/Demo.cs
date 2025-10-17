@@ -1297,7 +1297,7 @@ class Demo : TextAdd
         foldListPath = this.S("DemoData/FoldCopy/FoldA");
 
         Array foldList;
-        foldList = storageComp.EntryList(foldListPath, true);
+        foldList = storageComp.EntryList(foldListPath, true, false);
 
         this.AddClear().AddS("Fold List: \n");
 
@@ -1324,7 +1324,7 @@ class Demo : TextAdd
         fileListPath = this.S("DemoData/FoldCopy/FoldA/FoldB");
 
         Array fileList;
-        fileList = storageComp.EntryList(fileListPath, false);
+        fileList = storageComp.EntryList(fileListPath, false, true);
 
         this.AddClear().AddS("File List: \n");
 
