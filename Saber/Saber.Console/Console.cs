@@ -1034,8 +1034,11 @@ public class Console : TextAdd
         i = 0;
         while (i < count)
         {
+            StorageEntry file;
+            file = fileArray.GetAt(i) as StorageEntry;
+
             String fileName;
-            fileName = fileArray.GetAt(i) as String;
+            fileName = file.Name;
 
             if (this.TextInfra.End(this.TA(fileName), this.TB(ka), this.StorageTextLess))
             {
