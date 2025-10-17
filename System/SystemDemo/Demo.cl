@@ -1062,17 +1062,18 @@ class Demo : Add
         b : true;
 
         b : b & (time.TotalTick = 0);
-        
-        this.ConsoleWriteTime("Time Init : ", time);
-        
+
+        b : b & this.ValidTime(time, 1, 1, 1, 0, 0, 0, 0, 0);
+
+        time.AddTick(2042000);
+
+        b : b & (time.TotalTick = 2042000);
+
+        this.Console.Out.Write(this.AddClear().Add("Time ").Add(this.StatusString(b)).AddLine().AddResult());
+
         time.This();
+
         this.ConsoleWriteTime("Time This : ", time);
-
-        time.ToPos(2 * 60 * 60);
-        this.ConsoleWriteTime("Time ToPos : ", time);
-
-        time.AddTick(200 * 1000);
-        this.ConsoleWriteTime("Time AddTick : ", time);
 
         time.Final();
         return true;
