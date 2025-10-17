@@ -2,7 +2,7 @@
 
 set DotNetOutFold=.\Out\net8.0
 
-echo Make Demo Library
+echo Library Demo
 pushd %DotNetOutFold%
 saber library SystemDemo-96207.08.47
 
