@@ -526,7 +526,7 @@ class Extern : Any
     maide prusate Int StorageComp_FoldCopy(var Int o, var Int path, var Int destPath) { }
     maide prusate Int StorageComp_FoldDelete(var Int o, var Int path) { }
     maide prusate Int StorageComp_Entry(var Int o, var Int result, var Int path) { }
-    maide prusate Int StorageComp_EntryList(var Int o, var Int path, var Int fold) { }
+    maide prusate Int StorageComp_EntryList(var Int o, var Int path, var Int fold, var Int file) { }
     maide prusate Int StorageComp_ThisFoldGet(var Int o) { }
     maide prusate Int StorageComp_ThisFoldSet(var Int o, var Int path) { }
 
