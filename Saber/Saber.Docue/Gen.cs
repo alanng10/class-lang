@@ -688,8 +688,11 @@ public class Gen : TextAdd
         i = 0;
         while (i < count)
         {
+            StorageEntry fold;
+            fold = array.GetAt(i) as StorageEntry;
+
             String name;
-            name = array.GetAt(i) as String;
+            name = fold.Name;
 
             listInfra.TableAdd(table, name, name);
 
@@ -716,7 +719,7 @@ public class Gen : TextAdd
     protected virtual Array FoldList(String foldPath)
     {
         Array a;
-        a = this.StorageComp.EntryList(foldPath, true);
+        a = this.StorageComp.EntryList(foldPath, true, false);
         return a;
     }
 }
