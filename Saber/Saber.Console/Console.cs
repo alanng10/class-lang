@@ -1011,7 +1011,7 @@ public class Console : TextAdd
     protected virtual Array FileList(String foldPath)
     {
         Array a;
-        a = this.StorageComp.EntryList(foldPath, false);
+        a = this.StorageComp.EntryList(foldPath, false, true);
 
         return a;
     }
