@@ -183,11 +183,11 @@ public class Test : TextAdd
                 String unit;
                 unit = (String)unitIter.Value;
 
-                String unitFold;
-                unitFold = this.AddClear().Add(kindFoldPath).Add(combine).Add(unit).AddResult();
+                String unitFoldPath;
+                unitFoldPath = this.AddClear().Add(kindFoldPath).Add(combine).Add(unit).AddResult();
 
                 String expectFile;                
-                expectFile = this.AddClear().Add(unitFold).Add(combine).Add(this.SExpect).AddResult();
+                expectFile = this.AddClear().Add(unitFoldPath).Add(combine).Add(this.SExpect).AddResult();
 
                 String expect;                
                 expect = this.StorageInfra.TextRead(expectFile);
@@ -197,7 +197,7 @@ public class Test : TextAdd
                 if (this.Set.AddPathAfterTaskArg)
                 {
                     String pathFile;
-                    pathFile = this.AddClear().Add(unitFold).Add(combine).Add(this.SPath).AddResult();
+                    pathFile = this.AddClear().Add(unitFoldPath).Add(combine).Add(this.SPath).AddResult();
 
                     path = this.StorageInfra.TextRead(pathFile);
                 }
