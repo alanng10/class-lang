@@ -538,7 +538,7 @@ public static class Extern
     [DllImport(InfraLib)] public extern static ulong StorageComp_FoldCopy(ulong o, ulong path, ulong destPath);
     [DllImport(InfraLib)] public extern static ulong StorageComp_FoldDelete(ulong o, ulong path);
     [DllImport(InfraLib)] public extern static ulong StorageComp_Entry(ulong o, ulong result, ulong path);
-    [DllImport(InfraLib)] public extern static ulong StorageComp_EntryList(ulong o, ulong path, ulong fold);
+    [DllImport(InfraLib)] public extern static ulong StorageComp_EntryList(ulong o, ulong path, ulong fold, ulong file);
     [DllImport(InfraLib)] public extern static ulong StorageComp_ThisFoldGet(ulong o);
     [DllImport(InfraLib)] public extern static ulong StorageComp_ThisFoldSet(ulong o, ulong path);
 
