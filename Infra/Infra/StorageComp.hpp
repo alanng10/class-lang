@@ -18,8 +18,8 @@ struct StorageComp
 
 Int StorageComp_FoldCopyRecurse(Int o, Int path, Int destPath);
 
+Int StorageComp_EntryQFileInfo(Int o, Int result, Int fileInfo);
+
 Int StorageComp_StringCreate(Int o, Int u);
 
 Int StorageComp_FlagSet(Int value, Int shift, Int bit);
-
-Int StorageComp_EntryName(Int path);
