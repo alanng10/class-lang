@@ -347,6 +347,17 @@ public class InternInfra : Any
         return this.DataMidSet(data, index, value);
     }
 
+    public virtual ulong Bool(bool value)
+    {
+        ulong k;
+        k = 0;
+        if (value)
+        {
+            k = 1;
+        }
+        return k;
+    }
+
     public virtual long TypeIndexFromInternIndex(long n)
     {
         long k;
