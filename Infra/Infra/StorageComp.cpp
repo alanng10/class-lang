@@ -408,8 +408,8 @@ Int StorageComp_EntryList(Int o, Int path, Int fold, Int file)
     QDir::Filters kk;
     kk = QDir::Filters(filterU);
 
-    QStringList entryList;
-    entryList = dirA.entryList(kk, QDir::Name);
+    QFileInfoList entryList;
+    entryList = dirA.entryInfoList(kk, QDir::Name);
 
     qsizetype countU;
     countU = entryList.count();
@@ -429,7 +429,7 @@ Int StorageComp_EntryList(Int o, Int path, Int fold, Int file)
         qsizetype indexU;
         indexU = i;
 
-        QString entry;
+        QFileInfo entry;
         entry = entryList.at(indexU);
 
         Int ka;
