@@ -429,14 +429,17 @@ Int StorageComp_EntryList(Int o, Int path, Int fold, Int file)
         qsizetype indexU;
         indexU = i;
 
-        QFileInfo entry;
-        entry = entryList.at(indexU);
+        QFileInfo kFileInfo;
+        kFileInfo = entryList.at(indexU);
 
         Int ka;
-        ka = CastInt(&entry);
+        ka = CastInt(&kFileInfo);
 
         Int a;
-        a = StorageComp_StringCreate(o, ka);
+        a = StorageEntry_New();
+        StorageEntry_Init(a);
+
+        StorageComp_EntryQFileInfo(o, a, ka);
 
         Array_ItemSet(array, i, a);
 
