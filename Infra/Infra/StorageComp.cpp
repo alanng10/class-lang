@@ -413,7 +413,7 @@ Int StorageComp_EntryList(Int o, Int path, Int fold, Int file)
 
     qsizetype countU;
     countU = entryList.count();
-    
+
     Int count;
     count = countU;
 
