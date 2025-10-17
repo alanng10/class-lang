@@ -1299,26 +1299,21 @@ class Demo : TextAdd
         Array foldList;
         foldList = storageComp.EntryList(foldListPath, true, false);
 
-        this.AddClear().AddS("Fold List: \n");
+        b = true;
 
-        long count;
-        count = foldList.Count;
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            String fold;
-            fold = (String)foldList.GetAt(i);
+        b = b & foldList.Count == 2;
 
-            this.Add(fold).AddLine();
+        StorageEntry keee;
 
-            i = i + 1;
-        }
+        keee = foldList.GetAt(0) as StorageEntry;
+        b = b & this.TextSame(this.TA(keee.Name), this.TB(this.S("FoldB")));
+        b = b & keee.Fold;
 
-        String aaka;
-        aaka = this.AddResult();
+        keee = foldList.GetAt(1) as StorageEntry;
+        b = b & this.TextSame(this.TA(keee.Name), this.TB(this.S("FoldC")));
+        b = b & keee.Fold;
 
-        this.Console.Out.Write(aaka);
+        this.Console.Out.Write(this.AddClear().AddS("Entry List Fold ").Add(this.StatusString(b)).AddLine().AddResult());
 
         String fileListPath;
         fileListPath = this.S("DemoData/FoldCopy/FoldA/FoldB");
@@ -1328,14 +1323,17 @@ class Demo : TextAdd
 
         this.AddClear().AddS("File List: \n");
 
+        long count;
         count = fileList.Count;
+
+        long i;
         i = 0;
         while (i < count)
         {
-            String file;
-            file = (String)fileList.GetAt(i);
+            StorageEntry file;
+            file = fileList.GetAt(i) as StorageEntry;
 
-            this.Add(file).AddLine();
+            this.Add(file.Name).AddLine();
 
             i = i + 1;
         }
