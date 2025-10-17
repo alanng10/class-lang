@@ -180,8 +180,11 @@ public class Test : TextAdd
             unitList.IterSet(unitIter);
             while (unitIter.Next())
             {
+                StorageEntry unitFold;
+                unitFold = unitIter.Value as StorageEntry;
+
                 String unit;
-                unit = (String)unitIter.Value;
+                unit = unitFold.Name;
 
                 String unitFoldPath;
                 unitFoldPath = this.AddClear().Add(kindFoldPath).Add(combine).Add(unit).AddResult();
