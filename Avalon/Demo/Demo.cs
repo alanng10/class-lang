@@ -1335,6 +1335,34 @@ class Demo : TextAdd
 
         this.Console.Out.Write(this.AddClear().AddS("Entry List File ").Add(this.StatusString(b)).AddLine().AddResult());
 
+        String entryListPath;
+        entryListPath = foldListPath;
+
+        Array entryList;
+        entryList = storageComp.EntryList(entryListPath, true, true);
+
+        b = true;
+
+        b = b & entryList.Count == 4;
+
+        keee = entryList.GetAt(0) as StorageEntry;
+        b = b & this.TextSame(this.TA(keee.Name), this.TB(this.S("A.txt")));
+        b = b & !keee.Fold;
+
+        keee = entryList.GetAt(1) as StorageEntry;
+        b = b & this.TextSame(this.TA(keee.Name), this.TB(this.S("FoldB")));
+        b = b & keee.Fold;
+
+        keee = entryList.GetAt(2) as StorageEntry;
+        b = b & this.TextSame(this.TA(keee.Name), this.TB(this.S("FoldC")));
+        b = b & keee.Fold;
+
+        keee = entryList.GetAt(3) as StorageEntry;
+        b = b & this.TextSame(this.TA(keee.Name), this.TB(this.S("H.txt")));
+        b = b & !keee.Fold;
+
+        this.Console.Out.Write(this.AddClear().AddS("Entry List Fold File ").Add(this.StatusString(b)).AddLine().AddResult());
+
         storageComp.Final();
         return true;
     }
