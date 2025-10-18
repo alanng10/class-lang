@@ -1176,7 +1176,8 @@ class Demo : Add
         this.StorageComp.ThisFoldSet("../..");
 
         var String pathC;
-        pathC : this.AddClear().Add(dataPath).Add(this.TextInfra.PathCombine).Add("Fold").AddResult();
+        pathC : this.AddClear().Add(dataPath).Add(this.TextInfra.PathCombine).Add("Fold")
+            .Add(this.TextInfra.PathCombine).Add("List").AddResult();
 
         var Array foldListArray;
         foldListArray : this.StorageComp.EntryList(pathC, true);
