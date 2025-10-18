@@ -1143,7 +1143,7 @@ class Demo : Add
         this.Console.Out.Write(this.AddClear().Add("Storage Infra Read ").Add(this.StatusString(b)).AddLine().AddResult());
 
         var String pathA;
-        pathA = "SystemDemo-96207.08.47/Data/B.txt";
+        pathA : "SystemDemo-96207.08.47/Data/B.txt";
 
         var String kad;
         kad : "Lo E 水 可 的 - +";
