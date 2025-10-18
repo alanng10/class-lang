@@ -478,7 +478,7 @@ Word "major" has meaning that is major comp.
 
 Word "minor" has meaning that is minor comp.
 
-Word "revise" has meaning that is revise comp.
+Word "melor" has meaning that is revise comp.
 
 Word "posite" has meaning that is positive.
 
