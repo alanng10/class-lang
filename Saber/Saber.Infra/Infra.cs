@@ -224,7 +224,7 @@ public class Infra : Any
         k = 0;
 
         long ka;
-        ka = ver.Revise;
+        ka = ver.Melor;
         ka = ka & 0xff;
 
         k = k | ka;
