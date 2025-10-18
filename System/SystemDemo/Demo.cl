@@ -1131,11 +1131,14 @@ class Demo : Add
 
     maide private Bool ExecuteStorage()
     {
+        var String combine;
+        combine : this.TextInfra.PathCombine;
+
         var String dataPath;
         dataPath : "SystemDemo-96207.08.47/Data";
 
         var String pathA;
-        pathA : this.AddClear().Add(dataPath).Add(this.TextInfra.PathCombine).Add("A.txt").AddResult();
+        pathA : this.AddClear().Add(dataPath).Add(combine).Add("A.txt").AddResult();
 
         var String k;
         k : this.StorageInfra.TextRead(pathA);
@@ -1146,7 +1149,7 @@ class Demo : Add
         this.Console.Out.Write(this.AddClear().Add("Storage Infra Read ").Add(this.StatusString(b)).AddLine().AddResult());
 
         var String pathB;
-        pathB : this.AddClear().Add(dataPath).Add(this.TextInfra.PathCombine).Add("B.txt").AddResult();
+        pathB : this.AddClear().Add(dataPath).Add(combine).Add("B.txt").AddResult();
 
         var String kad;
         kad : "Lo E 水 可 的 - +";
@@ -1175,12 +1178,40 @@ class Demo : Add
 
         this.StorageComp.ThisFoldSet("../..");
 
-        var String pathC;
-        pathC : this.AddClear().Add(dataPath).Add(this.TextInfra.PathCombine).Add("Fold")
-            .Add(this.TextInfra.PathCombine).Add("List").AddResult();
+        var String foldPath;
+        foldPath : this.AddClear().Add(dataPath).Add(combine).Add("Fold").AddResult();
+
+        var String pathD;
+        pathD : this.AddClear().Add(foldPath).Add(combine).Add("FoldK").AddResult();
+
+        this.StorageComp.FoldDelete(pathD);
+
+        var String pathDA;
+        pathDA : this.AddClear().Add(pathD).Add(combine).Add("FoldKA").AddResult();
+
+        b : true;
+        b : b & this.StorageComp.FoldCreate(pathDA);
+        b : b & this.StorageComp.Exist(pathD);
+        b : b & this.StorageComp.Fold(pathD);
+        b : b & this.StorageComp.Exist(pathDA);
+        b : b & this.StorageComp.Fold(pathDA);
+
+        this.Console.Out.Write(this.AddClear().Add("Storage Fold Create ").Add(this.StatusString(b)).AddLine().AddResult());
+
+        b : true;
+        b : b & this.StorageComp.FoldDelete(pathD);
+        b : b & ~this.StorageComp.Exist(pathD);
+        b : b & ~this.StorageComp.Fold(pathD);
+        b : b & ~this.StorageComp.Exist(pathDA);
+        b : b & ~this.StorageComp.Fold(pathDA);
+
+        this.Console.Out.Write(this.AddClear().Add("Storage Fold Delete ").Add(this.StatusString(b)).AddLine().AddResult());
+
+        var String pathH;
+        pathH : this.AddClear().Add(foldPath).Add(combine).Add("List").AddResult();
 
         var Array foldListArray;
-        foldListArray : this.StorageComp.EntryList(pathC, true);
+        foldListArray : this.StorageComp.EntryList(pathH, true);
 
         b : true;
 
@@ -1191,7 +1222,7 @@ class Demo : Add
         this.Console.Out.Write(this.AddClear().Add("Storage EntryList Fold ").Add(this.StatusString(b)).AddLine().AddResult());
 
         var Array fileListArray;
-        fileListArray : this.StorageComp.EntryList(pathC, false);
+        fileListArray : this.StorageComp.EntryList(pathH, false);
 
         b : true;
 
