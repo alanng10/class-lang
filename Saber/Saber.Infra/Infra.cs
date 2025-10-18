@@ -143,8 +143,8 @@ public class Infra : Any
 
         value = value & kf;
 
-        long revise;
-        revise = value & 0xff;
+        long melor;
+        melor = value & 0xff;
 
         long minor;
         minor = (value >> 8) & 0xff;
@@ -169,7 +169,7 @@ public class Infra : Any
 
         Text kd;
 
-        arg.Value.Int = revise;
+        arg.Value.Int = melor;
 
         format.ExecuteArgCount(arg);
 
