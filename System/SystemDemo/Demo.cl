@@ -1184,12 +1184,17 @@ class Demo : Add
         var String pathCA;
         pathCA : this.AddClear().Add(foldPath).Add(combine).Add("EntryFold").AddResult();
 
+        var String pathCAA;
+        pathCAA : this.AddClear().Add(pathCA).Add(combine).Add("EntryFoldA").AddResult();
+
         var String pathCB;
         pathCB : this.AddClear().Add(foldPath).Add(combine).Add("EntryFile").AddResult();
 
         b : true;
         b : b & this.StorageComp.Exist(pathCA);
         b : b & this.StorageComp.Fold(pathCA);
+        b : b & this.StorageComp.Exist(pathCAA);
+        b : b & this.StorageComp.Fold(pathCAA);
         b : b & this.StorageComp.Exist(pathCB);
         b : b & ~this.StorageComp.Fold(pathCB);
 
