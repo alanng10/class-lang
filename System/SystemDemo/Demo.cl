@@ -1246,7 +1246,7 @@ class Demo : Add
         this.StorageInfra.TextWrite(pathDD, "");
 
         b : true;
-        b : b & this.StorageInfra.FoldCopy(pathDA, pathDB);
+        b : b & this.StorageComp.FoldCopy(pathDA, pathDB);
         b : b & this.StorageComp.Exist(pathDB);
         b : b & this.StorageComp.Fold(pathDB);
         b : b & this.StorageComp.Exist(pathDE);
