@@ -1131,37 +1131,40 @@ class Demo : Add
 
     maide private Bool ExecuteStorage()
     {
-        var String path;
-        path : "SystemDemo-96207.08.47/Data/A.txt";
+        var String dataPath;
+        dataPath : "SystemDemo-96207.08.47/Data";
+
+        var String pathA;
+        pathA : this.AddClear().Add(dataPath).Add(this.TextInfra.PathCombine).Add("A.txt").AddResult();
 
         var String k;
-        k : this.StorageInfra.TextRead(path);
+        k : this.StorageInfra.TextRead(pathA);
 
         var Bool b;
         b : this.TextSame(this.TA(k), this.TB("HH jj o i 可 的水 。，\n的d E 0 - +\n"));
 
         this.Console.Out.Write(this.AddClear().Add("Storage Infra Read ").Add(this.StatusString(b)).AddLine().AddResult());
 
-        var String pathA;
-        pathA : "SystemDemo-96207.08.47/Data/B.txt";
+        var String pathB;
+        pathB : this.AddClear().Add(dataPath).Add(this.TextInfra.PathCombine).Add("B.txt").AddResult();
 
         var String kad;
         kad : "Lo E 水 可 的 - +";
 
-        this.StorageComp.FileDelete(pathA);
+        this.StorageComp.FileDelete(pathB);
 
         b : true;
 
-        b : b & this.StorageInfra.TextWrite(pathA, kad);
+        b : b & this.StorageInfra.TextWrite(pathB, kad);
 
         var String kada;
-        kada : this.StorageInfra.TextRead(pathA);
+        kada : this.StorageInfra.TextRead(pathB);
 
         b : b & this.TextSame(this.TA(kada), this.TB(kad));
 
         this.Console.Out.Write(this.AddClear().Add("Storage Infra Write ").Add(this.StatusString(b)).AddLine().AddResult());
 
-        this.StorageComp.ThisFoldSet("SystemDemo-96207.08.47/Data");
+        this.StorageComp.ThisFoldSet(dataPath);
 
         var String ka;
         ka : this.StorageInfra.TextRead("A.txt");
@@ -1171,6 +1174,11 @@ class Demo : Add
         this.Console.Out.Write(this.AddClear().Add("StorageComp ThisFold Set Read ").Add(this.StatusString(b)).AddLine().AddResult());
 
         this.StorageComp.ThisFoldSet("../..");
+
+        var String pathC;
+        pathC : 
+
+        this.StorageComp.EntryList("")
         return true;
     }
 
