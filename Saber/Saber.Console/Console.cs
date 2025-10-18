@@ -778,7 +778,7 @@ public class Console : TextAdd
 
         String verMajorString;
         String verMinorString;
-        String verReviseString;
+        String verMelorString;
 
         long majorDot;
         majorDot = this.TextIndex(this.TA(verString), this.TB(this.ClassInfra.TextDot));
@@ -821,21 +821,21 @@ public class Console : TextAdd
 
         verMinorString = this.StringCreateRange(verString, verMinorIndex, verMinorCount);
 
-        long verReviseIndex;
-        long verReviseCount;
-        verReviseIndex = verMinorIndex + verMinorCount + 1;
-        verReviseCount = verCount - verReviseIndex;
+        long verMelorIndex;
+        long verMelorCount;
+        verMelorIndex = verMinorIndex + verMinorCount + 1;
+        verMelorCount = verCount - verMelorIndex;
 
-        if (!(verReviseCount == 2))
+        if (!(verMelorCount == 2))
         {
             return null;
         }
 
-        verReviseString = this.StringCreateRange(verString, verReviseIndex, verReviseCount);
+        verMelorString = this.StringCreateRange(verString, verMelorIndex, verMelorCount);
 
         long verMajor;
         long verMinor;
-        long verRevise;
+        long verMelor;
 
         verMajor = this.IntText(this.TA(verMajorString), 10);
         if (verMajor == -1)
@@ -849,8 +849,8 @@ public class Console : TextAdd
             return null;
         }
 
-        verRevise = this.IntText(this.TA(verReviseString), 10);
-        if (verRevise == -1)
+        verMelor = this.IntText(this.TA(verMelorString), 10);
+        if (verMelor == -1)
         {
             return null;
         }
@@ -860,7 +860,7 @@ public class Console : TextAdd
         ver.Init();
         ver.Major = verMajor;
         ver.Minor = verMinor;
-        ver.Melor = verRevise;
+        ver.Melor = verMelor;
 
         long moduleVer;
         moduleVer = this.ClassInfra.VerValue(ver);
