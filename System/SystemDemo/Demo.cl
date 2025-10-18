@@ -1276,12 +1276,16 @@ class Demo : Add
         var String pathEB;
         pathEB : this.AddClear().Add(foldPath).Add(combine).Add("FileCopy1").AddResult();
 
+        var String textEA;
+        textEA : this.StorageInfra.TextRead(pathEA);
+
         this.StorageComp.FileDelete(pathEB);
 
         b : true;
         b : b & this.StorageComp.FileCopy(pathEA, pathEB);
         b : b & this.StorageComp.Exist(pathEB);
         b : b & ~this.StorageComp.Fold(pathEB);
+        b : b & this.TextSame(this.TA(textEA), this.TB(this.StorageInfra.TextRead(pathEB)));
 
         this.Console.Out.Write(this.AddClear().Add("Storage File Copy ").Add(this.StatusString(b)).AddLine().AddResult());
 
