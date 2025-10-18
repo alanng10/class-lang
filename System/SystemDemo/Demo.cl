@@ -1188,6 +1188,17 @@ class Demo : Add
         b : b & this.TextSame(this.TA(cast String(foldListArray.Get(1))), this.TB("FoldB"));
 
         this.Console.Out.Write(this.AddClear().Add("Storage EntryList Fold ").Add(this.StatusString(b)).AddLine().AddResult());
+
+        var Array fileListArray;
+        fileListArray : this.StorageComp.EntryList(pathC, false);
+
+        b : true;
+
+        b : b & fileListArray.Count = 2;
+        b : b & this.TextSame(this.TA(cast String(fileListArray.Get(0))), this.TB("A.txt"));
+        b : b & this.TextSame(this.TA(cast String(fileListArray.Get(1))), this.TB("B.txt"));
+
+        this.Console.Out.Write(this.AddClear().Add("Storage EntryList File ").Add(this.StatusString(b)).AddLine().AddResult());
         return true;
     }
 
