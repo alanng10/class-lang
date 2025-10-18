@@ -1270,6 +1270,21 @@ class Demo : Add
 
         this.Console.Out.Write(this.AddClear().Add("Storage File Delete ").Add(this.StatusString(b)).AddLine().AddResult());
 
+        var String pathEA;
+        pathEA : this.AddClear().Add(foldPath).Add(combine).Add("FileCopy").AddResult();
+
+        var String pathEB;
+        pathEB : this.AddClear().Add(foldPath).Add(combine).Add("FileCopy1").AddResult();
+
+        this.StorageComp.FileDelete(pathEB);
+
+        b : true;
+        b : b & this.StorageComp.FileCopy(pathEA, pathEB);
+        b : b & this.StorageComp.Exist(pathEB);
+        b : b & ~this.StorageComp.Fold(pathEB);
+
+        this.Console.Out.Write(this.AddClear().Add("Storage File Copy ").Add(this.StatusString(b)).AddLine().AddResult());
+
         var String pathH;
         pathH : this.AddClear().Add(foldPath).Add(combine).Add("List").AddResult();
 
