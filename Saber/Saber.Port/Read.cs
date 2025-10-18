@@ -1114,16 +1114,16 @@ public class Read : TextAdd
         range.Index = index + kb;
         range.Count = kaa;
 
-        long revise;
-        revise = this.IntText(text, 10);
-        if (revise == -1)
+        long melor;
+        melor = this.IntText(text, 10);
+        if (melor == -1)
         {
             return -1;
         }
 
         long k;
         k = 0;
-        k = k | revise;
+        k = k | melor;
         k = k | (minor << 8);
         k = k | (major << 16);
 
