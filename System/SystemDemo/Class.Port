@@ -76,6 +76,7 @@ ThreadNetworkState
 [Storage]
 A.txt:DemoA.txt
 Data/FileA.txt:DataA/FileAa.txt
+Fold:Fold
 
 [Entry]
 Entry
