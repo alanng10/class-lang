@@ -860,7 +860,7 @@ public class Console : TextAdd
         ver.Init();
         ver.Major = verMajor;
         ver.Minor = verMinor;
-        ver.Revise = verRevise;
+        ver.Melor = verRevise;
 
         long moduleVer;
         moduleVer = this.ClassInfra.VerValue(ver);
