@@ -160,7 +160,7 @@ Word "diff" has meaning that is difference.
 
 Word "problem" has meaning that is issue entity.
 
-Word "mainen" has meaning that is maintenance.
+Word "maintan" has meaning that is maintenance.
 
 Word "depend" has meaning that is dependency.
 
