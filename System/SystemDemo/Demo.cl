@@ -1235,6 +1235,12 @@ class Demo : Add
         var String pathDD;
         pathDD : this.AddClear().Add(pathDA).Add(combine).Add("FileA").AddResult();
 
+        var String pathDE;
+        pathDE : this.AddClear().Add(pathDB).Add(combine).Add("FoldKAA").AddResult();
+
+        var String pathDF;
+        pathDF : this.AddClear().Add(pathDB).Add(combine).Add("FileA").AddResult();
+
         this.StorageComp.FoldCreate(pathDC);
 
         this.StorageInfra.TextWrite(pathDD, "");
@@ -1243,10 +1249,10 @@ class Demo : Add
         b : b & this.StorageInfra.FoldCopy(pathDA, pathDB);
         b : b & this.StorageComp.Exist(pathDB);
         b : b & this.StorageComp.Fold(pathDB);
-        b : b & this.StorageComp.Exist(pathDC);
-        b : b & this.StorageComp.Fold(pathDC);
-        b : b & this.StorageComp.Exist(pathDC);
-        b : b & ~this.StorageComp.Fold(pathDD);
+        b : b & this.StorageComp.Exist(pathDE);
+        b : b & this.StorageComp.Fold(pathDE);
+        b : b & this.StorageComp.Exist(pathDF);
+        b : b & ~this.StorageComp.Fold(pathDF);
 
         this.Console.Out.Write(this.AddClear().Add("Storage Fold Copy ").Add(this.StatusString(b)).AddLine().AddResult());
 
