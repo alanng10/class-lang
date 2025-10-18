@@ -1171,14 +1171,23 @@ class Demo : Add
 
         b : this.TextSame(this.TA(ka), this.TB(k));
 
-        this.Console.Out.Write(this.AddClear().Add("StorageComp ThisFold Set Read ").Add(this.StatusString(b)).AddLine().AddResult());
+        this.Console.Out.Write(this.AddClear().Add("Storage ThisFold ").Add(this.StatusString(b)).AddLine().AddResult());
 
         this.StorageComp.ThisFoldSet("../..");
 
         var String pathC;
-        pathC : 
+        pathC : this.AddClear().Add(dataPath).Add(this.TextInfra.PathCombine).Add("Fold").AddResult();
 
-        this.StorageComp.EntryList("")
+        var Array foldListArray;
+        foldListArray : this.StorageComp.EntryList(pathC, true);
+
+        b : true;
+
+        b : b & foldListArray.Count = 2;
+        b : b & this.TextSame(this.TA(cast String(foldListArray.Get(0))), this.TB("FoldA"));
+        b : b & this.TextSame(this.TA(cast String(foldListArray.Get(1))), this.TB("FoldB"));
+
+        this.Console.Out.Write(this.AddClear().Add("Storage EntryList Fold ").Add(this.StatusString(b)).AddLine().AddResult());
         return true;
     }
 
