@@ -1226,6 +1226,30 @@ class Demo : Add
 
         this.Console.Out.Write(this.AddClear().Add("Storage Fold Delete ").Add(this.StatusString(b)).AddLine().AddResult());
 
+        var String pathDB;
+        pathDB : this.AddClear().Add(pathD).Add(combine).Add("FoldKB").AddResult();
+
+        var String pathDC;
+        pathDC : this.AddClear().Add(pathDA).Add(combine).Add("FoldKAA").AddResult();
+
+        var String pathDD;
+        pathDD : this.AddClear().Add(pathDA).Add(combine).Add("FileA").AddResult();
+
+        this.StorageComp.FoldCreate(pathDC);
+
+        this.StorageInfra.TextWrite(pathDD, "");
+
+        b : true;
+        b : b & this.StorageInfra.FoldCopy(pathDA, pathDB);
+        b : b & this.StorageComp.Exist(pathDB);
+        b : b & this.StorageComp.Fold(pathDB);
+        b : b & this.StorageComp.Exist(pathDC);
+        b : b & this.StorageComp.Fold(pathDC);
+        b : b & this.StorageComp.Exist(pathDC);
+        b : b & ~this.StorageComp.Fold(pathDD);
+
+        this.Console.Out.Write(this.AddClear().Add("Storage Fold Copy ").Add(this.StatusString(b)).AddLine().AddResult());
+
         var String pathE;
         pathE : this.AddClear().Add(foldPath).Add(combine).Add("FileCreate").AddResult();
 
