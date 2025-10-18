@@ -1131,13 +1131,35 @@ class Demo : Add
 
     maide private Bool ExecuteStorage()
     {
+        var String path;
+        path : "SystemDemo-96207.08.47/Data/A.txt";
+
         var String k;
-        k : this.StorageInfra.TextRead("SystemDemo-96207.08.47/Data/A.txt");
+        k : this.StorageInfra.TextRead(path);
 
         var Bool b;
         b : this.TextSame(this.TA(k), this.TB("HH jj o i 可 的水 。，\n的d E 0 - +\n"));
 
         this.Console.Out.Write(this.AddClear().Add("Storage Infra Read ").Add(this.StatusString(b)).AddLine().AddResult());
+
+        var String pathA;
+        pathA = "SystemDemo-96207.08.47/Data/B.txt";
+
+        var String kad;
+        kad : "Lo E 水 可 的 - +";
+
+        this.StorageComp.FileDelete(pathA);
+
+        b : true;
+
+        b : b & this.StorageInfra.TextWrite(pathA, kad);
+
+        var String kada;
+        kada : this.StorageInfra.TextRead(pathA);
+
+        b : b & this.TextSame(this.TA(kada), this.TB(kad));
+
+        this.Console.Out.Write(this.AddClear().Add("Storage Infra Write ").Add(this.StatusString(b)).AddLine().AddResult());
 
         this.StorageComp.ThisFoldSet("SystemDemo-96207.08.47/Data");
 
