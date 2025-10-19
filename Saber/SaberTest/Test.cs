@@ -55,7 +55,7 @@ public class Test : TextAdd
     private String CaseFold { get; set; }
     private StringOut Out { get; set; }
     private StringOut Err { get; set; }
-    private String InitialCurrentDirectory { get; set; }
+    private String InitThisFold { get; set; }
     private String ResultSpace { get; set; }
     private long CaseIndex { get; set; }
     private bool CasePass { get; set; }
@@ -104,7 +104,7 @@ public class Test : TextAdd
         
         this.StorageComp.ThisFoldSet(k);
         
-        this.InitialCurrentDirectory = this.StorageComp.ThisFoldGet();
+        this.InitThisFold = this.StorageComp.ThisFoldGet();
         return true;
     }
 
@@ -271,7 +271,7 @@ public class Test : TextAdd
     
         this.Console.Execute();
 
-        this.StorageComp.ThisFoldSet(this.InitialCurrentDirectory);
+        this.StorageComp.ThisFoldSet(this.InitThisFold);
 
         String actual;
         String actualOut;
