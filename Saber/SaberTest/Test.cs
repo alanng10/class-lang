@@ -58,7 +58,7 @@ public class Test : TextAdd
     private String InitialCurrentDirectory { get; set; }
     private String ResultSpace { get; set; }
     private long CaseIndex { get; set; }
-    private bool UnitPass { get; set; }
+    private bool CasePass { get; set; }
     private String SClass { get; set; }
     private String SExpect { get; set; }
     private String SActual { get; set; }
@@ -241,7 +241,7 @@ public class Test : TextAdd
 
             this.CaseIndex = this.CaseIndex + 1;
 
-            if (this.UnitPass)
+            if (this.CasePass)
             {
                 this.PassCount = this.PassCount + 1;
             }
@@ -292,7 +292,7 @@ public class Test : TextAdd
         bool pass;
         pass = this.TextSame(this.TA(this.Case.Actual), this.TB(this.Case.Expect));
 
-        this.UnitPass = pass;
+        this.CasePass = pass;
         return true;
     }
 
@@ -303,7 +303,7 @@ public class Test : TextAdd
 
     private bool WriteCaseResult()
     {
-        this.WriteResultLine(this.UnitPass, this.Case.Seer.Name, this.Case.Kind, this.Case.Name);
+        this.WriteResultLine(this.CasePass, this.Case.Seer.Name, this.Case.Kind, this.Case.Name);
         return true;
     }
 
