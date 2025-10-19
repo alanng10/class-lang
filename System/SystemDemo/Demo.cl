@@ -1289,6 +1289,32 @@ class Demo : Add
 
         this.Console.Out.Write(this.AddClear().Add("Storage File Copy ").Add(this.StatusString(b)).AddLine().AddResult());
 
+        var String pathFA;
+        pathFA : this.AddClear().Add(foldPath).Add(combine).Add("FoldRename").AddResult();
+
+        var String pathFB;
+        pathFB : this.AddClear().Add(foldPath).Add(combine).Add("FoldRename1").AddResult();
+
+        var String pathFC;
+        pathFC : this.AddClear().Add(pathFB).Add(combine).Add("K").AddResult();
+
+        var String pathFD;
+        pathFD : this.AddClear().Add(pathFC).Add(combine).Add("H").AddResult();
+
+        this.StorageComp.FoldDelete(pathFB);
+
+        b : true;
+        b : b & this.StorageComp.Rename(pathFA, pathFB);
+        b : b & ~this.StorageComp.Exist(pathFA);
+        b : b & this.StorageComp.Exist(pathFB);
+        b : b & this.StorageComp.Fold(pathFB);
+        b : b & this.StorageComp.Exist(pathFC);
+        b : b & this.StorageComp.Fold(pathFC);
+        b : b & this.StorageComp.Exist(pathFD);
+        b : b & ~this.StorageComp.Fold(pathFD);
+
+        this.Console.Out.Write(this.AddClear().Add("Storage Fold Rename ").Add(this.StatusString(b)).AddLine().AddResult());
+
         var String pathH;
         pathH : this.AddClear().Add(foldPath).Add(combine).Add("List").AddResult();
 
