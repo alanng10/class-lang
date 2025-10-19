@@ -33,7 +33,7 @@ public class Test : TextAdd
 
         this.SetMap = this.ClassInfra.TableCreateStringLess();
 
-        this.AddSetList();
+        this.AddSeerList();
         return true;
     }
 
@@ -74,7 +74,7 @@ public class Test : TextAdd
         return this.S("../../Saber/SaberTest/Test");
     }
 
-    protected virtual bool AddSetList()
+    protected virtual bool AddSeerList()
     {
         this.AddSeer("Token", this.TaskKindList.Token, false, false, false);
 
