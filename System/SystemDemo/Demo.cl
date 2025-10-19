@@ -1313,6 +1313,8 @@ class Demo : Add
         b : b & this.StorageComp.Exist(pathFD);
         b : b & ~this.StorageComp.Fold(pathFD);
 
+        this.StorageComp.Rename(pathFB, pathFA);
+
         this.Console.Out.Write(this.AddClear().Add("Storage Fold Rename ").Add(this.StatusString(b)).AddLine().AddResult());
 
         var String pathH;
