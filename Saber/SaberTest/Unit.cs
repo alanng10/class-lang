@@ -1,6 +1,6 @@
 namespace Saber.Test;
 
-class Unit : Any
+class Case : Any
 {
     public virtual Seer Seer { get; set; }
     public virtual String Kind { get; set; }

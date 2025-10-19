@@ -49,7 +49,7 @@ public class Test : TextAdd
     private List UnitList { get; set; }
     private Table SetMap { get; set; }
     private Seer Set { get; set; }
-    private Unit Unit { get; set; }
+    private Case Unit { get; set; }
     private long PassCount { get; set; }
     private ClassConsole Console { get; set; }
     private String UnitFold { get; set; }
@@ -205,8 +205,8 @@ public class Test : TextAdd
                     path = this.StorageInfra.TextRead(pathFile);
                 }
                 
-                Unit a;
-                a = new Unit();
+                Case a;
+                a = new Case();
                 a.Init();
                 a.Seer = this.Set;
                 a.Kind = kind;
@@ -231,7 +231,7 @@ public class Test : TextAdd
         this.UnitList.IterSet(iter);
         while (iter.Next())
         {
-            this.Unit = (Unit)iter.Value;
+            this.Unit = (Case)iter.Value;
 
             this.ExecuteUnit();
 
