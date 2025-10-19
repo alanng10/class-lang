@@ -57,7 +57,7 @@ public class Test : TextAdd
     private StringOut Err { get; set; }
     private String InitialCurrentDirectory { get; set; }
     private String ResultSpace { get; set; }
-    private long UnitIndex { get; set; }
+    private long CaseIndex { get; set; }
     private bool UnitPass { get; set; }
     private String SClass { get; set; }
     private String SExpect { get; set; }
@@ -224,7 +224,7 @@ public class Test : TextAdd
         this.WriteHead(this.Seer.Name);
 
         this.PassCount = 0;
-        this.UnitIndex = 0;
+        this.CaseIndex = 0;
 
         Iter iter;
         iter = this.UnitList.IterCreate();
@@ -239,7 +239,7 @@ public class Test : TextAdd
 
             this.Case = null;
 
-            this.UnitIndex = this.UnitIndex + 1;
+            this.CaseIndex = this.CaseIndex + 1;
 
             if (this.UnitPass)
             {
@@ -333,7 +333,7 @@ public class Test : TextAdd
         j = unit;
 
         long n;
-        n = this.UnitIndex;
+        n = this.CaseIndex;
 
         String p;
         p = this.StringIntFormat(n, 10, false, 3, -1, '0');
@@ -354,7 +354,7 @@ public class Test : TextAdd
         o = null;
 
         long unitCount;
-        unitCount = this.UnitIndex;
+        unitCount = this.CaseIndex;
         
         bool b;
         b = (this.PassCount == unitCount);
