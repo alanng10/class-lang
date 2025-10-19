@@ -1,23 +1,23 @@
 # Class
 
-Class is program lang.
-Class is a all mark program lang.
+Class is program lang. 
+Class is a all mark program lang. 
 Class is used to create modules.
 Class is used to create tools.
 Class consists of infra modules, compiler modules, documentation, source code.
 Class is open source.
 Permission is granted to every person to use any copy of this software in any way.
 
-Class is did.
+Class is did. 
 
-Class is most gene program lang.
+Class is most gene program lang. 
 
-Class is most tier program lang.
-Class is most leve program lang.
+Class is most tier program lang. 
+Class is most leve program lang. 
 
-Class is park program lang.
-Class is most gain program lang.
-Class is most gain program lang for it apply.
+Class is park program lang. 
+Class is most gain program lang. 
+Class is most gain program lang for it apply. 
 
 Class is an object oriented programming language.
 Class is class base programming language.
@@ -43,9 +43,9 @@ Class has highest develop speed order.
 It is also best to make abstract.
 Class modules can abstract any effect. It is best to abstract any effect.
 
-Class is a tool to humans.
+Class is a tool to humans. 
 
-Class is park class.
+Class is park class. 
 
 Class has park worth.
 
@@ -141,11 +141,11 @@ Class has park element kind arch marry.
 
 Class has park element kind arch land.
 
-Class has park mark.
+Class has park mark. 
 
-Class has park cross.
+Class has park cross. 
 
-Class has major.
+Class has major. 
 
 Class has major on any.
 
@@ -155,8 +155,8 @@ Class has major on effect.
 
 Class has major on execute.
 
-Class has major on tool.
+Class has major on tool. 
 
-Class is tool class.
+Class is tool class. 
 
-Class is Tier 3 Class.
+Class is Tier 3 Class. 
