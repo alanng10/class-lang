@@ -231,7 +231,7 @@ public class Test : TextAdd
         this.UnitList.IterSet(iter);
         while (iter.Next())
         {
-            this.Case = (Case)iter.Value;
+            this.Case = iter.Value as Case;
 
             this.ExecuteUnit();
 
