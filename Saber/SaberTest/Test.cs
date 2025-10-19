@@ -52,7 +52,7 @@ public class Test : TextAdd
     private Case Case { get; set; }
     private long PassCount { get; set; }
     private ClassConsole Console { get; set; }
-    private String UnitFold { get; set; }
+    private String CaseFold { get; set; }
     private StringOut Out { get; set; }
     private StringOut Err { get; set; }
     private String InitialCurrentDirectory { get; set; }
@@ -256,14 +256,14 @@ public class Test : TextAdd
         String c;
         c = this.TextInfra.PathCombine;
 
-        this.UnitFold = this.AddClear().Add(this.DataFold).Add(c).Add(this.Case.Seer.Name).Add(c).Add(this.Case.Kind).Add(c).Add(this.Case.Name).AddResult();
+        this.CaseFold = this.AddClear().Add(this.DataFold).Add(c).Add(this.Case.Seer.Name).Add(c).Add(this.Case.Kind).Add(c).Add(this.Case.Name).AddResult();
 
         this.Out = new StringOut();
         this.Out.Init();
         this.Err = new StringOut();
         this.Err.Init();
 
-        this.StorageComp.ThisFoldSet(this.UnitFold);
+        this.StorageComp.ThisFoldSet(this.CaseFold);
 
         Task task;
         task = this.CreateTask();
@@ -283,7 +283,7 @@ public class Test : TextAdd
         actual = this.AddClear().Add(actualErr).Add(actualOut).AddResult();
 
         String actualFile;
-        actualFile = this.AddClear().Add(this.UnitFold).Add(c).Add(this.SActual).AddResult();
+        actualFile = this.AddClear().Add(this.CaseFold).Add(c).Add(this.SActual).AddResult();
 
         this.StorageInfra.TextWrite(actualFile, actual);
 
