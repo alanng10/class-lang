@@ -49,7 +49,7 @@ public class Test : TextAdd
     private List UnitList { get; set; }
     private Table SetMap { get; set; }
     private Seer Seer { get; set; }
-    private Case Unit { get; set; }
+    private Case Case { get; set; }
     private long PassCount { get; set; }
     private ClassConsole Console { get; set; }
     private String UnitFold { get; set; }
@@ -231,13 +231,13 @@ public class Test : TextAdd
         this.UnitList.IterSet(iter);
         while (iter.Next())
         {
-            this.Unit = (Case)iter.Value;
+            this.Case = (Case)iter.Value;
 
             this.ExecuteUnit();
 
             this.WriteUnitResult();
 
-            this.Unit = null;
+            this.Case = null;
 
             this.UnitIndex = this.UnitIndex + 1;
 
@@ -256,7 +256,7 @@ public class Test : TextAdd
         String c;
         c = this.TextInfra.PathCombine;
 
-        this.UnitFold = this.AddClear().Add(this.DataFold).Add(c).Add(this.Unit.Seer.Name).Add(c).Add(this.Unit.Kind).Add(c).Add(this.Unit.Name).AddResult();
+        this.UnitFold = this.AddClear().Add(this.DataFold).Add(c).Add(this.Case.Seer.Name).Add(c).Add(this.Case.Kind).Add(c).Add(this.Case.Name).AddResult();
 
         this.Out = new StringOut();
         this.Out.Init();
@@ -287,10 +287,10 @@ public class Test : TextAdd
 
         this.StorageInfra.TextWrite(actualFile, actual);
 
-        this.Unit.Actual = actual;
+        this.Case.Actual = actual;
 
         bool pass;
-        pass = this.TextSame(this.TA(this.Unit.Actual), this.TB(this.Unit.Expect));
+        pass = this.TextSame(this.TA(this.Case.Actual), this.TB(this.Case.Expect));
 
         this.UnitPass = pass;
         return true;
@@ -303,7 +303,7 @@ public class Test : TextAdd
 
     private bool WriteUnitResult()
     {
-        this.WriteResultLine(this.UnitPass, this.Unit.Seer.Name, this.Unit.Kind, this.Unit.Name);
+        this.WriteResultLine(this.UnitPass, this.Case.Seer.Name, this.Case.Kind, this.Case.Name);
         return true;
     }
 
@@ -402,13 +402,13 @@ public class Test : TextAdd
         Task task;
         task = new Task();
         task.Init();
-        task.Kind = this.Unit.Seer.TaskKind;
+        task.Kind = this.Case.Seer.TaskKind;
 
         bool ba;
         ba = this.Seer.AddKindAfterTaskArg;
         if (ba)
         {
-            task.Node = this.Unit.Kind;
+            task.Node = this.Case.Kind;
         }
         if (!ba)
         {
@@ -417,7 +417,7 @@ public class Test : TextAdd
 
         if (this.Seer.AddPathAfterTaskArg)
         {
-            task.Path = this.Unit.Path;
+            task.Path = this.Case.Path;
         }
 
         task.Print = true;
