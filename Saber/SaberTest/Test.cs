@@ -152,11 +152,11 @@ public class Test : TextAdd
         String set;
         set = this.Seer.Name;
 
-        String setFoldPath;
-        setFoldPath = this.AddClear().Add(this.DataFold).Add(combine).Add(set).AddResult();
+        String seerFoldPath;
+        seerFoldPath = this.AddClear().Add(this.DataFold).Add(combine).Add(set).AddResult();
 
         Array kindList;
-        kindList = this.FoldList(setFoldPath);
+        kindList = this.FoldList(seerFoldPath);
 
         Iter kindIter;
         kindIter = kindList.IterCreate();
@@ -170,7 +170,7 @@ public class Test : TextAdd
             kind = kindFold.Name;
 
             String kindFoldPath;
-            kindFoldPath = this.AddClear().Add(setFoldPath).Add(combine).Add(kind).AddResult();
+            kindFoldPath = this.AddClear().Add(seerFoldPath).Add(combine).Add(kind).AddResult();
 
             Array unitList;
             unitList = this.FoldList(kindFoldPath);
