@@ -46,7 +46,7 @@ public class Test : TextAdd
     protected virtual String LangName { get; set; }
 
     private String DataFold { get; set; }
-    private List UnitList { get; set; }
+    private List CaseList { get; set; }
     private Table SeerTable { get; set; }
     private Seer Seer { get; set; }
     private Case Case { get; set; }
@@ -143,8 +143,8 @@ public class Test : TextAdd
 
     private bool AddSetUnitList()
     {
-        this.UnitList = new List();
-        this.UnitList.Init();
+        this.CaseList = new List();
+        this.CaseList.Init();
 
         String combine;
         combine = this.TextInfra.PathCombine;
@@ -213,7 +213,7 @@ public class Test : TextAdd
                 a.Name = unit;
                 a.Expect = expect;
                 a.Path = path;
-                this.UnitList.Add(a);
+                this.CaseList.Add(a);
             }
         }
         return true;
@@ -227,8 +227,8 @@ public class Test : TextAdd
         this.CaseIndex = 0;
 
         Iter iter;
-        iter = this.UnitList.IterCreate();
-        this.UnitList.IterSet(iter);
+        iter = this.CaseList.IterCreate();
+        this.CaseList.IterSet(iter);
         while (iter.Next())
         {
             this.Case = iter.Value as Case;
