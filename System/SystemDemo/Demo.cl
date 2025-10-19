@@ -1174,9 +1174,14 @@ class Demo : Add
         b : true;
         b : b & this.TextSame(this.TA(ka), this.TB(k));
 
-        this.Console.Out.Write(this.AddClear().Add("Storage ThisFold ").Add(this.StatusString(b)).AddLine().AddResult());
-
         this.StorageComp.ThisFoldSet("../..");
+
+        var String kaa;
+        kaa : this.StorageComp.ModuleFoldPath;
+
+        b : b & this.TextSame(this.TA(this.StorageComp.ThisFoldGet()), this.TB(kaa));
+
+        this.Console.Out.Write(this.AddClear().Add("Storage ThisFold ").Add(this.StatusString(b)).AddLine().AddResult());
 
         var String foldPath;
         foldPath : this.AddClear().Add(dataPath).Add(combine).Add("Fold").AddResult();
