@@ -48,7 +48,7 @@ public class Test : TextAdd
     private String DataFold { get; set; }
     private List UnitList { get; set; }
     private Table SetMap { get; set; }
-    private Set Set { get; set; }
+    private Seer Set { get; set; }
     private Unit Unit { get; set; }
     private long PassCount { get; set; }
     private ClassConsole Console { get; set; }
@@ -84,8 +84,8 @@ public class Test : TextAdd
 
     protected virtual bool AddSet(string name, TaskKind taskKind, bool addKindAfterTaskArg, bool addPathAfterTaskArg, bool sourceFold)
     {
-        Set set;
-        set = new Set();
+        Seer set;
+        set = new Seer();
         set.Init();
         set.Name = this.S(name);
         set.TaskKind = taskKind;
@@ -130,7 +130,7 @@ public class Test : TextAdd
         this.SetMap.IterSet(iter);
         while (iter.Next())
         {
-            this.Set = (Set)iter.Value;
+            this.Set = (Seer)iter.Value;
 
             this.AddSetUnitList();
 

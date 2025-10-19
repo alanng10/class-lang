@@ -2,7 +2,7 @@ namespace Saber.Test;
 
 class Unit : Any
 {
-    public virtual Set Set { get; set; }
+    public virtual Seer Set { get; set; }
     public virtual String Kind { get; set; }
     public virtual String Name { get; set; }
     public virtual String Expect { get; set; }

@@ -1,6 +1,6 @@
 namespace Saber.Test;
 
-class Set : Any
+class Seer : Any
 {
     public virtual String Name { get; set; }
 
