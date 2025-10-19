@@ -119,11 +119,11 @@ public class Test : TextAdd
 
         this.SetWorkFold();
         
-        this.ExecuteSetList();
+        this.ExecuteSeerList();
         return 0;
     }
 
-    protected virtual bool ExecuteSetList()
+    protected virtual bool ExecuteSeerList()
     {
         Iter iter;
         iter = this.SeerTable.IterCreate();
