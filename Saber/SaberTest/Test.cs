@@ -134,7 +134,7 @@ public class Test : TextAdd
 
             this.AddSeerCaseList();
 
-            this.ExecuteSet();
+            this.ExecuteSeer();
 
             this.Seer = null;
         }
@@ -219,7 +219,7 @@ public class Test : TextAdd
         return true;
     }
 
-    private bool ExecuteSet()
+    private bool ExecuteSeer()
     {
         this.WriteHead(this.Seer.Name);
 
