@@ -235,7 +235,7 @@ public class Test : TextAdd
 
             this.ExecuteUnit();
 
-            this.WriteUnitResult();
+            this.WriteCaseResult();
 
             this.Case = null;
 
@@ -301,7 +301,7 @@ public class Test : TextAdd
         return this.SClass;
     }
 
-    private bool WriteUnitResult()
+    private bool WriteCaseResult()
     {
         this.WriteResultLine(this.UnitPass, this.Case.Seer.Name, this.Case.Kind, this.Case.Name);
         return true;
