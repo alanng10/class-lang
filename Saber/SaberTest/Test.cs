@@ -172,12 +172,12 @@ public class Test : TextAdd
             String kindFoldPath;
             kindFoldPath = this.AddClear().Add(seerFoldPath).Add(combine).Add(kind).AddResult();
 
-            Array unitList;
-            unitList = this.FoldList(kindFoldPath);
+            Array caseList;
+            caseList = this.FoldList(kindFoldPath);
 
             Iter unitIter;
-            unitIter = unitList.IterCreate();
-            unitList.IterSet(unitIter);
+            unitIter = caseList.IterCreate();
+            caseList.IterSet(unitIter);
             while (unitIter.Next())
             {
                 StorageEntry unitFold;
