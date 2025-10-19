@@ -233,7 +233,7 @@ public class Test : TextAdd
         {
             this.Case = iter.Value as Case;
 
-            this.ExecuteUnit();
+            this.ExecuteCase();
 
             this.WriteCaseResult();
 
@@ -251,7 +251,7 @@ public class Test : TextAdd
         return true;
     }
 
-    private bool ExecuteUnit()
+    private bool ExecuteCase()
     {
         String c;
         c = this.TextInfra.PathCombine;
