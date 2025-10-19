@@ -175,13 +175,13 @@ public class Test : TextAdd
             Array caseList;
             caseList = this.FoldList(kindFoldPath);
 
-            Iter unitIter;
-            unitIter = caseList.IterCreate();
-            caseList.IterSet(unitIter);
-            while (unitIter.Next())
+            Iter caseIter;
+            caseIter = caseList.IterCreate();
+            caseList.IterSet(caseIter);
+            while (caseIter.Next())
             {
                 StorageEntry unitFold;
-                unitFold = unitIter.Value as StorageEntry;
+                unitFold = caseIter.Value as StorageEntry;
 
                 String unit;
                 unit = unitFold.Name;
