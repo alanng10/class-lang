@@ -132,7 +132,7 @@ public class Test : TextAdd
         {
             this.Seer = iter.Value as Seer;
 
-            this.AddSetUnitList();
+            this.AddSeerCaseList();
 
             this.ExecuteSet();
 
@@ -141,7 +141,7 @@ public class Test : TextAdd
         return true;
     }
 
-    private bool AddSetUnitList()
+    private bool AddSeerCaseList()
     {
         this.CaseList = new List();
         this.CaseList.Init();
