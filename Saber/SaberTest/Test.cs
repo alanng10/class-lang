@@ -76,13 +76,13 @@ public class Test : TextAdd
 
     protected virtual bool AddSetList()
     {
-        this.AddSet("Token", this.TaskKindList.Token, false, false, false);
+        this.AddSeer("Token", this.TaskKindList.Token, false, false, false);
 
-        this.AddSet("Node", this.TaskKindList.Node, true, false, false);
+        this.AddSeer("Node", this.TaskKindList.Node, true, false, false);
         return true;
     }
 
-    protected virtual bool AddSet(string name, TaskKind taskKind, bool addKindAfterTaskArg, bool addPathAfterTaskArg, bool sourceFold)
+    protected virtual bool AddSeer(string name, TaskKind taskKind, bool addKindAfterTaskArg, bool addPathAfterTaskArg, bool sourceFold)
     {
         Seer seer;
         seer = new Seer();
