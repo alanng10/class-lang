@@ -84,16 +84,16 @@ public class Test : TextAdd
 
     protected virtual bool AddSet(string name, TaskKind taskKind, bool addKindAfterTaskArg, bool addPathAfterTaskArg, bool sourceFold)
     {
-        Seer set;
-        set = new Seer();
-        set.Init();
-        set.Name = this.S(name);
-        set.TaskKind = taskKind;
-        set.AddKindAfterTaskArg = addKindAfterTaskArg;
-        set.AddPathAfterTaskArg = addPathAfterTaskArg;
-        set.SourceFold = sourceFold;
+        Seer seer;
+        seer = new Seer();
+        seer.Init();
+        seer.Name = this.S(name);
+        seer.TaskKind = taskKind;
+        seer.AddKindAfterTaskArg = addKindAfterTaskArg;
+        seer.AddPathAfterTaskArg = addPathAfterTaskArg;
+        seer.SourceFold = sourceFold;
 
-        this.ListInfra.TableAdd(this.SetMap, set.Name, set);
+        this.ListInfra.TableAdd(this.SetMap, seer.Name, seer);
         return true;
     }
 
