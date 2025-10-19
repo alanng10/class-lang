@@ -353,11 +353,11 @@ public class Test : TextAdd
         String o;
         o = null;
 
-        long unitCount;
-        unitCount = this.CaseIndex;
+        long caseCount;
+        caseCount = this.CaseIndex;
         
         bool b;
-        b = (this.PassCount == unitCount);
+        b = (this.PassCount == caseCount);
         if (b)
         {
             o = this.SAll;
