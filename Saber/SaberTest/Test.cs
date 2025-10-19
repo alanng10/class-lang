@@ -307,7 +307,7 @@ public class Test : TextAdd
         return true;
     }
 
-    private bool WriteResultLine(bool pass, String seer, String kind, String unit)
+    private bool WriteResultLine(bool pass, String seer, String kind, String varCase)
     {
         String a;
         a = null;
@@ -330,7 +330,7 @@ public class Test : TextAdd
         k = this.StringTextFormat(this.TA(kind), true, 24, -1, ' ');
 
         String j;
-        j = unit;
+        j = varCase;
 
         long n;
         n = this.CaseIndex;
