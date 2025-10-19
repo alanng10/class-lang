@@ -172,7 +172,7 @@ public class Test : TextAdd
             String kindFoldPath;
             kindFoldPath = this.AddClear().Add(setFoldPath).Add(combine).Add(kind).AddResult();
 
-            Array unitList;            
+            Array unitList;
             unitList = this.FoldList(kindFoldPath);
 
             Iter unitIter;
