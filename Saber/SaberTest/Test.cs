@@ -180,11 +180,11 @@ public class Test : TextAdd
             caseList.IterSet(caseIter);
             while (caseIter.Next())
             {
-                StorageEntry unitFold;
-                unitFold = caseIter.Value as StorageEntry;
+                StorageEntry caseFold;
+                caseFold = caseIter.Value as StorageEntry;
 
                 String unit;
-                unit = unitFold.Name;
+                unit = caseFold.Name;
 
                 String unitFoldPath;
                 unitFoldPath = this.AddClear().Add(kindFoldPath).Add(combine).Add(unit).AddResult();
