@@ -1157,7 +1157,6 @@ class Demo : Add
         this.StorageComp.FileDelete(pathB);
 
         b : true;
-
         b : b & this.StorageInfra.TextWrite(pathB, kad);
 
         var String kada;
@@ -1172,7 +1171,8 @@ class Demo : Add
         var String ka;
         ka : this.StorageInfra.TextRead("A.txt");
 
-        b : this.TextSame(this.TA(ka), this.TB(k));
+        b : true;
+        b : b & this.TextSame(this.TA(ka), this.TB(k));
 
         this.Console.Out.Write(this.AddClear().Add("Storage ThisFold ").Add(this.StatusString(b)).AddLine().AddResult());
 
