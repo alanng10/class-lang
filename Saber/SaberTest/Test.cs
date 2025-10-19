@@ -130,7 +130,7 @@ public class Test : TextAdd
         this.SetMap.IterSet(iter);
         while (iter.Next())
         {
-            this.Set = (Seer)iter.Value;
+            this.Set = iter.Value as Seer;
 
             this.AddSetUnitList();
 
