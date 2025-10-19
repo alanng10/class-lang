@@ -186,11 +186,11 @@ public class Test : TextAdd
                 String varCase;
                 varCase = caseFold.Name;
 
-                String unitFoldPath;
-                unitFoldPath = this.AddClear().Add(kindFoldPath).Add(combine).Add(varCase).AddResult();
+                String caseFoldPath;
+                caseFoldPath = this.AddClear().Add(kindFoldPath).Add(combine).Add(varCase).AddResult();
 
                 String expectFile;
-                expectFile = this.AddClear().Add(unitFoldPath).Add(combine).Add(this.SExpect).AddResult();
+                expectFile = this.AddClear().Add(caseFoldPath).Add(combine).Add(this.SExpect).AddResult();
 
                 String expect;                
                 expect = this.StorageInfra.TextRead(expectFile);
@@ -200,7 +200,7 @@ public class Test : TextAdd
                 if (this.Seer.AddPathAfterTaskArg)
                 {
                     String pathFile;
-                    pathFile = this.AddClear().Add(unitFoldPath).Add(combine).Add(this.SPath).AddResult();
+                    pathFile = this.AddClear().Add(caseFoldPath).Add(combine).Add(this.SPath).AddResult();
 
                     path = this.StorageInfra.TextRead(pathFile);
                 }
