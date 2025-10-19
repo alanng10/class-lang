@@ -149,11 +149,11 @@ public class Test : TextAdd
         String combine;
         combine = this.TextInfra.PathCombine;
 
-        String set;
-        set = this.Seer.Name;
+        String seer;
+        seer = this.Seer.Name;
 
         String seerFoldPath;
-        seerFoldPath = this.AddClear().Add(this.DataFold).Add(combine).Add(set).AddResult();
+        seerFoldPath = this.AddClear().Add(this.DataFold).Add(combine).Add(seer).AddResult();
 
         Array kindList;
         kindList = this.FoldList(seerFoldPath);
