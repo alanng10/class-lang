@@ -208,7 +208,7 @@ public class Test : TextAdd
                 Unit a;
                 a = new Unit();
                 a.Init();
-                a.Set = this.Set;
+                a.Seer = this.Set;
                 a.Kind = kind;
                 a.Name = unit;
                 a.Expect = expect;
@@ -256,7 +256,7 @@ public class Test : TextAdd
         String c;
         c = this.TextInfra.PathCombine;
 
-        this.UnitFold = this.AddClear().Add(this.DataFold).Add(c).Add(this.Unit.Set.Name).Add(c).Add(this.Unit.Kind).Add(c).Add(this.Unit.Name).AddResult();
+        this.UnitFold = this.AddClear().Add(this.DataFold).Add(c).Add(this.Unit.Seer.Name).Add(c).Add(this.Unit.Kind).Add(c).Add(this.Unit.Name).AddResult();
 
         this.Out = new StringOut();
         this.Out.Init();
@@ -303,7 +303,7 @@ public class Test : TextAdd
 
     private bool WriteUnitResult()
     {
-        this.WriteResultLine(this.UnitPass, this.Unit.Set.Name, this.Unit.Kind, this.Unit.Name);
+        this.WriteResultLine(this.UnitPass, this.Unit.Seer.Name, this.Unit.Kind, this.Unit.Name);
         return true;
     }
 
@@ -402,7 +402,7 @@ public class Test : TextAdd
         Task task;
         task = new Task();
         task.Init();
-        task.Kind = this.Unit.Set.TaskKind;
+        task.Kind = this.Unit.Seer.TaskKind;
 
         bool ba;
         ba = this.Set.AddKindAfterTaskArg;
