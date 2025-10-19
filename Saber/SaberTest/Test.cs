@@ -189,7 +189,7 @@ public class Test : TextAdd
                 String unitFoldPath;
                 unitFoldPath = this.AddClear().Add(kindFoldPath).Add(combine).Add(varCase).AddResult();
 
-                String expectFile;                
+                String expectFile;
                 expectFile = this.AddClear().Add(unitFoldPath).Add(combine).Add(this.SExpect).AddResult();
 
                 String expect;                
