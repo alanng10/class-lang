@@ -192,7 +192,7 @@ public class Test : TextAdd
                 String expectFile;
                 expectFile = this.AddClear().Add(caseFoldPath).Add(combine).Add(this.SExpect).AddResult();
 
-                String expect;                
+                String expect;
                 expect = this.StorageInfra.TextRead(expectFile);
 
                 String path;
