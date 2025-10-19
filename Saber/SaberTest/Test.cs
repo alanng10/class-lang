@@ -183,11 +183,11 @@ public class Test : TextAdd
                 StorageEntry caseFold;
                 caseFold = caseIter.Value as StorageEntry;
 
-                String unit;
-                unit = caseFold.Name;
+                String varCase;
+                varCase = caseFold.Name;
 
                 String unitFoldPath;
-                unitFoldPath = this.AddClear().Add(kindFoldPath).Add(combine).Add(unit).AddResult();
+                unitFoldPath = this.AddClear().Add(kindFoldPath).Add(combine).Add(varCase).AddResult();
 
                 String expectFile;                
                 expectFile = this.AddClear().Add(unitFoldPath).Add(combine).Add(this.SExpect).AddResult();
@@ -210,7 +210,7 @@ public class Test : TextAdd
                 a.Init();
                 a.Seer = this.Seer;
                 a.Kind = kind;
-                a.Name = unit;
+                a.Name = varCase;
                 a.Expect = expect;
                 a.Path = path;
                 this.CaseList.Add(a);
