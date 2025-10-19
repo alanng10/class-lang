@@ -307,7 +307,7 @@ public class Test : TextAdd
         return true;
     }
 
-    private bool WriteResultLine(bool pass, String set, String kind, String unit)
+    private bool WriteResultLine(bool pass, String seer, String kind, String unit)
     {
         String a;
         a = null;
@@ -324,7 +324,7 @@ public class Test : TextAdd
         }
 
         String u;
-        u = this.StringTextFormat(this.TA(set), true, 8, -1, ' ');
+        u = this.StringTextFormat(this.TA(seer), true, 8, -1, ' ');
 
         String k;
         k = this.StringTextFormat(this.TA(kind), true, 24, -1, ' ');
