@@ -48,7 +48,7 @@ public class Test : TextAdd
     private String DataFold { get; set; }
     private List UnitList { get; set; }
     private Table SetMap { get; set; }
-    private Seer Set { get; set; }
+    private Seer Seer { get; set; }
     private Case Unit { get; set; }
     private long PassCount { get; set; }
     private ClassConsole Console { get; set; }
@@ -130,13 +130,13 @@ public class Test : TextAdd
         this.SetMap.IterSet(iter);
         while (iter.Next())
         {
-            this.Set = iter.Value as Seer;
+            this.Seer = iter.Value as Seer;
 
             this.AddSetUnitList();
 
             this.ExecuteSet();
 
-            this.Set = null;
+            this.Seer = null;
         }
         return true;
     }
@@ -150,7 +150,7 @@ public class Test : TextAdd
         combine = this.TextInfra.PathCombine;
 
         String set;
-        set = this.Set.Name;
+        set = this.Seer.Name;
 
         String setFoldPath;
         setFoldPath = this.AddClear().Add(this.DataFold).Add(combine).Add(set).AddResult();
@@ -197,7 +197,7 @@ public class Test : TextAdd
 
                 String path;
                 path = null;
-                if (this.Set.AddPathAfterTaskArg)
+                if (this.Seer.AddPathAfterTaskArg)
                 {
                     String pathFile;
                     pathFile = this.AddClear().Add(unitFoldPath).Add(combine).Add(this.SPath).AddResult();
@@ -208,7 +208,7 @@ public class Test : TextAdd
                 Case a;
                 a = new Case();
                 a.Init();
-                a.Seer = this.Set;
+                a.Seer = this.Seer;
                 a.Kind = kind;
                 a.Name = unit;
                 a.Expect = expect;
@@ -221,7 +221,7 @@ public class Test : TextAdd
 
     private bool ExecuteSet()
     {
-        this.WriteHead(this.Set.Name);
+        this.WriteHead(this.Seer.Name);
 
         this.PassCount = 0;
         this.UnitIndex = 0;
@@ -405,7 +405,7 @@ public class Test : TextAdd
         task.Kind = this.Unit.Seer.TaskKind;
 
         bool ba;
-        ba = this.Set.AddKindAfterTaskArg;
+        ba = this.Seer.AddKindAfterTaskArg;
         if (ba)
         {
             task.Node = this.Unit.Kind;
@@ -415,7 +415,7 @@ public class Test : TextAdd
             task.Node = this.SClass;
         }
 
-        if (this.Set.AddPathAfterTaskArg)
+        if (this.Seer.AddPathAfterTaskArg)
         {
             task.Path = this.Unit.Path;
         }
@@ -425,7 +425,7 @@ public class Test : TextAdd
         String source;
         source = null;
         bool b;
-        b = this.Set.SourceFold;
+        b = this.Seer.SourceFold;
         if (b)
         {
             source = this.SSource;
