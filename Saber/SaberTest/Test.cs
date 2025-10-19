@@ -31,7 +31,7 @@ public class Test : TextAdd
 
         this.Console = this.CreateConsole();
 
-        this.SetMap = this.ClassInfra.TableCreateStringLess();
+        this.SeerTable = this.ClassInfra.TableCreateStringLess();
 
         this.AddSeerList();
         return true;
@@ -47,7 +47,7 @@ public class Test : TextAdd
 
     private String DataFold { get; set; }
     private List UnitList { get; set; }
-    private Table SetMap { get; set; }
+    private Table SeerTable { get; set; }
     private Seer Seer { get; set; }
     private Case Case { get; set; }
     private long PassCount { get; set; }
@@ -93,7 +93,7 @@ public class Test : TextAdd
         seer.AddPathAfterTaskArg = addPathAfterTaskArg;
         seer.SourceFold = sourceFold;
 
-        this.ListInfra.TableAdd(this.SetMap, seer.Name, seer);
+        this.ListInfra.TableAdd(this.SeerTable, seer.Name, seer);
         return true;
     }
 
@@ -126,8 +126,8 @@ public class Test : TextAdd
     protected virtual bool ExecuteSetList()
     {
         Iter iter;
-        iter = this.SetMap.IterCreate();
-        this.SetMap.IterSet(iter);
+        iter = this.SeerTable.IterCreate();
+        this.SeerTable.IterSet(iter);
         while (iter.Next())
         {
             this.Seer = iter.Value as Seer;
