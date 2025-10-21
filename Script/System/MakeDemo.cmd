@@ -1,4 +1,10 @@
 @echo off
 
-call ..\Script\Module\Make System SystemDemo
-call ..\Script\Module\Make System SystemDemoNetwork
+set DotNetOutFold=.\Out\net8.0
+
+echo Make Demo
+pushd %DotNetOutFold%
+saber make ../../System/SystemDemo
+
+saber make ../../System/SystemDemoNetwork
+popd
