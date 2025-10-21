@@ -8,8 +8,6 @@ public class Entry : EntryEntry
         console = new Console();
         console.Init();
 
-        console.EnvironSet();
-
         bool b;
         b = console.Load();
 
