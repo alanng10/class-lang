@@ -5,5 +5,5 @@ set DotNetOutFold=.\Out\net8.0
 
 echo Make %Module%
 pushd %DotNetOutFold%
-saber make ../../System/System.%Module% -m
+saber make ../../System/%Module% -m
 popd
