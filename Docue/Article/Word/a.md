@@ -400,7 +400,7 @@ Word "pattern" has meaning that is pattern entity.
 
 Word "filter" has meaning that is filter.
 
-Word "onlon" has meaning that is only one in type.
+Word "onlone" has meaning that is only one in type.
 
 Word "carier" has meaning that is logical.
 
