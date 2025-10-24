@@ -112,7 +112,7 @@ Word "debug" has meaning that is identify fault.
 
 Word "support" has meaning that is assist entity.
 
-Word "demo" has meaning that is demostration.
+Word "demo" has meaning that is demonstration.
 
 Word "sample" has meaning that is example.
 
