@@ -112,6 +112,10 @@ Word "debug" has meaning that is identify fault.
 
 Word "support" has meaning that is assist entity.
 
+Word "demo" has meaning that is demostration.
+
+Word "sample" has meaning that is example.
+
 Word "object" has meaning that is directed any.
 
 Word "calc" has meaning that is calculate integer.
