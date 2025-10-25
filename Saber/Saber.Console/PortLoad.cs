@@ -121,7 +121,7 @@ public class PortLoad : TextAdd
             return false;
         }
 
-        b = this.ImportModulePort();
+        b = this.ExecuteModulePort();
         if (!b)
         {
             return false;
@@ -434,7 +434,7 @@ public class PortLoad : TextAdd
         return true;
     }
 
-    protected virtual bool ImportModulePort()
+    protected virtual bool ExecuteModulePort()
     {
         ModulePort modulePort;
         modulePort = this.ModulePort;
