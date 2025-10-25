@@ -197,13 +197,13 @@ public class PortLoad : TextAdd
             PortImport ka;
             ka = import.GetAt(i) as PortImport;
 
-            ModuleRef aa;
-            aa = ka.Module;
+            ModuleRef k;
+            k = ka.Module;
 
             String name;
-            name = aa.Name;
+            name = k.Name;
             long version;
-            version = aa.Ver;
+            version = k.Ver;
             if (version == -1)
             {
                 version = 0;
