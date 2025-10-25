@@ -115,7 +115,7 @@ public class PortLoad : TextAdd
             return false;
         }
 
-        b = this.ImportDepend();
+        b = this.ExecuteDepend();
         if (!b)
         {
             return false;
@@ -415,7 +415,7 @@ public class PortLoad : TextAdd
         return a;
     }
 
-    protected virtual bool ImportDepend()
+    protected virtual bool ExecuteDepend()
     {
         ModuleRef ka;
         ka = this.ModuleRef;
