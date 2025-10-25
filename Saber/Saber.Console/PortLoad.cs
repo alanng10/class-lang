@@ -109,12 +109,6 @@ public class PortLoad : TextAdd
             return false;
         }
 
-        b = this.ValidImportOnlone();
-        if (!b)
-        {
-            return false;
-        }
-
         b = this.ExecuteBinaryLoad();
         if (!b)
         {
@@ -188,6 +182,9 @@ public class PortLoad : TextAdd
         Array import;
         import = this.Port.Import;
 
+        Table table;
+        table = this.ClassInfra.TableCreateModuleRefLess();
+
         Array array;
         array = this.ListInfra.ArrayCreate(import.Count);
 
@@ -215,32 +212,6 @@ public class PortLoad : TextAdd
             ModuleRef a;
             a = this.ClassInfra.ModuleRefCreate(name, version);
 
-            array.SetAt(i, a);
-
-            i = i + 1;
-        }
-
-        this.ImportModuleRefArray = array;
-        return true;
-    }
-
-    protected virtual bool ValidImportOnlone()
-    {
-        Table table;
-        table = this.ClassInfra.TableCreateModuleRefLess();
-
-        Array array;
-        array = this.ImportModuleRefArray;
-
-        long count;
-        count = array.Count;
-        long i;
-        i = 0;
-        while (i < count)
-        {
-            ModuleRef a;
-            a = array.GetAt(i) as ModuleRef;
-
             if (table.Valid(a))
             {
                 this.Status = 30;
@@ -249,8 +220,12 @@ public class PortLoad : TextAdd
 
             this.ListInfra.TableAdd(table, a, a);
 
+            array.SetAt(i, a);
+
             i = i + 1;
         }
+
+        this.ImportModuleRefArray = array;
         return true;
     }
 
