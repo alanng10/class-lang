@@ -185,16 +185,11 @@ public class PortLoad : TextAdd
 
     protected virtual bool ExecuteImportModuleRef()
     {
-        ListInfra listInfra;
-        listInfra = this.ListInfra;
-        ClassInfra classInfra;
-        classInfra = this.ClassInfra;
-
         Array import;
         import = this.Port.Import;
 
         Array array;
-        array = listInfra.ArrayCreate(import.Count);
+        array = this.ListInfra.ArrayCreate(import.Count);
 
         long count;
         count = array.Count;
@@ -218,7 +213,7 @@ public class PortLoad : TextAdd
             }
 
             ModuleRef a;
-            a = classInfra.ModuleRefCreate(name, version);
+            a = this.ClassInfra.ModuleRefCreate(name, version);
 
             array.SetAt(i, a);
 
