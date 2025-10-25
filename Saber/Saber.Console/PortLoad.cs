@@ -127,7 +127,7 @@ public class PortLoad : TextAdd
             return false;
         }
 
-        b = this.CreateModule();
+        b = this.ExecuteCreateModule();
         if (!b)
         {
             return false;
@@ -486,7 +486,7 @@ public class PortLoad : TextAdd
         return true;
     }
 
-    protected virtual bool CreateModule()
+    protected virtual bool ExecuteCreateModule()
     {
         ClassInfra classInfra;
         classInfra = this.ClassInfra;
