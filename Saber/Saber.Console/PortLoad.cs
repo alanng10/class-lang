@@ -194,11 +194,11 @@ public class PortLoad : TextAdd
         i = 0;
         while (i < count)
         {
-            PortImport o;
-            o = import.GetAt(i) as PortImport;
+            PortImport ka;
+            ka = import.GetAt(i) as PortImport;
 
             ModuleRef aa;
-            aa = o.Module;
+            aa = ka.Module;
 
             String name;
             name = aa.Name;
