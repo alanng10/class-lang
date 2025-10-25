@@ -165,15 +165,15 @@ public class PortLoad : TextAdd
         ModuleRef ka;
         ka = this.Port.Module;
 
-        ModuleRef a;
-        a = this.ClassInfra.ModuleRefCreate(ka.Name, ka.Ver);
+        ModuleRef k;
+        k = this.ClassInfra.ModuleRefCreate(ka.Name, ka.Ver);
 
         if (this.SystemModule)
         {
-            a.Ver = 0;
+            k.Ver = 0;
         }
 
-        this.ModuleRef = a;
+        this.ModuleRef = k;
         return true;
     }
 
