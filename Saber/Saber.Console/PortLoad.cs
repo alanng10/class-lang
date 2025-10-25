@@ -109,7 +109,7 @@ public class PortLoad : TextAdd
             return false;
         }
 
-        b = this.ExecuteImportOnlone();
+        b = this.ValidImportOnlone();
         if (!b)
         {
             return false;
@@ -224,7 +224,7 @@ public class PortLoad : TextAdd
         return true;
     }
 
-    protected virtual bool ExecuteImportOnlone()
+    protected virtual bool ValidImportOnlone()
     {
         Table table;
         table = this.ClassInfra.TableCreateModuleRefLess();
