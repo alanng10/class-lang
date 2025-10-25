@@ -46,7 +46,7 @@ public class PortLoad : TextAdd
     protected virtual StorageComp StorageComp { get; set; }
     protected virtual ErrorKindList ErrorKind { get; set; }
     protected virtual StoragePathValid StoragePathValid { get; set; }
-    protected virtual Array ImportModuleRefArray { get; set; }
+    protected virtual Array ImportModuleRef { get; set; }
     protected virtual Table BinaryTable { get; set; }
     protected virtual ClassClass AnyClass { get; set; }
     protected virtual List ErrorList { get; set; }
@@ -62,7 +62,7 @@ public class PortLoad : TextAdd
 
         this.Error = this.ListInfra.ArrayCreateList(this.ErrorList);
 
-        this.ImportModuleRefArray = null;
+        this.ImportModuleRef = null;
         this.ModulePort.BinaryTable = null;
         this.ModulePort.ModuleTable = null;
         this.AnyClass = null;
@@ -225,7 +225,7 @@ public class PortLoad : TextAdd
             i = i + 1;
         }
 
-        this.ImportModuleRefArray = array;
+        this.ImportModuleRef = array;
         return true;
     }
 
@@ -310,7 +310,7 @@ public class PortLoad : TextAdd
         this.BinaryTable = this.ClassInfra.TableCreateModuleRefLess();
 
         Array array;
-        array = this.ImportModuleRefArray;
+        array = this.ImportModuleRef;
 
         long count;
         count = array.Count;
@@ -533,7 +533,7 @@ public class PortLoad : TextAdd
         nameCheck = this.NameValid;
 
         Array importModuleRef;
-        importModuleRef = this.ImportModuleRefArray;
+        importModuleRef = this.ImportModuleRef;
 
         Array array;
         array = this.Port.Import;
