@@ -115,7 +115,7 @@ public class PortLoad : TextAdd
             return false;
         }
 
-        b = this.ImportBinaryLoad();
+        b = this.ExecuteBinaryLoad();
         if (!b)
         {
             return false;
@@ -330,7 +330,7 @@ public class PortLoad : TextAdd
         return a;
     }
 
-    protected virtual bool ImportBinaryLoad()
+    protected virtual bool ExecuteBinaryLoad()
     {
         this.BinaryTable = this.ClassInfra.TableCreateModuleRefLess();
 
