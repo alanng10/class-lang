@@ -11,14 +11,21 @@ public class PortLoad : TextAdd
         this.StorageComp = StorageComp.This;
         this.ErrorKind = ErrorKindList.This;
 
-        this.StoragePathValid = new StoragePathValid();
-        this.StoragePathValid.Init();
+        this.StoragePathValid = this.CreateStoragePathValid();
 
         this.SystemModuleSingle = this.S("System");
         this.SystemModulePre = this.AddClear().Add(this.SystemModuleSingle).Add(this.ClassInfra.TextDot).AddResult();
 
         this.SModule = this.S("Module");
         return true;
+    }
+
+    protected virtual StoragePathValid CreateStoragePathValid()
+    {
+        StoragePathValid a;
+        a = new StoragePathValid();
+        a.Init();
+        return a;
     }
 
     public virtual PortPort Port { get; set; }
