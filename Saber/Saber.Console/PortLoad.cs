@@ -84,7 +84,7 @@ public class PortLoad : TextAdd
             return false;
         }
 
-        b = this.ValidImportArrayModuleRef(port.Import);
+        b = this.ValidImportModuleRef(port.Import);
         if (!b)
         {
             return false;
@@ -283,7 +283,7 @@ public class PortLoad : TextAdd
         return true;
     }
 
-    protected virtual bool ValidImportArrayModuleRef(Array array)
+    protected virtual bool ValidImportModuleRef(Array array)
     {
         long count;
         count = array.Count;
@@ -294,7 +294,7 @@ public class PortLoad : TextAdd
             PortImport a;
             a = array.GetAt(i) as PortImport;
 
-            if (!this.ValidImportModuleRef(a.Module))
+            if (!this.ValidImportModuleRefOne(a.Module))
             {
                 this.Status = 10;
                 return false;
@@ -305,7 +305,7 @@ public class PortLoad : TextAdd
         return true;
     }
 
-    protected virtual bool ValidImportModuleRef(ModuleRef moduleRef)
+    protected virtual bool ValidImportModuleRefOne(ModuleRef moduleRef)
     {
         String name;
         name = moduleRef.Name;
