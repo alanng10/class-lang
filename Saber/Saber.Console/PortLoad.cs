@@ -488,16 +488,13 @@ public class PortLoad : TextAdd
 
     protected virtual bool ExecuteCreateModule()
     {
-        ClassInfra classInfra;
-        classInfra = this.ClassInfra;
-
         ClassModule module;
         module = new ClassModule();
         module.Init();
         module.Ref = this.ModuleRef;
-        module.Class = classInfra.TableCreateStringLess();
-        module.Import = classInfra.TableCreateModuleRefLess();
-        module.Export = classInfra.TableCreateStringLess();
+        module.Class = this.ClassInfra.TableCreateStringLess();
+        module.Import = this.ClassInfra.TableCreateModuleRefLess();
+        module.Export = this.ClassInfra.TableCreateStringLess();
 
         module.Storage = new Table();
         module.Storage.Less = this.StorageStringLessCreate();
