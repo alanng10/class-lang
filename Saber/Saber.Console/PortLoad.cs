@@ -202,15 +202,15 @@ public class PortLoad : TextAdd
 
             String name;
             name = k.Name;
-            long version;
-            version = k.Ver;
-            if (version == -1)
+            long ver;
+            ver = k.Ver;
+            if (ver == -1)
             {
-                version = 0;
+                ver = 0;
             }
 
             ModuleRef a;
-            a = this.ClassInfra.ModuleRefCreate(name, version);
+            a = this.ClassInfra.ModuleRefCreate(name, ver);
 
             if (table.Valid(a))
             {
