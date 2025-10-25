@@ -97,7 +97,7 @@ public class PortLoad : TextAdd
             return false;
         }
 
-        b = this.SetModuleRef();
+        b = this.ExecuteModuleRef();
         if (!b)
         {
             return false;
@@ -166,7 +166,7 @@ public class PortLoad : TextAdd
         return true;
     }
 
-    protected virtual bool SetModuleRef()
+    protected virtual bool ExecuteModuleRef()
     {
         ModuleRef ka;
         ka = this.Port.Module;
