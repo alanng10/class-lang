@@ -530,16 +530,16 @@ public class PortLoad : TextAdd
         i = 0;
         while (i < count)
         {
-            ModuleRef kk;
-            kk = this.ImportModuleRef.GetAt(i) as ModuleRef;
+            ModuleRef moduleRef;
+            moduleRef = this.ImportModuleRef.GetAt(i) as ModuleRef;
 
             ClassModule k;
-            k = this.ModuleTable.Get(kk) as ClassModule;
+            k = this.ModuleTable.Get(moduleRef) as ClassModule;
 
             Table a;
             a = this.ClassInfra.TableCreateRefLess();
 
-            this.ListInfra.TableAdd(this.Module.Import, kk, a);
+            this.ListInfra.TableAdd(this.Module.Import, moduleRef, a);
 
             PortImport portImport;
             portImport = array.GetAt(i) as PortImport;
