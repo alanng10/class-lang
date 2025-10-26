@@ -595,6 +595,7 @@ public class PortLoad : TextAdd
                 if (ba)
                 {
                     this.ErrorAdd(this.ErrorKind.ImportClassUndefine, className);
+
                     b = true;
                 }
 
@@ -628,6 +629,7 @@ public class PortLoad : TextAdd
                 if (bb)
                 {
                     this.ErrorAdd(this.ErrorKind.ImportNameUnavail, name);
+
                     b = true;
                 }
 
