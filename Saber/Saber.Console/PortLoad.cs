@@ -517,9 +517,6 @@ public class PortLoad : TextAdd
 
     protected virtual bool ExecuteImport()
     {
-        Array importModuleRef;
-        importModuleRef = this.ImportModuleRef;
-
         Array array;
         array = this.Port.Import;
 
@@ -533,7 +530,7 @@ public class PortLoad : TextAdd
         while (i < count)
         {
             ModuleRef kk;
-            kk = importModuleRef.GetAt(i) as ModuleRef;
+            kk = this.ImportModuleRef.GetAt(i) as ModuleRef;
 
             ClassModule k;
             k = this.ModuleTable.Get(kk) as ClassModule;
