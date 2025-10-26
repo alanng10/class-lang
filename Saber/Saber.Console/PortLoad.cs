@@ -536,10 +536,10 @@ public class PortLoad : TextAdd
             ClassModule module;
             module = this.ModuleTable.Get(moduleRef) as ClassModule;
 
-            Table a;
-            a = this.ClassInfra.TableCreateRefLess();
+            Table importTable;
+            importTable = this.ClassInfra.TableCreateRefLess();
 
-            this.ListInfra.TableAdd(this.Module.Import, moduleRef, a);
+            this.ListInfra.TableAdd(this.Module.Import, moduleRef, importTable);
 
             PortImport portImport;
             portImport = array.GetAt(i) as PortImport;
@@ -601,7 +601,7 @@ public class PortLoad : TextAdd
 
                 if (!ba)
                 {
-                    this.ListInfra.TableAdd(a, varClass, varClass);
+                    this.ListInfra.TableAdd(importTable, varClass, varClass);
                 }
 
                 String name;
