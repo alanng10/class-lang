@@ -151,7 +151,7 @@ public class PortLoad : TextAdd
             return false;
         }
 
-        b = this.SetModuleEntry();
+        b = this.ExecuteEntry();
         if (!b)
         {
             return false;
@@ -854,7 +854,7 @@ public class PortLoad : TextAdd
         return true;
     }
 
-    protected virtual bool SetModuleEntry()
+    protected virtual bool ExecuteEntry()
     {
         String entry;
         entry = this.Port.Entry;
