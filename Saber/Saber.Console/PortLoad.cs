@@ -133,7 +133,7 @@ public class PortLoad : TextAdd
             return false;
         }
 
-        b = this.SetModuleImport();
+        b = this.ExecuteImport();
         if (!b)
         {
             return false;
@@ -515,7 +515,7 @@ public class PortLoad : TextAdd
         return a;
     }
 
-    protected virtual bool SetModuleImport()
+    protected virtual bool ExecuteImport()
     {
         ListInfra listInfra;
         listInfra = this.ListInfra;
