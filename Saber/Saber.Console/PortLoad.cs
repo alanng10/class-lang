@@ -727,9 +727,6 @@ public class PortLoad : TextAdd
 
     protected virtual bool ExecuteStorage()
     {
-        Table table;
-        table = this.Module.Storage;
-
         Array array;
         array = this.Port.Storage;
 
@@ -794,7 +791,7 @@ public class PortLoad : TextAdd
 
             if (!ba)
             {
-                if (table.Valid(destPath))
+                if (this.Module.Storage.Valid(destPath))
                 {
                     this.ErrorAdd(this.ErrorKind.StorageDestUnavail, destPath);
 
@@ -817,7 +814,7 @@ public class PortLoad : TextAdd
                 b = true;
             }
 
-            this.ListInfra.TableAdd(table, destPath, sourcePathA);
+            this.ListInfra.TableAdd(this.Module.Storage, destPath, sourcePathA);
 
             i = i + 1;
         }
