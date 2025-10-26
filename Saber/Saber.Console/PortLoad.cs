@@ -520,9 +520,6 @@ public class PortLoad : TextAdd
         Table moduleTable;
         moduleTable = this.ModuleTable;
 
-        NameValid nameCheck;
-        nameCheck = this.NameValid;
-
         Array importModuleRef;
         importModuleRef = this.ImportModuleRef;
 
@@ -575,7 +572,7 @@ public class PortLoad : TextAdd
 
                 if (!ba)
                 {
-                    if (!nameCheck.Name(this.TA(className)))
+                    if (!this.NameValid.Name(this.TA(className)))
                     {
                         ba = true;
                     }
@@ -618,7 +615,7 @@ public class PortLoad : TextAdd
 
                 if (!bb)
                 {
-                    if (!nameCheck.Name(this.TA(name)))
+                    if (!this.NameValid.Name(this.TA(name)))
                     {
                         bb = true;
                     }
