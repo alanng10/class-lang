@@ -541,11 +541,11 @@ public class PortLoad : TextAdd
 
             this.ListInfra.TableAdd(this.Module.Import, kk, a);
 
-            PortImport kka;
-            kka = array.GetAt(i) as PortImport;
+            PortImport portImport;
+            portImport = array.GetAt(i) as PortImport;
 
             Array importClassArray;
-            importClassArray = kka.Class;
+            importClassArray = portImport.Class;
 
             long countA;
             countA = importClassArray.Count;
