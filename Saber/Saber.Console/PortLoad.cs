@@ -533,8 +533,8 @@ public class PortLoad : TextAdd
             ModuleRef moduleRef;
             moduleRef = this.ImportModuleRef.GetAt(i) as ModuleRef;
 
-            ClassModule k;
-            k = this.ModuleTable.Get(moduleRef) as ClassModule;
+            ClassModule module;
+            module = this.ModuleTable.Get(moduleRef) as ClassModule;
 
             Table a;
             a = this.ClassInfra.TableCreateRefLess();
@@ -576,7 +576,7 @@ public class PortLoad : TextAdd
 
                 if (!ba)
                 {
-                    varClass = k.Class.Get(className) as ClassClass;
+                    varClass = module.Class.Get(className) as ClassClass;
 
                     if (varClass == null)
                     {
@@ -586,7 +586,7 @@ public class PortLoad : TextAdd
 
                 if (!ba)
                 {
-                    if (!k.Export.Valid(className))
+                    if (!module.Export.Valid(className))
                     {
                         ba = true;
                     }
