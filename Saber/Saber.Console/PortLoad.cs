@@ -517,9 +517,6 @@ public class PortLoad : TextAdd
 
     protected virtual bool ExecuteImport()
     {
-        ClassInfra classInfra;
-        classInfra = this.ClassInfra;
-
         Table moduleTable;
         moduleTable = this.ModuleTable;
 
@@ -548,7 +545,7 @@ public class PortLoad : TextAdd
             k = moduleTable.Get(kk) as ClassModule;
 
             Table a;
-            a = classInfra.TableCreateRefLess();
+            a = this.ClassInfra.TableCreateRefLess();
 
             this.ListInfra.TableAdd(this.Module.Import, kk, a);
 
