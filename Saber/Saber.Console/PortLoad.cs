@@ -265,6 +265,7 @@ public class PortLoad : TextAdd
     {
         long count;
         count = array.Count;
+
         long i;
         i = 0;
         while (i < count)
