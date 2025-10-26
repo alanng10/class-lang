@@ -727,9 +727,6 @@ public class PortLoad : TextAdd
 
     protected virtual bool ExecuteStorage()
     {
-        StoragePathValid pathValid;
-        pathValid = this.StoragePathValid;
-
         Table table;
         table = this.Module.Storage;
 
@@ -776,7 +773,7 @@ public class PortLoad : TextAdd
 
             if (!ba)
             {
-                if (!pathValid.ValidSourcePath(this.TA(sourcePathA)))
+                if (!this.StoragePathValid.ValidSourcePath(this.TA(sourcePathA)))
                 {
                     this.ErrorAdd(this.ErrorKind.StorageSourceUnvalid, sourcePath);
 
@@ -786,7 +783,7 @@ public class PortLoad : TextAdd
 
             if (!ba)
             {
-                if (!pathValid.ValidDestPath(this.TA(destPath)))
+                if (!this.StoragePathValid.ValidDestPath(this.TA(destPath)))
                 {
                     this.ErrorAdd(this.ErrorKind.StorageDestUnvalid, destPath);
 
