@@ -655,9 +655,6 @@ public class PortLoad : TextAdd
 
     protected virtual bool ExecuteExport()
     {
-        Table exportTable;
-        exportTable = this.Module.Export;
-
         Array array;
         array = this.Port.Export;
 
@@ -666,6 +663,7 @@ public class PortLoad : TextAdd
 
         long count;
         count = array.Count;
+
         long i;
         i = 0;
         while (i < count)
@@ -697,7 +695,7 @@ public class PortLoad : TextAdd
 
             if (!ba)
             {
-                if (exportTable.Valid(name))
+                if (this.Module.Export.Valid(name))
                 {
                     ba = true;
                 }
@@ -711,7 +709,7 @@ public class PortLoad : TextAdd
 
             if (!ba)
             {
-                this.ListInfra.TableAdd(exportTable, name, null);
+                this.ListInfra.TableAdd(this.Module.Export, name, null);
             }
 
             i = i + 1;
