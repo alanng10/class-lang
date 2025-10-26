@@ -661,9 +661,6 @@ public class PortLoad : TextAdd
         Table exportTable;
         exportTable = this.Module.Export;
 
-        NameValid nameCheck;
-        nameCheck = this.NameValid;
-
         Array array;
         array = this.Port.Export;
 
@@ -687,7 +684,7 @@ public class PortLoad : TextAdd
 
             if (!ba)
             {
-                if (!nameCheck.Name(this.TA(name)))
+                if (!this.NameValid.Name(this.TA(name)))
                 {
                     ba = true;
                 }
