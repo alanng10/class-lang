@@ -145,7 +145,7 @@ public class PortLoad : TextAdd
             return false;
         }
 
-        b = this.SetModuleStorage();
+        b = this.ExecuteStorage();
         if (!b)
         {
             return false;
@@ -743,7 +743,7 @@ public class PortLoad : TextAdd
         return true;
     }
 
-    protected virtual bool SetModuleStorage()
+    protected virtual bool ExecuteStorage()
     {
         ListInfra listInfra;
         listInfra = this.ListInfra;
