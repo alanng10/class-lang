@@ -631,7 +631,7 @@ public class PortLoad : TextAdd
                     b = true;
                 }
 
-                if (!ba & !bb)
+                if (!(ba | bb))
                 {
                     this.ListInfra.TableAdd(this.ImportClass, name, varClass);
                 }
