@@ -549,6 +549,7 @@ public class PortLoad : TextAdd
 
             long countA;
             countA = importClassArray.Count;
+
             long iA;
             iA = 0;
             while (iA < countA)
