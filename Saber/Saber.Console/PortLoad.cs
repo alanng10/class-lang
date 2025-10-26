@@ -517,9 +517,6 @@ public class PortLoad : TextAdd
 
     protected virtual bool ExecuteImport()
     {
-        ListInfra listInfra;
-        listInfra = this.ListInfra;
-
         ClassInfra classInfra;
         classInfra = this.ClassInfra;
 
@@ -553,7 +550,7 @@ public class PortLoad : TextAdd
             Table a;
             a = classInfra.TableCreateRefLess();
 
-            listInfra.TableAdd(this.Module.Import, kk, a);
+            this.ListInfra.TableAdd(this.Module.Import, kk, a);
 
             PortImport kkk;
             kkk = array.GetAt(i) as PortImport;
@@ -613,7 +610,7 @@ public class PortLoad : TextAdd
 
                 if (!ba)
                 {
-                    listInfra.TableAdd(a, varClass, varClass);
+                    this.ListInfra.TableAdd(a, varClass, varClass);
                 }
 
                 String name;
@@ -646,7 +643,7 @@ public class PortLoad : TextAdd
 
                 if (!ba & !bb)
                 {
-                    listInfra.TableAdd(this.ImportClass, name, varClass);
+                    this.ListInfra.TableAdd(this.ImportClass, name, varClass);
                 }
 
                 iA = iA + 1;
