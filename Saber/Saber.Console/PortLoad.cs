@@ -727,9 +727,6 @@ public class PortLoad : TextAdd
 
     protected virtual bool ExecuteStorage()
     {
-        ListInfra listInfra;
-        listInfra = this.ListInfra;
-
         StoragePathValid pathValid;
         pathValid = this.StoragePathValid;
 
@@ -822,7 +819,7 @@ public class PortLoad : TextAdd
                 b = true;
             }
 
-            listInfra.TableAdd(table, destPath, sourcePathA);
+            this.ListInfra.TableAdd(table, destPath, sourcePathA);
 
             i = i + 1;
         }
