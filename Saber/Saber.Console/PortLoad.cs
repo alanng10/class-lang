@@ -668,11 +668,11 @@ public class PortLoad : TextAdd
         i = 0;
         while (i < count)
         {
-            PortExport a;
-            a = array.GetAt(i) as PortExport;
+            PortExport portExport;
+            portExport = array.GetAt(i) as PortExport;
 
             String name;
-            name = a.Class;
+            name = portExport.Class;
 
             bool ba;
             ba = false;
@@ -704,6 +704,7 @@ public class PortLoad : TextAdd
             if (ba)
             {
                 this.ErrorAdd(this.ErrorKind.ExportUnvalid, name);
+
                 b = true;
             }
 
