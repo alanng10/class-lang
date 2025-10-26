@@ -576,7 +576,7 @@ public class PortLoad : TextAdd
 
                 if (!ba)
                 {
-                    varClass = (ClassClass)k.Class.Get(className);
+                    varClass = k.Class.Get(className) as ClassClass;
 
                     if (varClass == null)
                     {
