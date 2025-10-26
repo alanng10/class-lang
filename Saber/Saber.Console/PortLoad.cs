@@ -655,9 +655,6 @@ public class PortLoad : TextAdd
 
     protected virtual bool ExecuteExport()
     {
-        ListInfra listInfra;
-        listInfra = this.ListInfra;
-
         Table exportTable;
         exportTable = this.Module.Export;
 
@@ -714,7 +711,7 @@ public class PortLoad : TextAdd
 
             if (!ba)
             {
-                listInfra.TableAdd(exportTable, name, null);
+                this.ListInfra.TableAdd(exportTable, name, null);
             }
 
             i = i + 1;
