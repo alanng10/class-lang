@@ -740,13 +740,13 @@ public class PortLoad : TextAdd
         i = 0;
         while (i < count)
         {
-            PortStorage a;
-            a = array.GetAt(i) as PortStorage;
+            PortStorage portStorage;
+            portStorage = array.GetAt(i) as PortStorage;
 
             String sourcePathKa;
             String destPathKa;
-            sourcePathKa = a.Source;
-            destPathKa = a.Dest;
+            sourcePathKa = portStorage.Source;
+            destPathKa = portStorage.Dest;
 
             Text sourcePathK;
             String sourcePath;
