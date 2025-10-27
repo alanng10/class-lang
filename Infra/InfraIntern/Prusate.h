@@ -59,6 +59,8 @@ Intern_Api Int Intern_Share(Int info, Eval* eval);
 
 Intern_Api Int Intern_Cast(Int classVar, Eval* eval);
 
+Intern_Api Int Intern_Cast_Any();
+
 Intern_Api Int Intern_Cast_RefKind(Int refKind, Eval* eval);
 
 Intern_Api Int Intern_Cast_RefKindTwo(Int refKindA, Int refKindB, Eval* eval);
