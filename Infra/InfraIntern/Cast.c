@@ -70,6 +70,11 @@ Int Intern_Cast(Int classVar, Eval* eval)
     return 0;
 }
 
+Int Intern_Cast_Any()
+{
+    return 0;
+}
+
 Int Intern_Cast_RefKind(Int refKind, Eval* eval)
 {
     Int any;
