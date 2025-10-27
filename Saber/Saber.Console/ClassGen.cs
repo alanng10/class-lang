@@ -3724,6 +3724,19 @@ public partial class ClassGen : TextAdd
         return true;
     }
 
+    public virtual bool ExecuteCastAny()
+    {
+        this.TextIndent();
+
+        this.Text(this.InternCastAnyMaide);
+        this.Text(this.LimitBraceRoundLite);
+        this.Text(this.LimitBraceRoundRite);
+
+        this.Text(this.LimitSemicolon);
+        this.Text(this.NewLine);
+        return true;
+    }
+
     public virtual bool ExecuteCastRefKind(String refKind)
     {
         this.TextIndent();
