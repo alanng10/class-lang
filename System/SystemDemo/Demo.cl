@@ -273,7 +273,10 @@ class Demo : Add
         b : true;
 
         var Any k;
-        k : true;
+
+        k : cast Any(10);
+
+        b : b & (k = 10);
 
         var Bool ba;
 
