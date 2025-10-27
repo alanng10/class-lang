@@ -2044,6 +2044,8 @@ public partial class ClassGen : TextAdd
         {
             if (varClass == this.System.Any)
             {
+                this.ExecuteCastAny();
+
                 b = true;
             }
         }
