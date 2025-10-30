@@ -8,6 +8,14 @@ The spell is:
 "s" for seer radius.
 "s" for system effect.
 
+The word "Class" has spell.
+The spell is:
+"C" for Care Make.
+"l" for lang node.
+"a" for all any.
+"s" for seer radius.
+"s" for system effect.
+
 The word "Any" has spell.
 The spell is:
 "A" for Any Class.
