@@ -878,19 +878,6 @@ public class PortLoad : TextAdd
         return a;
     }
 
-    protected virtual bool ErrorAdd(ErrorKind kind, String name)
-    {
-        Error a;
-        a = new Error();
-        a.Init();
-        a.Kind = kind;
-        a.Name = name;
-        a.Source = -1;
-
-        this.ErrorList.Add(a);
-        return true;
-    }
-
     protected virtual bool BuiltModuleRef(ModuleRef moduleRef)
     {
         String name;
@@ -918,5 +905,18 @@ public class PortLoad : TextAdd
         }
 
         return b;
+    }
+
+    protected virtual bool ErrorAdd(ErrorKind kind, String name)
+    {
+        Error a;
+        a = new Error();
+        a.Init();
+        a.Kind = kind;
+        a.Name = name;
+        a.Source = -1;
+
+        this.ErrorList.Add(a);
+        return true;
     }
 }
