@@ -35,7 +35,7 @@ public class Infra : Any
         return true;
     }
 
-    public virtual TextForm NameForm { get; set; }    
+    public virtual TextForm NameForm { get; set; }
     public virtual TextText TextSlash { get; set; }
     public virtual TextText TextDot { get; set; }
     public virtual TextText TextColon { get; set; }
