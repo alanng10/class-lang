@@ -413,7 +413,6 @@ public class PortLoad : TextAdd
 
         BinaryBinary a;
         a = binary;
-
         return a;
     }
 
