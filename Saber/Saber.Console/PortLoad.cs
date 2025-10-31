@@ -77,21 +77,18 @@ public class PortLoad : TextAdd
     {
         this.Status = 0;
 
-        PortPort port;
-        port = this.Port;
-
         this.ErrorList = new List();
         this.ErrorList.Init();
 
         bool b;
 
-        b = this.ValidModuleRef(port.Module);
+        b = this.ValidModuleRef(this.Port.Module);
         if (!b)
         {
             return false;
         }
 
-        b = this.ValidImportModuleRef(port.Import);
+        b = this.ValidImportModuleRef(this.Port.Import);
         if (!b)
         {
             return false;
