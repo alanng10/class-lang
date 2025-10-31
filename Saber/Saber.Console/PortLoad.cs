@@ -237,7 +237,7 @@ public class PortLoad : TextAdd
         long ver;
         ver = module.Ver;
 
-        if (!(this.NameValid.ModuleName(this.TA(name))))
+        if (!this.NameValid.ModuleName(this.TA(name)))
         {
             this.Status = 1;
             return false;
@@ -291,7 +291,7 @@ public class PortLoad : TextAdd
         long ver;
         ver = moduleRef.Ver;
 
-        if (!(this.NameValid.ModuleName(this.TA(name))))
+        if (!this.NameValid.ModuleName(this.TA(name)))
         {
             return false;
         }
