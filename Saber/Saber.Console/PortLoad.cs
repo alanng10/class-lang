@@ -506,7 +506,7 @@ public class PortLoad : TextAdd
         return true;
     }
 
-    public virtual StringLess StorageStringLessCreate()
+    protected virtual StringLess StorageStringLessCreate()
     {
         StringLess a;
         a = new StringLess();
