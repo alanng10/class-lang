@@ -410,6 +410,7 @@ public class PortLoad : TextAdd
         binary = read.Result;
 
         read.Result = null;
+        read.Data = null;
 
         BinaryBinary a;
         a = binary;
