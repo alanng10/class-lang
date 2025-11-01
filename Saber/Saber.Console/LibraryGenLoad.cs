@@ -118,7 +118,7 @@ public class LibraryGenLoad : TextAdd
     protected virtual BinaryBinary BinaryLoad(ModuleRef moduleRef)
     {
         String moduleRefString;
-        moduleRefString = this.ModuleRefString(moduleRef);
+        moduleRefString = this.ClassInfra.ModuleRefString(moduleRef);
 
         String filePath;
         filePath = this.AddClear().Add(this.ClassInfra.ClassModulePath(this.ClassPath))
@@ -198,15 +198,5 @@ public class LibraryGenLoad : TextAdd
         }
 
         return true;
-    }
-
-    protected virtual String ModuleRefString(ModuleRef k)
-    {
-        String verString;
-        verString = this.ClassInfra.VerString(k.Ver);
-
-        String a;
-        a = this.ClassInfra.ModuleRefString(k.Name, verString);
-        return a;
     }
 }
