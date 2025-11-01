@@ -123,13 +123,16 @@ public class Infra : Any
         return a;
     }
 
-    public virtual String ModuleRefString(String name, String verString)
+    public virtual String ModuleRefString(ModuleRef moduleRef)
     {
         StringAdd k;
         k = new StringAdd();
         k.Init();
 
-        this.Add(k, name).Add(k, this.TextHyphen).Add(k, verString);
+        String verString;
+        verString = this.VerString(moduleRef.Ver);
+
+        this.Add(k, moduleRef.Name).Add(k, this.TextHyphen).Add(k, verString);
 
         String a;
         a = k.Result();
