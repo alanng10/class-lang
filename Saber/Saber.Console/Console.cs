@@ -189,14 +189,14 @@ public class Console : TextAdd
     protected virtual StorageGen StorageGen { get; set; }
     protected virtual ErrorString ErrorString { get; set; }
     protected virtual NameValid NameValid { get; set; }
+    protected virtual InfoToken InfoToken { get; set; }
+    protected virtual InfoTravel InfoTravel { get; set; }
     protected virtual Out Out { get; set; }
     protected virtual Out Err { get; set; }
     protected virtual String ClassPath { get; set; }
     protected virtual PortPort Port { get; set; }
     protected virtual Array PortError { get; set; }
     protected virtual bool MakeSystemModule { get; set; }
-    protected virtual InfoToken InfoToken { get; set; }
-    protected virtual InfoTravel InfoTravel { get; set; }
     protected virtual ModuleRefLess ModuleRefLess { get; set; }
     protected virtual TextLess StorageTextLess { get; set; }
     protected virtual String SClass { get; set; }
