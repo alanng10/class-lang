@@ -186,10 +186,7 @@ public class LibraryGen : TextAdd
 
         this.ExecuteString();
 
-        String verString;
-        verString = this.ClassInfra.VerString(this.ModuleRef.Ver);
-
-        this.ModuleRefString = this.ClassInfra.ModuleRefString(this.ModuleRef.Name, verString);
+        this.ModuleRefString = this.ClassInfra.ModuleRefString(this.ModuleRef);
 
         String genFoldPath;
         genFoldPath = this.S("Saber.Console.data/Gen");
