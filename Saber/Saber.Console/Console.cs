@@ -26,7 +26,7 @@ public class Console : TextAdd
         this.InfoTravel = this.CreateInfoTravel();
         this.NameValid = this.CreateNameValid();
         this.ModuleRefLess = this.CreateModuleRefLess();
-        this.StorageNameLess = this.CreateStorageTextLess();
+        this.StorageNameLess = this.CreateStorageNameLess();
 
         this.SClass = this.S("Class");
         this.SDocue = this.S("docue");
@@ -152,7 +152,7 @@ public class Console : TextAdd
         return a;
     }
 
-    protected virtual TextLess CreateStorageTextLess()
+    protected virtual TextLess CreateStorageNameLess()
     {
         TextLess a;
         a = new TextLess();
