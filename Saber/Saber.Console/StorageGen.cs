@@ -13,7 +13,6 @@ public class StorageGen : TextAdd
     }
 
     public virtual ClassModule Module { get; set; }
-    public virtual String ModuleRefString { get; set; }
     public virtual String ClassPath { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
@@ -22,10 +21,13 @@ public class StorageGen : TextAdd
 
     public virtual bool Execute()
     {
+        String moduleRefString;
+        moduleRefString = this.ClassInfra.ModuleRefString(this.Module.Ref);
+
         String dataFoldPath;
         dataFoldPath = this.AddClear().Add(this.ClassInfra.ClassModulePath(this.ClassPath))
             .Add(this.TextInfra.PathCombine)
-            .Add(this.ModuleRefString).Add(this.TextInfra.PathCombine).Add(this.SData).AddResult();
+            .Add(moduleRefString).Add(this.TextInfra.PathCombine).Add(this.SData).AddResult();
 
         this.StorageComp.FoldDelete(dataFoldPath);
 
