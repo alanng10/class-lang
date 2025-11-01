@@ -618,11 +618,8 @@ public class Console : TextAdd
         ClassModule module;
         module = this.Result.Module.Module;
 
-        String verString;
-        verString = this.ClassInfra.VerString(module.Ref.Ver);
-
         String moduleRefString;
-        moduleRefString = this.ClassInfra.ModuleRefString(module.Ref.Name, verString);
+        moduleRefString = this.ClassInfra.ModuleRefString(module.Ref);
 
         bool ba;
         ba = this.ExecuteGenBinary(moduleRefString);
