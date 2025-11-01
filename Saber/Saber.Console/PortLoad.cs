@@ -870,13 +870,13 @@ public class PortLoad : TextAdd
         return true;
     }
 
-    protected virtual String ModuleRefString(ModuleRef k)
+    protected virtual String ModuleRefString(ModuleRef moduleRef)
     {
         String verString;
-        verString = this.ClassInfra.VerString(k.Ver);
+        verString = this.ClassInfra.VerString(moduleRef.Ver);
 
         String a;
-        a = this.ClassInfra.ModuleRefString(k.Name, verString);
+        a = this.ClassInfra.ModuleRefString(moduleRef.Name, verString);
         return a;
     }
 
