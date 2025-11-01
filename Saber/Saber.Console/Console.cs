@@ -194,7 +194,7 @@ public class Console : TextAdd
     protected virtual String ClassPath { get; set; }
     protected virtual PortPort Port { get; set; }
     protected virtual Array PortError { get; set; }
-    protected virtual bool MakeSystemModule { get; set; }
+    protected virtual bool MakeSystem { get; set; }
     protected virtual Table ModuleTable { get; set; }
     protected virtual Table ImportClass { get; set; }
     protected virtual ModuleRefLess ModuleRefLess { get; set; }
@@ -419,7 +419,7 @@ public class Console : TextAdd
         {
             this.SourceFold = this.Task.Source;
 
-            this.MakeSystemModule = this.Task.ArgBool;
+            this.MakeSystem = this.Task.ArgBool;
 
             if (this.SourceFold == null)
             {
@@ -548,7 +548,7 @@ public class Console : TextAdd
         portLoad.ModuleTable = this.ModuleTable;
         portLoad.ImportClass = this.ImportClass;
         portLoad.NameValid = this.NameValid;
-        portLoad.SystemModule = this.MakeSystemModule;
+        portLoad.SystemModule = this.MakeSystem;
         portLoad.ClassPath = this.ClassPath;
         portLoad.SourceFold = this.SourceFold;
 
