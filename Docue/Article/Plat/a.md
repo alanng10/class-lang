@@ -17,11 +17,9 @@ Text modules layer on top of System in the arch.
 
 Storage modules layer on top of System in the arch.
 
-Type modules layer on top of System in the arch.
-
 Storey modules layer on top of System in the arch.
 
-View modules layer on top of Type modules in the arch.
+View modules layer on top of System in the arch.
 
 Class compile modules layer on top of List modules, Text modules, Storage modules in the arch.
 
