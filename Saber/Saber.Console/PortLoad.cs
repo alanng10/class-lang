@@ -330,7 +330,7 @@ public class PortLoad : TextAdd
             if (!b)
             {
                 String k;
-                k = this.ModuleRefString(a);
+                k = this.ClassInfra.ModuleRefString(a);
 
                 this.ErrorAdd(this.ErrorKind.ModuleUnvalid, k);
 
@@ -388,7 +388,7 @@ public class PortLoad : TextAdd
     protected virtual BinaryBinary BinaryLoad(ModuleRef moduleRef)
     {
         String moduleRefString;
-        moduleRefString = this.ModuleRefString(moduleRef);
+        moduleRefString = this.ClassInfra.ModuleRefString(moduleRef);
 
         String filePath;
         filePath = this.AddClear().Add(this.ClassInfra.ClassModulePath(this.ClassPath))
@@ -429,7 +429,7 @@ public class PortLoad : TextAdd
         if (this.BinaryTable.Valid(ka))
         {
             String k;
-            k = this.ModuleRefString(ka);
+            k = this.ClassInfra.ModuleRefString(ka);
 
             this.ErrorAdd(this.ErrorKind.ModuleUndefine, k);
 
@@ -469,7 +469,7 @@ public class PortLoad : TextAdd
                 ka = modulePort.Status;
 
                 String k;
-                k = this.ModuleRefString(moduleRef);
+                k = this.ClassInfra.ModuleRefString(moduleRef);
 
                 this.ErrorAdd(this.ErrorKind.ModuleUndefine, k);
 
@@ -868,16 +868,6 @@ public class PortLoad : TextAdd
 
         this.Module.Entry = entry;
         return true;
-    }
-
-    protected virtual String ModuleRefString(ModuleRef moduleRef)
-    {
-        String verString;
-        verString = this.ClassInfra.VerString(moduleRef.Ver);
-
-        String a;
-        a = this.ClassInfra.ModuleRefString(moduleRef.Name, verString);
-        return a;
     }
 
     protected virtual bool BuiltModuleRef(ModuleRef moduleRef)
