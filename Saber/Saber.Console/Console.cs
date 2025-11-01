@@ -26,7 +26,7 @@ public class Console : TextAdd
         this.InfoTravel = this.CreateInfoTravel();
         this.NameValid = this.CreateNameValid();
         this.ModuleRefLess = this.CreateModuleRefLess();
-        this.StorageTextLess = this.CreateStorageTextLess();
+        this.StorageNameLess = this.CreateStorageTextLess();
 
         this.SClass = this.S("Class");
         this.SDocue = this.S("docue");
@@ -198,7 +198,7 @@ public class Console : TextAdd
     protected virtual Array PortError { get; set; }
     protected virtual bool MakeSystemModule { get; set; }
     protected virtual ModuleRefLess ModuleRefLess { get; set; }
-    protected virtual TextLess StorageTextLess { get; set; }
+    protected virtual TextLess StorageNameLess { get; set; }
     protected virtual String SClass { get; set; }
     protected virtual String SDocue { get; set; }
     protected virtual String SMake { get; set; }
@@ -1025,7 +1025,7 @@ public class Console : TextAdd
             String fileName;
             fileName = file.Name;
 
-            if (this.TextInfra.End(this.TA(fileName), this.TB(ka), this.StorageTextLess))
+            if (this.TextInfra.End(this.TA(fileName), this.TB(ka), this.StorageNameLess))
             {
                 long ke;
                 ke = this.StringCount(fileName) - this.StringCount(ka);
