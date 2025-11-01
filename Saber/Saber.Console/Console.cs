@@ -171,6 +171,7 @@ public class Console : TextAdd
     public virtual Create Create { get; set; }
     public virtual Result Result { get; set; }
     public virtual ClassModule PortModule { get; set; }
+    public virtual TaskKindList TaskKind { get; set; }
     public virtual Table ModuleTable { get; set; }
     public virtual Table ImportClass { get; set; }
     public virtual bool ErrorWrite { get; set; }
@@ -178,7 +179,6 @@ public class Console : TextAdd
     protected virtual StorageInfra StorageInfra { get; set; }
     protected virtual ClassInfra ClassInfra { get; set; }
     protected virtual StorageComp StorageComp { get; set; }
-    protected virtual TaskKindList TaskKind { get; set; }
     protected virtual BinaryRead BinaryRead { get; set; }
     protected virtual BinaryWrite BinaryWrite { get; set; }
     protected virtual ModulePort ModulePort { get; set; }
