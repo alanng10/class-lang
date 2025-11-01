@@ -550,11 +550,8 @@ public class LibraryGen : TextAdd
             ModuleRef k;
             k = iter.Index as ModuleRef;
 
-            String verString;
-            verString = this.ClassInfra.VerString(k.Ver);
-
             String a;
-            a = this.ClassInfra.ModuleRefString(k.Name, verString);
+            a = this.ClassInfra.ModuleRefString(k);
 
             array.SetAt(i, a);
 
