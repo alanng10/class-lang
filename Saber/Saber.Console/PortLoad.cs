@@ -483,6 +483,7 @@ public class PortLoad : TextAdd
             this.AnyClass = modulePort.AnyClass;
 
             modulePort.Result = null;
+            modulePort.Status = 0;
             modulePort.AnyClass = null;
             modulePort.ModuleRef = null;
 
