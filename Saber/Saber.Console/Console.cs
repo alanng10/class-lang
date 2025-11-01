@@ -171,8 +171,6 @@ public class Console : TextAdd
     public virtual Create Create { get; set; }
     public virtual Result Result { get; set; }
     public virtual ClassModule PortModule { get; set; }
-    public virtual Table ModuleTable { get; set; }
-    public virtual Table ImportClass { get; set; }
     public virtual bool ErrorWrite { get; set; }
     protected virtual ListInfra ListInfra { get; set; }
     protected virtual StorageInfra StorageInfra { get; set; }
@@ -197,6 +195,8 @@ public class Console : TextAdd
     protected virtual PortPort Port { get; set; }
     protected virtual Array PortError { get; set; }
     protected virtual bool MakeSystemModule { get; set; }
+    protected virtual Table ModuleTable { get; set; }
+    protected virtual Table ImportClass { get; set; }
     protected virtual ModuleRefLess ModuleRefLess { get; set; }
     protected virtual TextLess StorageNameLess { get; set; }
     protected virtual String SClass { get; set; }
