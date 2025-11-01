@@ -630,14 +630,12 @@ public class Console : TextAdd
         }
 
         this.StorageGen.Module = module;
-        this.StorageGen.ModuleRefString = moduleRefString;
         this.StorageGen.ClassPath = this.ClassPath;
 
         bool bc;
         bc = this.StorageGen.Execute();
 
         this.StorageGen.ClassPath = null;
-        this.StorageGen.ModuleRefString = null;
         this.StorageGen.Module = null;
 
         if (!bc)
