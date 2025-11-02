@@ -255,9 +255,9 @@ public class ErrorString : TextAdd
             startRow = token.Row;
             startCol = tokenRange.Index;
 
-            bool bba;
-            bba = (start < end);
-            if (bba)
+            bool bb;
+            bb = (start < end);
+            if (bb)
             {
                 token = tokenArray.GetAt(end - 1) as TokenToken;
 
@@ -266,7 +266,7 @@ public class ErrorString : TextAdd
                 endRow = token.Row;
                 endCol = tokenRange.Index + tokenRange.Count;
             }
-            if (!bba)
+            if (!bb)
             {
                 endRow = startRow;
                 endCol = startCol;
