@@ -283,17 +283,17 @@ public class ErrorString : TextAdd
 
     protected virtual String RangeString(Error error)
     {
-        StringAdd hh;
-        hh = this.StringAdd;
+        StringAdd kk;
+        kk = this.StringAdd;
 
         Range range;
         range = error.Range;
 
-        StringAdd h;
-        h = new StringAdd();
-        h.Init();
+        StringAdd k;
+        k = new StringAdd();
+        k.Init();
 
-        this.StringAdd = h;
+        this.StringAdd = k;
 
         String ka;
         ka = this.StringInt(range.Start);
@@ -313,7 +313,7 @@ public class ErrorString : TextAdd
         String a;
         a = this.AddResult();
 
-        this.StringAdd = hh;
+        this.StringAdd = kk;
 
         return a;
     }
