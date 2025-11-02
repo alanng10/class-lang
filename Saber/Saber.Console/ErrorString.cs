@@ -247,7 +247,7 @@ public class ErrorString : TextAdd
         }
         if (!ba)
         {
-            token = (TokenToken)tokenArray.GetAt(start);
+            token = tokenArray.GetAt(start) as TokenToken;
 
             tokenRange = token.Range;
 
