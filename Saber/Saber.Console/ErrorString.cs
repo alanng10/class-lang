@@ -6,12 +6,10 @@ public class ErrorString : TextAdd
     {
         base.Init();
 
-        this.StartPos = new Pos();
-        this.StartPos.Init();
-        this.EndPos = new Pos();
-        this.EndPos.Init();
+        this.StartPos = this.CreateStartPos();
+        this.EndPos = this.CreateEndPos();
+        this.Bord = this.CreateBord();
 
-        this.BorderLine = this.StringComp.CreateChar('-', 50);
         this.SKind = this.S("Kind");
         this.SName = this.S("Name");
         this.SRange = this.S("Range");
@@ -26,12 +24,35 @@ public class ErrorString : TextAdd
         return true;
     }
 
+    protected virtual Pos CreateStartPos()
+    {
+        return this.CreatePos();
+    }
+
+    protected virtual Pos CreateEndPos()
+    {
+        return this.CreatePos();
+    }
+
+    protected virtual Pos CreatePos()
+    {
+        Pos a;
+        a = new Pos();
+        a.Init();
+        return a;
+    }
+
+    protected virtual String CreateBord()
+    {
+        return this.StringComp.CreateChar('-', 50);
+    }
+
     public virtual bool RangePos { get; set; }
     public virtual Array CodeArray { get; set; }
     public virtual Array SourceArray { get; set; }
     protected virtual Pos StartPos { get; set; }
     protected virtual Pos EndPos { get; set; }
-    protected virtual String BorderLine { get; set; }
+    protected virtual String Bord { get; set; }
     protected virtual String SKind { get; set; }
     protected virtual String SName { get; set; }
     protected virtual String SRange { get; set; }
@@ -48,7 +69,7 @@ public class ErrorString : TextAdd
     {
         this.AddClear();
 
-        this.AddBorder();
+        this.AddBord();
 
         this.AddField(this.SKind, this.KindString(error));
 
@@ -86,7 +107,7 @@ public class ErrorString : TextAdd
             this.AddField(this.SSource, this.SourceString(error));
         }
 
-        this.AddBorder();
+        this.AddBord();
 
         String a;
         a = this.AddResult();
@@ -94,42 +115,38 @@ public class ErrorString : TextAdd
         return a;
     }
 
-    protected virtual bool AddBorder()
+    protected virtual bool AddBord()
     {
-        this.Add(this.BorderLine).AddLine();
+        this.Add(this.Bord).AddLine();
         return true;
     }
 
-    protected virtual bool AddField(String word, String value)
+    protected virtual bool AddField(String index, String value)
     {
-        this.Add(word).Add(this.SColon).Add(this.SSpace).Add(value).AddLine();
+        this.Add(index).Add(this.SColon).Add(this.SSpace).Add(value).AddLine();
         return true;
     }
 
     protected virtual String KindString(Error error)
     {
-        ErrorKind errorKind;
-        errorKind = error.Kind;
-                
         String a;
-        a = errorKind.Text;
-
+        a = error.Kind.Text;
         return a;
     }
 
     protected virtual String RangePosString(Error error)
     {
-        StringAdd hh;
-        hh = this.StringAdd;
+        StringAdd kk;
+        kk = this.StringAdd;
 
         Range range;
         range = error.Range;
 
-        StringAdd h;
-        h = new StringAdd();
-        h.Init();
+        StringAdd k;
+        k = new StringAdd();
+        k.Init();
 
-        this.StringAdd = h;
+        this.StringAdd = k;
 
         Code code;
         code = this.CodeArray.GetAt(error.Source) as Code;
@@ -151,7 +168,7 @@ public class ErrorString : TextAdd
         String a;
         a = this.AddResult();
 
-        this.StringAdd = hh;
+        this.StringAdd = kk;
 
         return a;
     }
