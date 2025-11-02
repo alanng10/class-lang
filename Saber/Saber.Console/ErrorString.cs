@@ -139,17 +139,18 @@ public class ErrorString : TextAdd
         StringAdd kk;
         kk = this.StringAdd;
 
-        Range range;
-        range = error.Range;
-
         StringAdd k;
         k = new StringAdd();
         k.Init();
 
         this.StringAdd = k;
 
+        Range range;
+        range = error.Range;
+
         Code code;
         code = this.CodeArray.GetAt(error.Source) as Code;
+
         Array tokenArray;
         tokenArray = code.Token;
 
@@ -217,9 +218,9 @@ public class ErrorString : TextAdd
 
         InfraRange tokenRange;
 
-        bool ba;
-        ba = (start == tokenCount);
-        if (ba)
+        bool b;
+        b = (start == tokenCount);
+        if (b)
         {
             bool baa;
             baa = (tokenCount == 0);
@@ -232,10 +233,10 @@ public class ErrorString : TextAdd
             }
             if (!baa)
             {
-                long previous;
-                previous = start - 1;
+                long prev;
+                prev = start - 1;
 
-                token = tokenArray.GetAt(previous) as TokenToken;
+                token = tokenArray.GetAt(prev) as TokenToken;
 
                 tokenRange = token.Range;
 
@@ -245,7 +246,7 @@ public class ErrorString : TextAdd
                 endCol = startCol;
             }
         }
-        if (!ba)
+        if (!b)
         {
             token = tokenArray.GetAt(start) as TokenToken;
 
