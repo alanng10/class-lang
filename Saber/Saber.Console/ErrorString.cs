@@ -258,7 +258,7 @@ public class ErrorString : TextAdd
             bba = (start < end);
             if (bba)
             {
-                token = (TokenToken)tokenArray.GetAt(end - 1);
+                token = tokenArray.GetAt(end - 1) as TokenToken;
 
                 tokenRange = token.Range;
 
