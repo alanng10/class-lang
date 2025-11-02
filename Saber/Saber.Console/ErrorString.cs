@@ -235,7 +235,7 @@ public class ErrorString : TextAdd
                 long previous;
                 previous = start - 1;
 
-                token = (TokenToken)tokenArray.GetAt(previous);
+                token = tokenArray.GetAt(previous) as TokenToken;
 
                 tokenRange = token.Range;
 
