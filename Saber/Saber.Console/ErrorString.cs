@@ -222,16 +222,16 @@ public class ErrorString : TextAdd
         b = (start == tokenCount);
         if (b)
         {
-            bool baa;
-            baa = (tokenCount == 0);
-            if (baa)
+            bool ba;
+            ba = (tokenCount == 0);
+            if (ba)
             {
                 startRow = 0;
                 startCol = 0;
                 endRow = 0;
                 endCol = 0;
             }
-            if (!baa)
+            if (!ba)
             {
                 long prev;
                 prev = start - 1;
