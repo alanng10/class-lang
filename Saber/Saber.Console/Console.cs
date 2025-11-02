@@ -377,8 +377,8 @@ public class Console : TextAdd
             return true;
         }
 
-        bool hasFileExtend;
-        hasFileExtend = false;
+        bool fileExtend;
+        fileExtend = false;
         Array sourceNameList;
         sourceNameList = null;
         if (ba)
@@ -393,7 +393,7 @@ public class Console : TextAdd
             fileName = null;
 
             bool baaa;
-            baaa = (combineIndex < 0);
+            baaa = (combineIndex == -1);
 
             if (baaa)
             {
@@ -409,9 +409,7 @@ public class Console : TextAdd
                 this.SourceFold = this.StringCreateRange(file, 0, combineIndex);
             }
 
-            sourceNameList = new Array();
-            sourceNameList.Count = 1;
-            sourceNameList.Init();
+            sourceNameList = this.ListInfra.ArrayCreate(1);
             sourceNameList.SetAt(0, fileName);
         }
 
@@ -442,13 +440,13 @@ public class Console : TextAdd
                 return false;
             }
 
-            hasFileExtend = true;
+            fileExtend = true;
             sourceNameList = this.SourceNameList(this.SourceFold);
         }
 
         this.SetSource(sourceNameList);
 
-        this.ReadSourceText(hasFileExtend);
+        this.ReadSourceText(fileExtend);
 
         this.ExecuteCreate();
 
