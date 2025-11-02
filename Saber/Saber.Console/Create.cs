@@ -2,12 +2,6 @@ namespace Saber.Console;
 
 public class Create : Any
 {
-    public virtual Console Console { get; set; }
-    public virtual Result Result { get; set; }
-    public virtual TokenCreate Token { get; set; }
-    public virtual NodeCreate Node { get; set; }
-    public virtual ModuleCreate Module { get; set; }
-
     public override bool Init()
     {
         base.Init();
@@ -40,6 +34,12 @@ public class Create : Any
         a.Init();
         return a;
     }
+
+    public virtual Console Console { get; set; }
+    public virtual Result Result { get; set; }
+    public virtual TokenCreate Token { get; set; }
+    public virtual NodeCreate Node { get; set; }
+    public virtual ModuleCreate Module { get; set; }
 
     public virtual bool Execute()
     {
