@@ -903,7 +903,7 @@ public class Console : TextAdd
         while (i < count)
         {
             Error a;
-            a = (Error)errorList.GetAt(i);
+            a = errorList.GetAt(i) as Error;
             this.WriteError(a);
             i = i + 1;
         }
