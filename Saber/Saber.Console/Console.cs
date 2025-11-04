@@ -1037,20 +1037,10 @@ public class Console : TextAdd
         return true;
     }
 
-    protected virtual bool ReadSourceText(bool hasFileExtend)
+    protected virtual bool ReadSourceText(bool fileExtend)
     {
-        TextInfra textInfra;
-        textInfra = this.TextInfra;
-        ClassInfra classInfra;
-        classInfra = this.ClassInfra;
-
         Array array;
         array = this.Source;
-        String sourceFold;
-        sourceFold = this.SourceFold;
-
-        String combine;
-        combine = textInfra.PathCombine;
         
         long count;
         count = array.Count;
@@ -1062,20 +1052,20 @@ public class Console : TextAdd
             a = array.GetAt(i) as Source;
 
             String k;
-            k = textInfra.Zero;
-            if (hasFileExtend)
+            k = this.TextInfra.Zero;
+            if (fileExtend)
             {
                 k = this.SDotCl;
             }
 
             String filePath;
-            filePath = this.AddClear().Add(sourceFold).Add(combine).Add(a.Name).Add(k).AddResult();
+            filePath = this.AddClear().Add(this.SourceFold).Add(this.TextInfra.PathCombine).Add(a.Name).Add(k).AddResult();
 
-            String h;
-            h = this.StorageInfra.TextRead(filePath);
+            String kk;
+            kk = this.StorageInfra.TextRead(filePath);
 
             Array text;
-            text = this.TextLine(this.TextCreate(h));
+            text = this.TextLine(this.TextCreate(kk));
    
             a.Text = text;
 
