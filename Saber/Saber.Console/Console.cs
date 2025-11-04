@@ -1021,7 +1021,7 @@ public class Console : TextAdd
         while (i < count)
         {
             String name;
-            name = (String)array.GetAt(i);
+            name = array.GetAt(i) as String;
 
             Source a;
             a = new Source();
