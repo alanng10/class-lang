@@ -588,19 +588,16 @@ public class Console : TextAdd
 
     protected virtual bool ExecuteGen()
     {
-        ClassModule module;
-        module = this.Result.Module.Module;
-
-        String moduleRefString;
-        moduleRefString = this.ClassInfra.ModuleRefString(module.Ref);
-
         bool ba;
-        ba = this.ExecuteGenBinary(moduleRefString);
+        ba = this.ExecuteGenBinary();
 
         if (!ba)
         {
             return false;
         }
+
+        ClassModule module;
+        module = this.Result.Module.Module;
 
         this.StorageGen.Module = module;
         this.StorageGen.ClassPath = this.ClassPath;
@@ -620,7 +617,7 @@ public class Console : TextAdd
         return true;
     }
 
-    protected virtual bool ExecuteGenBinary(String moduleRefString)
+    protected virtual bool ExecuteGenBinary()
     {
         ClassModule module;
         module = this.Result.Module.Module;
@@ -644,6 +641,9 @@ public class Console : TextAdd
 
         this.BinaryWrite.Result = null;
         this.BinaryWrite.Binary = null;
+
+        String moduleRefString;
+        moduleRefString = this.ClassInfra.ModuleRefString(module.Ref);
 
         String foldPath;
         foldPath = this.AddClear().Add(this.ClassInfra.ClassModulePath(this.ClassPath))
