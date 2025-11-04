@@ -293,6 +293,8 @@ public class Console : TextAdd
             task.Err = oo.Err;
 
             this.Task = task;
+
+            return true;
         }
 
         bool bc;
@@ -326,8 +328,10 @@ public class Console : TextAdd
             task.Err = oo.Err;
 
             this.Task = task;
+
+            return true;
         }
-        return true;
+        return false;
     }
 
     public virtual bool Execute()
