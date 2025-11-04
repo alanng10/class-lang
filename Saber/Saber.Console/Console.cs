@@ -1083,10 +1083,4 @@ public class Console : TextAdd
         }
         return true;
     }
-
-    protected virtual bool Error(String message)
-    {
-        this.Err.Write(this.AddClear().Add(message).Add(this.TextInfra.NewLine).AddResult());
-        return true;
-    }
 }
