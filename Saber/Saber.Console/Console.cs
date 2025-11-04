@@ -576,31 +576,6 @@ public class Console : TextAdd
         return true;
     }
 
-    protected virtual Table CopyModuleRefTable(Table table)
-    {
-        ListInfra listInfra;
-        listInfra = this.ListInfra;
-        
-        Table a;
-        a = this.ClassInfra.TableCreateModuleRefLess();
-
-        Iter iter;
-        iter = table.IterCreate();
-        table.IterSet(iter);
-
-        while (iter.Next())
-        {
-            object aa;
-            aa = iter.Index;
-            object ab;
-            ab = iter.Value;
-
-            listInfra.TableAdd(a, aa, ab);
-        }
-
-        return a;
-    }
-
     public virtual bool ExecuteCreate()
     {
         this.Create.Execute();
