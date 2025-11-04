@@ -602,13 +602,13 @@ public class Console : TextAdd
         this.StorageGen.Module = module;
         this.StorageGen.ClassPath = this.ClassPath;
 
-        bool bc;
-        bc = this.StorageGen.Execute();
+        bool bb;
+        bb = this.StorageGen.Execute();
 
         this.StorageGen.ClassPath = null;
         this.StorageGen.Module = null;
 
-        if (!bc)
+        if (!bb)
         {
             this.Status = 5200;
             return false;
